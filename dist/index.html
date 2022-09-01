@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>X3-GMR</title>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=160">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="icon" type="image/png" href="res/favicon.png">
+        <!-- Core Emulator Functionality -->
+        <script src="IodineGBA/core/HLE-BIOS.js"></script>
+        <script src="IodineGBA/includes/TypedArrayShim.js"></script>
+        <script src="IodineGBA/core/Cartridge.js"></script>
+        <script src="IodineGBA/core/DMA.js"></script>
+        <script src="IodineGBA/core/Emulator.js"></script>
+        <script src="IodineGBA/core/Graphics.js"></script>
+        <script src="IodineGBA/core/RunLoop.js"></script>
+        <script src="IodineGBA/core/Memory.js"></script>
+        <script src="IodineGBA/core/IRQ.js"></script>
+        <script src="IodineGBA/core/JoyPad.js"></script>
+        <script src="IodineGBA/core/Serial.js"></script>
+        <script src="IodineGBA/core/Sound.js"></script>
+        <script src="IodineGBA/core/Timer.js"></script>
+        <script src="IodineGBA/core/Wait.js"></script>
+        <script src="IodineGBA/core/CPU.js"></script>
+        <script src="IodineGBA/core/Saves.js"></script>
+        <script src="IodineGBA/core/sound/FIFO.js"></script>
+        <script src="IodineGBA/core/sound/Channel1.js"></script>
+        <script src="IodineGBA/core/sound/Channel2.js"></script>
+        <script src="IodineGBA/core/sound/Channel3.js"></script>
+        <script src="IodineGBA/core/sound/Channel4.js"></script>
+        <script src="IodineGBA/core/CPU/ARM.js"></script>
+        <script src="IodineGBA/core/CPU/THUMB.js"></script>
+        <script src="IodineGBA/core/CPU/CPSR.js"></script>
+        <script src="IodineGBA/core/CPU/SWI.js"></script>
+        <script src="IodineGBA/core/graphics/Renderer.js"></script>
+        <script src="IodineGBA/core/graphics/RendererShim.js"></script>
+        <script src="IodineGBA/core/graphics/RendererProxy.js"></script>
+        <script src="IodineGBA/core/graphics/BGTEXT.js"></script>
+        <script src="IodineGBA/core/graphics/BG2FrameBuffer.js"></script>
+        <script src="IodineGBA/core/graphics/BGMatrix.js"></script>
+        <script src="IodineGBA/core/graphics/AffineBG.js"></script>
+        <script src="IodineGBA/core/graphics/ColorEffects.js"></script>
+        <script src="IodineGBA/core/graphics/Mosaic.js"></script>
+        <script src="IodineGBA/core/graphics/OBJ.js"></script>
+        <script src="IodineGBA/core/graphics/OBJWindow.js"></script>
+        <script src="IodineGBA/core/graphics/Window.js"></script>
+        <script src="IodineGBA/core/graphics/Compositor.js"></script>
+        <script src="IodineGBA/core/memory/DMA0.js"></script>
+        <script src="IodineGBA/core/memory/DMA1.js"></script>
+        <script src="IodineGBA/core/memory/DMA2.js"></script>
+        <script src="IodineGBA/core/memory/DMA3.js"></script>
+        <script src="IodineGBA/core/cartridge/SaveDeterminer.js"></script>
+        <script src="IodineGBA/core/cartridge/SRAM.js"></script>
+        <script src="IodineGBA/core/cartridge/FLASH.js"></script>
+        <script src="IodineGBA/core/cartridge/EEPROM.js"></script>
+        <script src="IodineGBA/core/cartridge/GPIO.js"></script>
+        <script src="IodineGBA/core/cartridge/RTC.js"></script>
+        <!-- For Cartrige hotswaps without lag -->
+        <script src="IodineGBA/core/MultiCartridge.js"></script>
+        <!-- Enable SaveStates in Iodine -->
+        <script src="SaveState/SaveState.js"></script>
+        <!-- Enable Cheats in Iodine -->
+        <script src="Cheat/Cheat.js"></script>
+        <link rel="stylesheet" href="user_css/cheat.css">
+        <!-- Core UI / Binding Scripts Scripts-->
+        <script src="user_scripts/AudioGlueCode.js"></script>
+        <script src="user_scripts/base64.js"></script>
+        <script src="user_scripts/CoreGlueCode.js"></script>
+        <script src="user_scripts/GfxGlueCode.js"></script>
+        <script src="user_scripts/GUIGlueCode.js"></script>
+        <script src="user_scripts/JoyPadGlueCode.js"></script>
+        <script src="user_scripts/ROMLoadGlueCode.js"></script>
+        <script src="user_scripts/SavesGlueCode.js"></script>
+        <script src="user_scripts/WorkerGfxGlueCode.js"></script>
+        <script src="user_scripts/WorkerGlueCode.js"></script>
+        <script src="user_scripts/XAudioJS/swfobject.js"></script>
+        <script src="user_scripts/XAudioJS/resampler.js"></script>
+        <script src="user_scripts/XAudioJS/XAudioServer.js"></script>
+        <link rel="stylesheet" href="user_css/main.css">
+        <!-- Custom Command Scripts -->
+        <script src="user_scripts/CommandExecution/CommandExecutor.js"></script>
+        <script src="user_scripts/CommandExecution/ButtonCommands.js"></script>
+        <!-- Custom Input Providers -->
+        <!-- <script src="user_scripts/InputProvider/gamecontroller.js"></script> -->
+        <script src="user_scripts/InputProvider/Controller.js"></script>
+        <script src="user_scripts/InputProvider/Gamepad.js"></script>
+
+        <!-- User Interface Outside Emulator -->
+        <link rel="stylesheet" href="ui/materialize.min.css">
+        <script src="ui/materialize.min.js"></script>
+
+        <script src="ui/ClientUI.js"></script>
+        <link rel="stylesheet" href="ui/UI.css">
+
+        <!-- Config Defaults -->
+        <script src="ApplicationData/Config/Keybind-Config.json.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="menu" class="modal">
+                <div class="modal-content">
+                  
+                    <div class="carousel" id="menuCarousel">
+                      <a class="carousel-item" href="#one!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">ROMS</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="menu-group">
+                            <div class="rom-header"><h5 class="bios-text">BIOS</h5><span class="rom-status">(Not Loaded)</span></div>
+                            <div class="file-field input-field">
+                                <div class="btn-small">
+                                  <span>File</span>
+                                  <input type="file" id="bios_load">
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-group">
+                            <div class="rom-header"><h5 class="fr-text">FIRE RED</h5><span class="rom-status">(Not Loaded)</span></div>
+                            <div class="file-field input-field">
+                                <div class="btn-small">
+                                  <span>File</span>
+                                  <input type="file" id="fr_rom_load">
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-group">
+                            <div class="rom-header"><h5 class="c-text">CRYSTAL ADV.</h5><span class="rom-status">(Not Loaded)</span></div>
+                            <div class="file-field input-field">
+                                <div class="btn-small">
+                                  <span>File</span>
+                                  <input type="file" id="c_rom_load">
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-group">
+                            <div class="rom-header"><h5 class="e-text">EMERALD</h5><span class="rom-status">(Not Loaded)</span></div>
+                            <div class="file-field input-field">
+                                <div class="btn-small">
+                                  <span>File</span>
+                                  <input type="file" id="e_rom_load">
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-group start-group">
+                          <div class="btn-small right-align" id="play">
+                            <span>START</span>
+                          </div>
+                        </div>
+                      </a>
+                      <a class="carousel-item" href="#two!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Controls</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="key-binding-container">
+                        <table id="key-binding-table">
+                          <tr>
+                          <td>&nbsp;KEY</td>
+                          <td>&nbsp;KBD</td>
+                          <td>&nbsp;GMPD </td>
+                          </tr>
+                          </table>
+                        </div>
+                      </a>
+                      <a class="carousel-item" href="#three!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Saves States</h4><h5 class="right-menu-button">R</h5></div>
+                      </a>
+                      <a class="carousel-item" href="#four!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Audio / Video</h4><h5 class="right-menu-button">R</h5></div>
+                      </a>
+                      <a class="carousel-item" href="#five!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Randomise</h4><h5 class="right-menu-button">R</h5></div>
+                      </a>
+                      <a class="carousel-item" href="#six!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Hacks</h4><h5 class="right-menu-button">R</h5></div>
+                      </a>
+                    </div>
+      
+                </div>
+            </div>
+            <div id="main">
+                <canvas class="canvas" id="emulator_target" width="240" height="160"></canvas>
+            </div>
+        </div>
+    </body>
+</html>

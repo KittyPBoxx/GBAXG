@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="temp3.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="-602.45497"
+     inkscape:cy="1223.2947"
+     inkscape:window-width="3840"
+     inkscape:window-height="2124"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g10854">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.98483;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+         id="rect10846"
+         width="5.703712"
+         height="16.187826"
+         x="20.629915"
+         y="0.52158141" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.4872px;line-height:1.25;font-family:GAMECUBEN;-inkscape-font-specification:GAMECUBEN;stroke-width:0.762183"
+         x="-0.006359532"
+         y="24.377253"
+         id="text236"
+         transform="scale(0.88354631,1.1318026)"
+         inkscape:export-filename="text236.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300"><tspan
+           sodipodi:role="line"
+           id="tspan234"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:GAMECUBEN;-inkscape-font-specification:GAMECUBEN;stroke-width:0.762183"
+           x="-0.006359532"
+           y="24.377253">R</tspan></text>
+      <rect
+         style="fill:#4dad5b;fill-opacity:1;stroke:none;stroke-width:18.2924;stroke-linejoin:round;paint-order:markers stroke fill;stop-color:#000000"
+         id="rect1913"
+         width="14.445152"
+         height="4.8911505"
+         x="5.606833"
+         y="5.5505576"
+         rx="0"
+         ry="0" />
+      <path
+         style="fill:#855ac9;fill-opacity:1;stroke:none;stroke-width:0.762183px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 18.871577,16.663182 8.685379,10.938237 V 0.03702169 l -3.710555,0.0062012 V 16.655689 Z"
+         id="path2641"
+         sodipodi:nodetypes="cccccc" />
+      <path
+         style="fill:#e3350d;fill-opacity:1;stroke:none;stroke-width:0.762183px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 5.6108971,16.635566 -0.00738,10.933869 14.3747789,0.04923 -8.705964,-10.929304 z"
+         id="path342"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+</svg>

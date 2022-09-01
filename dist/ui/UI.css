@@ -1,0 +1,220 @@
+/* ICONS https://pixelarticons.com/free/ */
+
+
+:root {
+    --main-color: #c62828;
+}
+
+@font-face {
+    font-family: 'RetroGaming'; 
+    src: url('./fonts/retro-gaming.woff2'); 
+}
+
+.modal-overlay {
+    backdrop-filter: blur(10px) saturate(0.8);
+    -webkit-backdrop-filter: blur(10px) saturate(0.8);
+}
+
+#menu {
+    min-width: 75vw !important;
+    min-height: 75vh !important;
+    width: 75vw !important;
+    height: 75vh !important;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    font-family: 'RetroGaming';
+}
+
+.modal .modal-content {
+    padding: 0;
+}
+
+.carousel#menuCarousel {
+    min-height: 75vh;
+    overflow: visible;
+}
+
+.carousel#menuCarousel  .carousel-item {
+    height: 75vh;
+    width: 60vw;
+    border-width: 10px 7px;
+    border-style: ridge;
+    border-color: rgb(134, 134, 134);
+    border-radius: 5px;
+    box-shadow: rgb(30 30 30) 0px 1px 0px 5px, inset -5px 0px 0px 5px #000000, inset 5px 0px 0px 5px #000000;
+}
+
+.carousel-item {
+    background-color: #e7e7e7;
+}
+
+.menu-title {
+    display: flex;
+    color: black;
+    justify-content: center;
+    width: 50vw;
+    margin: auto;
+    margin-top: 6vh;
+    border-bottom: solid;
+    margin-bottom: 2vh;
+}
+
+.left-menu-button {
+    border-radius: 2px;
+    border: solid;
+    border-top-left-radius: 10px;
+    padding: 1px 5px 1px;
+    box-shadow: rgb(129 129 129) 1px 1px 0px 1px;
+    margin-right: auto;
+}
+.right-menu-button {
+    border-radius: 2px;
+    border: solid;
+    border-top-right-radius: 10px;
+    padding: 1px 5px 1px;
+    box-shadow: rgb(129 129 129) 1px 1px 0px 1px;
+    margin-left: auto;
+}
+.menu-group {
+    margin-left: 50px;
+}
+
+.bios-text {
+    color: #4a4a4a;
+}
+.fr-text {
+    color: #f44336;
+}
+.c-text {
+    color: #673ab7;
+} 
+.e-text {
+    color: #00a344;
+}
+.file-field .btn-small {
+    height: 4vh;
+    line-height: 4vh;
+    color: black !important;
+    border: black solid 1px !important;
+    background: none !important;
+    box-shadow: rgb(129 129 129) 1px 1px 0px 1px !important;
+}
+.file-path-wrapper { 
+    width: 25vw;
+    height: 4vh;
+}
+.file-path-wrapper .file-path {
+    height: 4vh !important;
+    font-family: 'RetroGaming';
+    border-bottom: none !important;
+}
+.file-path-wrapper input {
+    text-overflow: ellipsis;
+}
+h5 {
+    font-size: 2.5vh !important;
+}
+h4 {
+    font-size: 5vh !important;
+}
+.input-field {
+    margin-top: 0 !important; 
+    margin-bottom: 0 !important;
+}
+.menu-title h4 {
+    white-space: nowrap;
+}
+.start-group {
+    display: flex;
+    justify-content: end;
+    margin-top: 4vh;
+}
+.start-group .btn-small {
+    width: 10vw;
+    margin-right: 50px;
+}
+.rom-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+span.rom-status {
+    color: #919191;
+    font-size: 1.8vh;
+    margin-left: auto;
+    margin-right: 50px;
+}
+.carousel#menuCarousel .carousel-item {
+    display: flex;
+    flex-direction: column;
+}
+.key-binding-container {
+    margin-right: 50px;
+    margin-left: 50px;
+    overflow: auto;
+    margin-bottom: 5vh;
+}
+.menu-group:not(.start-group):after {
+    content: '';
+    width: 85%;
+    display: block;
+    height: 1px;
+    background: #c9c9c9;
+    position: absolute;
+    transform: translateY(8px);
+}
+.key-binding-container tr:nth-child(even) {
+    background: #CCC;
+}
+.key-binding-container tr {
+    color: black;
+}
+
+.key-binding-container td span {
+    box-shadow: rgb(40 40 40) 0px 0px 1px 1px, rgb(129 129 129) 1px 1px 0px 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#key-binding-table td {
+    max-width: 100px !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+/* Scrollbars */
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset -1px -1px 0px 2px rgb(180, 180, 180); 
+  border-radius: 1px;
+  background-color: rgb(199, 199, 199);
+}
+   
+::-webkit-scrollbar-thumb {
+  box-shadow: inset -1px -1px 0px 2px rgb(180, 180, 180); 
+  background: rgb(231, 231, 231); 
+  border-radius: 1px;
+}
+::-webkit-scrollbar-button:single-button {
+    background-color: transparent;
+    display: block;
+    border-style: solid;
+    height: 13px;
+    width: 50px;
+    color: #000000;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent rgb(143, 143, 143) transparent;
+    transform: translateY(2px);
+}
+  
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: rgb(143, 143, 143) transparent transparent transparent;
+}  
