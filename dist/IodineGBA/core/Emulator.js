@@ -38,6 +38,7 @@ function GameBoyAdvanceEmulator() {
     this.dynamicSpeedRefresh = false;         //Whether speed is allowed to be changed dynamically in the current cycle.
     this.calculateTimings();                  //Calculate some multipliers against the core emulator timer.
     this.generateCoreExposed();               //Generate a limit API for the core to call this shell object.
+    this.saveStateManager = new SaveStateManager(this);
 }
 GameBoyAdvanceEmulator.prototype.generateCoreExposed = function () {
     var parentObj = this;

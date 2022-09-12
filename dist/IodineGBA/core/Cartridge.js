@@ -159,8 +159,8 @@ GameBoyAdvanceCartridge.prototype.readROM8 = function (address) {
         //Definitely ROM:
         data = this.readROMOnly8(address | 0) | 0;
     }
-    else if (address < 0xCA && address >= 0xC4) {
-        //GPIO (RTC):
+    else {
+        //Possibly GPIO:
         data = this.IOCore.saves.readGPIO8(address | 0) | 0;
     }
     return data | 0;
@@ -172,8 +172,8 @@ GameBoyAdvanceCartridge.prototype.readROM16 = function (address) {
         //Definitely ROM:
         data = this.readROMOnly16(address | 0) | 0;
     }
-    else if (address < 0xCA && address >= 0xC4) {
-        //GPIO (RTC):
+    else {
+        //Possibly GPIO:
         data = this.IOCore.saves.readGPIO16(address | 0) | 0;
     }
     return data | 0;
@@ -185,8 +185,8 @@ GameBoyAdvanceCartridge.prototype.readROM32 = function (address) {
         //Definitely ROM:
         data = this.readROMOnly32(address | 0) | 0;
     }
-    else if (address < 0xCA && address >= 0xC4) {
-        //GPIO (RTC):
+    else {
+        //Possibly GPIO:
         data = this.IOCore.saves.readGPIO32(address | 0) | 0;
     }
     return data | 0;
@@ -195,7 +195,7 @@ GameBoyAdvanceCartridge.prototype.readROM8Space2 = function (address) {
     address = address | 0;
     var data = 0;
     if ((address | 0) >= 0xC4 && (address | 0) < 0xCA) {
-        //GPIO (RTC):
+        //Possibly GPIO:
         data = this.IOCore.saves.readGPIO8(address | 0) | 0;
     }
     else if ((address | 0) >= (this.EEPROMStart | 0)) {
@@ -212,7 +212,7 @@ GameBoyAdvanceCartridge.prototype.readROM16Space2 = function (address) {
     address = address | 0;
     var data = 0;
     if ((address | 0) >= 0xC4 && (address | 0) < 0xCA) {
-        //GPIO (RTC):
+        //Possibly GPIO:
         data = this.IOCore.saves.readGPIO16(address | 0) | 0;
     }
     else if ((address | 0) >= (this.EEPROMStart | 0)) {
@@ -229,7 +229,7 @@ GameBoyAdvanceCartridge.prototype.readROM32Space2 = function (address) {
     address = address | 0;
     var data = 0;
     if ((address | 0) >= 0xC4 && (address | 0) < 0xCA) {
-        //GPIO (RTC):
+        //Possibly GPIO:
         data = this.IOCore.saves.readGPIO32(address | 0) | 0;
     }
     else if ((address | 0) >= (this.EEPROMStart | 0)) {

@@ -23,6 +23,7 @@
         <script src="IodineGBA/core/Wait.js"></script>
         <script src="IodineGBA/core/CPU.js"></script>
         <script src="IodineGBA/core/Saves.js"></script>
+        <script src="IodineGBA/core/SaveState.js"></script>
         <script src="IodineGBA/core/sound/FIFO.js"></script>
         <script src="IodineGBA/core/sound/Channel1.js"></script>
         <script src="IodineGBA/core/sound/Channel2.js"></script>
@@ -57,8 +58,6 @@
         <script src="IodineGBA/core/cartridge/RTC.js"></script>
         <!-- For Cartrige hotswaps without lag -->
         <script src="IodineGBA/core/MultiCartridge.js"></script>
-        <!-- Enable SaveStates in Iodine -->
-        <script src="SaveState/SaveState.js"></script>
         <!-- Enable Cheats in Iodine -->
         <script src="Cheat/Cheat.js"></script>
         <link rel="stylesheet" href="user_css/cheat.css">
@@ -103,7 +102,7 @@
                     <div class="carousel" id="menuCarousel">
                       <a class="carousel-item" href="#one!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">ROMS</h4><h5 class="right-menu-button">R</h5></div>
-                        <div class="menu-group">
+                        <div class="menu-group hide">
                             <div class="rom-header"><h5 class="bios-text">BIOS</h5><span class="rom-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
                                 <div class="btn-small">

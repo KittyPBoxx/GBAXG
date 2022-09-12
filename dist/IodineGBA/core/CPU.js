@@ -19,7 +19,7 @@ GameBoyAdvanceCPU.prototype.initialize = function () {
     this.initializeRegisters();
     this.ARM = new ARMInstructionSet(this);
     this.THUMB = new THUMBInstructionSet(this);
-    this.swi = new GameBoyAdvanceSWI(this, this.IOCore.irq);
+    this.swi = new GameBoyAdvanceSWI(this.IOCore, this, this.IOCore.irq);
     this.IOCore.assignInstructionCoreReferences(this.ARM, this.THUMB);
 }
 GameBoyAdvanceCPU.prototype.initializeRegisters = function () {

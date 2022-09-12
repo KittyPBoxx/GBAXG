@@ -6,9 +6,15 @@
 
 let isWarping = false
 
+
+const EMERALD_PARTY_OFFSET = 0x020244EC;
+const FIRE_RED_PARTY_OFFSET = 0x02024284;
+const PLAYER_PARTY_LENGTH = 0x258;
+
+
  GameBoyAdvanceCPU.prototype.write8WithoutIntercept = GameBoyAdvanceCPU.prototype.write8;
- GameBoyAdvanceCPU.prototype.write8 = function (address, data) {
- 
+ GameBoyAdvanceCPU.prototype.write8 = function (address, data) { 
+
     if ((address == 0x2031dbe) && 
         (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))
     {
@@ -19,7 +25,7 @@ let isWarping = false
         isWarping = true;
     }
 
-     this.write8WithoutIntercept(address, data);
+    this.write8WithoutIntercept(address, data);
 
  }
 
@@ -37,6 +43,7 @@ warpRedirections.set('FR3,0,1', new PKWarp('FR3,0,1', 'E', 1, 1, 0));
 
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
+
 
     if (!isWarping) return this.read8WithoutIntercept(address);
 
@@ -65,14 +72,14 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
 
     console.log("Warping triggered " + trigger); 
 
-    IodineGUI.Iodine.pause();
-    initSaveStateManager();
-    saveStateManager.saveState(romCode);
-
     if (pkWarp) {
+        IodineGUI.Iodine.pause();
 
+        IodineGUI.Iodine.saveStateManager.saveState(romCode);
+
+        let partySlice = readWRAMSlice(IodineGUI.Iodine.IOCore.cartridge.romCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
         quickHideScreen();
-        saveStateManager.loadState(pkWarp.toRomCode);
+        IodineGUI.Iodine.saveStateManager.loadState(pkWarp.toRomCode);
 
         if (pkWarp.romCode == "E") {
             this.write8(0x20322e4, pkWarp.toD1);
@@ -87,11 +94,12 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
             IodineGUI.Iodine.play();
             address = 0x2031dbc;
         }
+        spliceWRAM(IodineGUI.Iodine.IOCore.cartridge.romCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
 
+        IodineGUI.Iodine.play();
     }
 
     isWarping = false;
-    IodineGUI.Iodine.play();
     return address;
 }
 
@@ -101,5 +109,15 @@ function quickHideScreen() {
     elmnt.offsetWidth
     elmnt.classList.add("quick-hide")
 }
- 
 
+function readWRAMSlice(address, length) {
+    let startAddress = (address - 0x02000000);
+    let endAddress = startAddress + length;
+    return IodineGUI.Iodine.IOCore.memory.externalRAM.slice(startAddress, endAddress);
+}
+function spliceWRAM(address, length, data) {
+    let startAddress = (address - 0x02000000);
+    for (let i = 0; i<length; i++) {
+        IodineGUI.Iodine.IOCore.memory.externalRAM[startAddress + i] = data[i];
+    }
+}

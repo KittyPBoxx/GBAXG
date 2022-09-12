@@ -1,3 +1,4 @@
+"use strict";
 /*
     Using implimentations from MGBA and GBA.js see:
     https://github.com/endrift/gbajs/blob/master/js/irq.js
@@ -60,10 +61,11 @@ const CPU_MODES = {
 	SYSTEM     : 0x1F
 } 
 
-function GameBoyAdvanceSWI(CPUCore, IRQ) {
+function GameBoyAdvanceSWI(IOCore, CPUCore, IRQ) {
+    this.IOCore = IOCore;
     this.CPUCore = CPUCore;
     this.IRQ = IRQ;
-    this.warnUnimplementedCalls = true;
+    this.warnUnimplementedCalls = false;
 }
 
 GameBoyAdvanceSWI.prototype.execute = function (opcode) {
@@ -71,7 +73,7 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
     switch (opcode) {
         case SWI_OP_CODE.GBA_SWI_SOFT_RESET:
         {    
-            console.info("Calling GBA_SWI_SOFT_RESET...");
+            //console.info("Calling GBA_SWI_SOFT_RESET...");
             let flag = this.CPUCore.memory.readInternalWRAM8(0x7FFA);
             for (let i = 0x7E00; i < 0x8000; i += 4) { this.CPUCore.memory.writeInternalWRAM32(i, 0); }
             this.resetSP();
@@ -81,29 +83,22 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         }   break;
         case SWI_OP_CODE.GBA_SWI_REGISTER_RAM_RESET:
         {
-            console.info("Calling GBA_SWI_REGISTER_RAM_RESET...");
+            //console.info("Calling GBA_SWI_REGISTER_RAM_RESET...");
             let regions = this.CPUCore.ARM.readRegister(0);
             if (regions & 0x01) {
-                Object.assign(this.CPUCore.memory.externalRAM, getUint8Array(0x40000));
-                Object.assign(this.CPUCore.memory.externalRAM16, getUint16View(this.CPUCore.memory.externalRAM)); //TODO: shouldn't need this 
-                Object.assign(this.CPUCore.memory.externalRAM32, getInt32View(this.CPUCore.memory.externalRAM)); //TODO: shouldn't need this
+                this.CPUCore.memory.externalRAM.fill(0, 0, 0x40000);
 		    }
             if (regions & 0x02) {
-                Object.assign(this.CPUCore.memory.internalRAM, getUint8Array(0x8000));
-                Object.assign(this.CPUCore.memory.internalRAM16, getUint16View(this.CPUCore.memory.internalRAM)); //TODO: shouldn't need this
-                Object.assign(this.CPUCore.memory.internalRAM32, getInt32View(this.CPUCore.memory.internalRAM)); //TODO: shouldn't need this
+                this.CPUCore.memory.internalRAM.fill(0, 0, 0x8000);
             }
             if (regions & 0x04) {
-                Object.assign(this.CPUCore.memory.gfxRenderer.renderer.paletteRAM, getUint8Array(0x400));
-                Object.assign(this.CPUCore.memory.gfxRenderer.renderer.paletteRAM16, getUint16View(this.CPUCore.memory.gfxRenderer.renderer.paletteRAM)); //TODO: shouldn't need this
-                Object.assign(this.CPUCore.memory.gfxRenderer.renderer.paletteRAM32, getInt32View(this.CPUCore.memory.gfxRenderer.renderer.paletteRAM)); //TODO: shouldn't need this
-            }
+                this.CPUCore.memory.gfxRenderer.renderer.paletteRAM.fill(0, 0, 0x400);}
             if (regions & 0x08) {
-                Object.assign(this.CPUCore.memory.gfxRenderer.renderer.VRAM, getUint8Array(0x18000));
-                Object.assign(this.CPUCore.memory.gfxRenderer.renderer.VRAM16, getUint16View(this.CPUCore.memory.gfxRenderer.renderer.VRAM)); //TODO: shouldn't need this
-                Object.assign(this.CPUCore.memory.gfxRenderer.renderer.VRAM32, getInt32View(this.CPUCore.memory.gfxRenderer.renderer.VRAM)); //TODO: shouldn't need this
+                this.CPUCore.memory.gfxRenderer.renderer.VRAM.fill(0, 0, 0x18000); 
             }
-            if (regions & 0x10) { this.warnUnimplementedCalls && console.warn("UNSUPPORTED GBA_SWI_REGISTER_RAM_RESET REGISTER: 0x10"); } // VIDEO OAM
+            if (regions & 0x10) { 
+                this.IOCore.gfxRenderer.renderer.objRenderer.OAMRAM.fill(0, 0x400)
+            } 
             if (regions & 0x1C) { this.warnUnimplementedCalls && console.warn("UNSUPPORTED GBA_SWI_REGISTER_RAM_RESET REGISTER: 0x1C"); } // POSSIBLY ALSO VRAM
             if (regions & 0x20) { this.warnUnimplementedCalls && console.warn("UNSUPPORTED GBA_SWI_REGISTER_RAM_RESET REGISTER: 0x20"); } // INPUT DATA?
             if (regions & 0x40) { this.warnUnimplementedCalls && console.warn("UNSUPPORTED GBA_SWI_REGISTER_RAM_RESET REGISTER: 0x40"); } // SOUND STUFF
@@ -111,24 +106,20 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
             if (regions & 0x9C) { this.warnUnimplementedCalls && console.warn("UNSUPPORTED GBA_SWI_REGISTER_RAM_RESET REGISTER: 0x9C"); } // VIDEO REGISTER
         }   break;            
         case SWI_OP_CODE.GBA_SWI_HALT:
-            this.warnUnimplementedCalls && console.warn("UNSUPPORTED CALL TO GBA_SWI_HALT");
+            this.IOCore.handleHalt();
             break;                      
         case SWI_OP_CODE.GBA_SWI_STOP:
-            this.warnUnimplementedCalls && console.warn("UNSUPPORTED CALL TO GBA_SWI_STOP");
+            this.IOCore.handleStop();
             break;                      
         case SWI_OP_CODE.GBA_SWI_INTR_WAIT:
-            console.info("Calling GBA_SWI_INTR_WAIT...");
-            this.IRQ.interruptsEnabled = 1;
-            if (this.IRQ.interruptsRequested) { this.CPUCore.IRQinARM(); }
-            break;                 
+            //console.info("Calling GBA_SWI_INTR_WAIT...");          
         case SWI_OP_CODE.GBA_SWI_VBLANK_INTR_WAIT:
-            console.info("Calling GBA_SWI_VBLANK_INTR_WAIT...");
-            this.IRQ.interruptsEnabled = 1;
-            if (this.IRQ.interruptsRequested) { this.CPUCore.IRQinARM(); }
+            //console.info("Calling GBA_SWI_VBLANK_INTR_WAIT...");
+            this.IOCore.handleHalt();
             break;          
         case SWI_OP_CODE.GBA_SWI_DIV: 
         {
-            console.info("Calling GBA_SWI_DIV...");
+            //console.info("Calling GBA_SWI_DIV...");
             let result = (this.CPUCore.ARM.readRegister(0) | 0) / (this.CPUCore.ARM.readRegister(1) | 0);
             let mod = (this.CPUCore.ARM.readRegister(0) | 0) % (this.CPUCore.ARM.readRegister(1) | 0);
             this.CPUCore.ARM.writeRegister(0, result | 0);
@@ -137,7 +128,7 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         }   break;                       
         case SWI_OP_CODE.GBA_SWI_DIV_ARM:
         {    
-            console.info("Calling GBA_SWI_DIV_ARM...");
+            //console.info("Calling GBA_SWI_DIV_ARM...");
             let result = (this.CPUCore.ARM.readRegister(1) | 0) / (this.CPUCore.ARM.readRegister(0) | 0);
             let mod = (this.CPUCore.ARM.readRegister(1) | 0) % (this.CPUCore.ARM.readRegister(0) | 0);
             this.CPUCore.ARM.writeRegister(0, result | 0);
@@ -146,20 +137,20 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         }   break;                   
         case SWI_OP_CODE.GBA_SWI_SQRT:
         {
-            console.info("Calling GBA_SWI_SQRT...");
+            //console.info("Calling GBA_SWI_SQRT...");
 		    let root = Math.sqrt(this.CPUCore.ARM.readRegister(0));
 		    this.CPUCore.ARM.writeRegister(0, root | 0); // Coerce down to int
         }   break;                      
         case SWI_OP_CODE.GBA_SWI_ARCTAN:
         {    
-            console.info("Calling GBA_SWI_ARCTAN...");
+            //console.info("Calling GBA_SWI_ARCTAN...");
 		    let x = this.CPUCore.ARM.readRegister(0) / 16384;
 		    let y = this.CPUCore.ARM.readRegister(1) / 16384;
 		    this.CPUCore.ARM.writeRegister(0, (Math.atan(y, x) / (2 * Math.PI)) * 0x10000);
         }   break;                    
         case SWI_OP_CODE.GBA_SWI_ARCTAN2:
         {
-            console.info("Calling GBA_SWI_ARCTAN2...");
+            //console.info("Calling GBA_SWI_ARCTAN2...");
 		    let x = this.CPUCore.ARM.readRegister(0) / 16384;
 		    let y = this.CPUCore.ARM.readRegister(1) / 16384;
 		    this.CPUCore.ARM.writeRegister(0, (Math.atan2(y, x) / (2 * Math.PI)) * 0x10000);
@@ -167,7 +158,7 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         }                   
         case SWI_OP_CODE.GBA_SWI_CPU_SET:
         {    
-            console.info("Calling GBA_SWI_CPU_SET...");
+            //console.info("Calling GBA_SWI_CPU_SET...");
             let source = this.CPUCore.ARM.readRegister(0);
             let dest = this.CPUCore.ARM.readRegister(1);
             let mode = this.CPUCore.ARM.readRegister(2);
@@ -210,7 +201,7 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         }   break;                 
         case SWI_OP_CODE.GBA_SWI_CPU_FAST_SET:
         {
-            console.info("Calling GBA_SWI_CPU_FAST_SET...");
+            //console.info("Calling GBA_SWI_CPU_FAST_SET...");
             let source = this.CPUCore.ARM.readRegister(0);
             let dest = this.CPUCore.ARM.readRegister(1);
             let mode = this.CPUCore.ARM.readRegister(2);
@@ -234,7 +225,7 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
             break;         
         case SWI_OP_CODE.GBA_SWI_BG_AFFINE_SET:
         {    
-            console.info("Calling GBA_SWI_BG_AFFINE_SET...");
+            //console.info("Calling GBA_SWI_BG_AFFINE_SET...");
             let i = this.CPUCore.ARM.readRegister(2);
 		    let ox, oy;
 		    let cx, cy;
@@ -278,7 +269,7 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         }   break;             
         case SWI_OP_CODE.GBA_SWI_OBJ_AFFINE_SET:
         {    
-            console.info("Calling GBA_SWI_OBJ_AFFINE_SET...");
+            //console.info("Calling GBA_SWI_OBJ_AFFINE_SET...");
             let i = this.CPUCore.ARM.readRegister(2);
             let sx, sy;
             let theta;
@@ -312,26 +303,26 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
             this.warnUnimplementedCalls && console.warn("UNSUPPORTED CALL TO GBA_SWI_BIT_UNPACK");
             break;                
         case SWI_OP_CODE.GBA_SWI_LZ77_UNCOMP_WRAM:
-            console.info("Calling GBA_SWI_LZ77_UNCOMP_WRAM...");
+            //console.info("Calling GBA_SWI_LZ77_UNCOMP_WRAM...");
             this.lz77(this.CPUCore.ARM.readRegister(0), this.CPUCore.ARM.readRegister(1), 1);
             break;          
         case SWI_OP_CODE.GBA_SWI_LZ77_UNCOMP_VRAM:
-            console.info("Calling GBA_SWI_LZ77_UNCOMP_VRAM...");
+            //console.info("Calling GBA_SWI_LZ77_UNCOMP_VRAM...");
             this.lz77(this.CPUCore.ARM.readRegister(0), this.CPUCore.ARM.readRegister(1), 2);
             break;          
         case SWI_OP_CODE.GBA_SWI_HUFFMAN_UNCOMP:
         {
-            console.info("Calling GBA_SWI_HUFFMAN_UNCOMP...");
+            //console.info("Calling GBA_SWI_HUFFMAN_UNCOMP...");
             this.huffman(this.CPUCore.ARM.readRegister(0), this.CPUCore.ARM.readRegister(1));
         }   break;            
         case SWI_OP_CODE.GBA_SWI_RL_UNCOMP_WRAM:
         {    
-            console.info("Calling GBA_SWI_RL_UNCOMP_WRAM...");
+            //console.info("Calling GBA_SWI_RL_UNCOMP_WRAM...");
             this.rl(this.CPUCore.ARM.readRegister(0), this.CPUCore.ARM.readRegister(1), 1);
         }   break;            
         case SWI_OP_CODE.GBA_SWI_RL_UNCOMP_VRAM:
         {    
-            console.info("Calling GBA_SWI_RL_UNCOMP_VRAM...");
+            //console.info("Calling GBA_SWI_RL_UNCOMP_VRAM...");
             this.rl(this.CPUCore.ARM.readRegister(0), this.CPUCore.ARM.readRegister(1), 2);
         }   break;            
         case SWI_OP_CODE.GBA_SWI_DIFF_8BIT_UNFILTER_WRAM:
@@ -363,7 +354,7 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
             break;       
         case SWI_OP_CODE.GBA_SWI_MIDI_KEY_2_FREQ:
         {    
-            console.info("Calling GBA_SWI_MIDI_KEY_2_FREQ...");
+            //console.info("Calling GBA_SWI_MIDI_KEY_2_FREQ...");
             let key = this.CPUCore.memory.memoryRead32(this.CPUCore.ARM.readRegister(0) + 4);
             this.CPUCore.ARM.writeRegister(0, key / Math.pow(2, (180 - this.CPUCore.ARM.readRegister(1) - this.CPUCore.ARM.readRegister(2) / 256) / 12) >>> 0);
         }   break;           
@@ -399,9 +390,8 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
             break;     
         case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_GET_JUMP_LIST:
         {
-            console.info("UNSUPPORTED CALL TO GBA_SWI_SOUND_DRIVER_GET_JUMP_LIST");
-            this.IRQ.interruptsEnabled = 1;
-            if (this.IRQ.interruptsRequested) { this.CPUCore.IRQinARM(); }
+            //console.info("UNSUPPORTED CALL TO GBA_SWI_SOUND_DRIVER_GET_JUMP_LIST");
+            this.IOCore.handleHalt(); 
         }   break;
         default:
             this.warnUnimplementedCalls && console.log("UNKNOWN OP CODE: " + opcode);    

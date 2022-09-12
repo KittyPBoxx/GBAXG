@@ -12,9 +12,9 @@ function GameBoyAdvanceGPIOChip() {
     this.type = 1;
     this.rtc = new GameBoyAdvanceRTC(this);
 
-    this.direction = 0; // ROM 0xC4 
+    this.direction = 0; // ROM 0xC8 
     this.readWrite = 0; // ROM 0xC6
-    this.data = 0;      // ROM 0xC8
+    this.data = 0;      // ROM 0xC4
 }
 GameBoyAdvanceGPIOChip.prototype.getType = function () {
     return this.type | 0;
@@ -61,58 +61,36 @@ GameBoyAdvanceGPIOChip.prototype.write = function (address, data) {
     }
 }
 
-GameBoyAdvanceGPIOChip.prototype.write8 = function (address, data) {
-    // TODO: this is doing a write16
-    console.warn("UNSUPPORTED GPIO WRITE");
-    this.write(address, data);
-}
-
 GameBoyAdvanceGPIOChip.prototype.write16 = function (address, data) {
     this.write(address, data);
-}
-
-GameBoyAdvanceGPIOChip.prototype.write32 = function (address, data) {
-    // TODO: this is doing a write16
-    console.warn("UNSUPPORTED GPIO WRITE");
-    this.write(address, data);
-}
-
-GameBoyAdvanceGPIOChip.prototype.read8 = function (address) {
-    console.warn("UNTESTED CODE");
-    let data = 0;
-    switch (address & 0xF) {
-        case 0x4:
-            data = this.data & 0xff;
-            break;
-        case 0x5:
-            data = ((this.data>> 8) & 0xff);
-            break;
-        case 0x6:
-            data = (this.direction | 0) & 0xff;
-            break;
-        case 0x7:
-            data = (((this.direction | 0) >> 8) & 0xff);
-            break;    
-        case 0x8:
-            data = (this.readWrite | 0) & 0xff;
-            break;
-        case 0x9:
-            data = (((this.readWrite  | 0) >> 8) & 0xff)
-            break;
-    }
-    return data;
 }
 
 GameBoyAdvanceGPIOChip.prototype.read16 = function (address) {
     return this.read(address);
 }
 
-GameBoyAdvanceGPIOChip.prototype.read32 = function (address) {
-    let buffer = new ArrayBuffer(4);
-    let view = new DataView(buffer);
-    view.setUint16(0, this.read16(address), true);
-    view.setUint16(2, this.read16(address + 2), true);
-    return view.getUint32(0, true);
+GameBoyAdvanceGPIOChip.prototype.supportsWrite8 = function (address) {
+    return false;
+}
+
+GameBoyAdvanceGPIOChip.prototype.supportsWrite16 = function (address) {
+    return address >= 0xC4 && address <= 0xC8;
+}
+
+GameBoyAdvanceGPIOChip.prototype.supportsWrite32 = function (address) {
+    return false;
+}
+
+GameBoyAdvanceGPIOChip.prototype.supportsRead8 = function (address) {
+    return false;
+}
+
+GameBoyAdvanceGPIOChip.prototype.supportsRead16 = function (address) {
+    return address >= 0xC4 && address <= 0xC8;
+}
+
+GameBoyAdvanceGPIOChip.prototype.supportsRead32 = function (address) {
+    return false;
 }
 
 GameBoyAdvanceGPIOChip.prototype.outputPins = function(data) {
