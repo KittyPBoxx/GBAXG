@@ -8,9 +8,29 @@
 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+// LZUTF8.compress(save, {outputEncoding: "StorageBinaryString"})
+var injectSaveCode = null;
 function ImportSaveCallback(name, callbackFunc, callbackFuncNoSave) {
     try {
+
+        if(injectSaveCode) {
+            if (injectSaveCode == "FR" && name.includes("TYPE")) {
+                setValue("SAVE_" + name, arrayToBase64([FIRE_RED_INIT_SAVE_TYPE]));
+            } else if (injectSaveCode == "FR") {
+                setValue("SAVE_" + name, LZUTF8.decompress(FIRE_RED_INIT_SAVE, {inputEncoding: "StorageBinaryString", outputEncoding: "String"}));
+            } else if (injectSaveCode == "C" && name.includes("TYPE")) {
+                setValue("SAVE_" + name, arrayToBase64([CRYSTAL_INIT_SAVE_TYPE]));
+            } else if (injectSaveCode == "C") {
+                setValue("SAVE_" + name, LZUTF8.decompress(CRYSTAL_INIT_SAVE, {inputEncoding: "StorageBinaryString", outputEncoding: "String"}));
+            } else if (injectSaveCode == "E" && name.includes("TYPE")) {
+                setValue("SAVE_" + name, arrayToBase64([EMERALD_INIT_SAVE_TYPE]));
+            } else if (injectSaveCode == "E") {
+                setValue("SAVE_" + name, LZUTF8.decompress(EMERALD_INIT_SAVE, {inputEncoding: "StorageBinaryString", outputEncoding: "String"}));
+            }
+        }
+
         var save = findValue("SAVE_" + name);
+
         if (save != null) {
             writeRedTemporaryText("Loaded save.");
             callbackFunc(base64ToArray(save));

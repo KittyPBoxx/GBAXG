@@ -11,9 +11,10 @@
 function GameBoyAdvanceCartridge(IOCore) {
     this.IOCore = IOCore;
 }
-GameBoyAdvanceCartridge.prototype.initialize = function (ROM) {
+GameBoyAdvanceCartridge.prototype.initialize = function (ROM, code) {
     this.flash_is128 = false;
     this.flash_isAtmel = false;
+    this.code = code;
     this.ROM = this.getROMArray(ROM);
     this.ROM16 = getUint16View(this.ROM);
     this.ROM32 = getInt32View(this.ROM);

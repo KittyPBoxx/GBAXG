@@ -161,7 +161,7 @@ GameBoyAdvanceRTC.prototype.sioOutputPin = function() {
 };
 
 GameBoyAdvanceRTC.prototype.updateClock = function() {
-	let date = new Date();
+	let date = this.getDate();
 	this.time[0] = this.bcd(date.getFullYear());
 	this.time[1] = this.bcd(date.getMonth() + 1);
 	this.time[2] = this.bcd(date.getDate());
@@ -188,3 +188,26 @@ GameBoyAdvanceRTC.prototype.bcd = function(binary) {
 	counter += (binary % 10) << 4;
 	return counter;
 };
+
+
+GameBoyAdvanceRTC.prototype.useSystemTime = function() {
+	return false;
+}
+
+GameBoyAdvanceRTC.prototype.getDate = function() {
+	let date = new Date();
+	if (!this.useSystemTime()) {
+		date.setMonth(this.getMonth())
+		date.setHours(this.getHour(), 0, 0);
+	}
+
+	return date;
+}
+
+GameBoyAdvanceRTC.prototype.getMonth = function() {
+	return 6;
+}
+
+GameBoyAdvanceRTC.prototype.getHour = function() {
+	return 12;	
+}

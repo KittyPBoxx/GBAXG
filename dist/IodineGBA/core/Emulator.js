@@ -18,13 +18,14 @@ function GameBoyAdvanceEmulator() {
         metricCollectionMinimum:500,      //How many milliseconds of cycling to count before determining speed.
         dynamicSpeed:false,               //Whether to actively change the target speed for best user experience.
         overclockBlockLimit:200,          //Whether to throttle clocks in audio adjustment.
-        offthreadGfxEnabled:true          //Whether to allow offthread graphics rendering if support is present.
+        offthreadGfxEnabled:false         //Whether to allow offthread graphics rendering if support is present.
     };
     this.audioFound = 0;                      //Do we have audio output sink found yet?
     this.emulatorStatus = 0x10;               //{paused, saves loaded, fault found, loaded}
     this.BIOS = [];                           //Initialize BIOS as not existing.
     this.ROMS = [];                           //Initialize BIOS as not existing.
     this.ROM_CODES = [];                      //Codes used by the Multi Cartrige to reference a rom 
+    this.NEXT_ROM = null;                     //Next rom to boot into when it restarts 
     this.audioUpdateState = 1;                //Do we need to update the sound core with new info?
     this.saveExportHandler = null;            //Save export handler attached by GUI.
     this.saveImportHandler = null;            //Save import handler attached by GUI.
@@ -57,7 +58,8 @@ GameBoyAdvanceEmulator.prototype.generateCoreExposed = function () {
             parentObj.terminationCallbacks.push(callback);
         },
         offthreadGfxEnabled:function () {
-            return !!parentObj.settings.offthreadGfxEnabled;
+            return false;
+            //return !!parentObj.settings.offthreadGfxEnabled;
         }
     }
 }
@@ -176,7 +178,7 @@ GameBoyAdvanceEmulator.prototype.attachBIOS = function (BIOS) {
 }
 GameBoyAdvanceEmulator.prototype.getGameName = function () {
     if ((this.emulatorStatus & 0x3) == 0x1) {
-        return this.IOCore.cartridge.name;
+        return this.IOCore.cartridge.getName();
     }
     else {
         return "";
@@ -241,8 +243,8 @@ GameBoyAdvanceEmulator.prototype.exportSave = function () {
         var save = this.IOCore.saves.exportSave();
         var saveType = this.IOCore.saves.exportSaveType() | 0;
         if (save != null) {
-            this.saveExportHandler(this.IOCore.cartridge.name, save);
-            this.saveExportHandler("TYPE_" + this.IOCore.cartridge.name, [saveType | 0]);
+            this.saveExportHandler(this.IOCore.cartridge.getName(), save);
+            this.saveExportHandler("TYPE_" + this.IOCore.cartridge.getName(), [saveType | 0]);
         }
     }
 }
@@ -323,10 +325,11 @@ GameBoyAdvanceEmulator.prototype.calculateSpeedPercentage = function () {
 GameBoyAdvanceEmulator.prototype.initializeCore = function () {
     //Wrap up any old internal instance callbacks:
     this.runTerminationJobs();
+    let startingRom = this.NEXT_ROM ? this.NEXT_ROM : this.ROM_CODES[0];
     //Setup a new instance of the i/o core:
-    this.IOCore = new GameBoyAdvanceIO(this.settings.SKIPBoot, this.coreExposed, this.BIOS, this.ROMS, this.ROM_CODES);
+    this.IOCore = new GameBoyAdvanceIO(this.settings.SKIPBoot, this.coreExposed, this.BIOS, this.ROMS, this.ROM_CODES, startingRom);
     //Call the initalization procedure and get status code:
-    var allowInit = this.IOCore.initialize() | 0;
+    var allowInit = this.IOCore.initialize(startingRom) | 0;
     //Append status code as play status flag for emulator runtime:
     this.emulatorStatus = this.emulatorStatus | allowInit;
     return allowInit | 0;
@@ -468,5 +471,5 @@ GameBoyAdvanceEmulator.prototype.toggleDynamicSpeed = function (dynamicSpeed) {
     this.processNewSpeed(1);
 }
 GameBoyAdvanceEmulator.prototype.toggleOffthreadGraphics = function (offthreadGfxEnabled) {
-    this.settings.offthreadGfxEnabled = !!offthreadGfxEnabled;
+    this.settings.offthreadGfxEnabled = false//!!offthreadGfxEnabled;
 }

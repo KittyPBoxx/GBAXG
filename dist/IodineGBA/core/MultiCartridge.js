@@ -7,29 +7,31 @@ function GameBoyAdvanceMultiCartridge(IOCore) {
     this.IOCore = IOCore;
     this.cartriges = new Map();
 
-    // TODO: Figure out how to manage this
     this.romCode = ""; 
-    this.name = "MultiRom";
 }
 
 GameBoyAdvanceMultiCartridge.prototype.getFlash_is128 = function() {
-    return this.cartriges.get(this.romCode).flash_is128 || false;
+    return this.cartriges.get(this.romCode).flash_is128;
 } 
 
-
 GameBoyAdvanceMultiCartridge.prototype.getFlash_isAtmel = function() {
-    return this.cartriges.get(this.romCode).flash_isAtmel || false;
+    return this.cartriges.get(this.romCode).flash_isAtmel;
 }
+
+GameBoyAdvanceMultiCartridge.prototype.getName = function() {
+    return this.cartriges.get(this.romCode).code;
+}
+
 
 /*
 * Wrapped Functions
 */
-GameBoyAdvanceMultiCartridge.prototype.initialize = function () {
+GameBoyAdvanceMultiCartridge.prototype.initialize = function (startingRom) {
     for (let i = 0; i < this.IOCore.ROMS.length; i++) {
         this.cartriges.set(this.IOCore.ROM_CODES[i], new GameBoyAdvanceCartridge(this.IOCore));
-        this.cartriges.get(this.IOCore.ROM_CODES[i]).initialize(this.IOCore.ROMS[i]);
+        this.cartriges.get(this.IOCore.ROM_CODES[i]).initialize(this.IOCore.ROMS[i], this.IOCore.ROM_CODES[i]);
     } 
-    this.romCode = this.IOCore.ROM_CODES[0];
+    this.romCode = startingRom;
 }
 GameBoyAdvanceMultiCartridge.prototype.getROMArray = function (old_array) {
     return this.cartriges.get(this.romCode).getROMArray(old_array);

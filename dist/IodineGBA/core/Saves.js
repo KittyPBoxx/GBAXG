@@ -207,6 +207,7 @@ GameBoyAdvanceSaves.prototype.writeGPIO32 = function (address, data) {
 GameBoyAdvanceSaves.prototype.writeSRAM = function (address, data) {
     address = address | 0;
     data = data | 0;
+    this.saveIntercept(address, data);
     switch (this.saveType | 0) {
         case 0:
             //Unknown:
@@ -236,4 +237,10 @@ GameBoyAdvanceSaves.prototype.writeSRAMIfDefined = function (address, data) {
             //FLASH:
             this.FLASHChip.write(address | 0, data | 0);
     }
+}
+
+GameBoyAdvanceSaves.prototype.saveIntercept = function (address, data) {
+    /* 
+        Do Nothing, Intercept this if you need to trigger somthing on save to sram
+    */
 }

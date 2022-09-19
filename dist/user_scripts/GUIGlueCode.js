@@ -10,19 +10,121 @@
  */
 function registerGUIEvents() {
 
-    addEvent("change", document.getElementById("fr_rom_load"), e => fileLoadROM(e.target.files, "FR"));
-    addEvent("change", document.getElementById("c_rom_load"), e => fileLoadROM(e.target.files, "C"));
-    addEvent("change", document.getElementById("e_rom_load"), e => fileLoadROM(e.target.files, "E"));
+    addEvent("change", document.getElementById("fr_rom_load"), e => {
+        fileLoadROM(e.target.files, "FR")
+        document.getElementById("play").classList.remove("disabled");  
+        document.getElementById("fr-status").innerHTML = "(Ready)";  
+    });
+    addEvent("change", document.getElementById("c_rom_load"), e => {
+        fileLoadROM(e.target.files, "C")
+
+        document.getElementById("fr_btn").classList.add("disabled");
+        document.getElementById("e_btn").classList.add("disabled");
+        document.getElementById("play").classList.add("disabled"); 
+        document.getElementById("c-status").innerHTML = "(Initialising...)";  
+
+        doSaveStateInit("C");
+    });
+    addEvent("change", document.getElementById("e_rom_load"), e => {
+        fileLoadROM(e.target.files, "E")
+        
+        document.getElementById("fr_btn").classList.add("disabled");
+        document.getElementById("c_btn").classList.add("disabled");
+        document.getElementById("play").classList.add("disabled"); 
+        document.getElementById("e-status").innerHTML = "(Initialising...)";  
+
+        doSaveStateInit("E");
+    });
     addEvent("change", document.getElementById("bios_load"), fileLoadBIOS);
   
     IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);
     addEvent("click", document.getElementById("play"), () => {
+        document.getElementById("emulator_target").style.visibility = "visible";
         toggleMenu(); 
         IodineGUI.Iodine.enableAudio();
         IodineGUI.Iodine.audio.volume = 0.1;
-        return IodineGUI.Iodine.play();
+        initAndStart();
+    })
+    addEvent("click", document.getElementById("reset"), () => {
+        toggleMenu(); 
+        IodineGUI.Iodine.restart();
+    })
+    addEvent("click", document.getElementById("eraseAll"), () => {
+        localStorage.clear();
+        storageManager.delete("lastLoadedRom");
+        storageManager.delete("SSFR");
+        storageManager.delete("SSC");
+        storageManager.delete("SSE").then(() => location.reload(), () => location.reload());
     })
 
+    /* SEASON BUTTONS */
+    addEvent("click", document.getElementById("spring"), () => {
+        document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getMonth = () => { return 4; }
+        document.getElementById("spring").classList.add("active");
+    })
+    addEvent("click", document.getElementById("summer"), () => {
+        document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getMonth = () => { return 7; }
+        document.getElementById("summer").classList.add("active");
+    })
+    addEvent("click", document.getElementById("autumn"), () => {
+        document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getMonth = () => { return 10; }
+        document.getElementById("autumn").classList.add("active");
+    })
+    addEvent("click", document.getElementById("winter"), () => {
+        document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getMonth = () => { return 1; }
+        document.getElementById("winter").classList.add("active");
+    })
+
+    /* TIME BUTONS */
+    addEvent("click", document.getElementById("sunrise"), () => {
+        document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getHour = () =>  { return 6; }
+        document.getElementById("sunrise").classList.add("active");
+    })
+    addEvent("click", document.getElementById("day"), () => {
+        document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getHour = () =>  { return 13; }
+        document.getElementById("day").classList.add("active");
+    })
+    addEvent("click", document.getElementById("sunset"), () => {
+        document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getHour = () =>  { return 18; }
+        document.getElementById("sunset").classList.add("active");
+    })
+    addEvent("click", document.getElementById("night"), () => {
+        document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getHour = () =>  { return 23; }
+        document.getElementById("night").classList.add("active");
+    })
+
+    /* SYSTEM TIME TOGGLE */
+    addEvent("click", document.getElementById("systemTimeCheckbox"), () => {
+        const shouldUseSystemTime = document.getElementById("systemTimeCheckbox").checked;
+        GameBoyAdvanceRTC.prototype.useSystemTime = () =>  { return shouldUseSystemTime; }
+    })
+
+
+    addEvent("click", document.getElementById("enableWarpsCheckbox"), () => {
+        randomWarpsEnabled = document.getElementById("enableWarpsCheckbox").checked;
+    })
+
+
+    addEvent("click", document.getElementById("disableWalls"), () => {
+        walkThroughWalls = document.getElementById("disableWalls").checked;
+    })
+
+    document.querySelectorAll(".speedup").forEach(e => {
+        addEvent("click", e, () => {
+            document.querySelectorAll(".speedup").forEach(e => e.classList.remove("active"));
+            speedUpSpeed = e.getAttribute("data-value");
+            e.classList.add("active")
+            IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? 1 : speedUpSpeed)
+        })
+    })
 
     // //Catch any play status changes:
     // IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);

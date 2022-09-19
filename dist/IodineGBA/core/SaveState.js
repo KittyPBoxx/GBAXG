@@ -1,23 +1,46 @@
 function SaveStateManager(Iodine) {
     this.Iodine = Iodine;
     this.slot = [];
+    this.initStoredStates(Iodine.ROM_CODES);
 }
 
 SaveStateManager.prototype.saveState = function (slot) {
     let playing = this.Iodine.emulatorStatus <= 10;
     if (playing) this.Iodine.pause();
     this.slot[slot] = new SaveState(this.Iodine.IOCore);
+    storageManager.persist("SS" + slot, this.slot[slot]);
     if (playing) this.Iodine.play();
 }
 
 SaveStateManager.prototype.loadState = function (slot) {
     let playing = this.Iodine.emulatorStatus <= 10;
     if (playing) this.Iodine.pause();
+    let speed = IodineGUI.Iodine.getSpeed()
     this.slot[slot].load(this.Iodine.IOCore);
+    storageManager.persist("lastLoadedRom", slot);
+    let volume = IodineGUI.Iodine.audio.volume;
+    IodineGUI.Iodine.audio.volume = 0;
     if (playing) this.Iodine.play();
+    let fixSpeed = async(volume) => { CommandExecutor.execute("SpeedUp"); await delay(50); CommandExecutor.execute("SpeedUp"); IodineGUI.Iodine.audio.volume = volume;}
+    IodineGUI.Iodine.setSpeed(speed); 
+    fixSpeed(volume);
+}
+
+SaveStateManager.prototype.initStoredStates = async function(slots) {
+    slots.forEach(async slot => {
+        let save = await storageManager.find("SS" + slot);
+        if (save) {
+            save.assign = SaveState.prototype.assign;
+            save.load = SaveState.prototype.load;
+            this.slot[slot] = save;
+        }
+    })
 }
 
 function SaveState(IOCore) {
+
+    /* Cartridge Reference */
+    this.romCode                   = structuredClone(IOCore.cartridge.romCode               );
 
     /* General */
     this.accumulatedClocks            = structuredClone(IOCore.accumulatedClocks            );
@@ -668,20 +691,23 @@ function SaveState(IOCore) {
 SaveState.prototype.assign = function (target, name, value) {
 
 
-    if (!target || !target[name]) 
+    if (!target || target[name] === undefined) 
     {
         return;
     }
 
     if (typeof target[name] == 'number' || typeof target[name] == 'boolean' || typeof target[name] == 'string') {
         target[name] = value;
-    } else {
+    } else if (target[name] !== null) {
         Object.assign(target[name], value);
     }
 
 }
 
 SaveState.prototype.load = function (IOCore) {
+
+    /* Cartridge Reference */
+    this.assign(IOCore.cartridge, "romCode"               ,this.romCode                       );
 
     /* General */
     this.assign(IOCore, "accumulatedClocks"               , this.accumulatedClocks            );

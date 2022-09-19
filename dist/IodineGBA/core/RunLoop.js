@@ -8,7 +8,7 @@
 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-function GameBoyAdvanceIO(SKIPBoot, coreExposed, BIOS, ROMS, ROM_CODES) {
+function GameBoyAdvanceIO(SKIPBoot, coreExposed, BIOS, ROMS, ROM_CODES, NEXT_ROM) {
     //State Machine Tracking:
     this.systemStatus = 0;
     this.cyclesToIterate = 0;
@@ -26,6 +26,7 @@ function GameBoyAdvanceIO(SKIPBoot, coreExposed, BIOS, ROMS, ROM_CODES) {
     this.BIOS = BIOS;
     this.ROMS = ROMS;
     this.ROM_CODES = ROM_CODES;
+    this.NEXT_ROM = NEXT_ROM;
     //Build the core object layout:
     this.memory = new GameBoyAdvanceMemory(this);
     this.dma = new GameBoyAdvanceDMA(this);
@@ -45,7 +46,7 @@ function GameBoyAdvanceIO(SKIPBoot, coreExposed, BIOS, ROMS, ROM_CODES) {
     this.wait = new GameBoyAdvanceWait(this);
     this.cpu = new GameBoyAdvanceCPU(this);
 }
-GameBoyAdvanceIO.prototype.initialize = function () {
+GameBoyAdvanceIO.prototype.initialize = function (startingRom) {
     var allowInit = 1;
     //Now initialize each component:
     if ((this.memory.initialize() | 0) == 1) {
@@ -62,7 +63,7 @@ GameBoyAdvanceIO.prototype.initialize = function () {
         this.irq.initialize();
         this.serial.initialize();
         this.joypad.initialize();
-        this.cartridge.initialize();
+        this.cartridge.initialize(startingRom);
         this.saves.initialize();
         this.wait.initialize();
         this.cpu.initialize();

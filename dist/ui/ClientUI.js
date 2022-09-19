@@ -1,5 +1,6 @@
 const fileSystem = window.__TAURI__ ? window.__TAURI__.fs : null;
 
+var debugConsole;
 document.addEventListener('DOMContentLoaded', function() {
     
     M.Modal.init(document.getElementById('menu'), {
@@ -12,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initMenu();
 
-    fileSystem ? createAndLoadConfig() : initKeybinds(DEFAULT_KEYBIND_CONFIG);
+    createAndLoadConfig();
+
+    debugConsole = M.Modal.init(document.getElementById('console'), {});
 });
 
 
@@ -35,15 +38,21 @@ function toggleMenu() {
   menu.isOpen ? menu.close() : menu.open();
 }
 
-function createAndLoadConfig() {
+async function createAndLoadConfig() {
 
-  fileSystem.readTextFile(DEFAULT_KEYBIND_CONFIG_PATH, {dir: fileSystem.BaseDirectory.App}).then(initKeybinds, e => {
-    initKeybinds(DEFAULT_KEYBIND_CONFIG);
+  if(fileSystem) {
+    fileSystem.readTextFile(DEFAULT_KEYBIND_CONFIG_PATH, {dir: fileSystem.BaseDirectory.App}).then(initKeybinds, e => {
+      initKeybinds(DEFAULT_KEYBIND_CONFIG);
 
-    fileSystem.createDir(fileToDirPath(DEFAULT_KEYBIND_CONFIG_PATH), { dir: fileSystem.BaseDirectory.App, recursive: true })
-    .then(fileSystem.writeTextFile(DEFAULT_KEYBIND_CONFIG_PATH, DEFAULT_KEYBIND_CONFIG, { dir: fileSystem.BaseDirectory.App }));
-  });
-
+      fileSystem.createDir(fileToDirPath(DEFAULT_KEYBIND_CONFIG_PATH), { dir: fileSystem.BaseDirectory.App, recursive: true })
+      .then(fileSystem.writeTextFile(DEFAULT_KEYBIND_CONFIG_PATH, DEFAULT_KEYBIND_CONFIG, { dir: fileSystem.BaseDirectory.App }));
+    });
+  } else {
+    storageManager.find("keybinds").then(initKeybinds, e => {
+      initKeybinds(DEFAULT_KEYBIND_CONFIG);
+      storageManager.persist(keybinds, DEFAULT_KEYBIND_CONFIG);
+    })
+  }
 }
 
 function fileToDirPath(path) {
@@ -65,6 +74,7 @@ function initKeybinds(conf) {
 
   let table = document.getElementById("key-binding-table");
 
+  conf.sort(sortCommands)
   conf.forEach(binding => {
     if (binding.type == "exec") {
       binding.kbd  && keybinds.set("KBD-"  + binding.kbd  + "-Down", binding.command);
@@ -124,7 +134,11 @@ function listenForGmpdBinding(e) {
   freezeClic = true;
 }
 
+var userInputEnabled = true;
 function doInput(code, isDown, isGamepad) {
+
+  if (!userInputEnabled) { return; }
+  //if (code == "Slash") { debugConsole.open(); return; }
 
   if (listenFor && !listenFor.isGamepad && !isGamepad && isDown) {
 
@@ -144,7 +158,7 @@ function doInput(code, isDown, isGamepad) {
     listenFor = false;
     M.Toast.dismissAll();
 
-    fileSystem && writeKeybinds();
+    writeKeybinds();
 
   } else if (listenFor && listenFor.isGamepad && isGamepad && isDown) {
 
@@ -164,7 +178,7 @@ function doInput(code, isDown, isGamepad) {
     listenFor = false;
     M.Toast.dismissAll();
 
-    fileSystem && writeKeybinds();
+    writeKeybinds();
 
   } else {
 
@@ -196,27 +210,64 @@ function writeKeybinds() {
 
   });
   
-  let printPrettyJson = JSON.stringify(config.sort(sortCommands), null, 2).replace(/([\"|(null)|\{],?)\n/g, "$1");
-  fileSystem.writeTextFile(DEFAULT_KEYBIND_CONFIG_PATH, printPrettyJson, { dir: fileSystem.BaseDirectory.App })
+  config.sort(sortCommands)
+  let printPrettyJson = JSON.stringify(config, null, 2).replace(/([\"|(null)|\{],?)\n/g, "$1");
+
+  if (fileSystem) {
+    fileSystem.writeTextFile(DEFAULT_KEYBIND_CONFIG_PATH, printPrettyJson, { dir: fileSystem.BaseDirectory.App })
+  } else {
+    storageManager.persist("keybinds", printPrettyJson);
+  }
+  
 }
 
 function sortCommands(a,b) {
-  return a.type + commandToIndex(a.command) > b.type + commandToIndex(b.command);
+  return (a.type + commandToIndex(a.command) > b.type + commandToIndex(b.command)) ? 1: -1;
 }
 
 function commandToIndex(c) {
   switch(c) {
-    case "AKey": return "0";
-    case "BKey": return "1";
-    case "LKey": return "2";
-    case "RKey": return "3";
-    case "StartKey": return "4";
-    case "SelectKey": return "5";
-    case "UpKey": return "6";
-    case "DownKey": return "7";
-    case "LeftKey": return "8";
-    case "RightKey": return "9";
-    default: return c;
+    case "AKey"      : return 0;
+    case "BKey"      : return 1;
+    case "LKey"      : return 2;
+    case "RKey"      : return 3;
+    case "StartKey"  : return 4;
+    case "SelectKey" : return 5;
+    case "UpKey"     : return 6;
+    case "DownKey"   : return 7;
+    case "LeftKey"   : return 8;
+    case "RightKey"  : return 9;
+    case "SpeedUp"   : return 10;
+    case "Restart"   : return 11;
+    case "toggleMenu": return 12;
+    default: return 999;
+  }
+}
+
+function menuInput(c) {
+  switch(c) {
+    case "A"      : 
+    break;
+    case "B"      : 
+    break;
+    case "L"      :
+      M.Carousel.getInstance(document.getElementById('menuCarousel')).prev();
+    break;
+    case "R"      : 
+      M.Carousel.getInstance(document.getElementById('menuCarousel')).next();
+    break;
+    case "START"  : 
+    break;
+    case "SELECT" : 
+    break;
+    case "UP"     : 
+    break;
+    case "DOWN"   : 
+    break;
+    case "LEFT"   : 
+    break;
+    case "RIGHT"  : 
+    break;
   }
 }
 

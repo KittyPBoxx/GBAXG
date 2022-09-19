@@ -9,18 +9,20 @@
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  function getGameBoyAdvanceGraphicsRenderer(coreExposed, skippingBIOS) {
-     if (!coreExposed.offthreadGfxEnabled() || typeof SharedArrayBuffer != "function" || typeof Atomics != "object") {
-         return new GameBoyAdvanceGraphicsRenderer(coreExposed, skippingBIOS);
-     }
-     else {
-         try {
-			 //Some browsers don't allow webworkers via file:///
-			 return new GameBoyAdvanceGraphicsRendererShim(coreExposed, skippingBIOS);
-		 }
-		 catch (error) {
-			 return new GameBoyAdvanceGraphicsRenderer(coreExposed, skippingBIOS);
-		 }
-     }
+    // Disable all offthread stuff
+    return new GameBoyAdvanceGraphicsRenderer(coreExposed, skippingBIOS);
+    //  if (!coreExposed.offthreadGfxEnabled() || typeof SharedArrayBuffer != "function" || typeof Atomics != "object") {
+    //      return new GameBoyAdvanceGraphicsRenderer(coreExposed, skippingBIOS);
+    //  }
+    //  else {
+    //      try {
+	// 		 //Some browsers don't allow webworkers via file:///
+	// 		 return new GameBoyAdvanceGraphicsRendererShim(coreExposed, skippingBIOS);
+	// 	 }
+	// 	 catch (error) {
+	// 		 return new GameBoyAdvanceGraphicsRenderer(coreExposed, skippingBIOS);
+	// 	 }
+    //  }
  }
  function GameBoyAdvanceGraphicsRendererShim(coreExposed, skippingBIOS) {
      this.coreExposed = coreExposed;

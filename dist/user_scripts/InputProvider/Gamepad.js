@@ -4,50 +4,52 @@
  *              - gamecontroller.js
  */
 
-// gameControl.on('connect', gamepad => { 
+gameControl.on('connect', gamepad => { 
 
-//     gamepad.before('r1'      , () => { CommandExecutor.execute("RKeyDown"     )  });
-//     gamepad.after ('r1'      , () => { CommandExecutor.execute("RKeyUp"       )  });
- 
-//     gamepad.before('l1'      , () => { CommandExecutor.execute("LKeyDown"     )  });
-//     gamepad.after ('l1'      , () => { CommandExecutor.execute("LKeyUp"       )  });
- 
-//     gamepad.before('start'   , () => { CommandExecutor.execute("StartKeyDown" )  });
-//     gamepad.after ('start'   , () => { CommandExecutor.execute("StartKeyUp"   )  });
- 
-//     gamepad.before('select'  , () => { CommandExecutor.execute("SelectKeyDown")  });
-//     gamepad.after ('select'  , () => { CommandExecutor.execute("SelectKeyUp"  )  });
- 
-//     gamepad.before('button2' , () => { CommandExecutor.execute("AKeyDown"     )  });
-//     gamepad.after ('button2' , () => { CommandExecutor.execute("AKeyUp"       )  });
- 
-//     gamepad.before('button1' , () => { CommandExecutor.execute("BKeyDown"     )  });
-//     gamepad.after ('button1' , () => { CommandExecutor.execute("BKeyUp"       )  });
-
-//     /* Analog Stick */
-
-//     gamepad.before('up0'     , () => { CommandExecutor.execute("UpKeyDown"    )  });
-//     gamepad.after ('up0'     , () => { CommandExecutor.execute("UpKeyUp"      )  });
-
-//     gamepad.before('down0'   , () => { CommandExecutor.execute("DownKeyDown"  )  });
-//     gamepad.after ('down0'   , () => { CommandExecutor.execute("DownKeyUp"    )  });
-
-//     gamepad.before('left0'   , () => { CommandExecutor.execute("LeftKeyDown"  )  });
-//     gamepad.after ('left0'   , () => { CommandExecutor.execute("LeftKeyUp"    )  });
-
-//     gamepad.before('right0'  , () => { CommandExecutor.execute("RightKeyDown" )  });
-//     gamepad.after ('right0'  , () => { CommandExecutor.execute("RightKeyUp"   )  });
-// });
-
-/* TODO: Add re-binding capabilities */
-
-Controller.search({
-    settings: {
-        useAnalogAsDpad: "both"
+    for (var i = 0; i < gamepad.buttons; i++) {
+        const btnRef = "button" + i;
+        gamepad.before("button" + i, () => doInput(btnRef, true, true));
+        gamepad.after("button" + i, () => doInput(btnRef, false, true));
     }
+
+    for (var i = 0; i < gamepad.axes; i++) {
+
+        const upRef = "up" + i;
+        gamepad.before("up" + i, () => doInput(upRef, true, true));
+        gamepad.after("up" + i, () => doInput(upRef, false, true));
+
+        const downRef = "down" + i;
+        gamepad.before("down" + i, () => doInput(downRef, true, true));
+        gamepad.after("down" + i, () => doInput(downRef, false, true));
+
+        const leftRef = "left" + i;
+        gamepad.before("left" + i, () => doInput(leftRef, true, true));
+        gamepad.after("left" + i, () => doInput(leftRef, false, true));
+
+        const rightRef = "right" + i;
+        gamepad.before("right" + i, () => doInput(rightRef, true, true));
+        gamepad.after("right" + i, () => doInput(rightRef, false, true));
+    }
+
 });
 
-window.addEventListener('gc.button.press', e => doInput(e.detail.name, true, true), false);
-window.addEventListener('gc.button.release', e => doInput(e.detail.name, false, true), false);
 
 
+// Controller.search({
+//     settings: {
+//         useAnalogAsDpad: "both"
+//     }
+// });
+// window.addEventListener('gc.button.press', e => doInput(e.detail.name, true, true), false);
+// window.addEventListener('gc.button.release', e => doInput(e.detail.name, false, true), false);
+
+
+// joypad.set({
+//     axisMovementThreshold: 0.3,
+// });
+// joypad.on('connect', e => console.log(e));
+// joypad.on('button_press', e => doInput(e.detail, true, true));
+// joypad.on('button_release', e => doInput(e.detail.name, false, true));
+// joypad.on('axis_move', e => {
+//     console.log(e.detail);
+// });

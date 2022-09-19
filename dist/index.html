@@ -80,8 +80,10 @@
         <script src="user_scripts/CommandExecution/CommandExecutor.js"></script>
         <script src="user_scripts/CommandExecution/ButtonCommands.js"></script>
         <!-- Custom Input Providers -->
-        <!-- <script src="user_scripts/InputProvider/gamecontroller.js"></script> -->
-        <script src="user_scripts/InputProvider/Controller.js"></script>
+        <script src="user_scripts/InputProvider/gamecontroller.js"></script>
+        <!-- <script src="user_scripts/InputProvider/Controller.js"></script>
+        <script src="user_scripts/InputProvider/Controller.layouts.min.js"></script> -->
+        <!-- <script src="user_scripts/InputProvider/joypad.min.js"></script> -->
         <script src="user_scripts/InputProvider/Gamepad.js"></script>
 
         <!-- User Interface Outside Emulator -->
@@ -90,6 +92,14 @@
 
         <script src="ui/ClientUI.js"></script>
         <link rel="stylesheet" href="ui/UI.css">
+
+        <!-- Persitance -->
+        <script src="user_scripts/Persistence/dexie.min.js"></script>
+        <script src="user_scripts/Persistence/Storeage.js"></script>
+
+        <!-- Setup Initial Save Data -->
+        <script src="Randomiser/InitSaveData.js"></script>
+        <script id="lzutf8" src="user_scripts/Compression/lzutf8.min.js"></script>
 
         <!-- Config Defaults -->
         <script src="ApplicationData/Config/Keybind-Config.json.js"></script>
@@ -100,9 +110,9 @@
                 <div class="modal-content">
                   
                     <div class="carousel" id="menuCarousel">
-                      <a class="carousel-item" href="#one!">
+                      <a class="carousel-item" href="#roms!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">ROMS</h4><h5 class="right-menu-button">R</h5></div>
-                        <div class="menu-group hide">
+                        <!-- <div class="menu-group hide">
                             <div class="rom-header"><h5 class="bios-text">BIOS</h5><span class="rom-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
                                 <div class="btn-small">
@@ -113,13 +123,13 @@
                                   <input class="file-path validate" type="text">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="menu-group">
-                            <div class="rom-header"><h5 class="fr-text">FIRE RED</h5><span class="rom-status">(Not Loaded)</span></div>
+                            <div class="rom-header"><h5 class="fr-text">FIRE RED</h5><span class="rom-status" id="fr-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
-                                <div class="btn-small">
+                                <div class="btn-small" id="fr_btn">
                                   <span>File</span>
-                                  <input type="file" id="fr_rom_load">
+                                  <input type="file" id="fr_rom_load" accept=".gba">
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
@@ -127,11 +137,11 @@
                             </div>
                         </div>
                         <div class="menu-group">
-                            <div class="rom-header"><h5 class="c-text">CRYSTAL ADV.</h5><span class="rom-status">(Not Loaded)</span></div>
+                            <div class="rom-header"><h5 class="c-text">CRYSTAL ADV.</h5><span class="rom-status" id="c-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
-                                <div class="btn-small">
+                                <div class="btn-small" id="c_btn">
                                   <span>File</span>
-                                  <input type="file" id="c_rom_load">
+                                  <input type="file" id="c_rom_load" accept=".gba">
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
@@ -139,24 +149,36 @@
                             </div>
                         </div>
                         <div class="menu-group">
-                            <div class="rom-header"><h5 class="e-text">EMERALD</h5><span class="rom-status">(Not Loaded)</span></div>
+                            <div class="rom-header"><h5 class="e-text">EMERALD</h5><span class="rom-status" id="e-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
-                                <div class="btn-small">
+                                <div class="btn-small" id="e_btn">
                                   <span>File</span>
-                                  <input type="file" id="e_rom_load">
+                                  <input type="file" id="e_rom_load" accept=".gba">
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
                                 </div>
                             </div>
                         </div>
-                        <div class="menu-group start-group">
-                          <div class="btn-small right-align" id="play">
+                        <div class="menu-group start-group dividerless">
+                          <div class="file-field input-field bios-input">
+                            <div class="btn-small">
+                              <span>USE BIOS</span>
+                              <input type="file" id="bios_load">
+                            </div>
+                            <div class="file-path-wrapper hide">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
+                          <div class="btn-small right-align hide" id="reset">
+                            <span>RESET</span>
+                          </div>
+                          <div class="btn-small right-align disabled" id="play">
                             <span>START</span>
                           </div>
                         </div>
                       </a>
-                      <a class="carousel-item" href="#two!">
+                      <a class="carousel-item" href="#controls!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Controls</h4><h5 class="right-menu-button">R</h5></div>
                         <div class="key-binding-container">
                         <table id="key-binding-table">
@@ -168,17 +190,80 @@
                           </table>
                         </div>
                       </a>
-                      <a class="carousel-item" href="#three!">
-                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Saves States</h4><h5 class="right-menu-button">R</h5></div>
+                      <a class="carousel-item" href="#saves!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Saves</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="menu-group dividerless">
+                          <div class="btn-small right-align" id="eraseAll">
+                            <span>ERASE ALL</span>
+                          </div>
+                        </div>
                       </a>
-                      <a class="carousel-item" href="#four!">
-                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Audio / Video</h4><h5 class="right-menu-button">R</h5></div>
+                      <a class="carousel-item" href="#clock!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Clock</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">SEASON</h5></div>
+                          <ul class="collection">
+                            <li class="collection-item season" id="spring">SPRING</li>
+                            <li class="collection-item season active" id="summer">SUMMER</li>
+                            <li class="collection-item season" id="autumn">AUTUMN</li>
+                            <li class="collection-item season" id="winter">WINTER</li>
+                          </ul>
+                        </div>
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">TIME</h5></div>
+                          <ul class="collection">
+                            <li class="collection-item time" id="sunrise">SUNRISE</li>
+                            <li class="collection-item time high-tide active" id="day">DAY</li>
+                            <li class="collection-item time" id="sunset">SUNSET</li>
+                            <li class="collection-item time high-tide" id="night">NIGHT</li>
+                          </ul>
+                          <span class="high-tide tide-label">HIGH TIDE</span>
+                        </div> 
+                        <div class="switch">
+                          <span>USE SYSTEM</span>
+                          <label>
+                            Off
+                            <input type="checkbox" id="systemTimeCheckbox">
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
                       </a>
-                      <a class="carousel-item" href="#five!">
+                      <a class="carousel-item" href="#randmonise!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Randomise</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="switch random-warp">
+                          <span>RANDOM WARPS</span>
+                          <label>
+                            Off
+                            <input checked type="checkbox" id="enableWarpsCheckbox">
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
                       </a>
-                      <a class="carousel-item" href="#six!">
+                      <a class="carousel-item" href="#hacks!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Hacks</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">SPEEDUP AMOUNT</h5></div>
+                          <ul class="collection">
+                            <li class="collection-item speedup"        data-value="2">x2</li>
+                            <li class="collection-item speedup active" data-value="4">x4</li>
+                            <li class="collection-item speedup"        data-value="6">x6</li>
+                            <li class="collection-item speedup"        data-value="8">x8</li>
+                            <li class="collection-item speedup"        data-value="10">x10</li>
+                          </ul>
+                        </div> 
+                        <div class="menu-group">
+                          <div class="switch disable-walls">
+                            <span>DISABLE WALLS</span>
+                            <label>
+                              Off
+                              <input type="checkbox" id="disableWalls">
+                              <span class="lever"></span>
+                              On
+                            </label>
+                          </div>
+                        </div>
                       </a>
                     </div>
       
@@ -186,6 +271,12 @@
             </div>
             <div id="main">
                 <canvas class="canvas" id="emulator_target" width="240" height="160"></canvas>
+            </div>
+            <div id="console" class="modal bottom-sheet">
+              <div class="modal-content">
+                <span class="prefix console-prompt">&gt;</span>
+                <textarea id="consoleText" class="materialize-textarea">TODO: finish debug console</textarea>
+              </div>
             </div>
         </div>
     </body>

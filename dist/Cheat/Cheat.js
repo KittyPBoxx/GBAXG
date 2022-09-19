@@ -4,7 +4,8 @@
 
 // Ruby/Saphire (0x020297f0) 
 
-let isWarping = false
+var isWarping = false;
+var randomWarpsEnabled = true;
 
 
 const EMERALD_PARTY_OFFSET = 0x020244EC;
@@ -18,11 +19,11 @@ const PLAYER_PARTY_LENGTH = 0x258;
     if ((address == 0x2031dbe) && 
         (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))
     {
-        isWarping = true;
+        isWarping = randomWarpsEnabled;
     } 
     else if ((address == 0x20322e6) && IodineGUI.Iodine.IOCore.cartridge.romCode === "E") 
     {
-        isWarping = true;
+        isWarping = randomWarpsEnabled;
     }
 
     this.write8WithoutIntercept(address, data);
@@ -40,6 +41,7 @@ function PKWarp(trigger, romCode, d1, d2, d3) {
 let warpRedirections = new Map();
 warpRedirections.set('E1,1,0' , new PKWarp('E1,1,0', 'FR', 3, 0, 1));
 warpRedirections.set('FR3,0,1', new PKWarp('FR3,0,1', 'E', 1, 1, 0));
+warpRedirections.set('E1,2,2' , new PKWarp('E1,2,2', 'E', 1, 1, 0));
 
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
@@ -67,6 +69,9 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     let d2 = this.read8WithoutIntercept(address + 1);
     let d3 = this.read8WithoutIntercept(address + 2);
 
+    // Avoid scripted warps, route connections without zone e.t.c
+    if (d3 == 255) { return address; }
+
     let trigger = romCode + d1 + "," + d2 + "," + d3;
     let pkWarp = warpRedirections.get(trigger);
 
@@ -81,7 +86,7 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
         quickHideScreen();
         IodineGUI.Iodine.saveStateManager.loadState(pkWarp.toRomCode);
 
-        if (pkWarp.romCode == "E") {
+        if (pkWarp.toRomCode == "E") {
             this.write8(0x20322e4, pkWarp.toD1);
             this.write8(0x20322e5, pkWarp.toD2);
             this.write8(0x20322e6, pkWarp.toD3);
@@ -120,4 +125,22 @@ function spliceWRAM(address, length, data) {
     for (let i = 0; i<length; i++) {
         IodineGUI.Iodine.IOCore.memory.externalRAM[startAddress + i] = data[i];
     }
+}
+
+var walkThroughWalls = false;
+GameBoyAdvanceMultiCartridge.prototype.readROM16WithoutIntercept = GameBoyAdvanceMultiCartridge.prototype.readROM16;
+GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
+
+    if (!walkThroughWalls) { return this.readROM16WithoutIntercept(address); }
+
+    /* FireRed 1.0 and 1.1 have different addresses */
+    if ((address == 364098 || address == 364078) && this.romCode == "FR") { 
+        return 0x2100; 
+    } else if (address == 364078 && this.romCode == "C") {
+        return 0x2100; 
+    } else if (address == 601094 && this.romCode == "E") {
+        return 0x2000;
+    }
+    
+    return this.readROM16WithoutIntercept(address);
 }

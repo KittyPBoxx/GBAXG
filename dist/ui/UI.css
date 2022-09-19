@@ -139,6 +139,9 @@ h4 {
     align-items: baseline;
     gap: 10px;
 }
+.rom-header h5 {
+    opacity: 0.5;
+}
 span.rom-status {
     color: #919191;
     font-size: 1.8vh;
@@ -155,7 +158,7 @@ span.rom-status {
     overflow: auto;
     margin-bottom: 5vh;
 }
-.menu-group:not(.start-group):after {
+.menu-group:not(.dividerless):after {
     content: '';
     width: 85%;
     display: block;
@@ -163,6 +166,15 @@ span.rom-status {
     background: #c9c9c9;
     position: absolute;
     transform: translateY(8px);
+}
+.bios-input {
+    margin-right: auto;
+    opacity: 50%;
+}
+.bios-input .btn-small {
+    height: 32.4px;
+    line-height: 32.4px;
+    font-size: 13px;
 }
 .key-binding-container tr:nth-child(even) {
     background: #CCC;
@@ -181,6 +193,98 @@ span.rom-status {
     max-width: 100px !important;
     text-overflow: ellipsis !important;
     overflow: hidden !important;
+}
+
+.collection .collection-item {
+    display: inline-block;
+    color: #4a4a4a;
+}
+
+.high-tide {
+    position: relative;
+}
+
+.tide-label {
+    color: black;
+    font-size: 10px;
+    padding-left: 15px;
+}
+
+.high-tide::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0;
+    font-size: 10px;
+    background: #1e88e5;
+    transform: rotateZ(90deg);
+    border-right: 10px solid #1e88e5;
+    width: 10px;
+    height: 10px;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #c78484;
+}
+
+.switch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #4a4a4a;
+    margin-top: 3em;
+    margin-right: 3em;
+    gap: 10px;
+}
+
+.switch.random-warp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #4a4a4a;
+    margin-left: 3em;
+    margin-top: 1em;
+    gap: 10px;
+}
+
+.switch.disable-walls {
+    align-items: flex-start;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.collection {
+    border: none;
+}
+
+.switch label .lever,
+.switch label .lever::before,
+.switch label .lever::after
+{
+    border-radius: 0 !important;
+}
+
+#console {
+    background: black;
+    opacity: 40% !important;
+}
+
+#console .modal-content,
+#consoleText {
+    color: #FFF;
+    display: flex;
+    font-size: 20px;
+}
+
+#console .console-prompt{
+    font-size: 30px;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+#reset {
+    background: transparent;
+    color: black;
 }
 
 /* Scrollbars */
