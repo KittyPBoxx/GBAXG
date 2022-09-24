@@ -80,6 +80,7 @@
     margin-left: 50px;
 }
 
+
 .bios-text {
     color: #4a4a4a;
 }
@@ -255,6 +256,46 @@ span.rom-status {
 
 .collection {
     border: none;
+}
+
+.autosave.btn-small {
+    height: 32.4px;
+    line-height: 32.4px;
+    font-size: 13px;
+    color: black !important;
+    border: black solid 1px !important;
+    background: none !important;
+    box-shadow: rgb(129 129 129) 1px 1px 0px 1px !important;
+    margin-top: 5px !important;
+}
+
+#eraseAll {
+    margin-right: 50px;
+    margin-top: 2em;
+}
+
+.collection-item.save-state {
+    border-radius: 5px;
+    border: 1px solid #919191;
+    box-shadow: rgb(129 129 129) 1px 1px 0px 1px !important;
+    position: relative;
+    padding: 0;
+    height: 160px;
+}
+
+.btn-small.save-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #d3d3d3bf;
+    color: black;
+}
+.btn-small.load-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #d3d3d3bf;
+    color: black;
 }
 
 .switch label .lever,

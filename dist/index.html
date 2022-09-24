@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>X3-GMR</title>
+        <title>3GX-MR Pokemon</title>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=160">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -98,8 +98,11 @@
         <script src="user_scripts/Persistence/Storeage.js"></script>
 
         <!-- Setup Initial Save Data -->
-        <script src="Randomiser/InitSaveData.js"></script>
         <script id="lzutf8" src="user_scripts/Compression/lzutf8.min.js"></script>
+        <script src="Randomiser/InitSaveData.js"></script>
+        <script src="Randomiser/FireRedWarps.json.js"></script>
+        <script src="Randomiser/CrystalWarps.json.js"></script>
+        <script src="Randomiser/EmeraldWarps.json.js"></script>        
 
         <!-- Config Defaults -->
         <script src="ApplicationData/Config/Keybind-Config.json.js"></script>
@@ -192,7 +195,48 @@
                       </a>
                       <a class="carousel-item" href="#saves!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Saves</h4><h5 class="right-menu-button">R</h5></div>
-                        <div class="menu-group dividerless">
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">AUTOSAVES</h5></div>
+                          <ul class="collection">
+                            <li class="autosave btn-small" id="current">LATEST</li>
+                            <li class="autosave btn-small" id="exitFR">LAST KANTO</li>
+                            <li class="autosave btn-small" id="exitC">LAST JHOTO</li>
+                            <li class="autosave btn-small" id="exitE">LAST HOENN</li>
+                          </ul>
+                        </div>
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">SAVESTATES</h5></div>
+                          <ul class="collection">
+                            <li class="collection-item save-state" id="saveState1">
+                              <img id="saveState1Preiew" width="160" height="160" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="></img>
+                              <div class="btn-small save-btn" id="saveState1Save">
+                                <span>SAVE</span>
+                              </div>
+                              <div class="btn-small load-btn" id="saveState1Load">
+                                <span>LOAD</span>
+                              </div>
+                            </li>
+                            <li class="collection-item save-state" id="saveState2">
+                              <img id="saveState2Preiew" width="160" height="160" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="></img>
+                              <div class="btn-small save-btn" id="saveState2Save">
+                                <span>SAVE</span>
+                              </div>
+                              <div class="btn-small load-btn" id="saveState2Load">
+                                <span>LOAD</span>
+                              </div>
+                            </li>
+                            <li class="collection-item save-state" id="saveState3">
+                              <img id="saveState3Preiew" width="160" height="160" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="></img>
+                              <div class="btn-small save-btn" id="saveState3Save">
+                                <span>SAVE</span>
+                              </div>
+                              <div class="btn-small load-btn" id="saveState3Load">
+                                <span>LOAD</span>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="menu-group dividerless right-align">
                           <div class="btn-small right-align" id="eraseAll">
                             <span>ERASE ALL</span>
                           </div>

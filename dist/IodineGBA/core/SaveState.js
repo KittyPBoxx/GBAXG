@@ -2,12 +2,13 @@ function SaveStateManager(Iodine) {
     this.Iodine = Iodine;
     this.slot = [];
     this.initStoredStates(Iodine.ROM_CODES);
+    this.lastLoaded = null;
 }
 
-SaveStateManager.prototype.saveState = function (slot) {
+SaveStateManager.prototype.saveState = function (slot, warping = false) {
     let playing = this.Iodine.emulatorStatus <= 10;
     if (playing) this.Iodine.pause();
-    this.slot[slot] = new SaveState(this.Iodine.IOCore);
+    this.slot[slot] = new SaveState(this.Iodine.IOCore, warping);
     storageManager.persist("SS" + slot, this.slot[slot]);
     if (playing) this.Iodine.play();
 }
@@ -18,6 +19,7 @@ SaveStateManager.prototype.loadState = function (slot) {
     let speed = IodineGUI.Iodine.getSpeed()
     this.slot[slot].load(this.Iodine.IOCore);
     storageManager.persist("lastLoadedRom", slot);
+    this.lastLoaded = slot;
     let volume = IodineGUI.Iodine.audio.volume;
     IodineGUI.Iodine.audio.volume = 0;
     if (playing) this.Iodine.play();
@@ -34,10 +36,45 @@ SaveStateManager.prototype.initStoredStates = async function(slots) {
             save.load = SaveState.prototype.load;
             this.slot[slot] = save;
         }
-    })
+    });
 }
 
-function SaveState(IOCore) {
+SaveStateManager.prototype.saveMultiState = function (slot) {
+    let playing = this.Iodine.emulatorStatus <= 10;
+    if (playing) this.Iodine.pause();
+    let currentState = new SaveState(this.Iodine.IOCore, false);
+    let multiSave = new MultiSaveState(this.slot, this.lastLoaded, currentState);
+    storageManager.persist(slot, multiSave);
+    if (playing) this.Iodine.play();
+    return multiSave;
+}
+
+SaveStateManager.prototype.loadMultiState = function(slot) {
+    storageManager.find(slot).then(s => {
+        let playing = this.Iodine.emulatorStatus <= 10;
+        if (playing) this.Iodine.pause();
+
+        s.getSlot = MultiSaveState.prototype.getSlot;
+
+        this.slot["FR"] = s.getSlot("FR");
+        this.slot["C"] = s.getSlot("C");
+        this.slot["E"] = s.getSlot("E");
+
+        storageManager.persist("SS" + "FR", this.slot["FR"]);
+        storageManager.persist("SS" + "C", this.slot["C"]);
+        storageManager.persist("SS" + "E", this.slot["E"]);
+
+        this.slot[s.romCode].load(this.Iodine.IOCore);
+        storageManager.persist("lastLoadedRom", s.romCode);
+        this.lastLoaded = s.romCode;
+
+        if (playing) this.Iodine.play();
+    });
+}
+
+function SaveState(IOCore, warping) {
+
+    this.warping = warping;
 
     /* Cartridge Reference */
     this.romCode                   = structuredClone(IOCore.cartridge.romCode               );
@@ -263,6 +300,8 @@ function SaveState(IOCore) {
     this.interruptsEnabled             = structuredClone(IOCore.irq.interruptsEnabled       );
     this.interruptsRequested           = structuredClone(IOCore.irq.interruptsRequested     );
     this.IME                           = structuredClone(IOCore.irq.IME                     );
+
+if (!warping) {
 
     /* Video */
     this.renderedScanLine              = structuredClone(IOCore.gfxState.renderedScanLine   );
@@ -598,6 +637,7 @@ function SaveState(IOCore) {
     this.FIFOB.count                        = structuredClone(IOCore.sound.FIFOBBuffer.count                 );   
     this.FIFOB.position                     = structuredClone(IOCore.sound.FIFOBBuffer.position              );    
 
+}   
     /* Serial */
     this.JOYBUS_CNTL_FLAGS             = structuredClone(IOCore.serial.JOYBUS_CNTL_FLAGS         );
     this.JOYBUS_IRQ                    = structuredClone(IOCore.serial.JOYBUS_IRQ                );
@@ -923,6 +963,8 @@ SaveState.prototype.load = function (IOCore) {
     this.assign(IOCore.irq, "interruptsRequested"         ,this.interruptsRequested         );
     this.assign(IOCore.irq, "IME"                         ,this.IME                         );
 
+if(!this.warping) {
+
     /* Video */
     this.assign(IOCore.gfxState                             , "renderedScanLine"    ,this.renderedScanLine           );
     this.assign(IOCore.gfxState                             , "statusFlags"         ,this.statusFlags                );
@@ -932,7 +974,7 @@ SaveState.prototype.load = function (IOCore) {
     this.assign(IOCore.gfxState                             , "LCDTicks"            ,this.LCDTicks                   );
 
     this.assign(IOCore.gfxRenderer                          , "IOData8"             ,this.IOData8                    );
-
+    
     this.assign(IOCore.gfxRenderer.renderer, "displayControl"      ,this.renderer.displayControl    );
     this.assign(IOCore.gfxRenderer.renderer, "display"             ,this.renderer.display           );
     this.assign(IOCore.gfxRenderer.renderer, "greenSwap"           ,this.renderer.greenSwap         );
@@ -1232,6 +1274,8 @@ SaveState.prototype.load = function (IOCore) {
    this.assign(IOCore.sound.FIFOBBuffer, "count"                        , this.FIFOB.count                         );   
    this.assign(IOCore.sound.FIFOBBuffer, "position"                     , this.FIFOB.position                      );    
 
+} 
+
    /* Serial */
    this.assign(IOCore.serial, "JOYBUS_CNTL_FLAGS"        , this.JOYBUS_CNTL_FLAGS        );
    this.assign(IOCore.serial, "JOYBUS_IRQ"               , this.JOYBUS_IRQ               );
@@ -1314,4 +1358,80 @@ SaveState.prototype.load = function (IOCore) {
    this.assign(IOCore.saves.EEPROMChip, "largestSizePossible" , this.EEPROMChip.largestSizePossible);                
    this.assign(IOCore.saves.EEPROMChip, "mode"                , this.EEPROMChip.mode               ); 
    this.assign(IOCore.saves.EEPROMChip, "saves"               , this.EEPROMChip.saves              );  
+}
+
+
+function MultiSaveState(slot, currentRom, newSave) {
+    
+    if (currentRom == "FR") {
+
+        this.frSave = {} 
+        Object.assign(this.frSave, newSave);
+
+
+        this.cSave  = {}
+        Object.assign(this.cSave, slot["C"]);
+        this.cSave.assign = undefined;
+        this.cSave.load = undefined;
+
+
+        this.eSave  = {}
+        Object.assign(this.eSave, slot["E"]);
+        this.eSave.assign = undefined;
+        this.eSave.load = undefined;
+
+    } else if (currentRom == "C") {
+
+        this.frSave  = {}
+        Object.assign(this.frSave, slot["FR"]);
+
+        this.cSave = {} 
+        Object.assign(this.cSave, newSave);
+
+
+        this.eSave  = {}
+        Object.assign(this.eSave, slot["E"]);
+
+    } else if (currentRom == "E") {
+
+        this.frSave  = {}
+        Object.assign(this.frSave, slot["FR"]);
+        this.frSave.assign = undefined;
+        this.frSave.load = undefined;
+
+        this.cSave  = {}
+        Object.assign(this.cSave, slot["C"]);
+        this.cSave.assign = undefined;
+        this.cSave.load = undefined;
+
+        this.eSave = {} 
+        Object.assign(this.eSave, newSave);
+    }
+    
+    this.romCode = currentRom;
+    this.preview = createPreviewImage();
+}
+
+MultiSaveState.prototype.getSlot = function(slot) {
+    let saveState = {};
+    if (slot == "FR") {
+        Object.assign(saveState, this.frSave);
+    } else if (slot == "C") {
+        Object.assign(saveState, this.cSave);
+    }
+    else if (slot == "E") {
+        Object.assign(saveState, this.eSave);
+    }
+    saveState.assign = SaveState.prototype.assign;
+    saveState.load = SaveState.prototype.load;
+    return saveState;
+}
+
+function createPreviewImage() {
+    let canvas = document.createElement('canvas');
+    canvas.width = 160;
+    canvas.height = 160;
+    let ctx = canvas.getContext('2d');
+    ctx.drawImage(document.getElementById("emulator_target"), 0, 0, 160, 160);
+    return canvas.toDataURL('image/jpeg', 0.4);
 }

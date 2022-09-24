@@ -38,10 +38,16 @@ function PKWarp(trigger, romCode, d1, d2, d3) {
     this.toD3 = d3;
 }
 
+PKWarp.prototype.isInternal = function() {
+    return this.toRomCode[0] == this.trigger[0];
+}
+
 let warpRedirections = new Map();
 warpRedirections.set('E1,1,0' , new PKWarp('E1,1,0', 'FR', 3, 0, 1));
 warpRedirections.set('FR3,0,1', new PKWarp('FR3,0,1', 'E', 1, 1, 0));
 warpRedirections.set('E1,2,2' , new PKWarp('E1,2,2', 'E', 1, 1, 0));
+warpRedirections.set('E2,3,0' , new PKWarp('E2,3,0', 'C', 3, 0, 1));
+warpRedirections.set('C4,0,0' , new PKWarp('C2,0,1', 'E', 2, 2, 2));
 
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
@@ -78,34 +84,46 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     console.log("Warping triggered " + trigger); 
 
     if (pkWarp) {
+
         IodineGUI.Iodine.pause();
 
-        IodineGUI.Iodine.saveStateManager.saveState(romCode);
-
-        let partySlice = readWRAMSlice(IodineGUI.Iodine.IOCore.cartridge.romCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
-        quickHideScreen();
-        IodineGUI.Iodine.saveStateManager.loadState(pkWarp.toRomCode);
+        IodineGUI.Iodine.saveStateManager.saveState(romCode, true);
+        if (!pkWarp.isInternal()) {
+            let partySlice = readWRAMSlice(IodineGUI.Iodine.IOCore.cartridge.romCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
+            quickHideScreen();
+            quickSpeedUp(pkWarp.toRomCode == 'E' ? 300 : 500);
+            IodineGUI.Iodine.saveStateManager.loadState(pkWarp.toRomCode);
+            spliceWRAM(IodineGUI.Iodine.IOCore.cartridge.romCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
+        }
 
         if (pkWarp.toRomCode == "E") {
             this.write8(0x20322e4, pkWarp.toD1);
             this.write8(0x20322e5, pkWarp.toD2);
             this.write8(0x20322e6, pkWarp.toD3);
-            IodineGUI.Iodine.play();
             address = 0x20322e4;
         } else {
             this.write8(0x2031dbc, pkWarp.toD1);
             this.write8(0x2031dbd, pkWarp.toD2);
             this.write8(0x2031dbe, pkWarp.toD3);
-            IodineGUI.Iodine.play();
             address = 0x2031dbc;
         }
-        spliceWRAM(IodineGUI.Iodine.IOCore.cartridge.romCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
 
         IodineGUI.Iodine.play();
+
     }
 
     isWarping = false;
     return address;
+}
+
+// TODO: Better handling of different speeds
+async function quickSpeedUp(duration) {
+    let currentSpeed = IodineGUI.Iodine.getSpeed();
+    IodineGUI.Iodine.setSpeed(4);
+    IodineGUI.mixerInput.volume = 0.0
+    await delay(duration);
+    IodineGUI.Iodine.setSpeed(currentSpeed);
+    IodineGUI.mixerInput.volume = 0.1
 }
 
 function quickHideScreen() {
@@ -128,13 +146,24 @@ function spliceWRAM(address, length, data) {
 }
 
 var walkThroughWalls = false;
+var frOffset = 364078; // set to 364098 for 1.1 version
+
+GameBoyAdvanceMultiCartridge.prototype.initializeWithoutIntercept = GameBoyAdvanceMultiCartridge.prototype.initialize;
+GameBoyAdvanceMultiCartridge.prototype.initialize = function (startingRom) {
+    this.initializeWithoutIntercept(startingRom);
+
+    // if 0x(80000)BC == 1 then we have US 1.1 instead of US 1.0
+    if (this.cartriges.get("FR") && this.cartriges.get("FR").ROM[0xBC]) {
+        frOffset = 364098
+    }
+} 
+
 GameBoyAdvanceMultiCartridge.prototype.readROM16WithoutIntercept = GameBoyAdvanceMultiCartridge.prototype.readROM16;
 GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
 
     if (!walkThroughWalls) { return this.readROM16WithoutIntercept(address); }
 
-    /* FireRed 1.0 and 1.1 have different addresses */
-    if ((address == 364098 || address == 364078) && this.romCode == "FR") { 
+    if (address == frOffset && this.romCode == "FR") { 
         return 0x2100; 
     } else if (address == 364078 && this.romCode == "C") {
         return 0x2100; 

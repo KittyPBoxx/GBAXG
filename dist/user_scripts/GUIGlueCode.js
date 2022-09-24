@@ -44,68 +44,78 @@ function registerGUIEvents() {
         IodineGUI.Iodine.enableAudio();
         IodineGUI.Iodine.audio.volume = 0.1;
         initAndStart();
-    })
+    });
     addEvent("click", document.getElementById("reset"), () => {
-        toggleMenu(); 
+        toggleMenu();
+        IodineGUI.Iodine.NEXT_ROM = IodineGUI.Iodine.IOCore.cartridge.romCode;
         IodineGUI.Iodine.restart();
-    })
+    });
     addEvent("click", document.getElementById("eraseAll"), () => {
         localStorage.clear();
         storageManager.delete("lastLoadedRom");
+
+        storageManager.delete("MS1");
+        storageManager.delete("MS2");
+        storageManager.delete("MS3");
+
+        document.getElementById("saveState1Preiew").src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+        document.getElementById("saveState2Preiew").src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+        document.getElementById("saveState3Preiew").src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+
         storageManager.delete("SSFR");
         storageManager.delete("SSC");
         storageManager.delete("SSE").then(() => location.reload(), () => location.reload());
-    })
+    });
 
     /* SEASON BUTTONS */
     addEvent("click", document.getElementById("spring"), () => {
         document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getMonth = () => { return 4; }
         document.getElementById("spring").classList.add("active");
-    })
+    });
     addEvent("click", document.getElementById("summer"), () => {
         document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getMonth = () => { return 7; }
         document.getElementById("summer").classList.add("active");
-    })
+    });
     addEvent("click", document.getElementById("autumn"), () => {
         document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getMonth = () => { return 10; }
         document.getElementById("autumn").classList.add("active");
-    })
+    });
     addEvent("click", document.getElementById("winter"), () => {
         document.querySelectorAll(".season").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getMonth = () => { return 1; }
         document.getElementById("winter").classList.add("active");
-    })
+    });
 
     /* TIME BUTONS */
     addEvent("click", document.getElementById("sunrise"), () => {
         document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getHour = () =>  { return 6; }
         document.getElementById("sunrise").classList.add("active");
-    })
+    });
     addEvent("click", document.getElementById("day"), () => {
         document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getHour = () =>  { return 13; }
         document.getElementById("day").classList.add("active");
-    })
+    });
     addEvent("click", document.getElementById("sunset"), () => {
         document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getHour = () =>  { return 18; }
         document.getElementById("sunset").classList.add("active");
-    })
+    });
     addEvent("click", document.getElementById("night"), () => {
         document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));
         GameBoyAdvanceRTC.prototype.getHour = () =>  { return 23; }
         document.getElementById("night").classList.add("active");
-    })
+    });
 
     /* SYSTEM TIME TOGGLE */
     addEvent("click", document.getElementById("systemTimeCheckbox"), () => {
         const shouldUseSystemTime = document.getElementById("systemTimeCheckbox").checked;
         GameBoyAdvanceRTC.prototype.useSystemTime = () =>  { return shouldUseSystemTime; }
-    })
+    });
 
 
     addEvent("click", document.getElementById("enableWarpsCheckbox"), () => {
@@ -115,7 +125,7 @@ function registerGUIEvents() {
 
     addEvent("click", document.getElementById("disableWalls"), () => {
         walkThroughWalls = document.getElementById("disableWalls").checked;
-    })
+    });
 
     document.querySelectorAll(".speedup").forEach(e => {
         addEvent("click", e, () => {
@@ -124,7 +134,51 @@ function registerGUIEvents() {
             e.classList.add("active")
             IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? 1 : speedUpSpeed)
         })
-    })
+    });
+
+
+    addEvent("click", document.getElementById("current"), () => {
+        loadedAndStarted = false;
+        initAndStart();
+    });
+    addEvent("click", document.getElementById("exitFR"), () => {
+        loadedAndStarted = false;
+        delayedSaveStateLoad("FR");
+    });
+    addEvent("click", document.getElementById("exitC"), () => {
+        loadedAndStarted = false;
+        delayedSaveStateLoad("C");
+    });
+    addEvent("click", document.getElementById("exitE"), () => {
+        loadedAndStarted = false;
+        delayedSaveStateLoad("E");
+    });
+
+
+    addEvent("click", document.getElementById("saveState1Save"), () => {
+        let preview = IodineGUI.Iodine.saveStateManager.saveMultiState("MS1").preview;
+        document.getElementById("saveState1Preiew").src = preview;
+    });
+    addEvent("click", document.getElementById("saveState1Load"), () => {
+        IodineGUI.Iodine.saveStateManager.loadMultiState("MS1");
+        toggleMenu(); 
+    });
+    addEvent("click", document.getElementById("saveState2Save"), () => {
+        let preview = IodineGUI.Iodine.saveStateManager.saveMultiState("MS2").preview;
+        document.getElementById("saveState2Preiew").src = preview;
+    });
+    addEvent("click", document.getElementById("saveState2Load"), () => {
+        IodineGUI.Iodine.saveStateManager.loadMultiState("MS2");
+        toggleMenu(); 
+    });
+    addEvent("click", document.getElementById("saveState3Save"), () => {
+        let preview = IodineGUI.Iodine.saveStateManager.saveMultiState("MS3").preview;
+        document.getElementById("saveState3Preiew").src = preview;
+    });
+    addEvent("click", document.getElementById("saveState3Load"), () => {
+        IodineGUI.Iodine.saveStateManager.loadMultiState("MS3");
+        toggleMenu(); 
+    });
 
     // //Catch any play status changes:
     // IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);
