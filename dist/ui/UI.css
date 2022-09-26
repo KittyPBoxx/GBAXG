@@ -248,6 +248,31 @@ span.rom-status {
     gap: 10px;
 }
 
+.random-row {
+    display: flex;
+    color: #4a4a4a;
+}
+.random-row .input-field {
+    padding-top: 1em;
+    width: 200px;
+}
+
+.random-row .input-field #input_seed_text{
+    font-family: 'RetroGaming';
+    height: 2.2rem;
+}
+
+.remap-btn {
+    align-self: center;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: 5em;
+}
+
+#underRandomise {
+    margin-top: 1em;
+}
+
 .switch.disable-walls {
     align-items: flex-start;
     margin-top: 1.5em;
@@ -266,7 +291,7 @@ span.rom-status {
     border: black solid 1px !important;
     background: none !important;
     box-shadow: rgb(129 129 129) 1px 1px 0px 1px !important;
-    margin-top: 5px !important;
+    margin-bottom: 2px;
 }
 
 #eraseAll {

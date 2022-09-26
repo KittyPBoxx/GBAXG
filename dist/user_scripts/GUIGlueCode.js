@@ -180,6 +180,12 @@ function registerGUIEvents() {
         toggleMenu(); 
     });
 
+    addEvent("click", document.getElementById("remapWarps"), () => {
+        let seed = document.getElementById("input_seed_text").value;
+        setValue("warp_seed", seed);
+        mapWarps(seed);
+    });
+
     // //Catch any play status changes:
     // IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);
     // //Add DOM events:
@@ -438,6 +444,13 @@ function registerGUIEvents() {
     //     addEvent("webkitvisibilitychange", document, webkitVisibilityChangeHandle);
     // }
     //Run on init as well:
+
+    let startingSeed = findValue("warp_seed");
+    startingSeed = !startingSeed ? "KITTY" : startingSeed;
+    document.getElementById("input_seed_text").value = startingSeed;
+    mapWarps(startingSeed);
+    
+
     resizeCanvasFunc();
 }
 function registerDefaultSettings() {

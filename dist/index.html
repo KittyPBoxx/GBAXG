@@ -100,9 +100,11 @@
         <!-- Setup Initial Save Data -->
         <script id="lzutf8" src="user_scripts/Compression/lzutf8.min.js"></script>
         <script src="Randomiser/InitSaveData.js"></script>
+        <!-- Randomisation -->
         <script src="Randomiser/FireRedWarps.json.js"></script>
         <script src="Randomiser/CrystalWarps.json.js"></script>
-        <script src="Randomiser/EmeraldWarps.json.js"></script>        
+        <script src="Randomiser/EmeraldWarps.json.js"></script> 
+        <script src="Randomiser/Randomisation.js"></script>
 
         <!-- Config Defaults -->
         <script src="ApplicationData/Config/Keybind-Config.json.js"></script>
@@ -275,15 +277,25 @@
                       </a>
                       <a class="carousel-item" href="#randmonise!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Randomise</h4><h5 class="right-menu-button">R</h5></div>
-                        <div class="switch random-warp">
-                          <span>RANDOM WARPS</span>
-                          <label>
-                            Off
-                            <input checked type="checkbox" id="enableWarpsCheckbox">
-                            <span class="lever"></span>
-                            On
-                          </label>
+                        <div class="random-row">
+                          <div class="switch random-warp">
+                            <span>RANDOM WARPS</span>
+                            <label>
+                              Off
+                              <input checked type="checkbox" id="enableWarpsCheckbox">
+                              <span class="lever"></span>
+                              On
+                            </label>
+                          </div>
+                          <div class="input-field col s6">
+                            <span>SEED</span>
+                            <input id="input_seed_text" type="text" value="KITTY" data-length="10">
+                          </div>
+                          <div class="btn-small remap-btn" id="remapWarps">
+                            <span>REMAP</span>
+                          </div>
                         </div>
+                        <div class="menu-group" id="underRandomise"></div>
                       </a>
                       <a class="carousel-item" href="#hacks!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Hacks</h4><h5 class="right-menu-button">R</h5></div>

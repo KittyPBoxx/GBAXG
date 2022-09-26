@@ -42,13 +42,6 @@ PKWarp.prototype.isInternal = function() {
     return this.toRomCode[0] == this.trigger[0];
 }
 
-let warpRedirections = new Map();
-warpRedirections.set('E1,1,0' , new PKWarp('E1,1,0', 'FR', 3, 0, 1));
-warpRedirections.set('FR3,0,1', new PKWarp('FR3,0,1', 'E', 1, 1, 0));
-warpRedirections.set('E1,2,2' , new PKWarp('E1,2,2', 'E', 1, 1, 0));
-warpRedirections.set('E2,3,0' , new PKWarp('E2,3,0', 'C', 3, 0, 1));
-warpRedirections.set('C4,0,0' , new PKWarp('C2,0,1', 'E', 2, 2, 2));
-
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
 
@@ -78,8 +71,8 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     // Avoid scripted warps, route connections without zone e.t.c
     if (d3 == 255) { return address; }
 
-    let trigger = romCode + d1 + "," + d2 + "," + d3;
-    let pkWarp = warpRedirections.get(trigger);
+    let trigger = romCode + "," + d1 + "," + d2 + "," + d3;
+    let pkWarp = warpList.get(trigger);
 
     console.log("Warping triggered " + trigger); 
 
@@ -172,4 +165,22 @@ GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
     }
     
     return this.readROM16WithoutIntercept(address);
+}
+
+
+//0x0300500C - Fire Red / Gender
+//0x03005d90 - Player Name / Gender
+function DynamicMemory2Slice(dynamicPointer, offsetInDynamic, length) {
+    let dynamicBlock = readInternalWRAM32(dynamicPointer - 0x3000000);
+    let startAddress = (dynamicBlock + offsetInDynamic - 0x02000000);
+    let endAddress = startAddress + length;
+    return IodineGUI.Iodine.IOCore.memory.externalRAM.slice(startAddress, endAddress);    
+}
+
+function DynamicMemory2Splice(dynamicPointer, offsetInDynamic, length, data) {
+    let dynamicBlock = readInternalWRAM32(dynamicPointer - 0x3000000);
+    let startAddress = (dynamicBlock + offsetInDynamic - 0x02000000);
+    for (let i = 0; i<length; i++) {
+        IodineGUI.Iodine.IOCore.memory.externalRAM[startAddress + i] = data[i];
+    }
 }
