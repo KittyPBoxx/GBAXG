@@ -2,7 +2,7 @@ var firstPlay = true;
 
 async function doSaveStateInit(code) {
     if (code == "FR") {
-        storageManager.find("SS" + code).then(e => { /* DO NOTHING */}, e => { /* DO NOTHING */}); // We can start FireRed without init or a prior save
+        storageManager.find("SS" + code).then(crystalReady, e => initNewSaveState("FR"))
     } else if (code == "C") {
         storageManager.find("SS" + code).then(crystalReady, e => initNewSaveState("C"));
     } else if (code == "E") {
@@ -50,6 +50,8 @@ function initNewSaveState(code) {
                 crystalReady();
             } else if (romCode == "E") {
                 emeraldReady();
+            } else if (romCode == "FR") {
+                fireRedReady();
             }
 
             injectSaveCode = null;
@@ -132,6 +134,13 @@ function startForCode(code) {
     } else {
         IodineGUI.Iodine.play();
     }
+}
+
+function fireRedReady() {
+    document.getElementById("fr_btn").classList.remove("disabled");
+    document.getElementById("e_btn").classList.remove("disabled");
+    document.getElementById("play").classList.remove("disabled"); 
+    document.getElementById("fr-status").innerHTML = "(Ready)";  
 }
 
 function crystalReady() {

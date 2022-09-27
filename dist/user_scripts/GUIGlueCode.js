@@ -12,28 +12,48 @@ function registerGUIEvents() {
 
     addEvent("change", document.getElementById("fr_rom_load"), e => {
         fileLoadROM(e.target.files, "FR")
-        document.getElementById("play").classList.remove("disabled");  
-        document.getElementById("fr-status").innerHTML = "(Ready)";  
+
+        if (document.getElementById("FRAutoInit").checked) {
+            document.getElementById("c_btn").classList.add("disabled");
+            document.getElementById("e_btn").classList.add("disabled");
+            document.getElementById("play").classList.add("disabled"); 
+            document.getElementById("fr-status").innerHTML = "(Initialising...)";  
+    
+            doSaveStateInit("FR");
+        } else {
+            document.getElementById("play").classList.remove("disabled");  
+            document.getElementById("fr-status").innerHTML = "(Ready)";  
+        }
     });
     addEvent("change", document.getElementById("c_rom_load"), e => {
         fileLoadROM(e.target.files, "C")
 
-        document.getElementById("fr_btn").classList.add("disabled");
-        document.getElementById("e_btn").classList.add("disabled");
-        document.getElementById("play").classList.add("disabled"); 
-        document.getElementById("c-status").innerHTML = "(Initialising...)";  
+        if (document.getElementById("CAutoInit").checked) {
+            document.getElementById("fr_btn").classList.add("disabled");
+            document.getElementById("e_btn").classList.add("disabled");
+            document.getElementById("play").classList.add("disabled"); 
+            document.getElementById("c-status").innerHTML = "(Initialising...)";  
 
-        doSaveStateInit("C");
+            doSaveStateInit("C");
+        } else {
+            document.getElementById("play").classList.remove("disabled");  
+            document.getElementById("c-status").innerHTML = "(Ready)";  
+        }
     });
     addEvent("change", document.getElementById("e_rom_load"), e => {
         fileLoadROM(e.target.files, "E")
         
-        document.getElementById("fr_btn").classList.add("disabled");
-        document.getElementById("c_btn").classList.add("disabled");
-        document.getElementById("play").classList.add("disabled"); 
-        document.getElementById("e-status").innerHTML = "(Initialising...)";  
+        if (document.getElementById("EAutoInit").checked) {
+            document.getElementById("fr_btn").classList.add("disabled");
+            document.getElementById("c_btn").classList.add("disabled");
+            document.getElementById("play").classList.add("disabled"); 
+            document.getElementById("e-status").innerHTML = "(Initialising...)";  
 
-        doSaveStateInit("E");
+            doSaveStateInit("E");
+        } else {
+            document.getElementById("play").classList.remove("disabled");  
+            document.getElementById("e-status").innerHTML = "(Ready)";  
+        }
     });
     addEvent("change", document.getElementById("bios_load"), fileLoadBIOS);
   
@@ -184,6 +204,44 @@ function registerGUIEvents() {
         let seed = document.getElementById("input_seed_text").value;
         setValue("warp_seed", seed);
         mapWarps(seed);
+    });
+
+    addEvent("click", document.getElementById("FRShown"), () => {
+        let elmnt = document.getElementById("fr-group");
+        elmnt.classList.contains("hide") ? elmnt.classList.remove("hide") : elmnt.classList.add("hide");
+    });
+
+    addEvent("click", document.getElementById("CShown"), () => {
+        let elmnt = document.getElementById("c-group");
+        elmnt.classList.contains("hide") ? elmnt.classList.remove("hide") : elmnt.classList.add("hide");
+    });
+
+    addEvent("click", document.getElementById("EShown"), () => {
+        let elmnt = document.getElementById("e-group");
+        elmnt.classList.contains("hide") ? elmnt.classList.remove("hide") : elmnt.classList.add("hide");
+    });
+
+    addEvent("click", document.getElementById("FRBoot"), () => {
+        IodineGUI.NEXT_ROM = "FR";
+        document.querySelectorAll(".bootRadio").forEach(e => e.removeAttribute("checked"));
+        document.getElementById("FRBoot").setAttribute("checked", true);
+    });
+
+    addEvent("click", document.getElementById("CBoot"), () => {
+        IodineGUI.NEXT_ROM = "C";
+        document.querySelectorAll(".bootRadio").forEach(e => e.removeAttribute("checked"));
+        document.getElementById("CBoot").setAttribute("checked",  true);
+    });
+
+    addEvent("click", document.getElementById("EBoot"), () => {
+        IodineGUI.NEXT_ROM = "E";
+        document.querySelectorAll(".bootRadio").forEach(e => e.removeAttribute("checked"));
+        document.getElementById("EBoot").setAttribute("checked", true);
+    });
+
+    addEvent("click", document.getElementById("opts"), () => {
+        let elmnt = document.getElementById("opts-table");
+        elmnt.classList.contains("hide") ? elmnt.classList.remove("hide") : elmnt.classList.add("hide");
     });
 
     // //Catch any play status changes:

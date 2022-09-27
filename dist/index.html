@@ -129,7 +129,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="menu-group">
+                        <div class="menu-group" id="fr-group">
                             <div class="rom-header"><h5 class="fr-text">FIRE RED</h5><span class="rom-status" id="fr-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
                                 <div class="btn-small" id="fr_btn">
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="menu-group">
+                        <div class="menu-group" id="c-group">
                             <div class="rom-header"><h5 class="c-text">CRYSTAL ADV.</h5><span class="rom-status" id="c-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
                                 <div class="btn-small" id="c_btn">
@@ -153,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="menu-group">
+                        <div class="menu-group" id="e-group">
                             <div class="rom-header"><h5 class="e-text">EMERALD</h5><span class="rom-status" id="e-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
                                 <div class="btn-small" id="e_btn">
@@ -175,12 +175,86 @@
                               <input class="file-path validate" type="text">
                             </div>
                           </div>
+                          <div class="btn-small menu-plain" id="opts">
+                            <span>OPTS</span>
+                          </div>
                           <div class="btn-small right-align hide" id="reset">
                             <span>RESET</span>
                           </div>
                           <div class="btn-small right-align disabled" id="play">
                             <span>START</span>
                           </div>
+                        </div>
+                        <div class="menu-group start-group dividerless opts-table hide" id="opts-table">
+                          <table>
+                            <tbody>
+                            <tr>
+                              <td>FR</td>
+                              <td>
+                                <label>
+                                  <input type="checkbox" id="FRAutoInit"/>
+                                  <span>Auto_Init</span>
+                                </label>
+                              </td>
+                              <td>
+                                <label>
+                                  <input type="checkbox" id="FRShown" checked/>
+                                  <span>Shown</span>
+                                </label>
+                              </td>
+                              <td>
+                                <label>
+                                  <input type="radio" class="bootRadio" name="group1" id="FRBoot" checked />
+                                  <span>Boot</span>
+                                </label>
+                              </td>
+                              </tr>
+                            <tr>
+                              <td>C</td>
+                              <td>
+                                <label>
+                                  <input type="checkbox" id="CAutoInit" checked/>
+                                  <span>Auto_Init</span>
+                                </label>
+                              </td>
+                              <td>
+                                <label>
+                                  <input type="checkbox" id="CShown" checked/>
+                                  <span>Shown</span>
+                                </label>
+                              </td>
+                              <td>
+                                <label>
+                                  <input type="radio" class="bootRadio" name="group1" id="CBoot"/>
+                                  <span>Boot</span>
+                                </label>
+                              </td>
+                              </tr>
+                            </tr>
+                            <tr>
+                              <td>E</td>
+                              <td>
+                                <label>
+                                  <input type="checkbox" id="EAutoInit" checked/>
+                                  <span>Auto_Init</span>
+                                </label>
+                              </td>
+                              <td>
+                                <label>
+                                  <input type="checkbox" id="EShown" checked/>
+                                  <span>Shown</span>
+                                </label>
+                              </td>
+                              <td>
+                                <label>
+                                  <input type="radio" class="bootRadio" name="group1" id="EBoot"/>
+                                  <span>Boot</span>
+                                </label>
+                              </td>
+                              </tr>
+                            </tr>
+                            </tbody>
+                            </table>
                         </div>
                       </a>
                       <a class="carousel-item" href="#controls!">

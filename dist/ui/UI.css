@@ -170,12 +170,14 @@ span.rom-status {
 }
 .bios-input {
     margin-right: auto;
-    opacity: 50%;
+    filter: contrast(0.75) brightness(2);
+    margin-right: 2em;
 }
 .bios-input .btn-small {
     height: 32.4px;
     line-height: 32.4px;
     font-size: 13px;
+    margin-right: 0;
 }
 .key-binding-container tr:nth-child(even) {
     background: #CCC;
@@ -351,6 +353,45 @@ span.rom-status {
 #reset {
     background: transparent;
     color: black;
+}
+
+#opts {
+    margin-right: auto;
+}
+
+.btn-small.menu-plain {
+    background: transparent;
+    color: black;
+    border: 1px black solid;
+    width: 6em;
+    box-shadow: none;
+}
+
+.opts-table {
+    margin-top: 1.5em;
+    color: black;
+}
+
+.opts-table table {
+    width: 20em;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+.carousel-item {
+    overflow: auto;
+}
+
+.carousel-item  td {
+    padding: 7px 5px;
+}
+
+.carousel-item .opts-table td:first-child {
+    border-right: 1px solid #919191;
+}
+
+.carousel-item [type="checkbox"]+span:not(.lever) {
+    padding-left: 25px;
 }
 
 /* Scrollbars */
