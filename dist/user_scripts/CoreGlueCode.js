@@ -89,7 +89,7 @@ window.onload = function () {
     //Register the GUI controls.
     registerGUIEvents();
     //Register GUI settings.
-    registerGUISettings();
+    //registerGUISettings();
 }
 function registerIodineHandler() {
     try {

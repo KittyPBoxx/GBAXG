@@ -60,6 +60,7 @@
         <script src="IodineGBA/core/MultiCartridge.js"></script>
         <!-- Enable Cheats in Iodine -->
         <script src="Cheat/Cheat.js"></script>
+        <script src="Cheat/ItemData.js"></script>
         <link rel="stylesheet" href="user_css/cheat.css">
         <!-- Core UI / Binding Scripts Scripts-->
         <script src="user_scripts/AudioGlueCode.js"></script>
@@ -88,7 +89,7 @@
 
         <!-- User Interface Outside Emulator -->
         <link rel="stylesheet" href="ui/materialize.min.css">
-        <script src="ui/materialize.min.js"></script>
+        <script src="ui/materialize.js"></script>
 
         <script src="ui/ClientUI.js"></script>
         <link rel="stylesheet" href="ui/UI.css">
@@ -384,14 +385,29 @@
                           </ul>
                         </div> 
                         <div class="menu-group">
-                          <div class="switch disable-walls">
-                            <span>DISABLE WALLS</span>
-                            <label>
-                              Off
-                              <input type="checkbox" id="disableWalls">
-                              <span class="lever"></span>
-                              On
-                            </label>
+                          <div class="random-row">
+                            <div class="switch disable-walls">
+                              <span>DISABLE WALLS</span>
+                              <label>
+                                Off
+                                <input type="checkbox" id="disableWalls">
+                                <span class="lever"></span>
+                                On
+                              </label>
+                            </div>
+                            <div class="input-field col s6 item-inputs">
+                              <span>ITEM</span>
+                              <input  id="autocomplete-items" autocomplete="off" class="autocomplete" type="text" value="Poké Ball" data-length="25">
+                            </div>
+                            <div class="input-field col s6 item-quantity" id="item-quantity">
+                              <span>QUANTITY</span>
+                              <input id="item-quantity-input" type="number" value="1" min="1" max="99" data-length="2">
+                              <span class="number-spinner number-spinner-inc" id="item-quantity-input-inc"></span>
+                              <span class="number-spinner number-spinner-dec" id="item-quantity-input-dec"></span>
+                            </div>
+                            <div class="btn-small remap-btn" id="addToBag">
+                              <span>ADD TO BAG</span>
+                            </div>
                           </div>
                         </div>
                       </a>

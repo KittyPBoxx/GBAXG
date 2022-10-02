@@ -244,6 +244,54 @@ function registerGUIEvents() {
         elmnt.classList.contains("hide") ? elmnt.classList.remove("hide") : elmnt.classList.add("hide");
     });
 
+
+    addEvent("click", document.getElementById("addToBag"), () => {
+        let itemName = document.getElementById("autocomplete-items").value;
+        let quant = document.getElementById("item-quantity-input").value;
+        let item = ITEM_DATA[itemName];
+
+        let bag = new BagStoreage();
+        bag.readData(IodineGUI.Iodine.IOCore.cartridge.romCode);
+
+        switch(item.pocket) {
+            case "balls"    : bag.ballItemPocket.set(item.number, quant); break;
+            case "item"     : bag.itemPocket.set(item.number, quant); break;
+            case "berries " : bag.berryPocket.set(item.number, quant); break;
+            case "key"      : bag.keyItemsPocket.set(item.number, quant); break;
+            case "tmhm"     : bag.tmCase.set(item.number, quant); break;
+        }
+
+        bag.writeData(IodineGUI.Iodine.IOCore.cartridge.romCode);
+    });
+
+    addEvent("click", document.getElementById("item-quantity-input-inc"), () => {
+        let elmnt = document.getElementById("item-quantity-input");
+        let max = elmnt.getAttribute("max");
+        let value = elmnt.getAttribute("value");
+        let newValue = Math.min(+value + 1, max);
+        elmnt.setAttribute("value", newValue)
+        elmnt.value = newValue;
+    });
+
+    addEvent("click", document.getElementById("item-quantity-input-dec"), () => {
+        let elmnt = document.getElementById("item-quantity-input");
+        let min = elmnt.getAttribute("min");
+        let value = elmnt.getAttribute("value");
+        let newValue = Math.max(+value - 1, min);
+        elmnt.setAttribute("value", newValue)
+        elmnt.value = newValue;
+    });
+
+
+    document.getElementById("item-quantity-input").addEventListener('input', (e) => {
+        let elmnt = e.target;
+        let value = elmnt.value;
+        let newValue = Math.max(+value, elmnt.getAttribute("min"));
+        newValue = Math.min(+value, elmnt.getAttribute("max"));
+        elmnt.setAttribute("value", newValue)
+        elmnt.value = newValue;
+    });
+
     // //Catch any play status changes:
     // IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);
     // //Add DOM events:
@@ -685,7 +733,7 @@ function saveKeyBindings() {
     setValue("key_playpause", IodineGUI.defaults.keyZonesControl[6] | 0);
     setValue("key_restart", IodineGUI.defaults.keyZonesControl[7] | 0);
 }
-function registerGUISettings() {
+// function registerGUISettings() {
     // document.getElementById("sound").checked = IodineGUI.defaults.sound;
     // if (IodineGUI.defaults.sound) {
     //     IodineGUI.Iodine.enableAudio();
@@ -712,7 +760,7 @@ function registerGUISettings() {
     //     document.getElementById("offthread-gpu").disabled = true;
     //     document.getElementById("offthread-cpu").disabled = true;
     // }
-}
+// }
 function updatePlayButton(isPlaying) {
     isPlaying = isPlaying | 0;
     if ((isPlaying | 0) == 1) {
@@ -736,16 +784,16 @@ function updatePlayButton(isPlaying) {
     }
 }
 function visibilityChangeHandle() {
-    processVisibilityChange(document.hidden);
+    //processVisibilityChange(document.hidden);
 }
 function mozVisibilityChangeHandle() {
-    processVisibilityChange(document.mozHidden);
+    //processVisibilityChange(document.mozHidden);
 }
 function msVisibilityChangeHandle() {
-    processVisibilityChange(document.msHidden);
+    //processVisibilityChange(document.msHidden);
 }
 function webkitVisibilityChangeHandle() {
-    processVisibilityChange(document.webkitHidden);
+    //processVisibilityChange(document.webkitHidden);
 }
 function processVisibilityChange(isHidden) {
     // if (!isHidden) {

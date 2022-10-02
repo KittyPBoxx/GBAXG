@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     createAndLoadConfig();
 
+     M.Autocomplete.init(document.getElementById("autocomplete-items"), { limit: 4, data : Object.keys(ITEM_DATA).reduce((v1, v2) => { v1[v2] = null; return v1 }, {}) });
+
     debugConsole = M.Modal.init(document.getElementById('console'), {});
 });
 
@@ -28,7 +30,11 @@ function debounce(func, timeout = 300){
 }
 
 function initMenu() {
-  M.Carousel.init(document.querySelectorAll('.carousel'), { numVisible: 5, dist: -20, noWrap: true });
+  M.Carousel.init(document.querySelectorAll('.carousel'), { numVisible: 5, dist: -20, noWrap: true, preventLoop: true, enableTouch: false, duration: 30});
+
+  document.querySelectorAll(".carousel-item").forEach(e => e.setAttribute("draggable", false));
+  document.querySelectorAll(".left-menu-button").forEach(e => e.onclick = () =>  M.Carousel.getInstance(document.getElementById("menuCarousel")).prev());
+  document.querySelectorAll(".right-menu-button").forEach(e => e.onclick = () =>  M.Carousel.getInstance(document.getElementById("menuCarousel")).next());
 }
 
 window.addEventListener('resize', initMenu, true);

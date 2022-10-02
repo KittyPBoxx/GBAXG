@@ -394,6 +394,30 @@ span.rom-status {
     padding-left: 25px;
 }
 
+.random-row .input-field.item-quantity, 
+.random-row .input-field.item-inputs {
+    padding-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+#item-quantity {
+    font-family: 'RetroGaming';
+    width: 4em;
+}
+#item-quantity input {
+    font-family: 'RetroGaming';
+}
+
+#autocomplete-items {
+    font-family: 'RetroGaming';
+    width: 10em;
+}
+
+.faded {
+    filter: brightness(0);
+}
+
 /* Scrollbars */
 
 ::-webkit-scrollbar {
@@ -429,3 +453,41 @@ span.rom-status {
   border-width: 8px 8px 0 8px;
   border-color: rgb(143, 143, 143) transparent transparent transparent;
 }  
+
+
+/* Number Input */
+
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0; 
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+  
+.number-spinner {
+    background-color: transparent;
+    position: absolute;
+    bottom: 0.7em;
+    right: 0;
+    width: 0;
+    height: 0;
+}
+
+.number-spinner-inc {
+    margin-bottom: 20px;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(143, 143, 143);
+}
+
+.number-spinner-dec {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgb(143, 143, 143);
+}

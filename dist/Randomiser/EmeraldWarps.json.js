@@ -2,93 +2,129 @@ var EMERALD_WARPS =
 {
 /* PETALBURG CITY - EXT */
     "E,0,0,0" : {
+        "name": "PETALBURG CITY - OUTSIDE - Left - A,13",
+        "level": "1", 
         "to": "E,8,2,0"
     },
     "E,0,0,1" : {
+        "name": "PETALBURG CITY - OUTSIDE - Wally House - 7,5",
+        "level": "1", 
         "to": "E,8,0,0"
     },
     "E,0,0,2" : {
         // GYM
+        "name": "PETALBURG CITY - OUTSIDE - GYM - F,8",
+        "level": "1", 
         "to": "E,8,1,0"
     },
     "E,0,0,3" : {
         // PK
+        "name": "PETALBURG CITY - OUTSIDE - PkCenter - 14,10",
+        "level": "1", 
         "to": "E,8,4,0"
     },
     "E,0,0,4" : {
+        "name": "PETALBURG CITY - OUTSIDE - Right - 14,18",
+        "level": "1", 
         "to": "E,8,3,0"
     },
     "E,0,0,5" : {
         // MART
+        "name": "PETALBURG CITY - OUTSIDE - Mart - 19,C",
+        "level": "1", 
         "to": "E,8,6,0"
     },
 /* PETALBURG CITY - INT */
     "E,8,0,0" : {
+        "name": "PETALBURG CITY - INSIDE - Wally House - 3,7",
+        "level": "1", 
         "to": "E,0,0,1",
         "grouped": "E,8,0,1",
         "groupMain" : true
     },
     "E,8,0,1" : {
+        "name": "PETALBURG CITY - INSIDE - Wally House - 4,7",
+        "level": "1", 
         "to": "E,0,0,1",
         "grouped":"E,8,0,0"
     },
     "E,8,1,0": {
         // GYM
+        "name": "PETALBURG CITY - INSIDE - GYM - 4,6F",
+        "level": "1", 
         "to": "E,0,0,2",
         "grouped": "E,8,1,1",
         "groupMain" : true
     },
     "E,8,1,1": {
         // GYM
+        "name": "PETALBURG CITY - INSIDE - GYM - 5,6F",
+        "level": "1", 
         "to": "E,0,0,2",
         "grouped": "E,8,1,0"
     },
     "E,8,2,0" : {
+        "name": "PETALBURG CITY - INSIDE - Left - 3,8",
         "to": "E,0,0,0",
         "grouped": "E,8,2,1",
         "groupMain" : true
     },
     "E,8,2,1" : {
+        "name": "PETALBURG CITY - INSIDE - Left - 4,8",
         "to": "E,0,0,1",
         "grouped":"E,8,2,1"
     },
     "E,8,3,0" : {
+        "name": "PETALBURG CITY - INSIDE - Right - 3,7",
         "to": "E,0,0,4",
         "grouped": "E,8,3,1",
         "groupMain" : true
     },
     "E,8,3,1" : {
+        "name": "PETALBURG CITY - INSIDE - Right - 4,7",
         "to": "E,0,0,4",
         "grouped":"E,8,3,0"
     },
     "E,8,4,0" : {
         // PK
+        "name": "PETALBURG CITY - INSIDE - PkCenter - 6,8",
+        "level": "1", 
         "to": "E,0,0,3",
         "grouped": "E,8,4,1",
         "groupMain" : true
     },
     "E,8,4,1" : {
         // PK
+        "name": "PETALBURG CITY - INSIDE - PkCenter - 7,8",
+        "level": "1", 
         "to": "E,0,0,3",
         "grouped":"E,8,4,0"
     },
     "E,8,4,2" : {
         // PK
+        "name": "PETALBURG CITY - INSIDE - PkCenter (Stairs) - 6,8",
+        "level": "1", 
         "to": "E,8,5,0"
     },
     "E,8,5,0" : {
         // PK (upstairs)
+        "name": "PETALBURG CITY - INSIDE - PkCenter Upstairs (Stairs) - 1,6",
+        "level": "1", 
         "to": "E,8,4,2",
         "ignore": true
     },
     "E,8,6,0" : {
         // MART
+        "name": "PETALBURG CITY - INSIDE - Mart - 3,7",
+        "level": "1", 
         "to": "E,0,0,5",
         "grouped": "E,8,6,1",
         "groupMain" : true
     },
     "E,8,6,1" : {
         // MART
+        "name": "PETALBURG CITY - INSIDE - Mart - 4,7",
+        "level": "1", 
         "to": "E,0,0,5",
         "grouped":"E,8,6,0"
     },
@@ -651,118 +687,172 @@ var EMERALD_WARPS =
 /* LITTLE ROOT TOWN - EXT */
     "E,0,9,0" : {
         // GIRL HOUSE
+        "name": "LITTLEROOT TOWN - OUTSIDE - Girl House - E,8",
+        "level": "1", 
         "to" : "E,1,2,1"
     },
     "E,0,9,1" : {
         // BOY HOUSE
+        "name": "LITTLEROOT TOWN - OUTSIDE - Boy House - 5,8",
+        "level": "1", 
         "to" : "E,1,0,1"
     },
     "E,0,9,2" : {
         // ELMS LAB
+        "name": "LITTLEROOT TOWN - OUTSIDE - Birch Lab - 7,10",
+        "level": "1", 
         "to" : "E,1,4,0"
     },
 /* LITTLE ROOT TOWN - INT */
     "E,1,0,0" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) - 8,8",
+        "level": "1", 
         "to": "E,0,9,1",
         "grouped": "E,1,0,1",
         "groupMain" : true
     },
     "E,1,0,1" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) - 9,8",
+        "level": "1", 
         "to": "E,0,9,1",
         "grouped":"E,1,0,0"
     },
     "E,1,0,2" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) (stairs) - 8,2",
+        "level": "1", 
         "to": "E,1,1,0"
     },
     "E,1,1,0" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Boy House (upstairs) (stairs) - 7,1",
+        "level": "1", 
         "to": "E,1,0,2"
     },
     "E,1,2,0" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) - 1,8",
+        "level": "1", 
         "to": "E,0,9,0",
         "grouped": "E,1,2,1",
         "groupMain" : true
     },
     "E,1,2,1" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) - 2,8",
+        "level": "1", 
         "to": "E,0,9,0",
         "grouped":"E,1,2,0"
     },
     "E,1,2,2" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) (stairs) - 2,2",
+        "level": "1", 
         "to": "E,1,3,0"
     },
     "E,1,3,0" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Girl House (upstairs) (stairs) - 1,1",
+        "level": "1", 
         "to": "E,1,2,2"
     },
     "E,1,4,0" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Birch Lab - 6,C",
+        "level": "1", 
         "to": "E,0,9,2",
         "grouped": "E,1,4,1",
         "groupMain" : true
     },
     "E,1,4,1" : {
+        "name": "LITTLEROOT TOWN - INSIDE - Birch Lab - 7,C",
+        "level": "1", 
         "to": "E,0,9,2",
         "grouped":"E,1,4,0"
     },
 /* OLDALE TOWN - EXT */
     "E,0,10,0" : { 
+        "name": "OLDALE TOWN - OUTSIDE - Left - 5,7",
+        "level": "1", 
         "to" : "E,2,0,0"
     },
     "E,0,10,1" : { 
+        "name": "OLDALE TOWN - OUTSIDE - Right - F,10",
+        "level": "1", 
         "to" : "E,2,1,0"
     },
     "E,0,10,2" : { 
         // PK
+        "name": "OLDALE TOWN - OUTSIDE - PkCenter - 6,10",
+        "level": "1", 
         "to" : "E,2,2,0"
     },
     "E,0,10,3" : { 
         // MART
+        "name": "OLDALE TOWN - OUTSIDE - Mart - E,6",
+        "level": "1", 
         "to" : "E,2,4,0"
     },
 /* OLDALE TOWN - INT */
     "E,2,0,0" : {
+        "name": "OLDALE TOWN - INSIDE - Left - 3,8",
+        "level": "1", 
         "to": "E,0,10,1",
         "grouped": "E,2,0,1",
         "groupMain" : true
     },
     "E,2,0,1" : {
+        "name": "OLDALE TOWN - INSIDE - Left - 4,8",
+        "level": "1", 
         "to": "E,0,10,0",
         "grouped":"E,2,0,0"
     },
     "E,2,1,0" : {
+        "name": "OLDALE TOWN - INSIDE - Right - 3,7",
+        "level": "1", 
         "to": "E,0,10,1",
         "grouped": "E,2,1,1",
         "groupMain" : true
     },
     "E,2,1,1" : {
+        "name": "OLDALE TOWN - INSIDE - Right - 4,7",
+        "level": "1", 
         "to": "E,0,10,1",
         "grouped":"E,2,1,0"
     },
     "E,2,2,0" : {
         // PK
+        "name": "OLDALE TOWN - INSIDE - PkCenter - 7,8",
+        "level": "1", 
         "to": "E,0,10,2",
         "grouped": "E,2,2,1",
         "groupMain" : true
     },
     "E,2,2,1" : {
         // PK
+        "name": "OLDALE TOWN - INSIDE - PkCenter - 6,8",
+        "level": "1", 
         "to": "E,0,10,2",
         "grouped":"E,2,2,0"
     },
     "E,2,2,2" : {
         // PK
+        "name": "OLDALE TOWN - INSIDE - PkCenter (stairs) - 1,6",
+        "level": "1", 
         "to": "E,2,3,0"
     },
     "E,2,3,0" : {
         // PK (upstairs)
+        "name": "OLDALE TOWN - INSIDE - PkCenter (upstairs) (stairs) - 1,6",
+        "level": "1", 
         "to": "E,2,2,2",
         "ignore": true
     },
     "E,2,4,0" : {
         // MART
+        "name": "OLDALE TOWN - INSIDE - Mart - 3,7",
+        "level": "1", 
         "to": "E,0,10,3",
         "grouped": "E,2,4,1",
         "groupMain" : true
     },
     "E,2,4,1" : {
         // MART
+        "name": "OLDALE TOWN - INSIDE - Mart - 4,7",
+        "level": "1", 
         "to": "E,0,10,3",
         "grouped":"E,2,4,0"
     },
@@ -872,5 +962,177 @@ var EMERALD_WARPS =
     },
     "E,0,15,5" : {
         "to" : "E,7,6,0"
+    },
+/* ROUTE 104 - OUSIDE */ 
+    "E,0,19,0" : {
+        "name": "ROUTE 104 - OUSIDE - MR BRINEYS (boat guy) - 11,32",
+        "level" : "1",
+        "to" : "E,17,0,0"
+    },
+    "E,0,19,1" : {
+        "name": "ROUTE 104 - OUSIDE - Flower Shop - 5,12",
+        "level" : "1",
+        "to" : "E,17,1,0"
+    },
+    "E,0,19,2" : {
+        "name": "ROUTE 104 - OUSIDE - Woods (RUSTBORO side) - A,1E",
+        "level" : "1",
+        "to" : "E,24,11,0",
+        "grouped" : "E,0,19,3",
+        "groupMain" : true
+    },
+    "E,0,19,3" : {
+        "name": "ROUTE 104 - OUSIDE - Woods (RUSTBORO side) - B,1E",
+        "level" : "1",
+        "to" : "E,24,11,1",
+        "grouped" : "E,0,19,2"
+    },
+    "E,0,19,4" : {
+        "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) - A,26",
+        "level" : "1",
+        "to" : "E,24,11,2",
+        "grouped" : "E,0,19,5",
+        "groupMain" : true
+    },
+    "E,0,19,5" : {
+        "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) - B,26",
+        "level" : "1",
+        "to" : "E,24,11,3",
+        "grouped" : "E,0,19,4"
+    },
+    "E,0,19,6" : {
+        "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) (Up ledge) - 20,2A",
+        "level" : "1",
+        "to" : "E,24,11,4",
+        "grouped" : "E,0,19,7",
+        "groupMain" : true
+    },
+    "E,0,19,7" : {
+        "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) (Up ledge) - 21,2A",
+        "level" : "1",
+        "to" : "E,24,11,5",
+        "grouped" : "E,0,19,6"
+    },
+/* ROUTE 104 - INSIDE */ 
+    "E,17,0,0" : {
+        "name": "ROUTE 104 - INSIDE - MR BRINEYS (boat guy) - 5,8",
+        "level" : "1",
+        "to" : "E,0,19,0",
+        "grouped" : "E,17,0,1",
+        "groupMain" : true
+    },
+    "E,17,0,1" : {
+        "name": "ROUTE 104 - INSIDE - MR BRINEYS (boat guy) - 6,8",
+        "level" : "1",
+        "to" : "E,0,19,0",
+        "grouped" : "E,17,0,0"
+    },
+    "E,17,1,0" : {
+        "name": "ROUTE 104 - INSIDE - Flower Shop - 2,8",
+        "level" : "1",
+        "to" : "E,0,19,0",
+        "grouped" : "E,17,1,1",
+        "groupMain" : true
+    },
+    "E,17,1,1" : {
+        "name": "ROUTE 104 - INSIDE - Flower Shop - 3,8",
+        "level" : "1",
+        "to" : "E,0,19,0",
+        "grouped" : "E,17,1,0",
+    },
+/* PETALBUG WOODS */
+    "E,24,11,0" : {
+        "name": "PETALBUG WOODS - OUSIDE - Woods (RUSTBORO side) - E,5",
+        "level" : "1",
+        "to" : "E,0,19,2",
+        "grouped" : "E,14,11,1",
+        "groupMain" : true
+    },
+    "E,24,11,1" : {
+        "name": "PETALBUG WOODS - OUSIDE - Woods (RUSTBORO side) - F,5",
+        "level" : "1",
+        "to" : "E,0,19,2",
+        "grouped" : "E,24,11,0"
+    },
+    "E,24,11,2" : {
+        "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) - 10,26",
+        "level" : "1",
+        "to" : "E,0,19,4",
+        "grouped" : "E,24,11,3",
+        "groupMain" : true
+    },
+    "E,24,11,3" : {
+        "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) - 11,26",
+        "level" : "1",
+        "to" : "E,0,19,5",
+        "grouped" : "E,24,11,2"
+    },
+    "E,24,11,4" : {
+        "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) (right) - 24,26",
+        "level" : "1",
+        "to" : "E,0,19,6",
+        "grouped" : "E,24,11,5",
+        "groupMain" : true
+    },
+    "E,24,11,5" : {
+        "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) (right) - 25,26",
+        "level" : "1",
+        "to" : "E,0,19,7",
+        "grouped" : "E,24,11,4"
+    },
+/* ROUTE 116 - OUTSIDE */
+    "E,0,31,0" : {
+        "name": "ROUTE 116 - OUTSIDE - Rusturf tunnel enterance (right) - 2f,8",
+        "level" : "1",
+        "to" : "E,24,4,0",
+    },
+    "E,0,31,1" : {
+        "name": "ROUTE 116 - OUTSIDE - Tunnelers Rest House - 26,8",
+        "level" : "1",
+        "to" : "E,21,0,0",
+    },
+    "E,0,31,2" : {
+        "name": "ROUTE 116 - OUTSIDE - Rusturf tunnel enterance (center) - 41,A",
+        "to" : "E,24,4,2",
+    },
+    "E,0,31,3" : {
+        // TERRA CAVE
+        "name": "ROUTE 116 - OUTSIDE - TERRA Cave 1",
+        "to" : "E,24,104,0",
+        "ignore": true
+    },
+    "E,0,31,4" : {
+        // TERRA CAVE
+        "name": "ROUTE 116 - OUTSIDE - TERRA Cave 2",
+        "to" : "E,24,104,0",
+        "ignore": true
+    },
+/* ROUTE 116 - INSIDE */
+    "E,21,0,0" : {
+        "name": "ROUTE 116 - INSIDE - Tunnelers Rest House - 4,8",
+        "level" : "1",
+        "to" : "E,0,31,1",
+        "grouped" : "E,21,0,1",
+        "groupMain" : true
+    },
+    "E,21,0,1" : {
+        "name": "ROUTE 116 - INSIDE - Tunnelers Rest House - 5,8",
+        "level" : "1",
+        "to" : "E,0,31,1",
+        "grouped" : "E,21,0,0"
+    },
+/* RUSTURF TUNNEL */    
+    "E,24,4,0" : {
+        "name": "RUSTURF TUNNEL - INSIDE - Left - 4,A",
+        "level" : "1",
+        "to": "E,0,31,0"
+    },
+    "E,24,4,1" : {
+        "name": "RUSTURF TUNNEL - INSIDE - Centre - 12,14",
+        "to": "E,0,31,2"
+    },
+    "E,24,4,2" : {
+        "name": "RUSTURF TUNNEL - INSIDE - Right - 1D,10",
+        "to": "E,0,14,4"
     }
 }

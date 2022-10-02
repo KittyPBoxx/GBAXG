@@ -1,20 +1,55 @@
+var mixedGameData = {};
+Object.entries(FIRE_RED_WARPS).forEach(e => mixedGameData[e[0]] = e[1]);
+Object.entries(CRYSTAL_WARPS).forEach(e => mixedGameData[e[0]] = e[1]);
+Object.entries(EMERALD_WARPS).forEach(e => mixedGameData[e[0]] = e[1]);
+
+var remappingsData = {};
+
+// WarpList used by Cheat.js
 var warpList = new Map();
 
+function getMapData() {
+    return mixedGameData;
+}
+
+function getRandomisationAlgorithm() {
+    return simpleRandom;
+}
+
+function mappingToWarps(mappingData, mapData) {
+    let mappedList = new Map();
+
+    Object.values(mappingData).forEach(mapping => {
+        let from = mapping.from;
+        let to = mapping.to;
+        let toParts = to.split(",");
+        let fromData = mapData[from];
+        mappedList.set(fromData.to, new PKWarp(fromData.to, toParts[0], toParts[1], toParts[2], toParts[3]));
+    });
+
+    return mappedList;
+}
+
 function mapWarps(seed) {
-    let usableEmeraldWarps = Object.keys(EMERALD_WARPS).filter(k => !EMERALD_WARPS[k].ignore).filter(k => (EMERALD_WARPS[k].grouped && !EMERALD_WARPS[k].groupMain) || !EMERALD_WARPS[k].grouped);
-    let usableFireRedWarps = Object.keys(FIRE_RED_WARPS).filter(k => !FIRE_RED_WARPS[k].ignore).filter(k => (FIRE_RED_WARPS[k].grouped && !FIRE_RED_WARPS[k].groupMain) || !FIRE_RED_WARPS[k].grouped);
-    let usableCrystalWarps = Object.keys(CRYSTAL_WARPS).filter(k => !CRYSTAL_WARPS[k].ignore).filter(k => (CRYSTAL_WARPS[k].grouped && !CRYSTAL_WARPS[k].groupMain) || !CRYSTAL_WARPS[k].grouped);
+    let mapData = getMapData();
+    remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, {}]);
+    warpList = mappingToWarps(remappingsData, mapData);
+}
 
-    let warpPool = [];
-    warpPool.push(...usableEmeraldWarps);
-    warpPool.push(...usableFireRedWarps);
-    warpPool.push(...usableCrystalWarps);
+function simpleRandom(seed, mapData, config) {
 
-    let predictedGroups = new Map([...groupBy(usableEmeraldWarps, toMapBank), ...groupBy(usableFireRedWarps, toMapBank), ...groupBy(usableCrystalWarps, toMapBank)]);
+    let resultMappings = [];
+    var rng = new RNG(getHash(seed))
 
+    let usabledWarps = Object.keys(mapData).filter(k => !mapData[k].ignore).filter(k => (mapData[k].grouped && !mapData[k].groupMain) || !mapData[k].grouped);
+    let predictedGroups = new Map([...groupBy(usabledWarps, toMapBank)]);
     let deadEnds = [];
     let hubs = [];
 
+    /* 
+    *   Any location with 2 or more warp points get's listed as a hub (this includes corridors)
+    *   If there is only one warp it should be listed as a dead end
+    */
     for (let k of predictedGroups.keys()) {
         let values = predictedGroups.get(k);
         if (values.length == 1) {
@@ -24,9 +59,6 @@ function mapWarps(seed) {
         }
     }
 
-    // Have an initial set of warps,
-    // select a random warp in the set, link it to a new value from hubs (removing it from both and adding new values into the set)
-
     // Set up initial set of accessable warps removing those values from hubs
     let openWarps = ["FR,3,1,0", "FR,3,1,1",  "FR,3,1,2", "FR,3,1,3", "FR,3,1,4"];
     openWarps.forEach(i => {
@@ -34,87 +66,121 @@ function mapWarps(seed) {
         hubs.splice(index, 1);
     });
 
-    warpList = new Map();
-    var rng = new RNG(getHash(seed))
-
+    
+    // While he have hubs available we will remove them from the unsused list add them
+    // We also remove any warps from the same map and add them to the list of warps we can make connections to
     while (hubs.length > 0) {
-
         let hubIndex = rng.nextRange(0, hubs.length - 1);
         let openWarpsIndex = rng.nextRange(0, openWarps.length - 1);
 
         let hubConnection = hubs[hubIndex];
-        createAndAddPkWarpsBothWays(warpList, hubConnection, openWarps[openWarpsIndex]);
+        let warpsUsed = createAndAddPkWarpsBothWays(resultMappings, hubConnection, openWarps[openWarpsIndex], mapData);
         
-        hubs.splice(hubIndex, 1);
-        openWarps.splice(openWarpsIndex, 1);
+        warpsUsed.forEach(w => {
+            let indexInHubs = hubs.indexOf(w);
+            if (hubs.indexOf(w) != -1) {
+                hubs.splice(indexInHubs, 1);
+            }
+            
+            let indexInOpenWarps = openWarps.indexOf(w);
+            if (openWarps.indexOf(w) != -1) {
+                openWarps.splice(indexInOpenWarps, 1);
+            }
+        })
+
 
         let groupKey = hubConnection.slice(0, hubConnection.lastIndexOf(","));
         predictedGroups.get(groupKey).forEach(c => {
             let index = hubs.indexOf(c);
             hubs.splice(index, 1);
-
             openWarps.push(c)
         });
-
     }
 
+    // While we have dead ends add them into available slots
     while (deadEnds.length > 0) {
         let deadEndIndex = rng.nextRange(0, deadEnds.length -1);
         let openWarpsIndex = rng.nextRange(0, openWarps.length - 1);
 
         let deadEndConnection = deadEnds[deadEndIndex];
-        createAndAddPkWarpsBothWays(warpList, deadEndConnection, openWarps[openWarpsIndex]);
-        
-        deadEnds.splice(deadEndIndex, 1);
-        openWarps.splice(openWarpsIndex, 1);
+        let warpsUsed = createAndAddPkWarpsBothWays(resultMappings, deadEndConnection, openWarps[openWarpsIndex], mapData);
+
+        warpsUsed.forEach(w => {
+            let indexInDeadEnds = deadEnds.indexOf(w);
+            if (deadEnds.indexOf(w) != -1) {
+                deadEnds.splice(indexInDeadEnds, 1);
+            }
+            
+            let indexInOpenWarps = openWarps.indexOf(w);
+            if (openWarps.indexOf(w) != -1) {
+                openWarps.splice(indexInOpenWarps, 1);
+            }
+        })
     }
 
-
+    // Finally join up any connections we have left over
     while (openWarps.length > 1) {
         let firstIndex = rng.nextRange(0, openWarps.length - 1);
         let first = openWarps[firstIndex];
+
+        // Remove immediatelly so it can warp to itself
         openWarps.splice(firstIndex, 1);
+        let firstGroup = mapData[first].grouped;
+        if (firstGroup && typeof firstGroup == 'string') {
+            openWarps.splice(openWarps.indexOf(firstGroup), 1);
+        } else if (firstGroup) {
+            firstGroup.forEach(w => {
+                openWarps.splice(openWarps.indexOf(w), 1);
+            })
+        }
+
 
         let secondIndex = rng.nextRange(0, openWarps.length - 1);
         let second = openWarps[secondIndex];
-        openWarps.splice(secondIndex, 1);
 
-        createAndAddPkWarpsBothWays(warpList, first, second);
-    }
-}
+        let warpsUsed = createAndAddPkWarpsBothWays(resultMappings, first, second, mapData);
 
-function createAndAddPkWarpsBothWays(warpList, connection1, connection2) {
-    createAndAddPKWarps(warpList, connection1, connection2);
-    createAndAddPKWarps(warpList, connection2, connection1)
-}
-
-function createAndAddPKWarps(warpList, connection1, connection2) {
-
-    // Get all the warps at connection 1, i.e a double door might have two
-    // Then get the unique set of locations they warp to, i.e a double door might warp to a single door or another double door
-    let connection1Data = getConnectionObject(connection1);
-    let triggerSet = new Set();
-    triggerSet.add(connection1Data.to);
-    let grouped = typeof connection1Data.grouped == 'string' ? [connection1Data.grouped] : connection1Data.grouped;
-
-    if (grouped) {
-        grouped.forEach(g => { 
-            triggerSet.add(getConnectionObject(g).to) 
-        });
+        warpsUsed.forEach(w => {
+            let indexInOpenWarps1 = openWarps.indexOf(w);
+            if (openWarps.indexOf(w) != -1) {
+                openWarps.splice(indexInOpenWarps1, 1);
+            }
+            
+            let indexInOpenWarps2 = openWarps.indexOf(w);
+            if (openWarps.indexOf(w) != -1) {
+                openWarps.splice(indexInOpenWarps2, 1);
+            }
+        })
     }
 
-    triggerSet.forEach(w => {
-        let toData = connection2.split(",");
-        let pkWarp = new PKWarp(w, toData[0], toData[1], toData[2], toData[3]);
-        warpList.set(w, pkWarp);
-    })
-    
+    return resultMappings;
 }
 
-function getConnectionObject(connection) {
-    if (connection[0] == "E") return EMERALD_WARPS[connection];
-    if (connection[0] == "F") return FIRE_RED_WARPS[connection];
-    if (connection[0] == "C") return CRYSTAL_WARPS[connection];
+function createAndAddPkWarpsBothWays(warpList, connection1, connection2, mapData) {
+    let usedWarps = [];
+    usedWarps.push(...createAndAddPKWarps(warpList, connection1, connection2, mapData));
+    usedWarps.push(...createAndAddPKWarps(warpList, connection2, connection1, mapData))
+    return usedWarps;
+}
+
+function createAndAddPKWarps(warpList, connection1, connection2, mapData) {
+    let newConnection = {};
+    newConnection.from = connection1;
+    newConnection.to = connection2;
+    warpList.push(newConnection);
+
+    var usedWarps = [connection1];
+    let connection1Group = mapData[connection1].grouped;
+    if (connection1Group && typeof connection1Group == 'string') {
+        warpList.push({ "from": connection1Group, "to": connection2 });
+        usedWarps.push(connection1Group)
+    } else if (connection1Group) {
+        connection1Group.forEach(w => {
+            warpList.push({ "from": w, "to": connection2 });
+            usedWarps.push(w)
+        })
+    }
+    return usedWarps;
 }
 
 function groupBy(list, keyGetter) {
