@@ -8,12 +8,22 @@ var remappingsData = {};
 // WarpList used by Cheat.js
 var warpList = new Map();
 
+var connectionManager;
+
 function getMapData() {
     return mixedGameData;
 }
 
 function getRandomisationAlgorithm() {
     return simpleRandom;
+}
+
+function getRandomisationConfig() {
+    let config = {};
+    config.kantoLevel = document.getElementById("kantoLevel").value;
+    config.jhotoLevel = document.getElementById("jhotoLevel").value;
+    config.hoennLevel = document.getElementById("hoennLevel").value;
+    return config;
 }
 
 function mappingToWarps(mappingData, mapData) {
@@ -31,139 +41,34 @@ function mappingToWarps(mappingData, mapData) {
 }
 
 function mapWarps(seed) {
+    let config = getRandomisationConfig();
     let mapData = getMapData();
-    remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, {}]);
+    remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, config]);
     warpList = mappingToWarps(remappingsData, mapData);
 }
 
 function simpleRandom(seed, mapData, config) {
+    let warpIdData = new Map(Object.entries(mapData));
+    warpIdData = filterIgnored(warpIdData);
+    warpIdData = filteGroupedNotMain(warpIdData);
+    warpIdData = filterByConfig(warpIdData, config);
 
-    let resultMappings = [];
-    var rng = new RNG(getHash(seed))
+    // Attempt to add conntections data (This will need to be done manually later)
+    warpIdData = attemptAddingConnectionData(warpIdData);
 
-    let usabledWarps = Object.keys(mapData).filter(k => !mapData[k].ignore).filter(k => (mapData[k].grouped && !mapData[k].groupMain) || !mapData[k].grouped);
-    let predictedGroups = new Map([...groupBy(usabledWarps, toMapBank)]);
-    let deadEnds = [];
-    let hubs = [];
-
-    /* 
-    *   Any location with 2 or more warp points get's listed as a hub (this includes corridors)
-    *   If there is only one warp it should be listed as a dead end
-    */
-    for (let k of predictedGroups.keys()) {
-        let values = predictedGroups.get(k);
-        if (values.length == 1) {
-            deadEnds.push(...values);
-        } else {
-            hubs.push(...values);
-        }
-    }
-
-    // Set up initial set of accessable warps removing those values from hubs
-    let openWarps = ["FR,3,1,0", "FR,3,1,1",  "FR,3,1,2", "FR,3,1,3", "FR,3,1,4"];
-    openWarps.forEach(i => {
-        let index = hubs.indexOf(i);
-        hubs.splice(index, 1);
-    });
-
-    
-    // While he have hubs available we will remove them from the unsused list add them
-    // We also remove any warps from the same map and add them to the list of warps we can make connections to
-    while (hubs.length > 0) {
-        let hubIndex = rng.nextRange(0, hubs.length - 1);
-        let openWarpsIndex = rng.nextRange(0, openWarps.length - 1);
-
-        let hubConnection = hubs[hubIndex];
-        let warpsUsed = createAndAddPkWarpsBothWays(resultMappings, hubConnection, openWarps[openWarpsIndex], mapData);
-        
-        warpsUsed.forEach(w => {
-            let indexInHubs = hubs.indexOf(w);
-            if (hubs.indexOf(w) != -1) {
-                hubs.splice(indexInHubs, 1);
-            }
-            
-            let indexInOpenWarps = openWarps.indexOf(w);
-            if (openWarps.indexOf(w) != -1) {
-                openWarps.splice(indexInOpenWarps, 1);
-            }
-        })
-
-
-        let groupKey = hubConnection.slice(0, hubConnection.lastIndexOf(","));
-        predictedGroups.get(groupKey).forEach(c => {
-            let index = hubs.indexOf(c);
-            hubs.splice(index, 1);
-            openWarps.push(c)
-        });
-    }
-
-    // While we have dead ends add them into available slots
-    while (deadEnds.length > 0) {
-        let deadEndIndex = rng.nextRange(0, deadEnds.length -1);
-        let openWarpsIndex = rng.nextRange(0, openWarps.length - 1);
-
-        let deadEndConnection = deadEnds[deadEndIndex];
-        let warpsUsed = createAndAddPkWarpsBothWays(resultMappings, deadEndConnection, openWarps[openWarpsIndex], mapData);
-
-        warpsUsed.forEach(w => {
-            let indexInDeadEnds = deadEnds.indexOf(w);
-            if (deadEnds.indexOf(w) != -1) {
-                deadEnds.splice(indexInDeadEnds, 1);
-            }
-            
-            let indexInOpenWarps = openWarps.indexOf(w);
-            if (openWarps.indexOf(w) != -1) {
-                openWarps.splice(indexInOpenWarps, 1);
-            }
-        })
-    }
-
-    // Finally join up any connections we have left over
-    while (openWarps.length > 1) {
-        let firstIndex = rng.nextRange(0, openWarps.length - 1);
-        let first = openWarps[firstIndex];
-
-        // Remove immediatelly so it can warp to itself
-        openWarps.splice(firstIndex, 1);
-        let firstGroup = mapData[first].grouped;
-        if (firstGroup && typeof firstGroup == 'string') {
-            openWarps.splice(openWarps.indexOf(firstGroup), 1);
-        } else if (firstGroup) {
-            firstGroup.forEach(w => {
-                openWarps.splice(openWarps.indexOf(w), 1);
-            })
-        }
-
-
-        let secondIndex = rng.nextRange(0, openWarps.length - 1);
-        let second = openWarps[secondIndex];
-
-        let warpsUsed = createAndAddPkWarpsBothWays(resultMappings, first, second, mapData);
-
-        warpsUsed.forEach(w => {
-            let indexInOpenWarps1 = openWarps.indexOf(w);
-            if (openWarps.indexOf(w) != -1) {
-                openWarps.splice(indexInOpenWarps1, 1);
-            }
-            
-            let indexInOpenWarps2 = openWarps.indexOf(w);
-            if (openWarps.indexOf(w) != -1) {
-                openWarps.splice(indexInOpenWarps2, 1);
-            }
-        })
-    }
-
-    return resultMappings;
+    connectionManager = new ConnectionManager(seed, mapData, warpIdData, ["FR,3,1,0", "FR,3,1,1", "FR,3,1,3", "FR,3,1,4"]);
+    connectionManager.mapAllWarps();
+    return connectionManager.getRemappings();
 }
 
 function createAndAddPkWarpsBothWays(warpList, connection1, connection2, mapData) {
     let usedWarps = [];
-    usedWarps.push(...createAndAddPKWarps(warpList, connection1, connection2, mapData));
-    usedWarps.push(...createAndAddPKWarps(warpList, connection2, connection1, mapData))
+    usedWarps.push(...createRemapping(warpList, connection1, connection2, mapData));
+    usedWarps.push(...createRemapping(warpList, connection2, connection1, mapData))
     return usedWarps;
 }
 
-function createAndAddPKWarps(warpList, connection1, connection2, mapData) {
+function createRemapping(warpList, connection1, connection2, mapData) {
     let newConnection = {};
     newConnection.from = connection1;
     newConnection.to = connection2;
@@ -183,6 +88,43 @@ function createAndAddPKWarps(warpList, connection1, connection2, mapData) {
     return usedWarps;
 }
 
+// Assume every warp on the same map is accessible (except itself!)
+function attemptAddingConnectionData(warpIdData) {
+    return new Map([...warpIdData].map(w => {
+        w[1].connections = {};
+        [...warpIdData].filter(k => {
+            return toMapBank(k[0]) == toMapBank(w[0]) && (k[0] != w[0]);
+        }).forEach(l => {
+            w[1].connections[l[0]] = true;
+        });
+        return w;
+    }));
+}
+
+function filterIgnored(mapData) {
+    return new Map([...mapData].filter(k => !k[1].ignore));
+}
+
+function filterByConfig(usabledWarps, config) {
+    usabledWarps = new Map([...usabledWarps].filter(w => {
+        let filterLevel = null;
+        if (w[0][0] == "E") {
+            filterLevel = config.hoennLevel;
+        } else if (w[0][0] == "F") {
+            filterLevel = config.kantoLevel;
+        } else if (w[0][0] == "C") {
+            filterLevel = config.jhotoLevel;
+        }
+
+        return usabledWarps.get(w[0]).level && usabledWarps.get(w[0]).level <= filterLevel;
+    }));
+    return usabledWarps;
+}
+
+function filteGroupedNotMain(mapData) {
+    return new Map([...mapData].filter(k => k[1].groupMain || !k[1].grouped));
+} 
+
 function groupBy(list, keyGetter) {
     const map = new Map();
     list.forEach((item) => {
@@ -201,6 +143,156 @@ function toMapBank(s) {
     let arr = s.split(","); 
     return arr[0] + "," + arr[1] + "," + arr[2] 
 }
+
+
+/**
+ *  CONNECTION MANAGEMENT
+ */
+
+function ConnectionManager(seed, allMapData, warpsToMap, startingWarps) {
+    this.rng = new RNG(getHash(seed));
+    this.allMapData = allMapData;
+    this.unreachableWarps = warpsToMap;
+    this.reachableWarps = new Map();
+    this.mappedWarpCount = 0;
+    this.remappings = [];
+    this.selfMappedConnections = 0;
+
+    startingWarps.forEach(sw => {
+        this.reachableWarps.set(sw, warpsToMap.get(sw));
+        this.unreachableWarps.delete(sw);
+    })
+}
+
+ConnectionManager.prototype.getRemappings = function() {
+    return this.remappings;
+}
+
+ConnectionManager.prototype.mapAllWarps = function() {
+    while (this.unreachableWarps.size > 0 || this.reachableWarps.size > 0) {
+        this.createNewMapping();
+    }
+}
+
+ConnectionManager.prototype.createNewMapping = function() {
+
+    let nextWarps = this.getNextWarps();
+
+    let allWarp1Warps = this.getGroupedWarps(nextWarps[0]);
+    let allWarp2Warps = this.getGroupedWarps(nextWarps[1]);
+
+    this.createRemappings(nextWarps[0], allWarp2Warps);
+    this.createRemappings(nextWarps[1], allWarp1Warps);
+}
+
+ConnectionManager.prototype.getGroupedWarps = function(warp) {
+    let groups = this.allMapData[warp[0]].grouped;
+    groups = groups ? groups : [];
+    groups = groups.map(w => {
+        return [w, this.allMapData[w]]
+    });
+    return [warp, ...groups];
+}
+
+ConnectionManager.prototype.createRemappings = function (warp, mapToList) {
+    mapToList.forEach(w => {
+        this.remappings.push({from : warp[0], to : w[0], fromName : warp[1].name, toName: w[1].name})
+    })
+}
+
+ConnectionManager.prototype.getNextWarps = function() {
+    let warp1 = null;
+    let warp2 = null;
+
+    let initialReachableWarps = this.reachableWarps.size;
+    let initialUnreachableWarps = this.unreachableWarps.size;
+
+    if (initialUnreachableWarps > 0 && 0 == initialReachableWarps) {
+        console.error("There are unreachable warps left after mapping all reachable. This dosn't make sense.")
+    }
+
+    if (this.getUnreachableHubs().size > 0) {
+        warp1 = [...this.getUnreachableHubs()][this.rng.nextRange(0, this.getUnreachableHubs().size - 1)];
+        this.unreachableWarps.delete(warp1[0]);
+    } else if (this.unreachableWarps.size > 0) {
+        warp1 = [...this.unreachableWarps][this.rng.nextRange(0, this.unreachableWarps.size - 1)];
+        this.unreachableWarps.delete(warp1[0]);
+    } else if (this.reachableWarps.size > 0) {
+        warp1 = [...this.reachableWarps][this.rng.nextRange(0, this.reachableWarps.size - 1)];
+        this.reachableWarps.delete(warp1[0]);
+    } else {
+        console.warn("Next warp was called when there were no warps left. This shouldn't happen");
+    }
+
+    if (this.reachableWarps.size > 0) {
+        warp2 = [...this.reachableWarps][this.rng.nextRange(0, this.reachableWarps.size - 1)];
+        this.reachableWarps.delete(warp2[0]);
+    } else {
+        if (this.selfMappedConnections == 0) {
+            this.selfMappedConnections = 1;
+            console.warn("An odd number of warps was supplied. One warp will link back to itself");
+            warp2 = warp1;
+        } else {
+            console.error(warp1[1].name + " was mapped back to iself incorrectly. Possibly an issue in the map data?")
+            warp2 = warp1;
+        }
+    }
+
+    this.updateReachableWarps(warp1);
+    console.log(this.reachableWarps.size + " reachable warps after " + warp1[1].name + " added");
+
+    if (this.getUnreachableHubs().size > 0 && !(this.reachableWarps.size >= initialReachableWarps)) {
+        console.error(warp1[1].name + " (a previously unreachable hub) was added but reachable warps decreased. This dosn't make sense.")
+    }
+
+    this.mappedWarpCount += 2;
+
+    console.log("total warps: " + ((+this.reachableWarps.size)  + (+this.unreachableWarps.size)  + (+this.mappedWarpCount)))
+    console.log("Reachable dead ends " + this.getReachableDeadEnds().size);
+
+    if ((this.getUnreachableHubs().size + this.reachableWarps.size) / 2 < this.getUnreachableDeadEnds().size) [
+        console.error("Mapping hubs we ended up with less warps!?")
+    ] 
+
+    return [warp1, warp2];
+}
+
+ConnectionManager.prototype.updateReachableWarps = function (warp) {
+
+    if (!warp[1].connections) {return }
+
+    Object.keys(warp[1].connections).forEach(c => {
+        let connectionWarp = this.unreachableWarps.get(c);
+        if (connectionWarp) {
+            console.log("Adding " + connectionWarp.name + " to reachable");
+            this.reachableWarps.set(c, connectionWarp);
+            this.unreachableWarps.delete(c);
+        }
+    })
+}
+
+ConnectionManager.prototype.getUnreachableHubs = function () {
+    return new Map([...this.unreachableWarps].filter(w => {
+        return Object.keys(w[1].connections).length > 0
+    }));
+}
+
+ConnectionManager.prototype.getUnreachableDeadEnds = function () {
+    return new Map([...this.unreachableWarps].filter(w => {
+        return Object.keys(w[1].connections).length == 0
+    }));
+}
+
+ConnectionManager.prototype.getReachableDeadEnds = function () {
+    return new Map([...this.reachableWarps].filter(w => {
+        return Object.keys(w[1].connections).length == 0
+    }));
+}
+
+
+/**
+ *  SEEDED RNG MANAGEMENT
+ */
 
 function getHash(input){
     var hash = 0, len = input.length;

@@ -414,9 +414,53 @@ span.rom-status {
     width: 10em;
 }
 
+.randomiser-buttons-row {
+    display: flex;
+    gap: 20px;
+}
+
+.randomiser-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-small.randomiser-button {
+    background: transparent;
+    color: black;
+    border: 1px black solid;
+    box-shadow: none;
+    width: fit-content;
+    box-shadow: none !important;
+    font-size: 12px;
+}
+
 .faded {
     filter: brightness(0);
 }
+
+.dropdown-content li>a, .dropdown-content li>span {
+    padding: 2px 16px;
+}
+
+.dropdown-content li {
+    min-height: 0;
+}
+
+.available-warp-select-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.select-wrapper input.select-dropdown {
+    font-family: 'RetroGaming';
+}
+
+.available-warp-select-wrapper .select-wrapper {
+    width: 10em !important;
+}
+
 
 /* Scrollbars */
 

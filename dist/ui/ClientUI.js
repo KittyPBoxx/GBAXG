@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
      M.Autocomplete.init(document.getElementById("autocomplete-items"), { limit: 4, data : Object.keys(ITEM_DATA).reduce((v1, v2) => { v1[v2] = null; return v1 }, {}) });
 
+
+    M.FormSelect.init(document.querySelectorAll('select'), {});
     debugConsole = M.Modal.init(document.getElementById('console'), {});
 });
 

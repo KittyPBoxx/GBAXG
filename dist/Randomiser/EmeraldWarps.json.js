@@ -39,21 +39,21 @@ var EMERALD_WARPS =
         "name": "PETALBURG CITY - INSIDE - Wally House - 3,7",
         "level": "1", 
         "to": "E,0,0,1",
-        "grouped": "E,8,0,1",
+        "grouped": ["E,8,0,1"],
         "groupMain" : true
     },
     "E,8,0,1" : {
         "name": "PETALBURG CITY - INSIDE - Wally House - 4,7",
         "level": "1", 
         "to": "E,0,0,1",
-        "grouped":"E,8,0,0"
+        "grouped": ["E,8,0,0"]
     },
     "E,8,1,0": {
         // GYM
         "name": "PETALBURG CITY - INSIDE - GYM - 4,6F",
         "level": "1", 
         "to": "E,0,0,2",
-        "grouped": "E,8,1,1",
+        "grouped": ["E,8,1,1"],
         "groupMain" : true
     },
     "E,8,1,1": {
@@ -61,36 +61,36 @@ var EMERALD_WARPS =
         "name": "PETALBURG CITY - INSIDE - GYM - 5,6F",
         "level": "1", 
         "to": "E,0,0,2",
-        "grouped": "E,8,1,0"
+        "grouped": ["E,8,1,0"]
     },
     "E,8,2,0" : {
         "name": "PETALBURG CITY - INSIDE - Left - 3,8",
         "to": "E,0,0,0",
-        "grouped": "E,8,2,1",
+        "grouped": ["E,8,2,1"],
         "groupMain" : true
     },
     "E,8,2,1" : {
         "name": "PETALBURG CITY - INSIDE - Left - 4,8",
         "to": "E,0,0,1",
-        "grouped":"E,8,2,1"
+        "grouped": ["E,8,2,1"]
     },
     "E,8,3,0" : {
         "name": "PETALBURG CITY - INSIDE - Right - 3,7",
         "to": "E,0,0,4",
-        "grouped": "E,8,3,1",
+        "grouped": ["E,8,3,1"],
         "groupMain" : true
     },
     "E,8,3,1" : {
         "name": "PETALBURG CITY - INSIDE - Right - 4,7",
         "to": "E,0,0,4",
-        "grouped":"E,8,3,0"
+        "grouped": ["E,8,3,0"]
     },
     "E,8,4,0" : {
         // PK
         "name": "PETALBURG CITY - INSIDE - PkCenter - 6,8",
         "level": "1", 
         "to": "E,0,0,3",
-        "grouped": "E,8,4,1",
+        "grouped": ["E,8,4,1"],
         "groupMain" : true
     },
     "E,8,4,1" : {
@@ -98,7 +98,7 @@ var EMERALD_WARPS =
         "name": "PETALBURG CITY - INSIDE - PkCenter - 7,8",
         "level": "1", 
         "to": "E,0,0,3",
-        "grouped":"E,8,4,0"
+        "grouped": ["E,8,4,0"]
     },
     "E,8,4,2" : {
         // PK
@@ -118,7 +118,7 @@ var EMERALD_WARPS =
         "name": "PETALBURG CITY - INSIDE - Mart - 3,7",
         "level": "1", 
         "to": "E,0,0,5",
-        "grouped": "E,8,6,1",
+        "grouped": ["E,8,6,1"],
         "groupMain" : true
     },
     "E,8,6,1" : {
@@ -126,7 +126,7 @@ var EMERALD_WARPS =
         "name": "PETALBURG CITY - INSIDE - Mart - 4,7",
         "level": "1", 
         "to": "E,0,0,5",
-        "grouped":"E,8,6,0"
+        "grouped": ["E,8,6,0"]
     },
 /* SLATEPORT CITY - EXT */
     "E,0,1,0" : {
@@ -150,7 +150,7 @@ var EMERALD_WARPS =
     "E,0,1,5" : {
         // MUSEUM
         "to" : "E,9,7,0",
-        "grouped": "E,0,1,7",
+        "grouped": ["E,0,1,7"],
         "groupMain" : true
     },
     "E,0,1,6" : {
@@ -177,12 +177,12 @@ var EMERALD_WARPS =
 /* SLATEPORT CITY - INT */
     "E,9,0,0" : {
         "to": "E,0,1,2",
-        "grouped": "E,9,0,1",
+        "grouped": ["E,9,0,1"],
         "groupMain" : true
     },
     "E,9,0,1" : {
         "to": "E,0,1,2",
-        "grouped":"E,9,0,0"
+        "grouped": ["E,9,0,0"]
     },
     "E,9,0,2" : {
         "to": "E,9,1,0"
@@ -193,42 +193,42 @@ var EMERALD_WARPS =
     "E,9,2,0" : {
         // BATTLE HALL
         "to": "E,0,1,3",
-        "grouped": "E,9,2,1",
+        "grouped": ["E,9,2,1"],
         "groupMain" : true,
         "ignore": true
     },
     "E,9,2,1" : {
         // BATTLE HALL
         "to": "E,0,1,3",
-        "grouped":"E,9,2,0",
+        "grouped": ["E,9,2,0"],
         "ignore": true
     },
     "E,9,5,0" : {
         "to": "E,0,1,6",
-        "grouped": "E,9,5,1",
+        "grouped": ["E,9,5,1"],
         "groupMain" : true
     },
     "E,9,5,1" : {
         "to": "E,0,1,6",
-        "grouped":"E,9,5,0"
+        "grouped": ["E,9,5,0"]
     },
     "E,9,6,0" : {
         "to": "E,0,1,4",
-        "grouped": "E,9,6,1",
+        "grouped": ["E,9,6,1"],
         "groupMain" : true
     },
     "E,9,6,1" : {
         "to": "E,0,1,4",
-        "grouped":"E,9,6,0"
+        "grouped": ["E,9,6,0"]
     },
     "E,9,7,0" : {
         "to": "E,0,1,5",
-        "grouped": "E,9,7,1",
+        "grouped": ["E,9,7,1"],
         "groupMain" : true
     },
     "E,9,7,1" : {
         "to": "E,0,1,7",
-        "grouped":"E,9,7,0"
+        "grouped": ["E,9,7,0"]
     },
     "E,9,7,2" : {
         "to": "E,9,8,0"
@@ -238,32 +238,32 @@ var EMERALD_WARPS =
     },
     "E,9,9,0" : {
         "to": "E,0,1,8",
-        "grouped": "E,9,9,1",
+        "grouped": ["E,9,9,1"],
         "groupMain" : true
     },
     "E,9,9,1" : {
         "to": "E,0,1,8",
-        "grouped":"E,9,9,0"
+        "grouped": ["E,9,9,0"]
     },
     "E,9,10,0" : {
         "to": "E,0,1,10",
-        "grouped": "E,9,10,0",
+        "grouped": ["E,9,10,0"],
         "groupMain" : true
     },
     "E,9,10,1" : {
         "to": "E,0,1,10",
-        "grouped":"E,9,10,1"
+        "grouped": ["E,9,10,1"]
     },
     "E,9,11,0" : {
         // PK
         "to": "E,0,1,0",
-        "grouped": "E,9,11,1",
+        "grouped": ["E,9,11,1"],
         "groupMain" : true
     },
     "E,9,11,1" : {
         // PK
         "to": "E,0,1,0",
-        "grouped":"E,9,11,0"
+        "grouped": ["E,9,11,0"]
     },
     "E,9,11,2" : {
         // PK
@@ -277,13 +277,13 @@ var EMERALD_WARPS =
     "E,9,13,0" : {
         // MART
         "to": "E,0,1,1",
-        "grouped": "E,9,13,1",
+        "grouped": ["E,9,13,1"],
         "groupMain" : true
     },
     "E,9,13,1" : {
         // MART
         "to": "E,0,1,1",
-        "grouped":"E,9,13,0"
+        "grouped": ["E,9,13,0"]
     },
 /* MAUVILLE CITY - EXT */
     "E,0,2,0" : {
@@ -315,193 +315,285 @@ var EMERALD_WARPS =
 /* RUSTBORO CITY - EXT */
     "E,0,3,0" : {
         // GYM
+        "name": "RUSTBORO CITY - OUTSIDE - GYM - 1B,13",
+        "level": "1", 
         "to" : "E,11,3,0"
     },
     "E,0,3,1" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Wanda House (PC Boxart) - D,1E",
+        "level": "1", 
         "to" : "E,11,8,0"
     },
     "E,0,3,2" : {
         // MART
+        "name": "RUSTBORO CITY - OUTSIDE - Mart - 10,2D",
+        "level": "1", 
         "to" : "E,11,7,0"
     },
     "E,0,3,3" : {
         // PK
+        "name": "RUSTBORO CITY - OUTSIDE - Pkcenter - 10,26",
+        "level": "1", 
         "to" : "E,11,5,0"
     },
     "E,0,3,4" : {
         // SCHOOL
+        "name": "RUSTBORO CITY - OUTSIDE - School - 1B,22",
+        "level": "1", 
         "to" : "E,11,4,0"
     },
     "E,0,3,5" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Devon Corp - B,F",
+        "level": "1", 
         "to" : "E,11,0,0",
-        "grouped": "E,0,3,6",
+        "grouped": ["E,0,3,6"],
         "groupMain" : true
     },
     "E,0,3,6" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Devon Corp - C,F",
+        "level": "1", 
         "to" : "E,11,0,1",
-        "grouped": "E,0,3,5"
+        "grouped": ["E,0,3,5"]
     },
     "E,0,3,7" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Right of Gym (seedot/ralts trade) - 21,13",
+        "level": "1", 
         "to" : "E,11,10,0"
     },
     "E,0,3,8" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Cut Masters House - 9,26",
+        "level": "1", 
         "to" : "E,11,11,0"
     },
     "E,0,3,9" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Above School - 1E,1C",
+        "level": "1", 
         "to" : "E,11,12,0"
     },
     "E,0,3,10" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Bottom Left Appartments - 5,33",
+        "level": "1", 
         "to" : "E,11,13,0"
     },
     "E,0,3,11" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Bottom Right - 1A,2E",
+        "level": "1", 
         "to" : "E,11,16,0"
     },
 /* RUSTBORO CITY - INT */
     "E,11,0,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Devon Corp F1 (enterance) - 5,8",
+        "level": "1", 
         "to" : "E,0,3,5",
-        "grouped": "E,11,0,1",
+        "grouped": ["E,11,0,1"],
         "groupMain" : true
     },
     "E,11,0,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Devon Corp F1 (enterance) - 6,8",
+        "level": "1", 
         "to" : "E,0,3,5",
-        "grouped" : "E,11,0,0"
+        "grouped" : ["E,11,0,0"]
     },
     "E,11,0,2" : {
+        "name": "RUSTBORO CITY - INSIDE - Devon Corp F1 (stairs) - E,1",
+        "level": "1", 
         "to" : "E,11,1,0"
     },
     "E,11,1,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Devon Corp F2 (Right) - E,1",
+        "level": "1", 
         "to" : "E,11,0,2"
     },
     "E,11,1,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Devon Corp F2 (Left) - 2,1",
+        "level": "1", 
         "to" : "E,11,2,0"
     },
     "E,11,2,0" : {
         // DIRECTOR GUY
+        "name": "RUSTBORO CITY - INSIDE - Devon Corp F3 (President office) - 2,1",
+        "level": "1", 
         "to" : "E,11,1,1"
     },
     "E,11,3,0" : {
         // GYM
+        "name": "RUSTBORO CITY - INSIDE - Gym - 5,13",
+        "level": "1", 
         "to" : "E,0,3,0",
-        "grouped" : "E,11,3,1",
+        "grouped" : ["E,11,3,1"],
         "groupMain" : true
     },
     "E,11,3,1" : {
         // GYM
+        "name": "RUSTBORO CITY - INSIDE - Gym - 6,13",
+        "level": "1", 
         "to" : "E,0,3,0",
-        "grouped" : "E,11,3,0"
+        "grouped" : ["E,11,3,0"]
     },
     "E,11,4,0" : {
         // SCHOOL
+        "name": "RUSTBORO CITY - INSIDE - School - 5,A",
+        "level": "1", 
         "to" : "E,0,3,4",
-        "grouped" : "E,11,4,1",
+        "grouped" : ["E,11,4,1"],
         "groupMain" : true
     },
     "E,11,4,1" : {
         // SCHOOL
+        "name": "RUSTBORO CITY - INSIDE - School - 6,A",
+        "level": "1", 
         "to" : "E,0,3,4",
-        "grouped" : "E,11,4,0"
+        "grouped" : ["E,11,4,0"]
     },
     "E,11,5,0" : {
         // PK
+        "name": "RUSTBORO CITY - INSIDE - PkCenter (enterance) - 7,8",
+        "level": "1", 
         "to" : "E,0,3,3",
-        "grouped" : "E,11,5,1",
+        "grouped" : ["E,11,5,1"],
         "groupMain" : true
     },
     "E,11,5,1" : {
         // PK
+        "name": "RUSTBORO CITY - INSIDE - PkCenter (enterance) - 8,8",
+        "level": "1", 
         "to" : "E,0,3,3",
-        "grouped" : "E,11,5,0"
+        "grouped" : ["E,11,5,0"]
     },
     "E,11,5,2" : {
         // PK
+        "name": "RUSTBORO CITY - INSIDE - PkCenter (stairs) - 1,6",
+        "level": "1", 
         "to" : "E,11,6,0"
     },
     "E,11,6,0" : {
-        "to" : "E,,11,5,2",
+        "name": "RUSTBORO CITY - INSIDE - PkCenter Upstairs (stairs) - 1,6",
+        "level": "1", 
+        "to" : "E,11,5,2",
         "ignore" : true
     },
     "E,11,7,0" : {
         // MART
+        "name": "RUSTBORO CITY - INSIDE - Mart - 3,7",
+        "level": "1", 
         "to" : "E,0,3,2",
-        "grouped" : "E,11,7,1",
+        "grouped" : ["E,11,7,1"],
         "groupMain" : true
     },
     "E,11,7,1" : {
         // MART
+        "name": "RUSTBORO CITY - INSIDE - Mart - 4,7",
+        "level": "1", 
         "to" : "E,0,3,2",
-        "grouped" : "E,11,7,0"
+        "grouped" : ["E,11,7,0"]
     },
     "E,11,8,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Wanda House (PC Boxart) F1 Enterance - 6,7",
+        "level": "1", 
         "to" : "E,0,3,1",
-        "grouped" : "E,11,8,1",
+        "grouped" : ["E,11,8,1"],
         "groupMain" : true
     },
     "E,11,8,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Wanda House (PC Boxart) F1 Enterance - 7,7",
+        "level": "1", 
         "to" : "E,0,3,1",
-        "grouped" : "E,11,8,0"
+        "grouped" : ["E,11,8,0"]
     },
     "E,11,8,2" : {
+        "name": "RUSTBORO CITY - INSIDE - Wanda House (PC Boxart) F1 Stairs - 2,1",
+        "level": "1", 
         "to" : "E,11,9,0"
     },
     "E,11,9,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Wanda House (PC Boxart) F2 Stairs - 2,1",
+        "level": "1", 
         "to" : "E,11,8,2"
     },
     "E,11,10,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Right of Gym (seedot/ralts trade) - 5,7",
+        "level": "1", 
         "to" : "E,0,3,7",
-        "grouped" : "E,11,10,1",
+        "grouped" : ["E,11,10,1"],
         "groupMain" : true
     },
     "E,11,10,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Right of Gym (seedot/ralts trade) - 6,7",
+        "level": "1", 
         "to" : "E,0,3,7",
-        "grouped" : "E,11,10,0"
+        "grouped" : ["E,11,10,0"]
     },
     "E,11,11,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Cut Masters House - 5,8",
+        "level": "1", 
         "to" : "E,0,3,8",
-        "grouped" : "E,11,11,1",
+        "grouped" : ["E,11,11,1"],
         "groupMain" : true
     },
     "E,11,11,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Cut Masters House - 6,8",
+        "level": "1", 
         "to" : "E,0,3,8",
-        "grouped" : "E,11,11,0"
+        "grouped" : ["E,11,11,0"]
     },
     "E,11,12,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Above School - 5,8",
+        "level": "1", 
         "to" : "E,0,3,9",
-        "grouped" : "E,11,12,1",
+        "grouped" : ["E,11,12,1"],
         "groupMain" : true
     },
     "E,11,12,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Above School - 6,8",
+        "level": "1", 
         "to" : "E,0,3,9",
-        "grouped" : "E,11,12,0"
+        "grouped" : ["E,11,12,0"]
     },
     "E,11,13,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Bottom Left Appartments F1 (Enterance) - 2,8",
+        "level": "1", 
         "to" : "E,0,3,10",
-        "grouped" : "E,11,13,1",
+        "grouped" : ["E,11,13,1"],
         "groupMain" : true
     },
     "E,11,13,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Bottom Left Appartments F1 (Enterance) - 3,8",
+        "level": "1", 
         "to" : "E,0,3,10",
-        "grouped" : "E,11,13,0"
+        "grouped" : ["E,11,13,0"]
     },
     "E,11,13,2" : {
+        "name": "RUSTBORO CITY - INSIDE - Bottom Left Appartments F1 (stairs) - 3,1",
+        "level": "1", 
         "to" : "E,11,14,0"
     },
     "E,11,14,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Bottom Left Appartments F2 Right (stairs) - 3,1",
+        "level": "1", 
         "to" : "E,11,13,2"
     },
     "E,11,14,1" : {
+        "name": "RUSTBORO CITY - INSIDE - Bottom Left Appartments F2 Right (stairs) - 1,1",
+        "level": "1", 
         "to" : "E,11,15,0"
     },
     "E,11,15,0" : {
+        "name": "RUSTBORO CITY - INSIDE - Bottom Left Appartments F3 (stairs) - 1,1",
+        "level": "1", 
         "to" : "E,11,14,1"
     },
     "E,11,16,0" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Bottom Right - 5,8",
+        "level": "1", 
         "to" : "E,0,3,11",
-        "grouped" : "E,11,16,1",
+        "grouped" : ["E,11,16,1"],
         "groupMain" : true
     },
     "E,11,16,1" : {
+        "name": "RUSTBORO CITY - OUTSIDE - Bottom Right - 6,8",
+        "level": "1", 
         "to" : "E,0,3,11",
-        "grouped" : "E,11,16,0"
+        "grouped" : ["E,11,16,0"]
     },
 /* FORTREE CITY - EXT */
     "E,0,4,0" : {
@@ -549,7 +641,7 @@ var EMERALD_WARPS =
     "E,0,5,3" : {
         // MUSEUM
         "to" : "E,13,2,0",
-        "grouped" : "E,0,5,13",
+        "grouped" : ["E,0,5,13"],
         "groupMain" : true
     },
     "E,0,5,4" : {
@@ -583,7 +675,7 @@ var EMERALD_WARPS =
     "E,0,5,13" : {
         // MUSEUM
         "to" : "E,13,2,1",
-        "grouped": "E,0,5,3"
+        "grouped": ["E,0,5,3"]
     },
 /* MOSSDEEP CITY - EXT */
     "E,0,6,0" : {
@@ -708,14 +800,14 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) - 8,8",
         "level": "1", 
         "to": "E,0,9,1",
-        "grouped": "E,1,0,1",
+        "grouped": ["E,1,0,1"],
         "groupMain" : true
     },
     "E,1,0,1" : {
         "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) - 9,8",
         "level": "1", 
         "to": "E,0,9,1",
-        "grouped":"E,1,0,0"
+        "grouped": ["E,1,0,0"]
     },
     "E,1,0,2" : {
         "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) (stairs) - 8,2",
@@ -731,14 +823,14 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) - 1,8",
         "level": "1", 
         "to": "E,0,9,0",
-        "grouped": "E,1,2,1",
+        "grouped": ["E,1,2,1"],
         "groupMain" : true
     },
     "E,1,2,1" : {
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) - 2,8",
         "level": "1", 
         "to": "E,0,9,0",
-        "grouped":"E,1,2,0"
+        "grouped": ["E,1,2,0"]
     },
     "E,1,2,2" : {
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) (stairs) - 2,2",
@@ -754,14 +846,14 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Birch Lab - 6,C",
         "level": "1", 
         "to": "E,0,9,2",
-        "grouped": "E,1,4,1",
+        "grouped": ["E,1,4,1"],
         "groupMain" : true
     },
     "E,1,4,1" : {
         "name": "LITTLEROOT TOWN - INSIDE - Birch Lab - 7,C",
         "level": "1", 
         "to": "E,0,9,2",
-        "grouped":"E,1,4,0"
+        "grouped": ["E,1,4,0"]
     },
 /* OLDALE TOWN - EXT */
     "E,0,10,0" : { 
@@ -791,34 +883,34 @@ var EMERALD_WARPS =
         "name": "OLDALE TOWN - INSIDE - Left - 3,8",
         "level": "1", 
         "to": "E,0,10,1",
-        "grouped": "E,2,0,1",
+        "grouped": ["E,2,0,1"],
         "groupMain" : true
     },
     "E,2,0,1" : {
         "name": "OLDALE TOWN - INSIDE - Left - 4,8",
         "level": "1", 
         "to": "E,0,10,0",
-        "grouped":"E,2,0,0"
+        "grouped": ["E,2,0,0"]
     },
     "E,2,1,0" : {
         "name": "OLDALE TOWN - INSIDE - Right - 3,7",
         "level": "1", 
         "to": "E,0,10,1",
-        "grouped": "E,2,1,1",
+        "grouped": ["E,2,1,1"],
         "groupMain" : true
     },
     "E,2,1,1" : {
         "name": "OLDALE TOWN - INSIDE - Right - 4,7",
         "level": "1", 
         "to": "E,0,10,1",
-        "grouped":"E,2,1,0"
+        "grouped": ["E,2,1,0"]
     },
     "E,2,2,0" : {
         // PK
         "name": "OLDALE TOWN - INSIDE - PkCenter - 7,8",
         "level": "1", 
         "to": "E,0,10,2",
-        "grouped": "E,2,2,1",
+        "grouped": ["E,2,2,1"],
         "groupMain" : true
     },
     "E,2,2,1" : {
@@ -826,7 +918,7 @@ var EMERALD_WARPS =
         "name": "OLDALE TOWN - INSIDE - PkCenter - 6,8",
         "level": "1", 
         "to": "E,0,10,2",
-        "grouped":"E,2,2,0"
+        "grouped": ["E,2,2,0"]
     },
     "E,2,2,2" : {
         // PK
@@ -846,7 +938,7 @@ var EMERALD_WARPS =
         "name": "OLDALE TOWN - INSIDE - Mart - 3,7",
         "level": "1", 
         "to": "E,0,10,3",
-        "grouped": "E,2,4,1",
+        "grouped": ["E,2,4,1"],
         "groupMain" : true
     },
     "E,2,4,1" : {
@@ -854,7 +946,7 @@ var EMERALD_WARPS =
         "name": "OLDALE TOWN - INSIDE - Mart - 4,7",
         "level": "1", 
         "to": "E,0,10,3",
-        "grouped":"E,2,4,0"
+        "grouped": ["E,2,4,0"]
     },
 /* DEWFORD CITY - EXT */
     "E,0,11,0" : {
@@ -978,107 +1070,107 @@ var EMERALD_WARPS =
         "name": "ROUTE 104 - OUSIDE - Woods (RUSTBORO side) - A,1E",
         "level" : "1",
         "to" : "E,24,11,0",
-        "grouped" : "E,0,19,3",
+        "grouped" : ["E,0,19,3"],
         "groupMain" : true
     },
     "E,0,19,3" : {
         "name": "ROUTE 104 - OUSIDE - Woods (RUSTBORO side) - B,1E",
         "level" : "1",
         "to" : "E,24,11,1",
-        "grouped" : "E,0,19,2"
+        "grouped" : ["E,0,19,2"]
     },
     "E,0,19,4" : {
         "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) - A,26",
         "level" : "1",
         "to" : "E,24,11,2",
-        "grouped" : "E,0,19,5",
+        "grouped" : ["E,0,19,5"],
         "groupMain" : true
     },
     "E,0,19,5" : {
         "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) - B,26",
         "level" : "1",
         "to" : "E,24,11,3",
-        "grouped" : "E,0,19,4"
+        "grouped" : ["E,0,19,4"]
     },
     "E,0,19,6" : {
         "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) (Up ledge) - 20,2A",
         "level" : "1",
         "to" : "E,24,11,4",
-        "grouped" : "E,0,19,7",
+        "grouped" : ["E,0,19,7"],
         "groupMain" : true
     },
     "E,0,19,7" : {
         "name": "ROUTE 104 - OUSIDE - Woods (PETALBURG side) (Up ledge) - 21,2A",
         "level" : "1",
         "to" : "E,24,11,5",
-        "grouped" : "E,0,19,6"
+        "grouped" : ["E,0,19,6"]
     },
 /* ROUTE 104 - INSIDE */ 
     "E,17,0,0" : {
         "name": "ROUTE 104 - INSIDE - MR BRINEYS (boat guy) - 5,8",
         "level" : "1",
         "to" : "E,0,19,0",
-        "grouped" : "E,17,0,1",
+        "grouped" : ["E,17,0,1"],
         "groupMain" : true
     },
     "E,17,0,1" : {
         "name": "ROUTE 104 - INSIDE - MR BRINEYS (boat guy) - 6,8",
         "level" : "1",
         "to" : "E,0,19,0",
-        "grouped" : "E,17,0,0"
+        "grouped" : ["E,17,0,0"]
     },
     "E,17,1,0" : {
         "name": "ROUTE 104 - INSIDE - Flower Shop - 2,8",
         "level" : "1",
         "to" : "E,0,19,0",
-        "grouped" : "E,17,1,1",
+        "grouped" : ["E,17,1,1"],
         "groupMain" : true
     },
     "E,17,1,1" : {
         "name": "ROUTE 104 - INSIDE - Flower Shop - 3,8",
         "level" : "1",
         "to" : "E,0,19,0",
-        "grouped" : "E,17,1,0",
+        "grouped" : ["E,17,1,0"],
     },
 /* PETALBUG WOODS */
     "E,24,11,0" : {
         "name": "PETALBUG WOODS - OUSIDE - Woods (RUSTBORO side) - E,5",
         "level" : "1",
         "to" : "E,0,19,2",
-        "grouped" : "E,14,11,1",
+        "grouped" : ["E,24,11,1"],
         "groupMain" : true
     },
     "E,24,11,1" : {
         "name": "PETALBUG WOODS - OUSIDE - Woods (RUSTBORO side) - F,5",
         "level" : "1",
         "to" : "E,0,19,2",
-        "grouped" : "E,24,11,0"
+        "grouped" : ["E,24,11,0"]
     },
     "E,24,11,2" : {
         "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) - 10,26",
         "level" : "1",
         "to" : "E,0,19,4",
-        "grouped" : "E,24,11,3",
+        "grouped" : ["E,24,11,3"],
         "groupMain" : true
     },
     "E,24,11,3" : {
         "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) - 11,26",
         "level" : "1",
         "to" : "E,0,19,5",
-        "grouped" : "E,24,11,2"
+        "grouped" : ["E,24,11,2"]
     },
     "E,24,11,4" : {
         "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) (right) - 24,26",
         "level" : "1",
         "to" : "E,0,19,6",
-        "grouped" : "E,24,11,5",
+        "grouped" : ["E,24,11,5"],
         "groupMain" : true
     },
     "E,24,11,5" : {
         "name": "PETALBUG WOODS - OUSIDE - Woods (PETALBURG side) (right) - 25,26",
         "level" : "1",
         "to" : "E,0,19,7",
-        "grouped" : "E,24,11,4"
+        "grouped" : ["E,24,11,4"]
     },
 /* ROUTE 116 - OUTSIDE */
     "E,0,31,0" : {
@@ -1112,14 +1204,14 @@ var EMERALD_WARPS =
         "name": "ROUTE 116 - INSIDE - Tunnelers Rest House - 4,8",
         "level" : "1",
         "to" : "E,0,31,1",
-        "grouped" : "E,21,0,1",
+        "grouped" : ["E,21,0,1"],
         "groupMain" : true
     },
     "E,21,0,1" : {
         "name": "ROUTE 116 - INSIDE - Tunnelers Rest House - 5,8",
         "level" : "1",
         "to" : "E,0,31,1",
-        "grouped" : "E,21,0,0"
+        "grouped" : ["E,21,0,0"]
     },
 /* RUSTURF TUNNEL */    
     "E,24,4,0" : {
