@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>3GX-MR Pokemon Visuliser</title>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=160">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="icon" type="image/png" href="../res/favicon.png">
+        <script src="cytoscape.min.js"></script>
+        <script src="layout-base.js"></script>
+        <script src="cose-base.js"></script>
+        <script src="cytoscape-cose-bilkent.js"></script>
+        <script src="code.js"></script>
+        <script src="../Randomiser/MapMetaData.json.js"></script>
+        <script src="../Randomiser/FireRedWarps.json.js"></script>
+        <script src="../Randomiser/FireRedWarps.json.js"></script>
+        <script src="../Randomiser/CrystalWarps.json.js"></script>
+        <script src="../Randomiser/EmeraldWarps.json.js"></script> 
+        <script src="../Randomiser/Randomisation.js"></script>
+    </head>
+    <body>
+        <div class="available-warp-select-wrapper">
+            <div class="input-field col s12">
+              <select id="kantoLevel">
+                <option value="10" selected>All</option>
+                <option value="0">None</option>
+                <option value="1">To Gym 1</option>
+                <option value="2">To Gym 2</option>
+                <option value="3">To Gym 3</option>
+                <option value="4">To Gym 4</option>
+                <option value="5">To Gym 5</option>
+                <option value="6">To Gym 6</option>
+                <option value="7">To Gym 7</option>
+                <option value="8">To Gym 8</option>
+                <option value="9">To Champ</option>
+              </select>
+              <label>Kanto</label>
+            </div>
+            <div class="input-field col s12">
+              <select id="jhotoLevel">
+                <option value="10" selected>All</option>
+                <option value="0">None</option>
+                <option value="1">To Gym 1</option>
+                <option value="2">To Gym 2</option>
+                <option value="3">To Gym 3</option>
+                <option value="4">To Gym 4</option>
+                <option value="5">To Gym 5</option>
+                <option value="6">To Gym 6</option>
+                <option value="7">To Gym 7</option>
+                <option value="8">To Gym 8</option>
+                <option value="9">To Champ</option>
+              </select>
+              <label>Jhoto</label>
+            </div>
+            <div class="input-field col s12">
+              <select id="hoennLevel">
+                <option value="10" selected>All</option>
+                <option value="0">None</option>
+                <option value="1">To Gym 1</option>
+                <option value="2">To Gym 2</option>
+                <option value="3">To Gym 3</option>
+                <option value="4">To Gym 4</option>
+                <option value="5">To Gym 5</option>
+                <option value="6">To Gym 6</option>
+                <option value="7">To Gym 7</option>
+                <option value="8">To Gym 8</option>
+                <option value="9">To Champ</option>
+              </select>
+              <label>Hoenn</label>
+            </div>
+            <input id="input_seed_text" type="text" value="KITTY" data-length="10">
+            <input type="button" value="remap">
+            <input type="button" value="Next Mapping" onclick="doNextMapping()">
+        </div>
+        <div id="cy"></div>
+    </body>
+</html>
