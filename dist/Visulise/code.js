@@ -14,9 +14,10 @@ function WarpNode(data) {
     this.data = {};
     this.data.id = data[0];
     this.data.parent = toMapBank(data[0]);
-    this.data.label = data[1].name ? data[1].name.split("-")[2]  : "Unknown";
+    this.data.label = data[1].name ? data[0] + data[1].name.split("-")[2] : data[0] + " (Unnamed)";
     this.classes = 'outline';
     this.data.isWarp = true;
+    this.data.isMapped = false;
 }
 
 function FixedEdge(source, target) {
@@ -31,7 +32,7 @@ function WarpEdge(source, target) {
   this.data.id = source + "->" + target;
   this.data.source = source;
   this.data.target = target;
-  this.classes = 'warp'
+  this.classes = 'warp';
 }
 
 
@@ -40,7 +41,7 @@ function getFilteredData() {
     warpIdData = filterIgnored(warpIdData);
     warpIdData = filteGroupedNotMain(warpIdData);
     warpIdData = filterByConfig(warpIdData, getRandomisationConfig());
-    warpIdData = attemptAddingConnectionData(warpIdData);
+    //warpIdData = attemptAddingConnectionData(warpIdData);
     return warpIdData;
 }
 
@@ -52,24 +53,59 @@ function toReigon(id) {
     }
 }
 
-function findAccessibleNodes(cy, root) {
+function findAccessibleUnmappedNodes(cy, root) {
   let nodeSet = new Set();
-  cy.elements().bfs({roots: cy.getElementById(root), directed: true, visit: (v, e, u, i, depth) => nodeSet.add(v)})
+  cy.elements().bfs({roots: cy.getElementById(root), directed: true, visit: (v, e, u, i, depth) => {
+    
+    if(!v.data().isMapped) {
+      nodeSet.add(v)
+    }
+
+  }});
   return nodeSet;
 }
 
 var rng = null;
 
 function doNextMapping() {
-    let accessibleNodes = findAccessibleNodes(window.cy, 'FR,3,1,0');
-    let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp);
+    let accessibleNodes = findAccessibleUnmappedNodes(window.cy, 'FR,3,1,0');
+    let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp && !e.data().isMapped);
 
     let warp1 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
-    let warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+    accessibleNodes.delete(warp1);
+    
+    let warp2 = null;
 
+    if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= 1) {
+
+      // TODO or we could add a dead end that will open up new connections
+      inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
+      warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+
+    } else if (inacessibleNodes.length > 0) {
+
+      warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+
+    } else if (accessibleNodes > 0) {
+
+      warp2 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
+
+    } else {
+
+      console.warn("Unevenly matched warps. " + warp2.data().id + " had to map to itself");
+      warp2 = warp1;
+
+    }
+    
     console.log(warp1.data().id);
     console.log(warp2.data().id);
-    window.cy.
+    window.cy.add(new WarpEdge(warp1.data().id, warp2.data().id))
+    window.cy.add(new WarpEdge(warp2.data().id, warp1.data().id))
+
+    warp1.data().isMapped = true;
+    warp2.data().isMapped = true;
+
+    cy.layout({name: 'cose-bilkent', animationDuration: 500, nodeDimensionsIncludeLabels: true}).run();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -128,6 +164,12 @@ document.addEventListener('DOMContentLoaded', function() {
             css: {
                 'background-color': '#d9ffd1'
             }
+          },
+          {
+            selector: '.warp',
+            css: {
+              'line-color': '#f92411'
+            }
           }
         ],
       
@@ -159,6 +201,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Add fixed edges
       data.forEach(d => {
+
+        if (!d[1].connections) {
+          return;
+        }
+
         Object.keys(d[1].connections).forEach(c => {
             cy.add(new FixedEdge(d[0], c))
         });

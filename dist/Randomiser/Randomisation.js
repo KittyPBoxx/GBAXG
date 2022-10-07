@@ -57,7 +57,7 @@ function simpleRandom(seed, mapData, config) {
     warpIdData = attemptAddingConnectionData(warpIdData);
 
     connectionManager = new ConnectionManager(seed, mapData, warpIdData, ["FR,3,1,0", "FR,3,1,1", "FR,3,1,3", "FR,3,1,4"]);
-    connectionManager.mapAllWarps();
+    //connectionManager.mapAllWarps();
     return connectionManager.getRemappings();
 }
 
