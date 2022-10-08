@@ -1,5 +1,5 @@
 {
-  "name": "3GX-MR",
+  "name": "GBAXG",
   "scripts": {
     "tauri": "tauri",
     "localhost": "./node_modules/.bin/servor dist index.html 8080 --reload"

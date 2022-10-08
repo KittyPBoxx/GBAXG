@@ -140,18 +140,6 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
  }
 
-function PKWarp(trigger, romCode, bank, map, warpNo) {
-    this.trigger = trigger;
-    this.toRomCode = romCode;
-    this.toBank = bank;
-    this.toMap = map;
-    this.toWarpNo = warpNo;
-}
-
-PKWarp.prototype.isInternal = function() {
-    return this.toRomCode[0] == this.trigger[0];
-}
-
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
 
