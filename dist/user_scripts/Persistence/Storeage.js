@@ -1,5 +1,5 @@
 function StorageManager() {
-    this.db = new Dexie("3GX-MR");
+    this.db = new Dexie("GBAXG");
     this.db.version(1).stores({ files: "&name" });
 }
 

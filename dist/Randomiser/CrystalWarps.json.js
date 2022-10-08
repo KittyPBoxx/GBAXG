@@ -70,12 +70,12 @@ var CRYSTAL_WARPS =
         "to" : "C,4,0,1"
     },
     "C,4,3,2" : {
-        "name": "NEW BARK TOWN - INSIDE - Birch Lab - E,14",
+        "name": "NEW BARK TOWN - INSIDE - Elm Lab - E,14",
         "level" : "1",
         "to" : "C,3,0,2"
     },
     "C,5,27,0" : {
-        "name": "NEW BARK TOWN - INSIDE - Right (Birch House) - 4,8",
+        "name": "NEW BARK TOWN - INSIDE - Right (Elm House) - 4,8",
         "level" : "1",
         "to" : "C,3,0,3"
     },
@@ -126,7 +126,7 @@ var CRYSTAL_WARPS =
     "C,3,65,4" : {
         "name": "CHERRYGROVE CITY - OUTSIDE - Right - 24,D",
         "level" : "1",
-        "to" : "C,33,10",
+        "to" : "C,33,1,0",
         "connections": {
             "C,3,65,2": true
         }
@@ -418,7 +418,7 @@ var CRYSTAL_WARPS =
     "C,3,47,1" : {
         "name": "ROUTE 30 - OUTSIDE - Berry Guy's House - 7,27",
         "level" : "1",
-        "to" : "C,5,0,0",
+        "to" : "C,34,12,0",
         "connections": {
             "C,3,65,2": true
         }

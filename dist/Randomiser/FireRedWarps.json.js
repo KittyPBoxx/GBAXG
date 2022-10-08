@@ -183,7 +183,7 @@ var FIRE_RED_WARPS =
         // MUSEUM BACK
         "name": "PEWTER CITY - OUTSIDE - Museum (Back) - 19,4",
         "level": "1", 
-        "to" : "E6,0,3",
+        "to" : "FR,6,0,3",
         "connections" : {
             "FR,3,2,5": true
         }
@@ -192,7 +192,7 @@ var FIRE_RED_WARPS =
         // GYM
         "name": "PEWTER CITY - OUTSIDE - Gym - F,10",
         "level": "1", 
-        "to" : "E6,2,1",
+        "to" : "FR,6,2,1",
         "connections" : {
             "FR,3,2,5": true
         }
@@ -201,7 +201,7 @@ var FIRE_RED_WARPS =
         // MART
         "name": "PEWTER CITY - OUTSIDE - Mart - 1C,12",
         "level": "1", 
-        "to" : "E6,3,1",
+        "to" : "FR,6,3,1",
         "connections" : {
             "FR,3,2,5": true,
         }
@@ -209,7 +209,7 @@ var FIRE_RED_WARPS =
     "FR,3,2,4" : {
         "name": "PEWTER CITY - OUTSIDE - Top Right - 21,B",
         "level": "1", 
-        "to" : "E6,4,1",
+        "to" : "FR,6,4,1",
         "connections" : {
             "FR,3,2,5": true,
         }
@@ -218,7 +218,7 @@ var FIRE_RED_WARPS =
         // PK
         "name": "PEWTER CITY - OUTSIDE - PkCenter - 11,19",
         "level": "1", 
-        "to" : "E6,5,1",
+        "to" : "FR,6,5,1",
         "connections" : {
             "FR,3,2,0": true,
             "FR,3,2,1": false,
@@ -232,7 +232,7 @@ var FIRE_RED_WARPS =
     "FR,3,2,6" : {
         "name": "PEWTER CITY - OUTSIDE - Bottom Left - 9,1E",
         "level": "1", 
-        "to" : "E6,7,1",
+        "to" : "FR,6,7,1",
         "connections" : {
             "FR,3,2,5": true
         }

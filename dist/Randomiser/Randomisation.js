@@ -4,6 +4,7 @@ Object.entries(CRYSTAL_WARPS).forEach(e => mixedGameData[e[0]] = e[1]);
 Object.entries(EMERALD_WARPS).forEach(e => mixedGameData[e[0]] = e[1]);
 
 var remappingsData = {};
+var isHeadless = true;
 
 // WarpList used by Cheat.js
 var warpList = new Map();
@@ -26,15 +27,14 @@ function getRandomisationConfig() {
     return config;
 }
 
-function mappingToWarps(mappingData, mapData) {
+function mappingToWarps(mappingData) {
     let mappedList = new Map();
 
-    Object.values(mappingData).forEach(mapping => {
-        let from = mapping.from;
-        let to = mapping.to;
+    mappingData.forEach(mapping => {
+        let from = mapping.trigger;
+        let to = mapping.target;
         let toParts = to.split(",");
-        let fromData = mapData[from];
-        mappedList.set(fromData.to, new PKWarp(fromData.to, toParts[0], toParts[1], toParts[2], toParts[3]));
+        mappedList.set(from, new PKWarp(from, toParts[0], toParts[1], toParts[2], toParts[3]));
     });
 
     return mappedList;
@@ -42,63 +42,22 @@ function mappingToWarps(mappingData, mapData) {
 
 function mapWarps(seed) {
     let config = getRandomisationConfig();
-    let mapData = getMapData();
+    let mapData = getFilteredData();
     remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, config]);
-    warpList = mappingToWarps(remappingsData, mapData);
+    warpList = mappingToWarps(getAugmetedRemappingData(remappingsData));
 }
 
 function simpleRandom(seed, mapData, config) {
-    let warpIdData = new Map(Object.entries(mapData));
-    warpIdData = filterIgnored(warpIdData);
-    warpIdData = filteGroupedNotMain(warpIdData);
-    warpIdData = filterByConfig(warpIdData, config);
+    
+    let rng = new RNG(getHash(seed));
+    initMappingGraph(mapData, isHeadless)
 
-    // Attempt to add conntections data (This will need to be done manually later)
-    warpIdData = attemptAddingConnectionData(warpIdData);
-
-    connectionManager = new ConnectionManager(seed, mapData, warpIdData, ["FR,3,1,0", "FR,3,1,1", "FR,3,1,3", "FR,3,1,4"]);
-    //connectionManager.mapAllWarps();
-    return connectionManager.getRemappings();
-}
-
-function createAndAddPkWarpsBothWays(warpList, connection1, connection2, mapData) {
-    let usedWarps = [];
-    usedWarps.push(...createRemapping(warpList, connection1, connection2, mapData));
-    usedWarps.push(...createRemapping(warpList, connection2, connection1, mapData))
-    return usedWarps;
-}
-
-function createRemapping(warpList, connection1, connection2, mapData) {
-    let newConnection = {};
-    newConnection.from = connection1;
-    newConnection.to = connection2;
-    warpList.push(newConnection);
-
-    var usedWarps = [connection1];
-    let connection1Group = mapData[connection1].grouped;
-    if (connection1Group && typeof connection1Group == 'string') {
-        warpList.push({ "from": connection1Group, "to": connection2 });
-        usedWarps.push(connection1Group)
-    } else if (connection1Group) {
-        connection1Group.forEach(w => {
-            warpList.push({ "from": w, "to": connection2 });
-            usedWarps.push(w)
-        })
+    var moreWarpsToMap = true;
+    while(moreWarpsToMap) {
+        moreWarpsToMap = doNextMapping(rng);
     }
-    return usedWarps;
-}
 
-// Assume every warp on the same map is accessible (except itself!)
-function attemptAddingConnectionData(warpIdData) {
-    return new Map([...warpIdData].map(w => {
-        w[1].connections = {};
-        [...warpIdData].filter(k => {
-            return toMapBank(k[0]) == toMapBank(w[0]) && (k[0] != w[0]);
-        }).forEach(l => {
-            w[1].connections[l[0]] = true;
-        });
-        return w;
-    }));
+   return getBaseRemappingData();
 }
 
 function filterIgnored(mapData) {
@@ -125,168 +84,24 @@ function filteGroupedNotMain(mapData) {
     return new Map([...mapData].filter(k => k[1].groupMain || !k[1].grouped));
 } 
 
-function groupBy(list, keyGetter) {
-    const map = new Map();
-    list.forEach((item) => {
-         const key = keyGetter(item);
-         const collection = map.get(key);
-         if (!collection) {
-             map.set(key, [item]);
-         } else {
-             collection.push(item);
-         }
-    });
-    return map;
-}
-
 function toMapBank(s) { 
     let arr = s.split(","); 
     return arr[0] + "," + arr[1] + "," + arr[2] 
 }
 
-
 /**
- *  CONNECTION MANAGEMENT
+ *  Warp Script model 
  */
-
-function ConnectionManager(seed, allMapData, warpsToMap, startingWarps) {
-    this.rng = new RNG(getHash(seed));
-    this.allMapData = allMapData;
-    this.unreachableWarps = warpsToMap;
-    this.reachableWarps = new Map();
-    this.mappedWarpCount = 0;
-    this.remappings = [];
-    this.selfMappedConnections = 0;
-
-    startingWarps.forEach(sw => {
-        this.reachableWarps.set(sw, warpsToMap.get(sw));
-        this.unreachableWarps.delete(sw);
-    })
+ function PKWarp(trigger, romCode, bank, map, warpNo) {
+    this.trigger = trigger;
+    this.toRomCode = romCode;
+    this.toBank = bank;
+    this.toMap = map;
+    this.toWarpNo = warpNo;
 }
 
-ConnectionManager.prototype.getRemappings = function() {
-    return this.remappings;
-}
-
-ConnectionManager.prototype.mapAllWarps = function() {
-    while (this.unreachableWarps.size > 0 || this.reachableWarps.size > 0) {
-        this.createNewMapping();
-    }
-}
-
-ConnectionManager.prototype.createNewMapping = function() {
-
-    let nextWarps = this.getNextWarps();
-
-    let allWarp1Warps = this.getGroupedWarps(nextWarps[0]);
-    let allWarp2Warps = this.getGroupedWarps(nextWarps[1]);
-
-    this.createRemappings(nextWarps[0], allWarp2Warps);
-    this.createRemappings(nextWarps[1], allWarp1Warps);
-}
-
-ConnectionManager.prototype.getGroupedWarps = function(warp) {
-    let groups = this.allMapData[warp[0]].grouped;
-    groups = groups ? groups : [];
-    groups = groups.map(w => {
-        return [w, this.allMapData[w]]
-    });
-    return [warp, ...groups];
-}
-
-ConnectionManager.prototype.createRemappings = function (warp, mapToList) {
-    mapToList.forEach(w => {
-        this.remappings.push({from : warp[0], to : w[0], fromName : warp[1].name, toName: w[1].name})
-    })
-}
-
-ConnectionManager.prototype.getNextWarps = function() {
-    let warp1 = null;
-    let warp2 = null;
-
-    let initialReachableWarps = this.reachableWarps.size;
-    let initialUnreachableWarps = this.unreachableWarps.size;
-
-    if (initialUnreachableWarps > 0 && 0 == initialReachableWarps) {
-        console.error("There are unreachable warps left after mapping all reachable. This dosn't make sense.")
-    }
-
-    if (this.getUnreachableHubs().size > 0) {
-        warp1 = [...this.getUnreachableHubs()][this.rng.nextRange(0, this.getUnreachableHubs().size - 1)];
-        this.unreachableWarps.delete(warp1[0]);
-    } else if (this.unreachableWarps.size > 0) {
-        warp1 = [...this.unreachableWarps][this.rng.nextRange(0, this.unreachableWarps.size - 1)];
-        this.unreachableWarps.delete(warp1[0]);
-    } else if (this.reachableWarps.size > 0) {
-        warp1 = [...this.reachableWarps][this.rng.nextRange(0, this.reachableWarps.size - 1)];
-        this.reachableWarps.delete(warp1[0]);
-    } else {
-        console.warn("Next warp was called when there were no warps left. This shouldn't happen");
-    }
-
-    if (this.reachableWarps.size > 0) {
-        warp2 = [...this.reachableWarps][this.rng.nextRange(0, this.reachableWarps.size - 1)];
-        this.reachableWarps.delete(warp2[0]);
-    } else {
-        if (this.selfMappedConnections == 0) {
-            this.selfMappedConnections = 1;
-            console.warn("An odd number of warps was supplied. One warp will link back to itself");
-            warp2 = warp1;
-        } else {
-            console.error(warp1[1].name + " was mapped back to iself incorrectly. Possibly an issue in the map data?")
-            warp2 = warp1;
-        }
-    }
-
-    this.updateReachableWarps(warp1);
-    console.log(this.reachableWarps.size + " reachable warps after " + warp1[1].name + " added");
-
-    if (this.getUnreachableHubs().size > 0 && !(this.reachableWarps.size >= initialReachableWarps)) {
-        console.error(warp1[1].name + " (a previously unreachable hub) was added but reachable warps decreased. This dosn't make sense.")
-    }
-
-    this.mappedWarpCount += 2;
-
-    console.log("total warps: " + ((+this.reachableWarps.size)  + (+this.unreachableWarps.size)  + (+this.mappedWarpCount)))
-    console.log("Reachable dead ends " + this.getReachableDeadEnds().size);
-
-    if ((this.getUnreachableHubs().size + this.reachableWarps.size) / 2 < this.getUnreachableDeadEnds().size) [
-        console.error("Mapping hubs we ended up with less warps!?")
-    ] 
-
-    return [warp1, warp2];
-}
-
-ConnectionManager.prototype.updateReachableWarps = function (warp) {
-
-    if (!warp[1].connections) {return }
-
-    Object.keys(warp[1].connections).forEach(c => {
-        let connectionWarp = this.unreachableWarps.get(c);
-        if (connectionWarp) {
-            console.log("Adding " + connectionWarp.name + " to reachable");
-            this.reachableWarps.set(c, connectionWarp);
-            this.unreachableWarps.delete(c);
-        }
-    })
-}
-
-ConnectionManager.prototype.getUnreachableHubs = function () {
-    return new Map([...this.unreachableWarps].filter(w => {
-        return Object.keys(w[1].connections).length > 0
-    }));
-}
-
-ConnectionManager.prototype.getUnreachableDeadEnds = function () {
-    return new Map([...this.unreachableWarps].filter(w => {
-        return Object.keys(w[1].connections).length == 0
-    }));
-}
-
-ConnectionManager.prototype.getReachableDeadEnds = function () {
-    return new Map([...this.reachableWarps].filter(w => {
-        return Object.keys(w[1].connections).length == 0
-    }));
+PKWarp.prototype.isInternal = function() {
+    return this.toRomCode[0] == this.trigger[0];
 }
 
 
@@ -328,4 +143,271 @@ RNG.prototype.nextRange = function(start, end) {
 }
 RNG.prototype.choice = function(array) {
   return array[this.nextRange(0, array.length)];
+}
+
+/**
+ *  GRAPHING / CONNECTION MANAGEMENT
+ */
+
+ function ReigonNode(id) {
+    this.data = {};
+    this.data.id = id;
+}
+
+function AreaNode(id) {
+    this.data = {};
+    this.data.id = id;
+    this.data.parent = toReigon(id);
+    this.data.label = MAP_NAMES[id] ? id + " (" + MAP_NAMES[id] + ")" : id;
+}
+
+function WarpNode(data) {
+    this.data = {};
+    this.data.id = data[0];
+    this.data.parent = toMapBank(data[0]);
+    this.data.label = data[1].name ? data[0] + data[1].name.split("-")[2] : data[0] + " (Unnamed)";
+    this.classes = 'outline';
+    this.data.isWarp = true;
+    this.data.isMapped = false;
+}
+
+function FixedEdge(source, target) {
+    this.data = {};
+    this.data.id = source + "->" + target;
+    this.data.source = source;
+    this.data.target = target;
+}
+
+function WarpEdge(source, target) {
+  this.data = {};
+  this.data.id = source + "->" + target;
+  this.data.source = source;
+  this.data.target = target;
+  this.data.isWarp = true;
+  this.classes = 'warp';
+}
+
+function getAugmetedRemappingData(remappingData) {
+
+  remappingData = addGroupedMappings(remappingData);
+  remappingData = addTriggerData(remappingData);
+
+  return remappingData;
+}
+
+function addGroupedMappings(remappingData) {
+  
+  let groupMappings = [];
+
+  remappingData.forEach(m => {
+    let groups = getMapData()[m.source].grouped;
+    if (groups) {
+      groups.forEach(g => {
+        groupMappings.push({source: g, target: m.target});
+      });
+    }
+  })
+
+  return [...remappingData, ...groupMappings];
+}
+
+function addTriggerData(remappingData) {
+
+  return remappingData.map(m => {
+    m.trigger = getMapData()[m.source].to;
+    return m;
+  });
+
+}
+
+function getBaseRemappingData() {
+  return cy.edges().filter(e => e.data().isWarp).map(e => { return {source: e.data().source, target: e.data().target} });
+}
+
+function getFilteredData() {
+    let warpIdData = new Map(Object.entries(getMapData()));
+    warpIdData = filterIgnored(warpIdData);
+    warpIdData = filteGroupedNotMain(warpIdData);
+    warpIdData = filterByConfig(warpIdData, getRandomisationConfig());
+    return warpIdData;
+}
+
+function toReigon(id) {
+    switch(id[0]) {
+        case 'F': return 'KANTO'
+        case 'C': return 'JHOTO'
+        case 'E': return 'HOENN'
+    }
+}
+
+function findAccessibleUnmappedNodes(cy, root) {
+  let nodeSet = new Set();
+  cy.elements().bfs({roots: cy.getElementById(root), directed: true, visit: (v, e, u, i, depth) => {
+    
+    if(!v.data().isMapped) {
+      nodeSet.add(v)
+    }
+
+  }});
+  return nodeSet;
+}
+
+function doNextMapping(rng) {
+    let accessibleNodes = findAccessibleUnmappedNodes(window.cy, 'FR,3,1,0');
+    let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp && !e.data().isMapped);
+
+    if(accessibleNodes.size == 0 && inacessibleNodes.length == 0) { 
+      return false; 
+    }
+
+
+    let warp1 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
+    accessibleNodes.delete(warp1);
+    
+    let warp2 = null;
+
+    if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= 1) {
+
+      // TODO or we could add a dead end that will open up new connections
+      inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
+      warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+
+    } else if (inacessibleNodes.length > 0) {
+
+      warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+
+    } else if (accessibleNodes.size > 0) {
+
+      warp2 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
+
+    } else {
+
+      console.warn("Unevenly matched warps. " + warp1.data().id + " had to map to itself");
+      warp2 = warp1;
+
+    }
+    
+    //console.log(warp1.data().id);
+    //console.log(warp2.data().id);
+    window.cy.add(new WarpEdge(warp1.data().id, warp2.data().id))
+    window.cy.add(new WarpEdge(warp2.data().id, warp1.data().id))
+
+    warp1.data().isMapped = true;
+    warp2.data().isMapped = true;
+
+    return true;
+}
+
+function initMappingGraph(mapData, isHeadless) {
+
+  var cy = window.cy = cytoscape({
+      container: isHeadless ? null : document.getElementById('cy'),
+      headless: isHeadless,
+      styleEnabled: !isHeadless,
+      boxSelectionEnabled: false,
+    
+      style: [
+        {
+          selector: 'node',
+          css: {
+            'content': 'data(id)',
+            'text-valign': 'center',
+            'text-halign': 'center'
+          }
+        },
+        {
+          selector: ':parent',
+          css: {
+            'text-valign': 'top',
+            'text-halign': 'center'      
+          },
+          style: {
+            'shape' : 'roundrectangle',
+          }
+        },
+        {
+          selector: 'edge',
+          css: {
+            'curve-style': 'bezier',
+            'target-arrow-shape': 'triangle'
+          }
+        },
+        {
+          'selector': 'node[label]',
+          'style': {
+            'label': 'data(label)',
+            'text-valign': 'bottom',
+            'text-halign': 'center'
+          }
+        },
+        {
+          selector: '.map-F',
+          css: {
+              'background-color': '#ffc0c3'
+          }
+        },
+        {
+          selector: '.map-C',
+          css: {
+              'background-color': '#f1d9ff'
+          }
+        },
+        {
+          selector: '.map-E',
+          css: {
+              'background-color': '#d9ffd1'
+          }
+        },
+        {
+          selector: '.warp',
+          css: {
+            'line-color': '#f92411'
+          }
+        }
+      ],
+    
+      elements: {
+        nodes: [],
+        edges: []
+      }
+    });
+
+
+    cy.add(new ReigonNode("KANTO"));
+    cy.add(new ReigonNode("JHOTO"));
+    cy.add(new ReigonNode("HOENN"));
+
+    let data = [...mapData];
+
+    // Add the nodes
+    data.forEach(d => {
+
+      if (!cy.getElementById(toMapBank(d[0])).length) {
+          cy.add(new AreaNode(toMapBank(d[0]))).addClass("map-" + d[0][0]);
+      }
+
+      cy.add(new WarpNode(d));
+    })
+
+    // Add fixed edges
+    data.forEach(d => {
+
+      if (!d[1].connections) {
+        return;
+      }
+
+      Object.keys(d[1].connections).forEach(c => {
+          cy.add(new FixedEdge(d[0], c))
+      });
+    });
+
+
+    cy.nodes().forEach(function(node){
+      node.css("width", 80);
+      node.css("height", 80);
+    });
+
+    if (!isHeadless) {
+        cy.layout({name: 'cose-bilkent', animationDuration: 1000, nodeDimensionsIncludeLabels: true}).run();
+    }
 }

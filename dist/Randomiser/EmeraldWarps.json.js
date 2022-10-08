@@ -473,7 +473,7 @@ var EMERALD_WARPS =
     "E,11,0,1" : {
         "name": "RUSTBORO CITY - INSIDE - Devon Corp F1 (enterance) - 6,8",
         "level": "1", 
-        "to" : "E,0,3,5",
+        "to" : "E,0,3,6",
         "grouped" : ["E,11,0,0"]
     },
     "E,11,0,2" : {
@@ -1020,9 +1020,7 @@ var EMERALD_WARPS =
             "E,0,9,2": true,
             "E,0,10,0": true,
             "E,0,10,1": true,
-            "E,0,10,3": true,
-            "E,0,19,0": false,
-            "E,0,19,4": false,
+            "E,0,10,3": true
         }
     },
     "E,0,10,3" : { 
@@ -1306,14 +1304,14 @@ var EMERALD_WARPS =
     "E,17,1,0" : {
         "name": "ROUTE 104 - INSIDE - Flower Shop - 2,8",
         "level" : "1",
-        "to" : "E,0,19,0",
+        "to" : "E,0,19,1",
         "grouped" : ["E,17,1,1"],
         "groupMain" : true
     },
     "E,17,1,1" : {
         "name": "ROUTE 104 - INSIDE - Flower Shop - 3,8",
         "level" : "1",
-        "to" : "E,0,19,0",
+        "to" : "E,0,19,1",
         "grouped" : ["E,17,1,0"],
     },
 /* PETALBUG WOODS */

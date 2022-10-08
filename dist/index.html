@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>3GX-MR Pokemon</title>
+        <title>GBAXG Pokemon Map Randomiser</title>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=160">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -102,6 +102,8 @@
         <script id="lzutf8" src="user_scripts/Compression/lzutf8.min.js"></script>
         <script src="Randomiser/InitSaveData.js"></script>
         <!-- Randomisation -->
+        <script src="Randomiser/MapMetaData.json.js"></script> <!-- don't really need this? -->
+        <script src="Randomiser/cytoscape.min.js"></script>
         <script src="Randomiser/FireRedWarps.json.js"></script>
         <script src="Randomiser/CrystalWarps.json.js"></script>
         <script src="Randomiser/EmeraldWarps.json.js"></script> 
@@ -376,55 +378,55 @@
                           <div class="available-warp-select-wrapper">
                             <div class="input-field col s12">
                               <select id="kantoLevel">
-                                <option value="10" selected>All</option>
-                                <option value="0">None</option>
-                                <option value="1">To Gym 1</option>
-                                <option value="2">To Gym 2</option>
-                                <option value="3">To Gym 3</option>
-                                <option value="4">To Gym 4</option>
-                                <option value="5">To Gym 5</option>
-                                <option value="6">To Gym 6</option>
-                                <option value="7">To Gym 7</option>
-                                <option value="8">To Gym 8</option>
-                                <option value="9">To Champ</option>
+                                <option value="10" disabled>All</option>
+                                <option value="0" disabled>None</option>
+                                <option value="1" selected>To Gym 1</option>
+                                <option value="2" disabled>To Gym 2</option>
+                                <option value="3" disabled>To Gym 3</option>
+                                <option value="4" disabled>To Gym 4</option>
+                                <option value="5" disabled>To Gym 5</option>
+                                <option value="6" disabled>To Gym 6</option>
+                                <option value="7" disabled>To Gym 7</option>
+                                <option value="8" disabled>To Gym 8</option>
+                                <option value="9" disabled>To Champ</option>
                               </select>
                               <label>Kanto</label>
                             </div>
                             <div class="input-field col s12">
                               <select id="jhotoLevel">
-                                <option value="10" selected>All</option>
-                                <option value="0">None</option>
-                                <option value="1">To Gym 1</option>
-                                <option value="2">To Gym 2</option>
-                                <option value="3">To Gym 3</option>
-                                <option value="4">To Gym 4</option>
-                                <option value="5">To Gym 5</option>
-                                <option value="6">To Gym 6</option>
-                                <option value="7">To Gym 7</option>
-                                <option value="8">To Gym 8</option>
-                                <option value="9">To Champ</option>
+                                <option value="10" disabled>All</option>
+                                <option value="0" disabled>None</option>
+                                <option value="1" selected>To Gym 1</option>
+                                <option value="2" disabled>To Gym 2</option>
+                                <option value="3" disabled>To Gym 3</option>
+                                <option value="4" disabled>To Gym 4</option>
+                                <option value="5" disabled>To Gym 5</option>
+                                <option value="6" disabled>To Gym 6</option>
+                                <option value="7" disabled>To Gym 7</option>
+                                <option value="8" disabled>To Gym 8</option>
+                                <option value="9" disabled>To Champ</option>
                               </select>
                               <label>Jhoto</label>
                             </div>
                             <div class="input-field col s12">
                               <select id="hoennLevel">
-                                <option value="10" selected>All</option>
-                                <option value="0">None</option>
-                                <option value="1">To Gym 1</option>
-                                <option value="2">To Gym 2</option>
-                                <option value="3">To Gym 3</option>
-                                <option value="4">To Gym 4</option>
-                                <option value="5">To Gym 5</option>
-                                <option value="6">To Gym 6</option>
-                                <option value="7">To Gym 7</option>
-                                <option value="8">To Gym 8</option>
-                                <option value="9">To Champ</option>
+                                <option value="10" disabled>All</option>
+                                <option value="0" disabled>None</option>
+                                <option value="1" selected>To Gym 1</option>
+                                <option value="2" disabled>To Gym 2</option>
+                                <option value="3" disabled>To Gym 3</option>
+                                <option value="4" disabled>To Gym 4</option>
+                                <option value="5" disabled>To Gym 5</option>
+                                <option value="6" disabled>To Gym 6</option>
+                                <option value="7" disabled>To Gym 7</option>
+                                <option value="8" disabled>To Gym 8</option>
+                                <option value="9" disabled>To Champ</option>
                               </select>
                               <label>Hoenn</label>
                             </div>
                           </div>
                         </div>
-                        <div class="menu-group">
+                        <div class="menu-group hide">
                           <div class="rom-header"><h5 class="bios-text">RANDOMISER</h5></div>
                           <div class="randomiser-buttons-row">
                             <div class="randomiser-button-group">

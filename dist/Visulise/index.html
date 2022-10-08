@@ -1,13 +1,13 @@
  <!DOCTYPE html>
 <html>
     <head>
-        <title>3GX-MR Pokemon Visuliser</title>
+        <title>GBAXG Pokemon Map Visuliser</title>
         <meta charset="UTF-8">
         <link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=160">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <link rel="icon" type="image/png" href="../res/favicon.png">
-        <script src="cytoscape.min.js"></script>
+        <script src="../Randomiser/cytoscape.min.js"></script>
         <script src="layout-base.js"></script>
         <script src="cose-base.js"></script>
         <script src="cytoscape-cose-bilkent.js"></script>
@@ -70,8 +70,8 @@
               <label>Hoenn</label>
             </div>
             <input id="input_seed_text" type="text" value="KITTY" data-length="10">
-            <input type="button" value="remap">
-            <input type="button" value="Next Mapping" onclick="doNextMapping()">
+            <input type="button" value="remap" onclick="doVisuliseRemap()">
+            <input type="button" value="Next Mapping" onclick="doVisuliseNextMapping()">
         </div>
         <div id="cy"></div>
     </body>
