@@ -8,7 +8,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "X3 PK Map Randomiser",
+    "productName": "XGBA Pokemon Map Randomiser",
     "version": "0.1.0"
   },
   "tauri": {
@@ -44,7 +44,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.gbaxg",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -71,10 +71,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 640,
+        "height": 1052,
         "resizable": true,
-        "title": "X3 PK Map Randomiser",
-        "width": 960
+        "title": "XGBA Pokemon Map Randomiser",
+        "width": 1577
       }
     ]
   }

@@ -1,4 +1,4 @@
-const fileSystem = window.__TAURI__ ? window.__TAURI__.fs : null;
+const fileSystem = null;//window.__TAURI__ ? window.__TAURI__.fs : null;
 
 var debugConsole;
 document.addEventListener('DOMContentLoaded', function() {
