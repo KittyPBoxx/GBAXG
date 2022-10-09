@@ -474,6 +474,8 @@ if (!warping) {
     this.renderer.window1Renderer.WINYCoordTop                 = structuredClone(IOCore.gfxRenderer.renderer.window1Renderer.WINYCoordTop        );
     this.renderer.window1Renderer.windowDisplayControl         = structuredClone(IOCore.gfxRenderer.renderer.window1Renderer.windowDisplayControl);
 
+}   
+
     /* Audio */
     this.AGBDirectSoundA                    =  structuredClone(IOCore.sound.AGBDirectSoundA                  );
     this.AGBDirectSoundAFolded              =  structuredClone(IOCore.sound.AGBDirectSoundAFolded            );
@@ -637,7 +639,6 @@ if (!warping) {
     this.FIFOB.count                        = structuredClone(IOCore.sound.FIFOBBuffer.count                 );   
     this.FIFOB.position                     = structuredClone(IOCore.sound.FIFOBBuffer.position              );    
 
-}   
     /* Serial */
     this.JOYBUS_CNTL_FLAGS             = structuredClone(IOCore.serial.JOYBUS_CNTL_FLAGS         );
     this.JOYBUS_IRQ                    = structuredClone(IOCore.serial.JOYBUS_IRQ                );
@@ -1119,6 +1120,8 @@ if(!this.warping) {
     this.assign(IOCore.gfxRenderer.renderer.window1Renderer              , "WINYCoordTop"           , this.renderer.window1Renderer.WINYCoordTop        );
     this.assign(IOCore.gfxRenderer.renderer.window1Renderer              , "windowDisplayControl"   , this.renderer.window1Renderer.windowDisplayControl);
 
+} 
+
    /* Audio */
    this.assign(IOCore.sound         , "AGBDirectSoundA"                 , this.AGBDirectSoundA                     );
    this.assign(IOCore.sound         , "AGBDirectSoundAFolded"           , this.AGBDirectSoundAFolded               );
@@ -1273,8 +1276,6 @@ if(!this.warping) {
    this.assign(IOCore.sound.FIFOBBuffer, "buffer"                       , this.FIFOB.buffer                        );   
    this.assign(IOCore.sound.FIFOBBuffer, "count"                        , this.FIFOB.count                         );   
    this.assign(IOCore.sound.FIFOBBuffer, "position"                     , this.FIFOB.position                      );    
-
-} 
 
    /* Serial */
    this.assign(IOCore.serial, "JOYBUS_CNTL_FLAGS"        , this.JOYBUS_CNTL_FLAGS        );
