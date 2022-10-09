@@ -1329,7 +1329,7 @@ var EMERALD_WARPS =
     "E,24,11,1" : {
         "name": "PETALBUG WOODS - OUSIDE - Woods (RUSTBORO side) - F,5",
         "level" : "1",
-        "to" : "E,0,19,2",
+        "to" : "E,0,19,3",
         "grouped" : ["E,24,11,0"]
     },
     "E,24,11,2" : {
