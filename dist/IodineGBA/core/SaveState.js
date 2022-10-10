@@ -13,10 +13,16 @@ SaveStateManager.prototype.saveState = function (slot, warping = false) {
     if (playing) this.Iodine.play();
 }
 
-SaveStateManager.prototype.loadState = function (slot) {
+SaveStateManager.prototype.loadState = function (slot, isAutosave = false) {
     let playing = this.Iodine.emulatorStatus <= 10;
     if (playing) this.Iodine.pause();
     let speed = IodineGUI.Iodine.getSpeed()
+
+    if (this.slot[slot].warping && isAutosave) {
+        isWarping = true;
+        reverseNextWarp = true;
+    }
+
     this.slot[slot].load(this.Iodine.IOCore);
     storageManager.persist("lastLoadedRom", slot);
     this.lastLoaded = slot;

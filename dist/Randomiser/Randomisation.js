@@ -34,7 +34,7 @@ function mappingToWarps(mappingData) {
         let from = mapping.trigger;
         let to = mapping.target;
         let toParts = to.split(",");
-        mappedList.set(from, new PKWarp(from, toParts[0], toParts[1], toParts[2], toParts[3]));
+        mappedList.set(from, new PKWarp(from, toParts[0], toParts[1], toParts[2], toParts[3], mapping.source));
     });
 
     return mappedList;
@@ -92,12 +92,13 @@ function toMapBank(s) {
 /**
  *  Warp Script model 
  */
- function PKWarp(trigger, romCode, bank, map, warpNo) {
+ function PKWarp(trigger, romCode, bank, map, warpNo, source) {
     this.trigger = trigger;
     this.toRomCode = romCode;
     this.toBank = bank;
     this.toMap = map;
     this.toWarpNo = warpNo;
+    this.source = source;
 }
 
 PKWarp.prototype.isInternal = function() {

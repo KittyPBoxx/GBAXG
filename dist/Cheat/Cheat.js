@@ -161,6 +161,7 @@ GameBoyAdvanceCPU.prototype.read8 = function (address) {
 }
 
 var gameSwitchingWarp = null;
+var reverseNextWarp = false; // Set true when loading a save state that was going through a warp
 GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) {
 
     let bank = this.read8WithoutIntercept(address);
@@ -171,10 +172,19 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     if (warpNo == 255) { return address; }
     if (switchingGameState == 2 || switchingGameState==1) { return address }
 
-    let trigger = romCode + "," + bank + "," + map + "," + warpNo;
-    let pkWarp = warpList.get(trigger);
 
-    console.log("Warping triggered for " + trigger); 
+    let pkWarp = null;
+    let trigger = romCode + "," + bank + "," + map + "," + warpNo;
+
+    if(reverseNextWarp) {
+        let source = warpList.get(trigger).source;
+        let toParts = source.split(",");
+        pkWarp = new PKWarp(trigger, toParts[0], toParts[1], toParts[2], toParts[3], source)
+        reverseNextWarp = false;
+    } else {
+        pkWarp = warpList.get(trigger);
+        console.log("Warping triggered for " + trigger); 
+    }
 
     if (pkWarp) {
 

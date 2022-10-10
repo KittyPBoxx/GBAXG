@@ -63,7 +63,6 @@ function initNewSaveState(code) {
     func();
 }
 var loadedAndStarted = false;
-// TODO: load save state if available
 function initAndStart() {
     loadSaveStatePreviews();
     storageManager.find("lastLoadedRom").then(code => {startForCode(code);  delayedSaveStateLoad(code);}, () => {
@@ -82,7 +81,7 @@ async function delayedSaveStateLoad(code) {
     await delay(300);
     quickHideScreen();
     try {
-        IodineGUI.Iodine.saveStateManager.loadState(code);
+        IodineGUI.Iodine.saveStateManager.loadState(code, true);
     } catch (e) {
         console.log("Couldn't load autosave")
     }
