@@ -652,5 +652,406 @@ var FIRE_RED_WARPS =
         "to" : "FR,15,0,3",
         "grouped" : ["FR,1,0,0", "FR,1,0,1"],
     },
+/* ROUTE 4 - EXT */
+    "FR,3,22,0" : {
+        "name": "ROUTE 4 - OUTSIDE - Mt Moon (Pewter Side) - 13,5",
+        "level": "2", 
+        "to" : "FR,1,1,3",
+        "connections" : {
+            "FR,3,22,2" : true
+        }
+    },
+    "FR,3,22,1" : {
+        "name": "ROUTE 4 - OUTSIDE - Mt Moon (Cerulean Side) - 20,5",
+        "level": "2", 
+        "to" : "FR,1,2,7",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,22,2" : {
+        "name": "ROUTE 4 - OUTSIDE - PkCenter - C,5",
+        "level": "2", 
+        "to" : "FR,1,1,3",
+        "connections" : {
+            "FR,3,22,0" : true,
+            "FR,3,2,5" : true
+        }
+    },
+/* ROUTE 4 - INT */
+    "FR,16,0,1" : {
+        "name": "ROUTE 4 - INSIDE - PkCenter (Enterance) - 7,8",
+        "level": "2", 
+        "to" : "FR,3,22,2",
+        "grouped" : ["FR,16,0,0", "FR,16,0,2"],
+        "groupMain" : true,
+        "connections" : {
+            "FR,16,0,3" : true
+        }
+    },
+    "FR,16,0,0" : {
+        "name": "ROUTE 4 - INSIDE - PkCenter (Enterance) - 6,8",
+        "level": "2", 
+        "to" : "FR,3,22,2",
+        "grouped" : ["FR,16,0,1", "FR,16,0,2"]
+    },
+    "FR,16,0,2" : {
+        "name": "ROUTE 4 - INSIDE - PkCenter (Enterance) - 8,8",
+        "level": "2", 
+        "to" : "FR,3,22,2",
+        "grouped" : ["FR,16,0,1", "FR,16,0,0"]
+    },
+    "FR,16,0,3" : {
+        "name": "ROUTE 4 - INSIDE - PkCenter (Stairs) - 1,6",
+        "level": "2", 
+        "to" : "FR,16,1,0",
+        "connections" : {
+            "FR,16,0,1" : true
+        }
+    },
+/* MT MOON */
+//F1
+    "FR,1,1,0" : {
+        "name": "MT MOON - INSIDE - F1 TOP LEFT - 5,6",
+        "level": "2", 
+        "to" : "FR,1,2,0",
+        "connections" : {
+            "FR,1,1,1" : true,
+            "FR,1,1,2" : true,
+            "FR,1,1,3" : true
+        }
+    },
+    "FR,1,1,1" : {
+        "name": "MT MOON - INSIDE - F1 TOP Center - 13,E",
+        "level": "2", 
+        "to" : "FR,1,2,1",
+        "connections" : {
+            "FR,1,1,0" : true,
+            "FR,1,1,2" : true,
+            "FR,1,1,3" : true
+        }
+    },
+    "FR,1,1,2" : {
+        "name": "MT MOON - INSIDE - F1 TOP Right - 1F,10",
+        "level": "2", 
+        "to" : "FR,1,2,2",
+        "connections" : {
+            "FR,1,1,0" : true,
+            "FR,1,1,1" : true,
+            "FR,1,1,3" : true
+        }
+    },
+    "FR,1,1,3" : {
+        "name": "MT MOON - INSIDE - F1 Enterance - 12,25",
+        "level": "2", 
+        "to" : "FR,3,22,0",
+        "connections" : {
+            "FR,1,1,0" : true,
+            "FR,1,1,1" : true,
+            "FR,1,1,2" : true
+        }
+    },
+// F2
+    "FR,1,2,0" : {
+        "name": "MT MOON - INSIDE - F2 'L' Room Top - 3,3",
+        "level": "2", 
+        "to" : "FR,1,1,0",
+        "connections" : {
+            "FR,1,2,3" : true
+        }
+    },
+    "FR,1,2,1" : {
+        "name": "MT MOON - INSIDE - F2 '-' Water Room Right - 19,4",
+        "level": "2", 
+        "to" : "FR,1,1,1",
+        "connections" : {
+            "FR,1,2,4" : true
+        }
+    },
+    "FR,1,2,2" : {
+        "name": "MT MOON - INSIDE - F2 Reverse 'L' Room Top - 2B,15",
+        "level": "2", 
+        "to" : "FR,1,1,2",
+        "connections" : {
+            "FR,1,2,5" : true
+        }
+    },
+    "FR,1,2,3" : {
+        "name": "MT MOON - INSIDE - F2 'L' Room Bottom - 16,12",
+        "level": "2", 
+        "to" : "FR,1,3,0",
+        "connections" : {
+            "FR,1,2,0" : true
+        }
+    },
+    "FR,1,2,4" : {
+        "name": "MT MOON - INSIDE - F2 '-' Water Room Left - 11,5",
+        "level": "2", 
+        "to" : "FR,1,3,1",
+        "connections" : {
+            "FR,1,2,1" : true
+        }
+    },
+    "FR,1,2,5" : {
+        "name": "MT MOON - INSIDE - F2 Reverse 'L' Room Bottom - 1A,24",
+        "level": "2", 
+        "to" : "FR,1,3,2",
+        "connections" : {
+            "FR,1,2,2" : true
+        }
+    },
+    "FR,1,2,6" : {
+        "name": "MT MOON - INSIDE - F2 '-' Rock Room Left - 27,4",
+        "level": "2", 
+        "to" : "FR,1,3,3",
+        "connections" : {
+            "FR,1,2,7" : true
+        }
+    },
+    "FR,1,2,7" : {
+        "name": "MT MOON - INSIDE - F2 '-' Rock Room Right - 2D,4",
+        "level": "2", 
+        "to" : "FR,3,22,1",
+        "connections" : {
+            "FR,1,2,6" : true
+        }
+    },
+// F3
+    "FR,1,3,0" : {
+        "name": "MT MOON - INSIDE - F3 Center Ladder  - 19,15",
+        "level": "2", 
+        "to" : "FR,1,2,3",
+        "connections" : {
+            "FR,1,3,3" : true
+        }
+    },
+    "FR,1,3,1" : {
+        "name": "MT MOON - INSIDE - F3 Top Right Ladder  - 1F,B",
+        "level": "2", 
+        "to" : "FR,1,2,4"
+    },
+    "FR,1,3,2" : {
+        "name": "MT MOON - INSIDE - F3 Top Bottom Left Ladder  - 11,1F",
+        "level": "2", 
+        "to" : "FR,1,2,5"
+    },
+    "FR,1,3,3" : {
+        "name": "MT MOON - INSIDE - F3 Top Left Ladder  - 5,A",
+        "level": "2", 
+        "to" : "FR,1,2,6",
+        "connections" : {
+            "FR,1,3,0" : true
+        }
+    },
+/* CERULEAN - EXT */
+    "FR,3,3,0" : {
+        "name": "CERULEAN CITY - OUTSIDE - Top Left  - 19,15",
+        "level": "2", 
+        "to" : "FR,7,0,1",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,3,1" : {
+        "name": "CERULEAN CITY - OUTSIDE - Top Right (Robbed House)  - 1E,B",
+        "to" : "FR,7,1,1",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,3,3" : {
+        "name": "CERULEAN CITY - OUTSIDE - PkCenter  - 16,13",
+        "level": "2", 
+        "to" : "FR,7,3,1",
+        "connections" : {
+            "FR,3,3,0" : true,
+            "FR,3,3,1" : true,
+            "FR,3,3,2" : true,
+            "FR,3,3,4" : true,
+            "FR,3,3,5" : true,
+            "FR,3,3,6" : true,
+            "FR,3,3,12" : true,
+            "FR,3,3,13" : true,
+            "FR,3,44,0" : true,
+            "FR,3,22,1" : true
+
+        }
+    },
+    "FR,3,3,4" : {
+        "name": "CERULEAN CITY - OUTSIDE - GYM  - 1F,15",
+        "level": "2", 
+        "to" : "FR,7,6,1",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,3,5" : {
+        "name": "CERULEAN CITY - OUTSIDE - Bike Shop  - D,1C",
+        "level": "2", 
+        "to" : "FR,7,5,1",
+        "groupMain" : true,
+        "grouped" : ["FR,3,3,11"],
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,3,11" : {
+        "name": "CERULEAN CITY - OUTSIDE - Bike Shop  - E,1C",
+        "level": "2", 
+        "to" : "FR,7,5,1",
+        "grouped" : ["FR,3,3,5"]
+    },
+    "FR,3,3,6" : {
+        "name": "CERULEAN CITY - OUTSIDE - Mart  - 1D,1C",
+        "level": "2", 
+        "to" : "FR,7,7,1",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,3,7" : {
+        "name": "CERULEAN CITY - OUTSIDE - Cerulean Cave Enterance  - 1,C",
+        "to" : "FR,7,6,1"
+    },
+    "FR,3,3,8" : {
+        "name": "CERULEAN CITY - OUTSIDE - Top Left (Backdoor)  - A,8",
+        "level": "2", 
+        "to" : "FR,7,3,0"
+    },
+    "FR,3,3,9" : {
+        "name": "CERULEAN CITY - OUTSIDE - Top Right (Robbed) (Backdoor)  - 1F,8",
+        "to" : "FR,7,1,3",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,3,12" : {
+        "name": "CERULEAN CITY - OUTSIDE - Bottom  - 17,1C",
+        "level": "2", 
+        "to" : "FR,7,8,0",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+    "FR,3,3,13" : {
+        "name": "CERULEAN CITY - OUTSIDE - Top Center  - 11,B",
+        "level": "2", 
+        "to" : "FR,7,9,0",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+/* CERULEAN - INT */
+    "FR,7,0,1" : {
+        "name": "CERULEAN CITY - INSIDE - Top Left (Enterance)  - 3,8",
+        "level": "2", 
+        "to" : "FR,3,3,0",
+        "connections" : {
+            "FR,7,0,3" : true
+        }
+    },
+    "FR,7,0,3" : {
+        "name": "CERULEAN CITY - INSIDE - Top Left (Backdoor)  - 3,1",
+        "level": "2", 
+        "to" : "FR,3,3,8",
+        "connections" : {
+            "FR,7,0,1" : true
+        }
+    },
+    "FR,7,1,1" : {
+        "name": "CERULEAN CITY - INSIDE - Top Right (Enterance)  - 3,7",
+        "to" : "FR,3,3,1",
+        "connections" : {
+            "FR,7,1,3" : true
+        }
+    },
+    "FR,7,1,3" : {
+        "name": "CERULEAN CITY - INSIDE - Top Right (Bakcdoor)  - 4,1",
+        "to" : "FR,3,3,9",
+        "connections" : {
+            "FR,7,1,1" : true
+        }
+    },
+    "FR,7,2,1" : {
+        "name": "CERULEAN CITY - INSIDE - Center - 4,7",
+        "level": "2", 
+        "to" : "FR,3,3,2"
+    },
+    "FR,7,3,1" : {
+        "name": "CERULEAN CITY - INSIDE - PkCenter (Enterance)  - 7,8",
+        "to" : "FR,3,3,3",
+        "level": "2", 
+        "connections" : {
+            "FR,7,3,3" : true
+        }
+    },
+    "FR,7,3,3" : {
+        "name": "CERULEAN CITY - INSIDE - PkCenter (Stairs)  - 1,6",
+        "to" : "FR,7,4,0",
+        "level": "2", 
+        "connections" : {
+            "FR,7,3,1" : true
+        }
+    },
+    "FR,7,4,1" : {
+        "name": "CERULEAN CITY - INSIDE - PkCenter (UpStairs)  - 1,6",
+        "to" : "FR,7,3,3",
+        "level": "2", 
+        "ignore": true
+    },
+    "FR,7,5,1" : {
+        "name": "CERULEAN CITY - INSIDE - GYM  - 8,12",
+        "to" : "FR,3,3,4",
+        "level": "2"
+    },
+    "FR,7,6,1" : {
+        "name": "CERULEAN CITY - INSIDE - Bike Shop  - 5,8",
+        "to" : "FR,3,3,5",
+        "level": "2"
+    },
+    "FR,7,7,1" : {
+        "name": "CERULEAN CITY - INSIDE - Mart  - 4,7",
+        "to" : "FR,3,3,6",
+        "level": "2"
+    },
+    "FR,7,8,1" : {
+        "name": "CERULEAN CITY - INSIDE - Bottom - 4,7",
+        "to" : "FR,3,3,12",
+        "level": "2"
+    },
+    "FR,7,9,0" : {
+        "name": "CERULEAN CITY - INSIDE - Top Center  - 4,7",
+        "to" : "FR,3,3,13",
+        "level": "2"
+    },
+/* ROUTE 25 - EXT */
+    "FR,3,44,0" : {
+        "name": "ROUTE 25 - OUTSIDE - Bill's House  - 33,4",
+        "level": "2", 
+        "to" : "FR,30,0,1",
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
+/* ROUTE 25 - INT */
+    "FR,30,0,1" : {
+        "name": "ROUTE 25 - INSIDE - Bill's House - 7,9",
+        "level": "2", 
+        "to" : "FR,3,44,0",
+        "grouped" : ["FR,30,0,0", "FR,30,0,2"],
+        "groupMain" : true
+    },
+    "FR,30,0,0" : {
+        "name": "ROUTE 25 - INSIDE - Bill's House - 6,9",
+        "level": "2", 
+        "to" : "FR,3,44,0",
+        "grouped" : ["FR,30,0,1", "FR,30,0,2"],
+    },
+    "FR,30,0,2" : {
+        "name": "ROUTE 25 - INSIDE - Bill's House - 8,9",
+        "level": "2", 
+        "to" : "FR,3,44,0",
+        "grouped" : ["FR,30,0,0", "FR,30,0,1"]
+    },
 }
 

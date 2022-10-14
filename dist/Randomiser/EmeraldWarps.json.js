@@ -1110,21 +1110,134 @@ var EMERALD_WARPS =
     },
 /* DEWFORD CITY - EXT */
     "E,0,11,0" : {
-        "to" : "E,3,4,0"
+        "name": "DEWFORD TOWN - OUTSIDE - Fanclub (top left) - 3,3",
+        "level": "2", 
+        "to" : "E,3,4,0",
+        "connections" : {
+            "E,0,11,1": true
+        }
     },
     "E,0,11,1" : {
         // PK
-        "to" : "E,3,1,0"
+        "name": "DEWFORD TOWN - OUTSIDE - PkCenter - 2,A",
+        "level": "2", 
+        "to" : "E,3,1,0",
+        "connections" : {
+            "E,0,11,0": true,
+            "E,0,11,2": true,
+            "E,0,11,3": true,
+            "E,0,11,4": true,
+            "E,0,21,0": true
+            // ADD SURF / BOAT connections
+        }
     },
     "E,0,11,2" : {
         // GYM
-        "to" : "E,3,3,0"
+        "name": "DEWFORD TOWN - OUTSIDE - GYM - 8,11",
+        "level": "2", 
+        "to" : "E,3,3,0",
+        "connections" : {
+            "E,0,11,1": true
+        }
     },
     "E,0,11,3" : {
-        "to" : "E,3,0,0"
+        "name": "DEWFORD TOWN - OUTSIDE - Fishing House (center) - 8,8",
+        "level": "2", 
+        "to" : "E,3,0,0",
+        "connections" : {
+            "E,0,11,1": true
+        }
     },
     "E,0,11,4" : {
-        "to" : "E,3,5,0"
+        "name": "DEWFORD TOWN - OUTSIDE - Bottom Right - 11,E",
+        "level": "2", 
+        "to" : "E,3,5,0",
+        "connections" : {
+            "E,0,11,1": true
+        }
+    },
+/* DEWFORD CITY - INT */
+    "E,3,0,0" : {
+        "name": "DEWFORD TOWN - INSIDE - Bottom Right - 3,7",
+        "level": "2", 
+        "to" : "E,0,11,3",
+        "grouped": ["E,3,0,1"],
+        "groupMain" : true
+    },
+    "E,3,0,1" : {
+        "name": "DEWFORD TOWN - INSIDE - Bottom Right - 4,7",
+        "level": "2", 
+        "to" : "E,0,11,3",
+        "grouped": ["E,3,0,0"]
+    },
+    "E,3,1,0" : {
+        "name": "DEWFORD TOWN - INSIDE - PkCenter - 7,8",
+        "level": "2", 
+        "to" : "E,0,11,1",
+        "grouped": ["E,3,1,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,3,1,2": true
+        }
+    },
+    "E,3,1,1" : {
+        "name": "DEWFORD TOWN - INSIDE - PkCenter - 6,8",
+        "level": "2", 
+        "to" : "E,0,11,1",
+        "grouped": ["E,3,1,0"]
+    },
+    "E,3,1,2" : {
+        "name": "DEWFORD TOWN - INSIDE - PkCenter (Stairs) - 7,8",
+        "level": "2", 
+        "to" : "E,3,2,0",
+        "connections" : {
+            "E,3,1,0": true
+        }
+    },
+    "E,3,2,0" : {
+        "name": "DEWFORD TOWN - INSIDE - PkCenter (upStairs) - 1,6",
+        "level": "2", 
+        "to" : "E,3,1,2",
+        "ignore": true
+    },
+    "E,3,3,0" : {
+        "name": "DEWFORD TOWN - INSIDE - GYM - 5,1B",
+        "level": "2", 
+        "to" : "E,0,11,2",
+        "grouped": ["E,3,3,1"],
+        "groupMain" : true
+    },
+    "E,3,3,1" : {
+        "name": "DEWFORD TOWN - INSIDE - GYM - 6,1B",
+        "level": "2", 
+        "to" : "E,0,11,2",
+        "grouped": ["E,3,3,0"]
+    },
+    "E,3,4,0" : {
+        "name": "DEWFORD TOWN - INSIDE - Fanclub (top left)  - 5,8",
+        "level": "2", 
+        "to" : "E,0,11,0",
+        "grouped": ["E,3,4,1"],
+        "groupMain" : true
+    },
+    "E,3,4,1" : {
+        "name": "DEWFORD TOWN - INSIDE - Fanclub (top left) - 6,8",
+        "level": "2", 
+        "to" : "E,0,11,0",
+        "grouped": ["E,3,4,0"]
+    },
+    "E,3,5,0" : {
+        "name": "DEWFORD TOWN - INSIDE - Fishing House (center) - 3,8",
+        "level": "2", 
+        "to" : "E,0,11,4",
+        "grouped": ["E,3,5,1"],
+        "groupMain" : true
+    },
+    "E,3,5,1" : {
+        "name": "DEWFORD TOWN - INSIDE - Fishing House (center) - 4,8",
+        "level": "2", 
+        "to" : "E,0,11,4",
+        "grouped": ["E,3,5,0"]
     },
 /* LAVARIDGE CITY - EXT */
     "E,0,12,0" : {
@@ -1426,5 +1539,178 @@ var EMERALD_WARPS =
     "E,24,4,2" : {
         "name": "RUSTURF TUNNEL - INSIDE - Right - 1D,10",
         "to": "E,0,14,4"
+    },
+/* ROUTE 103 */ 
+    "E,0,18,0" : {
+        "name": "RUSTURF TUNNEL - OUTSIDE - Altering Cave - 2D,6",
+        "to" : "E,24,106,0"
+        // Connects surf to oldale  normally to trick master
+    },
+/* ALTERING CAVE */
+    "E,24,106,0" : {
+        "name" : "ALTERING CAVE - INSIDE - Enterance - 12,16",
+        "to" : "E,0,18,0"
+    },
+/* ROUTE 105 */
+    "E,0,20,0" : {
+        "name" : "ROUTE 105 - OUTSIDE - Island Cave Enterance - 9,14",
+        "to" : "E,24,67,0"
+    },
+/* ISLAND CAVE */
+    "E,25,67,0" : {
+        "name": "ISLAND CAVE - INSIDE - Enterance - 8,1D",
+        "to" : "E,0,20,0"
+    },
+    "E,25,67,1" : {
+        "name": "ISLAND CAVE - INSIDE - Walk round left / stand still door - 8,14",
+        "to" : "E,24,76,2"
+    },
+    "E,25,67,2" : {
+        "name": "ISLAND CAVE - INSIDE - Regie Ice - 8,B",
+        "to" : "E,24,76,1"
+    },
+/* ROUTE 106 */         
+    "E,0,21,0" : {
+        "name" : "ROUTE 106 - OUTSIDE - Granite Cave - 30,10",
+        "to" : "E,24,7,0",
+        "level": "2", 
+        "connections" : {
+            "E,0,0,3": true,
+        }
+    },
+/* GRANITE CAVE */  // MORE BIKE LOCKED CONNECTIONS
+//F1
+    "E,24,7,0" : {
+        "name" : "GRANITE CAVE - INSIDE - F1 Enterance - 25,C",
+        "to" : "E,0,21,0",
+        "level": "2", 
+        "connections" : {
+            "E,24,7,2": true
+        }
+    },
+    "E,24,7,1" : {
+        "name" : "GRANITE CAVE - INSIDE - F1 Right Ladder - 23,3",
+        "to" : "E,24,8,0",
+        "level": "2", 
+        "connections" : {
+            "E,24,7,0": true,
+            "E,24,7,3": true
+        }
+    },
+    "E,24,7,0" : {
+        "name" : "GRANITE CAVE - INSIDE - F1 Left Ladder - 11,B",
+        "to" : "E,24,8,1",
+        "level": "2", 
+        "connections" : {
+            "E,24,7,0": true
+        }
+    },
+    "E,24,7,3" : {
+        "name" : "GRANITE CAVE - INSIDE - F1 To Steven - 11,B",
+        "to" : "E,24,10,0",
+        "level": "2", 
+        "connections" : {
+            "E,24,7,0": true,
+            "E,24,7,1": true
+        }
+    },
+// F2
+    "E,24,8,0" : {
+        "name" : "GRANITE CAVE - INSIDE - F2 Middle Left ladder - 19,D",
+        "to" : "E,24,7,1",
+        "level" : "2",
+        "connections" : {
+            "E,24,8,2": true
+        }
+    },
+    "E,24,8,1" : {
+        "name" : "GRANITE CAVE - INSIDE - F2 Bottom Left Ladder - 4,15",
+        "to" : "E,24,7,2",
+        "level" : "2",
+        "connections" : {
+            "E,24,8,3": true
+        }
+    },
+    "E,24,8,2" : {
+        "name" : "GRANITE CAVE - INSIDE - F2 Middle Right Ladder - 1D,D",
+        "to" : "E,24,7,3",
+        "level" : "2",
+        "connections" : {
+            "E,24,8,0": true
+        }
+    },
+    "E,24,8,3" : {
+        "name" : "GRANITE CAVE - INSIDE - F2 - Bottom Right Ladder - 1C,15",
+        "to" : "E,24,9,1",
+        "level" : "2",
+        "connections" : {
+            "E,24,8,1": true
+        }
+    },
+    "E,24,8,4" : {
+        "name" : "GRANITE CAVE - INSIDE - F2 Top Left Ladder - 8,5",
+        "to" : "E,24,9,2",
+        "level" : "2",
+        "connections" : {
+            "E,24,8,1": true,
+            "E,24,9,2": true
+        }
+    },
+    "E,24,8,5" : {
+        "name" : "GRANITE CAVE - INSIDE - F2 Top Center Ladder - C,3",
+        "to" : "E,24,9,3",
+        "level" : "2",
+        "connections" : {
+            "E,24,9,3": true
+        }
+    },
+    "E,24,8,6" : {
+        "name" : "GRANITE CAVE - INSIDE - F2 Top Right Ladder - 1D,2",
+        "to" : "E,24,9,4",
+        "level" : "2",
+        "connections" : {
+            "E,24,9,3": true
+        }
+    },
+// F3
+    "E,24,9,0" : {
+        "name" : "GRANITE CAVE - INSIDE - F3 Bottom Section Higher- 1D,D",
+        "to" : "E,24,8,2",
+        "level" : "2",
+        "connections" : {
+            "E,24,9,1": true
+        }
+    },
+    "E,24,9,1" : {
+        "name" : "GRANITE CAVE - INSIDE - F3 Bottom Section Lower- 1C,15",
+        "to" : "E,24,8,3",
+        "level" : "2",
+        "connections" : {
+            "E,24,9,0": true
+        }
+    },
+    "E,24,9,2" : {
+        "name" : "GRANITE CAVE - INSIDE - F3 Top Section Left - 8,5",
+        "to" : "E,24,8,4",
+        "level" : "2"
+    },
+    "E,24,9,3" : {
+        "name" : "GRANITE CAVE - INSIDE - F3 Top Section Middle - C,3",
+        "to" : "E,24,8,5",
+        "level" : "2",
+        "connections" : {
+            "E,24,9,2": true
+        }
+    },
+    "E,24,9,4" : {
+        "name" : "GRANITE CAVE - INSIDE - F3 Top Section Right - 1D,2",
+        "to" : "E,24,8,6",
+        "level" : "2"
+    },
+// F4  
+    "E,24,10,0" : {
+        "name" : "GRANITE CAVE - INSIDE - F4 Steven Room - 7,3",
+        "to" : "E,24,7,3",
+        "level" : "2"
     }
 }

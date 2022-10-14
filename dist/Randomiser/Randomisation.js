@@ -75,7 +75,7 @@ function filterByConfig(usabledWarps, config) {
             filterLevel = config.jhotoLevel;
         }
 
-        return usabledWarps.get(w[0]).level && usabledWarps.get(w[0]).level <= filterLevel;
+        return usabledWarps.get(w[0]).level && (+usabledWarps.get(w[0]).level <= +filterLevel);
     }));
     return usabledWarps;
 }
@@ -290,6 +290,13 @@ function doNextMapping(rng) {
     
     //console.log(warp1.data().id);
     //console.log(warp2.data().id);
+    if (!warp1) {
+      console.log(warp1);
+    }
+    if (!warp2) {
+      console.log(warp2);
+    }
+
     window.cy.add(new WarpEdge(warp1.data().id, warp2.data().id))
     window.cy.add(new WarpEdge(warp2.data().id, warp1.data().id))
 
@@ -398,7 +405,13 @@ function initMappingGraph(mapData, isHeadless) {
       }
 
       Object.keys(d[1].connections).forEach(c => {
-          cy.add(new FixedEdge(d[0], c))
+
+          // Only draw path if connection node is present in total list of warps
+          // i.e if I'm only doing warps to first gym, don't draw a connection to a gym 2 level warp 
+          if (cy.getElementById(c).length > 0) {
+            cy.add(new FixedEdge(d[0], c))
+          }
+          
       });
     });
 

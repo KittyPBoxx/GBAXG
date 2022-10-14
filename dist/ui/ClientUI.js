@@ -1,7 +1,10 @@
 const fileSystem = null;//window.__TAURI__ ? window.__TAURI__.fs : null;
+const VERSION_NUMBER = "0.9.6-ALPHA";
 
 var debugConsole;
 document.addEventListener('DOMContentLoaded', function() {
+
+    console.info("Version " + VERSION_NUMBER);
     
     M.Modal.init(document.getElementById('menu'), {
       

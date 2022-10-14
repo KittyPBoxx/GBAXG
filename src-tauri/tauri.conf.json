@@ -8,7 +8,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "XGBA Pokemon Map Randomiser",
+    "productName": "XGBA Pokemon Warp Randomiser",
     "version": "0.1.0"
   },
   "tauri": {
@@ -73,7 +73,7 @@
         "fullscreen": false,
         "height": 1052,
         "resizable": true,
-        "title": "XGBA Pokemon Map Randomiser",
+        "title": "XGBA Pokemon Warp Randomiser",
         "width": 1577
       }
     ]
