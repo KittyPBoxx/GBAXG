@@ -880,7 +880,7 @@ var FIRE_RED_WARPS =
     "FR,3,3,4" : {
         "name": "CERULEAN CITY - OUTSIDE - GYM  - 1F,15",
         "level": "2", 
-        "to" : "FR,7,6,1",
+        "to" : "FR,7,5,1",
         "connections" : {
             "FR,3,3,3" : true
         }
@@ -888,7 +888,7 @@ var FIRE_RED_WARPS =
     "FR,3,3,5" : {
         "name": "CERULEAN CITY - OUTSIDE - Bike Shop  - D,1C",
         "level": "2", 
-        "to" : "FR,7,5,1",
+        "to" : "FR,7,6,1",
         "groupMain" : true,
         "grouped" : ["FR,3,3,11"],
         "connections" : {
@@ -898,7 +898,7 @@ var FIRE_RED_WARPS =
     "FR,3,3,11" : {
         "name": "CERULEAN CITY - OUTSIDE - Bike Shop  - E,1C",
         "level": "2", 
-        "to" : "FR,7,5,1",
+        "to" : "FR,7,6,1",
         "grouped" : ["FR,3,3,5"]
     },
     "FR,3,3,6" : {

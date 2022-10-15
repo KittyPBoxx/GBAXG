@@ -1597,7 +1597,7 @@ var EMERALD_WARPS =
             "E,24,7,3": true
         }
     },
-    "E,24,7,0" : {
+    "E,24,7,2" : {
         "name" : "GRANITE CAVE - INSIDE - F1 Left Ladder - 11,B",
         "to" : "E,24,8,1",
         "level": "2", 

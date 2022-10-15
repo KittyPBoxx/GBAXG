@@ -298,8 +298,11 @@ function doNextMapping(rng) {
     }
 
     window.cy.add(new WarpEdge(warp1.data().id, warp2.data().id))
-    window.cy.add(new WarpEdge(warp2.data().id, warp1.data().id))
 
+    if (warp1 != warp2) {
+          window.cy.add(new WarpEdge(warp2.data().id, warp1.data().id))
+    }
+    
     warp1.data().isMapped = true;
     warp2.data().isMapped = true;
 

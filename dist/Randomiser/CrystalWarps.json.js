@@ -540,7 +540,7 @@ var CRYSTAL_WARPS =
     },
     "C,2,14,4" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave left of lab - B,D",
-        "to" : "C,4,29,0",
+        "to" : "C,2,17,0",
         "level" : "1",
         "connections": {
             "C,2,14,3": true,
@@ -610,7 +610,14 @@ var CRYSTAL_WARPS =
     "C,4,29,0" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Cave Ladder - A,10",
         "to" : "C,2,14,4",
+        "groupMain": true,   
         "level" : "1"
+    },
+    "C,2,17,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Cave Ladder - A,10",
+        "to" : "C,2,14,4",
+        "level" : "1",
+        "grouped": ["C,4,29,0"]
     },
     // "C,4,29,1": {
     //     "name": "RUINS OF ALPH - INSIDE - Kabuto Puzzle Drop - 10,4",
