@@ -40,7 +40,7 @@ function mappingToWarps(mappingData) {
     return mappedList;
 }
 
-function mapWarps(seed) {
+async function mapWarps(seed) {
     let config = getRandomisationConfig();
     let mapData = getFilteredData();
     remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, config]);
