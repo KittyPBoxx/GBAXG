@@ -163,39 +163,87 @@ var EMERALD_WARPS =
     },
 /* SLATEPORT CITY - EXT */
     "E,0,1,0" : {
-        // PK
-        "to" : "E,9,11,0"
+        "name" : "SLATEPORT CITY - OUTSIDE - PkCenter - 13,13",
+        "to" : "E,9,11,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,24,0": true,
+            "E,0,25,4": true,
+            "E,0,1,1" : true,
+            "E,0,1,2" : true,
+            "E,0,1,3" : true,
+            "E,0,1,4" : true,
+            "E,0,1,6" : true,
+            "E,0,1,8" : true,
+        }
     },
     "E,0,1,1" : {
         // MART
-        "to" : "E,9,13,0"
+        "name" : "SLATEPORT CITY - OUTSIDE - Mart - D,1A",
+        "to" : "E,9,13,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
     "E,0,1,2" : {
-        "to" : "E,9,0,0"
+        "name" : "SLATEPORT CITY - OUTSIDE - Shipyard - 1A,26",
+        "to" : "E,9,0,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
     "E,0,1,3" : {
         // BATTLE HALL
-        "to" : "E,9,2,0"
+        "name" : "SLATEPORT CITY - OUTSIDE - Battle Hall - A,C",
+        "to" : "E,9,2,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
     "E,0,1,4" : {
-        "to" : "E,9,6,0"
+        "name" : "SLATEPORT CITY - OUTSIDE - Fan Club - 4,1A",
+        "to" : "E,9,6,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
     "E,0,1,5" : {
         // MUSEUM
+        "name" : "SLATEPORT CITY - OUTSIDE - Museum - 1E,1A",
         "to" : "E,9,7,0",
         "grouped": ["E,0,1,7"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
     "E,0,1,6" : {
-        "to" : "E,9,5,0"
+        "name" : "SLATEPORT CITY - OUTSIDE - Name Changer - 5,13",
+        "to" : "E,9,5,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
     "E,0,1,7" : {
         // MUSEUM
+        "name" : "SLATEPORT CITY - OUTSIDE - Museum - 1F,1A",
         "to" : "E,9,7,1",
-        "grouped" : "E,0,1,5"
+        "grouped" : "E,0,1,5",
+        "level" : "3"
     },
     "E,0,1,8" : {
-        "to" : "E,9,9,0"
+        "name" : "SLATEPORT CITY - OUTSIDE - Dock - 1C,C",
+        "to" : "E,9,9,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
     "E,0,1,9" : {
         // SHIP ARRIVING?
@@ -203,120 +251,189 @@ var EMERALD_WARPS =
         "ignore": true
     },
     "E,0,1,10" : {
-        // DUPLICATE
+        "name" : "SLATEPORT CITY - OUTSIDE - House Bottom - 15,2C",
         "to" : "E,9,10,0",
-        "ignore": true
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
     },
 /* SLATEPORT CITY - INT */
     "E,9,0,0" : {
+        "name" : "SLATEPORT CITY - INSIDE - Shipyard F1 enterance - 2,E",
         "to": "E,0,1,2",
         "grouped": ["E,9,0,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
+        "connections" : {
+            "E,9,0,2": true
+        }
     },
     "E,9,0,1" : {
+        "name" : "SLATEPORT CITY - INSIDE - Shipyard F1 enterance - 3,E",
         "to": "E,0,1,2",
-        "grouped": ["E,9,0,0"]
+        "grouped": ["E,9,0,0"],
+        "level" : "3",
     },
     "E,9,0,2" : {
-        "to": "E,9,1,0"
+        "name" : "SLATEPORT CITY - INSIDE - Shipyard F1 stairs - 3,1",
+        "to": "E,9,1,0",
+        "level" : "3",
+        "connections" : {
+            "E,9,0,0": true
+        }
     },
     "E,9,1,0" : {
-        "to": "E,9,0,2"
+        "name" : "SLATEPORT CITY - INSIDE - Shipyard F2 stairs - 3,1",
+        "to": "E,9,0,2",
+        "level" : "3",
     },
     "E,9,2,0" : {
         // BATTLE HALL
+        "name" : "SLATEPORT CITY - INSIDE - Battle Hall - 6,9",
         "to": "E,0,1,3",
         "grouped": ["E,9,2,1"],
         "groupMain" : true,
-        "ignore": true
+        "ignore": true,
+        "level" : "3",
     },
     "E,9,2,1" : {
         // BATTLE HALL
+        "name" : "SLATEPORT CITY - INSIDE - Battle Hall - 7,9",
         "to": "E,0,1,3",
         "grouped": ["E,9,2,0"],
-        "ignore": true
+        "ignore": true,
+        "level" : "3",
     },
     "E,9,5,0" : {
+        "name" : "SLATEPORT CITY - INSIDE - Name Changer - 3,7",
         "to": "E,0,1,6",
         "grouped": ["E,9,5,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
     },
     "E,9,5,1" : {
+        "name" : "SLATEPORT CITY - INSIDE - Name Changer - 4,7",
         "to": "E,0,1,6",
-        "grouped": ["E,9,5,0"]
+        "grouped": ["E,9,5,0"],
+        "level" : "3",
     },
     "E,9,6,0" : {
+        "name" : "SLATEPORT CITY - INSIDE - Fan Club - 6,A",
         "to": "E,0,1,4",
         "grouped": ["E,9,6,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
     },
     "E,9,6,1" : {
+        "name" : "SLATEPORT CITY - INSIDE - Fan Club - 7,A",
         "to": "E,0,1,4",
-        "grouped": ["E,9,6,0"]
+        "grouped": ["E,9,6,0"],
+        "level" : "3",
     },
     "E,9,7,0" : {
+        "name" : "SLATEPORT CITY - INSIDE - Museum Enterance - 9,8",
         "to": "E,0,1,5",
         "grouped": ["E,9,7,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
+        "connections" : {
+            "E,9,7,2": true
+        }
     },
     "E,9,7,1" : {
+        "name" : "SLATEPORT CITY - INSIDE - Museum Enterance - A,8",
         "to": "E,0,1,7",
-        "grouped": ["E,9,7,0"]
+        "grouped": ["E,9,7,0"],
+        "level" : "3",
     },
     "E,9,7,2" : {
-        "to": "E,9,8,0"
+        "name" : "SLATEPORT CITY - INSIDE - Museum F1 Stairs - 6,1",
+        "to": "E,9,8,0",
+        "level" : "3",
+        "connections" : {
+            "E,9,7,0": true
+        }
     },
     "E,9,8,0" : {
-        "to": "E,9,7,2"
+        "name" : "SLATEPORT CITY - INSIDE - Museum F2 Stairs - 6,1",
+        "to": "E,9,7,2",
+        "level" : "3",
     },
     "E,9,9,0" : {
+        "name" : "SLATEPORT CITY - INSIDE - Dock - B,E",
         "to": "E,0,1,8",
         "grouped": ["E,9,9,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
     },
     "E,9,9,1" : {
+        "name" : "SLATEPORT CITY - INSIDE - Dock - C,E",
         "to": "E,0,1,8",
-        "grouped": ["E,9,9,0"]
+        "grouped": ["E,9,9,0"],
+        "level" : "3",
     },
     "E,9,10,0" : {
+        "name" : "SLATEPORT CITY - INSIDE - House Bottom - 3,7",
         "to": "E,0,1,10",
         "grouped": ["E,9,10,0"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
     },
     "E,9,10,1" : {
+        "name" : "SLATEPORT CITY - INSIDE - House Bottom - 4,7",
         "to": "E,0,1,10",
-        "grouped": ["E,9,10,1"]
+        "grouped": ["E,9,10,1"],
+        "level" : "3",
     },
     "E,9,11,0" : {
         // PK
+        "name" : "SLATEPORT CITY - INSIDE - PkCenter - 7,8",
         "to": "E,0,1,0",
         "grouped": ["E,9,11,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
+        "connections" : {
+            "E,9,11,2": true
+        }
     },
     "E,9,11,1" : {
         // PK
+        "name" : "SLATEPORT CITY - INSIDE - PkCenter - 6,8",
         "to": "E,0,1,0",
-        "grouped": ["E,9,11,0"]
+        "grouped": ["E,9,11,0"],
+        "level" : "3",
     },
     "E,9,11,2" : {
         // PK
-        "to": "E,9,12,0"
+        "name" : "SLATEPORT CITY - INSIDE - PkCenter F1 Stairs - 1,6",
+        "to": "E,9,12,0",
+        "level" : "3",
+        "connections" : {
+            "E,9,11,0": true
+        }
     },
     "E,9,12,0" : {
         // PK (upstairs)
+        "name" : "SLATEPORT CITY - INSIDE - PkCenter F2 Stairs - 1,6",
         "to": "E,9,11,2",
-        "ignore": true
+        "ignore": true,
+        "level" : "3",
     },
     "E,9,13,0" : {
         // MART
+        "name" : "SLATEPORT CITY - INSIDE - Mart - 3,7",
         "to": "E,0,1,1",
         "grouped": ["E,9,13,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "level" : "3",
     },
     "E,9,13,1" : {
         // MART
+        "name" : "SLATEPORT CITY - INSIDE - Mart - 4,7",
         "to": "E,0,1,1",
-        "grouped": ["E,9,13,0"]
+        "grouped": ["E,9,13,0"],
+        "level" : "3",
     },
 /* MAUVILLE CITY - EXT */
     "E,0,2,0" : {
@@ -1712,5 +1829,19 @@ var EMERALD_WARPS =
         "name" : "GRANITE CAVE - INSIDE - F4 Steven Room - 7,3",
         "to" : "E,24,7,3",
         "level" : "2"
-    }
+    },
+/* ROUTE 108 */
+    "E,0,23,0" : {
+        "name" : "ROUTE 108 - OUTSIDE - Abandoned Ship enterance - 1D,6",
+        "to" : "24,54,0"
+    },
+/* ROUTE 109 - EXT */
+    "E,0,24,0" : {
+        "name" : "ROUTE 109 - OUTSIDE - Beach Hut - C,5",
+        "to" : "28,0,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
+    },      
 }
