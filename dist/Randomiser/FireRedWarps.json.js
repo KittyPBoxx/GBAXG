@@ -1014,7 +1014,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,3,6",
         "level": "2"
     },
-    "FR,7,8,1" : {
+    "FR,7,8,0" : {
         "name": "CERULEAN CITY - INSIDE - Bottom - 4,7",
         "to" : "FR,3,3,12",
         "level": "2"
