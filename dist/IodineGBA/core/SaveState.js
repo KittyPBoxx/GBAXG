@@ -49,7 +49,7 @@ SaveStateManager.prototype.saveMultiState = function (slot) {
     let playing = this.Iodine.emulatorStatus <= 10;
     if (playing) this.Iodine.pause();
     let currentState = new SaveState(this.Iodine.IOCore, false);
-    let multiSave = new MultiSaveState(this.slot, this.lastLoaded, currentState);
+    let multiSave = new MultiSaveState(this.slot, this.lastLoaded || "FR", currentState);
     storageManager.persist(slot, multiSave);
     if (playing) this.Iodine.play();
     return multiSave;
