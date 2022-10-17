@@ -117,6 +117,12 @@ GameBoyAdvanceCartridge.prototype.readROMOnly8 = function (address) {
     }
     return data | 0;
 }
+GameBoyAdvanceCartridge.prototype.patchROM8 = function (address, data) {
+    address = address | 0;
+    if ((address | 0) < (this.ROMLength | 0)) {
+        this.ROM[address & 0x1FFFFFF] = data;
+    }
+}
 if (__LITTLE_ENDIAN__) {
     GameBoyAdvanceCartridge.prototype.readROMOnly16 = function (address) {
         address = address | 0;
