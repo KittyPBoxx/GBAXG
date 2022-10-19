@@ -839,7 +839,7 @@ var CRYSTAL_WARPS =
         "to" : "C,2,19,0"
     },
 /* ROUTE 33 - EXT */
-    "C,1,86,1" : {
+    "C,3,52,0" : {
         "name": "ROUTE 33 - OUTSIDE - Union Cave Enterance - B,9",
         "to" : "C,2,20,1",
         "level": "2",

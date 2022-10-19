@@ -859,6 +859,14 @@ var FIRE_RED_WARPS =
             "FR,3,3,3" : true
         }
     },
+    "FR,3,3,2" : {
+        "name": "CERULEAN CITY - OUTSIDE - Left of PkCenter  - F,11",
+        "to" : "FR,7,2,1",
+        "level": "2", 
+        "connections" : {
+            "FR,3,3,3" : true
+        }
+    },
     "FR,3,3,3" : {
         "name": "CERULEAN CITY - OUTSIDE - PkCenter  - 16,13",
         "level": "2", 

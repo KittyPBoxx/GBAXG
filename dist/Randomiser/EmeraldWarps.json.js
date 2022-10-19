@@ -438,29 +438,182 @@ var EMERALD_WARPS =
 /* MAUVILLE CITY - EXT */
     "E,0,2,0" : {
         // GYM
-        "to" : "E,10,0,0"
+        "name" : "MAUVILLE CITY - OUTSIDE - GYM - 16,5",
+        "to" : "E,10,0,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true
+        }
     },
     "E,0,2,1" : {
         //PK
-        "to" : "E,10,5,0"
+        "name" : "MAUVILLE CITY - OUTSIDE - PkCenter - 13,E",
+        "to" : "E,10,5,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,0": true,
+            "E,0,2,2": true,
+            "E,0,2,3": true,
+            "E,0,2,4": true,
+            "E,0,2,5": true,
+            "E,0,2,6": true,
+            "E,0,26,0": true,
+            "E,0,26,4": true,
+            "E,0,32,0": true,
+            "E,0,14,2": true
+        }
     },
     "E,0,2,2" : {
         //BIKE
-        "to" : "E,10,1,0"
+        "name" : "MAUVILLE CITY - OUTSIDE - Bike Shop - 23,5",
+        "to" : "E,10,1,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true
+        }
     },
     "E,0,2,3" : {
         // MART
-        "to" : "E,10,7,0"
+        "name" : "MAUVILLE CITY - OUTSIDE - Mart - 17,E",
+        "to" : "E,10,7,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true
+        }
     },
     "E,0,2,4" : {
-        "to" : "E,10,2,0"
+        "name" : "MAUVILLE CITY - OUTSIDE - Rock Smash House - 20,E",
+        "to" : "E,10,2,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true
+        }
     },
     "E,0,2,5" : {
         // GAME CORNER
-        "to" : "E,10,3,0"
+        "name" : "MAUVILLE CITY - OUTSIDE - Game Corner - 8,D",
+        "to" : "E,10,3,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true
+        }
     },
     "E,0,2,6" : {
-        "to" : "E,10,4,0"
+        "name" : "MAUVILLE CITY - OUTSIDE - Left of Mart House - 13,E",
+        "to" : "E,10,4,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true
+        }
+    },
+/* MAUVILLE CITY - INT */
+    "E,10,0,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - GYM - 4,14",
+        "to": "E,0,2,0",
+        "grouped": ["E,10,0,1"],
+        "groupMain" : true,
+        "level" : "3",
+    },
+    "E,10,0,1" : {
+        "name" : "MAUVILLE CITY - INSIDE - GYM - 5,7",
+        "to": "E,0,2,0",
+        "grouped": ["E,10,0,0"],
+        "level" : "3",
+    },
+    "E,10,1,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - Bike Shop - 3,8",
+        "to": "E,0,2,2",
+        "grouped": ["E,10,1,1"],
+        "groupMain" : true,
+        "level" : "3",
+    },
+    "E,10,1,1" : {
+        "name" : "MAUVILLE CITY - INSIDE - Bike Shop - 4,8",
+        "to": "E,0,2,2",
+        "grouped": ["E,10,1,0"],
+        "level" : "3",
+    },
+    "E,10,2,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - Rock Smash - 3,7",
+        "to": "E,0,2,4",
+        "grouped": ["E,10,2,1"],
+        "groupMain" : true,
+        "level" : "3",
+    },
+    "E,10,2,1" : {
+        "name" : "MAUVILLE CITY - INSIDE - Rock Smash - 4,7",
+        "to": "E,0,2,4",
+        "grouped": ["E,10,2,0"],
+        "level" : "3",
+    },
+    "E,10,3,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - Gamer Corner - B,A",
+        "to": "E,0,2,5",
+        "grouped": ["E,10,3,1"],
+        "groupMain" : true,
+        "level" : "3",
+    },
+    "E,10,3,1" : {
+        "name" : "MAUVILLE CITY - INSIDE - Game Corner - C,A",
+        "to": "E,0,2,5",
+        "grouped": ["E,10,3,0"],
+        "level" : "3",
+    },
+    "E,10,4,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - Left of mart house - 3,8",
+        "to": "E,0,2,6",
+        "grouped": ["E,10,4,1"],
+        "groupMain" : true,
+        "level" : "3",
+    },
+    "E,10,4,1" : {
+        "name" : "MAUVILLE CITY - INSIDE - Left of mart house - 4,8",
+        "to": "E,0,2,6",
+        "grouped": ["E,10,4,0"],
+        "level" : "3",
+    },
+    "E,10,5,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - PkCenter Enterance - 7,8",
+        "to": "E,0,2,1",
+        "grouped": ["E,10,5,1"],
+        "groupMain" : true,
+        "level" : "3",
+        "connections" : {
+            "E,10,5,2": true
+        }
+    },
+    "E,10,5,1" : {
+        "name" : "MAUVILLE CITY - INSIDE - PkCenter Enterance - 6,8",
+        "to": "E,0,2,1",
+        "grouped": ["E,10,5,0"],
+        "level" : "3",
+    },
+    "E,10,5,2" : {
+        "name" : "MAUVILLE CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to": "E,10,6,0",
+        "level" : "3",
+        "connections" : {
+            "E,10,5,0": true
+        }
+    },
+    "E,10,6,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - PkCenter Upstairs - 3,7",
+        "to": "E,10,5,2",
+        "ignore": true,
+        "level" : "3",
+    },
+    "E,10,7,0" : {
+        "name" : "MAUVILLE CITY - INSIDE - Mart - 3,7",
+        "to": "E,0,2,3",
+        "grouped": ["E,10,7,1"],
+        "groupMain" : true,
+        "level" : "3",
+    },
+    "E,10,7,1" : {
+        "name" : "MAUVILLE CITY - INSIDE - Rock Smash - 4,7",
+        "to": "E,0,2,3",
+        "grouped": ["E,10,7,0"],
+        "level" : "3",
     },
 /* RUSTBORO CITY - EXT */
     "E,0,3,0" : {
@@ -1843,5 +1996,182 @@ var EMERALD_WARPS =
         "connections" : {
             "E,0,1,0": true
         }
-    },      
+    },
+/* Route 110 - EXT */
+    "E,0,25,0" : {
+        "name" : "ROUTE 110 - OUTSIDE - Electric Cave - 23,18",
+        "to" : "E,24,52,0",
+    },
+    "E,0,25,1" : {
+        "name" : "ROUTE 110 - OUTSIDE - Trick House - B,42",
+        "to" : "E,29,0,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true,
+            "E,0,25,2": true
+        }
+    },
+    "E,0,25,2" : {
+        "name" : "ROUTE 110 - OUTSIDE - Cycle Road Top left - F,10",
+        "to" : "E,29,12,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,2,1": true
+        }
+    },
+    "E,0,25,3" : {
+        "name" : "ROUTE 110 - OUTSIDE - Cycle Road Top Right - 12,10",
+        "to" : "E,29,12,2",
+        "level" : "3",
+        "connections" : {
+            "E,0,25,5": true
+        }
+    },
+    "E,0,25,4" : {
+        "name" : "ROUTE 110 - OUTSIDE - Cycle Road Bottom Left - 10,58",
+        "to" : "E,29,11,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,1,0": true
+        }
+    },
+    "E,0,25,5" : {
+        "name" : "ROUTE 110 - OUTSIDE - Cycle Road Bottom Right - 13,58",
+        "to" : "E,29,11,2",
+        "level" : "3",
+        "connections" : {
+            "E,0,25,3": true
+        }
+    },
+/* Route 110 - INT */    
+    "E,29,0,0" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Enterance - 5,7",
+        "to" : "E,0,25,1",
+        "ignore": true,
+        "grouped": ["E,29,0,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,29,0,2": true
+        }
+    },
+    "E,29,0,1" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Enterance - 6,7",
+        "to" : "0,25,1",
+        "ignore": true,
+        "grouped": ["E,29,0,0"]
+    },
+    "E,29,0,2" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Challenge Door - 5,2",
+        "to" : "E,29,3,0",
+        "ignore": true,
+        "connections" : {
+            "E,29,0,0": true
+        }
+    },
+    "E,29,1,0" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Completed Right - A,1",
+        "to" : "E,29,3,2",
+        "level" : "3",
+        "connections" : {
+            "E,29,1,1": true
+        }
+    },
+    "E,29,1,1" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Completed Left - 2,1",
+        "to" : "E,29,2,0",
+        "level" : "3",
+        "connections" : {
+            "E,29,1,0": true
+        }
+    },
+    "E,29,2,0" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Hall Top - D,3",
+        "to" : "E,29,1,1",
+        "level" : "3",
+        "grouped": ["E,29,2,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,29,2,2": true
+        }
+    },
+    "E,29,2,1" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Hall Top - E,3",
+        "to" : "E,29,1,1",
+        "level" : "3",
+        "grouped": ["E,29,2,0"]
+    },
+    "E,29,2,2" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Hall Bottom - 4,17",
+        "to" : "E,29,0,2",
+        "level" : "3",
+        "grouped": ["E,29,2,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,29,2,0": true
+        }
+    },
+    "E,29,2,3" : {
+        "name" : "ROUTE 110 - INSIDE - Trick House Hall Bottom - 5,17",
+        "to" : "E,29,0,2",
+        "level" : "3",
+        "grouped": ["E,29,2,2"]
+    },
+    "E,29,11,0" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Bottom Left - 1,5",
+        "to" : "E,0,25,4",
+        "level" : "3",
+        "grouped": ["E,29,11,1"],
+        "groupMain" : true
+    },
+    "E,29,11,1" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Bottom Left- 2,5",
+        "to" : "E,0,25,4",
+        "level" : "3",
+        "grouped": ["E,29,11,0"]
+    },
+    "E,29,11,2" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Bottom Right - C,5",
+        "to" : "E,0,25,5",
+        "level" : "3",
+        "grouped": ["E,29,11,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,29,11,0": true
+        }
+    },
+    "E,29,11,3" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Bottom Right - D,5",
+        "to" : "E,0,25,5",
+        "level" : "3",
+        "grouped": ["E,29,11,2"]
+    },
+    "E,29,12,0" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Top Left - 1,5",
+        "to" : "E,0,25,2",
+        "level" : "3",
+        "grouped": ["E,29,12,1"],
+        "groupMain" : true
+    },
+    "E,29,12,1" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Top Left- 2,5",
+        "to" : "E,0,25,2",
+        "level" : "3",
+        "grouped": ["E,29,12,0"]
+    },
+    "E,29,12,2" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Top Right - C,5",
+        "to" : "E,0,25,3",
+        "level" : "3",
+        "grouped": ["E,29,12,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,29,12,0": true
+        }
+    },
+    "E,29,12,3" : {
+        "name" : "ROUTE 110 - INSIDE - Bike Path Top Right - D,5",
+        "to" : "E,0,25,3",
+        "level" : "3",
+        "grouped": ["E,29,12,2"]
+    },
 }
