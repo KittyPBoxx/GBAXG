@@ -1552,31 +1552,170 @@ var EMERALD_WARPS =
     "E,0,13,4" : {
         "to" : "E,5,7,0"
     },
-/* VERDANTURF CITY - EXT */
+/* VERDANTURF TOWN - EXT */
     "E,0,14,0" : {
         // BATTLE HALL
-        "to" : "E,6,0,0"
+        "name": "VERDANTURF TOWN - OUTSIDE - Battle Hall - 3,7",
+        "to" : "E,6,0,0",
+        "level": "3", 
+        "connections" : {
+            "E,0,14,2": true
+        }
     },
     "E,0,14,1" : {
         // MART
-        "to" : "E,6,3,0"
+        "name": "VERDANTURF TOWN - OUTSIDE - Mart - C,3",
+        "to" : "E,6,3,0",
+        "level": "3", 
+        "connections" : {
+            "E,0,14,2": true
+        }
     },
     "E,0,14,2" : {
         // PK
-        "to" : "E,6,4,0"
+        "name": "VERDANTURF TOWN - OUTSIDE - PkCenter - 10,3",
+        "to" : "E,6,4,0",
+        "connections" : {
+            "E,0,14,0": true,
+            "E,0,14,1": true,
+            "E,0,14,3": true,
+            "E,0,14,4": true,
+            "E,0,14,5": true,
+            "E,0,14,6": true,
+            "E,0,32,0": true,
+            "E,2,0,1": true
+        }
     },
     "E,0,14,3" : {
-        "to" : "E,6,6,0"
+        "name": "VERDANTURF TOWN - OUTSIDE - Center House - A,E",
+        "to" : "E,6,6,0",
+        "level": "3", 
+        "connections" : {
+            "E,0,14,2": true
+        }
     },
     "E,0,14,4" : {
         //RUSTURF TUNNEL (left exit)
-        "to" : "E,24,4,1"
+        "name": "VERDANTURF TOWN - OUTSIDE - Rusturf Tunnel Exit - 8,1",
+        "to" : "E,24,4,1",
+        "level": "3", 
+        "connections" : {
+            "E,0,14,2": true
+        }
     },
     "E,0,14,5" : {
-        "to" : "E,6,7,0"
+        "name": "VERDANTURF TOWN - OUTSIDE - Left House - 1,E",
+        "to" : "E,6,7,0",
+        "level": "3", 
+        "connections" : {
+            "E,0,14,2": true
+        }
     },
     "E,0,14,6" : {
-        "to" : "E,6,8,0"
+        "name": "VERDANTURF TOWN - OUTSIDE - Right House - 11,F",
+        "to" : "E,6,8,0",
+        "level": "3", 
+        "connections" : {
+            "E,0,14,2": true
+        }
+    },
+/* VERDANTURF TOWN - INT */
+    "E,6,0,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - Battle Hall - 6,9",
+        "level": "3", 
+        "to" : "E,0,14,0",
+        "ignore": true,
+        "grouped": ["E,6,0,1"],
+        "groupMain" : true
+    },
+    "E,6,0,1" : {
+        "name": "VERDANTURF TOWN - INSIDE - Battle Hall - 7,9",
+        "level": "3", 
+        "ignore": true,
+        "to" : "E,0,14,0",
+        "grouped": ["E,6,0,0"]
+    },
+    "E,6,3,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - Mart - 3,7",
+        "level": "3", 
+        "to" : "E,0,14,1",
+        "grouped": ["E,6,3,1"],
+        "groupMain" : true
+    },
+    "E,6,3,1" : {
+        "name": "VERDANTURF TOWN - INSIDE - Mart - 4,7",
+        "level": "3", 
+        "to" : "E,0,14,1",
+        "grouped": ["E,6,3,0"]
+    },
+    "E,6,4,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - PkCenter Enterance - 7,8",
+        "level": "3", 
+        "to" : "E,0,14,2",
+        "grouped": ["E,6,4,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,6,4,2": true
+        }
+    },
+    "E,6,4,1" : {
+        "name": "VERDANTURF TOWN - INSIDE - PkCenter Enterance - 8,8",
+        "level": "3", 
+        "to" : "E,0,14,2",
+        "grouped": ["E,6,4,0"]
+    },
+    "E,6,4,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - PkCenter Stairs - 1,6",
+        "level": "3", 
+        "to" : "E,6,5,0",
+        "connections" : {
+            "E,6,4,0": true
+        }
+    },
+    "E,6,5,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - PkCenter Upstairs - 1,6",
+        "level": "3", 
+        "ignore": true,
+        "to" : "E,6,4,2",
+    },
+    "E,6,6,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - Center House - 7,7",
+        "level": "3", 
+        "to" : "E,0,14,3",
+        "grouped": ["E,6,6,1"],
+        "groupMain" : true
+    },
+    "E,6,6,1" : {
+        "name": "VERDANTURF TOWN - INSIDE - Center House - 8,7",
+        "level": "3", 
+        "to" : "E,0,14,3",
+        "grouped": ["E,6,6,0"]
+    },
+    "E,6,7,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - Left House - 3,7",
+        "level": "3", 
+        "to" : "E,0,14,5",
+        "grouped": ["E,6,7,1"],
+        "groupMain" : true
+    },
+    "E,6,7,1" : {
+        "name": "VERDANTURF TOWN - INSIDE - Left House - 4,7",
+        "level": "3", 
+        "to" : "E,0,14,5",
+        "grouped": ["E,6,7,0"]
+    },
+    "E,6,8,0" : {
+        "name": "VERDANTURF TOWN - INSIDE - Right House - 3,8",
+        "level": "3", 
+        "to" : "E,0,14,6",
+        "grouped": ["E,6,8,1"],
+        "groupMain" : true
+    },
+    "E,6,8,1" : {
+        "name": "VERDANTURF TOWN - INSIDE - Right House - 4,8",
+        "level": "3", 
+        "to" : "E,0,14,6",
+        "grouped": ["E,6,8,0"]
     },
 /* PACIFIDLOG CITY - EXT */
     "E,0,15,0" : {
@@ -1769,6 +1908,7 @@ var EMERALD_WARPS =
     "E,0,31,2" : {
         "name": "ROUTE 116 - OUTSIDE - Rusturf tunnel enterance (center) - 41,A",
         "to" : "E,24,4,2",
+        "level" : "3"
     },
     "E,0,31,3" : {
         // TERRA CAVE
@@ -1804,11 +1944,19 @@ var EMERALD_WARPS =
     },
     "E,24,4,1" : {
         "name": "RUSTURF TUNNEL - INSIDE - Centre - 12,14",
-        "to": "E,0,31,2"
+        "to": "E,0,31,2",
+        "level" : "3",
+        "connections": {
+            "E,24,4,2": true
+        }
     },
     "E,24,4,2" : {
         "name": "RUSTURF TUNNEL - INSIDE - Right - 1D,10",
-        "to": "E,0,14,4"
+        "to": "E,0,14,4",
+        "level" : "3",
+        "connections": {
+            "E,24,4,1": true
+        }
     },
 /* ROUTE 103 */ 
     "E,0,18,0" : {
@@ -2173,5 +2321,177 @@ var EMERALD_WARPS =
         "to" : "E,0,25,3",
         "level" : "3",
         "grouped": ["E,29,12,2"]
+    },
+/* Route 111 - EXT */ 
+    "E,0,26,0" : {
+        "name" : "ROUTE 111 - OUTSIDE - Battle House - D,71",
+        "to" : "E,18,0,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,26,4": true,
+            "E,0,2,1": true
+        }
+    },
+    "E,0,26,1" : {
+        "name" : "ROUTE 111 - OUTSIDE - Desert Ruins - 1D,57",
+        "to" : "E,18,0,0",
+        "connections" : {
+            "E,24,6,0": true
+        }
+    },
+    "E,0,26,2" : {
+        "name" : "ROUTE 111 - OUTSIDE - Rest Gandma House - 1A,12",
+        "to" : "E,18,1,0",
+        "connections" : {
+            "E,0,13,2": true
+        }
+    },
+    "E,0,26,3" : {
+        "name" : "ROUTE 111 - OUTSIDE - Mirrage Tower - 13,3A",
+        "to" : "E,24,94,0",
+        "connections" : {
+            "E,0,26,1": true
+        }
+    },
+    "E,0,26,3" : {
+        "name" : "ROUTE 111 - OUTSIDE - Mirrage Tower - 13,3A",
+        "to" : "E,24,94,0",
+        "connections" : {
+            "E,0,26,1": true
+        }
+    },
+    "E,0,26,4" : {
+        "name" : "ROUTE 111 - OUTSIDE - Trainer Hill - 1F,71",
+        "to" : "E,26,60,0",
+        "level" : "3",
+        "connections" : {
+            "E,0,26,0": true,
+            "E,0,2,1": true
+        }
+    },
+/* Route 111 - INT */
+    "E,18,0,0" : {
+        "name" : "ROUTE 111 - INSIDE - Battle House - 3,7",
+        "to" : "E,0,26,0",
+        "level" : "3",
+        "grouped": ["E,18,0,1"],
+        "groupMain" : true
+    },
+    "E,18,0,1" : {
+        "name" : "ROUTE 111 - INSIDE - Battle House - 4,7",
+        "to" : "E,0,26,0",
+        "level" : "3",
+        "grouped": ["E,18,0,0"]
+    },
+    "E,18,1,0" : {
+        "name" : "ROUTE 111 - INSIDE - Rest Gandma House - 3,7",
+        "to" : "E,0,26,2",
+        "level" : "3",
+        "grouped": ["E,18,1,1"],
+        "groupMain" : true
+    },
+    "E,18,1,1" : {
+        "name" : "ROUTE 111 - INSIDE - Rest Gandma House - 4,7",
+        "to" : "E,0,26,2",
+        "level" : "3",
+        "grouped": ["E,18,1,0"]
+    },
+    "E,26,60,0" : {
+        "name" : "ROUTE 111 - INSIDE - Trainer Hill - 9,10",
+        "to" : "E,0,26,4",
+        "level" : "3",
+        "grouped": ["E,26,60,1"],
+        "groupMain" : true
+    },
+    "E,26,60,1" : {
+        "name" : "ROUTE 111 - INSIDE - Trainer Hill - 11,10",
+        "to" : "E,0,26,4",
+        "level" : "3",
+        "grouped": ["E,26,60,0"]
+    },
+    "E,24,6,0" : {
+        "name" : "ROUTE 111 - INSIDE - Desert Ruins - 8,1D",
+        "to" : "E,0,26,1",
+        "connections" : {
+            "E,24,6,1": true
+        }
+    },
+    "E,24,6,1" : {
+        "name" : "ROUTE 111 - INSIDE - Desert Ruins - 8,14",
+        "to" : "E,24,6,2",
+        "connections" : {
+            "E,24,6,0": true
+        }
+    },
+    "E,24,6,2" : {
+        "name" : "ROUTE 111 - INSIDE - Desert Ruins - 8,B",
+        "to" : "E,24,6,1"
+    },
+/* Mirage Tower */
+    "E,24,94,0" : {
+        "name" : "MIRAGE TOWER - INSIDE - F1 Enterance - A,E",
+        "to" : "E,0,26,3",
+        "connections" : {
+            "E,24,94,1": true
+        }
+    },
+    "E,24,94,1" : {
+        "name" : "MIRAGE TOWER - INSIDE - F1 Ladder - F,2",
+        "to" : "E,24,95,1",
+        "connections" : {
+            "E,24,94,0": true
+        }
+    },
+    "E,24,95,0" : {
+        "name" : "MIRAGE TOWER - INSIDE - F2 Top - F,2",
+        "to" : "E,24,94,1",
+        "connections" : {
+            "E,24,94,0": true
+        }
+    },
+    "E,24,95,1" : {
+        "name" : "MIRAGE TOWER - INSIDE - F2 Bottom - F,2",
+        "to" : "E,24,96,0",
+        "connections" : {
+            "E,24,94,0": true
+        }
+    },
+    "E,24,96,0" : {
+        "name" : "MIRAGE TOWER - INSIDE - F3 Bottom - 12,C",
+        "to" : "E,24,95,0",
+        "connections" : {
+            "E,24,95,1": true
+        }
+    },
+    "E,24,96,1" : {
+        "name" : "MIRAGE TOWER - INSIDE - F3 Top - 2,4",
+        "to" : "E,24,97,0"
+    },
+    "E,24,97,0" : {
+        "name" : "MIRAGE TOWER - INSIDE - F4 (Fossils) - 1,4",
+        "to" : "E,24,96,1"
+    },
+/* Route 117 - EXT */     
+    "E,0,32,0" : {
+        "name" : "ROUTE 117 - OUTSIDE - Day Care - 33,5",
+        "to" : "E,22,0,0",
+        "level": "3",
+        "connections" : {
+            "E,0,2,1": true,
+            "E,0,14,2": true
+        }
+    },
+    "E,22,0,0" : {
+        "name" : "ROUTE 117 - INSIDE - Day Care - 2,8",
+        "to" : "E,0,32,0",
+        "level" : "3",
+        "grouped": ["E,22,0,1"],
+        "groupMain" : true
+    },
+    "E,22,0,1" : {
+        "name" : "ROUTE 117 - INSIDE - Day Care - 3,8",
+        "to" : "E,0,32,0",
+        "level" : "3",
+        "grouped": ["E,22,0,0"]
     },
 }
