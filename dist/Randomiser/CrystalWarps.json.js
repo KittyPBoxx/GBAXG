@@ -993,7 +993,7 @@ var CRYSTAL_WARPS =
         "name": "ROUTE 34 - OUTSIDE - Route connector - 10,24",
         "to" : "C,1,115,1",
         "level": "3",
-        "grouped" : ["C,3,53,4"],
+        "grouped" : ["C,3,53,3"],
         "groupMain" : true,
         "connections": {
             "C,3,53,2": true,

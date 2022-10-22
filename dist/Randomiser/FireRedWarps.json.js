@@ -1644,7 +1644,7 @@ var FIRE_RED_WARPS =
             "FR,1,7,1": true
         }
     },
-    "FR,1,7,0" : {
+    "FR,1,7,1" : {
         "name": "S.S ANNE - INSIDE - F3 (Corridor) Right stairs - 12,2",
         "level": "3", 
         "to" : "FR,1,6,1",
@@ -1799,27 +1799,32 @@ var FIRE_RED_WARPS =
     "FR,1,24,0" : {
         "name": "S.S ANNE - INSIDE - F4 (Bellow Deck) Cabin 1 - 4,7",
         "level": "3", 
-        "to" : "FR,1,8,1"
+        "to" : "FR,1,8,1",
+        "ignore": true
     },
     "FR,1,25,0" : {
         "name": "S.S ANNE - INSIDE - F4 (Bellow Deck) Cabin 2 - 4,7",
         "level": "3", 
-        "to" : "FR,1,8,2"
+        "to" : "FR,1,8,2",
+        "ignore": true
     },
     "FR,1,26,0" : {
         "name": "S.S ANNE - INSIDE - F4 (Bellow Deck) Cabin 3 - 4,7",
         "level": "3", 
-        "to" : "FR,1,8,3"
+        "to" : "FR,1,8,3",
+        "ignore": true
     },
     "FR,1,27,0" : {
         "name": "S.S ANNE - INSIDE - F4 (Bellow Deck) Cabin 4 - 4,7",
         "level": "3", 
-        "to" : "FR,1,8,4"
+        "to" : "FR,1,8,4",
+        "ignore": true
     },
     "FR,1,28,0" : {
         "name": "S.S ANNE - INSIDE - F4 (Bellow Deck) Cabin 5 - 4,7",
         "level": "3", 
-        "to" : "FR,1,8,5"
+        "to" : "FR,1,8,5",
+        "ignore": true
     },
 }
 

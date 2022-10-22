@@ -287,14 +287,28 @@ function doNextMapping(rng) {
       warp2 = warp1;
 
     }
-    
-    //console.log(warp1.data().id);
-    //console.log(warp2.data().id);
+
     if (!warp1) {
-      console.log(warp1);
-    }
-    if (!warp2) {
-      console.log(warp2);
+      console.log("Issue Randomising Warps");
+      
+      if (accessibleNodes.size != 0) {
+        console.log("Some accessible nodes were left:")
+        accessibleNodes.forEach(n => {
+          console.log(n.data().id)
+        })
+      } else {
+        console.log("All accesible nodes mapped")
+      }
+
+      if (inacessibleNodes.size != 0) {
+        console.log("Some inaccessible nodes were left:")
+        inacessibleNodes.forEach(n => {
+          console.log(n.data().id)
+        })
+      } else {
+        console.log("All inaccesible nodes mapped")
+      }
+
     }
 
     window.cy.add(new WarpEdge(warp1.data().id, warp2.data().id))

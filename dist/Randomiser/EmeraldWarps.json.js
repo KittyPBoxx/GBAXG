@@ -1664,7 +1664,7 @@ var EMERALD_WARPS =
         "to" : "E,0,14,2",
         "grouped": ["E,6,4,0"]
     },
-    "E,6,4,0" : {
+    "E,6,4,2" : {
         "name": "VERDANTURF TOWN - INSIDE - PkCenter Stairs - 1,6",
         "level": "3", 
         "to" : "E,6,5,0",
