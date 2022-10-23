@@ -487,7 +487,7 @@ var CRYSTAL_WARPS =
         "to" : "C,1,118,2",
     },
 /* ROUTE 36 - INT */
-    "C,17,1,0" : {
+    "C,17,1,2" : {
         "name": "ROUTE 36 - INSIDE - Route Connector Bottom - 7,9",
         "to" : "C,2,14,1",
         "level" : "1",
@@ -500,7 +500,7 @@ var CRYSTAL_WARPS =
         "to" : "C,3,92,0",
         "level" : "1",
         "connections": {
-            "C,17,1,0": true
+            "C,17,1,2": true
         }
     },       
 /* RUINS OF ALPH - EXT */
@@ -1080,7 +1080,7 @@ var CRYSTAL_WARPS =
     },
     "C,3,15,3" : {
         "name": "GOLDENROD CITY - OUTSIDE - Route Connector - 15,4",
-        "to" : "1,116,0",
+        "to" : "C,1,116,0",
         "level": "3",
         "connections": {
             "C,3,15,12": true
@@ -1257,8 +1257,8 @@ var CRYSTAL_WARPS =
         "to" : "C,3,15,10",
         "level": "3"
     },
-    "C,3,66,0" : {
-        "name": "GOLDENROD CITY - INSIDE - Center Left - 4,",
+    "C,2,66,0" : {
+        "name": "GOLDENROD CITY - INSIDE - Center Right - 4,",
         "to" : "C,3,15,11",
         "level": "3"
     },

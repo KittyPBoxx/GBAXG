@@ -1575,6 +1575,7 @@ var EMERALD_WARPS =
         // PK
         "name": "VERDANTURF TOWN - OUTSIDE - PkCenter - 10,3",
         "to" : "E,6,4,0",
+        "level": "3", 
         "connections" : {
             "E,0,14,0": true,
             "E,0,14,1": true,

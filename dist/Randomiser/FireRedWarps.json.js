@@ -677,7 +677,7 @@ var FIRE_RED_WARPS =
     "FR,3,22,2" : {
         "name": "ROUTE 4 - OUTSIDE - PkCenter - C,5",
         "level": "2", 
-        "to" : "FR,1,1,3",
+        "to" : "FR,16,0,1",
         "connections" : {
             "FR,3,22,0" : true,
             "FR,3,2,5" : true
@@ -1417,7 +1417,7 @@ var FIRE_RED_WARPS =
     "FR,1,36,0" : {
         "name": "DIGGLET CAVE - INSIDE - Pewter Side Ladder - 6,4",
         "level": "3", 
-        "to" : "FR,3,37,0",
+        "to" : "FR,1,37,0",
         "connections" : {
             "FR,1,36,1": true
         }
@@ -1574,7 +1574,7 @@ var FIRE_RED_WARPS =
     "FR,1,6,1" : {
         "name": "S.S ANNE - INSIDE - F2 Stairs Bottom Left - 3,C",
         "level": "3", 
-        "to" : "FR,1,1,7",
+        "to" : "FR,1,7,1",
         "connections" : {
             "FR,1,6,0": true
         }
