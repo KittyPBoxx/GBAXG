@@ -123,15 +123,18 @@ function startForCode(code) {
         if (IodineGUI.Iodine.IOCore) {
             IodineGUI.Iodine.restart(); 
             IodineGUI.Iodine.saveStateManager.initStoredStates(IodineGUI.Iodine.ROM_CODES);
+            patchSprites();
         } else {
             IodineGUI.Iodine.play();
             IodineGUI.Iodine.saveStateManager.initStoredStates(IodineGUI.Iodine.ROM_CODES);
+            patchSprites();
         }
 
         firstPlay = false;
         document.getElementById("play").innerHTML = "<span>RESUME</span>"
     } else {
         IodineGUI.Iodine.play();
+        patchSprites();
     }
 }
 
