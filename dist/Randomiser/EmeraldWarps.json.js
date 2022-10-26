@@ -983,33 +983,218 @@ var EMERALD_WARPS =
 /* FORTREE CITY - EXT */
     "E,0,4,0" : {
         // PK
-        "to" : "E,12,2,0"
+        "name": "FORTREE CITY - OUTSIDE - PkCenter - 5,6",
+        "to" : "E,12,2,0",
+        "level": "6", 
+        "connections": {
+            "E,0,35,0": true,
+            "E,0,4,1": true,
+            "E,0,4,2": true,
+            "E,0,4,3": true,
+            "E,0,4,4": true,
+            "E,0,4,5": true,
+            "E,0,4,6": true,
+            "E,0,4,7": true,
+            "E,0,4,8": true,
+        }
     },
     "E,0,4,1" : {
-        "to" : "E,12,0,0"
+        "name": "FORTREE CITY - OUTSIDE - Top Next To PkCenter - A,3",
+        "to" : "E,12,0,0",
+        "level": "6", 
+        "connections": {
+            "E,0,4,0": true,
+        }
     },
     "E,0,4,2" : {
         // GYM
-        "to" : "E,12,1,0"
+        "name": "FORTREE CITY - OUTSIDE - Gym - 16,B",
+        "to" : "E,12,1,0",
+        "level": "6"
     },
     "E,0,4,3" : {
         // MART
-        "to" : "E,12,4,0"
+        "name": "FORTREE CITY - OUTSIDE - Mart - 4,E",
+        "to" : "E,12,4,0",
+        "level": "6", 
+        "connections": {
+            "E,0,4,0": true,
+        }
     },
     "E,0,4,4" : {
-        "to" : "E,12,5,0"
+        "name": "FORTREE CITY - OUTSIDE - Left Above Gym - 11,3",
+        "to" : "E,12,5,0",
+        "level": "6", 
+        "connections": {
+            "E,0,4,0": true,
+        }
     },
     "E,0,4,5" : {
-        "to" : "E,12,6,0"
+        "name": "FORTREE CITY - OUTSIDE - Right Above Gym - 19,3",
+        "to" : "E,12,6,0",
+        "level": "6", 
+        "connections": {
+            "E,0,4,0": true,
+        }
     },
     "E,0,4,6" : {
-        "to" : "E,12,7,0"
+        "name": "FORTREE CITY - OUTSIDE - Right Side Top - 20,2",
+        "to" : "E,12,7,0",
+        "level": "6", 
+        "connections": {
+            "E,0,4,0": true,
+        }
     },
     "E,0,4,7" : {
-        "to" : "E,12,8,0"
+        "name": "FORTREE CITY - OUTSIDE - Bottom Left - C,D",
+        "to" : "E,12,8,0",
+        "level": "6", 
+        "connections": {
+            "E,0,4,0": true,
+        }
     },
     "E,0,4,8" : {
-        "to" : "E,12,9,0"
+        "name": "FORTREE CITY - OUTSIDE - Bottom Right - 25,D",
+        "to" : "E,12,9,0",
+        "level": "6", 
+        "connections": {
+            "E,0,4,0": true,
+        }
+    },
+/* FORTREE CITY - INT */ 
+    "E,12,0,0" : {
+        "name" : "FORTREE CITY - INSIDE - Top Next To PkCenter - 3,5",
+        "to" : "E,0,4,1",
+        "level" : "6",
+        "grouped": ["E,12,0,1"],
+        "groupMain" : true,
+    },
+    "E,12,0,1" : {
+        "name" : "FORTREE CITY - INSIDE - Top Next To PkCenter - 4,5",
+        "to" : "E,0,4,1",
+        "level" : "6",
+        "grouped": ["E,12,0,0"]
+    },
+    "E,12,1,0" : {
+        "name" : "FORTREE CITY - INSIDE - Gym - F,18",
+        "to" : "E,0,4,2",
+        "level" : "6",
+        "grouped": ["E,12,1,1"],
+        "groupMain" : true,
+    },
+    "E,12,1,1" : {
+        "name" : "FORTREE CITY - INSIDE - Gym - 10,18",
+        "to" : "E,0,4,2",
+        "level" : "6",
+        "grouped": ["E,12,1,0"]
+    },
+    "E,12,2,0" : {
+        "name" : "FORTREE CITY - INSIDE - PkCenter Enterance- 7,8",
+        "to" : "E,0,4,0",
+        "level" : "6",
+        "grouped": ["E,12,2,1"],
+        "groupMain" : true,
+        "connections": {
+            "E,12,2,2": true,
+        }
+    },
+    "E,12,2,1" : {
+        "name" : "FORTREE CITY - INSIDE - PkCenter Enterance - 6,8",
+        "to" : "E,0,4,0",
+        "level" : "6",
+        "grouped": ["E,12,2,0"],
+    },
+    "E,12,2,2" : {
+        "name" : "FORTREE CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "E,12,3,0",
+        "level" : "6",
+        "connections": {
+            "E,12,2,0": true,
+        }
+    },
+    "E,12,3,0" : {
+        "name" : "FORTREE CITY - INSIDE - PkCenter Upstairs - 1,6",
+        "to" : "E,12,2,2",
+        "ignore" : "true",
+        "level" : "6",
+    },
+    "E,12,4,0" : {
+        "name" : "FORTREE CITY - INSIDE - Mart - 3,7",
+        "to" : "E,0,4,3",
+        "level" : "6",
+        "grouped": ["E,12,4,1"],
+        "groupMain" : true,
+    },
+    "E,12,4,1" : {
+        "name" : "FORTREE CITY - INSIDE - Mart - 4,7",
+        "to" : "E,0,4,3",
+        "level" : "6",
+        "grouped": ["E,12,4,0"],
+    },
+    "E,12,5,0" : {
+        "name" : "FORTREE CITY - INSIDE - Left Above GYM - 3,5",
+        "to" : "E,0,4,4",
+        "level" : "6",
+        "grouped": ["E,12,5,1"],
+        "groupMain" : true,
+    },
+    "E,12,5,1" : {
+        "name" : "FORTREE CITY - INSIDE - Left Above GYM - 4,5",
+        "to" : "E,0,4,4",
+        "level" : "6",
+        "grouped": ["E,12,5,0"],
+    },
+    "E,12,6,0" : {
+        "name" : "FORTREE CITY - INSIDE - Right Above GYM - 3,5",
+        "to" : "E,0,4,5",
+        "level" : "6",
+        "grouped": ["E,12,6,1"],
+        "groupMain" : true,
+    },
+    "E,12,6,1" : {
+        "name" : "FORTREE CITY - INSIDE - Right Above GYM - 4,5",
+        "to" : "E,0,4,5",
+        "level" : "6",
+        "grouped": ["E,12,6,0"],
+    },
+    "E,12,7,0" : {
+        "name" : "FORTREE CITY - INSIDE - Right Side Top - 3,5",
+        "to" : "E,0,4,6",
+        "level" : "6",
+        "grouped": ["E,12,7,1"],
+        "groupMain" : true,
+    },
+    "E,12,7,1" : {
+        "name" : "FORTREE CITY - INSIDE - Right Side Top - 4,5",
+        "to" : "E,0,4,6",
+        "level" : "6",
+        "grouped": ["E,12,7,0"],
+    },
+    "E,12,8,0" : {
+        "name" : "FORTREE CITY - INSIDE - Bottom Left - 3,5",
+        "to" : "E,0,4,7",
+        "level" : "6",
+        "grouped": ["E,12,8,1"],
+        "groupMain" : true,
+    },
+    "E,12,8,1" : {
+        "name" : "FORTREE CITY - INSIDE - Bottom Left - 4,5",
+        "to" : "E,0,4,7",
+        "level" : "6",
+        "grouped": ["E,12,8,0"],
+    },
+    "E,12,9,0" : {
+        "name" : "FORTREE CITY - INSIDE - Bottom Right - 3,5",
+        "to" : "E,0,4,8",
+        "level" : "6",
+        "grouped": ["E,12,9,1"],
+        "groupMain" : true,
+    },
+    "E,12,9,1" : {
+        "name" : "FORTREE CITY - INSIDE - Bottom Right - 4,5",
+        "to" : "E,0,4,8",
+        "level" : "6",
+        "grouped": ["E,12,9,0"],
     },
 /* LILYCOVE CITY - EXT */
     "E,0,5,0" : {
@@ -1509,48 +1694,292 @@ var EMERALD_WARPS =
         "to" : "E,0,11,4",
         "grouped": ["E,3,5,0"]
     },
-/* LAVARIDGE CITY - EXT */
+/* LAVARIDGE TOWN - EXT */
     "E,0,12,0" : {
         // HERB SHOP
-        "to" : "E,4,0,0"
+        "name": "LAVARIDGE TOWN - OUTSIDE - Herb Shop - C,F",
+        "level": "4", 
+        "to" : "E,4,0,0",
+        "connections" : {
+            "E,0,12,3": true
+        }
     },
     "E,0,12,1" : {
         // GYM
-        "to" : "E,4,1,0"
+        "name": "LAVARIDGE TOWN - OUTSIDE - GYM - C,F",
+        "level": "4", 
+        "to" : "E,4,1,0",
+        "connections" : {
+            "E,0,12,3": true
+        }
     },
     "E,0,12,2" : {
         // MART
-        "to" : "E,4,4,0"
+        "name": "LAVARIDGE TOWN - OUTSIDE - MART - F,5",
+        "level": "4", 
+        "to" : "E,4,4,0",
+        "connections" : {
+            "E,0,12,3": true
+        }
     },
     "E,0,12,3" : {
         // PK
-        "to" : "E,4,5,0"
+        "name": "LAVARIDGE TOWN - OUTSIDE - PkCenter - 9,6",
+        "level": "4", 
+        "to" : "E,4,5,0",
+        "connections" : {
+            "E,0,12,0": true,
+            "E,0,12,1": true,
+            "E,0,12,2": true,
+            "E,0,12,4": true,
+            "E,0,27,2": true
+        }
     },
     "E,0,12,4" : {
-        "to" : "E,4,3,0"
+        "name": "LAVARIDGE TOWN - OUTSIDE - Bottom Right - 10,F",
+        "level": "4", 
+        "to" : "E,4,3,0",
+        "connections" : {
+            "E,0,12,3": true
+        }
     },
     "E,0,12,5" : {
         // PK (back)
+        "name": "LAVARIDGE TOWN - OUTSIDE - PkCenter Back - 9,2",
+        "level": "4", 
         "to" : "E,4,5,3"
     },
-/* FALLARBOR CITY - EXT */
+/* LAVARIDGE TOWN - INT */
+    "E,4,0,0" : {
+        "name": "LAVARIDGE TOWN - INSIDE - Flower Shop - 3,7",
+        "level": "4", 
+        "to" : "E,0,12,0",
+        "grouped": ["E,4,0,1"],
+        "groupMain" : true
+    },
+    "E,4,0,1" : {
+        "name": "LAVARIDGE TOWN - INSIDE - Flower Shop - 4,7",
+        "level": "4", 
+        "to" : "E,0,12,0",
+        "grouped": ["E,4,0,0"]
+    },
+    "E,4,1,0" : {
+        "name": "LAVARIDGE TOWN - INSIDE - GYM - D,12",
+        "level": "4", 
+        "to" : "E,0,12,1",
+        "grouped": ["E,4,1,1"],
+        "groupMain" : true
+    },
+    "E,4,1,1" : {
+        "name": "LAVARIDGE TOWN - INSIDE - GYM - E,12",
+        "level": "4", 
+        "to" : "E,0,12,1",
+        "grouped": ["E,4,1,0"]
+    },
+    "E,4,3,0" : {
+        "name": "LAVARIDGE TOWN - INSIDE - Bottom Right - 3,7",
+        "level": "4", 
+        "to" : "E,0,12,4",
+        "grouped": ["E,4,3,1"],
+        "groupMain" : true
+    },
+    "E,4,3,1" : {
+        "name": "LAVARIDGE TOWN - INSIDE - Bottom Right - 4,7",
+        "level": "4", 
+        "to" : "E,0,12,4",
+        "grouped": ["E,4,3,0"]
+    },
+    "E,4,4,0" : {
+        "name": "LAVARIDGE TOWN - INSIDE - Mart - 3,7",
+        "level": "4", 
+        "to" : "E,0,12,2",
+        "grouped": ["E,4,4,1"],
+        "groupMain" : true
+    },
+    "E,4,4,1" : {
+        "name": "LAVARIDGE TOWN - INSIDE - Mart - 4,7",
+        "level": "4", 
+        "to" : "E,0,12,2",
+        "grouped": ["E,4,4,0"]
+    },
+    "E,4,5,0" : {
+        "name": "LAVARIDGE TOWN - INSIDE - PkCenter Enterance - 7,8",
+        "level": "4", 
+        "to" : "E,0,12,3",
+        "grouped": ["E,4,5,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,4,5,2": true,
+            "E,4,5,3": true,
+        }
+    },
+    "E,4,5,1" : {
+        "name": "LAVARIDGE TOWN - INSIDE - PkCenter Enterance - 6,8",
+        "level": "4", 
+        "to" : "E,0,12,3",
+        "grouped": ["E,4,5,0"]
+    },
+    "E,4,5,2" : {
+        "name": "LAVARIDGE TOWN - INSIDE - PkCenter Stairs - 1,6",
+        "level": "4", 
+        "to" : "E,4,6,0",
+        "connections" : {
+            "E,4,5,0": true,
+            "E,4,5,3": true,
+        }
+    },
+    "E,4,5,3" : {
+        "name": "LAVARIDGE TOWN - INSIDE - PkCenter Back - 2,1",
+        "level": "4", 
+        "to" : "E,0,12,5",
+        "connections" : {
+            "E,4,5,0": true,
+            "E,4,5,2": true,
+        }
+    },
+    "E,4,6,0" : {
+        "name": "LAVARIDGE TOWN - INSIDE - PkCenter Upstairs - 1,6",
+        "level": "4", 
+        "ignore": "true",
+        "to" : "E,4,5,2"
+    },
+/* FALLARBOR TOWN - EXT */
     "E,0,13,0" : {
         // MART
-        "to" : "E,5,0,0"
+        "name": "FALLARBOR TOWN - OUTSIDE - MART - F,F",
+        "level": "4", 
+        "to" : "E,5,0,0",
+        "connections" : {
+            "E,0,13,2": true
+        }
     },
     "E,0,13,1" : {
         // BATTLE HALL
-        "to" : "E,5,1,0"
+        "name": "FALLARBOR TOWN - OUTSIDE - Battle Hall - 8,7",
+        "level": "4", 
+        "to" : "E,5,1,0",
+        "connections" : {
+            "E,0,13,2": true
+        }
     },
     "E,0,13,2" : {
         // PK
-        "to" : "E,5,4,0"
+        "name": "FALLARBOR TOWN - OUTSIDE - PkCenter - E,7",
+        "level": "4", 
+        "to" : "E,5,4,0",
+        "connections" : {
+            "E,0,13,0": true,
+            "E,0,13,1": true,
+            "E,0,13,3": true,
+            "E,0,13,4": true,
+            "E,0,28,0": true,
+            "E,0,26,2": true,
+            "E,0,27,5": true,
+            "E,0,29,0": true,
+            "E,0,29,1": true,
+            "E,0,29,2": true
+        }
     },
     "E,0,13,3" : {
-        "to" : "E,5,3,0"
+        "name": "FALLARBOR TOWN - OUTSIDE - Bottom House - 6,11",
+        "level": "4", 
+        "to" : "E,5,3,0",
+        "connections" : {
+            "E,0,13,2": true
+        }
     },
     "E,0,13,4" : {
-        "to" : "E,5,7,0"
+        "name": "FALLARBOR TOWN - OUTSIDE - Move Relearner - 1,6",
+        "level": "4", 
+        "to" : "E,5,7,0",
+        "connections" : {
+            "E,0,13,2": true
+        }
+    },
+/* FALLARBOR TOWN - INT */
+    "E,5,0,0" : {
+        "name": "FALLARBOR TOWN - INSIDE - Mart - 3,7",
+        "level": "4", 
+        "to": "E,0,13,0",
+        "grouped": ["E,5,0,1"],
+        "groupMain" : true
+    },
+    "E,5,0,1" : {
+        "name": "FALLARBOR TOWN - INSIDE - Mart - 3,7",
+        "level": "4", 
+        "to": "E,0,13,0",
+        "grouped": ["E,5,0,0"]
+    },
+    "E,5,1,0" : {
+        "name": "FALLARBOR TOWN - INSIDE - Battle Hall - 6,9",
+        "level": "4",
+        "ignore": true,
+        "to": "E,0,13,1",
+        "grouped": ["E,5,1,1"],
+        "groupMain" : true
+    },
+    "E,5,1,1" : {
+        "name": "FALLARBOR TOWN - INSIDE - Battle Hall - 7,9",
+        "level": "4", 
+        "ignore": true,
+        "to": "E,0,13,1",
+        "grouped": ["E,5,1,0"]
+    },
+    "E,5,4,0" : {
+        "name": "FALLARBOR TOWN - INSIDE - PkCenter Enterance - 6,8",
+        "level": "4",
+        "to": "E,0,13,2",
+        "grouped": ["E,5,4,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,5,4,2": true
+        }
+    },
+    "E,5,4,1" : {
+        "name": "FALLARBOR TOWN - INSIDE - PkCenter Enterance - 7,8",
+        "level": "4", 
+        "to": "E,0,13,2",
+        "grouped": ["E,5,4,0"]
+    },
+    "E,5,4,2" : {
+        "name": "FALLARBOR TOWN - INSIDE - PkCenter Stairs - 1,6",
+        "level": "4", 
+        "to": "E,5,5,0",
+        "connections" : {
+            "E,5,4,0": true
+        }
+    },
+    "E,5,4,0" : {
+        "name": "FALLARBOR TOWN - INSIDE - PkCenter Upstairs Stairs - 1,6",
+        "level": "4",
+        "ignore": true, 
+        "to": "E,5,4,2"
+    },
+    "E,5,6,0" : {
+        "name": "FALLARBOR TOWN - INSIDE - Bottom House - 3,7",
+        "level": "4", 
+        "to": "E,0,13,3",
+        "grouped": ["E,5,6,1"],
+        "groupMain" : true
+    },
+    "E,5,6,1" : {
+        "name": "FALLARBOR TOWN - INSIDE - Bottom House - 4,7",
+        "level": "4", 
+        "to": "E,0,13,3",
+        "grouped": ["E,5,6,0"]
+    },
+    "E,5,7,0" : {
+        "name": "FALLARBOR TOWN - INSIDE - Move Relearner - 3,7",
+        "level": "4", 
+        "to": "E,0,13,4",
+        "grouped": ["E,5,7,1"],
+        "groupMain" : true
+    },
+    "E,5,7,1" : {
+        "name": "FALLARBOR TOWN - INSIDE - Move Relearner  - 4,7",
+        "level": "4", 
+        "to": "E,0,13,4",
+        "grouped": ["E,5,7,0"]
     },
 /* VERDANTURF TOWN - EXT */
     "E,0,14,0" : {
@@ -2148,7 +2577,8 @@ var EMERALD_WARPS =
     },
 /* Route 110 - EXT */
     "E,0,25,0" : {
-        "name" : "ROUTE 110 - OUTSIDE - Electric Cave - 23,18",
+        "name" : "ROUTE 110 - OUTSIDE - New Mauville - 23,18",
+        "level" : "6",
         "to" : "E,24,52,0",
     },
     "E,0,25,1" : {
@@ -2336,6 +2766,7 @@ var EMERALD_WARPS =
     "E,0,26,1" : {
         "name" : "ROUTE 111 - OUTSIDE - Desert Ruins - 1D,57",
         "to" : "E,18,0,0",
+        "level" : "5",
         "connections" : {
             "E,24,6,0": true
         }
@@ -2343,20 +2774,18 @@ var EMERALD_WARPS =
     "E,0,26,2" : {
         "name" : "ROUTE 111 - OUTSIDE - Rest Gandma House - 1A,12",
         "to" : "E,18,1,0",
+        "level" : "4",
         "connections" : {
+            "E,0,13,2": true,
+            "E,0,27,5": true,
+            "E,0,28,0": true,
             "E,0,13,2": true
         }
     },
     "E,0,26,3" : {
         "name" : "ROUTE 111 - OUTSIDE - Mirrage Tower - 13,3A",
         "to" : "E,24,94,0",
-        "connections" : {
-            "E,0,26,1": true
-        }
-    },
-    "E,0,26,3" : {
-        "name" : "ROUTE 111 - OUTSIDE - Mirrage Tower - 13,3A",
-        "to" : "E,24,94,0",
+        "level" : "5",
         "connections" : {
             "E,0,26,1": true
         }
@@ -2387,14 +2816,14 @@ var EMERALD_WARPS =
     "E,18,1,0" : {
         "name" : "ROUTE 111 - INSIDE - Rest Gandma House - 3,7",
         "to" : "E,0,26,2",
-        "level" : "3",
+        "level" : "4",
         "grouped": ["E,18,1,1"],
         "groupMain" : true
     },
     "E,18,1,1" : {
         "name" : "ROUTE 111 - INSIDE - Rest Gandma House - 4,7",
         "to" : "E,0,26,2",
-        "level" : "3",
+        "level" : "4",
         "grouped": ["E,18,1,0"]
     },
     "E,26,60,0" : {
@@ -2413,6 +2842,7 @@ var EMERALD_WARPS =
     "E,24,6,0" : {
         "name" : "ROUTE 111 - INSIDE - Desert Ruins - 8,1D",
         "to" : "E,0,26,1",
+        "level" : "5",
         "connections" : {
             "E,24,6,1": true
         }
@@ -2420,18 +2850,21 @@ var EMERALD_WARPS =
     "E,24,6,1" : {
         "name" : "ROUTE 111 - INSIDE - Desert Ruins - 8,14",
         "to" : "E,24,6,2",
+        "level" : "5",
         "connections" : {
             "E,24,6,0": true
         }
     },
     "E,24,6,2" : {
         "name" : "ROUTE 111 - INSIDE - Desert Ruins - 8,B",
-        "to" : "E,24,6,1"
+        "to" : "E,24,6,1",
+        "level" : "5",
     },
 /* Mirage Tower */
     "E,24,94,0" : {
         "name" : "MIRAGE TOWER - INSIDE - F1 Enterance - A,E",
         "to" : "E,0,26,3",
+        "level" : "5",
         "connections" : {
             "E,24,94,1": true
         }
@@ -2439,6 +2872,7 @@ var EMERALD_WARPS =
     "E,24,94,1" : {
         "name" : "MIRAGE TOWER - INSIDE - F1 Ladder - F,2",
         "to" : "E,24,95,1",
+        "level" : "5",
         "connections" : {
             "E,24,94,0": true
         }
@@ -2446,6 +2880,7 @@ var EMERALD_WARPS =
     "E,24,95,0" : {
         "name" : "MIRAGE TOWER - INSIDE - F2 Top - F,2",
         "to" : "E,24,94,1",
+        "level" : "5",
         "connections" : {
             "E,24,94,0": true
         }
@@ -2453,6 +2888,7 @@ var EMERALD_WARPS =
     "E,24,95,1" : {
         "name" : "MIRAGE TOWER - INSIDE - F2 Bottom - F,2",
         "to" : "E,24,96,0",
+        "level" : "5",
         "connections" : {
             "E,24,94,0": true
         }
@@ -2460,17 +2896,20 @@ var EMERALD_WARPS =
     "E,24,96,0" : {
         "name" : "MIRAGE TOWER - INSIDE - F3 Bottom - 12,C",
         "to" : "E,24,95,0",
+        "level" : "5",
         "connections" : {
             "E,24,95,1": true
         }
     },
     "E,24,96,1" : {
         "name" : "MIRAGE TOWER - INSIDE - F3 Top - 2,4",
-        "to" : "E,24,97,0"
+        "to" : "E,24,97,0",
+        "level" : "5",
     },
     "E,24,97,0" : {
         "name" : "MIRAGE TOWER - INSIDE - F4 (Fossils) - 1,4",
-        "to" : "E,24,96,1"
+        "to" : "E,24,96,1",
+        "level" : "5",
     },
 /* Route 117 - EXT */     
     "E,0,32,0" : {
@@ -2482,6 +2921,7 @@ var EMERALD_WARPS =
             "E,0,14,2": true
         }
     },
+/* Route 117 - INT */         
     "E,22,0,0" : {
         "name" : "ROUTE 117 - INSIDE - Day Care - 2,8",
         "to" : "E,0,32,0",
@@ -2494,5 +2934,1040 @@ var EMERALD_WARPS =
         "to" : "E,0,32,0",
         "level" : "3",
         "grouped": ["E,22,0,0"]
+    },
+/* Route 112 - EXT */
+    "E,0,27,0" : {
+        "name" : "ROUTE 112 - OUTSIDE - LIFT - 1C,1B",
+        "to" : "E,19,0,0",
+        "level" : "4",
+        "grouped": ["E,0,27,1"],
+        "groupMain" : true
+    },
+    "E,0,27,1" : {
+        "name" : "ROUTE 112 - OUTSIDE - LIFT - 1D,1B",
+        "to" : "E,19,0,1",
+        "level" : "4",
+        "grouped": ["E,0,27,0"]
+    },
+    "E,0,27,2" : {
+        "name" : "ROUTE 112 - OUTSIDE - Jagged Pass Enterance - 6,2E",
+        "to" : "E,24,13,0",
+        "level" : "4",
+        "grouped": ["E,0,27,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,0,27,4": true,
+            "E,0,12,3": true
+        }
+    },
+    "E,0,27,3" : {
+        "name" : "ROUTE 112 - OUTSIDE - Jagged Pass Enterance  - 7,2E",
+        "to" : "E,24,13,1",
+        "level" : "4",
+        "grouped": ["E,0,27,2"]
+    },
+    "E,0,27,4" : {
+        "name" : "ROUTE 112 - OUTSIDE - Fiery Path Bottom  - B,24",
+        "to" : "E,24,14,0",
+        "level" : "4"
+    },
+    "E,0,27,5" : {
+        "name" : "ROUTE 112 - OUTSIDE - Fiery Path Top  - 16,A",
+        "to" : "E,24,14,1",
+        "level" : "4",
+        "connections" : {
+            "E,0,26,2": true
+        }
+    },
+/* Route 112 - INT */
+    "E,19,0,0" : {
+        "name" : "ROUTE 112 - INSIDE - LIFT - 6,B",
+        "to" : "E,0,27,0",
+        "level" : "4",
+        "grouped": ["E,19,0,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,19,1,0": true
+        }
+    },
+    "E,19,0,1" : {
+        "name" : "ROUTE 112 - OUTSIDE - LIFT - 7,B",
+        "to" : "E,0,27,1",
+        "level" : "4",
+        "grouped": ["E,19,0,0"]
+    },
+    "E,19,1,0" : {
+        "name" : "MT CHIMNEY - INSIDE - LIFT - 6,B",
+        "to" : "E,24,12,0",
+        "level" : "4",
+        "grouped": ["E,19,1,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,19,0,0": true
+        }
+    },
+    "E,19,1,1" : {
+        "name" : "MT CHIMNEY - OUTSIDE - LIFT - 7,B",
+        "to" : "E,24,12,1",
+        "level" : "4",
+        "grouped": ["E,19,1,0"]
+    },
+/* FIERY PATH */
+    "E,24,14,0" : {
+        "name" : "FIREY PATH - INSIDE - Bottom - 1A,24",
+        "to" : "E,0,27,4",
+        "level" : "4",
+        "connections" : {
+            "E,24,14,1": true
+        }
+    },
+    "E,24,14,1" : {
+        "name" : "FIREY PATH - INSIDE - Top - 1A,4",
+        "to" : "E,0,27,5",
+        "level" : "4",
+        "connections" : {
+            "E,24,14,0": true
+        }
+    },
+/* JAGGED PASS */
+    "E,24,13,0" : {
+        "name" : "JAGGED PASS - INSIDE - Bottom - E,28",
+        "to" : "E,0,27,2",
+        "level" : "4",
+        "grouped": ["E,24,13,1"],
+        "groupMain" : true
+    },
+    "E,24,13,1" : {
+        "name" : "JAGGED PASS - INSIDE - Bottom - F,28",
+        "to" : "E,0,27,3",
+        "level" : "4",
+        "grouped": ["E,24,13,0"]
+    },
+    "E,24,13,2" : {
+        "name" : "JAGGED PASS - INSIDE - Bottom - E,28",
+        "to" : "E,24,12,3",
+        "level" : "4",
+        "grouped": ["E,24,13,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,13,0": true
+        }
+    },
+    "E,24,13,3" : {
+        "name" : "JAGGED PASS - INSIDE - Bottom - F,28",
+        "to" : "E,24,12,2",
+        "level" : "4",
+        "grouped": ["E,24,13,2"]
+    },
+    "E,24,13,5" : {
+        "name" : "JAGGED PASS - INSIDE - Magma hideout enterance - 10,12",
+        "to" : "E,24,86,0",
+        "connections" : {
+            "E,24,13,0": true
+        }
+    },
+/* Route 113 - EXT */
+    "E,0,28,0" : {
+        "name" : "ROUTE 113 - OUTSIDE - Flute House - 21,5",
+        "to" : "E,30,0,0",
+        "level" : "4",
+        "connections" : {
+            "E,0,26,2": true,
+            "E,0,13,2": true
+        }
+    },
+/* Route 113 - INT */
+    "E,30,0,0" : {
+        "name" : "ROUTE 113 - INSIDE - Flute House - 3,8",
+        "to" : "E,0,28,0",
+        "level" : "4",
+        "grouped": ["E,30,0,1"],
+        "groupMain" : true
+    },
+    "E,30,0,1" : {
+        "name" : "ROUTE 113 - INSIDE - Flute House - 4,8",
+        "to" : "E,0,28,0",
+        "level" : "4",
+        "grouped": ["E,30,0,0"]
+    },
+/* Route 114 - EXT */
+    "E,0,29,0" : {
+        "name" : "ROUTE 114 - OUTSIDE - Meteor Falls Enterance - 8,3F",
+        "to" : "E,24,0,0",
+        "level" : "4",
+        "connections" : {
+            "E,0,29,2": true
+        }
+    },
+    "E,0,29,1" : {
+        "name" : "ROUTE 114 - OUTSIDE - Fossil House - 1D,5",
+        "to" : "E,20,0,0",
+        "level" : "4",
+        "connections" : {
+            "E,0,13,2": true,
+            "E,0,29,1": true
+        }
+    },
+    "E,0,29,1" : {
+        "name" : "ROUTE 114 - OUTSIDE - Lannets House - 8,3F",
+        "to" : "E,20,2,0",
+        "level" : "4",
+        "connections" : {
+            "E,0,29,0": true,
+            "E,0,29,1": true
+        }
+    },
+/* Route 114 - INT */
+    "E,20,0,0" : {
+        "name" : "ROUTE 114 - INSIDE - Fossil House Enterance - 4,7",
+        "to" : "E,0,29,1",
+        "level" : "4",
+        "grouped": ["E,20,0,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,20,0,2": true
+        }
+    },
+    "E,20,0,1" : {
+        "name" : "ROUTE 114 - INSIDE - Fossil House Enterance - 5,7",
+        "to" : "E,0,29,1",
+        "level" : "4",
+        "grouped": ["E,20,0,0"]
+    },
+    "E,20,0,2" : {
+        "name" : "ROUTE 114 - INSIDE - Fossil House Hole in wall- 4,1",
+        "to" : "E,20,1,0",
+        "level" : "4",
+        "connections" : {
+            "E,20,0,0": true
+        }
+    },
+    "E,20,1,0" : {
+        "name" : "ROUTE 114 - INSIDE - Fossil House Cave Door - 6,19",
+        "to" : "E,20,0,2",
+        "level" : "4",
+        "grouped": ["E,20,1,1"],
+        "groupMain" : true
+    },
+    "E,20,1,1" : {
+        "name" : "ROUTE 114 - INSIDE - Fossil Cave Door - 7,19",
+        "to" : "E,20,0,2",
+        "level" : "4",
+        "grouped": ["E,20,1,0"]
+    },
+    "E,20,1,2" : {
+        "name" : "ROUTE 114 - INSIDE - Fossil Cave Desert Pass - 6,2",
+        "to" : "E,24,98,0",
+        "connections" : {
+            "E,20,1,0": true
+        }
+    },
+    "E,20,2,0" : {
+        "name" : "ROUTE 114 - INSIDE - Lanettes House - 5,7",
+        "to" : "E,0,29,2",
+        "level" : "4",
+        "grouped": ["E,20,2,1"],
+        "groupMain" : true
+    },
+    "E,20,2,1" : {
+        "name" : "ROUTE 114 - INSIDE - Lanettes House - 6,7",
+        "to" : "E,0,29,2",
+        "level" : "4",
+        "grouped": ["E,20,2,0"]
+    },
+/* DESSERT PASS */
+    "E,24,98,0" : {
+        "name" : "DESSERT PASS - INSIDE - Door - A,C",
+        "to" : "E,20,1,2",
+    },
+/* METEOR FALLS */
+// F1
+    "E,24,0,0" : {
+        "name" : "METEOR FALLS - INSIDE - F1 Route 114 Enterance - 1B,12",
+        "to" : "E,0,29,0",
+        "level" : "4",
+        "connections" : {
+            "E,24,0,1": true
+        }
+    },
+    "E,24,0,1" : {
+        "name" : "METEOR FALLS - INSIDE - F1 Route 115 Enterance - 6,27",
+        "to" : "E,0,30,0",
+        "level" : "4",
+        "connections" : {
+            "E,24,0,0": true
+        }
+    },
+    "E,24,0,2" : {
+        "name" : "METEOR FALLS - INSIDE - F1 Above Waterfall - A,3",
+        "to" : "E,24,1,0"
+    },
+    "E,24,0,3" : {
+        "name" : "METEOR FALLS - INSIDE - F1 Top Left Ladder - 5,4",
+        "to" : "E,24,2,4"
+    },
+    "E,24,0,4" : {
+        "name" : "METEOR FALLS - INSIDE - F1 Bottom Right - 1A,C",
+        "to" : "E,24,2,5"
+    },
+    "E,24,0,5" : {
+        "name" : "METEOR FALLS - INSIDE - F1 Top Left Door - 4,2",
+        "to" : "E,24,107,0"
+    },
+// F2
+    "E,24,1,0" : {
+        "name" : "METEOR FALLS - INSIDE - F2 Door - A,1D",
+        "to" : "E,24,0,2",
+        "connections" : {
+            "E,24,1,3": true
+        }
+    },
+    "E,24,1,1" : {
+        "name" : "METEOR FALLS - INSIDE - F2 Ladder By Couple - 4,E",
+        "to" : "E,24,2,0",
+        "connections" : {
+            "E,24,0,0": true,
+            "E,24,0,2": true,
+            "E,24,0,3": true
+        }
+    },
+    "E,24,1,2" : {
+        "name" : "METEOR FALLS - INSIDE - F2 Ladder By Water - 7,14",
+        "to" : "E,24,2,1",
+        "connections" : {
+            "E,24,0,0": true,
+            "E,24,0,3": true
+        }
+    },
+    "E,24,1,3" : {
+        "name" : "METEOR FALLS - INSIDE - F2 Ladder Right - 15,17",
+        "to" : "E,24,2,2",
+        "connections" : {
+            "E,24,1,0": true
+        }
+    },
+// F3
+    "E,24,2,0" : {
+        "name" : "METEOR FALLS - INSIDE - F3 Ladder Top Left - 5,6",
+        "to" : "E,24,1,1",
+        "connections" : {
+            "E,24,2,2": true,
+            "E,24,2,4": true
+        }
+    },
+    "E,24,2,1" : {
+        "name" : "METEOR FALLS - INSIDE - F3 Ladder Center Left - 7,B",
+        "to" : "E,24,1,2",
+    },
+    "E,24,2,2" : {
+        "name" : "METEOR FALLS - INSIDE - F3 Ladder Center - 12,F",
+        "to" : "E,24,1,3",
+        "connections" : {
+            "E,24,3,0": true,
+            "E,24,3,4": true
+        }
+    },
+    "E,24,2,3" : {
+        "name" : "METEOR FALLS - INSIDE - F3 Top Door - 11,3",
+        "to" : "E,24,3,0"
+    },
+    "E,24,2,4" : {
+        "name" : "METEOR FALLS - INSIDE - F3 Bottom Left - 3,17",
+        "to" : "E,24,0,3",
+        "connections" : {
+            "E,24,3,0": true,
+            "E,24,3,2": true
+        }
+    },
+    "E,24,2,5" : {
+        "name" : "METEOR FALLS - INSIDE - F3 Bottom Door - 14,24",
+        "to" : "E,24,0,4"
+    },
+// F4 (Bagon Room)
+    "E,24,3,0" : {
+        "name" : "METEOR FALLS - INSIDE - F4 Bagon Room - 5,F",
+        "to" : "E,24,2,3"
+    },
+// F5 (Steven Room)
+    "E,24,107,0" : {
+        "name" : "METEOR FALLS - INSIDE - F5 Steven Room Door - A,1D",
+        "to" : "E,24,0,5"
+    },
+/* MT CHIMNEY */
+    "E,24,12,0" : {
+        "name" : "MT CHIMNEY - OUTSIDE - LIFT - 11,24",
+        "to" : "E,19,1,0",
+        "level" : "4",
+        "grouped": ["E,24,12,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,13,2": true
+        }
+    },
+    "E,24,12,1" : {
+        "name" : "MT CHIMNEY - OUTSIDE - LIFT - 12,24",
+        "to" : "E,19,1,1",
+        "level" : "4",
+        "grouped": ["E,24,12,0"]
+    },
+    "E,24,12,2" : {
+        "name" : "MT CHIMNEY - OUTSIDE - Jagged Pass Enterance - 15,29",
+        "to" : "E,24,13,2",
+        "level" : "4",
+        "grouped": ["E,24,12,3"],
+        "groupMain" : true
+    },
+    "E,24,12,3" : {
+        "name" : "MT CHIMNEY - OUTSIDE - Jagged Pass Enterance - 16,29",
+        "to" : "E,24,13,3",
+        "level" : "4",
+        "grouped": ["E,24,12,2"]
+    },
+/* ABANDONED SHIP - EXT */
+    "E,24,54,0" : {
+        "name" : "ABANDONED SHIP - OUTSIDE - Enterance - D,F",
+        "to" : "E,0,23,0",
+        "level" : "6",
+        "grouped": ["E,24,54,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,54,2": true
+        }
+    },
+    "E,24,54,1" : {
+        "name" : "MT CHIMNEY - OUTSIDE - Enterance - E,F",
+        "to" : "E,0,23,0",
+        "level" : "6",
+        "grouped": ["E,24,54,0"]
+    },
+    "E,24,54,2" : {
+        "name" : "ABANDONED SHIP - OUTSIDE - Center - D,9",
+        "to" : "E,24,55,1",
+        "level" : "6",
+        "connections" : {
+            "E,24,54,0": true
+        }
+    },
+    "E,24,54,3" : {
+        "name" : "ABANDONED SHIP - OUTSIDE - Left - 8,9",
+        "to" : "E,24,55,2",
+        "level" : "6",
+        "connections" : {
+            "E,24,54,4": true
+        }
+    },
+    "E,24,55,4" : {
+        "name" : "ABANDONED SHIP - OUTSIDE - Top - C,5",
+        "to" : "E,24,63,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,54,3": true
+        }
+    },
+/* ABANDONED SHIP - INT */
+// F1
+    "E,24,55,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Right Side Bottom - 9,B",
+        "to" : "E,24,54,2",
+        "level" : "6",
+        "grouped": ["E,24,55,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,55,4": true,
+            "E,24,55,5": true,
+            "E,24,55,6": true,
+            "E,24,55,7": true,
+            "E,24,55,9": true
+        }
+    },
+    "E,24,55,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Right Side Bottom - 8,B",
+        "to" : "E,24,54,2",
+        "level" : "6",
+        "grouped": ["E,24,55,0"]
+    },
+    "E,24,55,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Left Side Bottom - 0,B",
+        "to" : "E,24,54,3",
+        "level" : "6",
+        "grouped": ["E,24,55,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,55,8": true,
+            "E,24,55,11": true,
+            "E,24,55,10": true,
+        }
+    },
+    "E,24,55,3" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Left Side Bottom - 1,B",
+        "to" : "E,24,54,3",
+        "level" : "6",
+        "grouped": ["E,24,55,2"]
+    },
+    "E,24,55,4" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Right Side Center Bottom Left - B,9",
+        "to" : "E,24,56,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,0": true
+        }
+    },
+    "E,24,55,5" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Right Side Center Bottom Right - E,9",
+        "to" : "E,24,56,3",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,0": true
+        }
+    },
+    "E,24,55,6" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Right Side Center Top Left - B,3",
+        "to" : "E,24,56,2",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,0": true
+        }
+    },
+    "E,24,55,7" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Right Side Center Top Right - E,3",
+        "to" : "E,24,56,4",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,0": true
+        }
+    },
+    "E,24,55,9" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Right Side Top Stairs - 3,9",
+        "to" : "E,24,57,7",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,0": true
+        }
+    },
+    "E,24,55,8" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Left Side Center Bottom - 3,9",
+        "to" : "E,24,62,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,2": true
+        }
+    },
+    "E,24,55,10" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Left Side Top Stairs - 5,2",
+        "to" : "E,24,57,6",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,2": true
+        }
+    },
+    "E,24,55,11" : {
+        "name" : "ABANDONED SHIP - INSIDE - F1 Left Side Center Top - 3,3",
+        "to" : "E,24,62,2",
+        "level" : "6",
+        "connections" : {
+            "E,24,55,2": true
+        }
+    },
+// F2
+    "E,24,56,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F2 Left Side Bottom - 4,10",
+        "to" : "E,24,55,4",
+        "level" : "6",
+        "grouped": ["E,24,56,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,56,3": true,
+            "E,24,56,4": true
+        }
+    },
+    "E,24,56,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F2 Left Side Bottom - 5,10",
+        "to" : "E,24,55,4",
+        "level" : "6",
+        "grouped": ["E,24,56,0"]
+    },
+    "E,24,56,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F2 Left Side Top- 4,1",
+        "to" : "E,24,55,6",
+        "level" : "6",
+    },
+    "E,24,56,3" : {
+        "name" : "ABANDONED SHIP - INSIDE - F2 Right Side Bottom - D,10",
+        "to" : "E,24,55,5",
+        "level" : "6",
+        "grouped": ["E,24,56,5"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,56,0": true,
+            "E,24,56,4": true
+        }
+    },
+    "E,24,56,5" : {
+        "name" : "ABANDONED SHIP - INSIDE - F2 Right Side Bottom - E,10",
+        "to" : "E,24,55,5",
+        "level" : "6",
+        "grouped": ["E,24,56,3"]
+    },
+    "E,24,56,4" : {
+        "name" : "ABANDONED SHIP - INSIDE - F2 Right Side Top - D,1",
+        "to" : "E,24,55,7",
+        "level" : "6",
+        "connections" : {
+            "E,24,56,0": true,
+            "E,24,56,3": true
+        }
+    },
+// F3
+    "E,24,57,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Center Door - 6,4",
+        "to" : "E,24,59,2",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,1": true,
+            "E,24,57,2": true,
+            "E,24,57,3": true,
+            "E,24,57,4": true,
+            "E,24,57,6": true,
+            "E,24,57,7": true,
+        }
+    },
+    "E,24,57,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Center Left Door - 3,4",
+        "to" : "E,24,59,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,0": true,
+        }
+    },
+    "E,24,57,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Bottom Left Door - 5,7",
+        "to" : "E,24,58,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,0": true,
+        }
+    },
+    "E,24,57,3" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Center Center Door - 8,7",
+        "to" : "E,24,58,1",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,0": true,
+        }
+    },
+    "E,24,57,4" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Center Right Door - B,7",
+        "to" : "E,24,58,2",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,0": true,
+        }
+    },
+    "E,24,57,5" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Locked Door - B,4",
+        "to" : "E,24,61,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,0": true,
+        }
+    },
+    "E,24,57,6" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Left Stairs - 0,2",
+        "to" : "E,24,55,10",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,0": true,
+        }
+    },
+    "E,24,57,7" : {
+        "name" : "ABANDONED SHIP - INSIDE - F3 Right Stairs - 8,2",
+        "to" : "E,24,55,9",
+        "level" : "6",
+        "connections" : {
+            "E,24,57,0": true,
+        }
+    },
+// F4
+    "E,24,58,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F4 Left - 4,1",
+        "to" : "E,24,57,2",
+        "level" : "6"
+    },
+    "E,24,58,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F4 Center - D,1",
+        "to" : "E,24,57,3",
+        "level" : "6"
+    },
+    "E,24,58,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F4 Right - 16,1",
+        "to" : "E,24,57,4",
+        "level" : "6"
+    },
+// F5
+    "E,24,59,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F5 Left Side - 4,7",
+        "to" : "E,24,57,1",
+        "level" : "6",
+        "grouped": ["E,24,59,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,59,2": true,
+        }
+    },
+    "E,24,59,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F5 Left Side - 5,7",
+        "to" : "E,24,57,1",
+        "level" : "6",
+        "grouped": ["E,24,59,0"]
+    },
+    "E,24,59,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F5 Right Side - D,7",
+        "to" : "E,24,57,0",
+        "level" : "6",
+        "grouped": ["E,24,59,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,59,0": true,
+        }
+    },
+    "E,24,59,3" : {
+        "name" : "ABANDONED SHIP - INSIDE - F5 Right Side - E,7",
+        "to" : "E,24,57,0",
+        "level" : "6",
+        "grouped": ["E,24,59,2"]
+    },
+// F6
+    "E,24,60,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F6 Door - 3,7",
+        "to" : "E,24,64,0",
+        "level" : "6",
+        "grouped": ["E,24,60,1"],
+        "groupMain" : true
+    },
+    "E,24,60,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F6 Door - 4,7",
+        "to" : "E,24,64,0",
+        "level" : "6",
+        "grouped": ["E,24,60,0"]
+    },
+// F7
+    "E,24,61,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F7 Door - 3,7",
+        "to" : "E,24,57,5",
+        "level" : "6",
+        "grouped": ["E,24,61,1"],
+        "groupMain" : true
+    },
+    "E,24,61,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F7 Door - 4,7",
+        "to" : "E,24,57,5",
+        "level" : "6",
+        "grouped": ["E,24,61,0"]
+    },
+// F8
+    "E,24,62,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F8 Bottom - 4,10",
+        "to" : "E,24,55,8",
+        "level" : "6",
+        "grouped": ["E,24,62,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,62,2": true,
+        }
+    },
+    "E,24,62,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F8 Bottom - 5,10",
+        "to" : "E,24,55,6",
+        "level" : "6",
+        "grouped": ["E,24,62,0"]
+    },
+    "E,24,62,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F8 Top - 4,1",
+        "to" : "E,24,55,11",
+        "level" : "6",
+        "connections" : {
+            "E,24,62,0": true,
+        }
+    },
+// F9
+    "E,24,63,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F9 Door - 7,6",
+        "to" : "E,24,54,4",
+        "level" : "6",
+        "grouped": ["E,24,63,1"],
+        "groupMain" : true
+    },
+    "E,24,63,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F9 Door - 8,6",
+        "to" : "E,24,54,4",
+        "level" : "6",
+        "grouped": ["E,24,63,0"]
+    },
+// F10
+    "E,24,64,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F10 Door - 3,1",
+        "to" : "E,24,60,0",
+        "level" : "6"
+    },
+// F11
+    "E,24,65,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F11 Bottom Left Door - 3,8",
+        "to" : "E,24,66,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,65,2": true,
+            "E,24,65,4": true,
+        }
+    },
+    "E,24,65,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F11 Bottom Center Door - 6,8",
+        "to" : "E,24,66,2",
+        "level" : "6",
+        "connections" : {
+            "E,24,65,2": true,
+            "E,24,65,4": true,
+        }
+    },
+    "E,24,65,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F11 Bottom Right Door - 9,8",
+        "to" : "E,24,66,4",
+        "level" : "6",
+        "connections" : {
+            "E,24,65,4": true,
+        }
+    },
+    "E,24,65,3" : {
+        "name" : "ABANDONED SHIP - INSIDE - F11 Top Left Door - 3,3",
+        "to" : "E,24,66,6",
+        "level" : "6",
+        "connections" : {
+            "E,24,65,2": true,
+            "E,24,65,4": true,
+        }
+    },
+    "E,24,65,4" : {
+        "name" : "ABANDONED SHIP - INSIDE - F11 Top Center Door - 6,3",
+        "to" : "E,24,66,7",
+        "level" : "6",
+        "connections" : {
+            "E,24,65,2": true,
+        }
+    },
+    "E,24,65,5" : {
+        "name" : "ABANDONED SHIP - INSIDE - F11 Top Right Door - 9,3",
+        "to" : "E,24,66,8",
+        "level" : "6",
+        "connections" : {
+            "E,24,65,2": true,
+            "E,24,65,4": true,
+        }
+    },
+// F12
+    "E,24,66,0" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Left Door - 6,E",
+        "to" : "E,24,65,0",
+        "level" : "6",
+        "grouped": ["E,24,66,1"],
+        "groupMain" : true
+    },
+    "E,24,66,1" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Left Door - 7,E",
+        "to" : "E,24,65,0",
+        "level" : "6",
+        "grouped": ["E,24,66,0"]
+    },
+    "E,24,66,2" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Center Door - 15,E",
+        "to" : "E,24,65,1",
+        "level" : "6",
+        "grouped": ["E,24,66,3"],
+        "groupMain" : true
+    },
+    "E,24,66,3" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Center Door - 16,E",
+        "to" : "E,24,65,1",
+        "level" : "6",
+        "grouped": ["E,24,66,2"]
+    },
+    "E,24,66,4" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Right Door - 24,E",
+        "to" : "E,24,65,2",
+        "level" : "6",
+        "grouped": ["E,24,66,5"],
+        "groupMain" : true
+    },
+    "E,24,66,5" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Right Door - 25,E",
+        "to" : "E,24,65,2",
+        "level" : "6",
+        "grouped": ["E,24,66,4"]
+    },
+    "E,24,66,6" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Top Left Door - 6,1",
+        "to" : "E,24,65,3",
+        "level" : "6",
+    },
+    "E,24,66,7" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Top Center Door - 15,1",
+        "to" : "E,24,65,4",
+        "level" : "6",
+    },
+    "E,24,66,8" : {
+        "name" : "ABANDONED SHIP - INSIDE - F12 Top Right Door - 24,1",
+        "to" : "E,24,65,5",
+        "level" : "6",
+    },
+/* New Mauville */
+// Enterance
+    "E,24,52,0" : {
+        "name" : "NEW MAUVILLE - INSIDE - Enterance Bottom - 4,1",
+        "to" : "E,0,25,40",
+        "level" : "6",
+        "connections" : {
+            "E,24,52,1": true,
+        }
+    },
+    "E,24,52,1" : {
+        "name" : "NEW MAUVILLE - INSIDE - Enterance Top - 4,6",
+        "to" : "E,24,53,0",
+        "level" : "6",
+        "connections" : {
+            "E,24,52,0": true,
+        }
+    },
+// Powerplant
+    "E,24,53,0" : {
+        "name" : "NEW MAUVILLE - INSIDE - Powerplant Door - 20,21",
+        "to" : "E,24,52,1",
+        "level" : "6",
+    },
+/* ROUTE 123 - EXT */
+    "E,0,38,0" : {
+        "name" : "ROUTE 123 - OUTSIDE - Berry Masters House - 16,6",
+        "to" : "E,31,0,0",
+        "level" : "6",
+        "connections" : {
+            "E,0,34,0": true,
+            "E,0,34,1": true,
+        }
+    },
+/* ROUTE 123 - INT */
+    "E,31,0,0" : {
+        "name" : "ROUTE 123 - INSIDE - Berry Masters House - 3,7",
+        "to" : "E,0,38,0",
+        "level" : "6",
+        "grouped": ["E,31,0,1"],
+        "groupMain" : true
+    },
+    "E,31,0,1" : {
+        "name" : "ROUTE 123 - INSIDE - Berry Masters House - 4,7",
+        "to" : "E,0,38,0",
+        "level" : "6",
+        "grouped": ["E,31,0,0"]
+    },
+/* ROUTE 119 - EXT */
+    "E,0,34,0" : {
+        "name" : "ROUTE 119 - OUTSIDE - Weather Institute - 6,20",
+        "to" : "E,32,0,0",
+        "level" : "6",
+        "connections" : {
+            "E,0,38,0": true,
+            "E,0,34,1": true,
+        }
+    },
+    "E,0,34,1" : {
+        "name" : "ROUTE 119 - OUTSIDE - Wingull House - 21,6D",
+        "to" : "E,32,2,0",
+        "level" : "6",
+        "connections" : {
+            "E,0,38,0": true,
+            "E,0,34,0": true,
+        }
+    },
+/* ROUTE 119 - INT */
+    "E,32,0,0" : {
+        "name" : "ROUTE 123 - INSIDE - Weather Institute F1 Door - 9,C",
+        "to" : "E,0,34,0",
+        "level" : "6",
+        "grouped": ["E,32,0,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,32,0,2": true,
+        }
+    },
+    "E,32,0,1" : {
+        "name" : "ROUTE 123 - INSIDE - Weather Institute F1 Door - A,C",
+        "to" : "E,0,38,0",
+        "level" : "6",
+        "grouped": ["E,32,0,0"]
+    },
+    "E,32,0,2" : {
+        "name" : "ROUTE 123 - INSIDE - Weather Institute F1 Stairs - 11,1",
+        "to" : "E,32,1,0",
+        "level" : "6",
+        "connections" : {
+            "E,32,0,0": true,
+        }
+    },
+    "E,32,1,0" : {
+        "name" : "ROUTE 123 - INSIDE - Weather Institute F2 Stairs - 11,1",
+        "to" : "E,32,0,2",
+        "level" : "6"
+    },
+    "E,32,2,0" : {
+        "name" : "ROUTE 119 - INSIDE - Wingull House - 3,8",
+        "to" : "E,0,34,1",
+        "level" : "6",
+        "grouped": ["E,32,2,1"],
+        "groupMain" : true,
+    },
+    "E,32,2,1" : {
+        "name" : "ROUTE 119 - INSIDE - Wingull House - 3,8",
+        "to" : "E,0,34,1",
+        "level" : "6",
+        "grouped": ["E,32,2,0"]
+    },
+/* ROUTE 120 - EXT */
+    "E,0,35,0" : {
+        "name" : "ROUTE 120 - OUTSIDE - Ancient Tomb Enterance - 7,37",
+        "to" : "E,24,68,0",
+        "level": "7",
+        "connections" : {
+            "E,0,36,0": true,
+            "E,0,5,2": true,
+            "E,0,4,0": true,
+        }
+    },
+    "E,0,35,1" : {
+        "name" : "ROUTE 120 - OUTSIDE - Scorched Slab Enterance - 13,17",
+        "to" : "E,24,73,0",
+        "level": "6",
+    },
+/* ROUTE 120 - INT */
+    "E,24,73,0" : {
+        "name" : "ROUTE 120 - INSIDE - Scorched Slab - 7,10",
+        "to" : "E,0,35,1",
+        "level": "6",
+    },
+    "E,24,68,0" : {
+        "name" : "ROUTE 120 - INSIDE - Ancient Tomb Bottom - 8,1D",
+        "to" : "E,0,35,0",
+        "level": "7",
+        "connections" : {
+            "E,24,68,1": true,
+        }
+    },
+    "E,24,68,1" : {
+        "name" : "ROUTE 120 - INSIDE - Ancient Tomb Top - 8,14",
+        "to" : "E,24,68,2",
+        "level": "7",
+        "connections" : {
+            "E,24,68,0": true,
+        }
+    },
+    "E,24,68,2" : {
+        "name" : "ROUTE 120 - INSIDE - Ancient Tomb Regie Steel - 8,B",
+        "to" : "E,24,68,1",
+        "level": "7"
     },
 }
