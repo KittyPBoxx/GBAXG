@@ -1199,90 +1199,752 @@ var EMERALD_WARPS =
 /* LILYCOVE CITY - EXT */
     "E,0,5,0" : {
         // DEPT
-        "to" : "E,13,16,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Department Store - 1B,6",
+        "level" : "7",
+        "to" : "E,13,16,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,1" : {
-        "to" : "E,13,0,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Club House - 25,18",
+        "level" : "7",
+        "to" : "E,13,0,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,2" : {
         // PK
-        "to" : "E,13,6,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - PkCenter - 1B,6",
+        "level" : "7",
+        "to" : "E,13,6,0",
+        "connections" : {
+            "E,0,36,0": true,
+            "E,0,5,1": true,
+            "E,0,5,3": true,
+            "E,0,5,4": true,
+            "E,0,5,5": true,
+            "E,0,5,7": true,
+            "E,0,5,8": true,
+            "E,0,5,9": true,
+            "E,0,5,10": true,
+            "E,0,5,11": true,
+            "E,0,5,12": true,
+            "E,0,5,13": true,
+        }
     },
     "E,0,5,3" : {
         // MUSEUM
+        "name" : "LILYCOVE CITY - OUTSIDE - Museum - 1B,6",
+        "level" : "7",
         "to" : "E,13,2,0",
         "grouped" : ["E,0,5,13"],
-        "groupMain" : true
+        "groupMain" : true,
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,4" : {
         // CONTEST HALL
-        "to" : "E,13,4,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Contest Hall - 1B,6",
+        "level" : "7",
+        "to" : "E,13,4,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,5" : {
-        "to" : "E,13,9,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Above Club House - 27,E",
+        "level" : "7",
+        "to" : "E,13,9,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,6" : {
-        "to" : "E,24,23,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Aqua Hideout - 46,5",
+        "level" : "7",
+        "to" : "E,24,23,0",
+        "connections" : {
+            "E,0,5,2": true,
+            "E,0,40,0": true,
+            "E,0,6,2": true,
+            "E,0,46,0": true,
+            "E,0,15,0": true,
+            "E,0,1,0": true,
+            "E,0,39,0": true,
+        }
     },
     "E,0,5,7" : {
-        "to" : "E,13,11,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Right of Department Store - 24,6",
+        "level" : "7",
+        "to" : "E,13,11,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,8" : {
-        "to" : "E,13,12,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Top Right - 2A,6",
+        "level" : "7",
+        "to" : "E,13,12,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,9" : {
-        "to" : "E,13,13,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Center Right (Ledge) - 37,F",
+        "level" : "7",
+        "to" : "E,13,13,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,10" : {
-        "to" : "E,13,14,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Left Of Contest Hall - B,16",
+        "level" : "7",
+        "to" : "E,13,14,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,11" : {
-        "to" : "E,13,15,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Left of PkCenter - C,E",
+        "level" : "7",
+        "to" : "E,13,15,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,12" : {
-        "to" : "E,13,10,0"
+        "name" : "LILYCOVE CITY - OUTSIDE - Dock - C,20",
+        "level" : "7",
+        "to" : "E,13,10,0",
+        "connections" : {
+            "E,0,5,2": true
+        }
     },
     "E,0,5,13" : {
         // MUSEUM
+        "name" : "LILYCOVE CITY - OUTSIDE - Museum - C,5",
+        "level" : "7",
         "to" : "E,13,2,1",
         "grouped": ["E,0,5,3"]
     },
+/* LILYCOVE CITY - INT */
+    "E,13,0,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Club House Door - 5,6",
+        "to" : "E,0,5,1",
+        "level" : "7",
+        "grouped": ["E,13,0,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,13,0,2": true
+        }
+    },
+    "E,13,0,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Club House Door - 6,8",
+        "to" : "E,0,4,8",
+        "level" : "7",
+        "grouped": ["E,13,0,0"],
+    },
+    "E,13,0,2" : {
+        "name" : "LILYCOVE CITY - INSIDE - Club House Stairs - 2,1",
+        "to" : "E,13,1,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,0,0": true
+        }
+    },
+    "E,13,0,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Club House Upstairs - 2,1",
+        "to" : "E,13,10,2",
+        "level" : "7"
+    },
+    "E,13,2,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Museum Door - 9,D",
+        "to" : "E,0,5,1",
+        "ignore": true,
+        "level" : "7",
+        "grouped": ["E,13,2,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,13,2,2": true
+        }
+    },
+    "E,13,2,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Museum Door - 10,D",
+        "to" : "E,0,4,8",
+        "ignore": true,
+        "level" : "7",
+        "grouped": ["E,13,2,0"],
+    },
+    "E,13,2,2" : {
+        "name" : "LILYCOVE CITY - INSIDE - Museum Stairs - 10,1",
+        "to" : "E,13,1,0",
+        "ignore": true,
+        "level" : "7",
+        "connections" : {
+            "E,13,2,0": true
+        }
+    },
+    "E,13,3,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Museum Upstairs - D,1",
+        "to" : "E,13,2,2",
+        "level" : "7",
+        "ignore": true,
+    },
+    "E,13,4,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Hall Door - E,B",
+        "to" : "E,0,5,4",
+        "level" : "7",
+        "grouped": ["E,13,4,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,13,4,2": true,
+            "E,13,4,3": true
+        }
+    },
+    "E,13,4,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Hall Door - E,B",
+        "to" : "E,0,5,4",
+        "level" : "7",
+        "grouped": ["E,13,4,0"],
+    },
+    "E,13,4,2" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Hall Left - 15,1",
+        "to" : "E,13,5,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,4,0": true,
+            "E,13,4,3": true
+        }
+    },
+    "E,13,4,3" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Hall Left - 15,1",
+        "to" : "E,13,5,1",
+        "level" : "7",
+        "connections" : {
+            "E,13,4,2": true,
+            "E,13,4,0": true
+        }
+    },
+    "E,13,5,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Room Left - 13,20",
+        "to" : "E,13,4,2",
+        "level" : "7",
+        "grouped": ["E,13,5,2"],
+        "groupMain" : true,
+        "connections" : {
+            "E,13,5,1": true
+        }
+    },
+    "E,13,5,2" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Room Left - 14,20",
+        "to" : "E,13,4,2",
+        "level" : "7",
+        "grouped": ["E,13,5,0"],
+    },
+    "E,13,5,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Room Right - 1E,20",
+        "to" : "E,13,4,3",
+        "level" : "7",
+        "grouped": ["E,13,5,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,13,5,0": true
+        }
+    },
+    "E,13,5,3" : {
+        "name" : "LILYCOVE CITY - INSIDE - Contest Room Left - 1F,20",
+        "to" : "E,13,4,3",
+        "level" : "7",
+        "grouped": ["E,13,5,1"],
+    },
+    "E,13,6,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - PkCenter Door - 7,8",
+        "to" : "E,0,5,2",
+        "level" : "7",
+        "grouped": ["E,13,6,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,13,6,2": true
+        }
+    },
+    "E,13,6,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - PkCenter Door - 6,8",
+        "to" : "E,0,5,2",
+        "level" : "7",
+        "grouped": ["E,13,6,0"],
+    },
+    "E,13,6,2" : {
+        "name" : "LILYCOVE CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "E,13,7,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,6,0": true
+        }
+    },
+    "E,13,7,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "E,13,6,2",
+        "level" : "7",
+        "ignore" : true
+    },
+    "E,13,9,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Right of PkCenter - 5,D",
+        "to" : "E,0,5,5",
+        "level" : "7",
+        "grouped": ["E,13,9,1"],
+        "groupMain" : true,
+    },
+    "E,13,9,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Right of PkCenter - 5,D",
+        "to" : "E,0,5,5",
+        "level" : "7",
+        "grouped": ["E,13,9,0"],
+    },
+    "E,13,10,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dock - B,E",
+        "to" : "E,0,5,12",
+        "level" : "7",
+        "grouped": ["E,13,10,1"],
+        "groupMain" : true,
+    },
+    "E,13,10,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dock - C,E",
+        "to" : "E,0,5,12",
+        "level" : "7",
+        "grouped": ["E,13,10,0"],
+    },
+    "E,13,11,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Right of Dept - 3,7",
+        "to" : "E,0,5,7",
+        "level" : "7",
+        "grouped": ["E,13,11,1"],
+        "groupMain" : true,
+    },
+    "E,13,11,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Right of Dept - 4,7",
+        "to" : "E,0,5,7",
+        "level" : "7",
+        "grouped": ["E,13,11,0"],
+    },
+    "E,13,12,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Top Right - 3,8",
+        "to" : "E,0,5,8",
+        "level" : "7",
+        "grouped": ["E,13,12,1"],
+        "groupMain" : true,
+    },
+    "E,13,12,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Top Right - 4,8",
+        "to" : "E,0,5,8",
+        "level" : "7",
+        "grouped": ["E,13,12,0"],
+    },
+    "E,13,13,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Center Right (ledge) - 3,8",
+        "to" : "E,0,5,9",
+        "level" : "7",
+        "grouped": ["E,13,13,1"],
+        "groupMain" : true,
+    },
+    "E,13,13,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Center Right (ledge) - 4,8",
+        "to" : "E,0,5,9",
+        "level" : "7",
+        "grouped": ["E,13,13,0"],
+    },
+    "E,13,14,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Left of contest Hall - 3,8",
+        "to" : "E,0,5,10",
+        "level" : "7",
+        "grouped": ["E,13,14,1"],
+        "groupMain" : true,
+    },
+    "E,13,14,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Left of contest Hall - 4,8",
+        "to" : "E,0,5,10",
+        "level" : "7",
+        "grouped": ["E,13,14,0"],
+    },
+    "E,13,15,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Left of PkCenter - 3,8",
+        "to" : "E,0,5,11",
+        "level" : "7",
+        "grouped": ["E,13,15,1"],
+        "groupMain" : true,
+    },
+    "E,13,15,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Left of PkCenter - 4,8",
+        "to" : "E,0,5,11",
+        "level" : "7",
+        "grouped": ["E,13,15,0"],
+    },
+    "E,13,16,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F1 Door - 8,7",
+        "to" : "E,0,5,0",
+        "level" : "7",
+        "grouped": ["E,13,16,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,13,16,2": true,
+            "E,13,17,0": true,
+            "E,13,18,0": true,
+            "E,13,19,0": true,
+            "E,13,20,0": true
+        }
+    },
+    "E,13,16,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F1 Door - 9,7",
+        "to" : "E,0,5,0",
+        "level" : "7",
+        "grouped": ["E,13,16,0"],
+    },
+    "E,13,16,2" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F1 Stairs - 10,1",
+        "to" : "E,13,17,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true
+        }
+    },
+    "E,13,17,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F2 Right - 10,1",
+        "to" : "E,13,16,2",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,17,1": true
+        }
+    },
+    "E,13,17,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F2 Left - D,1",
+        "to" : "E,13,18,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,17,0": true
+        }
+    },
+    "E,13,18,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F3 Left - D,1",
+        "to" : "E,13,17,1",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,18,1": true
+        }
+    },
+    "E,13,18,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F3 Right - 10,1",
+        "to" : "E,13,19,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,18,0": true
+        }
+    },
+    "E,13,19,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F4 Right - 10,1",
+        "to" : "E,13,18,1",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,19,1": true
+        }
+    },
+    "E,13,19,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F4 Left - D,1",
+        "to" : "E,13,20,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,19,0": true
+        }
+    },
+    "E,13,20,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F5 Left - D,1",
+        "to" : "E,13,19,1",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,20,1": true
+        }
+    },
+    "E,13,20,1" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store F5 Right - 10,1",
+        "to" : "E,13,19,0",
+        "level" : "7",
+        "connections" : {
+            "E,13,16,0": true,
+            "E,13,20,0": true
+        }
+    },
+    "E,13,21,0" : {
+        "name" : "LILYCOVE CITY - INSIDE - Dept Store Roof - D,3",
+        "to" : "E,13,20,0",
+        "level" : "7",
+    },
 /* MOSSDEEP CITY - EXT */
     "E,0,6,0" : {
-        "to" : "E,14,1,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Above PkCenter - 1C,9",
+        "level" : "7",
+        "to" : "E,14,1,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,1" : {
         // GYM
-        "to" : "E,14,0,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - GYM - 26,9",
+        "level" : "7",
+        "to" : "E,14,0,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,2" : {
         // PK
-        "to" : "E,14,3,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - PkCenter - 1C,10",
+        "level" : "7",
+        "to" : "E,14,3,0",
+        "connections" : {
+            "E,0,6,0": true,
+            "E,0,6,1": true,
+            "E,0,6,3": true,
+            "E,0,6,4": true,
+            "E,0,6,5": true,
+            "E,0,6,6": true,
+            "E,0,6,7": true,
+            "E,0,6,8": true,
+            "E,0,6,9": true,
+        }
     },
     "E,0,6,3" : {
-        "to" : "E,14,2,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Bellow Space Center - 43,19",
+        "level" : "7",
+        "to" : "E,14,2,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,4" : {
         // MART
-        "to" : "E,14,5,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Mart - 25,12",
+        "level" : "7",
+        "to" : "E,14,5,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,5" : {
-        "to" : "E,14,6,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Left of Space Center - 31,6",
+        "level" : "7",
+        "to" : "E,14,6,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,6" : {
         // STEVENS HOUSE
-        "to" : "E,14,7,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Top Left (Steven) - 13,A",
+        "level" : "7",
+        "to" : "E,14,7,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,7" : {
-        "to" : "E,14,8,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Left of PkCenter - 12,10",
+        "level" : "7",
+        "to" : "E,14,8,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,8" : {
         // SPACE
-        "to" : "E,14,9,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Space Center - 40,F",
+        "level" : "7",
+        "to" : "E,14,9,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
     },
     "E,0,6,9" : {
         // MINI GAME PLACE
-        "to" : "E,14,11,0"
+        "name" : "MOSSDEEP CITY - OUTSIDE - Bellow Mart - 40,F",
+        "level" : "7",
+        "to" : "E,14,11,0",
+        "connections" : {
+            "E,0,6,2": true
+        }
+    },
+/* MOSSDEEP CITY - INT */    
+    "E,14,0,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Gym - 6,23",
+        "level": "7", 
+        "to": "E,0,6,1",
+        "grouped": ["E,14,0,1"],
+        "groupMain" : true
+    },
+    "E,14,0,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Gym - 7,23",
+        "level": "7", 
+        "to": "E,0,6,1",
+        "grouped": ["E,14,0,0"],
+    },
+    "E,14,1,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Above PkCenter - 3,7",
+        "level": "7", 
+        "to": "E,0,6,0",
+        "grouped": ["E,14,1,1"],
+        "groupMain" : true
+    },
+    "E,14,1,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Above PkCenter - 4,7",
+        "level": "7", 
+        "to": "E,0,6,0",
+        "grouped": ["E,14,1,0"],
+    },
+    "E,14,2,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Bellow Space Center - 3,7",
+        "level": "7", 
+        "to": "E,0,6,3",
+        "grouped": ["E,14,2,1"],
+        "groupMain" : true
+    },
+    "E,14,2,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Bellow Space Center - 4,7",
+        "level": "7", 
+        "to": "E,0,6,3",
+        "grouped": ["E,14,2,0"],
+    },
+    "E,14,3,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - PkCenter Door - 7,8",
+        "level": "7", 
+        "to": "E,0,6,2",
+        "grouped": ["E,14,3,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,14,3,2": true
+        }
+    },
+    "E,14,3,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - PkCenter Door - 6,8",
+        "level": "7", 
+        "to": "E,0,6,2",
+        "grouped": ["E,14,3,0"],
+    },
+    "E,14,3,2" : {
+        "name": "MOSSDEEP CITY - INSIDE - PkCenter Stairs - 1,6",
+        "level": "7", 
+        "to": "E,14,4,0",
+        "connections" : {
+            "E,14,3,0": true
+        }
+    },
+    "E,14,4,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - PkCenter Upstairs - 1,6",
+        "level": "7", 
+        "to": "E,2,14,3",
+        "ignore" : true
+    },
+    "E,14,5,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Mart - 3,7",
+        "level": "7", 
+        "to": "E,0,6,4",
+        "grouped": ["E,14,5,1"],
+        "groupMain" : true
+    },
+    "E,14,5,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Mart - 4,7",
+        "level": "7", 
+        "to": "E,0,6,4",
+        "grouped": ["E,14,5,0"],
+    },
+    "E,14,6,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Left of Space Center - 3,7",
+        "level": "7", 
+        "to": "E,0,6,5",
+        "grouped": ["E,14,6,1"],
+        "groupMain" : true
+    },
+    "E,14,6,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Left of Space Center - 4,7",
+        "level": "7", 
+        "to": "E,0,6,5",
+        "grouped": ["E,14,6,0"],
+    },
+    "E,14,7,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Top Left (Steven) - 3,7",
+        "level": "7", 
+        "to": "E,0,6,6",
+        "grouped": ["E,14,7,1"],
+        "groupMain" : true
+    },
+    "E,14,7,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Top Left (Steven) - 4,7",
+        "level": "7", 
+        "to": "E,0,6,6",
+        "grouped": ["E,14,7,0"],
+    },
+    "E,14,8,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Left of PkCenter - 3,7",
+        "level": "7", 
+        "to": "E,0,6,7",
+        "grouped": ["E,14,8,1"],
+        "groupMain" : true
+    },
+    "E,14,8,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Left of PkCenter - 4,7",
+        "level": "7", 
+        "to": "E,0,6,7",
+        "grouped": ["E,14,8,0"],
+    },
+    "E,14,9,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Space Center F1 Door - 7,9",
+        "level": "7", 
+        "to": "E,0,6,8",
+        "grouped": ["E,14,9,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,14,9,2": true
+        }
+    },
+    "E,14,9,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Space Center F1 Door - 8,9",
+        "level": "7", 
+        "to": "E,0,6,8",
+        "grouped": ["E,14,9,0"],
+    },
+    "E,14,9,2" : {
+        "name": "MOSSDEEP CITY - INSIDE - Space Center F1 Stairs - D,1",
+        "level": "7", 
+        "to": "E,14,10,0",
+        "connections" : {
+            "E,14,9,0": true
+        }
+    },
+    "E,14,10,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Space Center F2 Stairs - D,1",
+        "level": "7", 
+        "to": "E,14,9,2",
+    },
+    "E,14,11,0" : {
+        "name": "MOSSDEEP CITY - INSIDE - Bellow Mart - 5,9",
+        "level": "7", 
+        "to": "E,0,6,9",
+        "grouped": ["E,14,11,1"],
+        "groupMain" : true
+    },
+    "E,14,11,1" : {
+        "name": "MOSSDEEP CITY - INSIDE - Bellow Mart - 6,9",
+        "level": "7", 
+        "to": "E,0,6,9",
+        "grouped": ["E,14,11,0"],
     },
 /* SOOTOPOLIS CITY - EXT */
     "E,0,7,0"  : {
@@ -3970,4 +4632,849 @@ var EMERALD_WARPS =
         "to" : "E,24,68,1",
         "level": "7"
     },
+////// LEVEL 7
+/* Route 121 - EXT */
+    "E,0,36,0" : {
+        "name" : "ROUTE 121 - OUTSIDE - Safari Zone - 25,5",
+        "to" : "E,23,0,2",
+        "level": "7",
+        "connections" : {
+            "E,0,35,0": true,
+            "E,0,5,2": true,
+        }
+    },
+/* Route 121 - INT */
+    "E,23,0,2" : {
+        "name" : "ROUTE 121 - INSIDE - Safari Zone Enterance - E,D",
+        "to" : "E,0,36,0",
+        "level" : "7",
+        "grouped": ["E,23,0,3"],
+        "groupMain" : true,
+    },
+    "E,23,0,3" : {
+        "name" : "ROUTE 121 - INSIDE - Safari Zone Enterance - F,D",
+        "to" : "E,0,36,0",
+        "level" : "7",
+        "grouped": ["E,23,0,2"]
+    },
+/* Route 122 - EXT */
+    "E,0,37,0" : {
+        "name" : "ROUTE 122 - OUTSIDE - Mt Pyre - 16,1D",
+        "to" : "E,24,15,0",
+        "level": "7"
+    },
+/* Mt Pyre - INT */
+// F1
+    "E,24,15,0" : {
+        "name" : "Mt Pyre - INSIDE - F1 Bottom Enterance - 11,12",
+        "to" : "E,0,37,0",
+        "level" : "7",
+        "grouped": ["E,24,15,2"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,15,1": true,
+            "E,24,15,4": true,
+        }
+    },
+    "E,24,15,2" : {
+        "name" : "Mt Pyre - INSIDE - F1 Bottom Enterance - 12,12",
+        "to" : "E,0,37,0",
+        "level" : "7",
+        "grouped": ["E,24,15,0"]
+    },
+    "E,24,15,1" : {
+        "name" : "Mt Pyre - INSIDE - F1 Left Enterance - 3,6",
+        "to" : "E,24,21,0",
+        "level" : "7",
+        "grouped": ["E,24,15,3"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,15,0": true,
+            "E,24,15,4": true,
+        }
+    },
+    "E,24,15,3" : {
+        "name" : "Mt Pyre - INSIDE - F1 Left Enterance - 4,6",
+        "to" : "E,24,21,0",
+        "level" : "7",
+        "grouped": ["E,24,15,1"]
+    },
+    "E,24,15,4" : {
+        "name" : "Mt Pyre - INSIDE - F1 Top - B,1",
+        "to" : "E,24,16,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,15,0": true,
+            "E,24,15,1": true,
+        }
+    },
+    "E,24,15,5" : {
+        "name" : "Mt Pyre - INSIDE - F1 Drop - 14,9",
+        "to" : "E,24,16,4",
+        "level" : "7",
+        "connections" : {
+            "E,24,15,0": true,
+            "E,24,15,1": true,
+        }
+    },
+// F2    
+    "E,24,16,0" : {
+        "name" : "Mt Pyre - INSIDE - F2 Top Left - 2,1",
+        "to" : "E,24,15,4",
+        "level" : "7",
+        "connections" : {
+            "E,24,16,1": true,
+            "E,24,16,4": true,
+        }
+    },
+    "E,24,16,1" : {
+        "name" : "Mt Pyre - INSIDE - F2 Top Right - A,1",
+        "to" : "E,24,17,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,16,0": true,
+        }
+    },
+    "E,24,16,2" : {
+        "name" : "Mt Pyre - INSIDE - F2 Bottom Right Drop - A,C",
+        "to" : "E,24,17,4",
+        "level" : "7",
+        "connections" : {
+            "E,24,16,0": true,
+        }
+    },
+    "E,24,16,3" : {
+        "name" : "Mt Pyre - INSIDE - F2 Bottom Left Drop - 6,C",
+        "to" : "E,24,17,5",
+        "level" : "7",
+        "connections" : {
+            "E,24,16,0": true,
+        }
+    },
+    "E,24,16,4" : {
+        "name" : "Mt Pyre - INSIDE - F2 Hole - B,9",
+        "to" : "E,24,15,5",
+        "level" : "7",
+        "connections" : {
+            "E,24,16,0": true,
+        }
+    },
+// F3
+    "E,24,17,0" : {
+        "name" : "Mt Pyre - INSIDE - F3 Top Right - A,1",
+        "to" : "E,24,16,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,17,1": true,
+            "E,24,17,4": true,
+        }
+    },
+    "E,24,17,1" : {
+        "name" : "Mt Pyre - INSIDE - F3 Top Left - 2,1",
+        "to" : "E,24,18,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,17,0": true,
+        }
+    },
+    "E,24,17,2" : {
+        "name" : "Mt Pyre - INSIDE - F3 Right Drop - 9,A",
+        "to" : "E,24,18,4",
+        "level" : "7",
+        "connections" : {
+            "E,24,17,0": true,
+        }
+    },
+    "E,24,17,3" : {
+        "name" : "Mt Pyre - INSIDE - F3 Left Drop - 1,C",
+        "to" : "E,24,18,5",
+        "level" : "7",
+        "connections" : {
+            "E,24,17,5": true,
+        }
+    },
+    "E,24,17,4" : {
+        "name" : "Mt Pyre - INSIDE - F3 Right Hole - A,C",
+        "to" : "E,24,16,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,17,0": true,
+        }
+    },
+    "E,24,17,5" : {
+        "name" : "Mt Pyre - INSIDE - F3 Left Hole - A,C",
+        "to" : "E,24,16,3",
+        "level" : "7"
+    },
+// F4
+    "E,24,18,0" : {
+        "name" : "Mt Pyre - INSIDE - F4 Top Right - A,1",
+        "to" : "E,24,19,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,18,4": true,
+            "E,24,18,1": true,
+        }
+    },
+    "E,24,18,1" : {
+        "name" : "Mt Pyre - INSIDE - F4 Top Right - 2,5",
+        "to" : "E,24,17,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,18,0": true
+        }
+    },
+    "E,24,18,2" : {
+        "name" : "Mt Pyre - INSIDE - F4 Center Right Drop - C,A",
+        "to" : "E,24,19,3",
+        "level" : "7",
+        "connections" : {
+            "E,24,18,0": true
+        }
+    },
+    "E,24,18,3" : {
+        "name" : "Mt Pyre - INSIDE - F4 Bottom Right Drop - C,C",
+        "to" : "E,24,19,4",
+        "level" : "7",
+        "connections" : {
+            "E,24,18,5": true
+        }
+    },
+    "E,24,18,4" : {
+        "name" : "Mt Pyre - INSIDE - F4 Center Hole - 9,A",
+        "to" : "E,24,17,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,18,0": true
+        }
+    },
+    "E,24,18,5" : {
+        "name" : "Mt Pyre - INSIDE - F4 Left Hole - 2,C",
+        "to" : "E,24,17,3",
+        "level" : "7",
+    },
+// F5
+    "E,24,19,0" : {
+        "name" : "Mt Pyre - INSIDE - F5 Top Left - 2,1",
+        "to" : "E,24,20,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,19,1": true
+        }
+    },
+    "E,24,19,1" : {
+        "name" : "Mt Pyre - INSIDE - F5 Top Right - A,5",
+        "to" : "E,24,18,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,19,0": true
+        }
+    },
+    "E,24,19,2" : {
+        "name" : "Mt Pyre - INSIDE - F5 Left Drop - 1,A",
+        "to" : "E,24,20,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,19,3": true,
+            "E,24,19,4": true,
+        }
+    },
+    "E,24,19,3" : {
+        "name" : "Mt Pyre - INSIDE - F5 Top Hole - C,A",
+        "to" : "E,24,18,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,19,4": true,
+        }
+    },
+    "E,24,19,4" : {
+        "name" : "Mt Pyre - INSIDE - F5 Bottom Hole - C,C",
+        "to" : "E,24,18,3",
+        "level" : "7",
+        "connections" : {
+            "E,24,19,3": true,
+        }
+    },
+// F6
+    "E,24,20,0" : {
+        "name" : "Mt Pyre - INSIDE - F6 Top - 2,1",
+        "to" : "E,24,19,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,20,1": true,
+        }
+    },
+    "E,24,20,1" : {
+        "name" : "Mt Pyre - INSIDE - F6 Top - 1,A",
+        "to" : "E,24,19,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,20,0": true,
+        }
+    },
+/* Mt Pyre - EXT */
+// Exterior
+    "E,24,21,0" : {
+        "name" : "Mt Pyre - OUTSIDE - Exterior Bottom - A,2A",
+        "to" : "E,24,15,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,21,1": true,
+        }
+    },
+    "E,24,21,1" : {
+        "name" : "Mt Pyre - OUTSIDE - Exterior Top - 13,A",
+        "to" : "E,24,22,1",
+        "level" : "7",
+        "grouped": ["E,24,21,2"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,21,0": true,
+        }
+    },
+    "E,24,21,2" : {
+        "name" : "Mt Pyre - OUTSIDE - Exterior Top - 14,A",
+        "to" : "E,24,22,1",
+        "level" : "7",
+        "grouped": ["E,24,21,1"]
+    },
+// Summit 
+    "E,24,22,1" : {
+        "name" : "Mt Pyre - OUTSIDE - Summit - 17,1F",
+        "to" : "E,24,21,1",
+        "level" : "7",
+        "grouped": ["E,24,22,0", "E,24,22,2"],
+        "groupMain" : true
+    },
+    "E,24,22,0" : {
+        "name" : "Mt Pyre - OUTSIDE - Summit - 16,1F",
+        "to" : "E,24,22,1",
+        "level" : "7",
+        "grouped": ["E,24,22,1", "E,24,22,2"],
+    },
+    "E,24,22,2" : {
+        "name" : "Mt Pyre - OUTSIDE - Summit - 18,1F",
+        "to" : "E,24,22,1",
+        "level" : "7",
+        "grouped": ["E,24,22,1", "E,24,22,0"],
+    },
+/* Route 124 - EXT */
+    "E,0,39,0" : {
+        "name" : "ROUTE 124 - OUTSIDE - House - 46,30",
+        "to" : "E,33,0,0",
+        "level" : "7",
+    },
+/* Route 124 - INT */
+    "E,33,0,0" : {
+        "name" : "ROUTE 124 - INSIDE - House - 3,8",
+        "to" : "E,0,39,0",
+        "level" : "7",
+        "grouped": ["E,33,0,0"],
+        "groupMain" : true,
+    },
+    "E,33,0,1" : {
+        "name" : "ROUTE 124 - INSIDE - House - 4,8",
+        "to" : "E,0,39,0",
+        "level" : "7",
+        "grouped": ["E,33,0,0"]
+    },
+/* Route 125 - EXT */
+    "E,0,40,0" : {
+        "name" : "ROUTE 125 - OUTSIDE - Shoal Cave - 16,13",
+        "to" : "E,24,46,0",
+        "level" : "7",
+    },
+/* Route 125 - INT */
+// TODO: Shoal Cave
+/* Aqua Hideout */
+// F1
+    "E,24,23,0" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F1 Enterance - D,1B",
+        "to" : "E,0,5,6",
+        "level" : "7",
+        "grouped": ["E,24,23,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,23,2": true,
+        }
+    },
+    "E,24,23,1" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F1 Enterance - E,1B",
+        "to" : "E,0,5,6",
+        "level" : "7",
+        "grouped": ["E,24,23,0"]
+    },
+    "E,24,23,2" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F1 Stairs - 16,1",
+        "to" : "E,24,24,0",
+        "level" : "7",
+    },
+// F2
+    "E,24,24,0" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Top Right Top - 1D,1",
+        "to" : "E,24,23,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,5": true,
+            "E,24,24,4": true,
+        }
+    },
+    "E,24,24,1" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Top Center Top - 12,1",
+        "to" : "E,24,25,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,6": true,
+        }
+    },
+    "E,24,24,2" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Top Left Right - C,1",
+        "to" : "E,24,25,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,2": true,
+        }
+    },
+    "E,24,24,4" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Top Right Right - 1F,4",
+        "to" : "E,24,24,7",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,0": true,
+            "E,24,24,5": true,
+        }
+    },
+    "E,24,24,5" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Top Right Right - 1B,4",
+        "to" : "E,24,24,8",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,0": true,
+            "E,24,24,4": true,
+        }
+    },
+    "E,24,24,6" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Top Center Bottom - 14,4",
+        "to" : "E,24,24,10",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,1": true,
+        }
+    },
+    "E,24,24,7" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Center Right - 1B,C",
+        "to" : "E,24,24,4",
+        "level" : "7",
+    },
+    "E,24,24,8" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Bottom Left Top - 3,F",
+        "to" : "E,24,24,5",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,9": true,
+            "E,24,24,10": true,
+        }
+    },
+    "E,24,24,9" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Bottom Left Bottom - 3,14",
+        "to" : "E,24,24,12",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,8": true,
+            "E,24,24,10": true,
+        }
+    },
+    "E,24,24,10" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Bottom Left Right - 20,13",
+        "to" : "E,24,24,6",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,9": true,
+            "E,24,24,8": true,
+        }
+    },
+    "E,24,24,11" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Center (MasterBall) - 17,A",
+        "to" : "E,24,24,22",
+        "level" : "7"
+    },
+    "E,24,24,12" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top Top - 2D,3",
+        "to" : "E,24,24,9",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,13": true,
+            "E,24,24,14": true,
+            "E,24,24,15": true,
+        }
+    },
+    "E,24,24,13" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top Left - 2A,5",
+        "to" : "E,24,24,18",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,12": true,
+            "E,24,24,14": true,
+            "E,24,24,15": true,
+        }
+    },
+    "E,24,24,14" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top Center - 2D,5",
+        "to" : "E,24,24,12",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,12": true,
+            "E,24,24,13": true,
+            "E,24,24,15": true,
+        }
+    },
+    "E,24,24,15" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top Right - 30,5",
+        "to" : "E,24,24,16",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,12": true,
+            "E,24,24,13": true,
+            "E,24,24,14": true,
+        }
+    },
+    "E,24,24,16" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top-middle Left - 2A,9",
+        "to" : "E,24,24,15",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,17": true,
+            "E,24,24,18": true,
+        }
+    },
+    "E,24,24,17" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top-middle Center - 2D,9",
+        "to" : "E,24,24,20",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,16": true,
+            "E,24,24,18": true,
+        }
+    },
+    "E,24,24,18" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top-middle Right - 30,9",
+        "to" : "E,24,24,13",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,17": true,
+            "E,24,24,16": true,
+        }
+    },
+    "E,24,24,19" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom-middle Left - 2A,D",
+        "to" : "E,24,24,24",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,20": true,
+            "E,24,24,21": true,
+        }
+    },
+    "E,24,24,20" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom-middle Center - 2D,D",
+        "to" : "E,24,24,7",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,19": true,
+            "E,24,24,21": true,
+        }
+    },
+    "E,24,24,21" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom-middle Right - 30,D",
+        "to" : "E,24,24,12",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,19": true,
+            "E,24,24,20": true,
+        }
+    },
+    "E,24,24,22" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom Left - 2A,11",
+        "to" : "E,24,24,11",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,23": true,
+            "E,24,24,24": true,
+        }
+    },
+    "E,24,24,23" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom Center - 2D,11",
+        "to" : "E,24,24,17",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,22": true,
+            "E,24,24,24": true,
+        }
+    },
+    "E,24,24,24" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom Right - 30,11",
+        "to" : "E,24,24,19",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,22": true,
+            "E,24,24,23": true,
+        }
+    },
+// F3
+    "E,24,25,0" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Right Top Room Top - 12,1",
+        "to" : "E,24,24,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,6": true,
+            "E,24,25,3": true,
+        }
+    },
+    "E,24,25,1" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Center Top Room Top - C,1",
+        "to" : "E,24,24,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,4": true
+        }
+    },
+    "E,24,25,2" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Left Top Room Top - 3,3",
+        "to" : "E,24,24,3",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,3": true
+        }
+    },
+    "E,24,25,3" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Right Top Room Right - 1F,8",
+        "to" : "E,24,25,5",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,0": true,
+            "E,24,25,6": true
+        }
+    },
+    "E,24,25,4" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Center Top Room Bottom - 8,8",
+        "to" : "E,24,25,8",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,1": true,
+        }
+    },
+    "E,24,25,5" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Left Top Room Bottom - 5,8",
+        "to" : "E,24,25,3",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,2": true,
+        }
+    },
+    "E,24,25,6" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Right Top Room Bottom - 12,D",
+        "to" : "E,24,25,7",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,0": true,
+            "E,24,25,3": true,
+        }
+    },
+    "E,24,25,7" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Center Left Room - C,D",
+        "to" : "E,24,25,6",
+        "level" : "7",
+    },
+    "E,24,25,8" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Bottom Room Top - 1F,11",
+        "to" : "E,24,25,4",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,9": true,
+        }
+    },
+    "E,24,25,9" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F3 Bottom Room Bottom - 20,14",
+        "to" : "E,24,24,4",
+        "level" : "7",
+        "connections" : {
+            "E,24,25,8": true,
+        }
+    },
+/* Magma Hideout */
+// F1
+    "E,24,86,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F1 Bottom Left - A,22",
+        "to" : "E,24,13,4",
+        "level" : "7",
+    },
+    "E,24,86,1" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F1 Bottom Right - 19,22",
+        "to" : "E,24,87,1",
+        "level" : "7",
+    },
+    "E,24,86,2" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F1 Top Right - 1F,3",
+        "to" : "E,24,88,1",
+        "level" : "7"
+    },
+    "E,24,86,3" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F1 Center - 14,16",
+        "to" : "E,24,93,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,86,1": true,
+        }
+    },
+ // F2
+    "E,24,87,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F2 Center - B,17",
+        "to" : "E,24,88,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,87,1": true,
+            "E,24,87,2": true,
+        }
+    },
+    "E,24,87,1" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F2 Top - 8,2",
+        "to" : "E,24,86,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,87,0": true,
+            "E,24,87,2": true,
+        }
+    },
+    "E,24,87,2" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F2 Bottom - 11,21",
+        "to" : "E,24,89,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,87,0": true,
+            "E,24,87,1": true,
+        }
+    },
+// F3
+    "E,24,88,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F3 Bottom - A,16",
+        "to" : "E,24,87,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,88,1": true,
+        }
+    },
+    "E,24,88,1" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F3 Top - 24,4",
+        "to" : "E,24,86,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,88,0": true,
+        }
+    },
+// F4
+    "E,24,89,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F4 Bottom - 7,15",
+        "to" : "E,24,91,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,89,1": true,
+            "E,24,89,2": true,
+        }
+    },
+    "E,24,89,1" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F4 Center - 15,9",
+        "to" : "E,24,90,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,89,0": true,
+            "E,24,89,2": true,
+        }
+    },
+    "E,24,89,2" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F4 Top - 17,3",
+        "to" : "E,24,87,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,89,0": true,
+            "E,24,89,1": true,
+        }
+    },
+// F5
+    "E,24,89,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F5 Door - C,F",
+        "to" : "E,24,89,1",
+        "level" : "7",
+    },
+// F6
+    "E,24,91,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F6 Top - 2E,7",
+        "to" : "E,24,89,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,91,1": true,
+        }
+    },
+    "E,24,91,1" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F6 Bottom - 14,15",
+        "to" : "E,24,92,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,91,0": true,
+        }
+    },
+// F7
+    "E,24,92,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F7 Top - 10,1",
+        "to" : "E,24,93,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,92,1": true,
+        }
+    },
+    "E,24,92,1" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F7 Bottom - 10,15",
+        "to" : "E,24,91,1",
+        "level" : "7",
+        "connections" : {
+            "E,24,92,0": true,
+        }
+    },
+// F8
+    "E,24,93,0" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F8 Top - 10,1",
+        "to" : "E,24,86,3",
+        "level" : "7",
+        "connections" : {
+            "E,24,93,1": true,
+        }
+    },
+    "E,24,93,1" : {
+        "name" : "MAGMA HIDEOUT - INSIDE - F8 Bottom - 10,D",
+        "to" : "E,24,92,0",
+        "level" : "7",
+        "connections" : {
+            "E,24,93,0": true,
+        }
+    },
+
+
+////// LEVEL 8
+// Route 131
+// Underwater 0,51 / 0,52 / 0,53 / 0,54 / 0,55 / 0,56 / 24,5 / 24,26
+// Sotopolis
+// Seafloor cavern
+// cave of orogin
+// Sky pillar
+// Marine Cave
+// Tera Cave
+// Pacifidlog
+// sealed chamber
+
+////// TO CHAMP
+// Ever Grande City
+// Metor Falls 
+// Victory Road
+// sothern island
+// far away island
+// birth island
+// navel rock
 }
