@@ -3035,16 +3035,16 @@ var EMERALD_WARPS =
         "to": "E,0,31,0"
     },
     "E,24,4,1" : {
-        "name": "RUSTURF TUNNEL - INSIDE - Centre - 12,14",
-        "to": "E,0,31,2",
+        "name": "RUSTURF TUNNEL - INSIDE - Right - 1D,10",
+        "to": "E,0,14,4",
         "level" : "3",
         "connections": {
             "E,24,4,2": true
         }
     },
     "E,24,4,2" : {
-        "name": "RUSTURF TUNNEL - INSIDE - Right - 1D,10",
-        "to": "E,0,14,4",
+        "name": "RUSTURF TUNNEL - INSIDE - Centre - 12,14",
+        "to": "E,0,31,2",
         "level" : "3",
         "connections": {
             "E,24,4,1": true
@@ -3226,16 +3226,31 @@ var EMERALD_WARPS =
 /* ROUTE 108 */
     "E,0,23,0" : {
         "name" : "ROUTE 108 - OUTSIDE - Abandoned Ship enterance - 1D,6",
-        "to" : "24,54,0"
+        "to" : "E,24,54,0"
     },
 /* ROUTE 109 - EXT */
     "E,0,24,0" : {
         "name" : "ROUTE 109 - OUTSIDE - Beach Hut - C,5",
-        "to" : "28,0,0",
+        "to" : "E,28,0,0",
         "level" : "3",
         "connections" : {
             "E,0,1,0": true
         }
+    },
+/* ROUTE 109 - INT */
+    "E,28,0,0" : {
+        "name" : "ROUTE 109 - INSIDE - Beach Hut - 6,9",
+        "to" : "E,0,24,0",
+        "grouped": ["E,28,0,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,29,0,2": true
+        }
+    },
+    "E,28,0,1" : {
+        "name" : "ROUTE 109 - INSIDE - Beach Hut - 7,9",
+        "to" : "E,0,24,0",
+        "grouped": ["E,28,0,0"]
     },
 /* Route 110 - EXT */
     "E,0,25,0" : {
@@ -3297,7 +3312,7 @@ var EMERALD_WARPS =
     },
     "E,29,0,1" : {
         "name" : "ROUTE 110 - INSIDE - Trick House Enterance - 6,7",
-        "to" : "0,25,1",
+        "to" : "E,0,25,1",
         "ignore": true,
         "grouped": ["E,29,0,0"]
     },
@@ -4424,8 +4439,9 @@ var EMERALD_WARPS =
             "E,24,65,4": true,
         }
     },
-// F12
+// F12 TODO: Re add warps once conditional connections are done
     "E,24,66,0" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Left Door - 6,E",
         "to" : "E,24,65,0",
         "level" : "6",
@@ -4433,12 +4449,14 @@ var EMERALD_WARPS =
         "groupMain" : true
     },
     "E,24,66,1" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Left Door - 7,E",
         "to" : "E,24,65,0",
         "level" : "6",
         "grouped": ["E,24,66,0"]
     },
     "E,24,66,2" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Center Door - 15,E",
         "to" : "E,24,65,1",
         "level" : "6",
@@ -4446,12 +4464,14 @@ var EMERALD_WARPS =
         "groupMain" : true
     },
     "E,24,66,3" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Center Door - 16,E",
         "to" : "E,24,65,1",
         "level" : "6",
         "grouped": ["E,24,66,2"]
     },
     "E,24,66,4" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Right Door - 24,E",
         "to" : "E,24,65,2",
         "level" : "6",
@@ -4459,6 +4479,7 @@ var EMERALD_WARPS =
         "groupMain" : true
     },
     "E,24,66,5" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Bottom Right Door - 25,E",
         "to" : "E,24,65,2",
         "level" : "6",
@@ -5399,7 +5420,7 @@ var EMERALD_WARPS =
         }
     },
 // F5
-    "E,24,89,0" : {
+    "E,24,90,0" : {
         "name" : "MAGMA HIDEOUT - INSIDE - F5 Door - C,F",
         "to" : "E,24,89,1",
         "level" : "7",
