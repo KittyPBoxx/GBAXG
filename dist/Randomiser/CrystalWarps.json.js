@@ -951,7 +951,7 @@ var CRYSTAL_WARPS =
     },
 /* SLOWPOKE WELL */ 
 // F1
-    "C,34,1,0" : {
+    "C,2,101,0" : {
         "name": "SLOWPOKE WELL - INSIDE - F1 Enterance Ladder - 12,10",
         "to" : "C,3,16,0",
         "level": "2",
@@ -1136,7 +1136,7 @@ var CRYSTAL_WARPS =
     },
     "C,3,15,10" : {
         "name": "GOLDENROD CITY - OUTSIDE - Train Station - B,F",
-        "to" : "C,0,3,93",
+        "to" : "C,3,93,0",
         "level": "3",
         "connections": {
             "C,3,15,12": true
@@ -1456,16 +1456,16 @@ var CRYSTAL_WARPS =
     },
     "C,2,39,2" : {
         "name": "GOLDENROD DEPT - INSIDE - F4 Stairs Left - 11,5",
-        "to" : "C,2,38,1",
+        "to" : "C,2,40,1",
         "level": "3",
         "connections": {
             "C,2,36,0": true,
             "C,2,39,1": true
         }   
     },
-//F4
+//F5
     "C,2,40,1" : {
-        "name": "GOLDENROD DEPT - INSIDE - F4 Stairs Left - 16,5",
+        "name": "GOLDENROD DEPT - INSIDE - F5 Stairs Left - 16,5",
         "to" : "C,2,39,2",
         "level": "3",
         "connections": {
@@ -1474,7 +1474,7 @@ var CRYSTAL_WARPS =
         }   
     },
     "C,2,40,0" : {
-        "name": "GOLDENROD DEPT - INSIDE - F4 Stairs Right - 18,5",
+        "name": "GOLDENROD DEPT - INSIDE - F5 Stairs Right - 18,5",
         "to" : "C,2,41,1",
         "level": "3",
         "connections": {

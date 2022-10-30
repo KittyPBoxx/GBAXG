@@ -1949,64 +1949,441 @@ var EMERALD_WARPS =
 /* SOOTOPOLIS CITY - EXT */
     "E,0,7,0"  : {
         // PK
-        "to" : "E,15,2,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - PkCenter - 2B,1F",
+        "level" : "8",
+        "to" : "E,15,2,0",
+        "connections" : {
+            "E,0,7,12": true,
+            "E,0,7,9": true,
+            "E,0,7,11": true,
+            "E,0,7,7": true,
+            "E,0,7,5": true,
+        }
     },
     "E,0,7,1"  : {
         // MART
-        "to" : "E,15,4,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Mart - 11,1D",
+        "level" : "8",
+        "to" : "E,15,4,0",
+        "connections" : {
+            "E,0,7,10": true,
+            "E,0,7,8": true,
+            "E,0,7,6": true,
+            "E,0,7,4": true,
+        }
     },
     "E,0,7,2"  : {
         // GYM
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Gym - 1F,20",
+        "level" : "8",
         "to" : "E,15,0,0"
     },
     "E,0,7,3"  : {
         // CAVE OF ORIGIN
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Cave Of Origin - 1F,10",
+        "level" : "8",
         "to" : "E,24,37,0"
     },
     "E,0,7,4"  : {
-        "to" : "E,15,5,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Left Side Top - 9,6",
+        "level" : "8",
+        "to" : "E,15,5,0",
+        "connections" : {
+            "E,0,7,1": true,
+        }
     },
     "E,0,7,5"  : {
-        "to" : "E,15,6,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Right Side Top - 2B,6",
+        "level" : "8",
+        "to" : "E,15,6,0",
+        "connections" : {
+            "E,0,7,0": true,
+        }
     },
     "E,0,7,6"  : {
-        "to" : "E,15,7,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Left Side Middle Top - 9,11",
+        "level" : "8",
+        "to" : "E,15,7,0",
+        "connections" : {
+            "E,0,7,1": true,
+        }
     },
     "E,0,7,7"  : {
-        "to" : "E,15,8,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Right Side Middle Top - 2C,11",
+        "level" : "8",
+        "to" : "E,15,8,0",
+        "connections" : {
+            "E,0,7,0": true,
+        }
     },
     "E,0,7,8"  : {
-        "to" : "E,15,9,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Left Side Middle Bottom - 9,1A",
+        "level" : "8",
+        "to" : "E,15,9,0",
+        "connections" : {
+            "E,0,7,1": true,
+        }
     },
     "E,0,7,9"  : {
-        "to" : "E,15,10,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Right Side Middle Right - 35,1C",
+        "level" : "8",
+        "to" : "E,15,10,0",
+        "connections" : {
+            "E,0,7,0": true,
+        }
     },
     "E,0,7,10" : {
-        "to" : "E,15,11,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Left Side Bottom - 8,23",
+        "level" : "8",
+        "to" : "E,15,11,0",
+        "connections" : {
+            "E,0,7,1": true,
+        }
     },
     "E,0,7,11" : {
-        "to" : "E,15,12,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Right Side Middle Left - 30,19",
+        "level" : "8",
+        "to" : "E,15,12,0",
+        "connections" : {
+            "E,0,7,0": true,
+        }
     },
     "E,0,7,12" : {
         // E-READER HOUSE
-        "to" : "E,15,13,0"
+        "name": "SOOTOPOLIS CITY - OUTSIDE - Right Side Bottom - 33,24",
+        "level" : "8",
+        "to" : "E,15,13,0",
+        "connections" : {
+            "E,0,7,0": true,
+        }
+    },
+/* SOOTOPOLIS CITY - INT */
+    "E,15,0,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - GYM - 8,19",
+        "level": "8", 
+        "to": "E,0,7,2",
+        "grouped": ["E,15,0,1"],
+        "groupMain" : true,
+    },
+    "E,15,0,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - GYM - 9,19",
+        "level": "8", 
+        "to": "E,0,7,2",
+        "grouped": ["E,15,0,0"]
+    },
+    "E,15,2,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - PkCenter Door - 7,8",
+        "level": "8", 
+        "to": "E,0,7,0",
+        "grouped": ["E,15,2,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,15,2,2": true,
+        }
+    },
+    "E,15,2,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - PkCenter Door - 6,8",
+        "level": "8", 
+        "to": "E,0,7,0",
+        "grouped": ["E,15,2,0"]
+    },
+    "E,15,2,2" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - PkCenter Stairs - 1,6",
+        "level": "8", 
+        "to": "E,15,3,0",
+        "connections" : {
+            "E,15,2,0": true,
+        }
+    },
+    "E,15,3,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - PkCenter Upstairs - 1,6",
+        "level": "8",
+        "ignore": "true", 
+        "to": "E,15,2,2",
+    },
+    "E,15,5,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side top - 3,6",
+        "level": "8", 
+        "to": "E,0,7,4",
+        "grouped": ["E,15,5,1"],
+        "groupMain" : true,
+    },
+    "E,15,5,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side top - 4,6",
+        "level": "8", 
+        "to": "E,0,7,4",
+        "grouped": ["E,15,5,0"]
+    },
+    "E,15,6,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side top - 3,6",
+        "level": "8", 
+        "to": "E,0,7,5",
+        "grouped": ["E,15,6,1"],
+        "groupMain" : true,
+    },
+    "E,15,6,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right side top - 4,6",
+        "level": "8", 
+        "to": "E,0,7,5",
+        "grouped": ["E,15,6,0"]
+    },
+    "E,15,7,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side Middle top - 3,6",
+        "level": "8", 
+        "to": "E,0,7,6",
+        "grouped": ["E,15,7,1"],
+        "groupMain" : true,
+    },
+    "E,15,7,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side Middle top - 4,6",
+        "level": "8", 
+        "to": "E,0,7,6",
+        "grouped": ["E,15,7,0"]
+    },
+    "E,15,8,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right side middle top - 3,6",
+        "level": "8", 
+        "to": "E,0,7,7",
+        "grouped": ["E,15,8,1"],
+        "groupMain" : true,
+    },
+    "E,15,8,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right side middle top - 4,6",
+        "level": "8", 
+        "to": "E,0,7,7",
+        "grouped": ["E,15,8,0"]
+    },
+    "E,15,9,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side middle bottom - 3,6",
+        "level": "8", 
+        "to": "E,0,7,8",
+        "grouped": ["E,15,9,1"],
+        "groupMain" : true,
+    },
+    "E,15,9,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side middle bottom - 4,6",
+        "level": "8", 
+        "to": "E,0,7,8",
+        "grouped": ["E,15,9,0"]
+    },
+    "E,15,10,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right side Middle Right - 3,6",
+        "level": "8", 
+        "to": "E,0,7,9",
+        "grouped": ["E,15,10,1"],
+        "groupMain" : true,
+    },
+    "E,15,10,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right side middle Right - 4,6",
+        "level": "8", 
+        "to": "E,0,7,9",
+        "grouped": ["E,15,10,0"]
+    },
+    "E,15,11,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side bottom - 3,6",
+        "level": "8", 
+        "to": "E,0,7,10",
+        "grouped": ["E,15,11,1"],
+        "groupMain" : true,
+    },
+    "E,15,11,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Left side bottom - 4,6",
+        "level": "8", 
+        "to": "E,0,7,10",
+        "grouped": ["E,15,11,0"]
+    },
+    "E,15,12,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right Side Middle Left- 3,6",
+        "level": "8", 
+        "to": "E,0,7,11",
+        "grouped": ["E,15,12,1"],
+        "groupMain" : true,
+    },
+    "E,15,12,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right Side Middle Left - 4,6",
+        "level": "8", 
+        "to": "E,0,7,11",
+        "grouped": ["E,15,12,0"]
+    },
+    "E,15,13,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right Side Bottom - 3,6",
+        "level": "8", 
+        "to": "E,0,7,12",
+        "grouped": ["E,15,13,1"],
+        "groupMain" : true,
+    },
+    "E,15,13,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Right Side Bottom - 4,6",
+        "level": "8", 
+        "to": "E,0,7,12",
+        "grouped": ["E,15,13,0"]
     },
 /* EVER GRANDE CITY - EXT */
     "E,0,8,0" : {
         // E4 Entrance way
-        "to" : "E,16,10,0"
+        "name": "EVER GRANDE CITY - OUTSIDE - E4 Enterance - 12,5",
+        "level": "9", 
+        "to" : "E,16,10,0",
+        "connections" : {
+            "E,0,8,3": true
+        }
     },
     "E,0,8,1" : {
         // PK
-        "to" : "E,16,12,0"
+        "name": "EVER GRANDE CITY - OUTSIDE - PkCenter - 1B,30",
+        "level": "9", 
+        "to" : "E,16,12,0",
+        "connections" : {
+            "E,0,8,2": true
+        }
     },
     "E,0,8,2" : {
         //VICTORY ROAD Enterance
-        "to" : "E,24,43,0"
+        "name": "EVER GRANDE CITY - OUTSIDE - Victory Road Enterance - 12,29",
+        "level": "9", 
+        "to" : "E,24,43,0",
+        "connections" : {
+            "E,0,8,1": true
+        }
     },
     "E,0,8,3" : {
         //VICTORY ROAD Exit
-        "to" : "E,24,43,1"
+        "name": "EVER GRANDE CITY - OUTSIDE - Victory Road Exit - 12,1B",
+        "level": "9", 
+        "to" : "E,24,43,1",
+        "connections" : {
+            "E,0,8,0": true
+        }
+    },
+/* EVER GRANDE CITY - INT */
+    "E,16,12,0" : {
+        "name": "EVER GRANDE CITY - INSIDE - PkCenter Door - 7,8",
+        "level": "9", 
+        "to": "E,0,8,1",
+        "grouped": ["E,16,12,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,16,12,2": true,
+        }
+    },
+    "E,16,12,1" : {
+        "name": "EVER GRANDE CITY - INSIDE - PkCenter Door - 6,8",
+        "level": "9", 
+        "to": "E,0,8,1",
+        "grouped": ["E,16,12,0"]
+    },
+    "E,16,12,2" : {
+        "name": "EVER GRANDE CITY- INSIDE - PkCenter Stairs - 1,6",
+        "level": "9", 
+        "to": "E,16,13,0",
+        "connections" : {
+            "E,16,12,0": true,
+        }
+    },
+    "E,16,13,0" : {
+        "name": "EVER GRANDE CITY - INSIDE - PkCenter Upstairs - 1,6",
+        "level": "9", 
+        "to": "E,16,12,2",
+    },
+    "E,16,10,0" : {
+        "name": "EVER GRANDE CITY - INSIDE - E4 Door - 7,8",
+        "level": "9", 
+        "to": "E,0,8,0",
+        "grouped": ["E,16,10,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,16,10,4": true,
+        }
+    },
+    "E,16,10,1" : {
+        "name": "EVER GRANDE CITY - INSIDE - E4 Door - 6,8",
+        "level": "9", 
+        "to": "E,0,8,0",
+        "grouped": ["E,16,10,0"]
+    },
+    "E,16,10,4" : {
+        "name": "EVER GRANDE CITY- INSIDE - E4 Stairs - 1,6",
+        "level": "9", 
+        "to": "E,16,14,0",
+        "connections" : {
+            "E,16,10,0": true,
+        }
+    },
+    "E,16,14,0" : {
+        "name": "EVER GRANDE CITY - INSIDE - E4 Upstairs - 1,6",
+        "level": "9", 
+        "to": "E,16,10,2",
+    },
+    "E,16,10,2" : {
+        "name": "EVER GRANDE CITY - INSIDE - E4 Badge Door - 9,1",
+        "level": "9", 
+        "to": "E,16,9,0",
+        "grouped": ["E,16,10,3"],
+        "groupMain" : true,
+    },
+    "E,16,10,3" : {
+        "name": "EVER GRANDE CITY - INSIDE -  E4 Badge Door - A,1",
+        "level": "9", 
+        "to": "E,16,9,0",
+        "grouped": ["E,16,10,2"]
+    },
+// E4
+    "E,16,0,0" : {
+        "name": "E4 - INSIDE - Battle 1 Bottom - 6,D",
+        "level": "9", 
+        "to" : "E,16,9,1",
+        "connections" : {
+            "E,16,0,1": true
+        }
+    },
+    "E,16,0,1" : {
+        "name": "E4 - INSIDE - Battle 1 Top - 6,2",
+        "level": "9", 
+        "to" : "E,16,5,0",
+    },
+    "E,16,1,0" : {
+        "name": "E4 - INSIDE - Battle 2 Bottom - 6,D",
+        "level": "9", 
+        "to" : "E,16,5,1",
+        "connections" : {
+            "E,16,1,1": true
+        }
+    },
+    "E,16,1,1" : {
+        "name": "E4 - INSIDE - Battle 2 Top - 6,2",
+        "level": "9", 
+        "to" : "E,16,6,0",
+    },
+    "E,16,2,0" : {
+        "name": "E4 - INSIDE - Battle 3 Bottom - 6,D",
+        "level": "9", 
+        "to" : "E,16,6,1",
+        "connections" : {
+            "E,16,2,1": true
+        }
+    },
+    "E,16,2,1" : {
+        "name": "E4 - INSIDE - Battle 3 Top - 6,2",
+        "level": "9", 
+        "to" : "E,16,7,0",
+    },
+    "E,16,3,0" : {
+        "name": "E4 - INSIDE - Battle 4 Bottom - 6,D",
+        "level": "9", 
+        "to" : "E,16,7,1",
+        "connections" : {
+            "E,16,3,1": true
+        }
+    },
+    "E,16,3,1" : {
+        "name": "E4 - INSIDE - Battle 4 Top - 6,2",
+        "level": "9", 
+        "to" : "E,16,8,0",
+    },
+    "E,16,4,0" : {
+        "name": "E4 - INSIDE - Champ - 6,2",
+        "level": "9", 
+        "to" : "E,16,8,1",
     },
 /* LITTLE ROOT TOWN - EXT */
     "E,0,9,0" : {
@@ -2809,25 +3186,154 @@ var EMERALD_WARPS =
         "to" : "E,0,14,6",
         "grouped": ["E,6,8,0"]
     },
-/* PACIFIDLOG CITY - EXT */
+/* PACIFIDLOG TOWN - EXT */
     "E,0,15,0" : {
         // PK
-        "to" : "E,7,0,0"
+        "name": "PACIFIDLOG TOWN - OUTSIDE - PkCenter - 8,F",
+        "level": "8", 
+        "to" : "E,7,0,0",
+        "connections": {
+            "E,0,15,1": true,
+            "E,0,15,2": true,
+            "E,0,15,3": true,
+            "E,0,15,4": true,
+            "E,0,15,5": true,
+        }
     },
     "E,0,15,1" : {
-        "to" : "E,7,2,0"
+        "name": "PACIFIDLOG TOWN - OUTSIDE - Top Right - 10,D",
+        "level": "8", 
+        "to" : "E,7,2,0",
+        "connections": {
+            "E,0,15,0": true,
+        }
     },
     "E,0,15,2" : {
-        "to" : "E,7,3,0"
+        "name": "PACIFIDLOG TOWN - OUTSIDE - Bottom Left - 3,16",
+        "level": "8", 
+        "to" : "E,7,3,0",
+        "connections": {
+            "E,0,15,0": true,
+        }
     },
     "E,0,15,3" : {
-        "to" : "E,7,4,0"
+        "name": "PACIFIDLOG TOWN - OUTSIDE - Bottom - C,18",
+        "level": "8", 
+        "to" : "E,7,4,0",
+        "connections": {
+            "E,0,15,0": true,
+        }
     },
     "E,0,15,4" : {
-        "to" : "E,7,5,0"
+        "name": "PACIFIDLOG TOWN - OUTSIDE - Top Left - 2,C",
+        "level": "8", 
+        "to" : "E,7,5,0",
+        "connections": {
+            "E,0,15,0": true,
+        }
     },
     "E,0,15,5" : {
-        "to" : "E,7,6,0"
+        "name": "PACIFIDLOG TOWN - OUTSIDE - Bottom Right - 11,15",
+        "level": "8", 
+        "to" : "E,7,6,0",
+        "connections": {
+            "E,0,15,0": true,
+        }
+    },
+/* PACIFIDLOG TOWN - INT */
+    "E,7,0,0" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - PkCenter Enterance - 7,8",
+        "level": "8", 
+        "to" : "E,0,15,0",
+        "grouped": ["E,7,0,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,7,0,2": true
+        }
+    },
+    "E,7,0,1" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - PkCenter Enterance - 7,8",
+        "level": "8", 
+        "to" : "E,0,15,0",
+        "grouped": ["E,7,0,0"]
+    },
+    "E,7,0,2" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - PkCenter Stairs - 1,6",
+        "level": "8", 
+        "to" : "E,7,1,0",
+        "connections" : {
+            "E,7,0,0": true
+        }
+    },
+    "E,7,1,0" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - PkCenter Upstairs - 1,6",
+        "level": "8", 
+        "to" : "E,7,0,2",
+    },
+    "E,7,2,0" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Top Right - 4,8",
+        "level": "8", 
+        "to" : "E,0,15,1",
+        "grouped": ["E,7,2,1"],
+        "groupMain" : true,
+    },
+    "E,7,2,1" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Top Right - 5,8",
+        "level": "8", 
+        "to" : "E,0,15,1",
+        "grouped": ["E,7,2,0"]
+    },
+    "E,7,3,0" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Bottom Left - 4,8",
+        "level": "8", 
+        "to" : "E,0,15,2",
+        "grouped": ["E,7,3,1"],
+        "groupMain" : true,
+    },
+    "E,7,3,1" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Bottom Left - 5,8",
+        "level": "8", 
+        "to" : "E,0,15,2",
+        "grouped": ["E,7,3,0"]
+    },
+    "E,7,4,0" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Bottom - 4,8",
+        "level": "8", 
+        "to" : "E,0,15,3",
+        "grouped": ["E,7,4,1"],
+        "groupMain" : true,
+    },
+    "E,7,4,1" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Bottom - 5,8",
+        "level": "8", 
+        "to" : "E,0,15,3",
+        "grouped": ["E,7,4,0"]
+    },
+    "E,7,5,0" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Top Left - 4,8",
+        "level": "8", 
+        "to" : "E,0,15,4",
+        "grouped": ["E,7,5,1"],
+        "groupMain" : true,
+    },
+    "E,7,5,1" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Top Left - 5,8",
+        "level": "8", 
+        "to" : "E,0,15,4",
+        "grouped": ["E,7,5,0"]
+    },
+    "E,7,6,0" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Bottom Right - 4,8",
+        "level": "8", 
+        "to" : "E,0,15,5",
+        "grouped": ["E,7,6,1"],
+        "groupMain" : true,
+    },
+    "E,7,6,1" : {
+        "name": "PACIFIDLOG TOWN - INSIDE - Bottom Right - 5,8",
+        "level": "8", 
+        "to" : "E,0,15,5",
+        "grouped": ["E,7,6,0"]
     },
 /* ROUTE 104 - OUSIDE */ 
     "E,0,19,0" : {
@@ -3877,24 +4383,29 @@ var EMERALD_WARPS =
     },
     "E,24,0,2" : {
         "name" : "METEOR FALLS - INSIDE - F1 Above Waterfall - A,3",
-        "to" : "E,24,1,0"
+        "to" : "E,24,1,0",
+        "level" : "9",
     },
     "E,24,0,3" : {
         "name" : "METEOR FALLS - INSIDE - F1 Top Left Ladder - 5,4",
-        "to" : "E,24,2,4"
+        "to" : "E,24,2,4",
+        "level" : "9",
     },
     "E,24,0,4" : {
         "name" : "METEOR FALLS - INSIDE - F1 Bottom Right - 1A,C",
-        "to" : "E,24,2,5"
+        "to" : "E,24,2,5",
+        "level" : "9",
     },
     "E,24,0,5" : {
         "name" : "METEOR FALLS - INSIDE - F1 Top Left Door - 4,2",
-        "to" : "E,24,107,0"
+        "to" : "E,24,107,0",
+        "level" : "9",
     },
 // F2
     "E,24,1,0" : {
         "name" : "METEOR FALLS - INSIDE - F2 Door - A,1D",
         "to" : "E,24,0,2",
+        "level" : "9",
         "connections" : {
             "E,24,1,3": true
         }
@@ -3902,6 +4413,7 @@ var EMERALD_WARPS =
     "E,24,1,1" : {
         "name" : "METEOR FALLS - INSIDE - F2 Ladder By Couple - 4,E",
         "to" : "E,24,2,0",
+        "level" : "9",
         "connections" : {
             "E,24,0,0": true,
             "E,24,0,2": true,
@@ -3911,6 +4423,7 @@ var EMERALD_WARPS =
     "E,24,1,2" : {
         "name" : "METEOR FALLS - INSIDE - F2 Ladder By Water - 7,14",
         "to" : "E,24,2,1",
+        "level" : "9",
         "connections" : {
             "E,24,0,0": true,
             "E,24,0,3": true
@@ -3919,6 +4432,7 @@ var EMERALD_WARPS =
     "E,24,1,3" : {
         "name" : "METEOR FALLS - INSIDE - F2 Ladder Right - 15,17",
         "to" : "E,24,2,2",
+        "level" : "9",
         "connections" : {
             "E,24,1,0": true
         }
@@ -3927,6 +4441,7 @@ var EMERALD_WARPS =
     "E,24,2,0" : {
         "name" : "METEOR FALLS - INSIDE - F3 Ladder Top Left - 5,6",
         "to" : "E,24,1,1",
+        "level" : "9",
         "connections" : {
             "E,24,2,2": true,
             "E,24,2,4": true
@@ -3935,10 +4450,12 @@ var EMERALD_WARPS =
     "E,24,2,1" : {
         "name" : "METEOR FALLS - INSIDE - F3 Ladder Center Left - 7,B",
         "to" : "E,24,1,2",
+        "level" : "9",
     },
     "E,24,2,2" : {
         "name" : "METEOR FALLS - INSIDE - F3 Ladder Center - 12,F",
         "to" : "E,24,1,3",
+        "level" : "9",
         "connections" : {
             "E,24,3,0": true,
             "E,24,3,4": true
@@ -3946,11 +4463,13 @@ var EMERALD_WARPS =
     },
     "E,24,2,3" : {
         "name" : "METEOR FALLS - INSIDE - F3 Top Door - 11,3",
-        "to" : "E,24,3,0"
+        "to" : "E,24,3,0",
+        "level" : "9",
     },
     "E,24,2,4" : {
         "name" : "METEOR FALLS - INSIDE - F3 Bottom Left - 3,17",
         "to" : "E,24,0,3",
+        "level" : "9",
         "connections" : {
             "E,24,3,0": true,
             "E,24,3,2": true
@@ -3958,17 +4477,20 @@ var EMERALD_WARPS =
     },
     "E,24,2,5" : {
         "name" : "METEOR FALLS - INSIDE - F3 Bottom Door - 14,24",
-        "to" : "E,24,0,4"
+        "to" : "E,24,0,4",
+        "level" : "9",
     },
 // F4 (Bagon Room)
     "E,24,3,0" : {
         "name" : "METEOR FALLS - INSIDE - F4 Bagon Room - 5,F",
-        "to" : "E,24,2,3"
+        "to" : "E,24,2,3",
+        "level" : "9",
     },
 // F5 (Steven Room)
     "E,24,107,0" : {
         "name" : "METEOR FALLS - INSIDE - F5 Steven Room Door - A,1D",
-        "to" : "E,24,0,5"
+        "to" : "E,24,0,5",
+        "level" : "9",
     },
 /* MT CHIMNEY */
     "E,24,12,0" : {
@@ -4486,16 +5008,19 @@ var EMERALD_WARPS =
         "grouped": ["E,24,66,4"]
     },
     "E,24,66,6" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Top Left Door - 6,1",
         "to" : "E,24,65,3",
         "level" : "6",
     },
     "E,24,66,7" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Top Center Door - 15,1",
         "to" : "E,24,65,4",
         "level" : "6",
     },
     "E,24,66,8" : {
+        "ignore" : "true",
         "name" : "ABANDONED SHIP - INSIDE - F12 Top Right Door - 24,1",
         "to" : "E,24,65,5",
         "level" : "6",
@@ -5476,26 +6001,767 @@ var EMERALD_WARPS =
             "E,24,93,0": true,
         }
     },
-
-
 ////// LEVEL 8
-// Route 131
-// Underwater 0,51 / 0,52 / 0,53 / 0,54 / 0,55 / 0,56 / 24,5 / 24,26
-// Sotopolis
-// Seafloor cavern
-// cave of orogin
-// Sky pillar
-// Marine Cave
-// Tera Cave
-// Pacifidlog
-// sealed chamber
-
-////// TO CHAMP
-// Ever Grande City
-// Metor Falls 
-// Victory Road
-// sothern island
-// far away island
-// birth island
-// navel rock
+/* Route 131 */
+    "E,0,46,0" : {
+        "name" : "ROUTE 131 - Outside - Sky Pillar Enterance - 24,6",
+        "to" : "E,24,77,0",
+        "level" : "8"
+    },
+/* Underwater */
+    "E,0,51,0" : {
+        "name" : "UNDERWATER - Outside - Sootopolis Enterance - 2D,41",
+        "to" : "E,24,5,0",
+        "level" : "8"
+    },
+    "E,0,53,0" : {
+        "name" : "UNDERWATER - Outside - Outside Submarine Cave - 26,1A",
+        "to" : "E,24,26,0",
+        "level" : "8"
+    },
+    "E,24,5,0" : {
+        "name" : "UNDERWATER - Outside - Inside Sootopolis - 9,8",
+        "to" : "E,0,51,0",
+        "level" : "8"
+    },
+    "E,24,26,0" : {
+        "name" : "UNDERWATER - Outside - Submarine - 6,7",
+        "to" : "E,0,53,0",
+        "level" : "8"
+    },
+/* Seafloor cavern */
+// TODO - add in ignored once more connections are done
+// F1
+    "E,24,27,1" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F1 Door - A,1",
+        "to" : "E,24,28,0",
+        "level" : "8"
+    },
+// F2
+    "E,24,28,0" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F2 Bottom - 5,12",
+        "to" : "E,24,27,1",
+        "level" : "8"
+    },
+    "E,24,28,1" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F2 Right - 11,D",
+        "to" : "E,24,32,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,28,2": true,
+        }
+    },
+    "E,24,28,2" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F2 Top - 6,2",
+        "to" : "E,24,29,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,28,1": true,
+        }
+    },
+// F3
+    "E,24,29,0" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F3 Bottom Right - A,7",
+        "to" : "E,24,28,2",
+        "level" : "8"
+    },
+    "E,24,29,1" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F3 Bottom Left - 4,A",
+        "to" : "E,24,31,0",
+        "level" : "8"
+    },
+    "E,24,29,2" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F3 Top Left - 6,11",
+        "to" : "E,24,33,0",
+        "level" : "8"
+    },
+    "E,24,29,3" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F3 Top Right - B,1",
+        "to" : "E,24,34,0",
+        "level" : "8"
+    },
+// F4
+    "E,24,30,0" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F4 Top - 8,1",
+        "to" : "E,24,35,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,30,1": true,
+            "E,24,30,2": true,
+        }
+    },
+    "E,24,30,1" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F4 Bottom Right - 9,D",
+        "to" : "E,24,34,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,30,0": true,
+            "E,24,30,2": true,
+        }
+    },
+    "E,24,30,2" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F4 Bottom Left - 4,F",
+        "to" : "E,24,33,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,30,0": true,
+            "E,24,30,1": true,
+        }
+    },
+// F5
+    "E,24,31,0" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F5 Top Right - D,1",
+        "to" : "E,24,29,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,31,2": true,
+            "E,24,31,3": true,
+        }
+    },
+    "E,24,31,1" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F5 Top Left - 4,1",
+        "to" : "E,24,32,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,31,0": true,
+            "E,24,31,2": true,
+            "E,24,31,3": true,
+        }
+    },
+    "E,24,31,2" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F5 Center - 9,A",
+        "to" : "E,24,32,2",
+        "level" : "8",
+        "connections" : {
+            "E,24,31,0": true,
+            "E,24,31,3": true,
+        }
+    },
+    "E,24,31,3" : {
+        "name" : "SEAFLOOR CAVERN - INSIDE - F5 Bottom - A,F",
+        "to" : "E,24,27,1",
+        "level" : "8",
+    },
+// F6
+    "E,24,32,0" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F6 Top - 4,1",
+        "to" : "E,24,28,1",
+        "level" : "8",
+    },
+    "E,24,32,1" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F6 Bottom Right - F,C",
+        "to" : "E,24,31,1",
+        "level" : "8",
+    },
+    "E,24,32,2" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F6 Bottom Left - 7,11",
+        "to" : "E,24,31,2",
+        "level" : "8",
+    },
+// F7
+    "E,24,33,0" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F7 Bottom - B,15",
+        "to" : "E,24,29,2",
+        "level" : "8",
+    },
+    "E,24,33,1" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F7 Top - 4,1",
+        "to" : "E,24,30,2",
+        "level" : "8",
+    },
+    "E,24,33,2" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F7 Center - E,8",
+        "to" : "E,24,27,1",
+        "level" : "8",
+    },
+// F8
+    "E,24,34,0" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F8 Bottom - 3,7",
+        "to" : "E,24,29,3",
+        "level" : "8",
+    },
+    "E,24,34,1" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F8 Top - 5,1",
+        "to" : "E,24,30,1",
+        "level" : "8",
+    },
+// F9
+    "E,24,35,0" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F9 Top - 5,2",
+        "to" : "E,24,36,0",
+        "level" : "8",
+    },
+    "E,24,35,1" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F9 Bottom - 5,C",
+        "to" : "E,24,30,0",
+        "level" : "8",
+    },
+// F10
+    "E,24,36,0" : {
+        "ignore" : "true",
+        "name" : "SEAFLOOR CAVERN - INSIDE - F10 Door - 5,4",
+        "to" : "E,24,35,0",
+        "level" : "8",
+    },
+/* cave of origin */
+// F1
+    "E,24,37,0" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F1 Bottom - 9,14",
+        "to" : "E,0,7,3",
+        "level" : "8",
+        "connections" : {
+            "E,24,37,1": true,
+        }
+    },
+    "E,24,37,1" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F1 Top - 9,5",
+        "to" : "E,24,38,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,37,0": true,
+        }
+    },
+// F2
+    "E,24,38,0" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F2 Bottom - B,11",
+        "to" : "E,24,37,",
+        "level" : "8",
+        "connections" : {
+            "E,24,38,1": true,
+        }
+    },
+    "E,24,38,1" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F2 Top - E,5",
+        "to" : "E,24,42,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,42,0": true,
+        }
+    },
+// F3
+    "E,24,39,0" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F3 Top - D,5",
+        "to" : "E,24,38,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,39,1": true,
+        }
+    },
+    "E,24,39,1" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F3 Bottom - 5,B",
+        "to" : "E,24,40,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,39,0": true,
+        }
+    },
+// F4
+    "E,24,40,0" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F4 Top - 5,A",
+        "to" : "E,24,39,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,40,1": true,
+        }
+    },
+    "E,24,40,1" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F4 Bottom - 8,E",
+        "to" : "E,24,41,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,40,0": true,
+        }
+    },
+// F5
+    "E,24,41,0" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F5 Bottom - 7,E",
+        "to" : "E,24,40,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,41,1": true,
+        }
+    },
+    "E,24,41,1" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - F5 Top - C,6",
+        "to" : "E,24,42,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,41,0": true,
+        }
+    },
+// F6
+    "E,24,42,0" : {
+        "name" : "CAVE OF ORIGIN - INSIDE - Wallice Cave - 9,3",
+        "to" : "E,24,38,1",
+        "level" : "8",
+    },
+/* Sky pillar */
+// F1
+    "E,24,77,0" : {
+        "name" : "SKY PILLAR - INSIDE - F1 Bottom - 6,10",
+        "to" : "E,0,46,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,77,1": true,
+        }
+    },
+    "E,24,77,1" : {
+        "name" : "SKY PILLAR - INSIDE - F1 Top - E,4",
+        "to" : "E,24,78,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,77,0": true,
+        }
+    },
+// F2
+    "E,24,78,0" : {
+        "name" : "SKY PILLAR - INSIDE - F2 Bottom - 11,D",
+        "to" : "E,24,77,1",
+        "level" : "8",
+    },
+    "E,24,78,1" : {
+        "name" : "SKY PILLAR - INSIDE - F2 Top - E,5",
+        "to" : "E,24,79,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,78,0": true,
+        }
+    },
+// F3
+    "E,24,79,0" : {
+        "name": "SKY PILLAR - INSIDE - F3 Door - 6,D",
+        "level": "8", 
+        "to" : "E,24,78,1",
+        "grouped": ["E,24,79,1"],
+        "groupMain" : true,
+        "connections" : {
+            "E,24,79,2": true,
+        }
+    },
+    "E,24,79,1" : {
+        "name": "SKY PILLAR - INSIDE - F3 Door - 7,D",
+        "level": "8", 
+        "to" : "E,24,78,1",
+        "grouped": ["E,24,79,0"]
+    },
+    "E,24,79,2" : {
+        "name" : "SKY PILLAR - INSIDE - F3 Stairs - 6,D",
+        "to" : "E,24,80,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,79,0": true,
+        }
+    },
+// F4
+    "E,24,80,0" : {
+        "name" : "SKY PILLAR - INSIDE - F4 Right - A,1",
+        "to" : "E,24,79,2",
+        "level" : "8",
+        "connections" : {
+            "E,24,79,0": true,
+            "E,24,79,2": true,
+        }
+    },
+    "E,24,80,1" : {
+        "name" : "SKY PILLAR - INSIDE - F4 Left - 3,1",
+        "to" : "E,24,81,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,79,0": true,
+            "E,24,79,2": true,
+        }
+    },
+// F5
+    "E,24,81,0" : {
+        "name" : "SKY PILLAR - INSIDE - F5 Left - 3,1",
+        "to" : "E,24,80,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,81,1": true,
+        }
+    },
+    "E,24,81,1" : {
+        "name" : "SKY PILLAR - INSIDE - F5 Right - B,1",
+        "to" : "E,24,82,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,82,0": true,
+        }
+    },
+    "E,24,81,2" : {
+        "name" : "SKY PILLAR - INSIDE - F5 Center - 7,1",
+        "to" : "E,24,82,1",
+        "level" : "8",
+    },
+// F6
+    "E,24,82,0" : {
+        "name" : "SKY PILLAR - INSIDE - F6 Right - B,1",
+        "to" : "E,24,81,1",
+        "level" : "8",
+        "connections" : {
+            "E,24,81,0": true,
+        }
+    },
+    "E,24,82,1" : {
+        "name" : "SKY PILLAR - INSIDE - F6 Center - 3,1",
+        "to" : "E,24,81,2",
+        "level" : "8",
+        "connections" : {
+            "E,24,82,2": true,
+            "E,24,81,0": true,
+        }
+    },
+    "E,24,82,2" : {
+        "name" : "SKY PILLAR - INSIDE - F6 Left - 7,1",
+        "to" : "E,24,84,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,82,1": true,
+            "E,24,81,0": true,
+        }
+    },
+// F7
+    "E,24,84,0" : {
+        "name" : "SKY PILLAR - INSIDE - F7 Left - 3,1",
+        "to" : "E,24,82,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,84,1": true,
+        }
+    },
+    "E,24,84,1" : {
+        "name" : "SKY PILLAR - INSIDE - F7 Right - A,1",
+        "to" : "E,24,85,0",
+        "level" : "8",
+        "connections" : {
+            "E,24,84,0": true,
+        }
+    },
+// F8
+    "E,24,85,0" : {
+        "name" : "SKY PILLAR - INSIDE - F8 Door - 10,E",
+        "to" : "E,24,84,1",
+        "level" : "8",
+    },
+/* Marine Cave */
+    "E,24,103,0" : {
+        "name" : "MARINE CAVE - INSIDE - Enterance - 14,4",
+        "to" : "E,24,102,0",
+        "level" : "8",
+    },
+/* Terra Cave */
+    "E,24,105,0" : {
+        "name" : "TERRA CAVE - INSIDE - Enterance - 5,4",
+        "to" : "E,24,104,1",
+        "level" : "8",
+    },
+/* Sealed Chamber */ 
+// TODO - Later
+/* Victory Road */
+// F1
+    "E,24,43,0" : {
+        "name" : "VICTORY ROAD - INSIDE - F1 Enterance - F,28",
+        "to" : "E,0,8,2",
+        "level" : "9",
+        "connections" : {
+            "E,24,43,4": true,
+        }
+    },
+    "E,24,43,1" : {
+        "name" : "VICTORY ROAD - INSIDE - F1 Exit - 27,5",
+        "to" : "E,0,8,3",
+        "level" : "9",
+        "connections" : {
+            "E,24,43,2": true,
+        }
+    },
+    "E,24,43,2" : {
+        "name" : "VICTORY ROAD - INSIDE - F1 Middle Ladder - 15,20",
+        "to" : "E,24,44,5",
+        "level" : "9",
+        "connections" : {
+            "E,24,43,1": true,
+        }
+    },
+    "E,24,43,3" : {
+        "name" : "VICTORY ROAD - INSIDE - F1 Bottom Right - 2A,26",
+        "to" : "E,24,44,2",
+        "level" : "9",
+    },
+    "E,24,43,4" : {
+        "name" : "VICTORY ROAD - INSIDE - F1 Top Left Ladder - 9,E",
+        "to" : "E,24,44,4",
+        "level" : "9",
+        "connections" : {
+            "E,24,43,0": true,
+        }
+    },
+// F2
+    "E,24,44,0" : {
+        "name" : "VICTORY ROAD - INSIDE - F2 Bottom middle Right Ladder - 1E,19",
+        "to" : "E,24,45,0",
+        "level" : "9",
+    },
+    "E,24,44,1" : {
+        "name" : "VICTORY ROAD - INSIDE - F2 Bottom middle Top Ladder - 11,10",
+        "to" : "E,24,45,2",
+        "level" : "9",
+        "connections" : {
+            "E,24,44,6": true,
+        }
+    },
+    "E,24,44,2" : {
+        "name" : "VICTORY ROAD - INSIDE - F2 Bottom Right - 2A,19",
+        "to" : "E,24,43,3",
+        "level" : "9",
+        "connections" : {
+            "E,24,44,0": true,
+        }
+    },
+    "E,24,44,3" : {
+        "name" : "VICTORY ROAD - INSIDE - F2 Top Right - 2A,2",
+        "to" : "E,24,45,1",
+        "level" : "9",
+    },
+    "E,24,44,4" : {
+        "name" : "VICTORY ROAD - INSIDE - F2 Top Left - 8,3",
+        "to" : "E,24,43,4",
+        "level" : "9",
+    },
+    "E,24,44,5" : {
+        "name" : "VICTORY ROAD - INSIDE - F2 Middle Bottom Left - 14,15",
+        "to" : "E,24,43,2",
+        "level" : "9",
+    },
+    "E,24,44,6" : {
+        "name" : "VICTORY ROAD - INSIDE - F2 Bottom Left - 5,1A",
+        "to" : "E,24,45,3",
+        "level" : "9",
+        "connections" : {
+            "E,24,44,1": true,
+        }
+    },
+// F3
+    "E,24,45,0" : {
+        "name" : "VICTORY ROAD - INSIDE - F3 Bottom Right - 1E,19",
+        "to" : "E,24,44,0",
+        "level" : "9"
+    },
+    "E,24,45,1" : {
+        "name" : "VICTORY ROAD - INSIDE - F3 Top Right - 2B,2",
+        "to" : "E,24,44,3",
+        "level" : "9",
+        "connections" : {
+            "E,24,45,0": true,
+        }
+    },
+    "E,24,45,2" : {
+        "name" : "VICTORY ROAD - INSIDE - F3 Middle - 13,C",
+        "to" : "E,24,44,1",
+        "level" : "9"
+    },
+    "E,24,45,3" : {
+        "name" : "VICTORY ROAD - INSIDE - F3 Bottom Left - 5,1A",
+        "to" : "E,24,44,6",
+        "level" : "9"
+    },
+/* SOTHERN ISLAND */
+    "E,26,9,0" : {
+        "name" : "SOTHERN ISLAND - OUTSIDE - Trees Enterance - E,5",
+        "to" : "E,26,10,0",
+        "level" : "9",
+        "grouped" : ["E,26,9,1"],
+        "groupMain" : true
+    },
+    "E,26,9,1" : {
+        "name" : "SOTHERN ISLAND - OUTSIDE - Trees Enterance - F,5",
+        "to" : "E,26,10,1",
+        "level" : "9",
+        "grouped" : ["E,26,9,0"],
+    },
+    "E,26,10,0" : {
+        "name" : "SOTHERN ISLAND - INSIDE - Trees Enterance - D,12",
+        "to" : "E,26,9,0",
+        "level" : "9",
+        "grouped" : ["E,26,10,1"],
+        "groupMain" : true
+    },
+    "E,26,10,1" : {
+        "name" : "SOTHERN ISLAND - INSIDE - Trees Enterance - E,12",
+        "to" : "E,26,9,1",
+        "level" : "9",
+        "grouped" : ["E,26,10,0"],
+    },
+/* FAR AWAY ISLAND */
+    "E,26,56,0" : {
+        "name" : "FAR AWAY ISLAND - OUTSIDE - Trees Enterance - 16,7",
+        "to" : "E,26,57,0",
+        "level" : "9",
+        "grouped" : ["E,26,56,1"],
+        "groupMain" : true
+    },
+    "E,26,56,1" : {
+        "name" : "FAR AWAY ISLAND - OUTSIDE - Trees Enterance - 16,7",
+        "to" : "E,26,57,1",
+        "level" : "9",
+        "grouped" : ["E,26,56,0"],
+    },
+    "E,26,57,0" : {
+        "name" : "FAR AWAY ISLAND - INSIDE - Trees Enterance - C,13",
+        "to" : "E,26,56,0",
+        "level" : "9",
+        "grouped" : ["E,26,57,1"],
+        "groupMain" : true
+    },
+    "E,26,57,1" : {
+        "name" : "FAR AWAY ISLAND - INSIDE - Trees Enterance - D,13",
+        "to" : "E,26,56,1",
+        "level" : "9",
+        "grouped" : ["E,26,57,0"],
+    },
+/* BIRTH ISLAND */
+    "E,26,58,0" : {
+        "name" : "BIRTH ISLAND - OUTSIDE - Dock - F,18",
+        "to" : "E,26,59,0",
+        "level" : "9",
+    },
+/* NAVEL ROCK */
+// 1
+    "E,26,66,0" : {
+        "name" : "NAVEL ROCK - OUTSIDE - Dock - A,12",
+        "to" : "E,26,67,0",
+        "level" : "9",
+        "connections" : {
+            "E,26,66,1": true,
+        }
+    },
+    "E,26,66,1" : {
+        "name" : "NAVEL ROCK - OUTSIDE - Cave - A,A",
+        "to" : "E,26,68,1",
+        "level" : "9",
+        "connections" : {
+            "E,26,66,0": true,
+        }
+    },
+// 2
+    // INSIDE DOCK
+// 3
+    "E,26,68,0" : {
+        "name" : "NAVEL ROCK - INSIDE - F1 Top - A,5",
+        "to" : "E,26,69,0",
+        "level" : "9",
+        "connections" : {
+            "E,26,68,1": true,
+        }
+    },
+    "E,26,68,1" : {
+        "name" : "NAVEL ROCK - INSIDE - F1 Bottom - A,1A",
+        "to" : "E,26,66,1",
+        "level" : "9",
+        "connections" : {
+            "E,26,68,0": true,
+        }
+    },
+// 4
+    "E,26,69,0" : {
+        "name" : "NAVEL ROCK - INSIDE - F2 Top - 4,3",
+        "to" : "E,26,68,0",
+        "level" : "9",
+        "connections" : {
+            "E,26,69,1": true,
+        }
+    },
+    "E,26,69,1" : {
+        "name" : "NAVEL ROCK - INSIDE - F2 Bottom - 12,9",
+        "to" : "E,26,70,1",
+        "level" : "9",
+        "connections" : {
+            "E,26,69,0": true,
+        }
+    },
+// 5
+    "E,26,70,0" : {
+        "name" : "NAVEL ROCK - INSIDE - F3 Top Left - 4,6",
+        "to" : "E,26,71,0",
+        "level" : "9",
+        "connections" : {
+            "E,26,70,1": true,
+            "E,26,70,2": true,
+        }
+    },
+    "E,26,70,1" : {
+        "name" : "NAVEL ROCK - INSIDE - F3 Bottom - B,4F",
+        "to" : "E,26,69,1",
+        "level" : "9",
+        "connections" : {
+            "E,26,70,0": true,
+            "E,26,70,2": true,
+        }
+    },
+    "E,26,70,2" : {
+        "name" : "NAVEL ROCK - INSIDE - F3 Bottom - 16,6",
+        "to" : "E,26,76,0",
+        "level" : "9",
+        "connections" : {
+            "E,26,70,1": true,
+            "E,26,70,0": true,
+        }
+    },
+// 6 -- Various identical rooms
+    // TODO
+// 7
+    // TODO
+// 8
+    // TODO
+// 9
+    // TODO
+// 10
+    "E,26,74,1" : {
+        "name" : "NAVEL ROCK - OUTSIDE - HOHO - D,14",
+        "to" : "E,26,74,1",
+        "level" : "9",
+    },
+// 11 -- Various identical rooms
+    // TODO
+// 12
+    // TODO
+// 13
+    // TODO
+// 14
+    // TODO
+// 15
+    // TODO
+// 16
+    // TODO
+// 17
+    // TODO
+// 18
+    // TODO
+// 19
+    // TODO
+// 20
+    // TODO
+// 21
+    // TODO
+// 22
+    "E,26,86,0" : {
+        "name" : "NAVEL ROCK - OUTSIDE - LUGIA - E,13",
+        "to" : "E,26,86,0",
+        "level" : "9",
+    },
 }

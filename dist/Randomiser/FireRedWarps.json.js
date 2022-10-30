@@ -930,7 +930,7 @@ var FIRE_RED_WARPS =
     "FR,3,3,8" : {
         "name": "CERULEAN CITY - OUTSIDE - Top Left (Backdoor)  - A,8",
         "level": "2", 
-        "to" : "FR,7,3,0"
+        "to" : "FR,7,0,3"
     },
     "FR,3,3,9" : {
         "name": "CERULEAN CITY - OUTSIDE - Top Right (Robbed) (Backdoor)  - 1F,8",
@@ -1311,7 +1311,7 @@ var FIRE_RED_WARPS =
     "FR,9,1,1" : {
         "name": "VERMILLION CITY - INSIDE - PkCenter Enterance - 6,8",
         "level": "3", 
-        "to" : "FR,3,5,34",
+        "to" : "FR,3,5,4",
         "connections" : {
             "FR,9,1,3": true
         }

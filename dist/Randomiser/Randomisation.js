@@ -305,6 +305,10 @@ function doNextMapping(rng) {
         inacessibleNodes.forEach(n => {
           console.log(n.data().id)
         })
+
+        warp2.data().isMapped = true;
+        return false;
+
       } else {
         console.log("All inaccesible nodes mapped")
       }
