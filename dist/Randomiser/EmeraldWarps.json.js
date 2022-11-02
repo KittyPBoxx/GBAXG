@@ -1215,12 +1215,13 @@ var EMERALD_WARPS =
         }
     },
     "E,0,5,2" : {
-        // PK
+        // PK 
         "name" : "LILYCOVE CITY - OUTSIDE - PkCenter - 1B,6",
         "level" : "7",
         "to" : "E,13,6,0",
         "connections" : {
             "E,0,36,0": true,
+            "E,0,5,0": true,
             "E,0,5,1": true,
             "E,0,5,3": true,
             "E,0,5,4": true,
@@ -3948,10 +3949,12 @@ var EMERALD_WARPS =
     },
     "E,0,26,1" : {
         "name" : "ROUTE 111 - OUTSIDE - Desert Ruins - 1D,57",
-        "to" : "E,18,0,0",
+        "to" : "E,24,6,0",
         "level" : "5",
         "connections" : {
-            "E,24,6,0": true
+            "E,0,26,0": true,
+            "E,0,26,2": true,
+            "E,0,26,3": true
         }
     },
     "E,0,26,2" : {
@@ -3962,7 +3965,6 @@ var EMERALD_WARPS =
             "E,0,13,2": true,
             "E,0,27,5": true,
             "E,0,28,0": true,
-            "E,0,13,2": true
         }
     },
     "E,0,26,3" : {
@@ -3970,7 +3972,9 @@ var EMERALD_WARPS =
         "to" : "E,24,94,0",
         "level" : "5",
         "connections" : {
-            "E,0,26,1": true
+            "E,0,26,0": true,
+            "E,0,26,1": true,
+            "E,0,26,2": true,
         }
     },
     "E,0,26,4" : {
