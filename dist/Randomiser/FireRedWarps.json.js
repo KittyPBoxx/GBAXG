@@ -73,12 +73,14 @@ var FIRE_RED_WARPS =
         // GYM
         "name": "VIRIDIAN CITY - INSIDE - Gym - 10,16",
         "to" : "FR,3,1,2",
+        "level": "8", 
         "grouped" : ["FR,5,1,1", "FR,5,1,2"]
     },
     "FR,5,1,1" : {
         // GYM
         "name": "VIRIDIAN CITY - INSIDE - Gym - 11,16",
         "to" : "FR,3,1,2",
+        "level": "8", 
         "grouped" : ["FR,5,1,0", "FR,5,1,2"],
         "groupMain" : true
     },
@@ -86,6 +88,7 @@ var FIRE_RED_WARPS =
         // GYM
         "name": "VIRIDIAN CITY - INSIDE - Gym - 12,16",
         "to" : "FR,3,1,2",
+        "level": "8", 
         "grouped" : ["FR,5,1,0", "FR,5,1,1"]
     },
     "FR,5,2,0" : {
@@ -4268,17 +4271,497 @@ var FIRE_RED_WARPS =
         "level": "6", 
         "to" : "FR,1,53,1"
     },
-// LEVEL 7
     /* CINNABAR ISLAND - EXT */
+    "FR,3,8,0" : {
+        "name": "CINNABAR ISLAND - OUTSIDE - Pokemon Mansion - 8,3",
+        "level": "7", 
+        "to" : "FR,1,59,1",
+        "connections" : {
+            "FR,3,8,3": true,
+        }
+    },
+    "FR,3,8,1" : {
+        "name": "CINNABAR ISLAND - OUTSIDE - Gym - 14,4",
+        "level": "7", 
+        "to" : "FR,12,0,1",
+        "connections" : {
+            "FR,3,8,3": true,
+        }
+    },
+    "FR,3,8,2" : {
+        "name": "CINNABAR ISLAND - OUTSIDE - Research Lab - 8,9",
+        "level": "7", 
+        "to" : "FR,12,1,1",
+        "connections" : {
+            "FR,3,8,3": true,
+        }
+    },
+    "FR,3,8,3" : {
+        "name": "CINNABAR ISLAND - OUTSIDE - PkCenter - E,B",
+        "level": "7", 
+        "to" : "FR,12,5,0",
+        "connections" : {
+            "FR,3,8,0": true,
+            "FR,3,8,1": true,
+            "FR,3,8,2": true,
+            "FR,3,8,4": true,
+        }
+    },
+    "FR,3,8,4" : {
+        "name": "CINNABAR ISLAND - OUTSIDE - Mart - 13,B",
+        "level": "7", 
+        "to" : "FR,12,7,1",
+        "connections" : {
+            "FR,3,8,3": true,
+        }
+    },
     /* CINNABAR ISLAND - INT */
+    "FR,12,0,1" : {
+        "name": "CINNABAR ISLAND - INSIDE - Gym - 19,17",
+        "level": "7", 
+        "to" : "FR,3,8,1",
+    },
+    "FR,12,1,1" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab - 4,9",
+        "level": "7", 
+        "to" : "FR,3,8,2",
+        "connections" : {
+            "FR,12,1,3": true,
+            "FR,12,1,4": true,
+            "FR,12,1,5": true,
+        }
+    },
+    "FR,12,2,0" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab Left - 7,9",
+        "level": "7", 
+        "to" : "FR,12,1,3",
+    },
+    "FR,12,3,0" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab Center - 7,9",
+        "level": "7", 
+        "to" : "FR,12,1,4",
+    },
+    "FR,12,4,0" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab Right - 7,9",
+        "level": "7", 
+        "to" : "FR,12,1,5",
+    },
+    "FR,12,5,0" : {
+        "name": "CINNABAR ISLAND - INSIDE - PkCenter Enterance - 7,8",
+        "level": "7", 
+        "to" : "FR,3,8,3",
+        "connections" : {
+            "FR,12,5,3": true,
+        }
+    },
+    "FR,12,5,3" : {
+        "name": "CINNABAR ISLAND - INSIDE - PkCenter Stairs - 1,6",
+        "level": "7", 
+        "to" : "FR,12,6,0",
+        "connections" : {
+            "FR,12,5,0": true,
+        }
+    },
+    "FR,12,6,0" : {
+        "name": "CINNABAR ISLAND - INSIDE - PkCenter Upstairs - 1,6",
+        "level": "7", 
+        "to" : "FR,12,5,3",
+        "ignore": "true"
+    },
+    "FR,12,7,1" : {
+        "name": "CINNABAR ISLAND - INSIDE - Mart - 3,7",
+        "level": "7", 
+        "to" : "FR,3,8,4",
+    },
     /* POKEMON MANSION */
-// LEVEL 8
-    // Just viridian gym
+    // F1
+    "FR,1,59,1" : {
+        "name": "POKEMON MANSION - INSIDE - F1 Enterance - 8,21",
+        "level": "7", 
+        "to" : "FR,3,8,0",
+        "grouped" : ["FR,1,59,5"],
+        "groupMain" : true,
+        "connections" : {
+            "FR,1,59,9": true,
+        }
+    },
+    "FR,1,59,5" : {
+        "name": "POKEMON MANSION - INSIDE - F1 Exit - 22,21",
+        "level": "7", 
+        "to" : "FR,3,8,0",
+        "grouped" : ["FR,1,59,1"],
+    },
+    "FR,1,59,9" : {
+        "name": "POKEMON MANSION - INSIDE - F1 Top Left Stairs - B,D",
+        "level": "7", 
+        "to" : "FR,1,60,2",
+        "grouped" : ["FR,1,59,3"],
+        "groupMain" : true,
+        "connections" : {
+            "FR,1,59,1": true,
+        }
+    },
+    "FR,1,59,3" : {
+        "name": "POKEMON MANSION - INSIDE - F1 Top Left Stairs - A,D",
+        "level": "7", 
+        "to" : "FR,1,60,2",
+        "grouped" : ["FR,1,59,9"],
+    },
+    "FR,1,59,4" : {
+        "name": "POKEMON MANSION - INSIDE - F1 Bottom Right Stairs - 19,1B",
+        "level": "7", 
+        "to" : "FR,1,62,0"
+    },
+    "FR,1,59,7" : {
+        "name": "POKEMON MANSION - INSIDE - F1 Bottom Right Drop - 13,16",
+        "level": "7", 
+        "to" : "FR,1,61,3",
+        "grouped" : ["FR,1,59,8"],
+        "groupMain" : true,
+        "connections" : {
+            "FR,1,59,4": true,
+        }
+    },
+    "FR,1,59,8" : {
+        "name": "POKEMON MANSION - INSIDE - F1 Bottom Right Drop - 14,16",
+        "level": "7", 
+        "to" : "FR,1,61,4",
+        "grouped" : ["FR,1,59,7"],
+    },
+    // F2
+    "FR,1,60,0" : {
+        "name": "POKEMON MANSION - INSIDE - F2 Top Left Stairs - 9,3",
+        "level": "7", 
+        "to" : "FR,1,61,0",
+        "connections" : {
+            "FR,1,60,2": true,
+            "FR,1,60,3": true,
+        }
+    },
+    "FR,1,60,1" : {
+        "name": "POKEMON MANSION - INSIDE - F2 Bottom Left Stairs - 22,16",
+        "level": "7", 
+        "to" : "FR,1,61,1"
+    },
+    "FR,1,60,2" : {
+        "name": "POKEMON MANSION - INSIDE - F2 Center Stairs Left - 6,E",
+        "level": "7", 
+        "to" : "FR,1,59,3",
+        "connections" : {
+            "FR,1,60,0": true,
+            "FR,1,60,3": true,
+        }
+    },
+    "FR,1,60,3" : {
+        "name": "POKEMON MANSION - INSIDE - F2 Center Stairs Right - 9,E",
+        "level": "7", 
+        "to" : "FR,1,61,2",
+        "connections" : {
+            "FR,1,60,2": true,
+            "FR,1,60,3": true,
+        }
+    },
+    "FR,1,60,4" : {
+        "name": "POKEMON MANSION - INSIDE - F2 Drop - 1B,11",
+        "level": "7", 
+        "to" : "FR,1,61,5",
+    },
+    // F3
+    "FR,1,61,0" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Top Left Stairs - 8,3",
+        "level": "7", 
+        "to" : "FR,1,60,0",
+        "connections" : {
+            "FR,1,61,3": true,
+            "FR,1,61,5": true,
+            "FR,1,61,1": true,
+        }
+    },
+    "FR,1,61,1" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Bottom Right Stairs - 22,12",
+        "level": "7", 
+        "to" : "FR,1,60,1",
+        "connections" : {
+            "FR,1,61,3": true,
+            "FR,1,61,5": true,
+        }
+    },
+    "FR,1,61,2" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Bottom Left Stairs - B,B",
+        "level": "7", 
+        "to" : "FR,1,60,3",
+    },
+    "FR,1,61,3" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Left Drop - 12,12",
+        "level": "7", 
+        "to" : "FR,1,59,7",
+        "grouped" : ["FR,1,61,4", "FR,1,61,6"],
+        "groupMain" : true,
+        "connections" : {
+            "FR,1,61,1": true,
+            "FR,1,61,5": true,
+        }
+    },
+    "FR,1,61,4" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Left Drop - 13,12",
+        "level": "7", 
+        "grouped" : ["FR,1,61,3", "FR,1,61,6"],
+        "to" : "FR,1,59,8",
+    },
+    "FR,1,61,6" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Left Drop - 14,12",
+        "level": "7", 
+        "grouped" : ["FR,1,61,3", "FR,1,61,4"],
+        "to" : "FR,1,59,8",
+    },
+    "FR,1,61,5" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Right Drop - 17,12",
+        "level": "7", 
+        "to" : "FR,1,60,4",
+        "grouped" : ["FR,1,61,7"],
+        "groupMain" : true,
+        "connections" : {
+            "FR,1,61,3": true,
+            "FR,1,61,1": true,
+        }
+    },
+    "FR,1,61,7" : {
+        "name": "POKEMON MANSION - INSIDE - F3 Right Drop - 18,12",
+        "level": "7", 
+        "to" : "FR,1,60,4",
+        "grouped" : ["FR,1,61,5"],
+    },
+    // F4
+    "FR,1,62,0" : {
+        "name": "POKEMON MANSION - INSIDE - F4 Stairs - 22,1D",
+        "level": "7", 
+        "to" : "FR,1,59,4",
+    },
 // LEVEL 9
     /* ROUTE 23  - EXT */
-    /* ROUTE 23  - INT */
+    "FR,3,42,0" : {
+        "name": "ROUTE 23 - OUTSIDE - Victory Road Left Enterance - 5,1C",
+        "level": "9", 
+        "to" : "FR,1,39,1",
+    },
+    "FR,3,42,1" : {
+        "name": "ROUTE 23 - OUTSIDE - Victory Road Right Enterance - 12,1C",
+        "level": "9", 
+        "to" : "FR,1,40,6",
+        "connections" : {
+            "FR,13,0,0": true,
+        }
+    },
+    "FR,3,42,2" : {
+        "name": "ROUTE 23 - OUTSIDE - Route 22 Connector - 8,99",
+        "level": "9", 
+        "to" : "FR,28,0,0",
+    },
     /* INDIGO PLATEAU */
+    "FR,13,0,0" : {
+        "name": "INDIGO PLATEAU - INSIDE - Indigo Plateau Enterance - B,10",
+        "level": "9", 
+        "to" : "FR,3,9,0",
+        "connections" : {
+            "FR,13,0,2": true,
+            "FR,13,0,1": true,
+        }
+    },
+    "FR,13,0,1" : {
+        "name": "INDIGO PLATEAU - INSIDE - Indigo Plateau E4 Enterance - 4,1",
+        "level": "9", 
+        "to" : "FR,1,75,0",
+        "connections" : {
+            "FR,13,0,0": true,
+            "FR,13,0,1": true,
+        }
+    },
+    "FR,13,0,2" : {
+        "name": "INDIGO PLATEAU - INSIDE - Indigo Plateau Stairs - 1,E",
+        "level": "9", 
+        "to" : "FR,13,1,0",
+        "connections" : {
+            "FR,13,0,0": true,
+            "FR,13,0,1": true,
+        }
+    },
+    "FR,13,1,0" : {
+        "name": "INDIGO PLATEAU - INSIDE - Indigo Plateau Upstairs - 1,6",
+        "level": "9", 
+        "to" : "FR,13,0,2",
+        "ignore": "true"
+    },
     /* VICTORY ROAD */
+    // F1
+    "FR,1,39,0" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F1 Top Left - 3,2",
+        "level": "9", 
+        "to" : "FR,1,40,6",
+        "connections" : {
+            "FR,1,39,1": true,
+        }
+    },
+    "FR,1,39,1" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F1 Enterance - B,14",
+        "level": "9", 
+        "to" : "FR,3,42,0",
+        "connections" : {
+            "FR,1,39,0": true,
+        }
+    },
+    // F2
+    "FR,1,40,0" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F2 Center Left - 1,9",
+        "level": "9", 
+        "to" : "FR,1,39,0",
+        "connections" : {
+            "FR,1,40,4": true,
+            "FR,1,40,2": true,
+        }
+    },
+    "FR,1,40,1" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F2 Top Left - 3,3",
+        "level": "9", 
+        "to" : "FR,1,41,0",
+    },
+    "FR,1,40,2" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F2 Center Top - 22,9",
+        "level": "9", 
+        "to" : "FR,1,41,1",
+        "connections" : {
+            "FR,1,40,4": true,
+            "FR,1,40,0": true,
+        }
+    },
+    "FR,1,40,3" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F2 Center Right - 26,9",
+        "level": "9", 
+        "to" : "FR,1,41,2",
+        "connections" : {
+            "FR,1,40,6": true,
+        }
+    },
+    "FR,1,40,4" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F2 Center Bottom - 24,11",
+        "level": "9", 
+        "to" : "FR,1,41,3",
+        "connections" : {
+            "FR,1,40,0": true,
+            "FR,1,40,2": true,
+        }
+    },
+    "FR,1,40,6" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F2 Left Exit - 30,C",
+        "level": "9", 
+        "to" : "FR,3,42,1",
+        "connections" : {
+            "FR,1,40,3": true,
+        }
+    },
+    "FR,1,40,8" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F2 Drop - 22,13",
+        "level": "9", 
+        "to" : "FR,1,41,4",
+        "connections" : {
+            "FR,1,40,4": true,
+            "FR,1,40,2": true,
+            "FR,1,40,0": true,
+        }
+    },
+    // F3
+    "FR,1,41,0" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F3 Top Left - 5,2",
+        "level": "9", 
+        "to" : "FR,1,40,1",
+        "connections" : {
+            "FR,1,41,1": true,
+            "FR,1,41,4": true,
+        }
+    },
+    "FR,1,41,1" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F3 Center Top - 22,9",
+        "level": "9", 
+        "to" : "FR,1,40,2",
+        "connections" : {
+            "FR,1,41,0": true,
+            "FR,1,41,4": true,
+        }
+    },
+    "FR,1,41,2" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F3 Right Top - 25,A",
+        "level": "9", 
+        "to" : "FR,1,40,3",
+        "connections" : {
+            "FR,1,41,3": true,
+        }
+    },
+    "FR,1,41,3" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F3 Right Bottom - 27,11",
+        "level": "9", 
+        "to" : "FR,1,40,4",
+        "connections" : {
+            "FR,1,41,2": true,
+        }
+    },
+    "FR,1,41,4" : {
+        "name": "VICTORY ROAD - INSIDE - Victory Road F3 Center Bottom Hole - 22,12",
+        "level": "9", 
+        "to" : "FR,1,40,8",
+        "connections" : {
+            "FR,1,41,1": true,
+            "FR,1,41,0": true,
+        }
+    },
     /* E4 */
+    // E4 1
+    "FR,1,75,0" : {
+        "name": "E4 - INSIDE - E4 1 Bottom - 6,C",
+        "level": "9", 
+        "to" : "FR,13,0,1",
+    },
+    "FR,1,75,1" : {
+        "name": "E4 - INSIDE - E4 1 Top - 6,2",
+        "level": "9", 
+        "to" : "FR,1,76,0",
+    },
+    // E4 2
+    "FR,1,76,0" : {
+        "name": "E4 - INSIDE - E4 2 Bottom - 6,C",
+        "level": "9", 
+        "to" : "FR,1,75,1",
+    },
+    "FR,1,76,1" : {
+        "name": "E4 - INSIDE - E4 2 Top - 6,2",
+        "level": "9", 
+        "to" : "FR,1,77,0",
+    },
+    // E4 3
+    "FR,1,77,0" : {
+        "name": "E4 - INSIDE - E4 3 Bottom - 6,C",
+        "level": "9", 
+        "to" : "FR,1,76,1",
+    },
+    "FR,1,77,1" : {
+        "name": "E4 - INSIDE - E4 3 Top - 6,2",
+        "level": "9", 
+        "to" : "FR,1,78,1",
+    },
+    // E4 4
+    "FR,1,78,0" : {
+        "name": "E4 - INSIDE - E4 4 Bottom - 17,D",
+        "level": "9", 
+        "to" : "FR,1,77,1",
+    },
+    "FR,1,78,1" : {
+        "name": "E4 - INSIDE - E4 4 Top - 6,5",
+        "level": "9", 
+        "to" : "FR,1,79,0",
+    },
+    // E4 Champ
+    "FR,1,79,0" : {
+        "name": "E4 - INSIDE - Champ - 6,13",
+        "level": "9", 
+        "to" : "FR,1,78,1",
+    },
 }
 
