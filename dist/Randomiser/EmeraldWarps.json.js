@@ -2923,7 +2923,7 @@ var EMERALD_WARPS =
     "E,0,13,3" : {
         "name": "FALLARBOR TOWN - OUTSIDE - Bottom House - 6,11",
         "level": "4", 
-        "to" : "E,5,3,0",
+        "to" : "E,5,6,0",
         "connections" : {
             "E,0,13,2": true
         }
@@ -4231,8 +4231,8 @@ var EMERALD_WARPS =
         "grouped": ["E,24,13,0"]
     },
     "E,24,13,2" : {
-        "name" : "JAGGED PASS - INSIDE - Bottom - E,28",
-        "to" : "E,24,12,3",
+        "name" : "JAGGED PASS - INSIDE - Top - E,28",
+        "to" : "E,24,12,2",
         "level" : "4",
         "grouped": ["E,24,13,3"],
         "groupMain" : true,
@@ -4241,8 +4241,8 @@ var EMERALD_WARPS =
         }
     },
     "E,24,13,3" : {
-        "name" : "JAGGED PASS - INSIDE - Bottom - F,28",
-        "to" : "E,24,12,2",
+        "name" : "JAGGED PASS - INSIDE - Top - F,28",
+        "to" : "E,24,12,3",
         "level" : "4",
         "grouped": ["E,24,13,2"]
     },
@@ -4292,10 +4292,10 @@ var EMERALD_WARPS =
         "level" : "4",
         "connections" : {
             "E,0,13,2": true,
-            "E,0,29,1": true
+            "E,0,29,0": true
         }
     },
-    "E,0,29,1" : {
+    "E,0,29,2" : {
         "name" : "ROUTE 114 - OUTSIDE - Lannets House - 8,3F",
         "to" : "E,20,2,0",
         "level" : "4",
@@ -5109,7 +5109,7 @@ var EMERALD_WARPS =
     },
     "E,32,0,1" : {
         "name" : "ROUTE 123 - INSIDE - Weather Institute F1 Door - A,C",
-        "to" : "E,0,38,0",
+        "to" : "E,0,34,0",
         "level" : "6",
         "grouped": ["E,32,0,0"]
     },
@@ -6243,7 +6243,7 @@ var EMERALD_WARPS =
 // F2
     "E,24,38,0" : {
         "name" : "CAVE OF ORIGIN - INSIDE - F2 Bottom - B,11",
-        "to" : "E,24,37,",
+        "to" : "E,24,37,1",
         "level" : "8",
         "connections" : {
             "E,24,38,1": true,
@@ -6254,7 +6254,7 @@ var EMERALD_WARPS =
         "to" : "E,24,42,0",
         "level" : "8",
         "connections" : {
-            "E,24,42,0": true,
+            "E,24,38,0": true,
         }
     },
 // F3
