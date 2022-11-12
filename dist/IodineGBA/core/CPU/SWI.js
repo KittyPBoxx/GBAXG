@@ -75,24 +75,27 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         {    
             //console.info("Calling GBA_SWI_SOFT_RESET...");
             let flag = this.CPUCore.memory.readInternalWRAM8(0x7FFA);
-            for (let i = 0x7E00; i < 0x8000; i += 4) { this.CPUCore.memory.writeInternalWRAM32(i, 0); }
+            for (let i = 0x7E00; i < (0x8000 - 0x200); i += 4) { this.CPUCore.memory.writeInternalWRAM32(i, 0); }
             this.resetSP();
             this.CPUCore.THUMB.writeLR(!flag ? 0x08000000 : 0x02000000);
             this.CPUCore.enterARM();
-            this.CPUCore.THUMB.writeLR(this.CPUCore.THUMB.readLR());
+            this.CPUCore.THUMB.writePC(this.CPUCore.THUMB.readLR());
         }   break;
         case SWI_OP_CODE.GBA_SWI_REGISTER_RAM_RESET:
         {
             //console.info("Calling GBA_SWI_REGISTER_RAM_RESET...");
+            this.CPUCore.memory.gfxRenderer.writeDISPCNT8_0(0x0080);
+
             let regions = this.CPUCore.ARM.readRegister(0);
             if (regions & 0x01) {
                 this.CPUCore.memory.externalRAM.fill(0, 0, 0x40000);
 		    }
             if (regions & 0x02) {
-                this.CPUCore.memory.internalRAM.fill(0, 0, 0x8000);
+                this.CPUCore.memory.internalRAM.fill(0, 0, 0x8000 - 0x200);
             }
             if (regions & 0x04) {
-                this.CPUCore.memory.gfxRenderer.renderer.paletteRAM.fill(0, 0, 0x400);}
+                this.CPUCore.memory.gfxRenderer.renderer.paletteRAM.fill(0, 0, 0x400);
+            }
             if (regions & 0x08) {
                 this.CPUCore.memory.gfxRenderer.renderer.VRAM.fill(0, 0, 0x18000); 
             }
@@ -106,13 +109,17 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
             if (regions & 0x9C) { this.warnUnimplementedCalls && console.warn("UNSUPPORTED GBA_SWI_REGISTER_RAM_RESET REGISTER: 0x9C"); } // VIDEO REGISTER
         }   break;            
         case SWI_OP_CODE.GBA_SWI_HALT:
+           //console.info("Calling GBA_SWI_HALT...");
             this.IOCore.handleHalt();
             break;                      
         case SWI_OP_CODE.GBA_SWI_STOP:
+            //console.info("Calling GBA_SWI_STOP...");
             this.IOCore.handleStop();
             break;                      
         case SWI_OP_CODE.GBA_SWI_INTR_WAIT:
-            //console.info("Calling GBA_SWI_INTR_WAIT...");          
+            //console.info("Calling GBA_SWI_INTR_WAIT...");
+            assertIRQ();
+            break;                 
         case SWI_OP_CODE.GBA_SWI_VBLANK_INTR_WAIT:
             //console.info("Calling GBA_SWI_VBLANK_INTR_WAIT...");
             this.IOCore.handleHalt();
@@ -202,8 +209,8 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
         case SWI_OP_CODE.GBA_SWI_CPU_FAST_SET:
         {
             //console.info("Calling GBA_SWI_CPU_FAST_SET...");
-            let source = this.CPUCore.ARM.readRegister(0);
-            let dest = this.CPUCore.ARM.readRegister(1);
+            let source = this.CPUCore.ARM.readRegister(0) & 0xFFFFFFFC;
+            let dest = this.CPUCore.ARM.readRegister(1) & 0xFFFFFFFC;
             let mode = this.CPUCore.ARM.readRegister(2);
             let count = mode & 0x000FFFFF;
             count = ((count + 7) >> 3) << 3;

@@ -1,6 +1,6 @@
 /**
  *  Offset data for character sprites
- *  Crystal advanced sprite offsets are the same as fire red 1.0
+ *  Crystal Dust V2 sprite offsets are the same as Emerald
  * 
  * TODO: 
  * - ADD FISHING SPRITES

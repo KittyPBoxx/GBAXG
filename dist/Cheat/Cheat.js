@@ -54,20 +54,20 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
         if (switchingGameState == 1) {
 
-            if (((address == FIRE_RED_LAST_BANK) &&  (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C")) || 
-                ((address == EMERALD_LAST_BANK && IodineGUI.Iodine.IOCore.cartridge.romCode === "E")))  {
+            if (((address == FIRE_RED_LAST_BANK) &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") || 
+                ((address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))))  {
 
                     IodineGUI.Iodine.pause();
                     let currentRomCode = IodineGUI.Iodine.IOCore.cartridge.romCode;
-                    let partySlice = readWRAMSlice(currentRomCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
-                    let playerNameAndState = dynamicMemorySlice(currentRomCode == "E" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH);
-                    let idAndPlayTime = dynamicMemorySlice(currentRomCode == "E" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH);
+                    let partySlice = readWRAMSlice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
+                    let playerNameAndState = dynamicMemorySlice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH);
+                    let idAndPlayTime = dynamicMemorySlice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH);
                     let bagStoreage = new BagStoreage();
                     bagStoreage.readData(currentRomCode);
         
                     IodineGUI.Iodine.saveStateManager.loadState(gameSwitchingWarp.toRomCode);
         
-                    if (gameSwitchingWarp.toRomCode == "E") {
+                    if (gameSwitchingWarp.toRomCode == "E" || gameSwitchingWarp.toRomCode == "C") {
                         this.write8(EMERALD_CURRENT_BANK, gameSwitchingWarp.toBank);
                         this.write8(EMERALD_CURRENT_MAP, gameSwitchingWarp.toMap);
                         this.write8(EMERALD_CURRENT_WARP, gameSwitchingWarp.toWarpNo);
@@ -77,9 +77,9 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                         this.write8(FIRE_RED_CURRENT_WARP, gameSwitchingWarp.toWarpNo);
                     }
                     currentRomCode = IodineGUI.Iodine.IOCore.cartridge.romCode; // Changed becuase of load state
-                    spliceWRAM(currentRomCode == "E" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
-                    dynamicMemorySplice(currentRomCode == "E" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH, playerNameAndState);
-                    dynamicMemorySplice(currentRomCode == "E" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH, idAndPlayTime);
+                    spliceWRAM(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
+                    dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH, playerNameAndState);
+                    dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH, idAndPlayTime);
                     bagStoreage.writeData(currentRomCode);
         
                     IodineGUI.mixerInput.volume = 0.0
@@ -95,8 +95,8 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
 
         if (switchingGameState == 2) {
-            if (((address == FIRE_RED_LAST_BANK) &&  (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C")) || 
-            ((address == EMERALD_LAST_BANK && IodineGUI.Iodine.IOCore.cartridge.romCode === "E")))  {
+            if (((address == FIRE_RED_LAST_BANK) &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") || 
+            ((address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))))  {
 
                 IodineGUI.mixerInput.volume = 0.1;
                 let elmnt = document.getElementById("emulator_target");
@@ -126,12 +126,11 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
  GameBoyAdvanceCPU.prototype.write8WithoutIntercept = GameBoyAdvanceCPU.prototype.write8;
  GameBoyAdvanceCPU.prototype.write8 = function (address, data) { 
 
-    if ((address == FIRE_RED_CURRENT_WARP) && 
-        (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))
+    if ((address == FIRE_RED_CURRENT_WARP) && IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" )
     {
         isWarping = randomWarpsEnabled;
     } 
-    else if ((address == EMERALD_CURRENT_WARP) && IodineGUI.Iodine.IOCore.cartridge.romCode === "E") 
+    else if ((address == EMERALD_CURRENT_WARP) && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C")) 
     {
         isWarping = randomWarpsEnabled;
     } 
@@ -146,12 +145,12 @@ GameBoyAdvanceCPU.prototype.read8 = function (address) {
 
     if (!isWarping) return this.read8WithoutIntercept(address);
 
-    if (address == FIRE_RED_CURRENT_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))
+    if (address == FIRE_RED_CURRENT_BANK && IodineGUI.Iodine.IOCore.cartridge.romCode === "FR")
     {
         // Base game FR/LG
         address = this.handleWarpRedirection(address, IodineGUI.Iodine.IOCore.cartridge.romCode);
     } 
-    else if (address == EMERALD_CURRENT_BANK && IodineGUI.Iodine.IOCore.cartridge.romCode === "E") 
+    else if (address == EMERALD_CURRENT_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C")) 
     {
         // Base game Emerald
         address = this.handleWarpRedirection(address, IodineGUI.Iodine.IOCore.cartridge.romCode);
@@ -194,10 +193,10 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
         if (!pkWarp.isInternal()) {
             switchingGameState = 1;
             gameSwitchingWarp = pkWarp;
-            address = pkWarp.toRomCode == "E" ? EMERALD_CURRENT_BANK : FIRE_RED_CURRENT_BANK;
+            address = pkWarp.toRomCode == "E" || pkWarp.toRomCode == "C" ? EMERALD_CURRENT_BANK : FIRE_RED_CURRENT_BANK;
         } else {
 
-            if (pkWarp.toRomCode == "E") {
+            if (pkWarp.toRomCode == "E" || pkWarp.toRomCode == "C") {
                 this.write8(EMERALD_CURRENT_BANK, pkWarp.toBank);
                 this.write8(EMERALD_CURRENT_MAP, pkWarp.toMap);
                 this.write8(EMERALD_CURRENT_WARP, pkWarp.toWarpNo);
@@ -278,8 +277,8 @@ GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
 
     if (address == frOffset && this.romCode == "FR") { 
         return 0x2100; 
-    } else if (address == 364078 && this.romCode == "C") {
-        return 0x2100; 
+    } else if (address == 601094 && this.romCode == "C") {
+        return 0x2000; 
     } else if (address == 601094 && this.romCode == "E") {
         return 0x2000;
     }
@@ -405,7 +404,7 @@ function BagStoreage() {
 }
 
 BagStoreage.prototype.readData = function (game) {
-    if (game == "E") {
+    if (game == "E" || game == "C") {
         this.readEmeraldData();
     } else {
         this.readFireRedData();
@@ -473,7 +472,7 @@ BagStoreage.prototype.readEmeraldData = function () {
 }
 
 BagStoreage.prototype.writeData = function (game) {
-    if (game == "E") {
+    if (game == "E" || game == "C") {
         this.writeDataToEmerald();
     } else {
         this.writeDataToFireRed();

@@ -67,11 +67,7 @@ ExpansionPack.prototype.addElementToExpansion = function(name, romCode, offsetIn
 } 
 
 ExpansionPack.prototype.getPatchPointStart = function (romCode) {
-    if (romCode == "FR" || romCode == "E") {
-        return 0x1000000;
-    } else {
-        return 0x09E0C630 - 0x08000000;
-    }
+    return 0x1000000;
 }
 
 function ExpansionData(name, offset, data) {
@@ -113,11 +109,11 @@ async function patchSprites() {
     });
     
     exp.addToRom("C");
-    Object.keys(FR_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", FR_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
+    Object.keys(E_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("C", E_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
     });
-    Object.keys(FR_1_0_BOY_WALK_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", FR_1_0_BOY_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_boy_" + k);
+    Object.keys(E_1_0_BOY_WALK_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("C", E_1_0_BOY_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_boy_" + k);
     });
 
     exp.addToRom("E");
@@ -152,11 +148,11 @@ async function patchSprites() {
 
     // CRYSTAL
     for (i = 0; i < palletData.length; i++) {
-        let index = C_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+        let index = E_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(index, palletData[i]);
     }
     for (i = 0; i < palletData.length; i++) {
-        let index = C_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+        let index = E_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(index, palletData[i]);
     }
     IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);

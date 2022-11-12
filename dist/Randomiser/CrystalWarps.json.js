@@ -1,454 +1,492 @@
 var CRYSTAL_WARPS = 
 {
 /* NEW BARK - EXT */
-    "C,3,0,0" : {
+    "C,0,9,3" : {
         "name": "NEW BARK TOWN - OUTSIDE - Left - 3,C",
         "level" : "1",
-        "to" : "C,5,26,0",
+        "to" : "C,1,3,0",
         "connections": {
-            "C,3,0,1": true
+            "C,0,9,1": true
         }
     },
-    "C,3,0,1" : {
+    "C,0,9,1" : {
         // Player House
         "name": "NEW BARK TOWN - OUTSIDE - Player House - E,6",
         "level" : "1",
-        "to" : "C,4,0,0",
+        "to" : "C,1,0,0",
         "connections": {
-            "C,3,0,0": true,
-            "C,3,0,2": true,
-            "C,3,0,3": true,
-            "C,3,65,2": true,
-            "C,3,45,0": true,
+            "C,0,9,0": true,
+            "C,0,9,2": true,
+            "C,0,9,3": true,
+            "C,0,16,0": true,
+            "C,0,10,2": true,
         }
     },
-    "C,3,0,2" : {
+    "C,0,9,2" : {
         // ELM LAB
         "name": "NEW BARK TOWN - OUTSIDE - Elms Lab - 7,4",
         "level" : "1",
-        "to" : "C,4,3,2",
+        "to" : "C,1,4,0",
         "connections": {
-            "C,3,0,1": true
+            "C,0,9,1": true
         }
     },
-    "C,3,0,3" : {
+    "C,0,9,3" : {
         "name": "NEW BARK TOWN - OUTSIDE - Right (Elms house) - C,D",
         "level" : "1",
-        "to" : "C,5,27,0",
+        "to" : "C,1,3,0",
         "connections": {
-            "C,3,0,1": true
+            "C,0,9,1": true
         }
     },
 /* NEW BARK - INT */
-    "C,5,26,0" : {
+    "C,1,3,0" : {
         "name": "NEW BARK TOWN - INSIDE - Left - 4,8",
         "level" : "1",
-        "to" : "C,3,0,0",
+        "to" : "C,0,9,3",
     },
-    "C,4,0,0" : {
+    "C,1,0,0" : {
         // Player house
         "name": "NEW BARK TOWN - INSIDE - Player House - 9,8",
         "level" : "1",
-        "to" : "C,3,0,1",
+        "to" : "C,0,9,1",
         "connections": {
-            "C,4,0,1": true
+            "C,1,0,1": true
         }
     },
-    "C,4,0,1" : {
+    "C,1,0,1" : {
         // Player house
         "name": "NEW BARK TOWN - INSIDE - Player House (stairs) - A,2",
         "level" : "1",
-        "to" : "C,4,1,0",
+        "to" : "C,1,1,0",
         "connections": {
-            "C,4,0,0": true
+            "C,1,0,0": true
         }
     },
-    "C,4,1,0" : {
+    "C,1,1,0" : {
         // Player room
         "name": "NEW BARK TOWN - INSIDE - Player Room - 9,2",
         "level" : "1",
-        "to" : "C,4,0,1"
+        "to" : "C,1,0,1"
     },
-    "C,4,3,2" : {
+    "C,1,4,0" : {
         "name": "NEW BARK TOWN - INSIDE - Elm Lab - E,14",
         "level" : "1",
-        "to" : "C,3,0,2"
+        "to" : "C,0,9,2"
     },
-    "C,5,27,0" : {
+    "C,1,2,0" : {
         "name": "NEW BARK TOWN - INSIDE - Right (Elm House) - 4,8",
         "level" : "1",
-        "to" : "C,3,0,3"
+        "to" : "C,0,9,0"
     },
 /* CHERRY GROVE - EXT */
-    "C,3,65,0" : {
+    "C,0,10,3" : {
         // MART
         "name": "CHERRYGROVE CITY - OUTSIDE - Mart - 1C,5",
         "level" : "1",
-        "to" : "C,6,3,1",
+        "to" : "C,2,4,0",
         "connections": {
-            "C,3,65,2": true
+            "C,0,10,2": true
         }
     },
-    "C,3,65,1" : {
+    "C,0,10,0" : {
         "name": "CHERRYGROVE CITY - OUTSIDE - Left - 16,A",
         "level" : "1",
-        "to" : "C,2,100,0",
+        "to" : "C,2,0,0",
         "connections": {
-            "C,3,65,2": true
+            "C,0,10,2": true
         }
     },
-    "C,3,65,2" : {
+    "C,0,10,2" : {
         // PK
         "name": "CHERRYGROVE CITY - OUTSIDE - PkCentre - 22,5",
         "level" : "1",
-        "to" : "C,33,2,0",
+        "to" : "C,2,2,0",
         "connections": {
-            "C,3,0,1": true,
-            "C,3,65,0": true,
-            "C,3,65,1": true,
-            "C,3,65,3": true,
-            "C,3,65,4": true,
-            "C,3,51,0": true,
-            "C,3,51,1": true,
-            "C,3,45,0": true,
-            "C,3,47,0": true,
-            "C,3,47,1": true
+            "C,0,10,0": true,
+            "C,0,10,1": true,
+            "C,0,10,3": true,
+            "C,0,10,4": true,
+            "C,0,16,0": true,
+            "C,0,9,1": true,
+            "C,0,17,0": true,
+            "C,0,17,1": true,
         }
     },
-    "C,3,65,3" : {
+    "C,0,10,1" : {
         "name": "CHERRYGROVE CITY - OUTSIDE - Center (Guide House) - 1E,B",
         "level" : "1",
-        "to" : "C,4,91,0",
+        "to" : "C,2,1,0",
         "connections": {
-            "C,3,65,2": true
+            "C,0,10,2": true
         }
     },
-    "C,3,65,4" : {
+    "C,0,10,4" : {
         "name": "CHERRYGROVE CITY - OUTSIDE - Right - 24,D",
         "level" : "1",
-        "to" : "C,33,1,0",
+        "to" : "C,2,5,0",
         "connections": {
-            "C,3,65,2": true
+            "C,0,10,2": true
         }
     },
 /* CHERRY GROVE - INT */
-    "C,6,3,1" : {
+    "C,2,4,0" : {
         // MART
         "name": "CHERRYGROVE CITY - INSIDE - Mart - 4,7",
         "level" : "1",
-        "to" : "C,3,65,0"
+        "to" : "C,0,10,3"
     },
-    "C,2,100,0" : {
+    "C,2,0,0" : {
         "name": "CHERRYGROVE CITY - INSIDE - Left - 4,8",
         "level" : "1",
-        "to" : "C,3,65,1"
+        "to" : "C,0,10,0"
     },
-    "C,33,2,0" : {
+    "C,2,2,0" : {
         // PK
         "name": "CHERRYGROVE CITY - INSIDE - PkCentre - 7,8",
         "level" : "1",
-        "to" : "C,3,65,2"
+        "to" : "C,0,10,2",
+        "connections": {
+            "C,2,2,2": true
+        }
     },
-    "C,4,91,0" : {
+    "C,2,2,2" : {
+        // PK
+        "name": "CHERRYGROVE CITY - INSIDE - Stairs - 1,6",
+        "level" : "1",
+        "to" : "C,2,3,0",
+        "connections": {
+            "C,2,2,0": true
+        }
+    },
+    "C,2,1,0" : {
         "name": "CHERRYGROVE CITY - INSIDE - Centre (Guide House) - 4,8",
         "level" : "1",
-        "to" : "C,3,65,3"
+        "to" : "C,0,10,1"
     },
-    "C,33,1,0" : {
+    "C,2,5,0" : {
         "name": "CHERRYGROVE CITY - INSIDE - Right - 4,8",
         "level" : "1",
-        "to" : "C,3,65,4"
+        "to" : "C,0,10,4"
     },
 /* VIOLET CITY - EXT */
-    "C,3,14,0" : {
+    "C,0,0,0" : {
         // Rourt connector
         "name": "VIOLET CITY - OUTSIDE - Right Route Connector - 29,1A",
         "level" : "1",
-        "to" : "C,5,2,1",
+        "to" : "C,8,7,0",
         "connections" : {
-            "C,3,14,5": true
+            "C,0,0,3": true
         }
     },
-    "C,3,14,1" : {
+    "C,0,0,6" : {
         "name": "VIOLET CITY - OUTSIDE - Academy - 1F,13",
         "level" : "1",
-        "to" : "C,35,4,1",
+        "to" : "C,17,1,0",
         "connections" : {
-            "C,3,14,5": true
+            "C,0,0,3": true
         }
     },
-    "C,3,14,2" : {
+    "C,0,0,4" : {
         "name": "VIOLET CITY - OUTSIDE - Left House - 5,11",
         "level" : "1",
-        "to" : "C,5,21,0",
+        "to" : "C,8,3,0",
         "connections" : {
-            "C,3,14,5": true
+            "C,0,0,3": true
         }
     },
-    "C,3,14,3" : {
+    "C,0,0,5" : {
         // MART
         "name": "VIOLET CITY - OUTSIDE - Mart - B,13",
         "level" : "1",
-        "to" : "C,34,3,0",
+        "to" : "C,8,6,0",
         "connections" : {
-            "C,3,14,5": true
+            "C,0,0,3": true
         }
     },
-    "C,3,14,4" : {
+    "C,0,0,2" : {
         // GYM
         "name": "VIOLET CITY - OUTSIDE - Gym - 14,13",
         "level" : "1",
-        "to" : "C,34,0,0",
+        "to" : "C,8,1,0",
         "connections" : {
-            "C,3,14,5": true,
+            "C,0,0,3": true,
         }
     },
-    "C,3,14,5" : {
+    "C,0,0,3" : {
         // PK
         "name": "VIOLET CITY - OUTSIDE - PkCenter - 21,1B",
         "level" : "1",
-        "to" : "C,36,0,0",
+        "to" : "C,8,4,0",
         "connections" : {
-            "C,3,14,0": true,
-            "C,3,14,1": true,
-            "C,3,14,2": true,
-            "C,3,14,3": true,
-            "C,3,14,4": true,
-            "C,3,14,6": true,
-            "C,3,14,7": true
+            "C,0,0,0": true,
+            "C,0,0,1": true,
+            "C,0,0,2": true,
+            "C,0,0,4": true,
+            "C,0,0,5": true,
+            "C,0,0,6": true,
+            "C,0,0,7": true,
+            "C,0,19,0": true,
+            "C,0,23,0": true,
         }
     },
-    "C,3,14,6" : {
+    "C,0,0,1" : {
         "name": "VIOLET CITY - OUTSIDE - Bottom Right House (Onix, Belsprout Trade) - 17,1F",
         "level" : "1",
-        "to" : "C,5,20,0",
+        "to" : "C,8,2,0",
         "connections" : {
-            "C,3,14,5": true
+            "C,0,0,3": true
         }
     },
-    "C,3,14,7" : {
+    "C,0,0,7" : {
         // SPROUT TOWER
         "name": "VIOLET CITY - OUTSIDE - Sprout Tower - 19,7",
         "level" : "1",
-        "to" : "C,2,99,0",
+        "to" : "C,24,23,0",
         "connections" : {
-            "C,3,14,5": true,
+            "C,0,0,3": true,
         }
     },
 /* VIOLET CITY - INT */
-    "C,5,2,0" : {
-        // Route connector left
-        "name": "VIOLET CITY - INSIDE - Left Route Connector (Left side) - B,5",
-        "level" : "1",
-        "to" : "C,3,51,1",
-        "connections" : {
-            "C,5,2,1": true
-        }
-    },
-    "C,5,2,1" : {
-        // Route connector right
-        "name": "VIOLET CITY - INSIDE - Left Route Connector (Right side) - 1,5",
-        "level" : "1",
-        "to" : "C,3,14,0",
-        "connections" : {
-            "C,5,2,0": true
-        }
-    },
-    "C,35,4,1" : {
+    "C,17,1,0" : {
         // School
         "name": "VIOLET CITY - INSIDE - Academy - 4,11",
         "level" : "1",
-        "to" : "C,3,14,1"
+        "to" : "C,0,0,6"
     },
-    "C,5,21,0" : {
+    "C,8,3,0" : {
         "name": "VIOLET CITY - INSIDE - Left House - 4,9",
         "level" : "1",
-        "to" : "C,3,14,2"
+        "to" : "C,0,0,4"
     },
-    "C,34,3,0" : {
+    "C,8,6,0" : {
         // MART
         "name": "VIOLET CITY - INSIDE - Mart - 4,7",
         "level" : "1",
-        "to" : "C,3,14,3"
+        "to" : "C,0,0,5"
     },
-    "C,34,0,0" : {
+    "C,8,1,0" : {
         //GYM
         "name": "VIOLET CITY - INSIDE - Gym - 6,13",
         "level" : "1",
-        "to" : "C,3,14,4"
+        "to" : "C,0,0,2"
     },
-    "C,36,0,0" : {
+    "C,8,4,0" : {
         // PK
         "name": "VIOLET CITY - INSIDE - PkCenter - 7,8",
         "level" : "1",
-        "to" : "C,3,14,5"
+        "to" : "C,0,0,3",
+        "connections" : {
+            "C,8,4,2": true,
+        }
     },
-    "C,5,20,0" : {
+    "C,8,4,2" : {
+        // PK
+        "name": "VIOLET CITY - INSIDE - PkCenter Stairs - 1,6",
+        "level" : "1",
+        "to" : "C,8,5,0",
+        "connections" : {
+            "C,8,4,0": true,
+        }
+    },
+    "C,8,2,0" : {
         "name": "VIOLET CITY - INSIDE - Bottom Right House (Onix, Belsprout Trade) - 4,9",
         "level" : "1",
-        "to" : "C,3,14,6"
+        "to" : "C,0,0,1"
     },
     // SPROUT TOWER
     //F1
-    "C,2,99,0" : {
+    "C,24,23,0" : {
         "name": "SPROUT TOWER - INSIDE - F1 Enterance - 9,E",
         "level" : "1",
-        "to" : "C,3,14,7",
+        "to" : "C,0,0,7",
         "connections" : {
-            "C,2,99,2": true
+            "C,24,23,1": true
         }
     },
-    "C,2,99,1" : {
+    "C,24,23,3" : {
         "name": "SPROUT TOWER - INSIDE - F1 Left Stairs - 1,5",
         "level" : "1",
-        "to" : "C,2,12,1",
+        "to" : "C,24,24,2",
         "connections" : {
-            "C,2,99,3": true
+            "C,24,23,2": true
         }
     },
-    "C,2,99,2" : {
+    "C,24,23,1" : {
         "name": "SPROUT TOWER - INSIDE - F1 Centre Stairs - 5,4",
         "level" : "1",
-        "to" : "C,2,12,2",
+        "to" : "C,24,24,0",
         "connections" : {
-            "C,2,99,0": true
+            "C,24,23,0": true
         }
     },
-    "C,2,99,3" : {
+    "C,24,23,2" : {
         "name": "SPROUT TOWER - INSIDE - F1 Right Stairs - 11,3",
         "level" : "1",
-        "to" : "C,2,12,3",
+        "to" : "C,24,24,1",
         "connections" : {
-            "C,2,99,1": true
+            "C,24,23,3": true
         }
     },
     // F2
-    "C,2,12,0" : {
+    "C,24,24,3" : {
         "name": "SPROUT TOWER - INSIDE - F2 Bottom Stairs - 9,D",
         "level" : "1",
-        "to" : "C,2,13,0",
+        "to" : "C,24,25,0",
         "connections" : {
-            "C,2,12,1": true
+            "C,24,24,2": true
         }
     },
-    "C,2,12,1" : {
+    "C,24,24,2" : {
         "name": "SPROUT TOWER - INSIDE - F2 Left Stairs - 1,5",
         "level" : "1",
-        "to" : "C,2,99,1",
+        "to" : "C,24,23,3",
         "connections" : {
-            "C,2,12,0": true
+            "C,24,24,3": true
         }
     },
-    "C,2,12,2" : {
+    "C,24,24,0" : {
         "name": "SPROUT TOWER - INSIDE - F2 Centre Stairs - 5,3",
         "level" : "1",
-        "to" : "C,2,99,2",
+        "to" : "C,24,23,1",
         "connections" : {
-            "C,2,12,3": true
+            "C,24,24,1": true
         }
     },
-    "C,2,12,3" : {
+    "C,24,24,1" : {
         "name": "SPROUT TOWER - INSIDE - F2 Right Stairs - 11,3",
         "level" : "1",
-        "to" : "C,2,99,3",
+        "to" : "C,24,3,2",
         "connections" : {
-            "C,2,12,2": true
+            "C,24,24,0": true
         }
     },
     // F3
-    "C,2,13,0" : {
+    "C,24,25,0" : {
         "name": "SPROUT TOWER - INSIDE - F3 - A,E",
         "level" : "1",
-        "to" : "C,2,12,0"
+        "to" : "C,24,24,3"
     },
 /* ROUTE 29 - EXT */
-    "C,3,45,0" : {
+    "C,0,16,0" : {
         "name": "ROUTE 29 - OUTSIDE - Route Connector - 1B,3",
         "level" : "1",
-        "to" : "C,4,2,1",
+        "to" : "C,1,5,1",
+        "grouped" : ["C,0,16,1"],
+        "groupMain" : true,
         "connections": {
-            "C,3,0,1": true,
-            "C,3,65,2": true,
+            "C,0,9,1": true,
+            "C,0,10,2": true,
         }
+    },
+    "C,0,16,1" : {
+        "name": "ROUTE 29 - OUTSIDE - Route Connector - 1C,3",
+        "level" : "1",
+        "to" : "C,1,5,1",
+        "grouped" : ["C,0,16,0"],
     },
 /* ROUTE 29 - INT */ 
-    "C,4,2,0" : {
+    "C,1,5,0" : {
         "name": "ROUTE 29 - INSIDE - Route Connector (top) - 7,1",
         "level" : "1",
-        "to" : "C,3,46,0",
+        "to" : "C,0,33,1",
         "connections" : {
-            "C,4,2,1": true
+            "C,1,5,1": true
         }
     },
-    "C,4,2,1" : {
+    "C,1,5,1" : {
         "name": "ROUTE 29 - INSIDE - Route Connector (bottom) - 7,9",
         "level" : "1",
-        "to" : "C,3,45,0",
+        "to" : "C,0,16,0",
         "connections" : {
-            "C,4,2,0": true
+            "C,1,5,0": true
         }
     },
 /* ROUTE 46 - EXT */
-    "C,3,46,0" : {
+    "C,0,33,1" : {
         "name": "ROUTE 46 - OUTSIDE - Route Connector - 9,22",
         "level" : "1",
-        "to" : "C,4,2,0",
-        "grouped": ["C,3,46,2"],
+        "to" : "C,1,5,0",
+        "grouped": ["C,0,33,2"],
         "groupMain" : true
     },
-    "C,3,46,2" : {
+    "C,0,33,2" : {
         "name": "ROUTE 46 - OUTSIDE - Route Connector - A,22",
         "level" : "1",
-        "to" : "C,4,2,0",
-        "grouped": ["C,3,46,0"]
+        "to" : "C,1,5,0",
+        "grouped": ["C,0,33,1"]
     },
-    "C,3,46,1" : {
+    "C,3,33,0" : {
         "name": "ROUTE 46 - OUTSIDE - Dark Cave Enterance - 10,7",
-        "to" : "C,4,2,0"
-    },
-/* ROUTE 30 - EXT */
-    "C,3,47,0" : {
-        "name": "ROUTE 30 - OUTSIDE - Mr Pokemons House - 11,5",
-        "level" : "1",
-        "to" : "C,5,0,0",
-        "connections": {
-            "C,3,65,2": true
+        "to" : "C,24,7,1",
+        "connections" : {
+            "C,0,33,1": true
         }
     },
-    "C,3,47,1" : {
+/* ROUTE 30 - EXT */
+    "C,0,17,1" : {
+        "name": "ROUTE 30 - OUTSIDE - Mr Pokemons House - 11,5",
+        "level" : "1",
+        "to" : "C,2,6,0",
+        "connections": {
+            "C,0,17,0": true,
+            "C,0,10,2": true
+        }
+    },
+    "C,0,17,0" : {
         "name": "ROUTE 30 - OUTSIDE - Berry Guy's House - 7,27",
         "level" : "1",
-        "to" : "C,34,12,0",
+        "to" : "C,4,7,0",
         "connections": {
-            "C,3,65,2": true
+            "C,0,10,2": true,
+            "C,0,17,1": true
         }
     },
 /* ROUTE 30 - INT */
-    "C,5,0,0" : {
+    "C,2,6,0" : {
         "name": "ROUTE 30 - INSIDE - Mr Pokemons House - 5,7",
         "level" : "1",
-        "to" : "C,3,47,0"
+        "to" : "C,0,17,1"
     },
-    "C,34,12,0" : {
+    "C,4,7,0" : {
         "name": "ROUTE 30 - INSIDE - Berry Guy's Hose - 4,8",
         "level" : "1",
-        "to" : "C,3,47,1"
+        "to" : "C,0,17,0"
     },
 /* ROUTE 31 - EXT */
-    "C,3,51,0" : {
+    "C,0,18,0" : {
         "name": "ROUTE 31 - OUTSIDE - Dark Cave - 22,7",
         "level" : "1",
-        "to" : "C,1,1,3",
+        "to" : "C,24,7,0",
         "connections": {
-            "C,3,65,2": true
+            "C,0,18,1": true
         }
     },
-    "C,3,51,1" : {
+    "C,0,18,1" : {
         "name": "ROUTE 31 - OUTSIDE - Route Connector - 4,8",
         "level" : "1",
-        "to" : "C,5,2,0",
+        "to" : "C,8,7,1",
         "connections": {
-            "C,3,65,2": true
+            "C,0,18,0": true
+        }
+    },
+/* ROUTE 31 - INT */
+    "C,8,7,0" : {
+        // Route connector left
+        "name": "VIOLET CITY - INSIDE - Left Route Connector (Left side) - B,5",
+        "level" : "1",
+        "to" : "C,0,0,0",
+        "connections" : {
+            "C,8,7,1": true
+        }
+    },
+    "C,8,7,1" : {
+        // Route connector right
+        "name": "VIOLET CITY - INSIDE - Left Route Connector (Right side) - 1,5",
+        "level" : "1",
+        "to" : "C,0,18,1",
+        "connections" : {
+            "C,8,7,0": true
         }
     },
 /* Dark Cave */
@@ -460,304 +498,298 @@ var CRYSTAL_WARPS =
         "name": "ROUTE 31 - INSIDE - Dark Cave (further into cave) - 15,6",
         "to" : "C,1,3,0"
     },
-    "C,1,1,3" : {
+    "C,24,7,0" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave (Route 31 exit) - 7,14",
         "level" : "1",
-        "to" : "C,3,51,0"
+        "to" : "C,0,18,0"
     },
 /* ROUTE 36 - EXT */
-    "C,3,92,0" : {
+    "C,0,23,0" : {
         "name": "ROUTE 36 - OUTSIDE - Route Connector Right - 2E,D",
         "level" : "1",
-        "to" : "C,17,1,1",
-        "grouped": ["C,3,92,2"],
+        "to" : "C,24,74,0",
+        "grouped": ["C,0,23,1"],
         "groupMain" : true,
         "connections": {
-            "C,3,14,5": true
+            "C,0,0,3": true
         }
     },
-    "C,3,92,2" : {
+    "C,0,23,1" : {
         "name": "ROUTE 36 - OUTSIDE - Route Connector Right - 2D,D",
         "level" : "1",
-        "to" : "C,17,1,1",
-        "grouped": ["C,3,92,0"]
+        "to" : "C,24,74,0",
+        "grouped": ["C,0,23,0"]
     },
-    "C,3,92,1" : {
+    "C,0,23,2" : {
         "name": "ROUTE 36 - OUTSIDE - Route Connector Right - 10,8",
-        "to" : "C,1,118,2",
+        "to" : "C,24,96,1",
     },
 /* ROUTE 36 - INT */
-    "C,17,1,2" : {
+    "C,24,74,0" : {
         "name": "ROUTE 36 - INSIDE - Route Connector Bottom - 7,9",
-        "to" : "C,2,14,1",
+        "to" : "C,0,23,0",
         "level" : "1",
         "connections": {
-            "C,17,1,1": true
+            "C,24,74,1": true
         }
     },
-    "C,17,1,1" : {
+    "C,24,74,1" : {
         "name": "ROUTE 36 - INSIDE - Route Connector Top - 7,1",
-        "to" : "C,3,92,0",
+        "to" : "C,24,86,0",
         "level" : "1",
         "connections": {
-            "C,17,1,2": true
+            "C,24,74,0": true
         }
     },       
 /* RUINS OF ALPH - EXT */
-    "C,2,14,0" : {
+    "C,24,86,8" : {
         "name": "RUINS OF ALPH - OUTSIDE - Bottom Left (omanite) - 3,1D",
-        "to" : "C,1,52,0",
+        "to" : "C,24,84,0",
         "connections": {
-            "C,2,14,8": true
+            "C,24,86,9": true
         }
     },
-    "C,2,14,1" : {
+    "C,24,86,0" : {
         "name": "RUINS OF ALPH - OUTSIDE - Top Route Connector - 7,5",
-        "to" : "C,17,1,2",
+        "to" : "C,24,74,1",
         "level" : "1",
         "connections": {
-            "C,2,14,3": true,
+            "C,24,86,2": true,
         }   
     },
-    "C,2,14,2" : {
+    "C,24,86,1" : {
         "name": "RUINS OF ALPH - OUTSIDE - Right Route Connector - D,14",
-        "to" : "C,39,0,0",
+        "to" : "C,17,0,0",
         "level" : "1",
         "connections": {
-            "C,2,14,3": true,
+            "C,24,86,2": true,
         }   
     },  
-    "C,2,14,3" : {
+    "C,24,86,2" : {
         "name": "RUINS OF ALPH - OUTSIDE - Lab - 11,B",
-        "to" : "C,2,16,0",
+        "to" : "C,24,75,0",
         "level" : "1",
         "connections": {
-            "C,2,14,5": true,
-            "C,2,14,4": true,
-            "C,2,14,2": true,
-            "C,2,14,1": true,
+            "C,24,86,1": true,
+            "C,24,86,4": true,
+            "C,24,86,3": true,
+            "C,24,86,0": true,
         }   
     },
-    "C,2,14,4" : {
+    "C,24,86,4" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave left of lab - B,D",
-        "to" : "C,2,17,0", //C,4,29,0
+        "to" : "C,24,87,0",
         "level" : "1",
         "connections": {
-            "C,2,14,3": true,
+            "C,24,86,2": true,
         }   
     },
-    "C,2,14,5" : {
+    "C,24,86,3" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Above Lab (kabuto) - E,7",
-        "to" : "C,2,15,0",
+        "to" : "C,24,88,0",
         "level" : "1",
         "connections": {
-            "C,2,14,3": true,
+            "C,24,86,2": true,
         }   
     },
-    "C,2,14,6" : {
+    "C,24,86,6" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave center left (hoho) - 2,11",
-        "to" : "C,2,52,0",
+        "to" : "C,24,85,0",
         "connections": {
-            "C,2,14,9": true
+            "C,24,86,5": true
         }
     },
-    "C,2,14,7" : {
+    "C,24,86,7" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Bottom Center - 6,1B",
-        "to" : "C,2,19,3",
+        "to" : "C,24,12,1",
         "connections": {
-            "C,2,14,8": true,
-            "C,2,14,0": true
+            "C,24,86,8": true,
+            "C,24,86,9": true,
         }
     },
-    "C,2,14,8" : {
+    "C,24,86,9" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Bottom Right (aradactyle) - 10,21",
-        "to" : "C,2,51,0"
+        "to" : "C,24,93,0"
     },
-    "C,2,14,9" : {
+    "C,24,86,5" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Center Center - 6,13",
-        "to" : "C,2,19,1"
+        "to" : "C,24,12,0"
     },
 /* RUINS OF ALPH - INT */
-    "C,2,15,0" : {
-        "name": "RUINS OF ALPH - INSIDE - Kabuto Puzzle Enterance - 4,9",
-        "to" : "C,2,14,5",
+    // Top Cave
+    "C,24,88,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Room Enterance - 4,9",
+        "to" : "C,24,86,3",
         "level" : "1",
         "connections": {
-            "C,2,15,1": true,
+            "C,24,88,1": true,
+            "C,24,88,2": true,
         }   
     },
-    "C,2,15,1" : {
-        "name": "RUINS OF ALPH - INSIDE - Kabuto Puzzle Solved - 4,4",
-        "to" : "C,4,29,1",
+    "C,24,88,1" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Back Room - 4,1",
+        "to" : "C,24,89,0",
         "level" : "1",
-        "grouped": ["C,2,15,2"],
-        "groupMain": true,   
         "connections": {
-            "C,2,15,0": true,
-        }
+            "C,24,88,2": true,
+            "C,24,88,0": true,
+        }   
     },
-    "C,2,15,2" : {
-        "name": "RUINS OF ALPH - INSIDE - Kabuto Puzzle Solved - 5,4",
-        "to" : "C,4,29,1",
+    "C,24,88,2" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 3,4",
+        "to" : "C,24,87,1",
         "level" : "1",
-        "grouped": ["C,2,15,1"]
+        "grouped": ["C,24,88,3", "C,24,88,4"],
+        "groupMain" : true,
+        "connections": {
+            "C,24,88,1": true,
+            "C,24,88,0": true,
+        }   
     },
-    "C,2,16,0" : {
-        "name": "RUINS OF ALPH - INSIDE - LAB - 2,7",
-        "to" : "C,2,14,3",
-        "level" : "1"
-    },
-    "C,4,29,0" : {
-        "name": "RUINS OF ALPH - INSIDE - Unknown Cave Ladder - A,10",
-        "to" : "C,2,14,4",
-        "groupMain": true,   
-        "level" : "1"
-    },
-    "C,2,17,0" : {
-        "name": "RUINS OF ALPH - INSIDE - Unknown Cave Ladder - A,10",
-        "to" : "C,2,14,4",
+    "C,24,88,3" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 4,4",
+        "to" : "C,24,87,1",
         "level" : "1",
-        "grouped": ["C,4,29,0"]
+        "grouped": ["C,24,88,2", "C,24,88,4"],
     },
-    // "C,4,29,1": {
-    //     "name": "RUINS OF ALPH - INSIDE - Kabuto Puzzle Drop - 10,4",
-    //     "level" : "1",
-    //     "connections": {
-    //         "C,4,29,0": true,
-    //     }
-    // },
-    // "C,4,29,3": {
-    //     "name": "RUINS OF ALPH - INSIDE - Omonite Puzzle Drop - 3,16",
-    //     "level" : "1",
-    //     "connections": {
-    //         "C,4,29,0": true,
-    //     }
-    // },
-    // "C,4,29,2": {
-    //     "name": "RUINS OF ALPH - INSIDE - Hoho Puzzle Drop - 3,16",
-    //     "level" : "1",
-    //     "connections": {
-    //         "C,4,29,0": true,
-    //     }
-    // },
-    // "C,4,29,4": {
-    //     "name": "RUINS OF ALPH - INSIDE - Aradactyle Puzzle Drop - 10,1C",
-    //     "level" : "1",
-    //     "connections": {
-    //         "C,4,29,0": true,
-    //     }
-    // }, 
-    "C,2,52,0" : {
-        "name": "RUINS OF ALPH - INSIDE - Hoho Puzzle Enterance - 4,9",
-        "to" : "C,2,14,6",
+    "C,24,88,4" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 5,4",
+        "to" : "C,24,87,2",
+        "level" : "1",
+        "grouped": ["C,24,88,2", "C,24,88,3"],
+    },
+    // Lab
+    "C,24,75,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Lab - 2,8",
+        "to" : "C,24,86,2",
+        "level" : "1",
+    },
+    // Unknown Cave
+    "C,24,87,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Ladder - A,C",
+        "to" : "C,24,86,4",
+        "level" : "1",
+    },
+    "C,24,87,1" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Top Drop - F,4",
+        "to" : "C,X,X,1",
+        "level" : "1",
+        "grouped": ["C,24,87,2"],
+        "groupMain" : true,
         "connections": {
-            "C,2,52,1": true,
+            "C,24,87,0": true,
         }   
     },
-    "C,2,52,1" : {
-        "name": "RUINS OF ALPH - INSIDE - Hoho Puzzle Solved - 4,4",
-        "to" : "C,4,29,2",
-        "grouped": ["C,2,52,2"],
-        "groupMain": true,   
-        "connections": {
-            "C,2,52,0": true,
-        }
+    "C,24,87,2" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Top Drop - 10,4",
+        "to" : "C,X,X,1",
+        "level" : "1",
+        "grouped": ["C,24,87,1"],
     },
-    "C,2,52,2" : {
-        "name": "RUINS OF ALPH - INSIDE - Hoho Puzzle Solved - 5,4",
-        "to" : "C,4,29,2",
-        "grouped": ["C,2,52,1"]
-    },
-    "C,1,52,0" : {
-        "name": "RUINS OF ALPH - INSIDE - Omonite Puzzle Enterance - 4,9",
-        "to" : "C,2,14,0",
+    "C,24,87,3" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Center Left Drop - 3,10",
+        "to" : "C,X,X,2",
+        "grouped": ["C,24,87,4"],
+        "groupMain" : true,
         "connections": {
-            "C,2,52,1": true,
+            "C,24,87,0": true,
         }   
     },
-    "C,1,52,1" : {
-        "name": "RUINS OF ALPH - INSIDE - Omonite Puzzle Solved - 4,4",
-        "to" : "C,4,29,4",
-        "grouped": ["C,1,52,2"],
-        "groupMain": true,   
-        "connections": {
-            "C,1,52,0": true,
-        }
+    "C,24,87,4" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Center Left Drop - 4,10",
+        "to" : "C,X,X,2",
+        "grouped": ["C,24,87,3"],
     },
-    "C,1,52,2" : {
-        "name": "RUINS OF ALPH - INSIDE - Omonite Puzzle Solved - 5,4",
-        "to" : "C,4,29,4",
-        "grouped": ["C,1,52,1"]
-    },
-    "C,2,51,0" : {
-        "name": "RUINS OF ALPH - INSIDE - Aradactyle Puzzle Enterance - 4,9",
-        "to" : "C,2,14,8",
+    "C,24,87,5" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Right Drop - F,18",
+        "to" : "C,X,X,3",
+        "grouped": ["C,24,87,6"],
+        "groupMain" : true,
         "connections": {
-            "C,2,51,1": true,
+            "C,24,87,0": true,
         }   
     },
-    "C,2,51,1" : {
-        "name": "RUINS OF ALPH - INSIDE - Aradactyle Puzzle Solved - 4,4",
-        "to" : "C,4,29,4",
-        "grouped": ["C,2,51,2"],
-        "groupMain": true,   
+    "C,24,87,6" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Right Drop - 10,18",
+        "to" : "C,X,X,3",
+        "grouped": ["C,24,87,5"],
+    },
+    "C,24,87,7" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 3,16",
+        "to" : "C,X,X,4",
+        "grouped": ["C,24,87,8"],
+        "groupMain" : true,
         "connections": {
-            "C,2,51,0": true,
-        }
+            "C,24,87,0": true,
+        }   
     },
-    "C,2,51,2" : {
-        "name": "RUINS OF ALPH - INSIDE - Aradactyle Puzzle Solved - 5,4",
-        "to" : "C,4,29,4",
-        "grouped": ["C,2,51,1"]
+    "C,24,87,8" : {
+        "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 4,16",
+        "to" : "C,X,X,4",
+        "grouped": ["C,24,87,7"],
     },
+    // Left Center Cave
+    // Left Bottom Cave
+    // Bottom Right Cave
+    // Hidden Rooms
 /* ROUTE 32 - EXT */
-    "C,3,49,0" : {
+    "C,0,19,1" : {
         "name": "ROUTE 32 - OUTSIDE - PkCenter - D,4A",
         "to" : "C,2,90,0",
         "level" : "2",
         "connections": {
-            "C,3,49,1": true,
-            "C,3,49,2": true,
+            "C,0,19,0": true,
+            "C,0,19,2": true,
         }   
     },
-    "C,3,49,1" : {
+    "C,0,19,0" : {
         "name": "ROUTE 32 - OUTSIDE - Route Connector - 8,3",
-        "to" : "C,39,0,2",
+        "to" : "C,17,0,1",
         "level" : "1",
         "connections": {
-            "C,3,14,5": true,
-            "C,3,49,0": false, // Beat first gym
+            "C,0,0,3": true,
         }   
     },
-    "C,3,49,2" : {
+    "C,0,19,2" : {
         "name": "ROUTE 32 - OUTSIDE - Union Cave - 8,50",
-        "to" : "C,2,20,0",
+        "to" : "C,19,1,0",
         "level" : "2",
         "connections": {
-            "C,3,49,1": true
+            "C,0,19,1": true
         }   
     },
 /* ROUTE 32 - INT */
-    "C,39,0,0" : {
+    "C,17,0,0" : {
         "name": "ROUTE 32 - INSIDE - Route Connector Left - 8,C",
         "level" : "1",
-        "to" : "C,2,14,2",
+        "to" : "C,24,86,1",
         "connections": {
-            "C,39,0,2": true,
+            "C,17,0,1": true,
         }
     },
-    "C,39,0,2" : {
+    "C,17,0,1" : {
         "name": "ROUTE 32 - INSIDE - Route Connector Right- 12,C",
         "level" : "1",
-        "to" : "C,3,49,1",
+        "to" : "C,0,19,0",
         "connections": {
-            "C,39,0,1": true,
+            "C,17,0,0": true,
         }
     },
-    "C,2,90,0" : {
+    "C,11,5,0" : {
         "name": "ROUTE 32 - INSIDE - PkCenter - 7,8",
         "level" : "2",
-        "to" : "C,3,49,0"
+        "to" : "C,0,19,1",
+        "connections": {
+            "C,11,5,1": true,
+        }
+    },
+    "C,11,5,1" : {
+        "name": "ROUTE 32 - INSIDE - PkCenter - 1,6",
+        "level" : "2",
+        "to" : "C,24,94,0",
+        "connections": {
+            "C,11,5,0": true,
+        }
     },
 /* UNION CAVE */
 //F1

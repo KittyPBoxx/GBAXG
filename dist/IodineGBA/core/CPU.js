@@ -82,16 +82,21 @@ GameBoyAdvanceCPU.prototype.branch = function (branchTo) {
         this.wait.NonSequentialBroadcastClear();
     }
     else {
+        
+        // using hleBIOS so no need to emulate in code
+        this.registers[15] = branchTo | 0;
+        this.IOCore.flagBubble();
+        this.wait.NonSequentialBroadcastClear();
+
+
         //We're branching into BIOS, handle specially:
-        if ((branchTo | 0) == 0x130) {
-            //IRQ mode exit handling:
-            //ROM IRQ handling returns back from its own subroutine back to BIOS at this address.
-            this.HLEIRQExit();
-        }
-        else {
-            //Reset to start of ROM if no BIOS ROM found:
-            this.HLEReset();
-        }
+        // if ((branchTo | 0) == 0x138) {
+        //     this.HLEIRQExit();
+        // }
+        // else {
+        //     //Reset to start of ROM if no BIOS ROM found:
+        //     this.HLEReset();
+        // }
     }
 }
 GameBoyAdvanceCPU.prototype.triggerIRQ = function (didFire) {
@@ -148,8 +153,11 @@ GameBoyAdvanceCPU.prototype.IRQinARM = function () {
         this.branch(0x18);
     }
     else {
+        // Branch into fake hleBIOS rather than emulating it in code 
+        this.branch(0x18);
+
         //HLE the IRQ entrance:
-        this.HLEIRQEnter();
+        //this.HLEIRQEnter();
     }
     //Deflag IRQ from state:
     this.IOCore.deflagIRQ();
@@ -168,12 +176,17 @@ GameBoyAdvanceCPU.prototype.IRQinTHUMB = function () {
         this.branch(0x18);
     }
     else {
+        // Branch into fake hleBIOS rather than emulating it in code 
+        this.branch(0x18);
+
         //HLE the IRQ entrance:
-        this.HLEIRQEnter();
+        //this.HLEIRQEnter();
     }
     //Deflag IRQ from state:
     this.IOCore.deflagIRQ();
 }
+
+/* UNUSED */
 GameBoyAdvanceCPU.prototype.HLEIRQEnter = function () {
     //Get the base address:
     var currentAddress = this.registers[0xD] | 0;
@@ -193,10 +206,12 @@ GameBoyAdvanceCPU.prototype.HLEIRQEnter = function () {
     this.wait.NonSequentialBroadcast();
     this.registers[0] = 0x4000000;
     //Save link register:
-    this.registers[14] = 0x130;
+    this.registers[14] = 0x138;
     //Skip BIOS ROM processing:
     this.branch(this.read32(0x3FFFFFC) & -0x4);
 }
+
+/* UNUSED */
 GameBoyAdvanceCPU.prototype.HLEIRQExit = function () {
     //Get the base address:
     var currentAddress = this.registers[0xD] | 0;
