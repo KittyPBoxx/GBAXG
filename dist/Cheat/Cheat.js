@@ -177,6 +177,7 @@ GameBoyAdvanceCPU.prototype.read8 = function (address) {
 
 var gameSwitchingWarp = null;
 var reverseNextWarp = false; // Set true when loading a save state that was going through a warp
+var forceNextWarp = null;
 GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) {
 
     let bank = this.read8WithoutIntercept(address);
@@ -191,7 +192,12 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     let pkWarp = null;
     let trigger = romCode + "," + bank + "," + map + "," + warpNo;
 
-    if(reverseNextWarp) {
+    if (forceNextWarp) {
+        let toParts = forceNextWarp.split(",");
+        pkWarp = new PKWarp(trigger, toParts[0], toParts[1], toParts[2], toParts[3], forceNextWarp)
+        reverseNextWarp = false;
+        forceNextWarp = null;
+    } else if(reverseNextWarp && warpList.get(trigger)) {
         let source = warpList.get(trigger).source;
         let toParts = source.split(",");
         pkWarp = new PKWarp(trigger, toParts[0], toParts[1], toParts[2], toParts[3], source)
@@ -304,21 +310,66 @@ GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
 
 // FIRE RED - isSurfing 0x02036e40 (0x33 = on land, 0x11 on water)
 // EMERALD -            0x0203735B
+const FIRE_RED_CURRENT_GROUND_OFFSET = 0x02036e43;
+const EMERALD_CURRENT_GROUND_OFFSET = 0x0203735B;
+const CURRENT_GROUND_LAND = 0x33;
+const CURRENT_GROUND_WATER = 0x11;
+
 const EMERALD_STATE_OFFSET = 0x02037591;
 const FIRE_RED_STATE_OFFSET = 0x02037079;
 function forcePlayerState(state) {
     if (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") { 
         //IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_MOVEMENT_MODE_OFFSET, state);
         IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_STATE_OFFSET, state); 
+        if (state == MOVEMENT_MODE_SURF) {
+            IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_CURRENT_GROUND_OFFSET, CURRENT_GROUND_WATER); 
+        } else {
+            IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
+        }
     } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "C") {
         IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_MOVEMENT_MODE_OFFSET, state);
         IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_STATE_OFFSET, state); 
+        if (state == MOVEMENT_MODE_SURF) {
+            IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_WATER); 
+        } else {
+            IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
+        }
     } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "E") {
         IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_MOVEMENT_MODE_OFFSET, state);
         IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_STATE_OFFSET, state); 
+        if (state == MOVEMENT_MODE_SURF) {
+            IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_WATER); 
+        } else {
+            IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
+        }
     }
 }
 
+function whiteoutTeam() {
+    if (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") { 
+        // Poison First Mon
+        IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_PARTY_OFFSET + 80, 0x08);
+        // Set First Mon HP to 1 
+        IodineGUI.Iodine.IOCore.cpu.write16(FIRE_RED_PARTY_OFFSET + 86, 0x01);
+        // Set other mons fainted
+        IodineGUI.Iodine.IOCore.cpu.write16(FIRE_RED_PARTY_OFFSET + 86 + 100, 0x00);
+        IodineGUI.Iodine.IOCore.cpu.write16(FIRE_RED_PARTY_OFFSET + 86 + 200, 0x00);
+        IodineGUI.Iodine.IOCore.cpu.write16(FIRE_RED_PARTY_OFFSET + 86 + 300, 0x00);
+        IodineGUI.Iodine.IOCore.cpu.write16(FIRE_RED_PARTY_OFFSET + 86 + 400, 0x00);
+        IodineGUI.Iodine.IOCore.cpu.write16(FIRE_RED_PARTY_OFFSET + 86 + 500, 0x00);
+    } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "C" || IodineGUI.Iodine.IOCore.cartridge.romCode === "E") {
+       // Poison First Mon
+       IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_PARTY_OFFSET + 80, 0x08);
+       // Set First Mon HP to 1 
+       IodineGUI.Iodine.IOCore.cpu.write16(EMERALD_PARTY_OFFSET + 86, 0x01);
+       // Set other mons fainted
+       IodineGUI.Iodine.IOCore.cpu.write16(EMERALD_PARTY_OFFSET + 86 + 100, 0x00);
+       IodineGUI.Iodine.IOCore.cpu.write16(EMERALD_PARTY_OFFSET + 86 + 200, 0x00);
+       IodineGUI.Iodine.IOCore.cpu.write16(EMERALD_PARTY_OFFSET + 86 + 300, 0x00);
+       IodineGUI.Iodine.IOCore.cpu.write16(EMERALD_PARTY_OFFSET + 86 + 400, 0x00);
+       IodineGUI.Iodine.IOCore.cpu.write16(EMERALD_PARTY_OFFSET + 86 + 500, 0x00);
+    }
+}
 
 /******************/
 /* Data Addresses */

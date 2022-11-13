@@ -248,7 +248,6 @@ function registerGUIEvents() {
         elmnt.classList.contains("hide") ? elmnt.classList.remove("hide") : elmnt.classList.add("hide");
     });
 
-
     addEvent("click", document.getElementById("addToBag"), () => {
         let itemName = document.getElementById("autocomplete-items").value;
         let quant = document.getElementById("item-quantity-input").value;
@@ -268,24 +267,8 @@ function registerGUIEvents() {
         bag.writeData(IodineGUI.Iodine.IOCore.cartridge.romCode);
     });
 
-    addEvent("click", document.getElementById("item-quantity-input-inc"), () => {
-        let elmnt = document.getElementById("item-quantity-input");
-        let max = elmnt.getAttribute("max");
-        let value = elmnt.getAttribute("value");
-        let newValue = Math.min(+value + 1, max);
-        elmnt.setAttribute("value", newValue)
-        elmnt.value = newValue;
-    });
-
-    addEvent("click", document.getElementById("item-quantity-input-dec"), () => {
-        let elmnt = document.getElementById("item-quantity-input");
-        let min = elmnt.getAttribute("min");
-        let value = elmnt.getAttribute("value");
-        let newValue = Math.max(+value - 1, min);
-        elmnt.setAttribute("value", newValue)
-        elmnt.value = newValue;
-    });
-
+    addEvent("click", document.getElementById("item-quantity-input-inc"), () => incNumeric("item-quantity-input"));
+    addEvent("click", document.getElementById("item-quantity-input-dec"), () => decNumeric("item-quantity-input"));
 
     document.getElementById("item-quantity-input").addEventListener('input', (e) => {
         let elmnt = e.target;
@@ -303,6 +286,24 @@ function registerGUIEvents() {
     addEvent("click", document.getElementById("forceWalk"), () => forcePlayerState(MOVEMENT_MODE_WALK));
     addEvent("click", document.getElementById("forceBike"), () => forcePlayerState(MOVEMENT_MODE_BIKE));
     addEvent("click", document.getElementById("forceSurf"), () => forcePlayerState(MOVEMENT_MODE_SURF));
+    addEvent("click", document.getElementById("forceWhiteout"), () => whiteoutTeam());
+
+    addEvent("click", document.getElementById("bank-value-input-inc"), () => incNumeric("bank-value-input"));
+    addEvent("click", document.getElementById("bank-value-input-dec"), () => decNumeric("bank-value-input"));
+
+    addEvent("click", document.getElementById("map-value-input-inc"), () => incNumeric("map-value-input"));
+    addEvent("click", document.getElementById("map-value-input-dec"), () => decNumeric("map-value-input"));
+
+    addEvent("click", document.getElementById("warp-value-input-inc"), () => incNumeric("warp-value-input"));
+    addEvent("click", document.getElementById("warp-value-input-dec"), () => decNumeric("warp-value-input"));
+
+    addEvent("click", document.getElementById("overrideNextWarp"), () => {
+        let game = document.getElementById("game-value-input").value;
+        let bank = document.getElementById("bank-value-input").value;
+        let map = document.getElementById("map-value-input").value;
+        let warp = document.getElementById("warp-value-input").value;
+        forceNextWarp = game + "," + bank + "," + map + "," + warp;
+    });
 
     // //Catch any play status changes:
     // IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);
@@ -963,4 +964,20 @@ function removeEvent(sEvent, oElement, fListener) {
     catch (error) {
         oElement.detachEvent("on" + sEvent, fListener);    //Pity for IE.
     }
+}
+function incNumeric(id) {
+    let elmnt = document.getElementById(id);
+    let max = elmnt.getAttribute("max");
+    let value = elmnt.getAttribute("value");
+    let newValue = Math.min(+value + 1, max);
+    elmnt.setAttribute("value", newValue)
+    elmnt.value = newValue;
+}
+function decNumeric(id) {
+    let elmnt = document.getElementById(id);
+    let min = elmnt.getAttribute("min");
+    let value = elmnt.getAttribute("value");
+    let newValue = Math.max(+value - 1, min);
+    elmnt.setAttribute("value", newValue)
+    elmnt.value = newValue;
 }

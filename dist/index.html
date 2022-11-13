@@ -61,6 +61,7 @@
         <!-- Enable Cheats in Iodine -->
         <script src="Cheat/Cheat.js"></script>
         <script src="Cheat/ItemData.js"></script>
+        <script src="Cheat/TownData.js"></script>
         <link rel="stylesheet" href="user_css/cheat.css">
         <!-- Core UI / Binding Scripts Scripts-->
         <script src="user_scripts/AudioGlueCode.js"></script>
@@ -494,18 +495,9 @@
                         </div> 
                         <div class="menu-group">
                           <div class="random-row">
-                            <div class="switch hack-toggle">
-                              <span>DISABLE WALLS</span>
-                              <label>
-                                Off
-                                <input type="checkbox" id="disableWalls">
-                                <span class="lever"></span>
-                                On
-                              </label>
-                            </div>
                             <div class="input-field col s6 item-inputs">
                               <span>ITEM</span>
-                              <input  id="autocomplete-items" autocomplete="off" class="autocomplete" type="text" value="Poké Ball" data-length="25">
+                              <input id="autocomplete-items" autocomplete="off" class="autocomplete" type="text" value="Poké Ball" data-length="25">
                             </div>
                             <div class="input-field col s6 item-quantity" id="item-quantity">
                               <span>QUANTITY</span>
@@ -521,6 +513,15 @@
                         <div class="menu-group">
                           <div class="random-row">
                             <div class="switch hack-toggle">
+                              <span>DISABLE WALLS</span>
+                              <label>
+                                Off
+                                <input type="checkbox" id="disableWalls">
+                                <span class="lever"></span>
+                                On
+                              </label>
+                            </div>
+                            <div class="switch hack-toggle">
                               <span>AUTO BIKE</span>
                               <label>
                                 Off
@@ -533,7 +534,45 @@
                               <li class="plaint-btn btn-small" id="forceWalk">FORCE WALK</li>
                               <li class="plaint-btn btn-small" id="forceBike">FORCE BIKE</li>
                               <li class="plaint-btn btn-small" id="forceSurf">FORCE SURF</li>
+                              <li class="plaint-btn btn-small" id="forceWhiteout">WHITEOUT</li>
                             </ul>
+                          </div>
+                        </div>
+                        <div class="menu-group">
+                          <div class="random-row">
+                            <div class="input-field col s6 location-inputs">
+                              <span>SEARCH LOCATION</span>
+                              <input id="autocomplete-locations" autocomplete="off" class="autocomplete" type="text" value="PALLET TOWN" data-length="25">
+                            </div>
+                            <div class="input-field col s12 game-input">
+                              <select id="game-value-input">
+                                <option value="FR" selected>FR</option>
+                                <option value="C">C</option>
+                                <option value="E">E</option>
+                              </select>
+                              <span>GAME</span>
+                            </div>
+                            <div class="input-field col s6 warp-select bank-value" id="bank-value">
+                              <span>BANK</span>
+                              <input id="bank-value-input" type="number" value="3" min="0" max="255" data-length="2">
+                              <span class="number-spinner number-spinner-inc" id="bank-value-input-inc"></span>
+                              <span class="number-spinner number-spinner-dec" id="bank-value-input-dec"></span>
+                            </div>
+                            <div class="input-field col s6 warp-select map-value" id="map-value">
+                              <span>MAP</span>
+                              <input id="map-value-input" type="number" value="0" min="0" max="255" data-length="2">
+                              <span class="number-spinner number-spinner-inc" id="map-value-input-inc"></span>
+                              <span class="number-spinner number-spinner-dec" id="map-value-input-dec"></span>
+                            </div>
+                            <div class="input-field col s6 warp-select warp-value" id="warp-value">
+                              <span>WARP</span>
+                              <input id="warp-value-input" type="number" value="0" min="0" max="255" data-length="2">
+                              <span class="number-spinner number-spinner-inc" id="warp-value-input-inc"></span>
+                              <span class="number-spinner number-spinner-dec" id="warp-value-input-dec"></span>
+                            </div>
+                            <div class="btn-small remap-btn" id="overrideNextWarp">
+                              <span>OVERRIDE NEXT WARP</span>
+                            </div>
                           </div>
                         </div>
                       </a>

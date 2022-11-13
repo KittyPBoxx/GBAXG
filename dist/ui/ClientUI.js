@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
     createAndLoadConfig();
 
      M.Autocomplete.init(document.getElementById("autocomplete-items"), { limit: 4, data : Object.keys(ITEM_DATA).reduce((v1, v2) => { v1[v2] = null; return v1 }, {}) });
+     M.Autocomplete.init(document.getElementById("autocomplete-locations"), { limit: 4, data : Object.keys(TOWN_DATA).reduce((v1, v2) => { v1[v2] = null; return v1 }, {}), onAutocomplete : () => {
+        let locationParts = TOWN_DATA[document.getElementById("autocomplete-locations").value].split(",");
+        document.getElementById("game-value-input").value = locationParts[0];
+        document.getElementById("bank-value-input").value = locationParts[1];
+        document.getElementById("map-value-input").value = locationParts[2];
+        document.getElementById("warp-value-input").value = locationParts[3];
+        M.FormSelect.getInstance(document.getElementById("game-value-input"))._handleSelectChangeBound();
+     }});
 
 
     M.FormSelect.init(document.querySelectorAll('select'), {});

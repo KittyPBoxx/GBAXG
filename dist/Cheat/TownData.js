@@ -1,0 +1,45 @@
+var TOWN_DATA =
+{
+    // KANTO
+    "PALLET TOWN"         : "FR,3,0,1",
+    "VIRIDIAN CITY"       : "FR,3,1,0",
+    "PEWTER CITY"         : "FR,3,2,5",
+    "CERULEAN CITY"       : "FR,3,3,3",
+    "LAVENDER TOWN"       : "FR,3,4,1",
+    "VERMILION CITY"      : "FR,3,5,4",
+    "CELADON CITY"        : "FR,3,6,4",
+    "FUCHSIA CITY"        : "FR,3,7,6",
+    "CINNABAR ISLAND"     : "FR,3,8,3",
+    "INDIGO PLATEAU (FR)" : "FR,3,9,0",
+
+    // JHOTO
+    "NEW BARK TOWN"      : "C,0,9,1" ,   
+    "CHERRYGROVE CITY"   : "C,0,10,2",  
+    "VIOLET CITY"        : "C,0,0,3" , 
+    "AZALEA TOWN"        : "C,0,11,1", 
+    "GOLDENROD CITY"     : "C,0,3,3" ,    
+    "ECRUTEAK CITY"      : "C,0,1,0" ,   
+    "OLIVINE CITY"       : "C,0,2,1" ,  
+    "CIANWOOD CITY"      : "C,0,12,0",   
+    "MAHOGANY TOWN"      : "C,0,13,2",   
+    "BLACKTHORN CITY"    : "C,0,5,2" ,     
+    "INDIGO PLATEAU (C)" : "C,0,8,0" ,  
+
+    // HOENN
+    "LITTLEROOT TOWN"  : "E,0,9,0" ,        
+    "OLDALE TOWN"      : "E,0,10,2",    
+    "PETALBURG CITY"   : "E,0,0,3" ,       
+    "RUSTBORO CITY"    : "E,0,3,3" ,      
+    "DEWFORD TOWN"     : "E,0,11,1",     
+    "SLATEPORT CITY"   : "E,0,1,0" ,       
+    "MAUVILLE CITY"    : "E,0,2,1" ,      
+    "VERDANTURF TOWN"  : "E,0,14,0",        
+    "FALLABOR TOWN"    : "E,0,13,2",      
+    "LAVARIDGE TOWN"   : "E,0,12,3",       
+    "FORTREE CITY"     : "E,0,4,0" ,     
+    "LILYCOVE CITY"    : "E,0,5,2" ,      
+    "MOSSDEEP CITY"    : "E,0,6,2" ,      
+    "SOOTOPOLIS CITY"  : "E,0,7,0" ,       
+    "PACIFIDLOG TOWN"  : "E,0,15,0",        
+    "EVER GRANDE CITY" : "E,0,8,0" ,        
+}
