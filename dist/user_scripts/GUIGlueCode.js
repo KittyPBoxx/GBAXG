@@ -207,6 +207,7 @@ function registerGUIEvents() {
         let seed = document.getElementById("input_seed_text").value;
         setValue("warp_seed", seed);
         mapWarps(seed);
+        M.toast({html: warpList.size + ' warps were mapped', displayLength:1000});
     });
 
     addEvent("click", document.getElementById("FRShown"), () => {

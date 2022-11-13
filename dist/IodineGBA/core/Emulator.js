@@ -169,8 +169,14 @@ GameBoyAdvanceEmulator.prototype.runTerminationJobs = function () {
 }
 GameBoyAdvanceEmulator.prototype.attachROM = function (ROM, code) {
     this.stop();
-    this.ROMS.push(ROM);
-    this.ROM_CODES.push(code);
+
+    let romIndex = this.ROM_CODES.indexOf(code);
+    if (romIndex == -1) {
+        this.ROMS.push(ROM);
+        this.ROM_CODES.push(code);
+    } else {
+        this.ROMS[romIndex] = ROM;
+    }
 }
 GameBoyAdvanceEmulator.prototype.attachBIOS = function (BIOS) {
     this.stop();
