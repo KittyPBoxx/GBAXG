@@ -5,6 +5,8 @@ const DEFAULT_KEYBIND_CONFIG =
     {"type": "exec"  , "command": "toggleMenu", "kbd":"Escape", "gmpd": null      }, 
     {"type": "exec"  , "command": "SpeedUp"   , "kbd":"Space" , "gmpd": null      },
     {"type": "exec"  , "command": "Restart"   , "kbd":"KeyR"  , "gmpd": null      },
+    {"type": "exec"  , "command": "SaveSlot1" , "kbd":"Digit1", "gmpd": null      },
+    {"type": "exec"  , "command": "LoadSlot1" , "kbd":"Digit2", "gmpd": null      },
     {"type": "button", "command": "AKey"      , "kbd":"KeyK"  , "gmpd": "button2" },
     {"type": "button", "command": "BKey"      , "kbd":"KeyL"  , "gmpd": "button1" },
     {"type": "button", "command": "LKey"      , "kbd":"KeyU"  , "gmpd": "button4" },

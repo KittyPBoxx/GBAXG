@@ -48,6 +48,16 @@ CommandExecutor.register("Restart", args => IodineGUI.Iodine.restart());
 CommandExecutor.register("Start", args => IodineGUI.Iodine.play());
 CommandExecutor.register("Stop", args => IodineGUI.Iodine.stop());
 
+/* State functions */
+CommandExecutor.register("SaveSlot1", args => {
+  let preview = IodineGUI.Iodine.saveStateManager.saveMultiState("MS1").preview;
+  document.getElementById("saveState1Preiew").src = preview;
+  M.toast({html: 'State Saved', displayLength:500});
+});
+CommandExecutor.register("LoadSlot1", args => {
+  IodineGUI.Iodine.saveStateManager.loadMultiState("MS1");
+});
+
 var keyPress = async(k) => { IodineGUI.Iodine.keyDown(k); await delay(50); IodineGUI.Iodine.keyUp(k) }
 async function delay(time) {
     return new Promise(function (resolve) {

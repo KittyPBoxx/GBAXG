@@ -86,6 +86,9 @@ function registerGUIEvents() {
         storageManager.delete("SSC");
         storageManager.delete("SSE").then(() => location.reload(), () => location.reload());
     });
+    addEvent("click", document.getElementById("eraseKeybinds"), () => {
+        storageManager.delete("keybinds").then(() => location.reload(), () => location.reload());
+    });
 
     /* SEASON BUTTONS */
     addEvent("click", document.getElementById("spring"), () => {
@@ -291,6 +294,14 @@ function registerGUIEvents() {
         elmnt.setAttribute("value", newValue)
         elmnt.value = newValue;
     });
+
+    addEvent("click", document.getElementById("autoBike"), () => {
+        autoBike = document.getElementById("autoBike").checked;
+    });
+
+    addEvent("click", document.getElementById("forceWalk"), () => forcePlayerState(MOVEMENT_MODE_WALK));
+    addEvent("click", document.getElementById("forceBike"), () => forcePlayerState(MOVEMENT_MODE_BIKE));
+    addEvent("click", document.getElementById("forceSurf"), () => forcePlayerState(MOVEMENT_MODE_SURF));
 
     // //Catch any play status changes:
     // IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);

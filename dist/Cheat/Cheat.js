@@ -139,9 +139,25 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
  }
 
+
+const EMERALD_MOVEMENT_MODE_OFFSET = 0x02037590;
+const FIRE_RED_MOVEMENT_MODE_OFFSET = 0x02037078;
+const MOVEMENT_MODE_WALK = 0x01;
+const MOVEMENT_MODE_BIKE = 0x02;
+const MOVEMENT_MODE_SURF = 0x08;
+var autoBike = false; 
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
 
+    if (autoBike) {
+        if (address == FIRE_RED_MOVEMENT_MODE_OFFSET && IodineGUI.Iodine.IOCore.cartridge.romCode === "FR"){
+            let current = this.read8WithoutIntercept(address);
+            return current <= MOVEMENT_MODE_WALK ? MOVEMENT_MODE_BIKE : current;
+        } else if (address == EMERALD_MOVEMENT_MODE_OFFSET){
+            let current = this.read8WithoutIntercept(address);
+            return current <= MOVEMENT_MODE_WALK ? MOVEMENT_MODE_BIKE : current;
+        }
+    }
 
     if (!isWarping) return this.read8WithoutIntercept(address);
 
@@ -285,6 +301,24 @@ GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
     
     return this.readROM16WithoutIntercept(address);
 }
+
+// FIRE RED - isSurfing 0x02036e40 (0x33 = on land, 0x11 on water)
+// EMERALD -            0x0203735B
+const EMERALD_STATE_OFFSET = 0x02037591;
+const FIRE_RED_STATE_OFFSET = 0x02037079;
+function forcePlayerState(state) {
+    if (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") { 
+        //IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_MOVEMENT_MODE_OFFSET, state);
+        IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_STATE_OFFSET, state); 
+    } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "C") {
+        IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_MOVEMENT_MODE_OFFSET, state);
+        IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_STATE_OFFSET, state); 
+    } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "E") {
+        IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_MOVEMENT_MODE_OFFSET, state);
+        IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_STATE_OFFSET, state); 
+    }
+}
+
 
 /******************/
 /* Data Addresses */

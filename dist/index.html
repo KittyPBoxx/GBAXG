@@ -137,7 +137,7 @@
                             </div>
                         </div> -->
                         <div class="menu-group" id="fr-group">
-                            <div class="rom-header"><h5 class="fr-text">FIRE RED</h5><span class="rom-status" id="fr-status">(Not Loaded)</span></div>
+                            <div class="rom-header"><h5 class="fr-text">FIRE RED 1.1</h5><span class="rom-status" id="fr-status">(Not Loaded)</span></div>
                             <div class="file-field input-field">
                                 <div class="btn-small" id="fr_btn">
                                   <span>File</span>
@@ -275,16 +275,21 @@
                           </tr>
                           </table>
                         </div>
+                        <div class="menu-group dividerless right-align">
+                          <div class="btn-small right-align" id="eraseKeybinds">
+                            <span>RESET KEYBINDS</span>
+                          </div>
+                        </div>
                       </a>
                       <a class="carousel-item" href="#saves!">
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Saves</h4><h5 class="right-menu-button">R</h5></div>
                         <div class="menu-group">
                           <div class="rom-header"><h5 class="bios-text">AUTOSAVES</h5></div>
                           <ul class="collection">
-                            <li class="autosave btn-small" id="current">LATEST</li>
-                            <li class="autosave btn-small" id="exitFR">LAST KANTO</li>
-                            <li class="autosave btn-small" id="exitC">LAST JHOTO</li>
-                            <li class="autosave btn-small" id="exitE">LAST HOENN</li>
+                            <li class="plaint-btn btn-small" id="current">LATEST</li>
+                            <li class="plaint-btn btn-small" id="exitFR">LAST KANTO</li>
+                            <li class="plaint-btn btn-small" id="exitC">LAST JHOTO</li>
+                            <li class="plaint-btn btn-small" id="exitE">LAST HOENN</li>
                           </ul>
                         </div>
                         <div class="menu-group">
@@ -321,7 +326,7 @@
                         </div>
                         <div class="menu-group dividerless right-align">
                           <div class="btn-small right-align" id="eraseAll">
-                            <span>ERASE ALL</span>
+                            <span>ERASE GAME DATA</span>
                           </div>
                         </div>
                       </a>
@@ -384,7 +389,7 @@
                               <select id="kantoLevel">
                                 <option value="10" disabled>All</option>
                                 <option value="0">None</option>
-                                <option value="1">To Gym 1</option>
+                                <option value="1" selected>To Gym 1</option>
                                 <option value="2">To Gym 2</option>
                                 <option value="3">To Gym 3</option>
                                 <option value="4">To Gym 4</option>
@@ -392,7 +397,7 @@
                                 <option value="6">To Gym 6</option>
                                 <option value="7">To Gym 7</option>
                                 <option value="8">To Gym 8</option>
-                                <option value="9" selected>To Champ</option>
+                                <option value="9">To Champ</option>
                               </select>
                               <label>Kanto</label>
                             </div>
@@ -400,9 +405,9 @@
                               <select id="jhotoLevel">
                                 <option value="10" disabled>All</option>
                                 <option value="0">None</option>
-                                <option value="1">To Gym 1</option>
+                                <option value="1" selected>To Gym 1</option>
                                 <option value="2">To Gym 2</option>
-                                <option value="3" selected>To Gym 3</option>
+                                <option value="3">To Gym 3</option>
                                 <option value="4" disabled>To Gym 4</option>
                                 <option value="5" disabled>To Gym 5</option>
                                 <option value="6" disabled>To Gym 6</option>
@@ -416,7 +421,7 @@
                               <select id="hoennLevel">
                                 <option value="10" disabled>All</option>
                                 <option value="0">None</option>
-                                <option value="1">To Gym 1</option>
+                                <option value="1" selected>To Gym 1</option>
                                 <option value="2">To Gym 2</option>
                                 <option value="3">To Gym 3</option>
                                 <option value="4">To Gym 4</option>
@@ -424,7 +429,7 @@
                                 <option value="6">To Gym 6</option>
                                 <option value="7">To Gym 7</option>
                                 <option value="8">To Gym 8</option>
-                                <option value="9" selected>To Champ</option>
+                                <option value="9">To Champ</option>
                               </select>
                               <label>Hoenn</label>
                             </div>
@@ -489,7 +494,7 @@
                         </div> 
                         <div class="menu-group">
                           <div class="random-row">
-                            <div class="switch disable-walls">
+                            <div class="switch hack-toggle">
                               <span>DISABLE WALLS</span>
                               <label>
                                 Off
@@ -511,6 +516,24 @@
                             <div class="btn-small remap-btn" id="addToBag">
                               <span>ADD TO BAG</span>
                             </div>
+                          </div>
+                        </div>
+                        <div class="menu-group">
+                          <div class="random-row">
+                            <div class="switch hack-toggle">
+                              <span>AUTO BIKE</span>
+                              <label>
+                                Off
+                                <input type="checkbox" id="autoBike">
+                                <span class="lever"></span>
+                                On
+                              </label>
+                            </div>
+                            <ul class="collection state-group">
+                              <li class="plaint-btn btn-small" id="forceWalk">FORCE WALK</li>
+                              <li class="plaint-btn btn-small" id="forceBike">FORCE BIKE</li>
+                              <li class="plaint-btn btn-small" id="forceSurf">FORCE SURF</li>
+                            </ul>
                           </div>
                         </div>
                       </a>

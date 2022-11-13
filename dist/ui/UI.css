@@ -157,7 +157,7 @@ span.rom-status {
     margin-right: 50px;
     margin-left: 50px;
     overflow: auto;
-    margin-bottom: 5vh;
+    max-height: 60%;
 }
 .menu-group:not(.dividerless):after {
     content: '';
@@ -275,7 +275,7 @@ span.rom-status {
     margin-top: 1em;
 }
 
-.switch.disable-walls {
+.switch.hack-toggle {
     align-items: flex-start;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -285,7 +285,7 @@ span.rom-status {
     border: none;
 }
 
-.autosave.btn-small {
+.plaint-btn.btn-small {
     height: 32.4px;
     line-height: 32.4px;
     font-size: 13px;
@@ -296,6 +296,7 @@ span.rom-status {
     margin-bottom: 2px;
 }
 
+#eraseKeybinds,
 #eraseAll {
     margin-right: 50px;
     margin-top: 2em;
@@ -459,6 +460,10 @@ span.rom-status {
 
 .available-warp-select-wrapper .select-wrapper {
     width: 10em !important;
+}
+
+.state-group {
+    padding-top: 2.6em;
 }
 
 
