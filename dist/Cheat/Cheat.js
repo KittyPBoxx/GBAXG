@@ -332,7 +332,7 @@ function forcePlayerState(state) {
         if (state == MOVEMENT_MODE_SURF) {
             IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_WATER); 
         } else {
-            IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
+            IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
         }
     } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "E") {
         IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_MOVEMENT_MODE_OFFSET, state);
@@ -340,7 +340,7 @@ function forcePlayerState(state) {
         if (state == MOVEMENT_MODE_SURF) {
             IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_WATER); 
         } else {
-            IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
+            IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
         }
     }
 }
