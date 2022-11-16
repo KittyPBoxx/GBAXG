@@ -793,751 +793,774 @@ var CRYSTAL_WARPS =
     },
 /* UNION CAVE */
 //F1
-    "C,2,20,0" : {
+    "C,19,1,0" : {
         "name": "UNION CAVE - INSIDE - F1 Top Enterance - 14,4",
-        "to" : "C,3,49,2",
+        "to" : "C,0,19,2",
         "level" : "2",
         "connections": {
-            "C,2,20,2": true,
-            "C,2,20,1": true,
-            "C,2,20,3": false
+            "C,19,1,1": true,
+            "C,19,1,2": true,
         }   
     },
-    "C,2,20,1" : {
+    "C,19,1,1" : {
         "name": "UNION CAVE - INSIDE - F1 Bottom Enterance - 14,20",
-        "to" : "C,3,52,0",
+        "to" : "C,0,20,0",
         "level" : "2",
         "connections": {
-            "C,2,20,0": true
+            "C,19,1,0": true
         }   
     },
-    "C,2,20,2" : {
+    "C,19,1,2" : {
         "name": "UNION CAVE - INSIDE - F1 Middle Lader - 8,14",
-        "to" : "C,2,19,2",
+        "to" : "C,24,12,2",
         "level" : "2",
         "connections": {
-            "C,2,20,0": true
+            "C,19,1,0": true
         }   
     },
-    "C,2,20,3" : {
+    "C,19,1,3" : {
         "name": "UNION CAVE - INSIDE - Bottom Lader - 6, 22",
-        "to" : "C,2,19,4",
-        "connections": {
-            "C,2,20,0": false // surf locked
-        }   
+        "to" : "C,24,12,3",
     },
 //F2
-    "C,2,19,0" : {
-        "name": "UNION CAVE - INSIDE - F2 Bottom Right Lader - 11,2A",
-        "to" : "C,1,86,1",
-        "connections": {
-            "C,2,19,4": false // surf locked
-        }   
+    "C,24,12,4" : {
+        "name": "UNION CAVE - INSIDE - F2 Bottom Right Ladder - 11,2A",
+        "to" : "C,24,95,0",  
     },
-    "C,2,19,1" : {
+    "C,24,12,0" : {
         "name": "UNION CAVE - INSIDE - F2 Top Enterance - 3,3",
-        "to" : "C,2,14,9",
+        "to" : "C,24,86,5",
         "connections": {
-            "C,2,19,3": true,
-            "C,2,19,2": false // surf locked
+            "C,24,12,1": true,
         }   
     },
-    "C,2,19,2" : {
+    "C,24,12,2" : {
         "name": "UNION CAVE - INSIDE - F2 Middle Ladder - 7,13",
-        "to" : "C,2,20,2",
+        "to" : "C,19,1,2",
         "level": "2",
-        "connections": {
-            "C,2,19,3": false,// surf locked
-            "C,2,19,1": false // surf locked
-        }   
     },
-    "C,2,19,3" : {
+    "C,24,12,1" : {
         "name": "UNION CAVE - INSIDE - F2 Lower Enterance - 3,B",
-        "to" : "C,2,14,7",
+        "to" : "C,24,86,7",
         "connections": {
-            "C,2,19,1": true
+            "C,24,12,0": true
         }   
     },
-    "C,2,19,4" : {
+    "C,24,12,3" : {
         "name": "UNION CAVE - INSIDE - F2 Bottom Left Ladder - 2,2C",
-        "to" : "C,2,20,3",
-        "connections": {
-            "C,2,19,0": false // surf locked
-        }   
+        "to" : "C,19,1,3",
     },
 // F3
-    "C,1,86,1" : {
+    "C,24,95,0" : {
         "name": "UNION CAVE - INSIDE - F3 Ladder - 5,3",
-        "to" : "C,2,19,0"
+        "to" : "C,24,12,4"
     },
 /* ROUTE 33 - EXT */
-    "C,3,52,0" : {
+    "C,0,20,0" : {
         "name": "ROUTE 33 - OUTSIDE - Union Cave Enterance - B,9",
-        "to" : "C,2,20,1",
+        "to" : "C,19,1,1",
         "level": "2",
         "connections": {
-            "C,3,16,1": true
+            "C,3,1,0": true
         }   
     },
 /* AZALEA TOWN - EXT */ 
-    "C,3,16,0" : {
+    "C,0,11,6" : {
         "name": "AZALEA TOWN - OUTSIDE - Slowpoke Well Enterance - 21,9",
-        "to" : "C,2,101,0",
+        "to" : "C,24,4,0",
         "level": "2",
         "connections": {
-            "C,3,16,1": true
+            "C,0,11,1": true
         }   
     },
-    "C,3,16,1" : {
+    "C,0,11,1" : {
         "name": "AZALEA TOWN - OUTSIDE - PkCenter - 11,B",
-        "to" : "C,34,1,0",
+        "to" : "C,3,1,0",
         "level": "2",
         "connections": {
-            "C,3,16,0" : true,
-            "C,3,16,2" : true,
-            "C,3,16,3" : true,
-            "C,3,16,4" : true,
-            "C,3,16,5" : true,
-            "C,3,16,6" : true,
+            "C,0,11,0" : true,
+            "C,0,11,2" : true,
+            "C,0,11,3" : true,
+            "C,0,11,4" : true,
+            "C,0,11,5" : true,
+            "C,0,11,6" : true,
+            "C,0,20,0" : true,
         }   
     },
-    "C,3,16,2" : {
+    "C,0,11,3" : {
         "name": "AZALEA TOWN - OUTSIDE - Bottom Right - 17,F",
-        "to" : "C,36,3,0",
+        "to" : "C,3,0,0",
         "level": "2",
         "connections": {
-            "C,3,16,1": true
+            "C,0,11,1": true
         }   
     },
-    "C,3,16,3" : {
+    "C,0,11,4" : {
         "name": "AZALEA TOWN - OUTSIDE - Mart - 17,7",
-        "to" : "C,37,4,0",
+        "to" : "C,11,7,0",
         "level": "2",
         "connections": {
-            "C,3,16,1": true
+            "C,0,11,1": true
         }   
     },
-    "C,3,16,4" : {
+    "C,0,11,0" : {
         "name": "AZALEA TOWN - OUTSIDE - Top Left - B,7",
-        "to" : "C,1,102,0",
+        "to" : "C,3,4,0",
         "level": "2",
         "connections": {
-            "C,3,16,1": true
+            "C,011,1": true
         }   
     },
-    "C,3,16,5" : {
+    "C,0,11,5" : {
         "name": "AZALEA TOWN - OUTSIDE - Route Connector - 4,C",
-        "to" : "C,1,120,2",
+        "to" : "C,3,6,1",
         "level": "2",
         "connections": {
-            "C,3,16,1": true
+            "C,0,11,1": true
         }   
     },
-    "C,3,16,6" : {
+    "C,0,11,2" : {
         "name": "AZALEA TOWN - OUTSIDE - GYM - D,11",
-        "to" : "C,1,124,0",
+        "to" : "C,3,3,0",
         "level": "2",
         "connections": {
-            "C,3,16,1": true
+            "C,0,11,1": true
         }   
     },
 /* AZALEA TOWN - INT */ 
-    "C,34,1,0" : {
+    "C,3,1,0" : {
         "name": "AZALEA TOWN - INSIDE - PkCenter - 7,8",
-        "to" : "C,3,16,1",
-        "level": "2"
+        "to" : "C,0,11,1",
+        "level": "2",
+        "connections": {
+            "C,3,1,2": true
+        }   
     },
-    "C,37,4,0" : {
+    "C,3,1,2" : {
+        "name": "AZALEA TOWN - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "C,3,2,0",
+        "level": "2",
+        "connections": {
+            "C,3,1,0": true
+        }   
+    },
+    "C,11,7,0" : {
         "name": "AZALEA TOWN - INSIDE - Mart - 4,7",
-        "to" : "C,3,16,3",
+        "to" : "C,0,11,4",
         "level": "2"
     },
-    "C,1,102,0" : {
+    "C,3,4,0" : {
         "name": "AZALEA TOWN - INSIDE - Top Left - A,F",
-        "to" : "C,3,16,4",
+        "to" : "C,0,11,0",
         "level": "2"
     },
-    "C,36,3,0" : {
+    "C,3,0,0" : {
         "name": "AZALEA TOWN - INSIDE - Bottom Right - 4,8",
-        "to" : "C,3,16,2",
+        "to" : "C,0,11,3",
         "level": "2"
     },
-    "C,1,120,0" : {
+    "C,3,6,0" : {
         "name": "AZALEA TOWN - INSIDE - Route Connector Left - 7,C",
-        "to" : "C,1,0,0",
+        "to" : "C,24,11,0",
         "connections": {
-            "C,1,120,2": true
+            "C,3,6,1": true
         }   
     },
-    "C,1,120,0" : {
+    "C,3,6,1" : {
         "name": "AZALEA TOWN - INSIDE - Route Connector Right - 13,C",
-        "to" : "C,3,16,5",
+        "to" : "C,0,11,5",
         "connections": {
-            "C,1,120,0": true
+            "C,3,6,0": true
         }   
     },
-    "C,1,124,0" : {
+    "C,3,3,0" : {
         "name": "AZALEA TOWN - INSIDE - GYM - B,12",
-        "to" : "C,3,16,6",
+        "to" : "C,0,11,2",
         "level": "2"
     },
 /* SLOWPOKE WELL */ 
 // F1
-    "C,2,101,0" : {
+    "C,24,4,0" : {
         "name": "SLOWPOKE WELL - INSIDE - F1 Enterance Ladder - 12,10",
-        "to" : "C,3,16,0",
-        "level": "2",
-        "connections": {
-            "C,2,101,1": false // Surf locked
-        }   
+        "to" : "C,0,11,6",
+        "level": "2"
     },
-    "C,2,101,1" : {
+    "C,24,4,1" : {
         "name": "SLOWPOKE WELL - INSIDE - F1 Left Ladder - 8,C",
-        "to" : "C,2,54,1",
-        "connections": {
-            "C,2,101,0": false // Surf locked
-        }   
+        "to" : "C,24,9,0"
     },
 // F2    
-    "C,2,54,1" : {
+    "C,24,9,0" : {
         "name": "SLOWPOKE WELL - INSIDE - F2 Ladder - 11,10",
-        "to" : "C,2,101,1"
+        "to" : "C,24,4,1"
     },
 /* ILEX FOREST */
-    "C,1,0,0" : {
+    "C,24,11,0" : {
         "name": "ILEX FOREST - OUTSIDE - Bottom - B,34",
-        "to" : "C,1,120,0",
+        "to" : "C,3,6,0",
         "level": "3",
         "connections": {
-            "C,1,0,1": true
+            "C,24,11,1": true
         }   
     },
-    "C,1,0,2" : {
+    "C,24,11,1" : {
         "name": "ILEX FOREST - OUTSIDE - Top - B,12",
-        "to" : "C,1,115,0",
+        "to" : "C,3,7,1",
         "level": "3",
+        "grouped" : ["C,24,11,2"],
+        "groupMain" : true,
         "connections": {
-            "C,1,0,0": true
+            "C,24,11,0": true
+        }   
+    },
+    "C,24,11,2" : {
+        "name": "ILEX FOREST - OUTSIDE - Top - C,12",
+        "to" : "C,3,7,1",
+        "level": "3",
+        "grouped" : ["C,24,11,1"],
+        "connections": {
+            "C,24,11,1": true
         }   
     },
 /* ROUSE 34 - EXT */
-    "C,3,53,0" : {
+    "C,0,21,0" : {
         "name": "ROUTE 34 - OUTSIDE - Route connector - 10,24",
-        "to" : "C,1,115,1",
+        "to" : "C,3,7,0",
         "level": "3",
-        "grouped" : ["C,3,53,3"],
+        "grouped" : ["C,3,7,1"],
         "groupMain" : true,
         "connections": {
-            "C,3,53,2": true,
-            "C,3,15,12": true
+            "C,0,21,2": true,
+            "C,0,3,3": true
         }   
     },
-    "C,3,53,3" : {
+    "C,0,21,1" : {
         "name": "ROUTE 34 - OUTSIDE - Route connector - 11,24",
-        "to" : "C,1,115,1",
+        "to" : "C,3,7,0",
         "level": "3",
-        "grouped" : ["C,3,53,0"]
+        "grouped" : ["C,0,21,0"]
     },
-    "C,3,53,1" : {
+    "C,0,21,3" : {
         "name": "ROUTE 34 - OUTSIDE - Daycare Inside Fence - F,F",
-        "to" : "C,5,24,1",
+        "to" : "C,22,0,0",
         "level": "3"
     },
-    "C,3,53,2" : {
+    "C,0,21,2" : {
         "name": "ROUTE 34 - OUTSIDE - Daycare Outer Door - D,E",
-        "to" : "C,5,24,0",
+        "to" : "C,22,0,1",
         "level": "3",
         "connections": {
-            "C,3,53,0": true,
-            "C,3,15,12": true
+            "C,0,21,0": true,
+            "C,0,3,3": true
         }   
     },
 /* ROUSE 34 - INT */
-    "C,1,115,0" : {
+    "C,3,7,1" : {
         "name": "ROUTE 34 - INSIDE - Route connector Bottom - 7,9",
-        "to" : "C,1,0,2",
+        "to" : "C,24,11,1",
         "level": "3",
         "connections": {
-            "C,1,115,1": true
+            "C,3,7,0": true
         }   
     },
-    "C,1,115,1" : {
+    "C,3,7,0" : {
         "name": "ROUTE 34 - INSIDE - Route connector Top - 7,1",
-        "to" : "C,3,53,0",
+        "to" : "C,0,21,0",
         "level": "3",
         "connections": {
-            "C,1,115,0": true
+            "C,3,7,1": true
         }   
     },
-    "C,5,24,0" : {
+    "C,22,0,1" : {
         "name": "ROUTE 34 - INSIDE - Day Care Left - 1,6",
-        "to" : "C,3,53,2",
+        "to" : "C,0,21,2",
         "level": "3",
         "connections": {
-            "C,5,24,1": true
+            "C,22,0,0": true
         }   
     },
-    "C,5,24,1" : {
+    "C,22,0,0" : {
         "name": "ROUTE 34 - INSIDE - Day Care Bottom - 3,7",
-        "to" : "C,3,53,1",
+        "to" : "C,0,21,3",
         "level": "3",
         "connections": {
-            "C,5,24,0": true
+            "C,22,0,1": true
         }   
     },
 /* GOLDENROD CITY - EXT */
-    "C,3,15,0" : {
+    "C,0,3,11" : {
         "name": "GOLDENROD CITY - OUTSIDE - Underground Top - 9,8",
-        "to" : "C,1,94,0",
+        "to" : "C,11,16,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,1" : {
+    "C,0,3,8" : {
         "name": "GOLDENROD CITY - OUTSIDE - Top Left - 11,9",
-        "to" : "C,8,4,1",
+        "to" : "C,11,11,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,2" : {
+    "C,0,3,5" : {
         "name": "GOLDENROD CITY - OUTSIDE - Radio Tower - 6,11",
-        "to" : "C,4,36,0",
+        "to" : "C,24,53,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,3" : {
+    "C,0,3,14" : {
         "name": "GOLDENROD CITY - OUTSIDE - Route Connector - 15,4",
-        "to" : "C,1,116,0",
+        "to" : "C,11,15,1",
         "level": "3",
+        "grouped" : ["C,0,3,15"],
+        "groupMain" : true,
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,4" : {
+    "C,0,3,15" : {
+        "name": "GOLDENROD CITY - OUTSIDE - Route Connector - 16,4",
+        "to" : "C,11,15,1",
+        "level": "3",
+        "grouped" : ["C,0,3,14"]
+    },
+    "C,0,3,0" : {
         "name": "GOLDENROD CITY - OUTSIDE - GYM - 1B,9",
-        "to" : "C,2,69,0",
+        "to" : "C,3,11,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,5" : {
+    "C,0,3,12" : {
         "name": "GOLDENROD CITY - OUTSIDE - Game Corner - F,17",
-        "to" : "C,10,14,0",
+        "to" : "C,10,3,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,6" : {
+    "C,0,3,2" : {
         "name": "GOLDENROD CITY - OUTSIDE - Department Store - 1B,1E",
-        "to" : "C,2,36,0",
+        "to" : "C,13,16,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,7" : {
+    "C,0,3,4" : {
         "name": "GOLDENROD CITY - OUTSIDE - Bike Shop - 20,20",
-        "to" : "C,7,6,1",
+        "to" : "C,11,4,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,8" : {
+    "C,0,3,10" : {
         "name": "GOLDENROD CITY - OUTSIDE - Top Right Right - 26,B",
-        "to" : "C,35,3,0",
+        "to" : "C,11,13,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,9" : {
+    "C,0,3,9" : {
         "name": "GOLDENROD CITY - OUTSIDE - Top Right - 23,6",
-        "to" : "C,2,67,0",
+        "to" : "C,11,8,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,10" : {
+    "C,0,3,6" : {
         "name": "GOLDENROD CITY - OUTSIDE - Train Station - B,F",
-        "to" : "C,3,93,0",
+        "to" : "C,11,0,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,11" : {
-        "name": "GOLDENROD CITY - OUTSIDE - Center Left - 22,17",
-        "to" : "C,2,66,0",
+    "C,0,3,7" : {
+        "name": "GOLDENROD CITY - OUTSIDE - Center Right - 22,17",
+        "to" : "C,11,10,",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,0,3": true
         }   
     },
-    "C,3,15,12" : {
+    "C,0,3,3" : {
         "name": "GOLDENROD CITY - OUTSIDE - PkCenter - 10,1E",
-        "to" : "C,6,16,0",
+        "to" : "C,11,2,0",
         "level": "3",
         "connections": {
-            "C,3,15,0": true,
-            "C,3,15,1": true,
-            "C,3,15,2": true,
-            "C,3,15,3": true,
-            "C,3,15,4": true,
-            "C,3,15,5": true,
-            "C,3,15,6": true,
-            "C,3,15,7": true,
-            "C,3,15,8": true,
-            "C,3,15,9": true,
-            "C,3,15,10": true,
-            "C,3,15,11": true,
-            "C,3,15,13": true,
-            "C,3,15,14": true,
-            "C,3,53,2": true,
-            "C,3,53,0": true
+            "C,0,3,11": true,
+            "C,0,3,8": true,
+            "C,0,3,5": true,
+            "C,0,3,14": true,
+            "C,0,3,15": true,
+            "C,0,3,0": true,
+            "C,0,3,12": true,
+            "C,0,3,2": true,
+            "C,0,3,4": true,
+            "C,0,3,10": true,
+            "C,0,3,9": true,
+            "C,0,3,6": true,
+            "C,0,3,7": true,
+            "C,0,3,13": true,
+            "C,0,3,1": true,
+            "C,0,21,2": true
         }   
     },
-    "C,3,15,13" : {
+    "C,0,3,13" : {
         "name": "GOLDENROD CITY - OUTSIDE - Underground Bottom - C,21",
-        "to" : "C,2,63,0",
+        "to" : "C,11,12,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,0,3,3": true
         }   
     },
-    "C,3,15,14" : {
+    "C,0,3,1" : {
         "name": "GOLDENROD CITY - OUTSIDE - Left Bottom - 5,1E",
-        "to" : "C,35,6,0",
+        "to" : "C,8,0,0",
         "level": "3",
         "connections": {
-            "C,3,15,12": true
+            "C,3,3,3": true
         }   
     },
 /* GOLDENROD CITY - INT */ 
-    "C,1,94,0" : {
+    "C,11,16,0" : {
         "name": "GOLDENROD CITY - INSIDE - Underground Top (Enterance) - D,C",
-        "to" : "C,3,15,0",
+        "to" : "C,0,3,11",
         "level": "3",
         "connections": {
-            "C,1,94,1": true
+            "C,11,16,1": true
         }   
     },
-    "C,1,94,1" : {
+    "C,11,16,1" : {
         "name": "GOLDENROD CITY - INSIDE - Underground Top (Stairs) - E,8",
-        "to" : "C,2,95,1",
+        "to" : "C,11,9,0",
         "level": "3",
         "connections": {
-            "C,1,94,0": true
+            "C,11,16,0": true
         }   
     },
-    "C,2,63,0" : {
+    "C,11,12,0" : {
         "name": "GOLDENROD CITY - INSIDE - Underground Bottom (Enterance) - D,C",
-        "to" : "C,3,15,13",
+        "to" : "C,0,3,13",
         "level": "3",
         "connections": {
-            "C,2,63,1": true
+            "C,11,12,1": true
         }   
     },
-    "C,2,63,1" : {
+    "C,11,12,1" : {
         "name": "GOLDENROD CITY - INSIDE - Underground Bottom (Stairs) - E,8",
-        "to" : "C,2,95,0",
+        "to" : "C,11,9,1",
         "level": "3",
         "connections": {
-            "C,2,63,0": true
+            "C,11,12,0": true
         }   
     },
-    "C,8,4,1" : {
+    "C,11,11,0" : {
         "name": "GOLDENROD CITY - INSIDE - Top Left - 4,8",
-        "to" : "C,3,15,1",
+        "to" : "C,0,3,8",
         "level": "3"
     },
-    "C,2,69,0" : {
+    "C,11,3,0" : {
         "name": "GOLDENROD CITY - INSIDE - GYM - 9,16",
-        "to" : "C,3,15,4",
+        "to" : "C,0,3,0",
         "level": "3"
     },
-    "C,10,14,0" : {
+    "C,10,3,0" : {
         "name": "GOLDENROD CITY - INSIDE - Game Corner - 2,C",
-        "to" : "C,3,15,5",
+        "to" : "C,0,3,12",
         "level": "3"
     },
-    "C,7,6,0" : {
+    "C,11,4,0" : {
         "name": "GOLDENROD CITY - INSIDE - Bike Shop - 5,8",
-        "to" : "C,3,15,7",
+        "to" : "C,0,3,4",
         "level": "3"
     },
-    "C,35,3,0" : {
-        "name": "GOLDENROD CITY - INSIDE - Top Left Left - 4,8",
-        "to" : "C,3,15,8",
+    "C,11,13,0" : {
+        "name": "GOLDENROD CITY - INSIDE - Top Right Right - 21,B",
+        "to" : "C,0,3,10",
         "level": "3"
     },
-    "C,2,67,0" : {
-        "name": "GOLDENROD CITY - INSIDE - Top Left - A,C",
-        "to" : "C,3,15,9",
+    "C,11,8,0" : {
+        "name": "GOLDENROD CITY - INSIDE - Top Right (Flower Shop) - A,C",
+        "to" : "C,0,3,9",
         "level": "3"
     },
-    "C,3,93,0" : {
+    "C,11,0,0" : {
         "name": "GOLDENROD CITY - INSIDE - Train Station - 4,8",
-        "to" : "C,3,15,10",
+        "to" : "C,0,3,6",
         "level": "3"
     },
-    "C,2,66,0" : {
+    "C,11,10,0" : {
         "name": "GOLDENROD CITY - INSIDE - Center Right - 4,",
-        "to" : "C,3,15,11",
+        "to" : "C,0,3,7",
         "level": "3"
     },
-    "C,6,16,0" : {
+    "C,11,2,0" : {
         "name": "GOLDENROD CITY - INSIDE - PkCenter - 7,8",
-        "to" : "C,3,15,12",
-        "level": "3"
+        "to" : "C,0,3,3",
+        "level": "3",
+        "connections": {
+            "C,11,2,2": true
+        }  
     },
-    "C,35,6,0" : {
+    "C,11,2,1" : {
+        "name": "GOLDENROD CITY - INSIDE - PkCenter Back - 7,8",
+        "to" : "C,11,1,0",
+    },
+    "C,11,2,2" : {
+        "name": "GOLDENROD CITY - INSIDE - PkCenter Stairs - 7,8",
+        "to" : "C,11,6,0",
+        "level": "3",
+        "connections": {
+            "C,11,2,0": true
+        }  
+    },
+    "C,11,1,0" : {
+        "name": "GOLDENROD CITY - INSIDE - PkCenter Back Room - 7,8",
+        "to" : "C,11,2,1",
+    },
+    "C,8,0,0" : {
         "name": "GOLDENROD CITY - INSIDE - Left Bottom - 4,8",
-        "to" : "C,3,15,14",
+        "to" : "C,0,3,1",
         "level": "3"
     },
 // Underground F1
-    "C,2,95,0" : {
+    "C,11,9,1" : {
         "name": "GOLDENROD CITY - INSIDE - Underground F1 Bottom - 3,21",
-        "to" : "C,2,63,1",
+        "to" : "C,11,12,1",
         "level": "3",
         "connections": {
-            "C,2,95,1": true
+            "C,11,9,0": true
         }   
     },
-    "C,2,95,1" : {
+    "C,11,9,0" : {
         "name": "GOLDENROD CITY - INSIDE - Underground F1 Top - 2,3",
-        "to" : "C,1,94,1",
+        "to" : "C,11,16,1",
         "level": "3",
         "connections": {
-            "C,2,95,0": true
+            "C,11,9,0": true
         }   
     },
-    "C,2,95,2" : {
+    "C,11,9,2" : {
         "name": "GOLDENROD CITY - INSIDE - Rocket Base Underground Enterance - D,A",
-        "to" : "C,2,84,0",
-        "connections": {
-            "C,2,95,0": true,
-            "C,2,95,1": true
-        }   
+        "to" : "C,24,56,0",
     },
 /* ROCKET BASE */
 /* RADIO TOWER */
 // F1
-    "C,4,36,0" : {
+    "C,24,53,0" : {
         "name": "RADIO TOWER - INSIDE - F1 Door - 9,A",
-        "to" : "C,3,15,2",
+        "to" : "C,0,3,5",
         "level": "3",
         "connections": {
-            "C,4,36,1": true
+            "C,24,53,1": true
         }   
     },
-    "C,4,36,1" : {
+    "C,24,53,1" : {
         "name": "RADIO TOWER - INSIDE - F1 Stairs - 16,5",
-        "to" : "C,4,41,1",
+        "to" : "C,24,53,2",
         "level": "3",
         "connections": {
-            "C,4,36,0": true
+            "C,24,53,0": true
         }   
     },
 // F2
-    "C,4,41,0" : {
+    "C,24,53,3" : {
         "name": "RADIO TOWER - INSIDE - F2 Left Stairs - 7,5",
-        "to" : "C,4,92,2"
+        "to" : "C,24,53,4"
     },
-    "C,4,41,1" : {
+    "C,24,53,2" : {
         "name": "RADIO TOWER - INSIDE - F2 Right Stairs - 17,5",
-        "to" : "C,4,36,1",
+        "to" : "C,24,3,1",
         "level": "3"
     },
 // F3    
-    "C,4,92,0" : {
+    "C,24,53,4" : {
         "name": "RADIO TOWER - INSIDE - F3 Left Stairs - 9,5",
-        "to" : "C,4,41,0",
+        "to" : "C,24,53,3",
         "connections": {
-            "C,4,92,2": true
+            "C,24,53,5": true
         }   
     },
-    "C,4,92,1" : {
-        "name": "RADIO TOWER - INSIDE - F3 Left Stairs - 9,5",
-        "to" : "C,2,82,2"
+    "C,24,53,6" : {
+        "name": "RADIO TOWER - INSIDE - F3 Right Stairs - 9,5",
+        "to" : "C,24,53,9"
     },
-    "C,4,92,2" : {
+    "C,24,53,5" : {
         "name": "RADIO TOWER - INSIDE - F3 Middle Stairs - 10,5",
-        "to" : "C,2,82,1",
+        "to" : "C,24,53,7",
         "connections": {
-            "C,4,92,0": true
+            "C,24,53,4": true
         }   
     },
 // F4
-    "C,2,82,0" : {
+    "C,24,53,8" : {
         "name": "RADIO TOWER - INSIDE - F4 Left Side Left Stairs - 7,5",
-        "to" : "C,2,83,0",
+        "to" : "C,24,53,11",
         "connections": {
-            "C,2,82,1": true
+            "C,24,53,7": true
         }   
     },
-    "C,2,82,1" : {
+    "C,24,53,7" : {
         "name": "RADIO TOWER - INSIDE - F4 Left Side Right Stairs - F,5",
-        "to" : "C,4,92,0",
+        "to" : "C,24,53,5",
         "connections": {
-            "C,2,82,0": true
+            "C,24,53,8": true
         }   
     },
-    "C,2,82,2" : {
+    "C,24,53,10" : {
         "name": "RADIO TOWER - INSIDE - F4 Right Side Left Stairs - 14,5",
-        "to" : "C,4,92,1",
+        "to" : "C,24,53,12",
         "connections": {
-            "C,2,82,3": true
+            "C,24,53,9": true
         }   
     },
-    "C,2,82,3" : {
+    "C,24,53,9" : {
         "name": "RADIO TOWER - INSIDE - F4 Right Side Right Stairs - 16,5",
-        "to" : "C,2,83,1",
+        "to" : "C,24,53,6",
         "connections": {
-            "C,2,82,2": true
+            "C,24,53,10": true
         }   
     },
 // F5
-    "C,2,83,0" : {
+    "C,24,53,11" : {
         "name": "RADIO TOWER- INSIDE - F4 Left Side Stairs - 9,5",
-        "to" : "C,2,82,0"
+        "to" : "C,24,53,8"
     },
-    "C,2,83,1" : {
+    "C,24,53,12" : {
         "name": "RADIO TOWER - INSIDE - F4 Right Side Stairs - 15,5",
-        "to" : "C,2,82,3"
+        "to" : "C,24,53,10"
     },
 /* GOLDENROD DEPARTMENT STORE */
 //F1
-    "C,2,36,0" : {
+    "C,13,16,0" : {
         "name": "GOLDENROD DEPT - INSIDE - F1 Enterance - 10,B",
-        "to" : "C,3,15,6",
+        "to" : "C,0,3,2",
         "level": "3",
         "connections": {
-            "C,2,36,1": true,
-            "C,2,37,1": true,
-            "C,2,38,1": true,
-            "C,2,39,1": true,
-            "C,2,40,1": true,
-            "C,2,41,1": true
+            "C,13,16,2": true,
+            "C,13,17,0": true,
+            "C,13,18,0": true,
+            "C,13,19,0": true,
+            "C,13,20,0": true
         }   
     },
-    "C,2,36,1" : {
+    "C,13,16,2" : {
         "name": "GOLDENROD DEPT - INSIDE - F1 Stairs - 16,5",
-        "to" : "C,2,37,1",
+        "to" : "C,13,17,0",
         "level": "3",
         "connections": {
-            "C,2,36,0": true
+            "C,13,16,0": true
         }   
     },
 //F2
-    "C,2,37,1" : {
+    "C,13,17,0" : {
         "name": "GOLDENROD DEPT - INSIDE - F2 Stairs Right - 18,5",
-        "to" : "C,2,36,1",
+        "to" : "C,13,16,2",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,37,2": true
+            "C,13,16,0": true,
+            "C,13,17,1": true
         }   
     },
-    "C,2,37,2" : {
+    "C,13,17,1" : {
         "name": "GOLDENROD DEPT - INSIDE - F2 Stairs Left - 11,5",
-        "to" : "C,2,38,1",
+        "to" : "C,13,18,0",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,37,1": true
+            "C,13,16,0": true,
+            "C,13,17,0": true
         }   
     },
 //F3
-    "C,2,38,1" : {
+    "C,13,18,0" : {
         "name": "GOLDENROD DEPT - INSIDE - F3 Stairs Left - 16,5",
-        "to" : "C,2,37,2",
+        "to" : "C,13,17,1",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,38,0": true
+            "C,13,16,0": true,
+            "C,13,18,1": true
         }   
     },
-    "C,2,38,0" : {
+    "C,13,18,1" : {
         "name": "GOLDENROD DEPT - INSIDE - F3 Stairs Right - 18,5",
-        "to" : "C,2,39,1",
+        "to" : "C,13,19,0",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,38,1": true
+            "C,13,16,0": true,
+            "C,13,18,0": true
         }   
     },
 //F4
-    "C,2,39,1" : {
+    "C,13,19,0" : {
         "name": "GOLDENROD DEPT - INSIDE - F4 Stairs Right - 18,5",
-        "to" : "C,2,38,0",
+        "to" : "C,13,18,1",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,39,2": true
+            "C,13,16,0": true,
+            "C,13,19,1": true
         }   
     },
-    "C,2,39,2" : {
+    "C,13,19,1" : {
         "name": "GOLDENROD DEPT - INSIDE - F4 Stairs Left - 11,5",
-        "to" : "C,2,40,1",
+        "to" : "C,13,20,0",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,39,1": true
+            "C,13,16,0": true,
+            "C,13,19,0": true
         }   
     },
 //F5
-    "C,2,40,1" : {
+    "C,13,20,0" : {
         "name": "GOLDENROD DEPT - INSIDE - F5 Stairs Left - 16,5",
-        "to" : "C,2,39,2",
+        "to" : "C,13,19,1",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,40,0": true
+            "C,13,16,0": true,
+            "C,13,20,2": true
         }   
     },
-    "C,2,40,0" : {
+    "C,13,20,2" : {
         "name": "GOLDENROD DEPT - INSIDE - F5 Stairs Right - 18,5",
-        "to" : "C,2,41,1",
+        "to" : "C,3,5,1",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,40,1": true
+            "C,13,16,0": true,
+            "C,13,20,0": true
         }   
     },
 //F6
-    "C,2,41,1" : {
-        "name": "GOLDENROD DEPT - INSIDE - F6 Stairs Right - 18,5",
-        "to" : "C,2,40,0",
+    "C,3,5,1" : {
+        "name": "GOLDENROD DEPT - INSIDE - F6 Stairs Left - 16,5",
+        "to" : "C,13,20,2",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,41,2": true
+            "C,13,16,0": true,
+            "C,3,5,0": true
         }   
     },
-    "C,2,41,2" : {
-        "name": "GOLDENROD DEPT - INSIDE - F6 Stairs Left - 11,5",
-        "to" : "C,2,42,1",
+    "C,3,5,0" : {
+        "name": "GOLDENROD DEPT - INSIDE - F6 Stairs Right - 18,5",
+        "to" : "C,13,21,0",
         "level": "3",
         "connections": {
-            "C,2,36,0": true,
-            "C,2,41,1": true
+            "C,13,16,0": true,
+            "C,3,5,1": true
         }   
     },
 // ROOF
-    "C,2,42,1" : {
+    "C,13,21,0" : {
         "name": "GOLDENROD DEPT - INSIDE - Roof Stairs - 16,5",
-        "to" : "C,2,41,2",
+        "to" : "C,3,5,0",
         "level": "3"
-    },
-
+    }
 }
