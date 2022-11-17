@@ -5726,7 +5726,7 @@ var EMERALD_WARPS =
     },
     "E,24,24,20" : {
         "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom-middle Center - 2D,D",
-        "to" : "E,24,24,7",
+        "to" : "E,24,24,17",
         "level" : "7",
         "connections" : {
             "E,24,24,19": true,

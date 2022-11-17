@@ -190,70 +190,73 @@ function sprite16x32To32x32(data) {
 var exp = null;
 async function patchSprites() {
 
-    if (exp || IodineGUI.Iodine.IOCore.cartridge.cartriges.size != 3) {
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.size != 3) {
         return;
     }
 
 
-    exp = new ExpansionPack();
-    
-    /* COPY DATA FROM FIRE RED */
-
     var isPatchedFireRed = IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC];
 
-    // WALKING
+    if (exp == null) {
+        exp = new ExpansionPack();
+        
+        /* COPY DATA FROM FIRE RED */
 
-    Object.keys(FR_1_0_GIRL_WALK_SPRITE_DATA).forEach(k => {
-        let versionOffset = 0;
-        if (isPatchedFireRed) {
-            versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
-        }
-        exp.addElementToExpansion("fr_girl_" + k, "FR", (versionOffset + FR_1_0_GIRL_WALK_SPRITE_DATA[k]) - 0x08000000, 256);
-    });
+        // WALKING
 
-    Object.keys(FR_1_0_BOY_WALK_SPRITE_DATA).forEach(k => {
-        let versionOffset = 0;
-        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
-            versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
-        }
-        exp.addElementToExpansion("fr_boy_" + k, "FR", (versionOffset + FR_1_0_BOY_WALK_SPRITE_DATA[k]) - 0x08000000, 256);
-    });
+        Object.keys(FR_1_0_GIRL_WALK_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_girl_" + k, "FR", (versionOffset + FR_1_0_GIRL_WALK_SPRITE_DATA[k]) - 0x08000000, 256);
+        });
 
-    // BIKING 
-    Object.keys(FR_1_0_GIRL_BIKE_SPRITE_DATA).forEach(k => {
-        let versionOffset = 0;
-        if (isPatchedFireRed) {
-            versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
-        }
-        exp.addElementToExpansion("fr_girl_bike_" + k, "FR", (versionOffset + FR_1_0_GIRL_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
-    });
+        Object.keys(FR_1_0_BOY_WALK_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_boy_" + k, "FR", (versionOffset + FR_1_0_BOY_WALK_SPRITE_DATA[k]) - 0x08000000, 256);
+        });
 
-    Object.keys(FR_1_0_BOY_BIKE_SPRITE_DATA).forEach(k => {
-        let versionOffset = 0;
-        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
-            versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
-        }
-        exp.addElementToExpansion("fr_boy_bike_" + k, "FR", (versionOffset + FR_1_0_BOY_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
-    });
+        // BIKING 
+        Object.keys(FR_1_0_GIRL_BIKE_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_girl_bike_" + k, "FR", (versionOffset + FR_1_0_GIRL_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
+        });
 
-    // SURFING 
-    Object.keys(FR_1_0_GIRL_SURF_SPRITE_DATA).forEach(k => {
-        let versionOffset = 0;
-        if (isPatchedFireRed) {
-            versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
-        }
-        exp.addElementToExpansion("fr_girl_surf_" + k, "FR", (versionOffset + FR_1_0_GIRL_SURF_SPRITE_DATA[k]) - 0x08000000, 256, sprite16x32To32x32);
-    });
+        Object.keys(FR_1_0_BOY_BIKE_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_boy_bike_" + k, "FR", (versionOffset + FR_1_0_BOY_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
+        });
 
-    Object.keys(FR_1_0_BOY_SURF_SPRITE_DATA).forEach(k => {
-        let versionOffset = 0;
-        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
-            versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
-        }
-        exp.addElementToExpansion("fr_boy_surf_" + k, "FR", (versionOffset + FR_1_0_BOY_SURF_SPRITE_DATA[k]) - 0x08000000, 256, sprite16x32To32x32);
-    });
+        // SURFING 
+        Object.keys(FR_1_0_GIRL_SURF_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_girl_surf_" + k, "FR", (versionOffset + FR_1_0_GIRL_SURF_SPRITE_DATA[k]) - 0x08000000, 256, sprite16x32To32x32);
+        });
 
-    // USE ITEM
+        Object.keys(FR_1_0_BOY_SURF_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_boy_surf_" + k, "FR", (versionOffset + FR_1_0_BOY_SURF_SPRITE_DATA[k]) - 0x08000000, 256, sprite16x32To32x32);
+        });
+
+        // USE ITEM
+    }
+
     
 
     /* COPY DATA TO CRYSTAL */
