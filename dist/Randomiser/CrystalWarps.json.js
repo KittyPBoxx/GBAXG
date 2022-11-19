@@ -522,6 +522,7 @@ var CRYSTAL_WARPS =
     },
     "C,0,23,2" : {
         "name": "ROUTE 36 - OUTSIDE - Route Connector Right - 10,8",
+        "level" : "4",
         "to" : "C,24,96,1",
     },
 /* ROUTE 36 - INT */
@@ -1561,6 +1562,384 @@ var CRYSTAL_WARPS =
     "C,13,21,0" : {
         "name": "GOLDENROD DEPT - INSIDE - Roof Stairs - 16,5",
         "to" : "C,3,5,0",
-        "level": "3"
-    }
+        "level": "3"// Route 36
+    },
+// Level 4
+    "C,11,15,1" : {
+        "name": "Route 35 - INSIDE - Route Connector Bottom (Golden Rod) - 4,9",
+        "to" : "C,0,3,14",
+        "level": "4",
+        "connections": {
+            "C,11,15,0": true,
+        }   
+    },
+    "C,11,15,0" : {
+        "name": "Route 35 - INSIDE - Route Connector Top (Golden Rod) - 4,1",
+        "to" : "C,0,22,2",
+        "level": "4",
+        "connections": {
+            "C,11,15,1": true,
+        }   
+    },
+    "C,0,22,0" : {
+        "name": "Route 35 - OUTSIDE - National Park Connector - B,5",
+        "to" : "C,24,68,0",
+        "level": "4",
+        "grouped" : ["C,0,22,1"],
+        "groupMain" : true,
+        "connections": {
+            "C,0,22,2": true,
+        }   
+    },
+    "C,0,22,1" : {
+        "name": "Route 35 - OUTSIDE - National Park Connector - C,5",
+        "to" : "C,24,68,0",
+        "level": "4",
+        "grouped" : ["C,0,22,0"]
+    },
+    "C,0,22,2" : {
+        "name": "Route 35 - OUTSIDE - Route Connector Bottom - 11,21",
+        "to" : "C,11,15,0",
+        "level": "4",
+        "grouped" : ["C,0,22,3"],
+        "groupMain" : true,
+        "connections": {
+            "C,0,22,0": true,
+        }   
+    },
+    "C,0,22,3" : {
+        "name": "Route 35 - OUTSIDE - Route Connector Bottom - 12,21",
+        "to" : "C,11,15,0",
+        "level": "4",
+        "grouped" : ["C,0,22,3"]
+    },
+    "C,24,68,0" : {
+        "name": "Route 35 - INSIDE - National Park Enterance Bottom - 3,8",
+        "to" : "C,0,22,0",
+        "level": "4",
+        "connections": {
+            "C,24,68,1": true,
+        }   
+    },
+    "C,24,68,1" : {
+        "name": "Route 35 - INSIDE - National Park Enterance Top - 3,1",
+        "to" : "C,0,38,0",
+        "level": "4",
+        "connections": {
+            "C,24,68,0": true,
+        }   
+    },
+    "C,0,38,0" : {
+        "name": "NATIONAL PARK - OUTSIDE - Bottom - C,2F",
+        "to" : "C,24,68,1",
+        "level": "4",
+        "grouped" : ["C,0,38,1"],
+        "groupMain" : true,
+        "connections": {
+            "C,0,38,2": true,
+        }   
+    },
+    "C,0,38,1" : {
+        "name": "NATIONAL PARK - OUTSIDE - Bottom - D,2F",
+        "to" : "C,24,68,1",
+        "level": "4",
+        "grouped" : ["C,0,38,0"]
+    },
+    "C,0,38,2" : {
+        "name": "NATIONAL PARK - OUTSIDE - Top Right - 23,12",
+        "to" : "C,24,96,0",
+        "level": "4",
+        "connections": {
+            "C,0,38,0": true,
+        }   
+    },
+    "C,24,96,0" : {
+        "name": "Route 36 - INSIDE - National Park Connector Left - 1,5",
+        "to" : "C,0,38,2",
+        "level": "4",
+        "connections": {
+            "C,24,96,1": true,
+        }   
+    },
+    "C,24,96,1" : {
+        "name": "Route 36 - INSIDE - National Park Connector Right - A,5",
+        "to" : "C,0,23,2",
+        "level": "4",
+        "connections": {
+            "C,24,96,0": true,
+        }   
+    },
+/* ECRUTEAK CITY - EXT */
+    "C,0,1,0" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - PkCenter - 19,1F",
+        "to" : "C,9,11,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,1": true,
+            "C,0,1,2": true,
+            "C,0,1,4": true,
+            "C,0,1,5": true,
+            "C,0,1,6": true,
+            "C,0,1,7": true,
+            "C,0,1,8": true,
+            "C,0,1,10": true,
+            "C,0,1,11": true
+        }   
+    },
+    "C,0,1,1" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Mart - 20,19",
+        "to" : "C,9,13,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,2" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Burned Tower Enterance - 7,9",
+        "to" : "C,24,54,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,3" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Tin Tower Enterance - 27,B",
+        "to" : "C,24,6,0",
+        "level": "4",
+        "connections": {
+            "C,9,9,1": true,
+        }   
+    },
+    "C,0,1,4" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Above PkCenter - 19,19",
+        "to" : "C,9,6,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,5" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Gym - 9,1F",
+        "to" : "C,12,1,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,6" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Above Gym - 7,19",
+        "to" : "C,9,1,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,7" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Left Of Gym - F,1F",
+        "to" : "C,9,0,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,8" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Center Top - 14,F",
+        "to" : "C,9,7,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,9" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Route Connector Top - 16,6",
+        "to" : "C,9,9,1",
+        "level": "4",
+        "connections": {
+            "C,0,1,3": true,
+        }   
+    },
+    "C,0,1,10" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Route Connector Left - 2,16",
+        "to" : "C,29,11,1",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+    "C,0,1,11" : {
+        "name": "ECRUTEAK CITY - OUTSIDE - Route Connector Right - 25,1E",
+        "to" : "C,20,0,0",
+        "level": "4",
+        "connections": {
+            "C,0,1,0": true,
+        }   
+    },
+/* ECRUTEAK CITY - INT */ 
+    "C,9,11,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - PkCenter Enterance - 7,8",
+        "to" : "C,0,1,0",
+        "level": "4",
+        "connections": {
+            "C,9,11,2": true,
+        }   
+    },
+    "C,9,11,2" : {
+        "name": "ECRUTEAK CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "C,9,11,0",
+        "level": "4",
+        "connections": {
+            "C,9,11,0": true,
+        }   
+    },
+    "C,9,13,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Mart - 4,7",
+        "to" : "C,0,1,1",
+        "level": "4",
+    },
+    "C,9,6,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Above Pk Center (Evee Sisters) - 6,E",
+        "to" : "C,0,1,4",
+        "level": "4",
+    },
+    "C,12,1,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Gym - 5,11",
+        "to" : "C,0,1,5",
+        "level": "4",
+    },
+    "C,9,1,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Above Gym - 4,7",
+        "to" : "C,0,1,6",
+        "level": "4",
+    },
+    "C,9,0,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Left Of Gym - 4,7",
+        "to" : "C,0,1,7",
+        "level": "4",
+    },
+// BURNED TOWER
+    // F1
+    "C,24,54,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Burned Tower F1 Enterance - 7,11",
+        "to" : "C,0,1,2",
+        "level": "4",
+        "connections": {
+            "C,24,54,2": true,
+        }   
+    },
+    "C,24,54,2" : {
+        "name": "ECRUTEAK CITY - INSIDE - Burned Tower F1 Drop - 8,B",
+        "to" : "C,24,55,1",
+        "level": "4",
+        "connections": {
+            "C,24,54,0": true,
+        }   
+    },
+    // F2
+    "C,24,55,1" : {
+        "name": "ECRUTEAK CITY - INSIDE - Burned Tower F2 Drop - A,9",
+        "to" : "C,24,54,2",
+        "level": "4",
+        "connections": {
+            "C,24,55,0": true,
+        }   
+    },
+    "C,24,55,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Burned Tower F2 Ladder - 7,F",
+        "to" : "C,24,54,1",
+        "level": "4",
+        "connections": {
+            "C,24,55,1": true,
+        }   
+    },
+// TIN TOWER
+    // It looks like most of tine tower is unimplimented
+// Gate House
+    // F1
+    "C,9,7,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Tin Tower Gatehouse F1 Enterance - 5,12",
+        "to" : "C,0,1,8",
+        "level": "4",
+    },
+    "C,9,7,1" : {
+        "name": "ECRUTEAK CITY - INSIDE - Tin Tower Gatehouse F1 Stairs - 6,2",
+        "to" : "C,9,8,1",
+        "level": "5",
+        "connections": {
+            "C,9,7,0": true,
+        }   
+    },
+    // F2
+    "C,9,8,1" : {
+        "name": "ECRUTEAK CITY - INSIDE - Tin Tower Gatehouse F2 Bottom Stairs - 4,10",
+        "to" : "C,9,7,1",
+        "level": "5",
+        "connections": {
+            "C,9,8,0": true,
+        }   
+    },
+    "C,9,8,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Tin Tower Gatehouse F2 Top Stairs - 4,2",
+        "to" : "C,9,9,0",
+        "level": "5",
+        "connections": {
+            "C,9,8,1": true,
+        }   
+    },
+    // F3
+    // I think in the rom you are not supposed to be able to get through here
+// TOWER    
+    // F1
+    "C,24,6,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Tin Tower F1 Enterance - 7,10",
+        "to" : "C,0,1,3",
+        "level": "5",
+    },
+// LEVEL 5
+
+
+/* ROUTE 38 - EXT */
+/* ROUTE 38 - INT */
+/* ROUTE 39 - EXT */
+/* ROUTE 39 - INT */
+/* OLIVINE CITY - INT */
+/* OLIVINE CITY - EXT */
+/* ROUTE 40 - INT */
+/* ROUTE 40 - EXT */
+/* CIANWOOD CITY - EXT */
+/* CIANWOOD CITY - INT */
 }
+
+
+
+// Level 6
+    // Lighthouse
+    // Olivine Gym
+// Level 7
+    // Route 41
+    // Mount Mortar
+    // MAHOGANY TOWN
+    // Lake of Rage 
+    // ROCKET HIDEOUT 
+// Level 8
+    // ROUTE 42 route connector
+    // ROUTE 42
+    // Route 44
+    // ICE PATH
+    // BLACKTHORN CITY
+    // DRAGONS DEN
+    // ROUTE 49
+    // ROUTE 46
+    // DARK CAVE
+// To Champ
+    // ROUTE 27
+    // TOHJO FALLS
+    // ROUTE 26
+    // ROUTE 23
+    // VICTORY ROAD
+    // ROUTE 23
+    // INDIGO PLATEAU
+    // E4 1
+    // E4 2
+    // E4 3
+    // E4 4
+    // E4 Champ

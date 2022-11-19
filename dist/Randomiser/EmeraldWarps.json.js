@@ -5728,6 +5728,8 @@ var EMERALD_WARPS =
         "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom-middle Center - 2D,D",
         "to" : "E,24,24,17",
         "level" : "7",
+        "groupMain" : true,
+        "grouped" : ["E,24,24,23"],
         "connections" : {
             "E,24,24,19": true,
             "E,24,24,21": true,
@@ -5755,10 +5757,12 @@ var EMERALD_WARPS =
         "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom Center - 2D,11",
         "to" : "E,24,24,17",
         "level" : "7",
-        "connections" : {
-            "E,24,24,22": true,
-            "E,24,24,24": true,
-        }
+        "grouped" : ["E,24,24,20"],
+        // This has the same warp location as 24,24,20 so need to fix
+        // "connections" : {
+        //     "E,24,24,22": true,
+        //     "E,24,24,24": true,
+        // }
     },
     "E,24,24,24" : {
         "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom Right - 30,11",
