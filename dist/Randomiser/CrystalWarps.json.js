@@ -1889,11 +1889,11 @@ var CRYSTAL_WARPS =
     // I think in the rom you are not supposed to be able to get through here
 // TOWER    
     // F1
-    "C,24,6,0" : {
-        "name": "ECRUTEAK CITY - INSIDE - Tin Tower F1 Enterance - 7,10",
-        "to" : "C,0,1,3",
-        "level": "5",
-    },
+    // "C,24,6,0" : {
+    //     "name": "ECRUTEAK CITY - INSIDE - Tin Tower F1 Enterance - 7,10",
+    //     "to" : "C,0,1,3",
+    //     "level": "5",
+    // },
 // LEVEL 5
 /* ROUTE 38 - EXT */
     "C,0,25,0" : {
@@ -2091,11 +2091,336 @@ var CRYSTAL_WARPS =
 // No Inside of Docks
 /* Lighthouse */ // - Level 6
     // F1
+    "C,24,46,0" : {
+        "name": "LIGHTHOUSE - INSIDE - F1 Enterance - B,11",
+        "to" : "C,0,2,7",
+        "level": "6",
+        "connections": {
+            "C,24,46,1": true,
+        } 
+    },
+    "C,24,46,1" : {
+        "name": "LIGHTHOUSE - INSIDE - F1 Stairs - 3,A",
+        "to" : "C,24,47,0",
+        "level": "6",
+        "connections": {
+            "C,24,46,0": true,
+        } 
+    },
+    "C,24,46,2" : {
+        "name": "LIGHTHOUSE - INSIDE - F1 Drop - 10,D",
+        "to" : "C,24,47,2",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,46,3"],
+        "connections": {
+            "C,24,46,0": true,
+        } 
+    },
+    "C,24,46,3" : {
+        "name": "LIGHTHOUSE - INSIDE - F1 Drop - 11,D",
+        "to" : "C,24,47,2",
+        "level": "6",
+        "grouped" : ["C,24,46,2"],
+    },
     // F2
+    "C,24,47,0" : {
+        "name": "LIGHTHOUSE - INSIDE - F2 Bottom Stairs - 2,A",
+        "to" : "C,24,46,1",
+        "level": "6",
+        "connections": {
+            "C,24,47,1": true,
+            "C,24,47,2": true
+        } 
+    },
+    "C,24,47,1" : {
+        "name": "LIGHTHOUSE - INSIDE - F2 Top Stairs - 2,A",
+        "to" : "C,24,48,0",
+        "level": "6",
+        "connections": {
+            "C,24,47,0": true
+        } 
+    },
+    "C,24,47,2" : {
+        "name": "LIGHTHOUSE - INSIDE - F2 Hole - 10,2",
+        "to" : "C,24,46,2",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,47,3"],
+        "connections": {
+            "C,24,47,0": true
+        } 
+    },
+    "C,24,47,3" : {
+        "name": "LIGHTHOUSE - INSIDE - F2 Hole - 11,2",
+        "to" : "C,24,46,3",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,47,2"]
+    },
+    "C,24,47,4" : {
+        "name": "LIGHTHOUSE - INSIDE - F2 Drop - 10,B",
+        "to" : "C,24,47,3",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,47,5"],
+        "connections": {
+            "C,24,47,0": true
+        } 
+    },
+    "C,24,47,5" : {
+        "name": "LIGHTHOUSE - INSIDE - F2 Drop - 11,B",
+        "to" : "C,24,47,3",
+        "level": "6",
+        "grouped" : ["C,24,47,4"]
+    },
     // F3
+    "C,24,48,0" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Left Stairs - 3E,3",
+        "to" : "C,1,99,4",
+        "level": "6",
+        "connections": {
+            "C,24,48,1": true,
+            "C,24,48,3": true
+        } 
+    },
+    "C,24,48,1" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Right Stairs - E,2",
+        "to" : "C,24,49,0",
+        "level": "6",
+        "connections": {
+            "C,24,48,0": true
+        } 
+    },
+    "C,24,48,2" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Center Stairs - 9,5",
+        "to" : "C,24,49,2",
+        "level": "6"
+    },
+    "C,24,48,3" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Hole - 10,B",
+        "to" : "C,24,47,4",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,48,4"],
+        "connections": {
+            "C,24,48,0": true
+        } 
+    },
+    "C,24,48,4" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Hole - 10,B",
+        "to" : "C,24,47,4",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,48,4"],
+        "connections": {
+            "C,24,48,0": true
+        } 
+    },
+    "C,24,48,5" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Top Drop - 8,3",
+        "to" : "C,24,49,4",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,48,6"],
+        "connections": {
+            "C,24,48,2": true
+        } 
+    },
+    "C,24,48,6" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Top Drop - 9,3",
+        "to" : "C,24,49,4",
+        "level": "6",
+        "grouped" : ["C,24,48,5"]
+    },
+    "C,24,48,7" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Bottom Drop - 10,9",
+        "to" : "C,24,49,6",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,48,8"],
+        "connections": {
+            "C,24,48,0": true
+        } 
+    },
+    "C,24,48,8" : {
+        "name": "LIGHTHOUSE - INSIDE - F3 Bottom Drop - 11,9",
+        "to" : "C,24,49,6",
+        "level": "6",
+        "grouped" : ["C,24,48,7"]
+    },
     // F4
-    // F5 
+    "C,24,49,0" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Top Right Stairs - D,2",
+        "to" : "C,24,48,1",
+        "level": "6",
+        "connections": {
+            "C,24,49,7": true,
+            "C,24,49,4": true,
+            "C,24,49,3": true
+        } 
+    },
+    "C,24,49,2" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Center Top Stairs - 9,5",
+        "to" : "C,24,48,2",
+        "level": "6",
+        "connections": {
+            "C,24,49,1": true,
+            "C,24,49,4": true
+        } 
+    },
+    "C,24,49,1" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Center Bottom Stairs - 9,7",
+        "to" : "C,24,50,0",
+        "level": "6",
+        "connections": {
+            "C,24,49,2": true,
+            "C,24,49,4": true
+        } 
+    },
+    "C,24,49,3" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Top Left Stairs - 3,7",
+        "to" : "C,24,50,2",
+        "level": "6",
+        "connections": {
+            "C,24,49,7": true,
+            "C,24,49,4": true,
+            "C,24,49,0": true
+        } 
+    },
+    "C,24,49,4" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Top Hole - 8,3",
+        "to" : "C,24,48,5",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,49,5"],
+        "connections": {
+            "C,24,49,0": true,
+            "C,24,49,2": true,
+        } 
+    },
+    "C,24,49,5" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Top Hole - 9,3",
+        "to" : "C,24,48,6",
+        "level": "6",
+        "grouped" : ["C,24,49,4"]
+    },
+    "C,24,49,6" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Bottom Hole - 10,9",
+        "to" : "C,24,48,7",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,49,7"],
+        "connections": {
+            "C,24,49,0": true
+        } 
+    },
+    "C,24,49,7" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Bottom Hole - 11,9",
+        "to" : "C,24,48,8",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,49,6"]
+    },
+    "C,24,49,8" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Drop - 10,7",
+        "to" : "C,24,50,3",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,49,9"],
+        "connections": {
+            "C,24,49,0": true
+        } 
+    },
+    "C,24,49,9" : {
+        "name": "LIGHTHOUSE - INSIDE - F4 Drop - 11,7",
+        "to" : "C,24,50,3",
+        "level": "6",
+        "grouped" : ["C,24,49,8"]
+    },
+    // F5
+    "C,24,50,0" : {
+        "name": "LIGHTHOUSE - INSIDE - F5 Center Top Stairs - 8,6",
+        "to" : "C,24,49,1",
+        "level": "6",
+        "connections": {
+            "C,24,50,1": true
+        } 
+    },
+    "C,24,50,1" : {
+        "name": "LIGHTHOUSE - INSIDE - F5 Center Bottom Stairs - 9,E",
+        "to" : "C,24,51,0",
+        "level": "6",
+        "connections": {
+            "C,24,50,0": true
+        } 
+    },
+    "C,24,50,2" : {
+        "name": "LIGHTHOUSE - INSIDE - F5 Top Left Stairs - 3,7",
+        "to" : "C,24,49,3",
+        "level": "6",
+        "connections": {
+            "C,24,50,3": true
+        } 
+    },
+    "C,24,50,3" : {
+        "name": "LIGHTHOUSE - INSIDE - F5 Hole - 10,7",
+        "to" : "C,24,49,8",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,50,4"],
+        "connections": {
+            "C,24,50,2": true
+        } 
+    },
+    "C,24,50,4" : {
+        "name": "LIGHTHOUSE - INSIDE - F5 Hole - 11,7",
+        "to" : "C,24,49,9",
+        "level": "6",
+        "grouped" : ["C,24,50,3"]
+    },
+    "C,24,50,5" : {
+        "name": "LIGHTHOUSE - INSIDE - F5 Drop - 10,5",
+        "to" : "C,24,51,1",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,50,6"],
+        "connections": {
+            "C,24,50,3": true,
+            "C,24,50,2": true
+        } 
+    },
+    "C,24,50,6" : {
+        "name": "LIGHTHOUSE - INSIDE - F5 Drop - 11,5",
+        "to" : "C,24,51,1",
+        "level": "6",
+        "grouped" : ["C,24,50,5"]
+    },
     // F6
+    "C,24,51,0" : {
+        "name": "LIGHTHOUSE - INSIDE - F6 Stairs - 9,E",
+        "to" : "C,24,50,1",
+        "level": "6",
+        "connections": {
+            "C,24,51,1": true,
+        } 
+    },
+    "C,24,51,1" : {
+        "name": "LIGHTHOUSE - INSIDE - F6 Drop - 10,5",
+        "to" : "C,24,50,5",
+        "level": "6",
+        "groupMain" : true,
+        "grouped" : ["C,24,51,2"],
+        "connections": {
+            "C,24,51,0": true,
+        } 
+    },
+    "C,24,51,2" : {
+        "name": "LIGHTHOUSE - INSIDE - F6 Drop - 11,5",
+        "to" : "C,24,50,6",
+        "level": "6",
+        "grouped" : ["C,24,51,1"]
+    },
 /* ROUTE 40 - EXT */
     "C,0,27,0" : {
         "name": "ROUTE 40 - OUTSIDE - Route Connector - A,5",
