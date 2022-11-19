@@ -1895,25 +1895,338 @@ var CRYSTAL_WARPS =
         "level": "5",
     },
 // LEVEL 5
-
-
 /* ROUTE 38 - EXT */
+    "C,0,25,0" : {
+        "name": "ROUTE 38 - OUTSIDE - Route Connector - 23,A",
+        "to" : "C,2,21,0",
+        "level": "5",
+        "connections": {
+            "C,0,26,1": true,
+        }   
+    },
 /* ROUTE 38 - INT */
+    "C,29,11,0" : {
+        "name": "ROUTE 38 - INSIDE - Route Connector Left - 1,5",
+        "to" : "C,0,25,0",
+        "level": "5",
+        "connections": {
+            "C,29,11,1": true,
+        }   
+    },
+    "C,29,11,0" : {
+        "name": "ROUTE 38 - INSIDE - Route Connector Right - B,5",
+        "to" : "C,0,1,10",
+        "level": "5",
+        "connections": {
+            "C,29,11,0": true,
+        }   
+    },
 /* ROUTE 39 - EXT */
+    "C,0,26,0" : {
+        "name": "ROUTE 39 - OUTSIDE - Left House - 3,5",
+        "to" : "C,18,1,0",
+        "level": "5",
+        "connections": {
+            "C,0,26,1": true,
+        }   
+    },
+    "C,0,26,1" : {
+        "name": "ROUTE 39 - OUTSIDE - Right House - 5,5",
+        "to" : "C,18,0,0",
+        "level": "5",
+        "connections": {
+            "C,0,26,0": true,
+            "C,0,25,0": true,
+            "C,0,2,1": true,
+        }   
+    },
 /* ROUTE 39 - INT */
-/* OLIVINE CITY - INT */
+    "C,18,1,0" : {
+        "name": "ROUTE 39 - INSIDE - Left House - 3,8",
+        "to" : "C,0,26,0",
+        "level": "5"  
+    },
+    "C,18,0,0" : {
+        "name": "ROUTE 39 - INSIDE - Right House - 3,7",
+        "to" : "C,0,26,1",
+        "level": "5"  
+    },
 /* OLIVINE CITY - EXT */
-/* ROUTE 40 - INT */
+    "C,0,2,0" : {
+        "name": "OLIVINE CITY - OUTSIDE - GYM - B,B",
+        "to" : "C,10,0,0",
+        "level": "5",
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,1" : {
+        "name": "OLIVINE CITY - OUTSIDE - PkCenter - D,15",
+        "to" : "C,10,5,0",
+        "level": "5",
+        "connections": {
+            "C,0,26,1": true,
+            "C,0,2,0": true,
+            "C,0,2,2": true,
+            "C,0,2,3": true,
+            "C,0,2,4": true,
+            "C,0,2,5": true,
+            "C,0,2,6": true,
+            "C,0,2,7": true,
+            "C,0,2,8": true,
+            "C,0,27,0": true,
+        }   
+    },
+    "C,0,2,2" : {
+        "name": "OLIVINE CITY - OUTSIDE - Top Right Right - 1D,B",
+        "to" : "C,10,4,0",
+        "level": "5",
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,3" : {
+        "name": "OLIVINE CITY - OUTSIDE - Mart - 14,11",
+        "to" : "C,10,7,0",
+        "level": "5",
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,4" : {
+        "name": "OLIVINE CITY - OUTSIDE - Left of Mart - D,F",
+        "to" : "C,9,5,0",
+        "level": "5",
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,5" : {
+        "name": "OLIVINE CITY - OUTSIDE - Left of PkCenter - 7,15",
+        "to" : "C,10,1,0",
+        "level": "5",
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,6" : {
+        "name": "OLIVINE CITY - OUTSIDE - Top Right Left - 19,B",
+        "to" : "C,10,2,0",
+        "level": "5",
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,7" : {
+        "name": "OLIVINE CITY - OUTSIDE - LightHouse - 1D,1B",
+        "to" : "C,24,46,0",
+        "level": "5",
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,8" : {
+        "name": "OLIVINE CITY - OUTSIDE - Docks - 13,1B",
+        "to" : "C,24,1,0",
+        "level": "5",
+        "groupMain" : true,
+        "grouped" : ["C,0,2,9"],
+        "connections": {
+            "C,0,2,1": true,
+        }   
+    },
+    "C,0,2,9" : {
+        "name": "OLIVINE CITY - OUTSIDE - Docks - 14,1B",
+        "to" : "C,24,1,0",
+        "level": "5",
+        "grouped" : ["C,0,2,8"],
+    },
+/* OLIVINE CITY - INT */
+    "C,10,0,0" : {
+        "name": "OLIVINE CITY - INSIDE - GYM - B,B",
+        "to" : "C,0,2,0",
+        "level": "6"
+    },
+    "C,10,5,0" : {
+        "name": "OLIVINE CITY - INSIDE - PkCenter Enterance - 7,8",
+        "to" : "C,0,2,1",
+        "level": "5",
+        "connections": {
+            "C,10,5,2": true,
+        } 
+    },
+    "C,10,5,1" : {
+        "name": "OLIVINE CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "C,10,6,0",
+        "level": "5",
+        "connections": {
+            "C,10,5,0": true,
+        } 
+    },
+    "C,10,4,0" : {
+        "name": "OLIVINE CITY - INSIDE - Top Right Right - 3,7",
+        "to" : "C,0,2,2",
+        "level": "5"
+    },
+    "C,10,7,0" : {
+        "name": "OLIVINE CITY - INSIDE - Mart - 4,7",
+        "to" : "C,0,2,3",
+        "level": "5"
+    },
+    "C,9,5,0" : {
+        "name": "OLIVINE CITY - INSIDE - Left of Mart - 3,7",
+        "to" : "C,0,2,4",
+        "level": "5"
+    },
+    "C,10,1,0" : {
+        "name": "OLIVINE CITY - INSIDE - Left of PkCenter - 2,8",
+        "to" : "C,0,2,5",
+        "level": "5"
+    },
+    "C,10,2,0" : {
+        "name": "OLIVINE CITY - INSIDE - Top Right Left - 3,7",
+        "to" : "C,0,2,6",
+        "level": "5"
+    },
+// No Inside of Docks
+/* Lighthouse */ // - Level 6
+    // F1
+    // F2
+    // F3
+    // F4
+    // F5 
+    // F6
 /* ROUTE 40 - EXT */
+    "C,0,27,0" : {
+        "name": "ROUTE 40 - OUTSIDE - Route Connector - A,5",
+        "to" : "C,19,0,0",
+        "level": "5",
+        "groupMain" : true,
+        "grouped" : ["C,0,27,1"],
+        "connections": {
+            "C,0,2,1": true,
+        } 
+    },
+    "C,0,27,1" : {
+        "name": "ROUTE 40 - OUTSIDE - Route Connector - B,5",
+        "to" : "C,19,0,0",
+        "grouped" : ["C,0,27,0"],
+        "level": "5"
+    },
+/* ROUTE 40 - INT */
+// No done battle tower area
 /* CIANWOOD CITY - EXT */
+    "C,0,2,0" : {
+        "name": "CIANWOOD CITY - OUTSIDE - Center above Gym - D,1F",
+        "to" : "C,4,0,0",
+        "level": "5",
+        "connections": {
+            "C,0,12,3": true,
+        }   
+    },
+    "C,0,2,1" : {
+        "name": "CIANWOOD CITY - OUTSIDE - Gym - D,2B",
+        "to" : "C,4,1,0",
+        "level": "5",
+        "connections": {
+            "C,0,12,3": true,
+        }   
+    },
+    "C,0,2,2" : {
+        "name": "CIANWOOD CITY - OUTSIDE - Bottom Bottom House - 13,2F",
+        "to" : "C,4,4,0",
+        "level": "5",
+        "connections": {
+            "C,0,12,3": true,
+        }   
+    },
+    "C,0,2,3" : {
+        "name": "CIANWOOD CITY - OUTSIDE - PkCenter - 1C,2B",
+        "to" : "C,4,4,0",
+        "level": "5",
+        "connections": {
+            "C,0,12,0": true,
+            "C,0,12,1": true,
+            "C,0,12,2": true,
+            "C,0,12,4": true,
+            "C,0,12,5": true,
+            "C,0,12,6": true,
+        }   
+    },
+    "C,0,2,4" : {
+        "name": "CIANWOOD CITY - OUTSIDE - Top Bottom House - 13,25",
+        "to" : "C,4,3,0",
+        "level": "5",
+        "connections": {
+            "C,0,12,3": true,
+        }   
+    },
+    "C,0,2,5" : {
+        "name": "CIANWOOD CITY - OUTSIDE - Middle Bottom House - 15,29",
+        "to" : "C,4,2,0",
+        "level": "5",
+        "connections": {
+            "C,0,12,3": true,
+        }   
+    },
+    "C,0,2,6" : {
+        "name": "CIANWOOD CITY - OUTSIDE - Top House - 9,11",
+        "to" : "C,9,10,0",
+        "level": "5",
+        "connections": {
+            "C,0,12,3": true,
+        }   
+    },
 /* CIANWOOD CITY - INT */
+    "C,4,0,0" : {
+        "name": "CIANWOOD CITY - INSIDE - Center above Gym - D,1F",
+        "to" : "C,0,12,0",
+        "level": "5"
+    },
+    "C,4,1,0" : {
+        "name": "CIANWOOD CITY - INSIDE - Gym - 5,12",
+        "to" : "C,0,12,1",
+        "level": "5"
+    },
+    "C,4,4,0" : {
+        "name": "CIANWOOD CITY - INSIDE - Bottom Bottom House - 3,7",
+        "to" : "C,0,12,2",
+        "level": "5"
+    },
+    "C,4,5,0" : {
+        "name": "CIANWOOD CITY - INSIDE - PkCenter Enterance - 7,8",
+        "to" : "C,0,12,3",
+        "level": "5",
+        "connections": {
+            "C,4,5,1": true,
+        }   
+    },
+    "C,4,5,1" : {
+        "name": "CIANWOOD CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "C,4,6,0",
+        "level": "5",
+        "connections": {
+            "C,4,5,0": true,
+        }   
+    },
+    "C,4,3,0" : {
+        "name": "CIANWOOD CITY - INSIDE - Top Bottom House - 3,7",
+        "to" : "C,0,12,4",
+        "level": "5"
+    },
+    "C,4,2,0" : {
+        "name": "CIANWOOD CITY - INSIDE - Middle Bottom House - 3,7",
+        "to" : "C,0,12,5",
+        "level": "5"
+    },
+    "C,9,10,0" : {
+        "name": "CIANWOOD CITY - INSIDE - Top House - 3,7",
+        "to" : "C,0,12,6",
+        "level": "5"
+    },
 }
 
 
-
-// Level 6
-    // Lighthouse
-    // Olivine Gym
 // Level 7
     // Route 41
     // Mount Mortar
