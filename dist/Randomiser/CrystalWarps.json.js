@@ -1377,7 +1377,8 @@ var CRYSTAL_WARPS =
 // F2
     "C,24,53,3" : {
         "name": "RADIO TOWER - INSIDE - F2 Left Stairs - 7,5",
-        "to" : "C,24,53,4"
+        "to" : "C,24,53,4",
+        "level": "7",
     },
     "C,24,53,2" : {
         "name": "RADIO TOWER - INSIDE - F2 Right Stairs - 17,5",
@@ -1388,17 +1389,20 @@ var CRYSTAL_WARPS =
     "C,24,53,4" : {
         "name": "RADIO TOWER - INSIDE - F3 Left Stairs - 9,5",
         "to" : "C,24,53,3",
+        "level": "7",
         "connections": {
             "C,24,53,5": true
         }   
     },
     "C,24,53,6" : {
         "name": "RADIO TOWER - INSIDE - F3 Right Stairs - 9,5",
-        "to" : "C,24,53,9"
+        "to" : "C,24,53,9",
+        "level": "7",
     },
     "C,24,53,5" : {
         "name": "RADIO TOWER - INSIDE - F3 Middle Stairs - 10,5",
         "to" : "C,24,53,7",
+        "level": "7",
         "connections": {
             "C,24,53,4": true
         }   
@@ -1407,6 +1411,7 @@ var CRYSTAL_WARPS =
     "C,24,53,8" : {
         "name": "RADIO TOWER - INSIDE - F4 Left Side Left Stairs - 7,5",
         "to" : "C,24,53,11",
+        "level": "7",
         "connections": {
             "C,24,53,7": true
         }   
@@ -1414,6 +1419,7 @@ var CRYSTAL_WARPS =
     "C,24,53,7" : {
         "name": "RADIO TOWER - INSIDE - F4 Left Side Right Stairs - F,5",
         "to" : "C,24,53,5",
+        "level": "7",
         "connections": {
             "C,24,53,8": true
         }   
@@ -1421,6 +1427,7 @@ var CRYSTAL_WARPS =
     "C,24,53,10" : {
         "name": "RADIO TOWER - INSIDE - F4 Right Side Left Stairs - 14,5",
         "to" : "C,24,53,12",
+        "level": "7",
         "connections": {
             "C,24,53,9": true
         }   
@@ -1428,6 +1435,7 @@ var CRYSTAL_WARPS =
     "C,24,53,9" : {
         "name": "RADIO TOWER - INSIDE - F4 Right Side Right Stairs - 16,5",
         "to" : "C,24,53,6",
+        "level": "7",
         "connections": {
             "C,24,53,10": true
         }   
@@ -1435,11 +1443,13 @@ var CRYSTAL_WARPS =
 // F5
     "C,24,53,11" : {
         "name": "RADIO TOWER- INSIDE - F4 Left Side Stairs - 9,5",
-        "to" : "C,24,53,8"
+        "to" : "C,24,53,8",
+        "level": "7",
     },
     "C,24,53,12" : {
         "name": "RADIO TOWER - INSIDE - F4 Right Side Stairs - 15,5",
-        "to" : "C,24,53,10"
+        "to" : "C,24,53,10",
+        "level": "7",
     },
 /* GOLDENROD DEPARTMENT STORE */
 //F1
@@ -2549,18 +2559,471 @@ var CRYSTAL_WARPS =
         "to" : "C,0,12,6",
         "level": "5"
     },
+// LEVEL 7
+/* ROUTE 42 - EXT */
+    "C,0,29,0" : {
+        "name": "ROUTE 42 - OUTSIDE - Route Connector - 0,A",
+        "to" : "C,20,0,1",
+        "level": "7",
+        "connections": {
+            "C,0,29,1": true,
+        }   
+    },
+    "C,0,29,1" : {
+        "name": "ROUTE 42 - OUTSIDE - Left Cave - A,7",
+        "to" : "C,24,15,0",
+        "level": "7",
+        "connections": {
+            "C,0,29,0": true,
+        }   
+    },
+    "C,0,29,2" : {
+        "name": "ROUTE 42 - OUTSIDE - Middle Cave - 1C,B",
+        "to" : "C,24,15,1",
+        "level": "7"
+    },
+    "C,0,29,3" : {
+        "name": "ROUTE 42 - OUTSIDE - Right Cave - 2E,9",
+        "to" : "C,24,15,2",
+        "level": "7",
+        "connections": {
+            "C,0,13,2": true,
+        }   
+    },
+/* ROUTE 42 - INT */
+    "C,20,0,0" : {
+        "name": "ROUTE 42 - INSIDE - Route Connector Left - 1,5",
+        "to" : "C,0,1,11",
+        "level": "7",
+        "connections": {
+            "C,20,0,1": true,
+        }   
+    },
+    "C,20,0,1" : {
+        "name": "ROUTE 42 - INSIDE - Route Connector Right - B,5",
+        "to" : "C,0,29,0",
+        "level": "7",
+        "connections": {
+            "C,20,0,0": true,
+        }   
+    },
+/* MOUNT MORTAR */   
+    // F1
+    "C,24,15,0" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Bottom Left Enterance - 5,25",
+        "to" : "C,0,29,1",
+        "level": "7",
+        "connections": {
+            "C,24,15,3": true,
+        }   
+    },
+    "C,24,15,1" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Bottom Center Enterance - 13,25",
+        "to" : "C,0,29,2",
+        "level": "7",
+        "connections": {
+            "C,24,15,8": true,
+        }   
+    },
+    "C,24,15,2" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Bottom Right Enterance - 27,25",
+        "to" : "C,0,29,3",
+        "level": "7",
+        "connections": {
+            "C,24,15,4": true,
+        }   
+    },
+    "C,24,15,3" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Middle Left Door - D,18",
+        "to" : "C,24,16,4",
+        "level": "7",
+        "connections": {
+            "C,24,15,1": true,
+        }   
+    },
+    "C,24,15,4" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Middle Right Door - 1F,18",
+        "to" : "C,24,16,5",
+        "level": "7",
+        "connections": {
+            "C,24,15,2": true,
+        }   
+    },
+    "C,24,15,5" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Top Left Ladder - 9,10",
+        "to" : "C,24,16,2",
+        "level": "7"
+    },
+    "C,24,15,6" : {
+        "name": "MOUNT MORTAR - INSIDE -F1 Top Right Ladder - 23,10",
+        "to" : "C,24,16,3",
+        "level": "7"
+    },
+    "C,24,15,7" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Top Center Door - 13,8",
+        "to" : "C,24,17,1",
+        "level": "7"
+    },
+    "C,24,15,8" : {
+        "name": "MOUNT MORTAR - INSIDE - F1 Bottom Ladder - 13,21",
+        "to" : "C,24,18,1",
+        "level": "7",
+        "connections": {
+            "C,24,15,1": true,
+        }   
+    },
+    // F2
+    "C,24,16,0" : {
+        "name": "MOUNT MORTAR - INSIDE - F2 Top Ladder Up - 9,9",
+        "to" : "C,24,17,0",
+        "level": "7",
+        "connections": {
+            "C,24,16,1": true,
+            "C,24,16,2": true,
+            "C,24,16,3": true
+        }   
+    },
+    "C,24,16,1" : {
+        "name": "MOUNT MORTAR - INSIDE - F2 Top Ladder Down - 3,13",
+        "to" : "C,24,18,0",
+        "level": "7",
+        "connections": {
+            "C,24,16,0": true,
+            "C,24,16,2": true,
+            "C,24,16,3": true
+        }   
+    },
+    "C,24,16,2" : {
+        "name": "MOUNT MORTAR - INSIDE - F2 Bottom Ladder Left - 5,27",
+        "to" : "C,24,15,5",
+        "level": "7",
+        "connections": {
+            "C,24,16,3": true
+        }   
+    },
+    "C,24,16,3" : {
+        "name": "MOUNT MORTAR - INSIDE - F2 Bottom Ladder Right - 21,29",
+        "to" : "C,24,15,6",
+        "level": "7",
+        "connections": {
+            "C,24,16,2": true
+        }   
+    },
+    // F3
+    "C,24,17,0" : {
+        "name": "MOUNT MORTAR - INSIDE - F3 Top Ladder - 3,5",
+        "to" : "C,24,16,0",
+        "level": "7", 
+    },
+    "C,24,17,1" : {
+        "name": "MOUNT MORTAR - INSIDE - F3 Bottom Ladder - 11,21",
+        "to" : "C,24,15,7",
+        "level": "7", 
+    },
+    // F4
+    "C,24,18,0" : {
+        "name": "MOUNT MORTAR - INSIDE - F4 Top Ladder - 3,3",
+        "to" : "C,24,16,1",
+        "level": "7", 
+    },
+    "C,24,18,1" : {
+        "name": "MOUNT MORTAR - INSIDE - F4 Bottom Ladder - 13,1D",
+        "to" : "C,24,15,8",
+        "level": "7", 
+    },
+/* MAGOGANY TOWN - EXT */
+    "C,0,13,0" : {
+        "name": "MAGOGANY TOWN - OUTSIDE - Center House - B,7",
+        "to" : "C,5,0,0",
+        "level": "7",
+        "connections": {
+            "C,0,13,2": true
+        }   
+    }, 
+    "C,0,13,1" : {
+        "name": "MAGOGANY TOWN - OUTSIDE - Gym - 7,D",
+        "to" : "C,14,0,0",
+        "level": "7",
+        "connections": {
+            "C,0,13,2": true
+        }   
+    }, 
+    "C,0,13,2" : {
+        "name": "MAGOGANY TOWN - OUTSIDE - PkCenter - F,D",
+        "to" : "C,5,4,0",
+        "level": "7",
+        "connections": {
+            "C,0,13,4": true,
+            "C,0,13,0": true,
+            "C,0,13,3": true,
+            "C,0,29,3": true
+        }   
+    }, 
+    "C,0,13,3" : {
+        "name": "MAGOGANY TOWN - OUTSIDE - Right House - 11,7",
+        "to" : "C,5,6,0",
+        "level": "7",
+        "connections": {
+            "C,0,13,2": true
+        }   
+    },
+    "C,0,13,4" : {
+        "name": "MAGOGANY TOWN - OUTSIDE - Route Connector Top - 9,1",
+        "to" : "C,5,7,0",
+        "level": "7",
+        "connections": {
+            "C,0,13,2": true
+        }   
+    }, 
+/* MAGOGANY TOWN - INT */
+    "C,5,0,0" : {
+        "name": "MAGOGANY TOWN - INSIDE - Center House Enterance - 3,8",
+        "to" : "C,0,13,0",
+        "level": "7",
+        "connections": {
+            "C,0,5,1": true
+        }   
+    }, 
+    "C,5,0,1" : {
+        "name": "MAGOGANY TOWN - INSIDE - Center House Secret Enterance - 5,4",
+        "to" : "C,24,19,0",
+        "level": "7",
+        "connections": {
+            "C,0,5,0": true
+        }   
+    }, 
+    "C,14,0,0" : {
+        "name": "MAGOGANY TOWN - INSIDE - Gym - 6,10",
+        "to" : "C,0,13,1",
+        "level": "7" 
+    }, 
+    "C,5,4,0" : {
+        "name": "MAGOGANY TOWN - INSIDE - PkCenter Enterance - 7,8",
+        "to" : "C,0,13,2",
+        "level": "7",
+        "connections": {
+            "C,5,4,1": true
+        }   
+    },
+    "C,5,4,1" : {
+        "name": "MAGOGANY TOWN - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "C,5,5,0",
+        "level": "7",
+        "connections": {
+            "C,5,4,0": true
+        }   
+    },
+    "C,5,4,2" : {
+        "name": "MAGOGANY TOWN - INSIDE - Right House - 3,7",
+        "to" : "C,0,13,3",
+        "level": "7",
+    },
+/* ROUTE 43 - EXT */
+    "C,0,30,0" : {
+        "name": "ROUTE 43 - OUTSIDE - Center Route Connector Top - 15,1E",
+        "to" : "C,20,1,1",
+        "level": "7",
+        "grouped" : ["C,0,30,1"],
+        "groupMain" : true,
+        "connections": {
+            "C,0,30,3": true,
+            "C,0,30,2": true,
+            "C,0,14,1": true,
+        }   
+    },
+    "C,0,30,1" : {
+        "name": "ROUTE 43 - OUTSIDE - Center Route Connector Top - 16,1E",
+        "to" : "C,20,1,1",
+        "level": "7",
+        "grouped" : ["C,0,30,0"]
+    },
+    "C,0,30,2" : {
+        "name": "ROUTE 43 - OUTSIDE - Center Route Connector Bottom - 15,23",
+        "to" : "C,20,1,0",
+        "level": "7",
+        "connections": {
+            "C,0,30,0": true,
+        }  
+    },
+    "C,0,30,3" : {
+        "name": "ROUTE 43 - OUTSIDE - Bottom Route Connector - D,32",
+        "to" : "C,5,7,1",
+        "level": "7",
+        "grouped" : ["C,0,30,4"],
+        "groupMain" : true,
+        "connections": {
+            "C,0,30,0": true,
+        }  
+    },
+    "C,0,30,4" : {
+        "name": "ROUTE 43 - OUTSIDE - Bottom Route Connector - E,32",
+        "to" : "C,5,7,1",
+        "level": "7",
+        "grouped" : ["C,0,30,3"]
+    },
+/* ROUTE 43 - INT */
+    "C,5,7,0" : {
+        "name": "ROUTE 43 - INSIDE - Bottom Route Connector Bottom - 4,9",
+        "to" : "C,0,13,4",
+        "level": "7",
+        "connections": {
+            "C,5,7,1": true,
+        }   
+    },
+    "C,5,7,1" : {
+        "name": "ROUTE 43 - INSIDE - Bottom Route Connector Top - 4,1",
+        "to" : "C,0,30,3",
+        "level": "7",
+        "connections": {
+            "C,5,7,0": true,
+        }   
+    },
+    "C,20,1,0" : {
+        "name": "ROUTE 43 - INSIDE - Middle Route Connector Bottom - 4,9",
+        "to" : "C,0,30,2",
+        "level": "7",
+        "connections": {
+            "C,20,1,1": true,
+        }   
+    },
+    "C,20,1,1" : {
+        "name": "ROUTE 43 - INSIDE - Middle Route Connector Top - 4,1",
+        "to" : "C,0,30,0",
+        "level": "7",
+        "connections": {
+            "C,20,1,0": true,
+        }   
+    },
+/* LAKE OF RAGE - EXT */
+    "C,0,14,1" : {
+        "name": "LAKE OF RAGE - OUTSIDE - Bottom House - 1B,21",
+        "to" : "C,6,8,0",
+        "level": "7",
+        "connections": {
+            "C,0,30,0": true,
+        }   
+    },
+    "C,0,14,0" : {
+        "name": "LAKE OF RAGE - OUTSIDE - Top House - 7,5",
+        "to" : "C,6,7,0",
+        "level": "7"
+    },
+/* LAKE OF RAGE - INT */
+    "C,6,8,0" : {
+        "name": "LAKE OF RAGE - INSIDE - Bottom House - 3,7",
+        "to" : "C,0,14,1",
+        "level": "7"
+    },
+    "C,31,11,0" : {
+        "name": "LAKE OF RAGE - INSIDE - Top House - 4,8",
+        "to" : "C,0,14,0",
+        "level": "7"
+    },
+/* ROCKET HIDEOUT */
+    // F1
+    "C,24,19,0" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F1 Top Right Stairs - 1C,2",
+        "to" : "C,5,0,1",
+        "level": "7",
+        "connections": {
+            "C,24,19,1": true,
+            "C,24,19,2": true,
+        }   
+    },
+    "C,24,19,1" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F1 Bottom Left Stairs - 3,14",
+        "to" : "C,24,20,3",
+        "level": "7",
+        "connections": {
+            "C,24,19,0": true,
+            "C,24,19,2": true,
+        }   
+    },
+    "C,24,19,2" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F1 Bottom Left Warp - 5,14",
+        "to" : "C,24,19,3",
+        "level": "7",
+        "connections": {
+            "C,24,19,0": true,
+            "C,24,19,1": true,
+        }   
+    },
+    // F2
+    "C,24,20,0" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F2 Top Left Stairs - 3,2",
+        "to" : "C,24,21,0",
+        "level": "7",
+        "connections": {
+            "C,24,20,1": true,
+        }   
+    },
+    "C,24,20,1" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F2 Top Right Stairs - 1C,2",
+        "to" : "C,24,21,1",
+        "level": "7",
+        "connections": {
+            "C,24,20,0": true,
+        }   
+    },
+    "C,24,20,2" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F2 Middle Left Stairs - 3,7",
+        "to" : "C,24,21,2",
+        "level": "7",
+    },
+    "C,24,20,3" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F2 Bottom Left - 3,14",
+        "to" : "C,24,19,1",
+        "level": "7",
+        "connections": {
+            "C,24,20,4": true,
+        }   
+    },
+    "C,24,20,4" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F2 Bottom Right - 1C,11",
+        "to" : "C,24,21,3",
+        "level": "7",
+        "connections": {
+            "C,24,20,3": true,
+        }   
+    },
+    // F3
+    "C,24,21,0" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F3 Top Left Top Stairs - 3,2",
+        "to" : "C,24,20,0",
+        "level": "7",
+        "connections": {
+            "C,24,21,2": true,
+        }   
+    },
+    "C,24,21,1" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F3 Top Right Stairs - 1E,2",
+        "to" : "C,24,20,1",
+        "level": "7",
+        "connections": {
+            "C,24,21,3": true,
+        }   
+    },
+    "C,24,21,2" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F3 Top Left Bottom Stairs - 3,6",
+        "to" : "C,24,20,2",
+        "level": "7",
+        "connections": {
+            "C,24,21,0": true,
+        }   
+    },
+    "C,24,21,3" : {
+        "name": "ROCKET HIDEOUT - INSIDE - F3 Bottom Right Stairs - 1D,11",
+        "to" : "C,24,20,4",
+        "level": "7",
+        "connections": {
+            "C,24,21,1": true,
+        }   
+    },
+/* UNDERGROUND WAREHOUSE */
+
 }
 
-
-// Level 7
-    // Route 41
-    // Mount Mortar
-    // MAHOGANY TOWN
-    // Lake of Rage 
-    // ROCKET HIDEOUT 
 // Level 8
-    // ROUTE 42 route connector
-    // ROUTE 42
     // Route 44
     // ICE PATH
     // BLACKTHORN CITY
@@ -2568,6 +3031,8 @@ var CRYSTAL_WARPS =
     // ROUTE 49
     // ROUTE 46
     // DARK CAVE
+    // Route 41
+    // Whirl islands
 // To Champ
     // ROUTE 27
     // TOHJO FALLS
