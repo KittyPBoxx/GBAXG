@@ -31,10 +31,10 @@ var CRYSTAL_WARPS =
             "C,0,9,1": true
         }
     },
-    "C,0,9,3" : {
+    "C,0,9,0" : {
         "name": "NEW BARK TOWN - OUTSIDE - Right (Elms house) - C,D",
         "level" : "1",
-        "to" : "C,1,3,0",
+        "to" : "C,1,2,0",
         "connections": {
             "C,0,9,1": true
         }
@@ -356,7 +356,7 @@ var CRYSTAL_WARPS =
     "C,24,24,1" : {
         "name": "SPROUT TOWER - INSIDE - F2 Right Stairs - 11,3",
         "level" : "1",
-        "to" : "C,24,3,2",
+        "to" : "C,24,23,2",
         "connections" : {
             "C,24,24,0": true
         }
@@ -1354,8 +1354,70 @@ var CRYSTAL_WARPS =
     "C,11,9,2" : {
         "name": "GOLDENROD CITY - INSIDE - Rocket Base Underground Enterance - D,A",
         "to" : "C,24,56,0",
+        "level": "7",
+        "connections": {
+            "C,11,9,1": true,
+            "C,11,9,0": true
+        }   
     },
-/* ROCKET BASE */
+/* UNDERGROUND WAREHOUSE */
+    // F1
+    "C,24,56,0" : {
+        "name": "UNDERGROUND WAREHOUSE - INSIDE - F1 Enterance - 6,8",
+        "to" : "C,11,9,2",
+        "level": "7",
+        "connections": {
+            "C,24,56,1": true
+        }   
+    },
+    "C,24,56,1" : {
+        "name": "UNDERGROUND WAREHOUSE - INSIDE - F1 Stairs - 5,4",
+        "to" : "C,24,57,0",
+        "level": "7",
+        "connections": {
+            "C,24,56,0": true
+        }   
+    },
+    // F2
+    "C,24,57,0" : {
+        "name": "UNDERGROUND WAREHOUSE - INSIDE - F2 Top Right Stairs - 18,2",
+        "to" : "C,24,56,1",
+        "level": "7",
+        "connections": {
+            "C,24,57,1": true
+        }   
+    },
+    "C,24,57,1" : {
+        "name": "UNDERGROUND WAREHOUSE - INSIDE - F2 Bottom Right Stairs - 1E,B",
+        "to" : "C,24,58,0",
+        "level": "7",
+        "connections": {
+            "C,24,57,0": true
+        }   
+    },
+    // F3
+    "C,24,58,0" : {
+        "name": "UNDERGROUND WAREHOUSE - INSIDE - F3 Bottom Left Stairs - 3,F",
+        "to" : "C,24,57,1",
+        "level": "7",
+        "connections": {
+            "C,24,58,1": true
+        }   
+    },
+    "C,24,58,1" : {
+        "name": "UNDERGROUND WAREHOUSE - INSIDE - F3 Top Right Stairs - 13,2",
+        "to" : "C,11,14,1",
+        "level": "7",
+        "connections": {
+            "C,2,58,0": true
+        }   
+    },
+    // F4
+    "C,11,14,1" : {
+        "name": "UNDERGROUND WAREHOUSE - INSIDE - F4 Top Right Stairs - 12,2",
+        "to" : "C,24,58,1",
+        "level": "7",
+    },
 /* RADIO TOWER */
 // F1
     "C,24,53,0" : {
@@ -2559,7 +2621,6 @@ var CRYSTAL_WARPS =
         "to" : "C,0,12,6",
         "level": "5"
     },
-// LEVEL 7
 /* ROUTE 42 - EXT */
     "C,0,29,0" : {
         "name": "ROUTE 42 - OUTSIDE - Route Connector - 0,A",
@@ -3019,8 +3080,6 @@ var CRYSTAL_WARPS =
             "C,24,21,1": true,
         }   
     },
-/* UNDERGROUND WAREHOUSE */
-
 }
 
 // Level 8
