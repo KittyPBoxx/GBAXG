@@ -419,6 +419,7 @@ var CRYSTAL_WARPS =
     "C,3,33,0" : {
         "name": "ROUTE 46 - OUTSIDE - Dark Cave Enterance - 10,7",
         "to" : "C,24,7,1",
+        "level" : "8",
         "connections" : {
             "C,0,33,1": true
         }
@@ -490,18 +491,32 @@ var CRYSTAL_WARPS =
         }
     },
 /* Dark Cave */
+    // F1
     "C,1,1,0" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave (Route 46 exit) - 28,26",
-        "to" : "C,3,46,1"
+        "to" : "C,3,46,1",
+        "level" : "8",
     },
     "C,1,1,1" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave (further into cave) - 15,6",
-        "to" : "C,1,3,0"
+        "to" : "C,1,3,0",
+        "level" : "8",
     },
     "C,24,7,0" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave (Route 31 exit) - 7,14",
         "level" : "1",
         "to" : "C,0,18,0"
+    },
+    // F2
+    "C,24,8,0" : {
+        "name": "ROUTE 31 - INSIDE - Dark Cave F2 Bottom - 6,1C",
+        "to" : "C,1,1,1",
+        "level" : "8",
+    },
+    "C,24,8,1" : {
+        "name": "ROUTE 31 - INSIDE - Dark Cave F2 Top - 1A,6",
+        "to" : "C,3,67,",
+        "level" : "8",
     },
 /* ROUTE 36 - EXT */
     "C,0,23,0" : {
@@ -3080,18 +3095,613 @@ var CRYSTAL_WARPS =
             "C,24,21,1": true,
         }   
     },
+// Level 8
+
+/* ROUTE 44 - EXT */
+    "C,0,31,0" : {
+        "name": "ROUTE 44 - OUTSIDE - Ice Path Enterance - 38,7",
+        "to" : "C,20,2,0",
+        "level": "8",
+        "connections": {
+            "C,0,13,2": true,
+        }   
+    },
+/* ICE PATH */
+    // F1
+    "C,20,2,0" : {
+        "name": "ICE PATH - INSIDE - F1 Left Enterance - 4,13",
+        "to" : "C,0,31,0",
+        "level": "8",
+        "connections": {
+            "C,20,2,2": true,
+        }   
+    },
+    "C,20,2,1" : {
+        "name": "ICE PATH - INSIDE - F1 Right Enterance - 24,1B",
+        "to" : "C,0,5,3",
+        "level": "8",
+        "connections": {
+            "C,20,2,3": true,
+        }   
+    },
+    "C,20,2,2" : {
+        "name": "ICE PATH - INSIDE - F1 Top Right Ladder - 25,5",
+        "to" : "C,24,22,0",
+        "level": "8",
+        "connections": {
+            "C,20,2,0": true,
+        }   
+    },
+    "C,20,2,3" : {
+        "name": "ICE PATH - INSIDE - F1 Center Right Ladder - 25,D",
+        "to" : "C,24,22,2",
+        "level": "8",
+        "connections": {
+            "C,20,2,1": true,
+        }   
+    },
+    // F2
+    "C,24,22,0" : {
+        "name": "ICE PATH - INSIDE - F2 Top Side Bottom Left - 5,11",
+        "to" : "C,20,2,2",
+        "level": "8",
+        "connections": {
+            "C,24,22,5": true,
+            "C,24,22,4": true,
+            "C,24,22,1": true
+        }   
+    },
+    "C,24,22,1" : {
+        "name": "ICE PATH - INSIDE - F2 Top Side Top Right - 13,5",
+        "to" : "C,24,52,0",
+        "level": "8",
+        "connections": {
+            "C,24,22,0": true
+        }   
+    },
+    "C,24,22,2" : {
+        "name": "ICE PATH - INSIDE - F2 Bottom Side Left - 7,1D",
+        "to" : "C,20,2,3",
+        "level": "8",
+        "connections": {
+            "C,24,22,3": true
+        }   
+    },
+    "C,24,22,3" : {
+        "name": "ICE PATH - INSIDE - F2 Bottom Side Right - D,1F",
+        "to" : "C,24,59,1",
+        "level": "8",
+        "connections": {
+            "C,24,22,2": true
+        }   
+    },
+    "C,24,22,4" : {
+        "name": "ICE PATH - INSIDE - F2 Top Side Center Top - 3,F",
+        "to" : "C,24,52,2",
+        "level": "8",
+        "connections": {
+            "C,24,22,0": true
+        }   
+    },
+    "C,24,22,5" : {
+        "name": "ICE PATH - INSIDE - F2 Top Side Top Left - 6,9",
+        "to" : "C,24,52,3",
+        "level": "8",
+        "connections": {
+            "C,24,22,0": true
+        }   
+    },
+    "C,24,22,6" : {
+        "name": "ICE PATH - INSIDE - F2 Top Side Bottom Left Hole - 7,E",
+        "to" : "C,24,52,4",
+        "level": "8",
+        "connections": {
+            "C,24,22,7": true
+        }   
+    },
+    "C,24,22,7" : {
+        "name": "ICE PATH - INSIDE - F2 Top Side Bottom Right Hole - E,F",
+        "to" : "C,24,52,5",
+        "level": "8",
+        "connections": {
+            "C,24,22,6": true
+        }   
+    },
+    // F3
+    "C,24,59,0" : {
+        "name": "ICE PATH - INSIDE - F3 Top Ladder - 5,5",
+        "to" : "C,24,60,1",
+        "level": "8",
+        "connections": {
+            "C,24,59,1": true
+        }   
+    },
+    "C,24,59,1" : {
+        "name": "ICE PATH - INSIDE - F3 Bottom Ladder - 5,11",
+        "to" : "C,24,22,3",
+        "level": "8",
+        "connections": {
+            "C,24,59,0": true
+        }   
+    },
+    // F4
+    "C,24,60,0" : {
+        "name": "ICE PATH - INSIDE - F4 Left - 5,8",
+        "to" : "C,24,52,1",
+        "level": "8",
+        "connections": {
+            "C,24,60,1": true
+        }   
+    },
+    "C,24,60,1" : {
+        "name": "ICE PATH - INSIDE - F4 Right - 11,7",
+        "to" : "C,24,59,0",
+        "level": "8",
+        "connections": {
+            "C,24,60,0": true
+        }   
+    },
+    // F5
+    "C,24,52,0" : {
+        "name": "ICE PATH - INSIDE - F5 Top Right - 13,3",
+        "to" : "C,24,22,1",
+        "level": "8",
+        "connections": {
+            "C,24,52,1": true
+        }   
+    },
+    "C,24,52,1" : {
+        "name": "ICE PATH - INSIDE - F5 Center Ladder - B,D",
+        "to" : "C,24,60,0",
+        "level": "8",
+        "connections": {
+            "C,24,52,0": true
+        }   
+    },
+    "C,24,52,2" : {
+        "name": "ICE PATH - INSIDE - F5 Top Right Drop - D,6",
+        "to" : "C,24,22,4",
+        "level": "8",
+        "connections": {
+            "C,24,52,1": true,
+            "C,24,52,0": true
+        }   
+    },
+    "C,24,52,3" : {
+        "name": "ICE PATH - INSIDE - F5 Top Left Drop - 6,8",
+        "to" : "C,24,22,5",
+        "level": "8",
+        "connections": {
+            "C,24,52,1": true,
+            "C,24,52,0": true
+        }   
+    },
+    "C,24,52,4" : {
+        "name": "ICE PATH - INSIDE - F5 Bottom Left Drop - 6,E",
+        "to" : "C,24,22,6",
+        "level": "8",
+        "connections": {
+            "C,24,52,1": true,
+            "C,24,52,0": true
+        }   
+    },
+    "C,24,52,5" : {
+        "name": "ICE PATH - INSIDE - F5 Bottom Right Drop - E,E",
+        "to" : "C,24,22,7",
+        "level": "8",
+        "connections": {
+            "C,24,52,1": true,
+            "C,24,52,0": true
+        }   
+    },
+/* BLACKTHORN CITY - EXT */
+    "C,0,5,0" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Mart - 12,1F",
+        "to" : "C,13,8,0",
+        "level": "8",
+        "connections": {
+            "C,0,5,2": true
+        }   
+    },
+    "C,0,5,1" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Gym - 15,E",
+        "to" : "C,15,0,0",
+        "level": "8",
+        "connections": {
+            "C,0,5,2": true
+        }   
+    },
+    "C,0,5,2" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - PkCenter - 18,1F",
+        "to" : "C,13,6,0",
+        "level": "8",
+        "connections": {
+            "C,0,5,0": true,
+            "C,0,5,1": true,
+            "C,0,5,3": true,
+            "C,0,5,4": true,
+            "C,0,5,5": true,
+            "C,0,5,6": true,
+            "C,0,32,0": true,
+            "C,0,33,0": true,
+            "C,0,33,1": true,
+        }   
+    },
+    "C,0,5,3" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Ice Path Enterance - 26,B",
+        "to" : "C,20,2,1",
+        "level": "8",
+        "connections": {
+            "C,0,5,2": true
+        }   
+    },
+    "C,0,5,4" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Above Mart - F,17",
+        "to" : "C,13,12,0",
+        "level": "8",
+        "connections": {
+            "C,0,5,2": true
+        }   
+    },
+    "C,0,5,5" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Right of PkCenter - 1F,19",
+        "to" : "C,13,15,0",
+        "level": "8",
+        "connections": {
+            "C,0,5,2": true
+        }   
+    },
+    "C,0,5,6" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Left of Mart - B,21",
+        "to" : "C,13,11,0",
+        "level": "8",
+        "connections": {
+            "C,0,5,2": true
+        }   
+    },
+    "C,0,5,7" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Dragons Den Enterance - 16,3",
+        "to" : "C,24,27,0",
+        "level": "8" 
+    },
+/* BLACKTHORN CITY - INT */
+    "C,13,8,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - Mart - 4,7",
+        "to" : "C,0,5,0",
+        "level": "8", 
+    },
+    "C,15,0,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - Gym - 6,12",
+        "to" : "C,0,5,1",
+        "level": "8", 
+    },
+    "C,13,6,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - PkCenter Enterance - 7,8",
+        "to" : "C,0,5,2",
+        "level": "8", 
+        "connections": {
+            "C,13,6,2": true
+        }   
+    },
+    "C,13,6,2" : {
+        "name": "BLACKTHORN CITY - INSIDE - PkCenter Stairs - 1,6",
+        "to" : "C,13,7,0",
+        "level": "8", 
+        "connections": {
+            "C,13,6,0": true
+        }   
+    },
+    "C,13,12,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - Above Mart - 3,7",
+        "to" : "C,0,5,4",
+        "level": "8", 
+    },
+    "C,13,15,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - Right of PkCenter - 3,7",
+        "to" : "C,0,5,5",
+        "level": "8", 
+    },
+    "C,13,11,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - Left of Mart - 3,7",
+        "to" : "C,0,5,6",
+        "level": "8", 
+    },
+/* DRAGONS DEN - EXT */
+    // CAVE
+    "C,24,27,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - Top Bottom Ladder - 3,5",
+        "to" : "C,0,5,7",
+        "level": "8", 
+        "connections": {
+            "C,24,27,1": true
+        }   
+    },
+    "C,24,27,1" : {
+        "name": "BLACKTHORN CITY - INSIDE - Top Top Ladder - 3,3",
+        "to" : "C,24,27,2",
+        "level": "8", 
+        "connections": {
+            "C,24,27,0": true
+        }   
+    },
+    "C,24,27,2" : {
+        "name": "BLACKTHORN CITY - INSIDE - Bottom Top Ladder - 5,D",
+        "to" : "C,24,27,1",
+        "level": "8", 
+        "connections": {
+            "C,24,27,3": true
+        }   
+    },
+    "C,24,27,3" : {
+        "name": "BLACKTHORN CITY - INSIDE - Bottom Bottom Enterance - 5,F",
+        "to" : "C,24,28,0",
+        "level": "8", 
+        "connections": {
+            "C,24,27,2": true
+        }   
+    },
+    // Badge House
+    "C,24,29,0" : {
+        "name": "BLACKTHORN CITY - INSIDE - Badge House - 5,A",
+        "to" : "C,24,28,1",
+        "level": "8", 
+    },
+/* DRAGONS DEN - INT */
+    "C,24,28,0" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Top Cave - 14,5",
+        "to" : "C,24,27,3",
+        "level": "8", 
+    },
+    "C,24,28,1" : {
+        "name": "BLACKTHORN CITY - OUTSIDE - Badge House - 13,1F",
+        "to" : "C,24,29,0",
+        "level": "8", 
+    },
+/* ROUTE 45 - EXT */
+    "C,0,32,0" : {
+        "name": "ROUTE 45 - OUTSIDE - Dark Cave Enterance - 2,5",
+        "to" : "C,24,8,1",
+        "level": "8", 
+        "connections": {
+            "C,0,5,2": true,
+            "C,0,33,0": true
+        }   
+    },
+/* ROUTE 41 - EXT */
+    "C,0,28,0" : {
+        "name": "ROUTE 41 - OUTSIDE - Top Left Island - C,11",
+        "to" : "C,24,31,0",
+        "level": "8",
+    },
+    "C,0,28,1" : {
+        "name": "ROUTE 41 - OUTSIDE - Top Right Island - 24,13",
+        "to" : "C,24,30,0",
+        "level": "8",
+    },
+    "C,0,28,2" : {
+        "name": "ROUTE 41 - OUTSIDE - Bottom Left Island - C,25",
+        "to" : "C,24,33,0",
+        "level": "8",
+    },
+    "C,0,28,3" : {
+        "name": "ROUTE 41 - OUTSIDE - Bottom Right Island - 24,2D",
+        "to" : "C,24,32,0",
+        "level": "8",
+    },
+/* WHIRL ISLANDS */
+    // F1 (Top Left Cave)
+    "C,24,31,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F1 Top Side Bottom Door - 5,7",
+        "to" : "C,0,28,0",
+        "level": "8", 
+        "connections": {
+            "C,24,31,1": true
+        }   
+    },
+    "C,24,31,1" : {
+        "name": "WHIRL ISLANDS - INSIDE - F1 Top Side Top Ladder - 5,3",
+        "to" : "C,24,34,1",
+        "level": "8", 
+        "connections": {
+            "C,24,31,0": true
+        }   
+    },
+    "C,24,31,2" : {
+        "name": "WHIRL ISLANDS - INSIDE - F1 Bottom Side Right Ladder - 7,11",
+        "to" : "C,24,36,1",
+        "level": "8", 
+        "connections": {
+            "C,24,31,3": true
+        }   
+    },
+    "C,24,31,3" : {
+        "name": "WHIRL ISLANDS - INSIDE - F1 Bottom Side Left Ladder - 3,11",
+        "to" : "C,24,33,3",
+        "level": "8", 
+        "connections": {
+            "C,24,31,2": true
+        }   
+    },
+    // F2 (Top Right Cave)
+    "C,24,30,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F2 Bottom Left Enterance - 3,D",
+        "to" : "C,0,28,1",
+        "level": "8", 
+        "connections": {
+            "C,24,30,1": true,
+            "C,24,30,2": true
+        }   
+    },
+    "C,24,30,1" : {
+        "name": "WHIRL ISLANDS - INSIDE - F2 Bottom Right Ladder - D,B",
+        "to" : "C,24,34,2",
+        "level": "8"
+    },
+    "C,24,30,2" : {
+        "name": "WHIRL ISLANDS - INSIDE - F2 Top Right Ladder - 11,3",
+        "to" : "C,24,34,0",
+        "level": "8"
+    },
+    // F3 (Bottom Right Cave)
+    "C,24,32,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F3 Bottom Enterance - 7,F",
+        "to" : "C,0,28,3",
+        "level": "8", 
+        "connections": {
+            "C,24,32,1": true
+        }   
+    },
+    "C,24,32,1" : {
+        "name": "WHIRL ISLANDS - INSIDE - F3 Top Ladder - 24,2D",
+        "to" : "C,24,34,6",
+        "level": "8", 
+        "connections": {
+            "C,24,32,0": true
+        }   
+    },
+    // F4 (Bottom Left Cave)
+    "C,24,33,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F4 Top Side Cave Enterance - 5,7",
+        "to" : "C,0,28,2",
+        "level": "8", 
+        "connections": {
+            "C,24,33,1": true
+        }   
+    },
+    "C,24,33,1" : {
+        "name": "WHIRL ISLANDS - INSIDE - F4 Top Side Top Left - 3,3",
+        "to" : "C,24,34,7",
+        "level": "8", 
+        "connections": {
+            "C,24,33,0": true
+        }   
+    },
+    "C,24,33,2" : {
+        "name": "WHIRL ISLANDS - INSIDE - F4 Top Side Top Right - 11,3",
+        "to" : "C,24,34,8",
+        "level": "8",
+    },
+    "C,24,33,3" : {
+        "name": "WHIRL ISLANDS - INSIDE - F4 Bottom Side Left - 3,11",
+        "to" : "C,24,31,3",
+        "level": "8",
+    },
+    "C,24,33,4" : {
+        "name": "WHIRL ISLANDS - INSIDE - F4 Bottom Side Right - 11,11",
+        "to" : "C,24,35,3",
+        "level": "8",
+    },
+    // F5
+    "C,24,34,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Top Right Ladder - 23,3",
+        "to" : "C,24,30,2",
+        "level": "8", 
+        "connections": {
+            "C,24,35,0": true
+        }   
+    },
+    "C,24,34,1" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Top Right Ladder - 23,3",
+        "to" : "C,24,31,1",
+        "level": "8", 
+        "connections": {
+            "C,24,35,5": true
+        }   
+    },
+    "C,24,34,2" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Top Center Ladder - D,1C",
+        "to" : "C,24,30,1",
+        "level": "8", 
+        "connections": {
+            "C,24,34,1": true,
+            "C,24,34,7": true
+        }   
+    },
+    "C,24,34,3" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Center Cave - 11,15",
+        "to" : "C,24,36,0",
+        "level": "8", 
+        "connections": {
+            "C,24,34,7": true,
+        }   
+    },
+    "C,24,34,4" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Center Left Ladder - 19,15",
+        "to" : "C,24,34,4",
+        "level": "8", 
+        "connections": {
+            "C,24,34,0": true,
+        }   
+    },
+    "C,24,34,5" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Bottom Left Ladder Down - D,1B",
+        "to" : "C,24,35,1",
+        "level": "8", 
+        "connections": {
+            "C,24,34,1": true,
+        }   
+    },
+    "C,24,34,6" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Bottom Right Ladder Down - 1F,1D",
+        "to" : "C,24,32,1",
+        "level": "8", 
+        "connections": {
+            "C,24,34,8": true,
+        }   
+    },
+    "C,24,34,7" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Bottom Left Ladder Up - 9,1F",
+        "to" : "C,24,32,1",
+        "level": "8",
+    },
+    "C,24,34,8" : {
+        "name": "WHIRL ISLANDS - INSIDE - F5 Center Bottom Ladder Up - 17,1F",
+        "to" : "C,24,33,2",
+        "level": "8", 
+        "connections": {
+            "C,24,34,6": true,
+        }   
+    },
+    // F6
+    "C,24,36,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F6 Top - 7,5",
+        "to" : "C,24,34,3",
+        "level": "8", 
+        "connections": {
+            "C,24,36,1": true
+        }   
+    },
+    "C,24,36,1" : {
+        "name": "WHIRL ISLANDS - INSIDE - F6 Bottom - 3,D",
+        "to" : "C,24,31,2",
+        "level": "8", 
+        "connections": {
+            "C,24,36,0": true
+        }   
+    },
+    // F7
+    "C,24,35,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F7 Top Top Ladder - B,5",
+        "to" : "C,24,34,4",
+        "level": "8",   
+    },
+    "C,24,35,1" : {
+        "name": "WHIRL ISLANDS - INSIDE - F7 Top Bottom Ladder - 7,B",
+        "to" : "C,24,34,5",
+        "level": "8",   
+    },
+    "C,24,35,2" : {
+        "name": "WHIRL ISLANDS - INSIDE - F7 Bottom Top Ladder - 7,19",
+        "to" : "C,24,67,0",
+        "level": "8",   
+    },
+    "C,24,35,3" : {
+        "name": "WHIRL ISLANDS - INSIDE - F7 Bottom Bottom Ladder - D,1F",
+        "to" : "C,24,33,4",
+        "level": "8",   
+    },
 }
 
-// Level 8
-    // Route 44
-    // ICE PATH
-    // BLACKTHORN CITY
-    // DRAGONS DEN
-    // ROUTE 49
-    // ROUTE 46
-    // DARK CAVE
-    // Route 41
-    // Whirl islands
 // To Champ
     // ROUTE 27
     // TOHJO FALLS
