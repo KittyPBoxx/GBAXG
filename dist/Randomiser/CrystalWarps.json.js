@@ -3700,18 +3700,270 @@ var CRYSTAL_WARPS =
         "to" : "C,24,33,4",
         "level": "8",   
     },
-}
-
-// To Champ
-    // ROUTE 27
-    // TOHJO FALLS
-    // ROUTE 26
-    // ROUTE 23
-    // VICTORY ROAD
-    // ROUTE 23
-    // INDIGO PLATEAU
+/* ROUTE 27 - EXT */
+    "C,0,35,0" : {
+        "name": "ROUTE 27 - OUTSIDE - Tohjo Enterance Left - 1A,9",
+        "to" : "C,24,0,0",
+        "level": "9"
+    },
+    "C,0,35,1" : {
+        "name": "ROUTE 27 - OUTSIDE - Tohjo Enterance Right - 24,9",
+        "to" : "C,24,0,1",
+        "level": "9", 
+        "connections": {
+            "C,0,35,1": true,
+            "C,0,35,2": true
+        }   
+    },
+    "C,0,35,2" : {
+        "name": "ROUTE 27 - OUTSIDE - House - 21,B",
+        "to" : "C,6,6,0",
+        "level": "9", 
+        "connections": {
+            "C,0,35,1": true,
+            "C,0,35,0": true
+        }   
+    },
+/* TOHJO FALLS - INT */
+    "C,24,0,0" : {
+        "name": "ROUTE 27 - INSIDE - Left - D,11",
+        "to" : "C,0,35,0",
+        "level": "9"
+    },
+    "C,24,0,1" : {
+        "name": "ROUTE 27 - INSIDE - Right - 19,11",
+        "to" : "C,0,35,1",
+        "level": "9"
+    },
+/* ROUTE 26 - EXT */
+    "C,0,34,0" : {
+        "name": "ROUTE 26 - OUTSIDE - Route 26 Top Connector - 8,5",
+        "to" : "C,32,0,0",
+        "level": "9", 
+        "connections": {
+            "C,0,34,1": true,
+            "C,0,34,2": true
+        }   
+    },
+    "C,0,34,1" : {
+        "name": "ROUTE 26 - OUTSIDE - Route 26 Top House - F,39",
+        "to" : "C,32,2,0",
+        "level": "9", 
+        "connections": {
+            "C,0,34,0": true
+        }   
+    },
+    "C,0,34,2" : {
+        "name": "ROUTE 26 - OUTSIDE - Route 26 Bottom House - 5,47",
+        "to" : "C,32,1,0",
+        "level": "9", 
+        "connections": {
+            "C,0,34,1": true
+        }   
+    },
+/* ROUTE 26 - INT */
+    "C,32,2,0" : {
+        "name": "ROUTE 26 - INSIDE - Top House - 3,7",
+        "to" : "C,0,34,1",
+        "level": "9"
+    },
+    "C,32,1,0" : {
+        "name": "ROUTE 26 - INSIDE - Bottom House - 3,7",
+        "to" : "C,0,34,2",
+        "level": "9"
+    },
+    "C,32,0,0" : {
+        "name": "ROUTE 26 - INSIDE - Route Connector - A,12",
+        "to" : "C,0,34,0",
+        "level": "9"
+    },
+    "C,32,0,1" : {
+        "name": "ROUTE 26 - INSIDE - Route Connector - A,1",
+        "to" : "C,24,43,0",
+        "level": "9",
+        "connections": {
+            "C,32,0,0": true
+        }  
+    },
+/* VICTORY ROAD */
+    // F1
+    "C,24,43,0" : {
+        "name": "VICTORY ROAD - INSIDE - F1 Bottom - B,15",
+        "to" : "C,32,0,1",
+        "level": "9",
+        "connections": {
+            "C,24,43,1": true
+        }  
+    },
+    "C,24,43,1" : {
+        "name": "VICTORY ROAD - INSIDE - F1 Top - 3,3",
+        "to" : "C,24,44,3",
+        "level": "9",
+        "connections": {
+            "C,24,43,0": true
+        }  
+    },
+    // F2
+    "C,24,44,0" : {
+        "name": "VICTORY ROAD - INSIDE - F2 Top Right Drop - 2,3",
+        "to" : "C,24,45,1",
+        "level": "9",
+        "connections": {
+            "C,24,44,1": true,
+            "C,24,44,3": true
+        }  
+    },
+    "C,24,44,1" : {
+        "name": "VICTORY ROAD - INSIDE - F2 Top Center Ladder - F,7",
+        "to" : "C,24,45,2",
+        "level": "9",
+        "connections": {
+            "C,24,44,0": true,
+        }  
+    },
+    "C,24,44,2" : {
+        "name": "VICTORY ROAD - INSIDE - F2 Top Right Ladder - 13,9",
+        "to" : "C,24,45,3",
+        "level": "9",
+        "connections": {
+            "C,24,44,1": true,
+            "C,24,44,3": true,
+        }  
+    },
+    "C,24,44,3" : {
+        "name": "VICTORY ROAD - INSIDE - F2 Center Left Ladder - 3,B",
+        "to" : "C,24,43,1",
+        "level": "9",
+        "connections": {
+            "C,24,44,1": true,
+        }  
+    },
+    // F3
+    "C,24,45,0" : {
+        "name": "VICTORY ROAD - INSIDE - F3 Top Exit - F,1",
+        "to" : "C,0,8,3",
+        "level": "9",
+        "connections": {
+            "C,24,45,1": true,
+            "C,24,45,2": true,
+            "C,24,45,3": true,
+        }  
+    },
+    "C,24,45,1" : {
+        "name": "VICTORY ROAD - INSIDE - F3 Left Drop - 2,7",
+        "to" : "C,24,44,0",
+        "level": "9",
+        "connections": {
+            "C,24,45,0": true
+        }  
+    },
+    "C,24,45,2" : {
+        "name": "VICTORY ROAD - INSIDE - F3 Center Ladder - F,D",
+        "to" : "C,24,44,1",
+        "level": "9",
+        "connections": {
+            "C,24,45,0": true
+        }  
+    },
+    "C,24,45,3" : {
+        "name": "VICTORY ROAD - INSIDE - F3 Bottom Right Ladder - 13,F",
+        "to" : "C,24,44,2",
+        "level": "9",
+    },
+/* INDIGO PLATEAU - EXT */
+    "C,0,8,3" : {
+        "name": "INDIGO PLATEAU - OUTSIDE - Victory Road Enterance - D,19",
+        "to" : "C,24,45,0",
+        "level": "9",
+        "connections": {
+            "C,0,8,0": true
+        }  
+    },
+    "C,0,8,0" : {
+        "name": "INDIGO PLATEAU - OUTSIDE - League Enterance - D,6",
+        "to" : "C,16,10,0",
+        "level": "9",
+        "connections": {
+            "C,0,8,3": true
+        }  
+    },
+/* INDIGO PLATEAU - INT */ 
+    "C,16,10,0" : {
+        "name": "INDIGO PLATEAU - INSIDE - League Main Door - 6,12",
+        "to" : "C,0,8,0",
+        "level": "9",
+        "connections": {
+            "C,16,10,2": true,
+            "C,16,10,1": true
+        }  
+    },
+    "C,16,10,1" : {
+        "name": "INDIGO PLATEAU - INSIDE - League E4 Enterance - 14,1",
+        "to" : "C,16,0,0",
+        "level": "9",
+        "connections": {
+            "C,16,10,2": true,
+            "C,16,10,0": true
+        }  
+    },
+    "C,16,10,2" : {
+        "name": "INDIGO PLATEAU - INSIDE - Stairs - 1,10",
+        "to" : "C,16,14,0",
+        "level": "9",
+        "connections": {
+            "C,16,10,0": true,
+            "C,16,10,1": true
+        }  
+    },
+/* E4 */
     // E4 1
+    "C,16,0,0" : {
+        "name": "E4 - INSIDE - E4 1 Bottom Door - 6,14",
+        "to" : "C,16,10,1",
+        "level": "9"
+    },
+    "C,16,0,1" : {
+        "name": "E4 - INSIDE - E4 1 Top Door - 6,2",
+        "to" : "C,16,1,0",
+        "level": "9"
+    },
     // E4 2
+    "C,16,1,0" : {
+        "name": "E4 - INSIDE - E4 2 Bottom Door - 6,14",
+        "to" : "C,16,0,1",
+        "level": "9"
+    },
+    "C,16,1,1" : {
+        "name": "E4 - INSIDE - E4 2 Top Door - 6,2",
+        "to" : "C,16,2,0",
+        "level": "9"
+    },
     // E4 3
+    "C,16,2,0" : {
+        "name": "E4 - INSIDE - E4 3 Bottom Door - 6,14",
+        "to" : "C,16,1,1",
+        "level": "9"
+    },
+    "C,16,2,1" : {
+        "name": "E4 - INSIDE - E4 3 Top Door - 6,2",
+        "to" : "C,16,3,0",
+        "level": "9"
+    },
     // E4 4
+    "C,16,3,0" : {
+        "name": "E4 - INSIDE - E4 4 Bottom Door - 6,14",
+        "to" : "C,16,2,1",
+        "level": "9"
+    },
+    "C,16,3,1" : {
+        "name": "E4 - INSIDE - E4 4 Top Door - 6,2",
+        "to" : "C,16,4,0",
+        "level": "9"
+    },
     // E4 Champ
+    "C,16,4,0" : {
+        "name": "E4 - INSIDE - E4 Champ Bottom Door - 6,1F",
+        "to" : "C,16,3,1",
+        "level": "9"
+    },
+}
