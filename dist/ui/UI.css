@@ -2,7 +2,7 @@
 
 
 :root {
-    --main-color: #c62828;
+    --main-color: #A40404;
 }
 
 @font-face {
@@ -43,6 +43,7 @@
     border-color: rgb(134, 134, 134);
     border-radius: 5px;
     box-shadow: rgb(30 30 30) 0px 1px 0px 5px, inset -5px 0px 0px 5px #000000, inset 5px 0px 0px 5px #000000;
+    background: #e5e5e5;
 }
 
 .carousel-item {
@@ -85,21 +86,25 @@
     color: #4a4a4a;
 }
 .fr-text {
-    color: #f44336;
+    color: #AA170D;
 }
 .c-text {
-    color: #673ab7;
+    color: #4F2C8C;
 } 
 .e-text {
-    color: #00a344;
+    color: #004D20;
 }
 .file-field .btn-small {
-    height: 4vh;
-    line-height: 4vh;
+    height: 2.5vh;
+    margin-top: 0.5em;
+    line-height: 2.5vh;
     color: black !important;
     border: black solid 1px !important;
     background: none !important;
     box-shadow: rgb(129 129 129) 1px 1px 0px 1px !important;
+}
+.file-field .btn-small.bios-file {
+    margin-top: 0;
 }
 .file-path-wrapper { 
     width: 25vw;
@@ -114,7 +119,7 @@
     text-overflow: ellipsis;
 }
 h5 {
-    font-size: 2.5vh !important;
+    font-size: 2vh !important;
 }
 h4 {
     font-size: 5vh !important;
@@ -141,7 +146,7 @@ h4 {
     gap: 10px;
 }
 .rom-header h5 {
-    opacity: 0.5;
+    opacity: 0.75;
 }
 span.rom-status {
     color: #919191;

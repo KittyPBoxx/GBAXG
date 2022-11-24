@@ -214,7 +214,7 @@ async function patchSprites() {
 
         Object.keys(FR_1_0_BOY_WALK_SPRITE_DATA).forEach(k => {
             let versionOffset = 0;
-            if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            if (isPatchedFireRed) {
                 versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
             }
             exp.addElementToExpansion("fr_boy_" + k, "FR", (versionOffset + FR_1_0_BOY_WALK_SPRITE_DATA[k]) - 0x08000000, 256);
@@ -231,7 +231,7 @@ async function patchSprites() {
 
         Object.keys(FR_1_0_BOY_BIKE_SPRITE_DATA).forEach(k => {
             let versionOffset = 0;
-            if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            if (isPatchedFireRed) {
                 versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
             }
             exp.addElementToExpansion("fr_boy_bike_" + k, "FR", (versionOffset + FR_1_0_BOY_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
@@ -248,13 +248,45 @@ async function patchSprites() {
 
         Object.keys(FR_1_0_BOY_SURF_SPRITE_DATA).forEach(k => {
             let versionOffset = 0;
-            if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            if (isPatchedFireRed) {
                 versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
             }
             exp.addElementToExpansion("fr_boy_surf_" + k, "FR", (versionOffset + FR_1_0_BOY_SURF_SPRITE_DATA[k]) - 0x08000000, 256, sprite16x32To32x32);
         });
 
         // USE ITEM
+        Object.keys(FR_1_0_GIRL_BAG_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_girl_bag_" + k, "FR", (versionOffset + FR_1_0_GIRL_BAG_SPRITE_DATA[k]) - 0x08000000, 256, sprite16x32To32x32);
+        });
+
+        Object.keys(FR_1_0_BOY_BAG_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_boy_bag_" + k, "FR", (versionOffset + FR_1_0_BOY_BAG_SPRITE_DATA[k]) - 0x08000000, 256, sprite16x32To32x32);
+        });
+
+        // FISHING
+        Object.keys(FR_1_0_GIRL_FISHING_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_girl_fishing_" + k, "FR", (versionOffset + FR_1_0_GIRL_FISHING_SPRITE_DATA[k]) - 0x08000000, 512);
+        });
+
+        Object.keys(FR_1_0_BOY_FISHING_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_boy_fishing_" + k, "FR", (versionOffset + FR_1_0_BOY_FISHING_SPRITE_DATA[k]) - 0x08000000, 512);
+        });
     }
 
     
@@ -279,6 +311,18 @@ async function patchSprites() {
     Object.keys(E_1_0_BOY_SURF_SPRITE_PTRS).forEach(k => {
         exp.patchRomPtr32ByName("C", E_1_0_BOY_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_boy_surf_" + k);
     });
+    Object.keys(E_1_0_GIRL_BAG_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("C", E_1_0_GIRL_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bag_" + k);
+    });
+    Object.keys(E_1_0_BOY_BAG_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("C", E_1_0_BOY_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bag_" + k);
+    });
+    Object.keys(E_1_0_GIRL_FISHING_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("C", E_1_0_GIRL_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_girl_fishing_" + k);
+    });
+    Object.keys(E_1_0_BOY_FISHING_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("C", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
+    });
 
 
     /* COPY DATA TO EMERALD */
@@ -301,6 +345,19 @@ async function patchSprites() {
     Object.keys(E_1_0_BOY_SURF_SPRITE_PTRS).forEach(k => {
         exp.patchRomPtr32ByName("E", E_1_0_BOY_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_boy_surf_" + k);
     });
+    Object.keys(E_1_0_GIRL_BAG_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("E", E_1_0_GIRL_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bag_" + k);
+    });
+    Object.keys(E_1_0_BOY_BAG_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("E", E_1_0_BOY_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bag_" + k);
+    });
+    Object.keys(E_1_0_GIRL_FISHING_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("E", E_1_0_GIRL_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_girl_fishing_" + k);
+    });
+    Object.keys(E_1_0_BOY_FISHING_SPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("E", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
+    });
+
 
     /* COPY COLOUR PALLETS FROM FIRE RED */
     var fireRedPalletOffset = isPatchedFireRed ? FR_1_1_GIRL_PALLET_DATA_BASE_OFFSET : FR_1_0_GIRL_PALLET_DATA_BASE_OFFSET;
@@ -325,7 +382,7 @@ async function patchSprites() {
 
     /* COPY COLOUR PALLETS TO CRYSTAL */
     for (i = 0; i < palletData.length; i++) {
-        let index = E_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+        let index = C_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(index, palletData[i]);
     }
     for (i = 0; i < palletData.length; i++) {
