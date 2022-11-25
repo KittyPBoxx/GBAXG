@@ -70,6 +70,7 @@ ExpansionPack.prototype.addElementToExpansion = function(name, romCode, offsetIn
 } 
 
 ExpansionPack.prototype.getPatchPointStart = function (romCode) {
+    // For a 16mb rom we can just append to the end for 32mb+ roms we might need to find some free space to patch into
     return 0x1000000;
 }
 
