@@ -253,7 +253,6 @@ var FR_1_0_BOY_FISHING_SPRITE_DATA =
     "fishing_12" :  FR_1_0_BOY_FISHING_SPRITE_DATA_BASE_OFFSET + (512 * 11 )
 };
 
-
 /* FIRE_RED 1.1 */
 // Sprite data in fire red 1.1 is shifted 112 bytes later in the rom
 var FR_1_1_SPRITE_OFFSET_SHIFT = 112;
@@ -610,3 +609,60 @@ var E_1_0_BOY_FISHING_SPRITE_PTRS =
  * green = ((gba_color >> 5) & 31) << 3
  * blue = ((gba_color >> 10) & 31) << 3
  */
+
+/* BACKSPRITES */
+
+// FR
+var FR_BACKSPRITE_DATA = 
+{
+    "boy_frame0"  : 0x08E69EBC,
+    "boy_frame1"  : 0x08E6A6BC,
+    "boy_frame2"  : 0x08E6AEBC,
+    "boy_frame3"  : 0x08E6B6BC,
+    "boy_frame4"  : 0x08E6BEBC,
+    "girl_frame0" : 0x08E6C6BC,
+    "girl_frame1" : 0x08E6CEBC,
+    "girl_frame2" : 0x08E6D6BC,
+    "girl_frame3" : 0x08E6DEBC,
+    "girl_frame4" : 0x08E6E6BC,
+}
+var FR_BACKSPRITE_DATA_LENGTH = 0x800;
+
+var FR_BOY_BACKSPRITE_PALLET_OFFSET = 0x08E76EBC; 
+var FR_GIRL_BACKSPRITE_PALLET_OFFSET = 0x08E76EE4;
+
+// E
+var E_BACKSPRITE_PTRS = 
+{
+    "boy_frame1"  : 0x082FF428, //0x08D66480
+    "boy_frame2"  : 0x082FF430, //0x08D66C80
+    "boy_frame3"  : 0x082FF438, //0x08D67480
+    "boy_frame0"  : 0x082FF440, //0x08D67C80
+
+    "girl_frame1" : 0x082FF448, //0x08D68480
+    "girl_frame2" : 0x082FF450, //0x08D68C80
+    "girl_frame3" : 0x082FF458, //0x08D69480
+    "girl_frame0" : 0x082FF460, //0x08D69C80
+}
+
+var E_BOY_BACKSPRITE_PALLET_OFFSET = 0x08D61A30;
+var E_GIRL_BACKSPRITE_PALLET_OFFSET = 0x08D61D58;
+
+// C
+var C_BACKSPRITE_PTRS = 
+{
+    "boy_frame1"  : 0x08F50000, //0x08D66480
+    "boy_frame2"  : 0x08F50008, //0x08D66C80
+    "boy_frame3"  : 0x08F50010, //0x08D67480
+    "boy_frame0"  : 0x08F50018, //0x08D67C80
+
+    "girl_frame1" : 0x08F50028, //0x08D68480
+    "girl_frame2" : 0x08F50030, //0x08D68C80
+    "girl_frame3" : 0x08F50038, //0x08D69480
+    "girl_frame0" : 0x08F50040, //0x08D69C80
+}
+
+var C_GIRL_BACKSPRITE_PALLET_OFFSET = 0x08E511C4;
+var C_BOY_BACKSPRITE_PALLET_OFFSET = 0x08E5119C;
+
+var BACKSPRITES_PALLET_LENGTH = 64;

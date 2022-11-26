@@ -288,6 +288,11 @@ async function patchSprites() {
             }
             exp.addElementToExpansion("fr_boy_fishing_" + k, "FR", (versionOffset + FR_1_0_BOY_FISHING_SPRITE_DATA[k]) - 0x08000000, 512);
         });
+
+        // Backsprites
+        Object.keys(FR_BACKSPRITE_DATA).forEach(k => {
+            exp.addElementToExpansion("fr_backsprite" + k, "FR", (FR_BACKSPRITE_DATA[k]) - 0x08000000, FR_BACKSPRITE_DATA_LENGTH);
+        });
     }
 
     
@@ -325,6 +330,10 @@ async function patchSprites() {
         exp.patchRomPtr32ByName("C", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
     });
 
+    // Backsprites
+    Object.keys(C_BACKSPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("C", C_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
+    });
 
     /* COPY DATA TO EMERALD */
     exp.addToRom("E");
@@ -359,36 +368,64 @@ async function patchSprites() {
         exp.patchRomPtr32ByName("E", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
     });
 
+    // Backsprites
+    Object.keys(E_BACKSPRITE_PTRS).forEach(k => {
+        exp.patchRomPtr32ByName("E", E_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
+    });
+
 
     /* COPY COLOUR PALLETS FROM FIRE RED */
     var fireRedPalletOffset = isPatchedFireRed ? FR_1_1_GIRL_PALLET_DATA_BASE_OFFSET : FR_1_0_GIRL_PALLET_DATA_BASE_OFFSET;
 
-    let palletData = [];
+    let overworldPalletData = []; // In  FireRed boy and Girl use the same overworld pallet
+    let girlBackspritePalletData = [];
+    let boyBackspritePalletData = [];
     for (i = 0; i < FR_1_0_GIRL_PALLET_DATA_LENGTH; i++) {
         let index = fireRedPalletOffset + i - 0x08000000;
-        palletData.push(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[index]);
+        overworldPalletData.push(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[index]);
+    }
+
+    for (i = 0; i < BACKSPRITES_PALLET_LENGTH; i++) {
+        let girlBackspriteIndex = FR_GIRL_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+        girlBackspritePalletData.push(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[girlBackspriteIndex]);
+
+        let boyBackspriteIndex = FR_BOY_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+        boyBackspritePalletData.push(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[boyBackspriteIndex]);
     }
 
     /* COPY COLOUR PALLETS TO EMERALD */
-    for (i = 0; i < palletData.length; i++) {
-        let index = E_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(index, palletData[i]);
+    for (i = 0; i < overworldPalletData.length; i++) {
+        let girlOverworldIndex = E_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(girlOverworldIndex, overworldPalletData[i]);
+
+        let boyOverworldIndex = E_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(boyOverworldIndex, overworldPalletData[i]);
     }
-    for (i = 0; i < palletData.length; i++) {
-        let index = E_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(index, palletData[i]);
+    for (i = 0; i < BACKSPRITES_PALLET_LENGTH; i++) {
+        let girlBackspriteIndex = E_GIRL_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(girlBackspriteIndex, girlBackspritePalletData[i]);
+
+        let boyBackspriteIndex = E_BOY_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(boyBackspriteIndex, boyBackspritePalletData[i]);
     }
     IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
     IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
 
     /* COPY COLOUR PALLETS TO CRYSTAL */
-    for (i = 0; i < palletData.length; i++) {
-        let index = C_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(index, palletData[i]);
+    for (i = 0; i < overworldPalletData.length; i++) {
+        let girlOverworldIndex = C_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(girlOverworldIndex, overworldPalletData[i]);
+
+        let boyOverworldIndex = C_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(boyOverworldIndex, overworldPalletData[i]);
     }
-    for (i = 0; i < palletData.length; i++) {
-        let index = E_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(index, palletData[i]);
+
+    for (i = 0; i < BACKSPRITES_PALLET_LENGTH; i++) {
+        let girlBackspriteIndex = C_GIRL_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(girlBackspriteIndex, girlBackspritePalletData[i]);
+
+        let boyBackspriteIndex = C_BOY_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(boyBackspriteIndex, boyBackspritePalletData[i]);
     }
     IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
     IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);

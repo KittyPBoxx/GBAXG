@@ -140,6 +140,7 @@ function fireRedReady() {
     document.getElementById("e_btn").classList.remove("disabled");
     document.getElementById("play").classList.remove("disabled"); 
     document.getElementById("fr-status").innerHTML = "(Ready)";  
+    clearCanvas();
 }
 
 function crystalReady() {
@@ -147,6 +148,14 @@ function crystalReady() {
     document.getElementById("e_btn").classList.remove("disabled");
     document.getElementById("play").classList.remove("disabled"); 
     document.getElementById("c-status").innerHTML = "(Ready)";  
+    clearCanvas();
+}
+
+async function clearCanvas() {
+    let canvas = document.getElementById("emulator_target");
+    let ctx = canvas.getContext('2d');
+    await delay(300);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 function emeraldReady() {
@@ -154,6 +163,7 @@ function emeraldReady() {
     document.getElementById("c_btn").classList.remove("disabled");
     document.getElementById("play").classList.remove("disabled"); 
     document.getElementById("e-status").innerHTML = "(Ready)";  
+    clearCanvas();
 }
 
 
