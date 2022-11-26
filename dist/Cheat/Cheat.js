@@ -58,12 +58,12 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                 ((address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))))  {
 
                     IodineGUI.Iodine.pause();
-                    let currentRomCode = IodineGUI.Iodine.IOCore.cartridge.romCode;
-                    let partySlice = readWRAMSlice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
-                    let playerNameAndState = dynamicMemorySlice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH);
-                    let idAndPlayTime = dynamicMemorySlice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH);
+                    let beforeRomCode = IodineGUI.Iodine.IOCore.cartridge.romCode;
+                    let partySlice = readWRAMSlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
+                    let playerNameAndState = dynamicMemorySlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH);
+                    let idAndPlayTime = dynamicMemorySlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH);
                     let bagStoreage = new BagStoreage();
-                    bagStoreage.readData(currentRomCode);
+                    bagStoreage.readData(beforeRomCode);
         
                     IodineGUI.Iodine.saveStateManager.loadState(gameSwitchingWarp.toRomCode);
         
@@ -76,11 +76,11 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                         this.write8(FIRE_RED_CURRENT_MAP, gameSwitchingWarp.toMap);
                         this.write8(FIRE_RED_CURRENT_WARP, gameSwitchingWarp.toWarpNo);
                     }
-                    currentRomCode = IodineGUI.Iodine.IOCore.cartridge.romCode; // Changed becuase of load state
+                    let currentRomCode = IodineGUI.Iodine.IOCore.cartridge.romCode; // Changed becuase of load state
                     spliceWRAM(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH, playerNameAndState);
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH, idAndPlayTime);
-                    bagStoreage.writeData(currentRomCode);
+                    bagStoreage.writeData(currentRomCode, beforeRomCode);
         
                     IodineGUI.mixerInput.volume = 0.0
                     switchingGameState = 2;
@@ -556,16 +556,16 @@ BagStoreage.prototype.readEmeraldData = function () {
     this.readItemSection(save1Start, EMERALD_BERRIES_OFFSET, EMERALD_BERRIES_LENGTH, this.berryPocket, xorKey16);
 }
 
-BagStoreage.prototype.writeData = function (game) {
+BagStoreage.prototype.writeData = function (game, lastGame) {
     if (game == "E" || game == "C") {
-        this.writeDataToEmerald();
+        this.writeDataToEmerald(game, lastGame);
     } else {
-        this.writeDataToFireRed();
+        this.writeDataToFireRed(game, lastGame);
     }
 }
 
 
-BagStoreage.prototype.writeDataToFireRed = function () {
+BagStoreage.prototype.writeDataToFireRed = function (game, lastGame) {
     let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_2_PTR);
     let xorKey32 = IodineGUI.Iodine.IOCore.cpu.read32(save2Start + FIRE_RED_XOR_KEY_OFFSET);
     let xorKey16 = IodineGUI.Iodine.IOCore.cpu.read16(save2Start + FIRE_RED_XOR_KEY_OFFSET);
@@ -575,13 +575,27 @@ BagStoreage.prototype.writeDataToFireRed = function () {
     IodineGUI.Iodine.IOCore.cpu.write32(save1Start + FIRE_RED_OBSF_MONEY_OFFSET, this.money ^ xorKey32);
 
     // We need to give the player the berry pocket or tm case if they have some 
-    if (this.berryPocket.size > 1) {
+    if (this.berryPocket.size >= 1) {
         this.keyItemsPocket.set(365, 1); // one berry pouch
     }
-    if (this.tmCase.size > 1) {
-        this.tmCase.set(364, 1); // one tm case
+    if (this.tmCase.size >= 1) {
+        this.keyItemsPocket.set(364, 1); // one tm case
     }
-    
+
+    if (lastGame == "C") {
+        // Going from crystal to firered
+        let hasRocksmash = this.tmCase.get(296);
+        let hasWhirldpool = this.tmCase.get(344);
+        let hasBodyslam = this.keyItemsPocket.get(347);
+
+        this.tmCase.delete(296);
+        this.tmCase.delete(344);
+        this.keyItemsPocket.delete(347);
+
+        if(hasRocksmash) this.tmCase.set(344, 1);
+        if(hasWhirldpool) this.keyItemsPocket.set(347, 1); // Unused TM to represent whirldpool
+        if(hasBodyslam) this.tmCase.set(296, 1); 
+    } 
 
     // write items
     this.writeItemSection(save1Start, FIRE_RED_ITEM_OFFSET, FIRE_RED_ITEM_LENGTH, this.itemPocket, xorKey16);
@@ -599,7 +613,7 @@ BagStoreage.prototype.writeDataToFireRed = function () {
     this.writeItemSection(save1Start, FIRE_RED_BERRIES_OFFSET, FIRE_RED_BERRIES_LENGTH, this.berryPocket, xorKey16);
 }
 
-BagStoreage.prototype.writeDataToEmerald = function () {
+BagStoreage.prototype.writeDataToEmerald = function (game, lastGame) {
     let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_2_PTR);
     let xorKey32 = IodineGUI.Iodine.IOCore.cpu.read32(save2Start + EMERALD_XOR_KEY_OFFSET);
     let xorKey16 = IodineGUI.Iodine.IOCore.cpu.read16(save2Start + EMERALD_XOR_KEY_OFFSET);
@@ -611,6 +625,41 @@ BagStoreage.prototype.writeDataToEmerald = function () {
     // If we have a bike from fire red but not a mach/acro bike from emerald we should get a mach bike 
     if (this.keyItemsPocket.get(360) && !this.keyItemsPocket.get(259) && !this.keyItemsPocket.get(272)) {
         this.keyItemsPocket.set(259, 1);
+    }
+
+    // If we have HM06/TM08 we need to make sure it's the right hm
+    // In Crystal HM06 is whirlpool and TM08 is Rocksmash
+    // In Emerald and FireRed HM06 is  Rocksmash and TM08 is 'Body Slam'
+    if (game == "E" && lastGame == "C") {
+        // Going from crystal to emerald
+
+        let hasRocksmash = this.tmCase.get(296);
+        let hasWhirldpool = this.tmCase.get(344);
+        let hasBodyslam = this.keyItemsPocket.get(347);
+
+        this.tmCase.delete(296);
+        this.tmCase.delete(344);
+        this.keyItemsPocket.delete(347);
+
+        if(hasRocksmash) this.tmCase.set(344, 1);
+        if(hasWhirldpool) this.keyItemsPocket.set(347, 1); // Unused TM to represent whirldpool
+        if(hasBodyslam) this.tmCase.set(296, 1); 
+
+    } else if (game == "C" && lastGame && lastGame != "C") {
+
+        // Going from firered or emerald into crystal
+        let hasRocksmash = this.tmCase.get(344);
+        let hasWhirldpool = this.keyItemsPocket.get(347);
+        let hasBodyslam = this.tmCase.get(296);
+
+        this.tmCase.delete(296);
+        this.tmCase.delete(344);
+        this.keyItemsPocket.delete(347);
+
+        if(hasRocksmash) this.tmCase.set(296, 1);
+        if(hasWhirldpool) this.tmCase.set(344, 1); // Unused TM to represent bodyslam
+        if(hasBodyslam) this.keyItemsPocket.set(347, 1); 
+
     }
 
     // write items
