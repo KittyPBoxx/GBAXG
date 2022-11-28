@@ -64,3 +64,24 @@ async function delay(time) {
       setTimeout(resolve, time);
     });
 }
+
+/* Hack Functions */
+CommandExecutor.register("ToggleWarps", args => {
+  randomWarpsEnabled = !randomWarpsEnabled;
+  document.getElementById("enableWarpsCheckbox").checked = randomWarpsEnabled;
+});
+
+CommandExecutor.register("ToggleWalls", args => {
+  walkThroughWalls = !walkThroughWalls;
+  document.getElementById("disableWalls").checked = walkThroughWalls;
+});
+
+CommandExecutor.register("ToggleBike", args => {
+  autoBike = !autoBike;
+  document.getElementById("autoBike").checked = autoBike;
+  if (autoBike) {
+    forcePlayerState(MOVEMENT_MODE_BIKE);
+  } else {
+    forcePlayerState(MOVEMENT_MODE_WALK);
+  }
+});

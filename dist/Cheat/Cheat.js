@@ -319,6 +319,9 @@ const CURRENT_GROUND_WATER = 0x11;
 const EMERALD_STATE_OFFSET = 0x02037591;
 const FIRE_RED_STATE_OFFSET = 0x02037079;
 function forcePlayerState(state) {
+
+    if(!IodineGUI.Iodine.IOCore) return;
+
     if (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") { 
         //IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_MOVEMENT_MODE_OFFSET, state);
         IodineGUI.Iodine.IOCore.cpu.write8(FIRE_RED_STATE_OFFSET, state); 

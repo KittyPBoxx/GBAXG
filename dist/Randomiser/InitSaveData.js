@@ -103,7 +103,7 @@ async function delayedSaveStateSave() {
     await delay(3500 / IodineGUI.Iodine.getSpeed());
     IodineGUI.Iodine.saveStateManager.saveState(IodineGUI.Iodine.IOCore.cartridge.romCode);
     IodineGUI.Iodine.saveStateManager.saveMultiState("LATEST");
-    document.getElementById("reset").classList.remove("hide");
+    document.getElementById("reset").classList.remove("disabled");
     M.toast({html: 'Latest Save Updated', displayLength:1000 });
 }
 
