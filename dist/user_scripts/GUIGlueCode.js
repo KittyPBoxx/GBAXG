@@ -214,10 +214,13 @@ function registerGUIEvents() {
 
     addEvent("click", document.getElementById("remapWarps"), () => {
         let seed = document.getElementById("input_seed_text").value;
-        setValue("warp_seed", seed);
         mapWarps(seed);
         M.toast({html: warpList.size + ' warps were mapped', displayLength:1000});
     });
+
+    addEvent("click", document.getElementById("export_mapping"), () => exportMapping());
+
+    addEvent("change", document.getElementById("import_mapping"), importMapping);
 
     addEvent("click", document.getElementById("FRShown"), () => {
         let elmnt = document.getElementById("fr-group");
@@ -317,12 +320,12 @@ function registerGUIEvents() {
     addEvent("resize", window, resizeCanvasFunc);
 
     //Run on init as well:
-
-    let startingSeed = findValue("warp_seed");
-    startingSeed = !startingSeed ? "KITTY" : startingSeed;
-    document.getElementById("input_seed_text").value = startingSeed;
-    mapWarps(startingSeed);
-    
+    storageManager.find("RANDOM_MAPPING", () => {
+        document.getElementById("input_seed_text").value = "KITTY";
+        mapWarps("KITTY");
+    }).then(warpListData => {
+        if (warpListData) updateWarpListData(warpListData)
+    });    
 
     resizeCanvasFunc();
 }

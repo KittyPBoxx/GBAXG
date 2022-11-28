@@ -7,11 +7,16 @@ StorageManager.prototype.persist = function (key, value) {
     this.db.files.put({ name: key, value: value})
 }
 
-StorageManager.prototype.find = function (key) {
+StorageManager.prototype.find = function (key, onError = () => { throw new Error("No State Available. A new one will be created on launch...")}) {
     return (async () => {
         let result = await this.db.files.where("name").equals(key).first()
-        if (!result) throw new Error("No State Available. A new one will be created on launch...");
-        return result.value;
+        if (!result) onError();
+
+        if (result) {
+            return result.value
+        } else {
+            return false;
+        }
     })();
 }
 

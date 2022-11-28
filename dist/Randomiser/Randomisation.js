@@ -45,6 +45,10 @@ async function mapWarps(seed) {
     let mapData = getFilteredData();
     remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, config]);
     warpList = mappingToWarps(getAugmetedRemappingData(remappingsData));
+
+    if (storageManager != null) {
+      storageManager.persist("RANDOM_MAPPING", new WarpListData(seed, config, warpList));
+    }
 }
 
 function simpleRandom(seed, mapData, config) {
@@ -89,6 +93,50 @@ function toMapBank(s) {
     return arr[0] + "," + arr[1] + "," + arr[2] 
 }
 
+/** 
+ *  Warp data model
+ */
+function WarpListData(seed, config, warpList) {
+  this.warpList = Array.from(warpList.entries());
+  this.seed = seed;
+  this.config = config;
+} 
+
+function exportMapping() {
+  storageManager.find("RANDOM_MAPPING").then(s => {
+      let data = JSON.stringify(s);
+      let file = new File([data], "WarpMapping.json", {type: "application/json;charset=utf-8"});
+      saveAs(file);
+  });
+}
+
+function importMapping() {
+  let file = this.files[0];
+
+  let reader = new FileReader();
+  reader.readAsText(file,'UTF-8');
+
+  reader.onload = readerEvent => {
+      let content = readerEvent.target.result;
+      let warpListData = JSON.parse(content);
+      updateWarpListData(warpListData);
+      storageManager.persist("RANDOM_MAPPING", warpListData);
+   }
+}
+
+function updateWarpListData(warpListData) {
+  document.getElementById("input_seed_text").value = warpListData.seed;
+
+  document.getElementById("kantoLevel").value = warpListData.config.kantoLevel;
+  document.getElementById("jhotoLevel").value = warpListData.config.jhotoLevel;
+  document.getElementById("hoennLevel").value = warpListData.config.hoennLevel;
+  M.FormSelect.getInstance(document.getElementById("kantoLevel"))._handleSelectChangeBound();
+  M.FormSelect.getInstance(document.getElementById("jhotoLevel"))._handleSelectChangeBound();
+  M.FormSelect.getInstance(document.getElementById("hoennLevel"))._handleSelectChangeBound();
+
+  warpList = new Map(warpListData.warpList);
+}
+
 /**
  *  Warp Script model 
  */
@@ -100,11 +148,6 @@ function toMapBank(s) {
     this.toWarpNo = warpNo;
     this.source = source;
 }
-
-PKWarp.prototype.isInternal = function() {
-    return this.toRomCode[0] == this.trigger[0];
-}
-
 
 /**
  *  SEEDED RNG MANAGEMENT

@@ -441,8 +441,9 @@ span.rom-status {
 
 .randomiser-button-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
+    margin-top: 1.5em;
 }
 
 .btn-small.randomiser-button {

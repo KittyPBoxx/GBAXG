@@ -452,10 +452,10 @@
                             </div>
                           </div>
                         </div>
-                        <div class="menu-group hide">
-                          <div class="rom-header"><h5 class="bios-text">RANDOMISER</h5></div>
+                        <div class="menu-group dividerless">
+                          <div class="rom-header"><h5 class="bios-text hide">RANDOMISER</h5></div>
                           <div class="randomiser-buttons-row">
-                            <div class="randomiser-button-group">
+                            <div class="randomiser-button-group hide">
                               <div class="file-field input-field">
                                 <div class="btn-small randomiser-button">
                                   <span>IMPORT MAP DATA</span>
@@ -481,17 +481,17 @@
                               </div>
                             </div>
                             <div class="randomiser-button-group">
-                              <div class="file-field input-field">
-                                <div class="btn-small randomiser-button">
-                                  <span>IMPORT CUSTOM MAPPING</span>
-                                  <input type="file" id="bios_load">
+                              <div class="btn-small plaint-btn" id="export_mapping">
+                                <span>EXPORT MAPPING</span>
+                              </div>
+                              <div class="file-field input-field import-save">
+                                <div class="btn-small bios-file plaint-btn">
+                                  <span>IMPORT MAPPING</span>
+                                  <input type="file" id="import_mapping" accept=".json">
                                 </div>
                                 <div class="file-path-wrapper hide">
                                   <input class="file-path validate" type="text">
                                 </div>
-                              </div>
-                              <div class="btn-small randomiser-button">
-                                <span>EXPORT CURRENT MAPPING</span>
                               </div>
                             </div>
                           </div>  

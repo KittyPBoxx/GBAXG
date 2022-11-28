@@ -212,7 +212,8 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
         IodineGUI.Iodine.pause();
 
         IodineGUI.Iodine.saveStateManager.saveState(romCode, true);
-        if (!pkWarp.isInternal()) {
+        if (pkWarp.toRomCode[0] != pkWarp.trigger[0]) {
+            // Switching Games
             switchingGameState = 1;
             gameSwitchingWarp = pkWarp;
             address = pkWarp.toRomCode == "E" || pkWarp.toRomCode == "C" ? EMERALD_CURRENT_BANK : FIRE_RED_CURRENT_BANK;
