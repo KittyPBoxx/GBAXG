@@ -99,6 +99,9 @@
         <script src="user_scripts/Persistence/dexie.min.js"></script>
         <script src="user_scripts/Persistence/Storeage.js"></script>
 
+        <!-- Exports / Imports -->
+        <script src="user_scripts/Persistence/FileSaver.min.js"></script>
+
         <!-- Setup Initial Save Data -->
         <script id="lzutf8" src="user_scripts/Compression/lzutf8.min.js"></script>
         <script src="Randomiser/InitSaveData.js"></script>
@@ -287,7 +290,7 @@
                         <div class="menu-group">
                           <div class="rom-header"><h5 class="bios-text">SAVES</h5></div>
                           <ul class="collection">
-                            <li class="plaint-btn btn-small hide" id="current_manual">LAST SAVE</li>
+                            <li class="plaint-btn btn-small" id="current_manual">LAST SAVE</li>
                             <li class="plaint-btn btn-small" id="current">LAST AUTOSAVE</li>
                             <li class="plaint-btn btn-small hide" id="exitFR">LAST KANTO</li>
                             <li class="plaint-btn btn-small hide" id="exitC">LAST JHOTO</li>
@@ -326,7 +329,19 @@
                             </li>
                           </ul>
                         </div>
-                        <div class="menu-group dividerless right-align">
+                        <div class="menu-group dividerless right-align save-export-group">
+                          <div class="btn-small right-align saveFileButton plaint-btn" id="exportLastSave">
+                            <span>EXPORT LAST</span>
+                          </div>
+                          <div class="file-field input-field import-save">
+                            <div class="btn-small bios-file plaint-btn">
+                              <span>IMPORT LAST</span>
+                              <input type="file" id="latest_save_load" accept=".xgss">
+                            </div>
+                            <div class="file-path-wrapper hide">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
                           <div class="btn-small right-align" id="eraseAll">
                             <span>ERASE GAME DATA</span>
                           </div>

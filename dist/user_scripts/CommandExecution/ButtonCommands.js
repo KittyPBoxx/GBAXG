@@ -44,7 +44,7 @@ CommandExecutor.register("L"     , args => IodineGUI.isPlaying ? keyPress(9) /* 
 let speedUpSpeed = 4;
 CommandExecutor.register("SpeedUp", args => IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? speedUpSpeed : 1));
 CommandExecutor.register("BigSpeedUp", args => IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? 10 : 1));
-CommandExecutor.register("Restart", args => IodineGUI.Iodine.restart());
+CommandExecutor.register("Restart", args => restartFromLastSave());
 CommandExecutor.register("Start", args => IodineGUI.Iodine.play());
 CommandExecutor.register("Stop", args => IodineGUI.Iodine.stop());
 

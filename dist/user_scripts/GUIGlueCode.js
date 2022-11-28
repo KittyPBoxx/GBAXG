@@ -68,11 +68,13 @@ function registerGUIEvents() {
     addEvent("click", document.getElementById("reset"), () => {
         toggleMenu();
         IodineGUI.Iodine.NEXT_ROM = IodineGUI.Iodine.IOCore.cartridge.romCode;
-        IodineGUI.Iodine.restart();
+        restartFromLastSave();
     });
     addEvent("click", document.getElementById("eraseAll"), () => {
         localStorage.clear();
         storageManager.delete("lastLoadedRom");
+
+        storageManager.delete("LATEST");
 
         storageManager.delete("MS1");
         storageManager.delete("MS2");
@@ -89,6 +91,9 @@ function registerGUIEvents() {
     addEvent("click", document.getElementById("eraseKeybinds"), () => {
         storageManager.delete("keybinds").then(() => location.reload(), () => location.reload());
     });
+
+    addEvent("click", document.getElementById("exportLastSave"), () => exportLastSaveData());
+    addEvent("change", document.getElementById("latest_save_load"), importLastSaveData);
 
     /* SEASON BUTTONS */
     addEvent("click", document.getElementById("spring"), () => {
@@ -160,6 +165,10 @@ function registerGUIEvents() {
     });
 
 
+    addEvent("click", document.getElementById("current_manual"), () => {
+        IodineGUI.Iodine.saveStateManager.loadMultiState("LATEST");
+        toggleMenu(); 
+    });
     addEvent("click", document.getElementById("current"), () => {
         loadedAndStarted = false;
         initAndStart();
@@ -305,263 +314,8 @@ function registerGUIEvents() {
         forceNextWarp = game + "," + bank + "," + map + "," + warp;
     });
 
-    // //Catch any play status changes:
-    // IodineGUI.Iodine.attachPlayStatusHandler(updatePlayButton);
-    // //Add DOM events:
-    // addEvent("keydown", document, keyDown);
-    // addEvent("keyup", document, keyUpPreprocess);
-    // addEvent("change", document.getElementById("rom_load"), fileLoadROM);
-    // addEvent("change", document.getElementById("bios_load"), fileLoadBIOS);
-    // addEvent("click", document.getElementById("play"), function (e) {
-    //     IodineGUI.Iodine.play();
-    // });
-    // addEvent("click", document.getElementById("pause"), function (e) {
-    //     IodineGUI.Iodine.pause();
-    // });
-    // addEvent("click", document.getElementById("restart"), function (e) {
-    //     IodineGUI.Iodine.restart();
-    // });
-    // addEvent("click", document.getElementById("sound"), function () {
-    //     setValue("sound", !!this.checked);
-    //     if (this.checked) {
-    //         IodineGUI.Iodine.enableAudio();
-    //     }
-    //     else {
-    //         IodineGUI.Iodine.disableAudio();
-    //     }
-    // });
-    // addEvent("click", document.getElementById("skip_boot"), function () {
-    //     setValue("skipBoot", !!this.checked);
-    //     IodineGUI.Iodine.toggleSkipBootROM(this.checked);
-    // });
-    // addEvent("click", document.getElementById("toggleSmoothScaling"), function () {
-    //     setValue("toggleSmoothScaling", !!this.checked);
-    //     if (IodineGUI.Blitter) {
-    //         IodineGUI.Blitter.setSmoothScaling(this.checked);
-    //     }
-    // });
-    // addEvent("click", document.getElementById("toggleDynamicSpeed"), function () {
-    //     setValue("toggleDynamicSpeed", !!this.checked);
-    //     IodineGUI.Iodine.toggleDynamicSpeed(this.checked);
-    // });
-    // addEvent("click", document.getElementById("offthread-gpu"), function () {
-    //     setValue("toggleOffthreadGraphics", !!this.checked);
-    //     IodineGUI.Iodine.toggleOffthreadGraphics(this.checked);
-    // });
-    // addEvent("click", document.getElementById("offthread-cpu"), function () {
-    //     setValue("toggleOffthreadCPU", !!this.checked);
-    //     //Can't do anything until reload of page.
-    // });
-    // addEvent("change", document.getElementById("speedset"), speedChangeFunc);
-    // addEvent("input", document.getElementById("speedset"), speedChangeFunc);
-    // addEvent("click", document.getElementById("fullscreen"), toggleFullScreen);
-    // addEvent("click", document.getElementById("key_a"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 0;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-a"), function () {
-    //     IodineGUI.Iodine.keyDown(0);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-a"), function () {
-    //     IodineGUI.Iodine.keyUp(0);
-    // });
-    // addEvent("click", document.getElementById("key_b"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 1;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-b"), function () {
-    //     IodineGUI.Iodine.keyDown(1);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-b"), function () {
-    //     IodineGUI.Iodine.keyUp(1);
-    // });
-    // addEvent("click", document.getElementById("key_select"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 2;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-select"), function () {
-    //     IodineGUI.Iodine.keyDown(2);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-select"), function () {
-    //     IodineGUI.Iodine.keyUp(2);
-    // });
-    // addEvent("click", document.getElementById("key_start"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 3;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-start"), function () {
-    //     IodineGUI.Iodine.keyDown(3);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-start"), function () {
-    //     IodineGUI.Iodine.keyUp(3);
-    // });
-    // addEvent("click", document.getElementById("key_right"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 4;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-right"), function () {
-    //     IodineGUI.Iodine.keyDown(4);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-right"), function () {
-    //     IodineGUI.Iodine.keyUp(4);
-    // });
-    // addEvent("click", document.getElementById("key_left"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 5;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-left"), function () {
-    //     IodineGUI.Iodine.keyDown(5);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-left"), function () {
-    //     IodineGUI.Iodine.keyUp(5);
-    // });
-    // addEvent("click", document.getElementById("key_up"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 6;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-up"), function () {
-    //     IodineGUI.Iodine.keyDown(6);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-up"), function () {
-    //     IodineGUI.Iodine.keyUp(6);
-    // });
-    // addEvent("click", document.getElementById("key_down"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 7;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-down"), function () {
-    //     IodineGUI.Iodine.keyDown(7);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-down"), function () {
-    //     IodineGUI.Iodine.keyUp(7);
-    // });
-    // addEvent("click", document.getElementById("key_r"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 8;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-r"), function () {
-    //     IodineGUI.Iodine.keyDown(8);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-r"), function () {
-    //     IodineGUI.Iodine.keyUp(8);
-    // });
-    // addEvent("click", document.getElementById("key_l"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesGBA;
-    //     IodineGUI.toMapIndice = 9;
-    // });
-    // addEvent("mousedown", document.getElementById("touch-l"), function () {
-    //     IodineGUI.Iodine.keyDown(9);
-    // });
-    // addEvent("mouseup", document.getElementById("touch-l"), function () {
-    //     IodineGUI.Iodine.keyUp(9);
-    // });
-    // addEvent("click", document.getElementById("key_volumedown"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 0;
-    // });
-    // addEvent("click", document.getElementById("key_volumeup"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 1;
-    // });
-    // addEvent("click", document.getElementById("key_speedup"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 2;
-    // });
-    // addEvent("click", document.getElementById("key_slowdown"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 3;
-    // });
-    // addEvent("click", document.getElementById("key_speedreset"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 4;
-    // });
-    // addEvent("click", document.getElementById("key_fullscreen"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 5;
-    // });
-    // addEvent("click", document.getElementById("key_playpause"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 6;
-    // });
-    // addEvent("click", document.getElementById("key_restart"), function () {
-    //     IodineGUI.toMap = IodineGUI.defaults.keyZonesControl;
-    //     IodineGUI.toMapIndice = 7;
-    // });
-    // addEvent("change", document.getElementById("import"), function (e) {
-    //          if (typeof this.files != "undefined") {
-    //             try {
-    //                 if (this.files.length >= 1) {
-    //                     writeRedTemporaryText("Reading the local file \"" + this.files[0].name + "\" for importing.");
-    //                     try {
-    //                         //Gecko 1.9.2+ (Standard Method)
-    //                         var binaryHandle = new FileReader();
-    //                         binaryHandle.onload = function () {
-    //                             if (this.readyState == 2) {
-    //                                 writeRedTemporaryText("file imported.");
-    //                                 try {
-    //                                     import_save(this.result);
-    //                                 }
-    //                                 catch (error) {
-    //                                     writeRedTemporaryText(error.message + " file: " + error.fileName + " line: " + error.lineNumber);
-    //                                 }
-    //                             }
-    //                             else {
-    //                                 writeRedTemporaryText("importing file, please wait...");
-    //                             }
-    //                         }
-    //                         binaryHandle.readAsBinaryString(this.files[this.files.length - 1]);
-    //                     }
-    //                     catch (error) {
-    //                         //Gecko 1.9.0, 1.9.1 (Non-Standard Method)
-    //                         var romImageString = this.files[this.files.length - 1].getAsBinary();
-    //                         try {
-    //                             import_save(romImageString);
-    //                         }
-    //                         catch (error) {
-    //                             writeRedTemporaryText(error.message + " file: " + error.fileName + " line: " + error.lineNumber);
-    //                         }
-    //                     }
-    //                 }
-    //                 else {
-    //                     writeRedTemporaryText("Incorrect number of files selected for local loading.");
-    //                 }
-    //             }
-    //             catch (error) {
-    //                 writeRedTemporaryText("Could not load in a locally stored ROM file.");
-    //             }
-    //          }
-    //          else {
-    //             writeRedTemporaryText("could not find the handle on the file to open.");
-    //          }
-    //          if (e.preventDefault) {
-    //             e.preventDefault();
-    //          }
-    // });
-    // addEvent("click", document.getElementById("export"), refreshStorageListing);
-    // addEvent("unload", window, ExportSave);
-    // IodineGUI.Iodine.attachSpeedHandler(function (speed) {
-    //     speed = speed.toFixed(2);
-    //     if (speed != IodineGUI.currentSpeed[1]) {
-    //         IodineGUI.currentSpeed[1] = speed;
-    //         IodineGUI.currentSpeed[0] = true;
-    //     }
-    // });
-    // addEvent("change", document.getElementById("volume"), volChangeFunc);
-    // addEvent("input", document.getElementById("volume"), volChangeFunc);
     addEvent("resize", window, resizeCanvasFunc);
-    // addEvent("mouseover", document.getElementById("saves_menu"), rebuildSavesMenu);
-    // if (typeof document.hidden !== "undefined") {
-    //     addEvent("visibilitychange", document, visibilityChangeHandle);
-    // }
-    // else if (typeof document.mozHidden !== "undefined") {
-    //     addEvent("mozvisibilitychange", document, mozVisibilityChangeHandle);
-    // }
-    // else if (typeof document.msHidden !== "undefined") {
-    //     addEvent("msvisibilitychange", document, msVisibilityChangeHandle);
-    // }
-    // else if (typeof document.webkitHidden !== "undefined") {
-    //     addEvent("webkitvisibilitychange", document, webkitVisibilityChangeHandle);
-    // }
+
     //Run on init as well:
 
     let startingSeed = findValue("warp_seed");
@@ -573,158 +327,7 @@ function registerGUIEvents() {
     resizeCanvasFunc();
 }
 function registerDefaultSettings() {
-    // if (findValue("sound") === null) {
-    //     setValue("sound", !!IodineGUI.defaults.sound);
-    // }
-    // else {
-    //     IodineGUI.defaults.sound = !!findValue("sound");
-    // }
-    // if (findValue("volume") === null) {
-    //     setValue("volume", +IodineGUI.defaults.volume);
-    // }
-    // else {
-    //     IodineGUI.defaults.volume = +findValue("volume");
-    // }
-    // document.getElementById("volume").value = Math.round(IodineGUI.defaults.volume * 100);
-    // document.getElementById("speedset").value = 50;
-    // if (findValue("skipBoot") === null) {
-    //     setValue("skipBoot", !!IodineGUI.defaults.skipBoot);
-    // }
-    // else {
-    //     IodineGUI.defaults.skipBoot = !!findValue("skipBoot");
-    // }
-    // if (findValue("toggleSmoothScaling") === null) {
-    //     setValue("toggleSmoothScaling", !!IodineGUI.defaults.toggleSmoothScaling);
-    // }
-    // else {
-    //     IodineGUI.defaults.toggleSmoothScaling = !!findValue("toggleSmoothScaling");
-    // }
-    // if (findValue("toggleDynamicSpeed") === null) {
-    //     setValue("toggleDynamicSpeed", !!IodineGUI.defaults.toggleDynamicSpeed);
-    // }
-    // else {
-    //     IodineGUI.defaults.toggleDynamicSpeed = !!findValue("toggleDynamicSpeed");
-    // }
-    // if (findValue("toggleOffthreadGraphics") === null) {
-    //     setValue("toggleOffthreadGraphics", !!IodineGUI.defaults.toggleOffthreadGraphics);
-    // }
-    // else {
-    //     IodineGUI.defaults.toggleOffthreadGraphics = !!findValue("toggleOffthreadGraphics");
-    // }
-    // if (findValue("toggleOffthreadCPU") === null) {
-    //     setValue("toggleOffthreadCPU", !!IodineGUI.defaults.toggleOffthreadCPU);
-    // }
-    // else {
-    //     IodineGUI.defaults.toggleOffthreadCPU = !!findValue("toggleOffthreadCPU");
-    // }
-    // if (findValue("key_a") === null) {
-    //     setValue("key_a", IodineGUI.defaults.keyZonesGBA[0] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[0] = findValue("key_a");
-    // }
-    // if (findValue("key_b") === null) {
-    //     setValue("key_b", IodineGUI.defaults.keyZonesGBA[1] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[1] = findValue("key_b");
-    // }
-    // if (findValue("key_select") === null) {
-    //     setValue("key_select", IodineGUI.defaults.keyZonesGBA[2] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[2] = findValue("key_select");
-    // }
-    // if (findValue("key_start") === null) {
-    //     setValue("key_start", IodineGUI.defaults.keyZonesGBA[3] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[3] = findValue("key_start");
-    // }
-    // if (findValue("key_right") === null) {
-    //     setValue("key_right", IodineGUI.defaults.keyZonesGBA[4] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[4] = findValue("key_right");
-    // }
-    // if (findValue("key_left") === null) {
-    //     setValue("key_left", IodineGUI.defaults.keyZonesGBA[5] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[5] = findValue("key_left");
-    // }
-    // if (findValue("key_up") === null) {
-    //     setValue("key_up", IodineGUI.defaults.keyZonesGBA[6] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[6] = findValue("key_up");
-    // }
-    // if (findValue("key_down") === null) {
-    //     setValue("key_down", IodineGUI.defaults.keyZonesGBA[7] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[7] = findValue("key_down");
-    // }
-    // if (findValue("key_r") === null) {
-    //     setValue("key_r", IodineGUI.defaults.keyZonesGBA[8] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[8] = findValue("key_r");
-    // }
-    // if (findValue("key_l") === null) {
-    //     setValue("key_l", IodineGUI.defaults.keyZonesGBA[9] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesGBA[9] = findValue("key_l");
-    // }
-    // if (findValue("key_volumedown") === null) {
-    //     setValue("key_volumedown", IodineGUI.defaults.keyZonesControl[0] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[0] = findValue("key_volumedown");
-    // }
-    // if (findValue("key_volumeup") === null) {
-    //     setValue("key_volumeup", IodineGUI.defaults.keyZonesControl[1] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[1] = findValue("key_volumeup");
-    // }
-    // if (findValue("key_speedup") === null) {
-    //     setValue("key_speedup", IodineGUI.defaults.keyZonesControl[2] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[2] = findValue("key_speedup");
-    // }
-    // if (findValue("key_slowdown") === null) {
-    //     setValue("key_slowdown", IodineGUI.defaults.keyZonesControl[3] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[3] = findValue("key_slowdown");
-    // }
-    // if (findValue("key_speedreset") === null) {
-    //     setValue("key_speedreset", IodineGUI.defaults.keyZonesControl[4] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[4] = findValue("key_speedreset");
-    // }
-    // if (findValue("key_fullscreen") === null) {
-    //     setValue("key_fullscreen", IodineGUI.defaults.keyZonesControl[5] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[5] = findValue("key_fullscreen");
-    // }
-    // if (findValue("key_playpause") === null) {
-    //     setValue("key_playpause", IodineGUI.defaults.keyZonesControl[6] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[6] = findValue("key_playpause");
-    // }
-    // if (findValue("key_restart") === null) {
-    //     setValue("key_restart", IodineGUI.defaults.keyZonesControl[7] | 0);
-    // }
-    // else {
-    //     IodineGUI.defaults.keyZonesControl[7] = findValue("key_restart");
-    // }
+
 }
 function saveKeyBindings() {
     setValue("key_a", IodineGUI.defaults.keyZonesGBA[0] | 0);
@@ -746,34 +349,7 @@ function saveKeyBindings() {
     setValue("key_playpause", IodineGUI.defaults.keyZonesControl[6] | 0);
     setValue("key_restart", IodineGUI.defaults.keyZonesControl[7] | 0);
 }
-// function registerGUISettings() {
-    // document.getElementById("sound").checked = IodineGUI.defaults.sound;
-    // if (IodineGUI.defaults.sound) {
-    //     IodineGUI.Iodine.enableAudio();
-    // }
-    // try {
-    //     var volControl = document.getElementById("volume");
-    //     volControl.min = 0;
-    //     volControl.max = 100;
-    //     volControl.step = 1;
-    //     volControl.value = IodineGUI.defaults.volume * 100;
-    // }
-    // catch (e) {}
-    // IodineGUI.mixerInput.setVolume(IodineGUI.defaults.volume);
-    // document.getElementById("skip_boot").checked = IodineGUI.defaults.skipBoot;
-    // IodineGUI.Iodine.toggleSkipBootROM(IodineGUI.defaults.skipBoot);
-    // document.getElementById("toggleSmoothScaling").checked = IodineGUI.defaults.toggleSmoothScaling;
-    // IodineGUI.Blitter.setSmoothScaling(IodineGUI.defaults.toggleSmoothScaling);
-    // document.getElementById("toggleDynamicSpeed").checked = IodineGUI.defaults.toggleDynamicSpeed;
-    // IodineGUI.Iodine.toggleDynamicSpeed(IodineGUI.defaults.toggleDynamicSpeed);
-    // document.getElementById("offthread-gpu").checked = IodineGUI.defaults.toggleOffthreadGraphics;
-    // IodineGUI.Iodine.toggleOffthreadGraphics(IodineGUI.defaults.toggleOffthreadGraphics);
-    // document.getElementById("offthread-cpu").checked = IodineGUI.defaults.toggleOffthreadCPU;
-    // if (typeof SharedArrayBuffer != "function" || typeof Atomics != "object") {
-    //     document.getElementById("offthread-gpu").disabled = true;
-    //     document.getElementById("offthread-cpu").disabled = true;
-    // }
-// }
+
 function updatePlayButton(isPlaying) {
     isPlaying = isPlaying | 0;
     if ((isPlaying | 0) == 1) {

@@ -305,6 +305,20 @@ span.rom-status {
 #eraseAll {
     margin-right: 50px;
     margin-top: 2em;
+    margin-bottom: 0.1em;
+}
+.saveFileButton {
+    margin-top: 2em;
+}
+.import-save {
+    display: inline-block;
+    margin-right: 1em;
+}
+.save-export-group {
+    align-items: end;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
 }
 
 .collection-item.save-state {

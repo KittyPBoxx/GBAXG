@@ -629,7 +629,7 @@ BagStoreage.prototype.writeDataToEmerald = function (game, lastGame) {
 
     // If we have HM06/TM08 we need to make sure it's the right hm
     // In Crystal HM06 is whirlpool and TM08 is Rocksmash
-    // In Emerald and FireRed HM06 is  Rocksmash and TM08 is 'Body Slam'
+    // In Emerald and FireRed HM06 is  Rocksmash and TM08 is 'Bulk Up'
     if (game == "E" && lastGame == "C") {
         // Going from crystal to emerald
 

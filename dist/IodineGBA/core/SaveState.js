@@ -55,7 +55,7 @@ SaveStateManager.prototype.saveMultiState = function (slot) {
     return multiSave;
 }
 
-SaveStateManager.prototype.loadMultiState = function(slot) {
+SaveStateManager.prototype.loadMultiState = function(slot, callback = () => ({})) {
     storageManager.find(slot).then(s => {
         let playing = this.Iodine.emulatorStatus <= 10;
         if (playing) this.Iodine.pause();
@@ -75,6 +75,8 @@ SaveStateManager.prototype.loadMultiState = function(slot) {
         this.lastLoaded = s.romCode;
 
         if (playing) this.Iodine.play();
+    }).then(() => {
+        callback();
     });
 }
 
@@ -1391,6 +1393,8 @@ function MultiSaveState(slot, currentRom, newSave) {
 
         this.frSave  = {}
         Object.assign(this.frSave, slot["FR"]);
+        this.frSave.assign = undefined;
+        this.frSave.load = undefined;
 
         this.cSave = {} 
         Object.assign(this.cSave, newSave);
@@ -1398,6 +1402,8 @@ function MultiSaveState(slot, currentRom, newSave) {
 
         this.eSave  = {}
         Object.assign(this.eSave, slot["E"]);
+        this.eSave.assign = undefined;
+        this.eSave.load = undefined;
 
     } else if (currentRom == "E") {
 
