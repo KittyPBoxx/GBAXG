@@ -4379,8 +4379,6 @@ var FIRE_RED_WARPS =
         "name": "POKEMON MANSION - INSIDE - F1 Enterance - 8,21",
         "level": "7", 
         "to" : "FR,3,8,0",
-        "grouped" : ["FR,1,59,5"],
-        "groupMain" : true,
         "connections" : {
             "FR,1,59,9": true,
         }
@@ -4388,8 +4386,7 @@ var FIRE_RED_WARPS =
     "FR,1,59,5" : {
         "name": "POKEMON MANSION - INSIDE - F1 Exit - 22,21",
         "level": "7", 
-        "to" : "FR,3,8,0",
-        "grouped" : ["FR,1,59,1"],
+        "to" : "FR,3,8,50",
     },
     "FR,1,59,9" : {
         "name": "POKEMON MANSION - INSIDE - F1 Top Left Stairs - B,D",
