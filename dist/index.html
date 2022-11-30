@@ -527,7 +527,7 @@
                           </div>
                         </div>
                         <div class="menu-group">
-                          <div class="random-row">
+                          <div class="random-row hack-row">
                             <div class="switch hack-toggle">
                               <span>DISABLE WALLS</span>
                               <label>
@@ -546,11 +546,20 @@
                                 On
                               </label>
                             </div>
+                            <div class="switch hack-toggle">
+                              <span>TELPT ANYWHERE</span>
+                              <label>
+                                Off
+                                <input type="checkbox" id="teleportAnywhere">
+                                <span class="lever"></span>
+                                On
+                              </label>
+                            </div>
                             <ul class="collection state-group">
-                              <li class="plaint-btn btn-small" id="forceWalk">FORCE WALK</li>
-                              <li class="plaint-btn btn-small" id="forceBike">FORCE BIKE</li>
-                              <li class="plaint-btn btn-small" id="forceSurf">FORCE SURF</li>
-                              <li class="plaint-btn btn-small" id="forceWhiteout">WHITEOUT</li>
+                              <li class="plaint-btn btn-small state-button" id="forceWalk">WALK</li>
+                              <li class="plaint-btn btn-small state-button" id="forceBike">BIKE</li>
+                              <li class="plaint-btn btn-small state-button" id="forceSurf">SURF</li>
+                              <li class="plaint-btn btn-small state-button" id="forceWhiteout">WHITEOUT</li>
                             </ul>
                           </div>
                         </div>

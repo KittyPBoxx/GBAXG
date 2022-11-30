@@ -16,7 +16,7 @@ function getMapData() {
 }
 
 function getRandomisationAlgorithm() {
-    return simpleRandom;
+    return generateRandomMappings;
 }
 
 function getRandomisationConfig() {
@@ -51,7 +51,7 @@ async function mapWarps(seed) {
     }
 }
 
-function simpleRandom(seed, mapData, config) {
+function generateRandomMappings(seed, mapData, config) {
     
     let rng = new RNG(getHash(seed));
     initMappingGraph(mapData, isHeadless)

@@ -3574,17 +3574,20 @@ var EMERALD_WARPS =
         "to" : "E,24,67,0"
     },
 /* ISLAND CAVE */
-    "E,25,67,0" : {
+    "E,24,67,0" : {
         "name": "ISLAND CAVE - INSIDE - Enterance - 8,1D",
-        "to" : "E,0,20,0"
+        "to" : "E,0,20,0",
+        "level": "6"
     },
-    "E,25,67,1" : {
+    "E,24,67,1" : {
         "name": "ISLAND CAVE - INSIDE - Walk round left / stand still door - 8,14",
-        "to" : "E,24,76,2"
+        "to" : "E,24,67,2",
+        "level": "6"
     },
-    "E,25,67,2" : {
+    "E,24,67,2" : {
         "name": "ISLAND CAVE - INSIDE - Regie Ice - 8,B",
-        "to" : "E,24,76,1"
+        "to" : "E,24,67,1",
+        "level": "6" 
     },
 /* ROUTE 106 */         
     "E,0,21,0" : {

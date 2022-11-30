@@ -295,6 +295,10 @@ function registerGUIEvents() {
         autoBike = document.getElementById("autoBike").checked;
     });
 
+    addEvent("click", document.getElementById("teleportAnywhere"), () => {
+        teleportAnywhere = document.getElementById("teleportAnywhere").checked;
+    });
+
     addEvent("click", document.getElementById("forceWalk"), () => forcePlayerState(MOVEMENT_MODE_WALK));
     addEvent("click", document.getElementById("forceBike"), () => forcePlayerState(MOVEMENT_MODE_BIKE));
     addEvent("click", document.getElementById("forceSurf"), () => forcePlayerState(MOVEMENT_MODE_SURF));

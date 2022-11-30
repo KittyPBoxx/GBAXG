@@ -282,8 +282,6 @@ span.rom-status {
 
 .switch.hack-toggle {
     align-items: flex-start;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
 }
 
 .collection {
@@ -299,6 +297,10 @@ span.rom-status {
     background: none !important;
     box-shadow: rgb(129 129 129) 1px 1px 0px 1px !important;
     margin-bottom: 2px;
+}
+
+.state-button {
+    width: 9em;
 }
 
 #eraseKeybinds,
@@ -350,6 +352,14 @@ span.rom-status {
 .switch label .lever::after
 {
     border-radius: 0 !important;
+}
+
+.switch.hack-toggle span {
+    white-space: nowrap;
+}
+
+.hack-row {
+    margin-top: -1em;
 }
 
 #console {

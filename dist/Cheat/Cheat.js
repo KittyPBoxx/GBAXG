@@ -47,6 +47,9 @@ const EMERALD_CURRENT_BANK = 0x20322e4;
 const EMERALD_CURRENT_MAP  = 0x20322e5;
 const EMERALD_CURRENT_WARP = 0x20322e6;
 
+const EMERALD_MAP_TYPE = 0x203732F; // Used for enabling teleports/fly anywhere (0x2 for city, 0x4 for underground) 
+const FIRE_RED_MAP_TYPE = 0x2036E13; 
+
 GameBoyAdvanceCPU.prototype.write32WithoutIntercept = GameBoyAdvanceCPU.prototype.write32;
 GameBoyAdvanceCPU.prototype.write32 = function (address, data) { 
 
@@ -146,6 +149,7 @@ const MOVEMENT_MODE_WALK = 0x01;
 const MOVEMENT_MODE_BIKE = 0x02;
 const MOVEMENT_MODE_SURF = 0x08;
 var autoBike = false; 
+var teleportAnywhere = false;
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
 
@@ -156,6 +160,14 @@ GameBoyAdvanceCPU.prototype.read8 = function (address) {
         } else if (address == EMERALD_MOVEMENT_MODE_OFFSET){
             let current = this.read8WithoutIntercept(address);
             return current <= MOVEMENT_MODE_WALK ? MOVEMENT_MODE_BIKE : current;
+        }
+    }
+
+    if (teleportAnywhere) {
+        if (address == FIRE_RED_MAP_TYPE && IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
+            return 2;
+        } else if (address == EMERALD_MAP_TYPE){
+            return 2;
         }
     }
 
