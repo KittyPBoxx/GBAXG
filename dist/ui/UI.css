@@ -358,6 +358,11 @@ span.rom-status {
     white-space: nowrap;
 }
 
+.switch label {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
 .hack-row {
     margin-top: -1em;
 }

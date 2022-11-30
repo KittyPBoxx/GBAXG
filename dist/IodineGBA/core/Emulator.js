@@ -338,7 +338,8 @@ GameBoyAdvanceEmulator.prototype.initializeCore = function () {
     var allowInit = this.IOCore.initialize(startingRom) | 0;
     //Append status code as play status flag for emulator runtime:
     this.emulatorStatus = this.emulatorStatus | allowInit;
-    patchSprites() 
+    patchSprites();
+    patchDuplicateWarps();
     return allowInit | 0;
 }
 GameBoyAdvanceEmulator.prototype.keyDown = function (keyPressed) {
