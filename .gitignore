@@ -5,3 +5,5 @@
 /randomisers/kitty-randomize-wasm/target
 /randomisers/kitty-randomize-wasm/pkg
 node_modules
+.parcel-cache
+build

@@ -1,14 +1,31 @@
 {
   "name": "GBAXG",
-  "scripts": {
-    "tauri": "tauri",
-    "localhost": "./node_modules/.bin/servor dist index.html 8080 --reload"
-  },
-  "dependencies": {
-    "@tauri-apps/api": "^1.0.2",
-    "servor": "^4.0.2"
-  },
+  "version": "1.0.0",
   "devDependencies": {
-    "@tauri-apps/cli": "^1.0.5"
-  }
+    "buffer": "^5.7.1",
+    "parcel": "^2.8.0",
+    "process": "^0.11.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build dist/index.html --dist-dir build --public-url ./"
+  },
+  "scriptComments" : {
+    "build" : "Before building for remote switch to the remote version of lzutf8 in index.html so it dosnt' try and bundle it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KittyPBoxx/GBAXG.git"
+  },
+  "keywords": [],
+  "author": "Kitty P Boxx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KittyPBoxx/GBAXG/issues"
+  },
+  "alias": {
+    "readable-stream": false
+  },
+  "homepage": "https://github.com/KittyPBoxx/GBAXG#readme",
+  "description": "Modded emulator for playing pokemon map randomisers across multiple games at once"
 }
