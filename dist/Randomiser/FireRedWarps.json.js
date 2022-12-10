@@ -17,7 +17,8 @@ var FIRE_RED_WARPS =
             "FR,3,1,3": true,
             "FR,3,1,4": true,
             "FR,3,41,0": true,
-            "FR,3,20,2": "OAK_PARCEL"
+            "FR,3,20,2": "OAK_PARCEL",
+            "FR,3,8,3": "KANTO_SURF"
         },
     },
     "FR,3,1,1" : {
@@ -224,12 +225,12 @@ var FIRE_RED_WARPS =
         "to" : "FR,6,5,1",
         "connections" : {
             "FR,3,2,0": true,
-            "FR,3,2,1": false,
+            "FR,3,2,1": "KANTO_CUT",
             "FR,3,2,2": true,
             "FR,3,2,3": true,
             "FR,3,2,4": true,
             "FR,3,2,6": true,
-            "FR,3,20,0": true
+            "FR,3,20,0": true,
         }
     },
     "FR,3,2,6" : {
@@ -458,7 +459,8 @@ var FIRE_RED_WARPS =
         "grouped" : ["FR,3,20,1"],
         "groupMain" : true,
         "connections" : {
-            "FR,3,2,5": true
+            "FR,3,2,5": true,
+            "FR,3,20,3": "KANTO_CUT"
         }
     },
     "FR,3,20,1" : {
@@ -474,7 +476,8 @@ var FIRE_RED_WARPS =
         "grouped" : ["FR,3,20,9"],
         "groupMain" : true,
         "connections" : {
-            "FR,3,1,0": true
+            "FR,3,1,0": true,
+            "FR,3,20,5": "KANTO_CUT"
         }
     },
     "FR,3,20,9" : {
@@ -492,7 +495,10 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 2 - OUTSIDE - Right Route Connector (VIRIDIAN Side) - 12,2E",
         "to" : "FR,15,2,1",
         "grouped" : ["FR,3,20,8"],
-        "groupMain" : true
+        "groupMain" : true,
+        "connections" : {
+            "FR,3,20,2": "KANTO_CUT"
+        }
     },
     "FR,3,20,8" : {
         "name": "ROUTE 2 - OUTSIDE - Right Route Connector (VIRIDIAN Side) - 13,2E",
@@ -514,6 +520,10 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 2 - OUTSIDE - Digglet Cave Enterance - 11,B",
         "to" : "FR,1,36,1",
         "level": "3",
+        "connections" : {
+            "FR,3,20,0": "KANTO_CUT",
+            "FR,3,20,6": "KANTO_CUT"
+        }
     },    
 /* ROUTE 2 - INT */
     "FR,15,0,0" : {
@@ -890,8 +900,8 @@ var FIRE_RED_WARPS =
             "FR,3,3,12" : true,
             "FR,3,3,13" : true,
             "FR,3,44,0" : true,
-            "FR,3,22,1" : true
-
+            "FR,3,22,1" : true,
+            "FR,3,23,0" : "KANTO_CUT"
         }
     },
     "FR,3,3,4" : {
@@ -928,7 +938,11 @@ var FIRE_RED_WARPS =
     },
     "FR,3,3,7" : {
         "name": "CERULEAN CITY - OUTSIDE - Cerulean Cave Enterance  - 1,C",
-        "to" : "FR,7,6,1"
+        "to" : "FR,7,6,1",
+        "level": "9", 
+        "connections" : {
+            "FR,3,3,3" : "KANTO_SURF"
+        }
     },
     "FR,3,3,8" : {
         "name": "CERULEAN CITY - OUTSIDE - Top Left (Backdoor)  - A,8",
@@ -940,7 +954,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,7,1,3",
         "level" : "3",
         "connections" : {
-            "FR,3,3,3" : true
+            "FR,3,3,3" : true,
+            "FR,3,28,3" : "KANTO_CUT"
         }
     },
     "FR,3,3,12" : {
@@ -1081,7 +1096,8 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,3,3,3" : true,
             "FR,3,23,2" : true,
-            "FR,3,23,1" : true
+            "FR,3,23,1" : true,
+            "FR,3,3,3" : "KANTO_CUT"
         }
     }, 
     "FR,3,23,1" : {
@@ -1117,7 +1133,10 @@ var FIRE_RED_WARPS =
     "FR,17,1,1" : {
         "name": "ROUTE 5 - INSIDE - Route Connector Top - 4,1",
         "level": "3", 
-        "to" : "FR,3,23,2"
+        "to" : "FR,3,23,2",
+        "connections" : {
+            "FR,17,1,2": "TEA"
+        }
     },
     "FR,17,1,2" : {
         "name": "ROUTE 5 - INSIDE - Route Connector Bottom - 4,9",
@@ -1218,7 +1237,10 @@ var FIRE_RED_WARPS =
     "FR,18,0,2" : {
         "name": "ROUTE 6 - INSIDE - Route Connector Bottom - 4,9",
         "level": "3", 
-        "to" : "FR,3,24,1"
+        "to" : "FR,3,24,1",
+        "connections" : {
+            "FR,18,0,1": "TEA"
+        }
     },
 /* VERMILION CITY - EXT */
     "FR,3,5,0" : {
@@ -1227,21 +1249,21 @@ var FIRE_RED_WARPS =
         "to" : "FR,1,4,1",
         "grouped" : ["FR,3,5,1", "FR,3,5,2"],
         "groupMain" : true,
-        "ignore": true
+        "connections" : {
+            "FR,3,5,4": true
+        }
     },
     "FR,3,5,1" : {
         "name": "VERMILLION CITY - OUTSIDE - S.S.Anne - 17,22",
         "level": "3", 
         "to" : "FR,1,4,1",
-        "grouped" : ["FR,3,5,0"],
-        "ignore": true
+        "grouped" : ["FR,3,5,0"]
     },
     "FR,3,5,2" : {
         "name": "VERMILLION CITY - OUTSIDE - S.S.Anne - 18,22",
         "level": "3", 
         "to" : "FR,1,4,1",
         "grouped" : ["FR,3,5,0"],
-        "ignore": true
     },
     "FR,3,5,3" : {
         "name": "VERMILLION CITY - OUTSIDE - Top Left - 9,6",
@@ -1265,7 +1287,9 @@ var FIRE_RED_WARPS =
             "FR,3,24,0": true,
             "FR,3,24,1": true,
             "FR,3,29,0": true,
-            "FR,3,29,1": true
+            "FR,3,29,1": true,
+            "FR,3,5,0": "SS_ANNE_TICKET",
+            "FR,3,5,9": "KANTO_CUT"
         }
     },
     "FR,3,5,5" : {
@@ -1303,7 +1327,10 @@ var FIRE_RED_WARPS =
     "FR,3,5,9" : {
         "name": "VERMILLION CITY - OUTSIDE - GYM - E,19",
         "level": "3", 
-        "to" : "FR,9,6,1"
+        "to" : "FR,9,6,1",
+        "connections" : {
+            "FR,3,5,4": "KANTO_CUT"
+        }
     },
 /* VERMILION CITY - INT */
     "FR,9,0,1" : {
@@ -1380,7 +1407,11 @@ var FIRE_RED_WARPS =
     "FR,3,29,2" : {
         "name": "ROUTE 11 - OUTSIDE - Route Connector Right - 3A,A",
         "level": "3", 
-        "to" : "FR,22,0,2"
+        "to" : "FR,22,0,2",
+        "connections" : {
+            "FR,3,30,3": "POKE_FLUTE",
+            "FR,3,33,1": "POKE_FLUTE"
+        }
     },
 /* ROUTE 11 - INT */
     "FR,22,0,0" : {
@@ -1850,13 +1881,18 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 10 - OUTSIDE - Power Plant Front - 7,28",
         "level": "6", 
         "to" : "FR,1,95,1",
+        "connections" : {
+            "FR,3,28,3": "KANTO_SURF"
+        }
     },
     "FR,3,28,3" : {
         "name": "ROUTE 10 - OUTSIDE - Route 10 PkCenter - D,14",
         "level": "4", 
         "to" : "FR,21,0,1",
         "connections" : {
-            "FR,3,28,0": true
+            "FR,3,28,0": true,
+            "FR,3,3,9": "KANTO_CUT",
+            "FR,3,28,2": "KANTO_SURF"
         }
     },
     "FR,3,28,4" : {
@@ -2071,7 +2107,8 @@ var FIRE_RED_WARPS =
         "level": "5", 
         "to" : "FR,23,2,1",
         "connections" : {
-            "FR,3,33,1": true
+            "FR,3,33,1": true,
+            "FR,3,30,3": "KANTO_SURF"
         }
     },
     "FR,3,30,1" : {
@@ -2086,6 +2123,11 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 12 - INSIDE - Route Connector Bottom - E,15",
         "level": "5", 
         "to" : "FR,23,0,2",
+        "connections" : {
+            "FR,3,33,1": "POKE_FLUTE",
+            "FR,3,29,2": "POKE_FLUTE",
+            "FR,3,30,0": "KANTO_SURF"
+        }
     },
     /* ROUTE 12 - INT */
     "FR,23,0,0" : {
@@ -2156,7 +2198,7 @@ var FIRE_RED_WARPS =
         "level": "4", 
         "to" : "FR,3,26,1",
         "connections" : {
-            "FR,20,0,1": true
+            "FR,20,0,1": "TEA"
         }
     },
     /* UNDERGROUND PATH - INT */
@@ -2233,6 +2275,9 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 7 - INSIDE - Route Connector Left - 1,5",
         "level": "4", 
         "to" : "FR,3,25,1",
+        "connections" : {
+            "FR,19,0,2": "TEA"
+        }
     },
     "FR,19,0,2" : {
         "name": "ROUTE 7 - INSIDE - Route Connector Right - B,5",
@@ -2291,6 +2336,9 @@ var FIRE_RED_WARPS =
             "FR,3,6,11": true,
             "FR,3,25,0": true,
             "FR,3,25,1": true,
+            "FR,3,6,6": "KANTO_CUT",
+            "FR,3,34,2": "KANTO_CUT",
+            "FR,3,34,4": "POKE_FLUTE"
         }
     },
     "FR,3,6,5" : {
@@ -2305,6 +2353,9 @@ var FIRE_RED_WARPS =
         "name": "CELADON CITY - OUTSIDE - Gym - B,1E",
         "level": "4", 
         "to" : "FR,10,16,1",
+        "connections" : {
+            "FR,3,6,4": "KANTO_CUT"
+        }
     },
     "FR,3,6,7" : {
         "name": "CELADON CITY - OUTSIDE - Bottom Left - 25,1D",
@@ -2661,6 +2712,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,10,14,3",
         "connections" : {
             "FR,1,42,1": true,
+            "FR,1,43,0": "LIFT_KEY",
         }
     },
     "FR,1,42,1" : {
@@ -2684,6 +2736,7 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,1,43,1": true,
             "FR,1,43,2": true,
+            "FR,1,42,0": "LIFT_KEY"
         }
     },
     "FR,1,43,1" : {
@@ -2826,6 +2879,9 @@ var FIRE_RED_WARPS =
         "name": "POKEMON TOWER - INSIDE - F6 Right - 12,A",
         "level": "5", 
         "to" : "FR,1,92,1",
+        "connections" : {
+            "FR,1,93,0": "SILPH_SCOPE",
+        }
     },
     // F7
     "FR,1,94,0" : {
@@ -2854,6 +2910,9 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 16 - OUTSIDE - Top Route Connector Right - 1B,6",
         "level": "5", 
         "to" : "FR,25,1,1",
+        "connections" : {
+            "FR,3,6,4": "KANTO_CUT"
+        }
     },
     "FR,3,34,3" : {
         "name": "ROUTE 16 - OUTSIDE - Bottom Route Connector Left - 14,D",
@@ -2867,6 +2926,9 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 16 - OUTSIDE - Bottom Route Connector Right - 1B,D",
         "level": "5", 
         "to" : "FR,25,1,3",
+        "connections" : {
+            "FR,3,6,4": "POKE_FLUTE",
+        }
     },
     /* ROUTE 16 - INT */
     "FR,25,0,1" : {
@@ -2905,6 +2967,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,34,4",
         "connections" : {
             "FR,25,1,4": true,
+            "FR,25,1,2": "BIKE",
         }
     },
     "FR,25,1,4" : {
@@ -2952,7 +3015,8 @@ var FIRE_RED_WARPS =
         "level": "5", 
         "to" : "FR,3,36,1",
         "connections" : {
-            "FR,26,0,2": true
+            "FR,26,0,2": true,
+            "FR,26,0,2": "BIKE"
         }
     },
     "FR,26,0,2" : {
@@ -3031,7 +3095,8 @@ var FIRE_RED_WARPS =
             "FR,3,7,7": true,
             "FR,3,7,10": true,
             "FR,3,36,1": true,
-            "FR,3,33,0": true
+            "FR,3,33,0": true,
+            "FR,3,38,0": "KANTO_SURF"
         }
     },
     "FR,3,7,7" : {
@@ -3144,6 +3209,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,24,0,2",
         "connections" : {
             "FR,3,30,0": true,
+            "FR,3,30,3": "POKE_FLUTE",
+            "FR,3,29,2": "POKE_FLUTE"
         }
     },
     /* ROUTE 15 - INT */
@@ -3201,11 +3268,17 @@ var FIRE_RED_WARPS =
         "name": "ROUTE 20 - OUTSIDE - Seafoam Left - 3C,8",
         "level": "6", 
         "to" : "FR,1,83,3",
+        "connections" : {
+            "FR,3,7,6" : "KANTO_SURF"
+        }
     },
     "FR,3,38,1" : {
         "name": "ROUTE 20 - OUTSIDE - Seafoam Right - 48,E",
         "level": "6", 
         "to" : "FR,1,83,4",
+        "connections" : {
+            "FR,3,8,3" : "KANTO_SURF"
+        }
     },
     /* SEAFOAM ISLANDS */
     // F1
@@ -3492,6 +3565,7 @@ var FIRE_RED_WARPS =
             "FR,1,86,3": true,
             "FR,1,86,8": true,
             "FR,1,86,7": true,
+            "FR,1,86,2": "KANTO_SURF"
         }
     },
     "FR,1,86,1" : {
@@ -3506,6 +3580,9 @@ var FIRE_RED_WARPS =
         "name": "SEAFOAM ISLAND - INSIDE - Bottom Right Ladder - 1F,10",
         "level": "6", 
         "to" : "FR,1,85,2",
+        "connections" : {
+            "FR,1,86,0": "KANTO_SURF"
+        }
     },
     "FR,1,86,3" : {
         "name": "SEAFOAM ISLAND - INSIDE - Top Left Ladder Down - C,9",
@@ -3662,6 +3739,9 @@ var FIRE_RED_WARPS =
             "FR,3,10,5": true,
             "FR,3,10,14": true,
             "FR,3,10,2": true,
+            "FR,3,10,4": "SAFFRON_DOORS",
+            "FR,3,10,3": "SAFFRON_DOORS",
+            "FR,3,10,1": "SAFFRON_DOORS",
         }
     },
     "FR,3,10,7" : {
@@ -4305,6 +4385,8 @@ var FIRE_RED_WARPS =
             "FR,3,8,1": true,
             "FR,3,8,2": true,
             "FR,3,8,4": true,
+            "FR,3,1,0": "KANTO_SURF",
+            "FR,3,38,1": "KANTO_SURF"
         }
     },
     "FR,3,8,4" : {
@@ -4614,12 +4696,16 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,1,40,4": true,
             "FR,1,40,2": true,
+            "FR,1,40,1": "KANTO_STRENGTH",
         }
     },
     "FR,1,40,1" : {
         "name": "VICTORY ROAD - INSIDE - Victory Road F2 Top Left - 3,3",
         "level": "9", 
         "to" : "FR,1,41,0",
+        "connections" : {
+            "FR,1,40,0": "KANTO_STRENGTH",
+        }
     },
     "FR,1,40,2" : {
         "name": "VICTORY ROAD - INSIDE - Victory Road F2 Center Top - 22,9",
@@ -4690,6 +4776,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,1,40,3",
         "connections" : {
             "FR,1,41,3": true,
+            "FR,1,41,4": "KANTO_STRENGTH",
         }
     },
     "FR,1,41,3" : {

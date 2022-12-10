@@ -421,7 +421,9 @@ function updateProgressionState(updateProgressionState, root) {
   let conditionalEdges = updateProgressionState.remainingConditionalEdges;
   conditionalEdges.forEach(e => {
     if (updateProgressionState.flags.has(e.condition)) {
-      cy.add(e);
+      if (cy.getElementById(e.data.target).length > 0 && cy.getElementById(e.data.source).length > 0) {
+        cy.add(e);
+      }
       conditionalEdges.delete(e);
     }
   });
@@ -505,7 +507,7 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
         {
           selector: '.fixed',
           css: {
-            'opacity': '0.3'
+            'opacity': '0.5'
           }
         }
       ],
