@@ -271,7 +271,7 @@ function registerGUIEvents() {
         switch(item.pocket) {
             case "balls"    : bag.ballItemPocket.set(item.number, quant); break;
             case "item"     : bag.itemPocket.set(item.number, quant); break;
-            case "berries " : bag.berryPocket.set(item.number, quant); break;
+            case "berries"  : bag.berryPocket.set(item.number, quant); break;
             case "key"      : bag.keyItemsPocket.set(item.number, quant); break;
             case "tmhm"     : bag.tmCase.set(item.number, quant); break;
         }

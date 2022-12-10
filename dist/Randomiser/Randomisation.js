@@ -9,8 +9,6 @@ var isHeadless = true;
 // WarpList used by Cheat.js
 var warpList = new Map();
 
-var connectionManager;
-
 function getMapData() {
     return mixedGameData;
 }
@@ -27,6 +25,10 @@ function getRandomisationConfig() {
     return config;
 }
 
+function getFlagData() {
+  return FLAG_DATA;
+}
+
 function mappingToWarps(mappingData) {
     let mappedList = new Map();
 
@@ -41,24 +43,30 @@ function mappingToWarps(mappingData) {
 }
 
 async function mapWarps(seed) {
+
+    flagsState = {};
+    unaddedConditionalEdges = {};
+
     let config = getRandomisationConfig();
     let mapData = getFilteredData();
-    remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, config]);
+    let flagData = getFlagData()
+    remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, flagData, config]);
     warpList = mappingToWarps(getAugmetedRemappingData(remappingsData));
 
-    if (storageManager != null) {
+    if (typeof storeageManager !== 'undefined') {
       storageManager.persist("RANDOM_MAPPING", new WarpListData(seed, config, warpList));
     }
 }
 
-function generateRandomMappings(seed, mapData, config) {
+function generateRandomMappings(seed, mapData, flagData, config) {
     
     let rng = new RNG(getHash(seed));
-    initMappingGraph(mapData, isHeadless)
+    let progressionState = initMappingGraph(mapData, isHeadless, new ProgressionState(flagData))
 
     var moreWarpsToMap = true;
     while(moreWarpsToMap) {
-        moreWarpsToMap = doNextMapping(rng);
+        moreWarpsToMap = doNextMapping(rng, 'FR,3,1,0');
+        progressionState = updateProgressionState(progressionState, 'FR,3,1,0');
     }
 
    return getBaseRemappingData();
@@ -91,6 +99,14 @@ function filteGroupedNotMain(mapData) {
 function toMapBank(s) { 
     let arr = s.split(","); 
     return arr[0] + "," + arr[1] + "," + arr[2] 
+}
+
+function ProgressionState(flagData) {
+  this.remainingConditionalEdges = new Set();
+  this.flags = new Set();
+  this.flagData = flagData;
+  this.unmarkedLocations = new Map(Object.entries(flagData.LOCATIONS_TRIGGER));
+  this.unmarkedFlags = new Map(Object.entries(flagData.COMPOSITE_FLAGS));
 }
 
 /** 
@@ -220,6 +236,16 @@ function FixedEdge(source, target) {
     this.data.id = source + "->" + target;
     this.data.source = source;
     this.data.target = target;
+    this.classes = 'fixed';
+}
+
+function CondidtionalEdge(source, target, condition) {
+  this.data = {};
+  this.data.id = source + "->" + target;
+  this.data.source = source;
+  this.data.target = target;
+  this.classes = 'conditional';
+  this.condition = condition;
 }
 
 function WarpEdge(source, target) {
@@ -296,8 +322,8 @@ function findAccessibleUnmappedNodes(cy, root) {
   return nodeSet;
 }
 
-function doNextMapping(rng) {
-    let accessibleNodes = findAccessibleUnmappedNodes(window.cy, 'FR,3,1,0');
+function doNextMapping(rng, root) {
+    let accessibleNodes = findAccessibleUnmappedNodes(window.cy, root);
     let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp && !e.data().isMapped);
 
     if(accessibleNodes.size == 0 && inacessibleNodes.length == 0) { 
@@ -370,7 +396,40 @@ function doNextMapping(rng) {
     return true;
 }
 
-function initMappingGraph(mapData, isHeadless) {
+
+function updateProgressionState(updateProgressionState, root) {
+
+  let currentNodes = new Set();
+  cy.elements().bfs({roots: cy.getElementById(root), directed: true, visit: (v, e, u, i, depth) => { 
+    currentNodes.add(v.data().id) 
+  }});
+
+  updateProgressionState.unmarkedLocations.forEach((name, location) => {
+    if (currentNodes.has(location)) {
+      updateProgressionState.unmarkedLocations.delete(location);
+      updateProgressionState.flags.add(name);
+    }
+  });
+
+  updateProgressionState.unmarkedFlags.forEach(n => {
+    if (n.condition.every(flag => updateProgressionState.flags.has(flag))) {
+      updateProgressionState.flags.add(n.flag);
+      updateProgressionState.unmarkedFlags.delete(n.flag)
+    }
+  });
+
+  let conditionalEdges = updateProgressionState.remainingConditionalEdges;
+  conditionalEdges.forEach(e => {
+    if (updateProgressionState.flags.has(e.condition)) {
+      cy.add(e);
+      conditionalEdges.delete(e);
+    }
+  });
+
+  return updateProgressionState;
+}
+
+function initMappingGraph(mapData, isHeadless, progressionState) {
 
   var cy = window.cy = cytoscape({
       container: isHeadless ? null : document.getElementById('cy'),
@@ -421,19 +480,32 @@ function initMappingGraph(mapData, isHeadless) {
         {
           selector: '.map-C',
           css: {
-              'background-color': '#f1d9ff'
+              'background-color': '#c0c3ff'
           }
         },
         {
           selector: '.map-E',
           css: {
-              'background-color': '#d9ffd1'
+              'background-color': '#c3ffc0'
           }
         },
         {
           selector: '.warp',
           css: {
-            'line-color': '#f92411'
+            'line-color': '#f92411',
+            "curve-style": "straight-triangle",
+          }
+        },
+        {
+          selector: '.conditional',
+          css: {
+            'line-color': '#1911f9'
+          }
+        },
+        {
+          selector: '.fixed',
+          css: {
+            'opacity': '0.3'
           }
         }
       ],
@@ -464,18 +536,25 @@ function initMappingGraph(mapData, isHeadless) {
     // Add fixed edges
     data.forEach(d => {
 
-      if (!d[1].connections) {
-        return;
-      }
+      let connections = d[1].connections ? d[1].connections : {};
 
-      Object.keys(d[1].connections).forEach(c => {
+      Object.entries(connections).forEach(entry => {
+
+        if (typeof entry[1] == 'string') {
+
+          // Conditional Connection
+          progressionState.remainingConditionalEdges.add(new CondidtionalEdge(d[0], entry[0], entry[1]));
+
+        } else {
+
+          // Fixed Connection       
 
           // Only draw path if connection node is present in total list of warps
           // i.e if I'm only doing warps to first gym, don't draw a connection to a gym 2 level warp 
-          if (cy.getElementById(c).length > 0) {
-            cy.add(new FixedEdge(d[0], c))
+          if (cy.getElementById(entry[0]).length > 0) {
+            cy.add(new FixedEdge(d[0], entry[0]))
           }
-          
+        }
       });
     });
 
@@ -488,4 +567,6 @@ function initMappingGraph(mapData, isHeadless) {
     if (!isHeadless) {
         cy.layout({name: 'cose-bilkent', animationDuration: 1000, nodeDimensionsIncludeLabels: true}).run();
     }
+
+    return progressionState;
 }

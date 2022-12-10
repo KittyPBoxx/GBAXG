@@ -1,11 +1,14 @@
+var state;
+
 document.addEventListener('DOMContentLoaded', function() {
   isHeadless = false;
-  initMappingGraph(getFilteredData(), false);
+  state = initMappingGraph(getFilteredData(), false, new ProgressionState(getFlagData()));
 });
 
 function doVisuliseNextMapping() {
   let rng = new RNG(getHash(document.getElementById("input_seed_text").value));
-  doNextMapping(rng);
+  doNextMapping(rng, 'FR,3,1,0');
+  state = updateProgressionState(state, 'FR,3,1,0');
   cy.layout({name: 'cose-bilkent', animationDuration: 500, nodeDimensionsIncludeLabels: true}).run();
 }
 
