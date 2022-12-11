@@ -213,9 +213,15 @@ function registerGUIEvents() {
     });
 
     addEvent("click", document.getElementById("remapWarps"), () => {
+        document.getElementById("remapWarps").innerHTML = "<span>PROCESSING</span>"
         let seed = document.getElementById("input_seed_text").value;
-        mapWarps(seed);
-        M.toast({html: warpList.size + ' warps were mapped', displayLength:1000});
+        setTimeout(() => {
+            mapWarps(seed).then(() => {
+                M.toast({html: warpList.size + ' warps were mapped', displayLength:1000});
+                document.getElementById("remapWarps").innerHTML = "<span>REMAP</span>"
+            });
+        }, 50);
+
     });
 
     addEvent("click", document.getElementById("export_mapping"), () => exportMapping());

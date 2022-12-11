@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         M.FormSelect.getInstance(document.getElementById("game-value-input"))._handleSelectChangeBound();
      }});
 
+    populateHints(); 
 
     M.FormSelect.init(document.querySelectorAll('select'), {});
     debugConsole = M.Modal.init(document.getElementById('console'), {});
@@ -299,3 +300,29 @@ document.addEventListener("click", e => {
     }
 }, true);
 
+/* Hints */
+function populateHints() {
+  let table = document.getElementById("hint-table");
+  Object.entries(HINTABLE_LOCATIONS).forEach(e => {
+    let row = table.insertRow(table.rows.length);
+
+    let nameCell = row.insertCell(0);
+    nameCell.innerHTML = `<td>&nbsp;${e[0]}</td>`;
+
+    let buttonCell = row.insertCell(1);
+    buttonCell.innerHTML = `<td>&nbsp;<span>Show Hint</span></td>`;
+    buttonCell.setAttribute("data-location", e[1]);
+    buttonCell.setAttribute("data-target", `hint-table-${e[0].replaceAll(" ", "-")}`)
+    buttonCell.addEventListener("click", displayHint)
+
+    let hintCell = row.insertCell(2);
+    hintCell.setAttribute("id", `hint-table-${e[0].replaceAll(" ", "-")}`)
+    hintCell.innerHTML = `<td>&nbsp;...</td>`;
+  })
+}
+
+function displayHint(e) {
+  let target = document.getElementById(e.currentTarget.getAttribute("data-target"));
+  let hint = getHint(e.currentTarget.getAttribute("data-location"));
+  target.innerHTML = hint;
+}

@@ -158,7 +158,7 @@ span.rom-status {
     display: flex;
     flex-direction: column;
 }
-.key-binding-container {
+.table-container {
     margin-right: 50px;
     margin-left: 50px;
     overflow: auto;
@@ -184,19 +184,20 @@ span.rom-status {
     font-size: 13px;
     margin-right: 0;
 }
-.key-binding-container tr:nth-child(even) {
+.table-container tr:nth-child(even) {
     background: #CCC;
 }
-.key-binding-container tr {
+.table-container tr {
     color: black;
 }
 
-.key-binding-container td span {
+.table-container td span {
     box-shadow: rgb(40 40 40) 0px 0px 1px 1px, rgb(129 129 129) 1px 1px 0px 2px;
     padding-left: 2px;
     padding-right: 2px;
 }
 
+#hint-table td,
 #key-binding-table td {
     max-width: 100px !important;
     text-overflow: ellipsis !important;
@@ -523,6 +524,10 @@ span.rom-status {
 
 .location-inputs input {
     font-family: 'RetroGaming';
+}
+
+.hint-text {
+    width: 55%
 }
 
 /* Scrollbars */
