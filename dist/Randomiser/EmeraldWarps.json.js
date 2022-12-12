@@ -4986,6 +4986,7 @@ var EMERALD_WARPS =
         "name" : "ABANDONED SHIP - INSIDE - F11 Bottom Left Door - 3,8",
         "to" : "E,24,66,0",
         "level" : "6",
+        "ignore" : "true",
         "connections" : {
             "E,24,65,2": true,
             "E,24,65,4": true,
@@ -4995,6 +4996,7 @@ var EMERALD_WARPS =
         "name" : "ABANDONED SHIP - INSIDE - F11 Bottom Center Door - 6,8",
         "to" : "E,24,66,2",
         "level" : "6",
+        "ignore" : "true",
         "connections" : {
             "E,24,65,2": true,
             "E,24,65,4": true,
@@ -5012,6 +5014,7 @@ var EMERALD_WARPS =
         "name" : "ABANDONED SHIP - INSIDE - F11 Top Left Door - 3,3",
         "to" : "E,24,66,6",
         "level" : "6",
+        "ignore" : "true",
         "connections" : {
             "E,24,65,2": true,
             "E,24,65,4": true,
@@ -5028,6 +5031,7 @@ var EMERALD_WARPS =
     "E,24,65,5" : {
         "name" : "ABANDONED SHIP - INSIDE - F11 Top Right Door - 9,3",
         "to" : "E,24,66,8",
+        "ignore" : "true",
         "level" : "6",
         "connections" : {
             "E,24,65,2": true,

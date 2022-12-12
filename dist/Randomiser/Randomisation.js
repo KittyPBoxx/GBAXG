@@ -65,7 +65,7 @@ function generateRandomMappings(seed, mapData, flagData, config) {
 
     var moreWarpsToMap = true;
     while(moreWarpsToMap) {
-        moreWarpsToMap = doNextMapping(rng, 'FR,3,1,0');
+        moreWarpsToMap = doNextMapping(rng, 'FR,3,1,0', progressionState);
         progressionState = updateProgressionState(progressionState, 'FR,3,1,0');
     }
 
@@ -322,9 +322,10 @@ function findAccessibleUnmappedNodes(cy, root) {
   return nodeSet;
 }
 
-function doNextMapping(rng, root) {
+function doNextMapping(rng, root, progressionState) {
     let accessibleNodes = findAccessibleUnmappedNodes(window.cy, root);
     let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp && !e.data().isMapped);
+    let inaccesibleFlagLocations = inacessibleNodes.filter(n => progressionState.unmarkedLocations.has(n.data().id));
 
     if(accessibleNodes.size == 0 && inacessibleNodes.length == 0) { 
       return false; 
@@ -338,20 +339,28 @@ function doNextMapping(rng, root) {
 
     if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= 1) {
 
-      // TODO or we could add a dead end that will open up new connections
+      // Add nodes that have multiple connections
       inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
       warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
 
+    } else if (inaccesibleFlagLocations.length > 0) { 
+
+      // Add inacessible dead-ends that might allow flags givinb access to new locations
+      warp2 = inaccesibleFlagLocations[rng.nextRange(0, inaccesibleFlagLocations.length - 1)];
+
     } else if (inacessibleNodes.length > 0) {
 
+      // Add other inacessible dead-ends 
       warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
 
     } else if (accessibleNodes.size > 0) {
 
+      // map together nodes that are already acessible
       warp2 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
 
     } else {
 
+      // if one warp is left hanging we connect it to itself
       console.warn("Unevenly matched warps. " + warp1.data().id + " had to map to itself");
       warp2 = warp1;
 
