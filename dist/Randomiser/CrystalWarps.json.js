@@ -20,6 +20,7 @@ var CRYSTAL_WARPS =
             "C,0,9,3": true,
             "C,0,16,0": true,
             "C,0,10,2": true,
+            "C,0,35,0": "JHOTO_SURF"
         }
     },
     "C,0,9,2" : {
@@ -431,7 +432,8 @@ var CRYSTAL_WARPS =
         "to" : "C,2,6,0",
         "connections": {
             "C,0,17,0": true,
-            "C,0,10,2": true
+            "C,0,10,2": true,
+            "C,0,18,0": "JHOTO_CUT"
         }
     },
     "C,0,17,0" : {
@@ -492,20 +494,30 @@ var CRYSTAL_WARPS =
     },
 /* Dark Cave */
     // F1
-    "C,1,1,0" : {
+    "C,24,7,1" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave (Route 46 exit) - 28,26",
-        "to" : "C,3,46,1",
-        "level" : "8",
+        "to" : "C,0,33,0",
+        "level" : "4",
+        "connections" : {
+            "C,24,7,0": "JHOTO_ROCK_SMASH",
+            "C,24,7,2": "JHOTO_SURF"
+        }
     },
-    "C,1,1,1" : {
+    "C,24,7,2" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave (further into cave) - 15,6",
-        "to" : "C,1,3,0",
-        "level" : "8",
+        "to" : "C,24,8,0",
+        "level" : "5",
+        "connections" : {
+            "C,24,7,1": "JHOTO_SURF"
+        }
     },
     "C,24,7,0" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave (Route 31 exit) - 7,14",
         "level" : "1",
-        "to" : "C,0,18,0"
+        "to" : "C,0,18,0",
+        "connections" : {
+            "C,24,7,1": "JHOTO_ROCK_SMASH"
+        }
     },
     // F2
     "C,24,8,0" : {
@@ -517,6 +529,9 @@ var CRYSTAL_WARPS =
         "name": "ROUTE 31 - INSIDE - Dark Cave F2 Top - 1A,6",
         "to" : "C,3,67,",
         "level" : "8",
+        "connections" : {
+            "C,24,8,0": "JHOTO_SURF"
+        }
     },
 /* ROUTE 36 - EXT */
     "C,0,23,0" : {
@@ -526,7 +541,9 @@ var CRYSTAL_WARPS =
         "grouped": ["C,0,23,1"],
         "groupMain" : true,
         "connections": {
-            "C,0,0,3": true
+            "C,0,0,3": true,
+            "C,0,23,2": "SQUIRT_BOTTLE",
+            "C,0,1,0": "SQUIRT_BOTTLE"
         }
     },
     "C,0,23,1" : {
@@ -539,6 +556,11 @@ var CRYSTAL_WARPS =
         "name": "ROUTE 36 - OUTSIDE - Route Connector Right - 10,8",
         "level" : "4",
         "to" : "C,24,96,1",
+        "connections": {
+            "C,0,23,0": "SQUIRT_BOTTLE",
+            "C,0,1,0": "SQUIRT_BOTTLE",
+            "C,0,22,0": "JHOTO_CUT"
+        }
     },
 /* ROUTE 36 - INT */
     "C,24,74,0" : {
@@ -625,7 +647,10 @@ var CRYSTAL_WARPS =
     },
     "C,24,86,9" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Bottom Right (aradactyle) - 10,21",
-        "to" : "C,24,93,0"
+        "to" : "C,24,93,0",
+        "connections": {
+            "C,24,86,1": "JHOTO_SURF"
+        }
     },
     "C,24,86,5" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Center Center - 6,13",
@@ -764,6 +789,7 @@ var CRYSTAL_WARPS =
         "level" : "1",
         "connections": {
             "C,0,0,3": true,
+            "C,0,19,1": "ZEPHYR_BADGE"
         }   
     },
     "C,0,19,2" : {
@@ -816,6 +842,7 @@ var CRYSTAL_WARPS =
         "connections": {
             "C,19,1,1": true,
             "C,19,1,2": true,
+            "C,19,1,3": "JHOTO_SURF"
         }   
     },
     "C,19,1,1" : {
@@ -837,39 +864,59 @@ var CRYSTAL_WARPS =
     "C,19,1,3" : {
         "name": "UNION CAVE - INSIDE - Bottom Lader - 6, 22",
         "to" : "C,24,12,3",
+        "level" : "5",
+        "connections": {
+            "C,19,1,0": "JHOTO_SURF"
+        }  
     },
 //F2
     "C,24,12,4" : {
         "name": "UNION CAVE - INSIDE - F2 Bottom Right Ladder - 11,2A",
         "to" : "C,24,95,0",  
+        "level" : "5",
+        "connections": {
+            "C,24,12,3": "JHOTO_SURF"
+        }   
     },
     "C,24,12,0" : {
         "name": "UNION CAVE - INSIDE - F2 Top Enterance - 3,3",
         "to" : "C,24,86,5",
+        "level" : "5",
         "connections": {
-            "C,24,12,1": true,
+            "C,24,12,1": "JHOTO_STRENGTH",
+            "C,24,12,2": "JHOTO_SURF"
         }   
     },
     "C,24,12,2" : {
         "name": "UNION CAVE - INSIDE - F2 Middle Ladder - 7,13",
         "to" : "C,19,1,2",
         "level": "2",
+        "level" : "5",
+        "connections": {
+            "C,24,12,0": "JHOTO_SURF"
+        }   
     },
     "C,24,12,1" : {
         "name": "UNION CAVE - INSIDE - F2 Lower Enterance - 3,B",
         "to" : "C,24,86,7",
+        "level" : "5",
         "connections": {
-            "C,24,12,0": true
+            "C,24,12,0": "JHOTO_STRENGTH"
         }   
     },
     "C,24,12,3" : {
         "name": "UNION CAVE - INSIDE - F2 Bottom Left Ladder - 2,2C",
         "to" : "C,19,1,3",
+        "level" : "5",
+        "connections": {
+            "C,24,12,4": "JHOTO_SURF"
+        }   
     },
 // F3
     "C,24,95,0" : {
         "name": "UNION CAVE - INSIDE - F3 Ladder - 5,3",
-        "to" : "C,24,12,4"
+        "to" : "C,24,12,4",
+        "level" : "5",
     },
 /* ROUTE 33 - EXT */
     "C,0,20,0" : {
@@ -895,11 +942,11 @@ var CRYSTAL_WARPS =
         "level": "2",
         "connections": {
             "C,0,11,0" : true,
-            "C,0,11,2" : true,
+            "C,0,11,2" : "SLOWPOKE_WELL",
             "C,0,11,3" : true,
             "C,0,11,4" : true,
             "C,0,11,5" : true,
-            "C,0,11,6" : true,
+            "C,0,11,6" : "TALK_TO_KURT",
             "C,0,20,0" : true,
         }   
     },
@@ -999,16 +1046,24 @@ var CRYSTAL_WARPS =
     "C,24,4,0" : {
         "name": "SLOWPOKE WELL - INSIDE - F1 Enterance Ladder - 12,10",
         "to" : "C,0,11,6",
-        "level": "2"
+        "level": "2",
+        "connections": {
+            "C,24,4,1": "JHOTO_SURF_AND_STRENGTH"
+        }   
     },
     "C,24,4,1" : {
         "name": "SLOWPOKE WELL - INSIDE - F1 Left Ladder - 8,C",
-        "to" : "C,24,9,0"
+        "to" : "C,24,9,0",
+        "level": "4",
+        "connections": {
+            "C,24,4,0": "JHOTO_SURF_AND_STRENGTH"
+        }   
     },
 // F2    
     "C,24,9,0" : {
         "name": "SLOWPOKE WELL - INSIDE - F2 Ladder - 11,10",
-        "to" : "C,24,4,1"
+        "to" : "C,24,4,1",
+        "level": "4",
     },
 /* ILEX FOREST */
     "C,24,11,0" : {
@@ -1676,6 +1731,7 @@ var CRYSTAL_WARPS =
         "groupMain" : true,
         "connections": {
             "C,0,22,2": true,
+            "C,0,23,2": "JHOTO_CUT"
         }   
     },
     "C,0,22,1" : {
@@ -1770,7 +1826,8 @@ var CRYSTAL_WARPS =
             "C,0,1,7": true,
             "C,0,1,8": true,
             "C,0,1,10": true,
-            "C,0,1,11": true
+            "C,0,1,11": true,
+            "C,0,23,0": "SQUIRT_BOTTLE"
         }   
     },
     "C,0,1,1" : {
@@ -2062,6 +2119,11 @@ var CRYSTAL_WARPS =
             "C,0,2,7": true,
             "C,0,2,8": true,
             "C,0,27,0": true,
+            "C,0,12,0": "JHOTO_SURF",
+            "C,0,28,0": "JHOTO_WHIRLPOOL",
+            "C,0,28,1": "JHOTO_WHIRLPOOL",
+            "C,0,28,2": "JHOTO_WHIRLPOOL",
+            "C,0,28,3": "JHOTO_WHIRLPOOL",
         }   
     },
     "C,0,2,2" : {
@@ -2528,7 +2590,7 @@ var CRYSTAL_WARPS =
 /* ROUTE 40 - INT */
 // No done battle tower area
 /* CIANWOOD CITY - EXT */
-    "C,0,2,0" : {
+    "C,0,12,0" : {
         "name": "CIANWOOD CITY - OUTSIDE - Center above Gym - D,1F",
         "to" : "C,4,0,0",
         "level": "5",
@@ -2536,7 +2598,7 @@ var CRYSTAL_WARPS =
             "C,0,12,3": true,
         }   
     },
-    "C,0,2,1" : {
+    "C,0,12,1" : {
         "name": "CIANWOOD CITY - OUTSIDE - Gym - D,2B",
         "to" : "C,4,1,0",
         "level": "5",
@@ -2544,7 +2606,7 @@ var CRYSTAL_WARPS =
             "C,0,12,3": true,
         }   
     },
-    "C,0,2,2" : {
+    "C,0,12,2" : {
         "name": "CIANWOOD CITY - OUTSIDE - Bottom Bottom House - 13,2F",
         "to" : "C,4,4,0",
         "level": "5",
@@ -2552,7 +2614,7 @@ var CRYSTAL_WARPS =
             "C,0,12,3": true,
         }   
     },
-    "C,0,2,3" : {
+    "C,0,12,3" : {
         "name": "CIANWOOD CITY - OUTSIDE - PkCenter - 1C,2B",
         "to" : "C,4,4,0",
         "level": "5",
@@ -2563,9 +2625,10 @@ var CRYSTAL_WARPS =
             "C,0,12,4": true,
             "C,0,12,5": true,
             "C,0,12,6": true,
+            "C,0,2,1": "JHOTO_SURF"
         }   
     },
-    "C,0,2,4" : {
+    "C,0,12,4" : {
         "name": "CIANWOOD CITY - OUTSIDE - Top Bottom House - 13,25",
         "to" : "C,4,3,0",
         "level": "5",
@@ -2573,7 +2636,7 @@ var CRYSTAL_WARPS =
             "C,0,12,3": true,
         }   
     },
-    "C,0,2,5" : {
+    "C,0,12,5" : {
         "name": "CIANWOOD CITY - OUTSIDE - Middle Bottom House - 15,29",
         "to" : "C,4,2,0",
         "level": "5",
@@ -2581,7 +2644,7 @@ var CRYSTAL_WARPS =
             "C,0,12,3": true,
         }   
     },
-    "C,0,2,6" : {
+    "C,0,12,6" : {
         "name": "CIANWOOD CITY - OUTSIDE - Top House - 9,11",
         "to" : "C,9,10,0",
         "level": "5",
@@ -2643,6 +2706,8 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,29,1": true,
+            "C,0,29,2": "JHOTO_SURF",
+            "C,0,29,3": "JHOTO_SURF",
         }   
     },
     "C,0,29,1" : {
@@ -2656,7 +2721,10 @@ var CRYSTAL_WARPS =
     "C,0,29,2" : {
         "name": "ROUTE 42 - OUTSIDE - Middle Cave - 1C,B",
         "to" : "C,24,15,1",
-        "level": "7"
+        "level": "7",
+        "connections": {
+            "C,0,29,0": "JHOTO_SURF",
+        }   
     },
     "C,0,29,3" : {
         "name": "ROUTE 42 - OUTSIDE - Right Cave - 2E,9",
@@ -2664,6 +2732,7 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,13,2": true,
+            "C,0,29,0": "JHOTO_SURF",
         }   
     },
 /* ROUTE 42 - INT */
@@ -2699,6 +2768,7 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,24,15,8": true,
+            "C,24,15,7": "JHOTO_WATERFALL"
         }   
     },
     "C,24,15,2" : {
@@ -2738,7 +2808,10 @@ var CRYSTAL_WARPS =
     "C,24,15,7" : {
         "name": "MOUNT MORTAR - INSIDE - F1 Top Center Door - 13,8",
         "to" : "C,24,17,1",
-        "level": "7"
+        "level": "7",
+        "connections": {
+            "C,24,15,1": "JHOTO_SURF",
+        }   
     },
     "C,24,15,8" : {
         "name": "MOUNT MORTAR - INSIDE - F1 Bottom Ladder - 13,21",
@@ -2790,17 +2863,26 @@ var CRYSTAL_WARPS =
         "name": "MOUNT MORTAR - INSIDE - F3 Top Ladder - 3,5",
         "to" : "C,24,16,0",
         "level": "7", 
+        "connections": {
+            "C,24,17,1": "JHOTO_SURF"
+        }  
     },
     "C,24,17,1" : {
         "name": "MOUNT MORTAR - INSIDE - F3 Bottom Ladder - 11,21",
         "to" : "C,24,15,7",
         "level": "7", 
+        "connections": {
+            "C,24,17,0": "JHOTO_SURF"
+        }  
     },
     // F4
     "C,24,18,0" : {
         "name": "MOUNT MORTAR - INSIDE - F4 Top Ladder - 3,3",
         "to" : "C,24,16,1",
         "level": "7", 
+        "connections": {
+            "C,24,18,1": "JHOTO_SURF_AND_STRENGTH"
+        }  
     },
     "C,24,18,1" : {
         "name": "MOUNT MORTAR - INSIDE - F4 Bottom Ladder - 13,1D",
@@ -2977,12 +3059,16 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,30,0": true,
+            "C,0,14,0": "JHOTO_CUT",
         }   
     },
     "C,0,14,0" : {
         "name": "LAKE OF RAGE - OUTSIDE - Top House - 7,5",
         "to" : "C,6,7,0",
-        "level": "7"
+        "level": "7",
+        "connections": {
+            "C,0,14,1": "JHOTO_CUT",
+        }   
     },
 /* LAKE OF RAGE - INT */
     "C,6,8,0" : {
@@ -3204,7 +3290,8 @@ var CRYSTAL_WARPS =
         "to" : "C,24,52,5",
         "level": "8",
         "connections": {
-            "C,24,22,6": true
+            "C,24,22,6": true,
+            "C,24,22,4": "JHOTO_STRENGTH"
         }   
     },
     // F3
@@ -3450,12 +3537,18 @@ var CRYSTAL_WARPS =
     "C,24,28,0" : {
         "name": "BLACKTHORN CITY - OUTSIDE - Top Cave - 14,5",
         "to" : "C,24,27,3",
-        "level": "8", 
+        "level": "8",
+        "connections": {
+            "C,24,28,1": "JHOTO_WHIRLPOOL"
+        }  
     },
     "C,24,28,1" : {
         "name": "BLACKTHORN CITY - OUTSIDE - Badge House - 13,1F",
         "to" : "C,24,29,0",
         "level": "8", 
+        "connections": {
+            "C,24,28,0": "JHOTO_WHIRLPOOL"
+        }  
     },
 /* ROUTE 45 - EXT */
     "C,0,32,0" : {
@@ -3472,21 +3565,33 @@ var CRYSTAL_WARPS =
         "name": "ROUTE 41 - OUTSIDE - Top Left Island - C,11",
         "to" : "C,24,31,0",
         "level": "8",
+        "connections": {
+            "C,0,2,1": "JHOTO_WHIRLPOOL"
+        }  
     },
     "C,0,28,1" : {
         "name": "ROUTE 41 - OUTSIDE - Top Right Island - 24,13",
         "to" : "C,24,30,0",
         "level": "8",
+        "connections": {
+            "C,0,2,1": "JHOTO_WHIRLPOOL"
+        }  
     },
     "C,0,28,2" : {
         "name": "ROUTE 41 - OUTSIDE - Bottom Left Island - C,25",
         "to" : "C,24,33,0",
         "level": "8",
+        "connections": {
+            "C,0,2,1": "JHOTO_WHIRLPOOL"
+        }  
     },
     "C,0,28,3" : {
         "name": "ROUTE 41 - OUTSIDE - Bottom Right Island - 24,2D",
         "to" : "C,24,32,0",
         "level": "8",
+        "connections": {
+            "C,0,2,1": "JHOTO_WHIRLPOOL"
+        }  
     },
 /* WHIRL ISLANDS */
     // F1 (Top Left Cave)
@@ -3565,7 +3670,8 @@ var CRYSTAL_WARPS =
         "to" : "C,0,28,2",
         "level": "8", 
         "connections": {
-            "C,24,33,1": true
+            "C,24,33,1": true,
+            "C,24,33,2": "JHOTO_SURF"
         }   
     },
     "C,24,33,1" : {
@@ -3580,16 +3686,25 @@ var CRYSTAL_WARPS =
         "name": "WHIRL ISLANDS - INSIDE - F4 Top Side Top Right - 11,3",
         "to" : "C,24,34,8",
         "level": "8",
+        "connections": {
+            "C,24,33,0": "JHOTO_SURF"
+        }   
     },
     "C,24,33,3" : {
         "name": "WHIRL ISLANDS - INSIDE - F4 Bottom Side Left - 3,11",
         "to" : "C,24,31,3",
         "level": "8",
+        "connections": {
+            "C,24,33,4": "JHOTO_SURF"
+        }   
     },
     "C,24,33,4" : {
         "name": "WHIRL ISLANDS - INSIDE - F4 Bottom Side Right - 11,11",
         "to" : "C,24,35,3",
         "level": "8",
+        "connections": {
+            "C,24,33,3": "JHOTO_SURF"
+        }   
     },
     // F5
     "C,24,34,0" : {
@@ -3683,7 +3798,10 @@ var CRYSTAL_WARPS =
     "C,24,35,0" : {
         "name": "WHIRL ISLANDS - INSIDE - F7 Top Top Ladder - B,5",
         "to" : "C,24,34,4",
-        "level": "8",   
+        "level": "8",  
+        "connections": {
+            "C,24,35,3": "JHOTO_SURF",
+        }   
     },
     "C,24,35,1" : {
         "name": "WHIRL ISLANDS - INSIDE - F7 Top Bottom Ladder - 7,B",
@@ -3694,17 +3812,27 @@ var CRYSTAL_WARPS =
         "name": "WHIRL ISLANDS - INSIDE - F7 Bottom Top Ladder - 7,19",
         "to" : "C,24,67,0",
         "level": "8",   
+        "connections": {
+            "C,24,35,3": "JHOTO_SURF",
+        }   
     },
     "C,24,35,3" : {
         "name": "WHIRL ISLANDS - INSIDE - F7 Bottom Bottom Ladder - D,1F",
         "to" : "C,24,33,4",
         "level": "8",   
+        "connections": {
+            "C,24,35,0": "JHOTO_WATERFALL",
+            "C,24,35,2": "JHOTO_SURF",
+        }   
     },
 /* ROUTE 27 - EXT */
     "C,0,35,0" : {
         "name": "ROUTE 27 - OUTSIDE - Tohjo Enterance Left - 1A,9",
         "to" : "C,24,0,0",
-        "level": "9"
+        "level": "9",
+        "connections": {
+            "C,0,9,0": "JHOTO_SURF"
+        }
     },
     "C,0,35,1" : {
         "name": "ROUTE 27 - OUTSIDE - Tohjo Enterance Right - 24,9",
@@ -3712,7 +3840,8 @@ var CRYSTAL_WARPS =
         "level": "9", 
         "connections": {
             "C,0,35,1": true,
-            "C,0,35,2": true
+            "C,0,35,2": true,
+            "C,0,34,2": "JHOTO_SURF"
         }   
     },
     "C,0,35,2" : {
@@ -3728,12 +3857,18 @@ var CRYSTAL_WARPS =
     "C,24,0,0" : {
         "name": "ROUTE 27 - INSIDE - Left - D,11",
         "to" : "C,0,35,0",
-        "level": "9"
+        "level": "9",
+        "connections": {
+            "C,24,0,1": "JHOTO_WATERFALL"
+        }   
     },
     "C,24,0,1" : {
         "name": "ROUTE 27 - INSIDE - Right - 19,11",
         "to" : "C,0,35,1",
-        "level": "9"
+        "level": "9",
+        "connections": {
+            "C,24,0,0": "JHOTO_WATERFALL"
+        } 
     },
 /* ROUTE 26 - EXT */
     "C,0,34,0" : {
@@ -3758,7 +3893,8 @@ var CRYSTAL_WARPS =
         "to" : "C,32,1,0",
         "level": "9", 
         "connections": {
-            "C,0,34,1": true
+            "C,0,34,1": true,
+            "C,0,35,1": "JHOTO_SURF"
         }   
     },
 /* ROUTE 26 - INT */

@@ -1,3 +1,7 @@
+body {
+    background: #2f3138;
+}
+
 #cy {
     height: 100%;
     width: 100%;
@@ -8,5 +12,5 @@
 
 .available-warp-select-wrapper {
     display: flex;
-    background: grey;
+    background: #2f3138;
 }

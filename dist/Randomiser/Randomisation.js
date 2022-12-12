@@ -212,6 +212,7 @@ RNG.prototype.choice = function(array) {
  function ReigonNode(id) {
     this.data = {};
     this.data.id = id;
+    this.classes = 'reigon';
 }
 
 function AreaNode(id) {
@@ -480,6 +481,12 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
             'label': 'data(label)',
             'text-valign': 'bottom',
             'text-halign': 'center'
+          }
+        },
+        {
+          selector: '.reigon',
+          css: {
+              'background-color': '#2f3138'
           }
         },
         {
