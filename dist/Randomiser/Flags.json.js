@@ -231,6 +231,8 @@ var COMPOSITE_FLAGS = {
 
     "SAFFRON_DOORS"        : { "flag": "SAFFRON_DOORS"        , "condition"  : ["L_SILPH_CO"]                   },
     "ZEPHYR_BADGE"         : { "flag": "ZEPHYR_BADGE"         , "condition"  : ["L_VIOLET_CITY_GYM"]            },
+    "TALK_TO_KURT"         : { "flag": "TALK_TO_KURT"         , "condition"  : ["L_KURT_HOUSE"]                 },
+    "SLOWPOKE_WELL"        : { "flag": "SLOWPOKE_WELL"        , "condition"  : ["L_SLOWPOKE_WELL"]              },
     "HOENN_POKEDEX"        : { "flag": "HOENN_POKEDEX"        , "condition"  : ["L_OLDALE_TOWN", "L_BIRCH_LAB"] },
     "HOENN_CATCH_TUTORIAL" : { "flag": "HOENN_CATCH_TUTORIAL" , "condition"  : ["L_PETALBURG_GYM"]              }
 
@@ -255,6 +257,8 @@ var LOCATIONS_TRIGGER = {
     "FR,10,16,1": "L_CELADON_CITY_GYM",
     "FR,11,3,1" : "L_FUCHSIA_CITY_GYM",
 
+    "C,3,4,0"  : "L_KURT_HOUSE",
+    "C,24,4,0" : "L_SLOWPOKE_WELL",
     "C,13,16,0": "L_GOLDENROD_DEPT_STORE",
     "C,11,4,0" : "L_GOLDENROD_BIKE_SHOP",
     "C,0,0,3"  : "L_VIOLET_CITY",
