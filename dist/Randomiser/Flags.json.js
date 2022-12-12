@@ -144,7 +144,13 @@
     Different combinations of flags are listed that would a flag possible
     If ALL values in ANY of the arrays are present the flag is set true
     
-    Warp data contains a list of flags, if ANY of those flags are true then the connection is considered possible
+    Warp data contains a single flag, that flag is true then the connection is considered possible. In some cases it may be necasary to fairly specific flags
+    these may require many composite flags. Or it many composite flags may trigger that specific flag.
+    
+    NB: This list is not comprehensive. If a progression flag is not in the list that basically means that the randomiser will never lock progression behind that connection
+    i.e if I haven't told it a connection becomes possible after a hm/item e.t.c it will assume it never become possible
+    This ensures the game should always be completeable. As more flags are added more complex maps randomisations can be generated.  
+
 */
 
 var COMPOSITE_FLAGS = {
@@ -197,15 +203,16 @@ var COMPOSITE_FLAGS = {
 
     "JHOTO_WHIRLPOOL" : { "flag": "JHOTO_WHIRLPOOL" , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_CIANWOOD_CITY_GYM", "L_SECRET_MEDICINE", "L_LIGHTHOUSE_TOP", "L_OLIVINE_CITY_GYM", "L_MAHOGANY_TOWN_GYM", "L_BLACKTHORN_CITY_GYM"] },
 
-    "HOENN_ROCK_SMASH_1" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_MAUVILLE_CITY_ROCK_SMASH"]          },
-    "HOENN_ROCK_SMASH_2" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "FLAG,SQUIRT_BOTTLE", "L_VIOLET_CITY"] },
+    "HOENN_ROCK_SMASH_1" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_MAUVILLE_CITY_ROCK_SMASH"]     },
+    "HOENN_ROCK_SMASH_2" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "SQUIRT_BOTTLE", "L_VIOLET_CITY"] },
 
-    "HOENN_STRENGTH_1" : { "flag": "HOENN_STRENGTH"     , "condition"  : ["E,24,4,0", "FLAG,HOENN_ROCK_SMASH"]                                                                                 },
+    "HOENN_STRENGTH_1" : { "flag": "HOENN_STRENGTH"     , "condition"  : ["L_RUSTURF_TUNNEL", "HOENN_ROCK_SMASH"]                                                                         },
     "HOENN_STRENGTH_2" : { "flag": "HOENN_STRENGTH"     , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
     "HOENN_STRENGTH_3" : { "flag": "HOENN_STRENGTH"     , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
 
     "HOENN_SURF"       : { "flag": "HOENN_SURF"         , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM"] },
 
+    // TODO: no dive connections have been added yet
     "HOENN_DIVE"       : { "flag": "HOENN_DIVE"         , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_FORTREE_CITY_GYM", "L_MOSSDEEP_CITY_GYM", "L_MOSSDEEP_STEVEN_HOUSE", "L_SPACE_CENTER_TOP"] },
 
     "HOENN_WATERFALL"  : { "flag": "HOENN_WATERFALL"     , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_FORTREE_CITY_GYM", "L_MOSSDEEP_CITY_GYM", "L_SOOTOPOLIS_CITY_GYM", "L_ICE_PATH_F1"] },

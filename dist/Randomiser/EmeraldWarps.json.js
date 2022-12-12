@@ -35,13 +35,11 @@ var EMERALD_WARPS =
         "to": "E,8,4,0",
         "connections" : {
             "E,0,0,0": true,
-            "E,0,0,1": false,
+            "E,0,0,1": "HOENN_CATCH_TUTORIAL",
             "E,0,0,2": true,
             "E,0,0,4": true,
             "E,0,0,5": true,
-            "E,0,10,2": true,
-            "E,0,19,0": false,
-            "E,0,19,4": false,
+            "E,0,10,2": true
         }
     },
     "E,0,0,4" : {
@@ -460,7 +458,8 @@ var EMERALD_WARPS =
             "E,0,26,0": true,
             "E,0,26,4": true,
             "E,0,32,0": true,
-            "E,0,14,2": true
+            "E,0,14,2": true,
+            "E,0,38,0": "HOENN_SURF"
         }
     },
     "E,0,2,2" : {
@@ -662,6 +661,7 @@ var EMERALD_WARPS =
             "E,0,19,2": true,
             "E,0,31,0": true,
             "E,0,31,1": true,
+            "E,0,30,0":"HOENN_SURF"
         }
     },
     "E,0,3,4" : {
@@ -996,6 +996,7 @@ var EMERALD_WARPS =
             "E,0,4,6": true,
             "E,0,4,7": true,
             "E,0,4,8": true,
+            "E,0,35,1": "HOENN_SURF"
         }
     },
     "E,0,4,1" : {
@@ -1010,7 +1011,10 @@ var EMERALD_WARPS =
         // GYM
         "name": "FORTREE CITY - OUTSIDE - Gym - 16,B",
         "to" : "E,12,1,0",
-        "level": "6"
+        "level": "6",
+        "connections": {
+            "E,0,4,0": "DEVON_SCOPE",
+        }
     },
     "E,0,4,3" : {
         // MART
@@ -1233,6 +1237,7 @@ var EMERALD_WARPS =
             "E,0,5,11": true,
             "E,0,5,12": true,
             "E,0,5,13": true,
+            "E,0,5,6": "HOENN_SURF" 
         }
     },
     "E,0,5,3" : {
@@ -1275,6 +1280,7 @@ var EMERALD_WARPS =
             "E,0,15,0": true,
             "E,0,1,0": true,
             "E,0,39,0": true,
+            "E,0,8,1": "HOENN_WATERFALL"
         }
     },
     "E,0,5,7" : {
@@ -1721,6 +1727,7 @@ var EMERALD_WARPS =
             "E,0,6,7": true,
             "E,0,6,8": true,
             "E,0,6,9": true,
+            "E,0,5,6": "HOENN_SURF" 
         }
     },
     "E,0,6,3" : {
@@ -2235,7 +2242,8 @@ var EMERALD_WARPS =
         "level": "9", 
         "to" : "E,16,12,0",
         "connections" : {
-            "E,0,8,2": true
+            "E,0,8,2": true,
+            "E,0,5,6": "HOENN_SURF" 
         }
     },
     "E,0,8,2" : {
@@ -2515,7 +2523,9 @@ var EMERALD_WARPS =
             "E,0,9,2": true,
             "E,0,10,0": true,
             "E,0,10,1": true,
-            "E,0,10,3": true
+            "E,0,10,3": true,
+            "E,0,25,1": "HOENN_SURF",
+            "E,0,0,3": "HOENN_POKEDEX",
         }
     },
     "E,0,10,3" : { 
@@ -2622,8 +2632,10 @@ var EMERALD_WARPS =
             "E,0,11,2": true,
             "E,0,11,3": true,
             "E,0,11,4": true,
-            "E,0,21,0": true
-            // ADD SURF / BOAT connections
+            "E,0,21,0": true,
+            "E,0,19,0": "HOENN_SURF",
+            "E,0,23,0": "HOENN_SURF",
+            "E,0,24,0": "HOENN_SURF"
         }
     },
     "E,0,11,2" : {
@@ -3199,6 +3211,8 @@ var EMERALD_WARPS =
             "E,0,15,3": true,
             "E,0,15,4": true,
             "E,0,15,5": true,
+            "E,0,5,6": "HOENN_SURF",
+            "E,0,1,0": "HOENN_SURF"
         }
     },
     "E,0,15,1" : {
@@ -3345,6 +3359,7 @@ var EMERALD_WARPS =
             "E,0,0,1": true,
             "E,0,0,3": true,
             "E,0,19,4": true,
+            "E,0,11,1": "HOENN_SURF"
         }
     },
     "E,0,19,1" : {
@@ -3539,14 +3554,18 @@ var EMERALD_WARPS =
     "E,24,4,0" : {
         "name": "RUSTURF TUNNEL - INSIDE - Left - 4,A",
         "level" : "1",
-        "to": "E,0,31,0"
+        "to": "E,0,31,0",
+        "connections": {
+            "E,24,4,1": "HOENN_ROCK_SMASH"
+        }
     },
     "E,24,4,1" : {
         "name": "RUSTURF TUNNEL - INSIDE - Right - 1D,10",
         "to": "E,0,14,4",
         "level" : "3",
         "connections": {
-            "E,24,4,2": true
+            "E,24,4,2": true,
+            "E,24,4,0": "HOENN_ROCK_SMASH"
         }
     },
     "E,24,4,2" : {
@@ -3648,7 +3667,8 @@ var EMERALD_WARPS =
         "to" : "E,24,7,2",
         "level" : "2",
         "connections" : {
-            "E,24,8,3": true
+            "E,24,8,3": true,
+            "E,24,8,4": "BIKE"
         }
     },
     "E,24,8,2" : {
@@ -3673,7 +3693,9 @@ var EMERALD_WARPS =
         "level" : "2",
         "connections" : {
             "E,24,8,1": true,
-            "E,24,9,2": true
+            "E,24,9,2": true,
+            "E,24,8,5": "BIKE",
+            "E,24,8,6": "BIKE"
         }
     },
     "E,24,8,5" : {
@@ -3681,7 +3703,8 @@ var EMERALD_WARPS =
         "to" : "E,24,9,3",
         "level" : "2",
         "connections" : {
-            "E,24,9,3": true
+            "E,24,9,3": true,
+            "E,24,8,4": "BIKE"
         }
     },
     "E,24,8,6" : {
@@ -3689,7 +3712,8 @@ var EMERALD_WARPS =
         "to" : "E,24,9,4",
         "level" : "2",
         "connections" : {
-            "E,24,9,3": true
+            "E,24,9,3": true,
+            "E,24,8,4": "BIKE"
         }
     },
 // F3
@@ -3744,7 +3768,8 @@ var EMERALD_WARPS =
         "to" : "E,28,0,0",
         "level" : "3",
         "connections" : {
-            "E,0,1,0": true
+            "E,0,1,0": true,
+            "E,0,11,1": "HOENN_SURF"
         }
     },
 /* ROUTE 109 - INT */
@@ -3767,6 +3792,9 @@ var EMERALD_WARPS =
         "name" : "ROUTE 110 - OUTSIDE - New Mauville - 23,18",
         "level" : "6",
         "to" : "E,24,52,0",
+        "connections" : {
+            "E,0,25,2": "HOENN_SURF"
+        }
     },
     "E,0,25,1" : {
         "name" : "ROUTE 110 - OUTSIDE - Trick House - B,42",
@@ -3782,7 +3810,8 @@ var EMERALD_WARPS =
         "to" : "E,29,12,0",
         "level" : "3",
         "connections" : {
-            "E,0,2,1": true
+            "E,0,2,1": true,
+            "E,0,25,0": "HOENN_SURF"
         }
     },
     "E,0,25,3" : {
@@ -3887,7 +3916,10 @@ var EMERALD_WARPS =
         "to" : "E,0,25,4",
         "level" : "3",
         "grouped": ["E,29,11,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "connections" : {
+            "E,29,11,2": "BIKE"
+        }
     },
     "E,29,11,1" : {
         "name" : "ROUTE 110 - INSIDE - Bike Path Bottom Left- 2,5",
@@ -3916,7 +3948,10 @@ var EMERALD_WARPS =
         "to" : "E,0,25,2",
         "level" : "3",
         "grouped": ["E,29,12,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "connections" : {
+            "E,29,12,2": "BIKE"
+        }
     },
     "E,29,12,1" : {
         "name" : "ROUTE 110 - INSIDE - Bike Path Top Left- 2,5",
@@ -3986,7 +4021,8 @@ var EMERALD_WARPS =
         "level" : "3",
         "connections" : {
             "E,0,26,0": true,
-            "E,0,2,1": true
+            "E,0,2,1": true,
+            "E,0,27,4": "HOENN_ROCK_SMASH"
         }
     },
 /* Route 111 - INT */
@@ -4072,7 +4108,8 @@ var EMERALD_WARPS =
         "to" : "E,24,94,1",
         "level" : "5",
         "connections" : {
-            "E,24,94,0": true
+            "E,24,94,0": true,
+            "E,24,95,1": "BIKE"
         }
     },
     "E,24,95,1" : {
@@ -4080,7 +4117,8 @@ var EMERALD_WARPS =
         "to" : "E,24,96,0",
         "level" : "5",
         "connections" : {
-            "E,24,94,0": true
+            "E,24,94,0": true,
+            "E,24,95,0": "BIKE"
         }
     },
     "E,24,96,0" : {
@@ -4088,13 +4126,17 @@ var EMERALD_WARPS =
         "to" : "E,24,95,0",
         "level" : "5",
         "connections" : {
-            "E,24,95,1": true
+            "E,24,95,1": true,
+            "E,24,96,1": "HOENN_ROCK_SMASH"
         }
     },
     "E,24,96,1" : {
         "name" : "MIRAGE TOWER - INSIDE - F3 Top - 2,4",
         "to" : "E,24,97,0",
         "level" : "5",
+        "connections" : {
+            "E,24,96,0": "HOENN_ROCK_SMASH"
+        }
     },
     "E,24,97,0" : {
         "name" : "MIRAGE TOWER - INSIDE - F4 (Fossils) - 1,4",
@@ -4159,14 +4201,21 @@ var EMERALD_WARPS =
     "E,0,27,4" : {
         "name" : "ROUTE 112 - OUTSIDE - Fiery Path Bottom  - B,24",
         "to" : "E,24,14,0",
-        "level" : "4"
+        "level" : "4",
+        "connections" : {
+            "E,0,27,5": "GO_GOGGLES",
+            "E,0,26,3": "GO_GOGGLES",
+            "E,0,26,4": "HOENN_ROCK_SMASH"
+
+        }
     },
     "E,0,27,5" : {
         "name" : "ROUTE 112 - OUTSIDE - Fiery Path Top  - 16,A",
         "to" : "E,24,14,1",
         "level" : "4",
         "connections" : {
-            "E,0,26,2": true
+            "E,0,26,2": true,
+            "E,0,27,4": "GO_GOGGLES"
         }
     },
 /* Route 112 - INT */
@@ -4225,7 +4274,10 @@ var EMERALD_WARPS =
         "to" : "E,0,27,2",
         "level" : "4",
         "grouped": ["E,24,13,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "connections" : {
+            "E,24,13,2": "BIKE"
+        }
     },
     "E,24,13,1" : {
         "name" : "JAGGED PASS - INSIDE - Bottom - F,28",
@@ -4377,7 +4429,8 @@ var EMERALD_WARPS =
         "to" : "E,0,29,0",
         "level" : "4",
         "connections" : {
-            "E,24,0,1": true
+            "E,24,0,1": true,
+            "E,24,0,2": "HOENN_WATERFALL"
         }
     },
     "E,24,0,1" : {
@@ -4392,6 +4445,9 @@ var EMERALD_WARPS =
         "name" : "METEOR FALLS - INSIDE - F1 Above Waterfall - A,3",
         "to" : "E,24,1,0",
         "level" : "9",
+        "connections" : {
+            "E,24,0,0": "HOENN_SURF"
+        }
     },
     "E,24,0,3" : {
         "name" : "METEOR FALLS - INSIDE - F1 Top Left Ladder - 5,4",
@@ -4458,34 +4514,44 @@ var EMERALD_WARPS =
         "name" : "METEOR FALLS - INSIDE - F3 Ladder Center Left - 7,B",
         "to" : "E,24,1,2",
         "level" : "9",
+        "connections" : {
+            "E,24,2,5": "HOENN_SURF",
+        }
     },
     "E,24,2,2" : {
         "name" : "METEOR FALLS - INSIDE - F3 Ladder Center - 12,F",
         "to" : "E,24,1,3",
         "level" : "9",
         "connections" : {
-            "E,24,3,0": true,
-            "E,24,3,4": true
+            "E,24,2,0": true,
+            "E,24,2,4": true
         }
     },
     "E,24,2,3" : {
         "name" : "METEOR FALLS - INSIDE - F3 Top Door - 11,3",
         "to" : "E,24,3,0",
         "level" : "9",
+        "connections" : {
+            "E,24,2,5": "HOENN_SURF",
+        }
     },
     "E,24,2,4" : {
         "name" : "METEOR FALLS - INSIDE - F3 Bottom Left - 3,17",
         "to" : "E,24,0,3",
         "level" : "9",
         "connections" : {
-            "E,24,3,0": true,
-            "E,24,3,2": true
+            "E,24,2,0": true,
+            "E,24,2,2": true
         }
     },
     "E,24,2,5" : {
         "name" : "METEOR FALLS - INSIDE - F3 Bottom Door - 14,24",
         "to" : "E,24,0,4",
         "level" : "9",
+        "connections" : {
+            "E,24,2,1": "HOENN_SURF",
+            "E,24,2,3": "HOENN_SURF",
+        }
     },
 // F4 (Bagon Room)
     "E,24,3,0" : {
@@ -5157,6 +5223,9 @@ var EMERALD_WARPS =
         "name" : "ROUTE 120 - OUTSIDE - Scorched Slab Enterance - 13,17",
         "to" : "E,24,73,0",
         "level": "6",
+        "connections": {
+            "E,0,4,0": "DEVON_SCOPE",
+        }
     },
 /* ROUTE 120 - INT */
     "E,24,73,0" : {
@@ -5194,6 +5263,7 @@ var EMERALD_WARPS =
         "connections" : {
             "E,0,35,0": true,
             "E,0,5,2": true,
+            "E,0,38,0": "HOENN_SURF"
         }
     },
 /* Route 121 - INT */
@@ -5214,7 +5284,11 @@ var EMERALD_WARPS =
     "E,0,37,0" : {
         "name" : "ROUTE 122 - OUTSIDE - Mt Pyre - 16,1D",
         "to" : "E,24,15,0",
-        "level": "7"
+        "level": "7",
+        "connections" : {
+            "E,0,38,0": "HOENN_SURF",
+            "E,0,36,0": "HOENN_SURF",
+        }
     },
 /* Mt Pyre - INT */
 // F1
@@ -5516,6 +5590,9 @@ var EMERALD_WARPS =
         "name" : "ROUTE 124 - OUTSIDE - House - 46,30",
         "to" : "E,33,0,0",
         "level" : "7",
+        "connections" : {
+            "E,0,5,6": "HOENN_SURF" 
+        }
     },
 /* Route 124 - INT */
     "E,33,0,0" : {
@@ -5536,6 +5613,9 @@ var EMERALD_WARPS =
         "name" : "ROUTE 125 - OUTSIDE - Shoal Cave - 16,13",
         "to" : "E,24,46,0",
         "level" : "7",
+        "connections" : {
+            "E,0,5,6": "HOENN_SURF" 
+        }
     },
 /* Route 125 - INT */
 // TODO: Shoal Cave
@@ -6013,7 +6093,10 @@ var EMERALD_WARPS =
     "E,0,46,0" : {
         "name" : "ROUTE 131 - Outside - Sky Pillar Enterance - 24,6",
         "to" : "E,24,77,0",
-        "level" : "8"
+        "level" : "8",
+        "connections" : {
+            "E,0,5,6": "HOENN_SURF" 
+        }
     },
 /* Underwater */
     "E,0,51,0" : {
@@ -6049,7 +6132,10 @@ var EMERALD_WARPS =
     "E,24,28,0" : {
         "name" : "SEAFLOOR CAVERN - INSIDE - F2 Bottom - 5,12",
         "to" : "E,24,27,1",
-        "level" : "8"
+        "level" : "8",
+        "connections" : {
+            "E,24,28,2": "HOENN_STRENGTH",
+        }
     },
     "E,24,28,1" : {
         "name" : "SEAFLOOR CAVERN - INSIDE - F2 Right - 11,D",
@@ -6065,6 +6151,7 @@ var EMERALD_WARPS =
         "level" : "8",
         "connections" : {
             "E,24,28,1": true,
+            "E,24,28,0": "HOENN_STRENGTH",
         }
     },
 // F3
@@ -6072,25 +6159,39 @@ var EMERALD_WARPS =
         "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Bottom Right - A,7",
         "to" : "E,24,28,2",
-        "level" : "8"
+        "level" : "8",
+        "connections" : {
+            "E,24,29,1": "HOENN_STRENGTH",
+            "E,24,29,2": "HOENN_STRENGTH",
+            "E,24,29,3": "HOENN_STRENGTH",
+        }
     },
     "E,24,29,1" : {
         "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Bottom Left - 4,A",
         "to" : "E,24,31,0",
-        "level" : "8"
+        "level" : "8",
+        "connections" : {
+            "E,24,29,1": "HOENN_STRENGTH",
+        }
     },
     "E,24,29,2" : {
         "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Top Left - 6,11",
         "to" : "E,24,33,0",
-        "level" : "8"
+        "level" : "8",
+        "connections" : {
+            "E,24,29,1": "HOENN_STRENGTH",
+        }
     },
     "E,24,29,3" : {
         "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Top Right - B,1",
         "to" : "E,24,34,0",
-        "level" : "8"
+        "level" : "8",
+        "connections" : {
+            "E,24,29,1": "HOENN_STRENGTH",
+        }
     },
 // F4
     "E,24,30,0" : {
@@ -6160,18 +6261,28 @@ var EMERALD_WARPS =
         "name" : "SEAFLOOR CAVERN - INSIDE - F6 Top - 4,1",
         "to" : "E,24,28,1",
         "level" : "8",
+        "connections" : {
+            "E,24,32,1": "HOENN_STRENGTH",
+            "E,24,32,2": "HOENN_STRENGTH",
+        }
     },
     "E,24,32,1" : {
         "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F6 Bottom Right - F,C",
         "to" : "E,24,31,1",
         "level" : "8",
+        "connections" : {
+            "E,24,32,0": "HOENN_STRENGTH",
+        }
     },
     "E,24,32,2" : {
         "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F6 Bottom Left - 7,11",
         "to" : "E,24,31,2",
         "level" : "8",
+        "connections" : {
+            "E,24,32,0": "HOENN_STRENGTH",
+        }
     },
 // F7
     "E,24,33,0" : {
@@ -6211,12 +6322,18 @@ var EMERALD_WARPS =
         "name" : "SEAFLOOR CAVERN - INSIDE - F9 Top - 5,2",
         "to" : "E,24,36,0",
         "level" : "8",
+        "connections" : {
+            "E,24,35,1": "HOENN_STRENGTH",
+        }
     },
     "E,24,35,1" : {
         "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F9 Bottom - 5,C",
         "to" : "E,24,30,0",
         "level" : "8",
+        "connections" : {
+            "E,24,35,0": "HOENN_STRENGTH",
+        }
     },
 // F10
     "E,24,36,0" : {
@@ -6382,6 +6499,7 @@ var EMERALD_WARPS =
         "connections" : {
             "E,24,79,0": true,
             "E,24,79,2": true,
+            "E,24,80,1": "BIKE",
         }
     },
     "E,24,80,1" : {
@@ -6391,6 +6509,7 @@ var EMERALD_WARPS =
         "connections" : {
             "E,24,79,0": true,
             "E,24,79,2": true,
+            "E,24,80,0": "BIKE",
         }
     },
 // F5
@@ -6422,6 +6541,7 @@ var EMERALD_WARPS =
         "level" : "8",
         "connections" : {
             "E,24,81,0": true,
+            "E,24,81,2": "BIKE"
         }
     },
     "E,24,82,1" : {
@@ -6523,6 +6643,9 @@ var EMERALD_WARPS =
         "name" : "VICTORY ROAD - INSIDE - F2 Bottom middle Right Ladder - 1E,19",
         "to" : "E,24,45,0",
         "level" : "9",
+        "connections" : {
+            "E,24,44,4": "HOENN_ROCK_SMASH",
+        }
     },
     "E,24,44,1" : {
         "name" : "VICTORY ROAD - INSIDE - F2 Bottom middle Top Ladder - 11,10",
@@ -6530,6 +6653,7 @@ var EMERALD_WARPS =
         "level" : "9",
         "connections" : {
             "E,24,44,6": true,
+            "E,24,44,5": "HOENN_STRENGTH",
         }
     },
     "E,24,44,2" : {
@@ -6549,11 +6673,17 @@ var EMERALD_WARPS =
         "name" : "VICTORY ROAD - INSIDE - F2 Top Left - 8,3",
         "to" : "E,24,43,4",
         "level" : "9",
+        "connections" : {
+            "E,24,44,2": "HOENN_STRENGTH",
+        }
     },
     "E,24,44,5" : {
         "name" : "VICTORY ROAD - INSIDE - F2 Middle Bottom Left - 14,15",
         "to" : "E,24,43,2",
         "level" : "9",
+        "connections" : {
+            "E,24,44,1": "HOENN_STRENGTH",
+        }
     },
     "E,24,44,6" : {
         "name" : "VICTORY ROAD - INSIDE - F2 Bottom Left - 5,1A",
@@ -6567,7 +6697,10 @@ var EMERALD_WARPS =
     "E,24,45,0" : {
         "name" : "VICTORY ROAD - INSIDE - F3 Bottom Right - 1E,19",
         "to" : "E,24,44,0",
-        "level" : "9"
+        "level" : "9",
+        "connections" : {
+            "E,24,45,1": "HOENN_SURF",
+        }
     },
     "E,24,45,1" : {
         "name" : "VICTORY ROAD - INSIDE - F3 Top Right - 2B,2",
@@ -6575,17 +6708,25 @@ var EMERALD_WARPS =
         "level" : "9",
         "connections" : {
             "E,24,45,0": true,
+            "E,24,45,3": "HOENN_WATERFALL",
         }
     },
     "E,24,45,2" : {
         "name" : "VICTORY ROAD - INSIDE - F3 Middle - 13,C",
         "to" : "E,24,44,1",
-        "level" : "9"
+        "level" : "9",
+        "connections" : {
+            "E,24,45,3": "HOENN_SURF",
+        }
     },
     "E,24,45,3" : {
         "name" : "VICTORY ROAD - INSIDE - F3 Bottom Left - 5,1A",
         "to" : "E,24,44,6",
-        "level" : "9"
+        "level" : "9",
+        "connections" : {
+            "E,24,45,2": "HOENN_SURF",
+            "E,24,45,1": "HOENN_WATERFALL",
+        }
     },
 /* SOTHERN ISLAND */
     "E,26,9,0" : {
