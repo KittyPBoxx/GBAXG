@@ -448,6 +448,7 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
       headless: isHeadless,
       styleEnabled: !isHeadless,
       boxSelectionEnabled: false,
+      textureOnViewport: true,
     
       style: [
         {

@@ -91,23 +91,27 @@ var EMERALD_WARPS =
     "E,8,2,0" : {
         "name": "PETALBURG CITY - INSIDE - Left - 3,8",
         "to": "E,0,0,0",
+        "level": "1", 
         "grouped": ["E,8,2,1"],
         "groupMain" : true
     },
     "E,8,2,1" : {
         "name": "PETALBURG CITY - INSIDE - Left - 4,8",
-        "to": "E,0,0,1",
+        "to": "E,0,0,0",
+        "level": "1", 
         "grouped": ["E,8,2,1"]
     },
     "E,8,3,0" : {
         "name": "PETALBURG CITY - INSIDE - Right - 3,7",
         "to": "E,0,0,4",
+        "level": "1", 
         "grouped": ["E,8,3,1"],
         "groupMain" : true
     },
     "E,8,3,1" : {
         "name": "PETALBURG CITY - INSIDE - Right - 4,7",
         "to": "E,0,0,4",
+        "level": "1", 
         "grouped": ["E,8,3,0"]
     },
     "E,8,4,0" : {
@@ -1351,7 +1355,7 @@ var EMERALD_WARPS =
     },
     "E,13,0,1" : {
         "name" : "LILYCOVE CITY - INSIDE - Club House Door - 6,8",
-        "to" : "E,0,4,8",
+        "to" : "E,0,5,1",
         "level" : "7",
         "grouped": ["E,13,0,0"],
     },
@@ -1363,9 +1367,9 @@ var EMERALD_WARPS =
             "E,13,0,0": true
         }
     },
-    "E,13,0,1" : {
+    "E,13,1,0" : {
         "name" : "LILYCOVE CITY - INSIDE - Club House Upstairs - 2,1",
-        "to" : "E,13,10,2",
+        "to" : "E,13,0,2",
         "level" : "7"
     },
     "E,13,2,0" : {
@@ -1388,7 +1392,7 @@ var EMERALD_WARPS =
     },
     "E,13,2,2" : {
         "name" : "LILYCOVE CITY - INSIDE - Museum Stairs - 10,1",
-        "to" : "E,13,1,0",
+        "to" : "E,13,3,0",
         "ignore": true,
         "level" : "7",
         "connections" : {
@@ -1677,12 +1681,12 @@ var EMERALD_WARPS =
         "level" : "7",
         "connections" : {
             "E,13,16,0": true,
-            "E,13,20,1": true
+            "E,13,20,2": true
         }
     },
-    "E,13,20,1" : {
+    "E,13,20,2" : {
         "name" : "LILYCOVE CITY - INSIDE - Dept Store F5 Right - 10,1",
-        "to" : "E,13,19,0",
+        "to" : "E,13,21,0",
         "level" : "7",
         "connections" : {
             "E,13,16,0": true,
@@ -1691,7 +1695,7 @@ var EMERALD_WARPS =
     },
     "E,13,21,0" : {
         "name" : "LILYCOVE CITY - INSIDE - Dept Store Roof - D,3",
-        "to" : "E,13,20,0",
+        "to" : "E,13,20,2",
         "level" : "7",
     },
 /* MOSSDEEP CITY - EXT */
@@ -3776,6 +3780,7 @@ var EMERALD_WARPS =
     "E,28,0,0" : {
         "name" : "ROUTE 109 - INSIDE - Beach Hut - 6,9",
         "to" : "E,0,24,0",
+        "level" : "3",
         "grouped": ["E,28,0,1"],
         "groupMain" : true,
         "connections" : {
@@ -3785,6 +3790,7 @@ var EMERALD_WARPS =
     "E,28,0,1" : {
         "name" : "ROUTE 109 - INSIDE - Beach Hut - 7,9",
         "to" : "E,0,24,0",
+        "level" : "3",
         "grouped": ["E,28,0,0"]
     },
 /* Route 110 - EXT */
@@ -3883,6 +3889,7 @@ var EMERALD_WARPS =
         "name" : "ROUTE 110 - INSIDE - Trick House Hall Top - D,3",
         "to" : "E,29,1,1",
         "level" : "3",
+        "ignore": true,
         "grouped": ["E,29,2,1"],
         "groupMain" : true,
         "connections" : {
@@ -3893,6 +3900,7 @@ var EMERALD_WARPS =
         "name" : "ROUTE 110 - INSIDE - Trick House Hall Top - E,3",
         "to" : "E,29,1,1",
         "level" : "3",
+        "ignore": true,
         "grouped": ["E,29,2,0"]
     },
     "E,29,2,2" : {
@@ -3901,6 +3909,7 @@ var EMERALD_WARPS =
         "level" : "3",
         "grouped": ["E,29,2,3"],
         "groupMain" : true,
+        "ignore": true,
         "connections" : {
             "E,29,2,0": true
         }
@@ -3909,6 +3918,7 @@ var EMERALD_WARPS =
         "name" : "ROUTE 110 - INSIDE - Trick House Hall Bottom - 5,17",
         "to" : "E,29,0,2",
         "level" : "3",
+        "ignore": true,
         "grouped": ["E,29,2,2"]
     },
     "E,29,11,0" : {
@@ -4301,9 +4311,10 @@ var EMERALD_WARPS =
         "level" : "4",
         "grouped": ["E,24,13,2"]
     },
-    "E,24,13,5" : {
+    "E,24,13,4" : {
         "name" : "JAGGED PASS - INSIDE - Magma hideout enterance - 10,12",
         "to" : "E,24,86,0",
+        "level" : "7",
         "connections" : {
             "E,24,13,0": true
         }
@@ -5822,7 +5833,7 @@ var EMERALD_WARPS =
     },
     "E,24,24,21" : {
         "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Bottom-middle Right - 30,D",
-        "to" : "E,24,24,12",
+        "to" : "E,24,24,51",
         "level" : "7",
         "connections" : {
             "E,24,24,19": true,
@@ -5983,7 +5994,7 @@ var EMERALD_WARPS =
     },
     "E,24,87,2" : {
         "name" : "MAGMA HIDEOUT - INSIDE - F2 Bottom - 11,21",
-        "to" : "E,24,89,0",
+        "to" : "E,24,89,2",
         "level" : "7",
         "connections" : {
             "E,24,87,0": true,
@@ -6127,7 +6138,7 @@ var EMERALD_WARPS =
 // TODO - add in ignored once more connections are done
 // F1
     "E,24,27,1" : {
-        "ignore" : "true",
+        "ignore" : true,
         "name" : "SEAFLOOR CAVERN - INSIDE - F1 Door - A,1",
         "to" : "E,24,28,0",
         "level" : "8"
