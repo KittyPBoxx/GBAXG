@@ -234,7 +234,8 @@ var COMPOSITE_FLAGS = {
     "TALK_TO_KURT"         : { "flag": "TALK_TO_KURT"         , "condition"  : ["L_KURT_HOUSE"]                 },
     "SLOWPOKE_WELL"        : { "flag": "SLOWPOKE_WELL"        , "condition"  : ["L_SLOWPOKE_WELL"]              },
     "HOENN_POKEDEX"        : { "flag": "HOENN_POKEDEX"        , "condition"  : ["L_OLDALE_TOWN", "L_BIRCH_LAB"] },
-    "HOENN_CATCH_TUTORIAL" : { "flag": "HOENN_CATCH_TUTORIAL" , "condition"  : ["L_PETALBURG_GYM"]              }
+    "HOENN_CATCH_TUTORIAL" : { "flag": "HOENN_CATCH_TUTORIAL" , "condition"  : ["L_PETALBURG_GYM"]              },
+    "NEW_MAUVILL"          : { "flag": "NEW_MAUVILL"          , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_MAUVILLE_CITY"]}
 
 }
 
@@ -279,6 +280,7 @@ var LOCATIONS_TRIGGER = {
     "C,14,0,0" : "L_MAHOGANY_TOWN_GYM",
     "C,15,0,0" : "L_BLACKTHORN_CITY_GYM",
 
+    "E,0,2,0"  : "L_MAUVILLE_CITY",
     "E,10,1,0" : "L_MAUVILLE_BIKE_SHOP",
     "E,17,1,0" : "L_ROUTE_104_FLOWER_SHOP",
     "E,1,4,0"  : "L_BIRCH_LAB",

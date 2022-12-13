@@ -1267,7 +1267,7 @@ var EMERALD_WARPS =
     "E,0,5,5" : {
         "name" : "LILYCOVE CITY - OUTSIDE - Above Club House - 27,E",
         "level" : "7",
-        "to" : "E,13,9,0",
+        "to" : "E,13,9,1",
         "connections" : {
             "E,0,5,2": true
         }
@@ -1771,7 +1771,7 @@ var EMERALD_WARPS =
     "E,0,6,7" : {
         "name" : "MOSSDEEP CITY - OUTSIDE - Left of PkCenter - 12,10",
         "level" : "7",
-        "to" : "E,14,8,0",
+        "to" : "E,14,8,1",
         "connections" : {
             "E,0,6,2": true
         }
@@ -3005,7 +3005,7 @@ var EMERALD_WARPS =
             "E,5,4,0": true
         }
     },
-    "E,5,4,0" : {
+    "E,5,5,0" : {
         "name": "FALLARBOR TOWN - INSIDE - PkCenter Upstairs Stairs - 1,6",
         "level": "4",
         "ignore": true, 
@@ -5117,10 +5117,10 @@ var EMERALD_WARPS =
 // Enterance
     "E,24,52,0" : {
         "name" : "NEW MAUVILLE - INSIDE - Enterance Bottom - 4,1",
-        "to" : "E,0,25,40",
+        "to" : "E,0,25,0",
         "level" : "6",
         "connections" : {
-            "E,24,52,1": true,
+            "E,24,52,1": "NEW_MAUVILL",
         }
     },
     "E,24,52,1" : {
@@ -6885,44 +6885,30 @@ var EMERALD_WARPS =
             "E,26,70,0": true,
         }
     },
-// 6 -- Various identical rooms
-    // TODO
-// 7
-    // TODO
-// 8
-    // TODO
-// 9
-    // TODO
-// 10
+// -- Various identical stair rooms not included
+    "E,26,74,0" : {
+        "name" : "NAVEL ROCK - INSIDE - Top Stairs - 3,3",
+        "to" : "E,26,73,1",
+        "level" : "9",
+        "connections" : {
+            "E,26,74,1": true,
+        }
+    },
     "E,26,74,1" : {
+        "name" : "NAVEL ROCK - INSIDE - Bottom Stairs - 5,5",
+        "to" : "E,26,75,0",
+        "level" : "9",
+        "connections" : {
+            "E,26,74,0": true,
+        }
+    },
+//  -- Various identical stair rooms not included
+    "E,26,75,0" : {
         "name" : "NAVEL ROCK - OUTSIDE - HOHO - D,14",
         "to" : "E,26,74,1",
         "level" : "9",
     },
-// 11 -- Various identical rooms
-    // TODO
-// 12
-    // TODO
-// 13
-    // TODO
-// 14
-    // TODO
-// 15
-    // TODO
-// 16
-    // TODO
-// 17
-    // TODO
-// 18
-    // TODO
-// 19
-    // TODO
-// 20
-    // TODO
-// 21
-    // TODO
-// 22
-    "E,26,86,0" : {
+    "E,26,87,0" : {
         "name" : "NAVEL ROCK - OUTSIDE - LUGIA - E,13",
         "to" : "E,26,86,0",
         "level" : "9",
