@@ -2113,6 +2113,19 @@ var EMERALD_WARPS =
         "ignore": "true", 
         "to": "E,15,2,2",
     },
+    "E,15,4,0" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Mart - 3,7",
+        "level": "8", 
+        "to": "E,0,7,1",
+        "grouped": ["E,15,4,1"],
+        "groupMain" : true,
+    },
+    "E,15,4,1" : {
+        "name": "SOOTOPOLIS CITY - INSIDE - Mart - 4,7",
+        "level": "8", 
+        "to": "E,0,7,1",
+        "grouped": ["E,15,4,0"]
+    },
     "E,15,5,0" : {
         "name": "SOOTOPOLIS CITY - INSIDE - Left side top - 3,6",
         "level": "8", 
@@ -3677,7 +3690,7 @@ var EMERALD_WARPS =
     },
     "E,24,8,2" : {
         "name" : "GRANITE CAVE - INSIDE - F2 Middle Right Ladder - 1D,D",
-        "to" : "E,24,7,3",
+        "to" : "E,24,9,0",
         "level" : "2",
         "connections" : {
             "E,24,8,0": true
@@ -3764,7 +3777,11 @@ var EMERALD_WARPS =
 /* ROUTE 108 */
     "E,0,23,0" : {
         "name" : "ROUTE 108 - OUTSIDE - Abandoned Ship enterance - 1D,6",
-        "to" : "E,24,54,0"
+        "to" : "E,24,54,0",
+        "level" : "6",
+        "connections" : {
+            "E,0,11,1": "HOENN_SURF"
+        }
     },
 /* ROUTE 109 - EXT */
     "E,0,24,0" : {
@@ -4639,7 +4656,7 @@ var EMERALD_WARPS =
             "E,24,54,4": true
         }
     },
-    "E,24,55,4" : {
+    "E,24,54,4" : {
         "name" : "ABANDONED SHIP - OUTSIDE - Top - C,5",
         "to" : "E,24,63,0",
         "level" : "6",
@@ -4770,7 +4787,7 @@ var EMERALD_WARPS =
         "grouped": ["E,24,56,0"]
     },
     "E,24,56,2" : {
-        "name" : "ABANDONED SHIP - INSIDE - F2 Left Side Top- 4,1",
+        "name" : "ABANDONED SHIP - INSIDE - F2 Left Side Top - 4,1",
         "to" : "E,24,55,6",
         "level" : "6",
     },
@@ -4960,7 +4977,7 @@ var EMERALD_WARPS =
     },
     "E,24,62,1" : {
         "name" : "ABANDONED SHIP - INSIDE - F8 Bottom - 5,10",
-        "to" : "E,24,55,6",
+        "to" : "E,24,55,8",
         "level" : "6",
         "grouped": ["E,24,62,0"]
     },
@@ -6580,7 +6597,7 @@ var EMERALD_WARPS =
 // F7
     "E,24,84,0" : {
         "name" : "SKY PILLAR - INSIDE - F7 Left - 3,1",
-        "to" : "E,24,82,0",
+        "to" : "E,24,82,2",
         "level" : "8",
         "connections" : {
             "E,24,84,1": true,
