@@ -279,6 +279,7 @@ var CRYSTAL_WARPS =
         "to" : "C,0,0,3",
         "connections" : {
             "C,8,4,2": true,
+            "C,0,0,3": true
         }
     },
     "C,8,4,2" : {
@@ -823,6 +824,7 @@ var CRYSTAL_WARPS =
         "to" : "C,0,19,1",
         "connections": {
             "C,11,5,1": true,
+            "C,0,19,1": true
         }
     },
     "C,11,5,1" : {
@@ -996,7 +998,8 @@ var CRYSTAL_WARPS =
         "to" : "C,0,11,1",
         "level": "2",
         "connections": {
-            "C,3,1,2": true
+            "C,3,1,2": true,
+            "C,0,11,1": true
         }   
     },
     "C,3,1,2" : {
@@ -1925,6 +1928,7 @@ var CRYSTAL_WARPS =
         "level": "4",
         "connections": {
             "C,9,11,2": true,
+            "C,0,1,0": true
         }   
     },
     "C,9,11,2" : {
@@ -2202,6 +2206,7 @@ var CRYSTAL_WARPS =
         "level": "5",
         "connections": {
             "C,10,5,2": true,
+            "C,0,2,1": true
         } 
     },
     "C,10,5,1" : {
@@ -2674,6 +2679,7 @@ var CRYSTAL_WARPS =
         "level": "5",
         "connections": {
             "C,4,5,1": true,
+            "C,0,12,3": true
         }   
     },
     "C,4,5,1" : {
@@ -2960,7 +2966,8 @@ var CRYSTAL_WARPS =
         "to" : "C,0,13,2",
         "level": "7",
         "connections": {
-            "C,5,4,1": true
+            "C,5,4,1": true,
+            "C,0,13,2": true
         }   
     },
     "C,5,4,1" : {
@@ -3467,7 +3474,8 @@ var CRYSTAL_WARPS =
         "to" : "C,0,5,2",
         "level": "8", 
         "connections": {
-            "C,13,6,2": true
+            "C,13,6,2": true,
+            "C,0,5,2": true
         }   
     },
     "C,13,6,2" : {
@@ -4030,7 +4038,8 @@ var CRYSTAL_WARPS =
         "level": "9",
         "connections": {
             "C,16,10,2": true,
-            "C,16,10,1": true
+            "C,16,10,1": true,
+            "C,0,8,0": true
         }  
     },
     "C,16,10,1" : {

@@ -122,7 +122,8 @@ var EMERALD_WARPS =
         "grouped": ["E,8,4,1"],
         "groupMain" : true,
         "connections" : {
-            "E,8,4,2": true
+            "E,8,4,2": true,
+            "E,0,0,3": true
         }
     },
     "E,8,4,1" : {
@@ -396,7 +397,8 @@ var EMERALD_WARPS =
         "groupMain" : true,
         "level" : "3",
         "connections" : {
-            "E,9,11,2": true
+            "E,9,11,2": true,
+            "E,0,1,0": true
         }
     },
     "E,9,11,1" : {
@@ -582,7 +584,8 @@ var EMERALD_WARPS =
         "groupMain" : true,
         "level" : "3",
         "connections" : {
-            "E,10,5,2": true
+            "E,10,5,2": true,
+            "E,0,2,1": true
         }
     },
     "E,10,5,1" : {
@@ -818,7 +821,8 @@ var EMERALD_WARPS =
         "grouped" : ["E,11,5,1"],
         "groupMain" : true,
         "connections": {
-            "E,11,5,2": true
+            "E,11,5,2": true,
+            "E,0,3,3" : true
         }
     },
     "E,11,5,1" : {
@@ -1097,13 +1101,14 @@ var EMERALD_WARPS =
         "grouped": ["E,12,1,0"]
     },
     "E,12,2,0" : {
-        "name" : "FORTREE CITY - INSIDE - PkCenter Enterance- 7,8",
+        "name" : "FORTREE CITY - INSIDE - PkCenter Enterance - 7,8",
         "to" : "E,0,4,0",
         "level" : "6",
         "grouped": ["E,12,2,1"],
         "groupMain" : true,
         "connections": {
             "E,12,2,2": true,
+            "E,0,4,0": true
         }
     },
     "E,12,2,1" : {
@@ -1479,7 +1484,8 @@ var EMERALD_WARPS =
         "grouped": ["E,13,6,1"],
         "groupMain" : true,
         "connections" : {
-            "E,13,6,2": true
+            "E,13,6,2": true,
+            "E,0,5,2": true
         }
     },
     "E,13,6,1" : {
@@ -1841,7 +1847,8 @@ var EMERALD_WARPS =
         "grouped": ["E,14,3,1"],
         "groupMain" : true,
         "connections" : {
-            "E,14,3,2": true
+            "E,14,3,2": true,
+            "E,0,6,2": true
         }
     },
     "E,14,3,1" : {
@@ -2091,6 +2098,7 @@ var EMERALD_WARPS =
         "groupMain" : true,
         "connections" : {
             "E,15,2,2": true,
+            "E,0,7,0": true
         }
     },
     "E,15,2,1" : {
@@ -2290,6 +2298,7 @@ var EMERALD_WARPS =
         "groupMain" : true,
         "connections" : {
             "E,16,12,2": true,
+            "E,0,8,1": true
         }
     },
     "E,16,12,1" : {
@@ -2312,23 +2321,24 @@ var EMERALD_WARPS =
         "to": "E,16,12,2",
     },
     "E,16,10,0" : {
-        "name": "EVER GRANDE CITY - INSIDE - E4 Door - 7,8",
+        "name": "EVER GRANDE CITY - INSIDE - Enterance Door - 7,8",
         "level": "9", 
         "to": "E,0,8,0",
         "grouped": ["E,16,10,1"],
         "groupMain" : true,
         "connections" : {
             "E,16,10,4": true,
+            "E,0,8,0": true
         }
     },
     "E,16,10,1" : {
-        "name": "EVER GRANDE CITY - INSIDE - E4 Door - 6,8",
+        "name": "EVER GRANDE CITY - INSIDE - Enterance Door - 6,8",
         "level": "9", 
         "to": "E,0,8,0",
         "grouped": ["E,16,10,0"]
     },
     "E,16,10,4" : {
-        "name": "EVER GRANDE CITY- INSIDE - E4 Stairs - 1,6",
+        "name": "EVER GRANDE CITY- INSIDE - League Stairs - 1,6",
         "level": "9", 
         "to": "E,16,14,0",
         "connections" : {
@@ -2336,19 +2346,19 @@ var EMERALD_WARPS =
         }
     },
     "E,16,14,0" : {
-        "name": "EVER GRANDE CITY - INSIDE - E4 Upstairs - 1,6",
+        "name": "EVER GRANDE CITY - INSIDE - League Upstairs - 1,6",
         "level": "9", 
         "to": "E,16,10,2",
     },
     "E,16,10,2" : {
-        "name": "EVER GRANDE CITY - INSIDE - E4 Badge Door - 9,1",
+        "name": "EVER GRANDE CITY - INSIDE - League Badge Door - 9,1",
         "level": "9", 
         "to": "E,16,9,0",
         "grouped": ["E,16,10,3"],
         "groupMain" : true,
     },
     "E,16,10,3" : {
-        "name": "EVER GRANDE CITY - INSIDE -  E4 Badge Door - A,1",
+        "name": "EVER GRANDE CITY - INSIDE -  League Badge Door - A,1",
         "level": "9", 
         "to": "E,16,9,0",
         "grouped": ["E,16,10,2"]
@@ -2589,7 +2599,8 @@ var EMERALD_WARPS =
         "grouped": ["E,2,2,1"],
         "groupMain" : true,
         "connections" : {
-            "E,2,2,2": true
+            "E,2,2,2": true,
+            "E,0,10,2": true
         }
     },
     "E,2,2,1" : {
@@ -2701,7 +2712,8 @@ var EMERALD_WARPS =
         "grouped": ["E,3,1,1"],
         "groupMain" : true,
         "connections" : {
-            "E,3,1,2": true
+            "E,3,1,2": true,
+            "E,0,11,1": true
         }
     },
     "E,3,1,1" : {
@@ -2880,6 +2892,7 @@ var EMERALD_WARPS =
         "connections" : {
             "E,4,5,2": true,
             "E,4,5,3": true,
+            "E,0,12,3": true
         }
     },
     "E,4,5,1" : {
@@ -3001,7 +3014,8 @@ var EMERALD_WARPS =
         "grouped": ["E,5,4,1"],
         "groupMain" : true,
         "connections" : {
-            "E,5,4,2": true
+            "E,5,4,2": true,
+            "E,0,13,2": true
         }
     },
     "E,5,4,1" : {
@@ -3154,7 +3168,8 @@ var EMERALD_WARPS =
         "grouped": ["E,6,4,1"],
         "groupMain" : true,
         "connections" : {
-            "E,6,4,2": true
+            "E,6,4,2": true,
+            "E,0,14,2": true
         }
     },
     "E,6,4,1" : {
@@ -3280,7 +3295,8 @@ var EMERALD_WARPS =
         "grouped": ["E,7,0,1"],
         "groupMain" : true,
         "connections" : {
-            "E,7,0,2": true
+            "E,7,0,2": true,
+            "E,0,15,0": true
         }
     },
     "E,7,0,1" : {

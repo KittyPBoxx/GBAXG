@@ -148,7 +148,8 @@ var FIRE_RED_WARPS =
         "grouped" : ["FR,5,4,0", "FR,5,4,2"],
         "groupMain" : true,
         "connections" : {
-            "FR,5,4,3": true
+            "FR,5,4,3": true,
+            "FR,3,1,0": true
         }
     },
     "FR,5,4,2" : {
@@ -368,7 +369,8 @@ var FIRE_RED_WARPS =
         "grouped" : ["FR,6,5,0", "FR,6,5,2"],
         "groupMain" : true,
         "connections" : {
-            "FR,6,5,3": true
+            "FR,6,5,3": true,
+            "FR,3,2,5": true
         }
     },
     "FR,6,5,2" : {
@@ -704,7 +706,8 @@ var FIRE_RED_WARPS =
         "grouped" : ["FR,16,0,0", "FR,16,0,2"],
         "groupMain" : true,
         "connections" : {
-            "FR,16,0,3" : true
+            "FR,16,0,3" : true,
+            "FR,3,22,2": true
         }
     },
     "FR,16,0,0" : {
@@ -1017,7 +1020,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,3,3",
         "level": "2", 
         "connections" : {
-            "FR,7,3,3" : true
+            "FR,7,3,3" : true,
+            "FR,3,3,3": true
         }
     },
     "FR,7,3,3" : {
@@ -1343,7 +1347,8 @@ var FIRE_RED_WARPS =
         "level": "3", 
         "to" : "FR,3,5,4",
         "connections" : {
-            "FR,9,1,3": true
+            "FR,9,1,3": true,
+            "FR,3,5,4": true
         }
     },
     "FR,9,1,3" : {
@@ -1909,7 +1914,8 @@ var FIRE_RED_WARPS =
         "level": "4", 
         "to" : "FR,3,28,3",
         "connections" : {
-            "FR,21,0,3": true
+            "FR,21,0,3": true,
+            "FR,3,28,3": true
         }
     },
     "FR,21,0,3" : {
@@ -2064,7 +2070,8 @@ var FIRE_RED_WARPS =
         "level": "4", 
         "to" : "FR,3,4,1",
         "connections" : {
-            "FR,8,0,3": true
+            "FR,8,0,3": true,
+            "FR,3,4,1": true
         }
     },
     "FR,8,0,3" : {
@@ -2647,6 +2654,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,6,4",
         "connections" : {
             "FR,10,12,3": true,
+            "FR,3,6,4": true
         }
     },
     "FR,10,12,3" : {
@@ -3152,6 +3160,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,7,6",
         "connections" : {
             "FR,11,5,3": true,
+            "FR,3,7,6": true
         }
     },
     "FR,11,5,3" : {
@@ -3848,6 +3857,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,10,6",
         "connections" : {
             "FR,14,6,3": true,
+            "FR,3,10,6": true
         }
     },
     "FR,14,6,3" : {
@@ -4434,6 +4444,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,8,3",
         "connections" : {
             "FR,12,5,3": true,
+            "FR,3,8,3": true
         }
     },
     "FR,12,5,3" : {
@@ -4644,6 +4655,7 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,13,0,2": true,
             "FR,13,0,1": true,
+            "FR,3,9,0": true
         }
     },
     "FR,13,0,1" : {
