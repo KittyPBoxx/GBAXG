@@ -634,6 +634,7 @@ var CRYSTAL_WARPS =
     "C,24,86,6" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave center left (hoho) - 2,11",
         "to" : "C,24,85,0",
+        "level" : "5",
         "connections": {
             "C,24,86,5": true
         }
@@ -641,6 +642,7 @@ var CRYSTAL_WARPS =
     "C,24,86,7" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Bottom Center - 6,1B",
         "to" : "C,24,12,1",
+        "level" : "5",
         "connections": {
             "C,24,86,8": true,
             "C,24,86,9": true,
@@ -649,13 +651,15 @@ var CRYSTAL_WARPS =
     "C,24,86,9" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Bottom Right (aradactyle) - 10,21",
         "to" : "C,24,93,0",
+        "level" : "5",
         "connections": {
             "C,24,86,1": "JHOTO_SURF"
         }
     },
     "C,24,86,5" : {
         "name": "RUINS OF ALPH - OUTSIDE - Cave Center Center - 6,13",
-        "to" : "C,24,12,0"
+        "to" : "C,24,12,0",
+        "level" : "5",
     },
 /* RUINS OF ALPH - INT */
     // Top Cave

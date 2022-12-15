@@ -30,17 +30,20 @@ var FR_1_0_GIRL_WALK_SPRITE_DATA =
     "side_step_1"      :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 7 ),
     "side_step_2"      :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 8 ),
     "front_run"        :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 9 ),
-    "front_run_step_1" :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 10),
-    "front_run_step_2" :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 11),
-    "back_run"         :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 12),
-    "back_run_step_1"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 13),
-    "back_run_step_2"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 14),
-    "side_run"         :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 15),
-    "side_run_step_1"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 16),
-    "side_run_step_2"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 17),
+
+    // TODO: something weird seems to be going on with the run sprites so partially substituated them
+    "front_run_step_1" :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 13),
+    "front_run_step_2" :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 14),
+    "back_run"         :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 17),
+    "back_run_step_1"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 5),
+    "back_run_step_2"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 6),
+    "side_run"         :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 18),
+    "side_run_step_1"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 7),
+    "side_run_step_2"  :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 8),
     "look_left"        :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 18),
     "look_right"       :  FR_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 19)
 };
+
 var FR_1_0_GIRL_WALK_SPRITE_PTRS = 
 {
     "front"            :  FR_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 0 ),
@@ -152,14 +155,15 @@ var FR_1_0_BOY_WALK_SPRITE_DATA =
     "side_step_1"      :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 7 ),
     "side_step_2"      :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 8 ),
     "front_run"        :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 9 ),
-    "front_run_step_1" :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 10),
-    "front_run_step_2" :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 11),
-    "back_run"         :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 12),
-    "back_run_step_1"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 13),
-    "back_run_step_2"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 14),
-    "side_run"         :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 15),
-    "side_run_step_1"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 16),
-    "side_run_step_2"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 17),
+    // TODO: something weird seems to be going on with the run sprites so partially substituated them
+    "front_run_step_1" :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 13),
+    "front_run_step_2" :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 14),
+    "back_run"         :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 17),
+    "back_run_step_1"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 5),
+    "back_run_step_2"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 6),
+    "side_run"         :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 18),
+    "side_run_step_1"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 7),
+    "side_run_step_2"  :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 8),
     "look_left"        :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 18),
     "look_right"       :  FR_1_0_BOY_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 19)
 };
@@ -283,12 +287,12 @@ var E_1_0_GIRL_WALK_SPRITE_DATA =
     "side_step_1"      :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 7 ),
     "side_step_2"      :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 8 ),
     "front_run"        :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 9 ),
-    "front_run_step_1" :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 10),
-    "front_run_step_2" :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 11),
-    "back_run"         :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 12),
-    "back_run_step_1"  :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 13),
-    "back_run_step_2"  :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 14),
-    "side_run"         :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 15),
+    "back_run"         :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 10),
+    "side_run"         :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 11),
+    "front_run_step_1" :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 12),
+    "front_run_step_2" :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 13),
+    "back_run_step_1"  :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 14),
+    "back_run_step_2"  :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 15),
     "side_run_step_1"  :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 16),
     "side_run_step_2"  :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 17),
     "look_left"        :  E_1_0_GIRL_WALK_SPRITE_DATA_BASE_OFFSET + (256 * 3 ), // Alternate mappings to pad to the same size as FR
@@ -306,14 +310,14 @@ var E_1_0_GIRL_WALK_SPRITE_PTRS =
     "side_step_1"      :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 7 ),
     "side_step_2"      :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 8 ),
     "front_run"        :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 9 ),
-    "front_run_step_1" :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 10),
-    "front_run_step_2" :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 11),
-    "back_run"         :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 12),
-    "back_run_step_1"  :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 13),
-    "back_run_step_2"  :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 14),
-    "side_run"         :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 15),
+    "back_run"         :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 10), 
+    "side_run"         :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 11), 
+    "front_run_step_1" :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 12),
+    "front_run_step_2" :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 13),
+    "back_run_step_1"  :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 14),
+    "back_run_step_2"  :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 15),
     "side_run_step_1"  :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 16),
-    "side_run_step_2"  :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 17)
+    "side_run_step_2"  :  E_1_0_GIRL_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 17),
 };
 
 var E_1_0_GIRL_BIKE_SPRITE_PRT_BASE_OFFSET = 0x085071D4;
@@ -473,14 +477,14 @@ var E_1_0_BOY_WALK_SPRITE_PTRS =
     "side_step_1"      :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 7 ),
     "side_step_2"      :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 8 ),
     "front_run"        :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 9 ),
-    "front_run_step_1" :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 10),
-    "front_run_step_2" :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 11),
-    "back_run"         :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 12),
-    "back_run_step_1"  :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 13),
-    "back_run_step_2"  :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 14),
-    "side_run"         :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 15),
+    "back_run"         :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 10), 
+    "side_run"         :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 11), 
+    "front_run_step_1" :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 12),
+    "front_run_step_2" :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 13),
+    "back_run_step_1"  :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 14),
+    "back_run_step_2"  :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 15),
     "side_run_step_1"  :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 16),
-    "side_run_step_2"  :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 17)
+    "side_run_step_2"  :  E_1_0_BOY_WALK_SPRITE_PRT_BASE_OFFSET + (8 * 17),
 };
 
 
@@ -666,3 +670,25 @@ var C_GIRL_BACKSPRITE_PALLET_OFFSET = 0x08E511C4;
 var C_BOY_BACKSPRITE_PALLET_OFFSET = 0x08E5119C;
 
 var BACKSPRITES_PALLET_LENGTH = 64;
+
+// Reflection pallets not fixed
+
+// Fire Red hero offset unlz 3084 (e6718)
+// Emerald brandon offset unlz 1939 (d61a58)
+/*
+possible replacement brandon pallets
+1102
+1105
+
+1110
+1119
+1129
+1130
+
+
+possible may
+1110
+*/
+
+// may have to check with this
+//https://www.pokecommunity.com/showthread.php?t=456994
