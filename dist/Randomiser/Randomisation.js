@@ -249,9 +249,9 @@ function CondidtionalEdge(source, target, condition) {
   this.condition = condition;
 }
 
-function WarpEdge(source, target) {
+function WarpEdge(source, target, count) {
   this.data = {};
-  this.data.id = source + "->" + target;
+  this.data.id = source + "->" + target + "#" + window.cy.getElementById(source + "->" + target).length;
   this.data.source = source;
   this.data.target = target;
   this.data.isWarp = true;

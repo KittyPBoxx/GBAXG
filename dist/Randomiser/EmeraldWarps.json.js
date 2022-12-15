@@ -3535,6 +3535,15 @@ var EMERALD_WARPS =
         "to" : "E,0,19,7",
         "grouped" : ["E,24,11,4"]
     },
+/* ROUTE 115 - OUTSIDE */
+    "E,0,30,0" : {
+        "name": "ROUTE 115 - OUTSIDE - Bottom Metor falls exit - 1B,25",
+        "level" : "4",
+        "to" : "E,24,0,1",
+        "connections": {
+            "E,0,3,3": true
+        }
+    },
 /* ROUTE 116 - OUTSIDE */
     "E,0,31,0" : {
         "name": "ROUTE 116 - OUTSIDE - Rusturf tunnel enterance (right) - 2f,8",
@@ -4148,7 +4157,7 @@ var EMERALD_WARPS =
     },
     "E,24,95,0" : {
         "name" : "MIRAGE TOWER - INSIDE - F2 Top - F,2",
-        "to" : "E,24,94,1",
+        "to" : "E,24,96,0",
         "level" : "5",
         "connections" : {
             "E,24,94,0": true,
@@ -4157,7 +4166,7 @@ var EMERALD_WARPS =
     },
     "E,24,95,1" : {
         "name" : "MIRAGE TOWER - INSIDE - F2 Bottom - F,2",
-        "to" : "E,24,96,0",
+        "to" : "E,24,94,1",
         "level" : "5",
         "connections" : {
             "E,24,94,0": true,
@@ -5623,13 +5632,13 @@ var EMERALD_WARPS =
     },
     "E,24,22,0" : {
         "name" : "Mt Pyre - OUTSIDE - Summit - 16,1F",
-        "to" : "E,24,22,1",
+        "to" : "E,24,21,1",
         "level" : "7",
         "grouped": ["E,24,22,1", "E,24,22,2"],
     },
     "E,24,22,2" : {
         "name" : "Mt Pyre - OUTSIDE - Summit - 18,1F",
-        "to" : "E,24,22,1",
+        "to" : "E,24,21,1",
         "level" : "7",
         "grouped": ["E,24,22,1", "E,24,22,0"],
     },
@@ -5713,7 +5722,15 @@ var EMERALD_WARPS =
         "to" : "E,24,25,1",
         "level" : "7",
         "connections" : {
-            "E,24,25,2": true,
+            "E,24,24,3": true,
+        }
+    },
+    "E,24,24,3" : {
+        "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Top Left Left - C,1",
+        "to" : "E,24,25,2",
+        "level" : "7",
+        "connections" : {
+            "E,24,24,2": true,
         }
     },
     "E,24,24,4" : {
@@ -5801,7 +5818,7 @@ var EMERALD_WARPS =
     },
     "E,24,24,14" : {
         "name" : "AQUA HIDEOUT - INSIDE - F2 Right Side Top Center - 2D,5",
-        "to" : "E,24,24,12",
+        "to" : "E,24,24,52",
         "level" : "7",
         "connections" : {
             "E,24,24,12": true,
@@ -6204,7 +6221,6 @@ var EMERALD_WARPS =
     },
 // F3
     "E,24,29,0" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Bottom Right - A,7",
         "to" : "E,24,28,2",
         "level" : "8",
@@ -6215,7 +6231,6 @@ var EMERALD_WARPS =
         }
     },
     "E,24,29,1" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Bottom Left - 4,A",
         "to" : "E,24,31,0",
         "level" : "8",
@@ -6224,7 +6239,6 @@ var EMERALD_WARPS =
         }
     },
     "E,24,29,2" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Top Left - 6,11",
         "to" : "E,24,33,0",
         "level" : "8",
@@ -6233,7 +6247,6 @@ var EMERALD_WARPS =
         }
     },
     "E,24,29,3" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F3 Top Right - B,1",
         "to" : "E,24,34,0",
         "level" : "8",
@@ -6334,39 +6347,51 @@ var EMERALD_WARPS =
     },
 // F7
     "E,24,33,0" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F7 Bottom - B,15",
         "to" : "E,24,29,2",
         "level" : "8",
+        "connections" : {
+            "E,24,33,1": "HOENN_SURF",
+            "E,24,33,2": "HOENN_SURF",
+        }
     },
     "E,24,33,1" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F7 Top - 4,1",
         "to" : "E,24,30,2",
         "level" : "8",
+        "connections" : {
+            "E,24,33,0": "HOENN_SURF",
+            "E,24,33,2": "HOENN_SURF",
+        }
     },
     "E,24,33,2" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F7 Center - E,8",
         "to" : "E,24,27,1",
         "level" : "8",
+        "connections" : {
+            "E,24,33,0": "HOENN_SURF",
+            "E,24,33,1": "HOENN_SURF",
+        }
     },
 // F8
     "E,24,34,0" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F8 Bottom - 3,7",
         "to" : "E,24,29,3",
         "level" : "8",
+        "connections" : {
+            "E,24,34,1": "HOENN_SURF",
+        }
     },
     "E,24,34,1" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F8 Top - 5,1",
         "to" : "E,24,30,1",
         "level" : "8",
+        "connections" : {
+            "E,24,34,0": "HOENN_SURF",
+        }
     },
 // F9
     "E,24,35,0" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F9 Top - 5,2",
         "to" : "E,24,36,0",
         "level" : "8",
@@ -6375,7 +6400,6 @@ var EMERALD_WARPS =
         }
     },
     "E,24,35,1" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F9 Bottom - 5,C",
         "to" : "E,24,30,0",
         "level" : "8",
@@ -6385,7 +6409,6 @@ var EMERALD_WARPS =
     },
 // F10
     "E,24,36,0" : {
-        "ignore" : "true",
         "name" : "SEAFLOOR CAVERN - INSIDE - F10 Door - 5,4",
         "to" : "E,24,35,0",
         "level" : "8",
