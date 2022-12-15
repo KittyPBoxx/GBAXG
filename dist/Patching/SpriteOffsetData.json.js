@@ -673,22 +673,14 @@ var BACKSPRITES_PALLET_LENGTH = 64;
 
 // Reflection pallets not fixed
 
+// Trainer sprites not fixed
+var EMERALD_BRANDON_TRAINER_SPRITE_PTR = 0x305654 + (8 * 71);
+var EMERALD_RED_TRAINER_SPRITE_PTR = 0x305654 + (8 * 89);
+var EMERALD_MAY_TRAINER_SPRITE_PTR = 0x305654 + (8 * 72);
+var EMERALD_LEAF_TRAINER_SPRITE_PTR = 0x305654 + (8 * 90);
+
 // Fire Red hero offset unlz 3084 (e6718)
 // Emerald brandon offset unlz 1939 (d61a58)
-/*
-possible replacement brandon pallets
-1102
-1105
-
-1110
-1119
-1129
-1130
-
-
-possible may
-1110
-*/
 
 // may have to check with this
 //https://www.pokecommunity.com/showthread.php?t=456994

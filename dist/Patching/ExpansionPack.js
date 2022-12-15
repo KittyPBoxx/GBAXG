@@ -368,6 +368,10 @@ async function patchSprites() {
         exp.patchRomPtr32ByName("E", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
     });
 
+    // Fix Emerald Trainer Sprites
+    exp.patchRomPtr32("E", EMERALD_BRANDON_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_RED_TRAINER_SPRITE_PTR));
+    exp.patchRomPtr32("E", EMERALD_MAY_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_LEAF_TRAINER_SPRITE_PTR));
+
     // Backsprites
     Object.keys(E_BACKSPRITE_PTRS).forEach(k => {
         exp.patchRomPtr32ByName("E", E_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
