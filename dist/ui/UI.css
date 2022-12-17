@@ -15,6 +15,10 @@
     -webkit-backdrop-filter: blur(10px) saturate(0.8);
 }
 
+#main {
+    display: flex;
+}
+
 #menu {
     min-width: 75vw !important;
     min-height: 75vh !important;
