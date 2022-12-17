@@ -1490,7 +1490,7 @@ var FIRE_RED_WARPS =
     "FR,1,38,0" : {
         "name": "DIGGLET CAVE - INSIDE - Vermillion Side Enterance - 4,6",
         "level": "3", 
-        "to" : "FR,1,37,1",
+        "to" : "FR,3,29,0",
         "connections" : {
             "FR,1,38,1": true
         }
@@ -1498,7 +1498,7 @@ var FIRE_RED_WARPS =
     "FR,1,38,1" : {
         "name": "DIGGLET CAVE - INSIDE - Vermillion Side Ladder - 6,4",
         "level": "3", 
-        "to" : "FR,2,29,0",
+        "to" : "FR,1,37,1",
         "connections" : {
             "FR,1,38,0": true
         }
@@ -1512,6 +1512,7 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,3,5,4": true,
             "FR,1,5,1": true,
+            "FR,1,5,2": true,
             "FR,1,5,5": true,
             "FR,1,5,6": true,
             "FR,1,5,7": true,
@@ -1526,6 +1527,14 @@ var FIRE_RED_WARPS =
         "name": "S.S ANNE - INSIDE - F1 Kitchen Door - 2,12",
         "level": "3", 
         "to" : "FR,1,10,0",
+        "connections" : {
+            "FR,1,5,0": true,
+        }
+    },
+    "FR,1,5,2" : {
+        "name": "S.S ANNE - INSIDE - Exit - 13,1",
+        "level": "3", 
+        "to" : "FR,1,4,2",
         "connections" : {
             "FR,1,5,0": true,
         }
@@ -1723,7 +1732,7 @@ var FIRE_RED_WARPS =
     "FR,1,8,3" : {
         "name": "S.S ANNE - INSIDE - F4 (Bellow Deck) Cabin 3 - 6,2",
         "level": "3", 
-        "to" : "FR,1,25,0",
+        "to" : "FR,1,26,0",
         "connections" : {
             "FR,1,8,0": true
         }

@@ -6,7 +6,7 @@ Object.entries(EMERALD_WARPS).forEach(e => mixedGameData[e[0]] = e[1]);
 var remappingsData = {};
 var isHeadless = true;
 
-// WarpList used by Cheat.js
+// WarpList used by EmulationCoreHacks.js
 var warpList = new Map();
 
 function getMapData() {
