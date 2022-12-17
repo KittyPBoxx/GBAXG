@@ -360,11 +360,11 @@ function doNextMapping(rng, root, progressionState) {
       warp2 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
 
     } else {
+      //console.warn("Unevenly matched warps. " + warp1.data().id + " had to map to itself");
+      // warp2 = warp1
 
-      // if one warp is left hanging we connect it to itself
-      console.warn("Unevenly matched warps. " + warp1.data().id + " had to map to itself");
-      warp2 = warp1;
-
+      // if one warp is left hanging we connect it to altering cave from fire red
+      warp2 = cy.add(new WarpNode(['FR,1,122,0', getMapData()["FR,1,122,0"]]));
     }
 
     if (!warp1) {

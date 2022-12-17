@@ -73,6 +73,20 @@ In a full randomisation there are 24 Gyms, 12 E4, 3 Champions and 1 final boss (
 
 ---
 
+## Manually Confirmed Seeds
+
+Every seed should generate a completable map. However code can always have errors so I'm collecting a list of manually verified seeds 100% guarunteed to have a solution.  
+
+| Kanto Gym   | Jhoto Gym   | Hoenn Gym   | Seeds                                         |
+| ----------- | ----------- | ----------- | -----------                                   |
+| 1           | 1           | 1           | eevee, wooper, spoink, bidoof, lechonk, snom  |
+
+
+
+<br>
+
+---
+
 ## Current Cross-Game limitations
 
 - PC boxes are not accessible outside the current region/game.

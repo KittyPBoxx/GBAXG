@@ -4868,4 +4868,11 @@ var FIRE_RED_WARPS =
         "level": "9", 
         "to" : "FR,1,78,1",
     },
+    /* ALTERING CAVE  */
+    // Added when there's an odd number of warps
+    "FR,1,122,0" : {
+        "ignore": true,
+        "name" : "ALTERING CAVE - INSIDE - Enterance - 12,16",
+        "to" : "FR,3,58,0"
+    },
 }

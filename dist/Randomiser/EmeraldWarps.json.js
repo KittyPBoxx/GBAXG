@@ -3620,12 +3620,14 @@ var EMERALD_WARPS =
     },
 /* ROUTE 103 */ 
     "E,0,18,0" : {
-        "name": "RUSTURF TUNNEL - OUTSIDE - Altering Cave - 2D,6",
+        "ignore": true,
+        "name": "ALTERING CAVE - OUTSIDE - Altering Cave - 2D,6",
         "to" : "E,24,106,0"
         // Connects surf to oldale  normally to trick master
     },
 /* ALTERING CAVE */
     "E,24,106,0" : {
+        "ignore": true,
         "name" : "ALTERING CAVE - INSIDE - Enterance - 12,16",
         "to" : "E,0,18,0"
     },
