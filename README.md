@@ -1,6 +1,6 @@
 # GBAXG
 
-Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads and modifies Fire Red, Emerald and Crystal Dust ROMS so you can simultaneously play across Kanto, Jhoto and Hoenn. Memory is dynamically altered so you can keep your team, items, money and trainer data when moving between games/reigons.
+Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads and modifies Fire Red, Emerald and Crystal Dust ROMS so you can simultaneously play across Kanto, Jhoto and Hoenn. Memory is dynamically altered so you can keep your team, items, money and trainer data when moving between games/reigons. [Go To The Emulator](https://kittypboxx.github.io/GBAXG/build)
 
 ---
 
@@ -44,7 +44,7 @@ This project is currently in alpha development. It should be playable but you ma
 1. Legally backup a copy *Fire Red 1.1 (U)* [^1] and *Emerald (U)* [^2]
 2. Download Crystal Dust V2 patch from here [here](https://domoreaweso.me/games/pokemon-crystaldust). **Make sure to use V2 and not V3**  
 3. Use a [rom patcher](https://www.marcrobledo.com/RomPatcher.js/) to apply the Crystal Dust V2 patch to a copy of your Emerald (U). You should now have 3 roms.
-4. Open [the emulator](https://kittypboxx.github.io/GBAXG/) in [Chrome](https://www.google.com/intl/en_uk/chrome/) (**Edge is not supported**) [^4]  
+4. Open [the emulator](https://kittypboxx.github.io/GBAXG/build) in [Chrome](https://www.google.com/intl/en_uk/chrome/) (**Edge is not supported**) [^4]  
 5. Load each rom into the correct slot. Crystal and Emerald will need to run some initialisation code when they are loaded
 6. When all 3 roms are loaded press 'start' and it should boot into a new game of Fire Red 
 
