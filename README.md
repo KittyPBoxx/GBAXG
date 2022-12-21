@@ -22,7 +22,7 @@ Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads an
 
 This project is currently in alpha development. It should be playable but you may encounter some bugs. Initially only warps up to the first gyms in each game will be enabled. More sections will be added as they are tested and seeds can be manually validated for them. The current progress can be seen here:
 
-| Progression  | FR Warps Added | FR Warps Checked  | FR Seeds Verified | C Warps Added | C Warps Checked | C Warps Verified | E Warps Added | E Warps Checked | E Warps Verified |
+| Progression  | FR Warps Added | FR Warps Checked  | FR Seeds Verified | C Warps Added | C Warps Checked | C Seeds Verified | E Warps Added | E Warps Checked | E Seeds Verified |
 | -----------  | -----------    | -----------       | -----------       | -----------   | -----------     | -----------      | -----------  | -----------      | -----------      |
 | To Gym 1     | &check;        | &check;           | &check;           | &check;       | &check;         | &check;          | &check;      | &check;          | &check;          |
 | To Gym 2     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
