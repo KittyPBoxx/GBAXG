@@ -49,7 +49,7 @@ var KEY_LOCATION_DATA =
     "PRYCE"              : "C,14,0,0",
     "CLAIR"              : "C,15,0,0",
     "E4 WILL"            : "C,16,0,0",
-    "E4 KOGA"            : "C,16,0,0",
+    "E4 KOGA"            : "C,16,1,0",
     "E4 BRUNO (C)"       : "C,16,2,0",
     "E4 KAREN"           : "C,16,3,0",
     "CHAMPION LANCE"     : "C,16,4,0", 
