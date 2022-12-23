@@ -555,7 +555,7 @@ var CRYSTAL_WARPS =
     },
     "C,0,23,2" : {
         "name": "ROUTE 36 - OUTSIDE - Route Connector Right - 10,8",
-        "level" : "4",
+        "level" : "3",
         "to" : "C,24,96,1",
         "connections": {
             "C,0,23,0": "SQUIRT_BOTTLE",
@@ -781,7 +781,7 @@ var CRYSTAL_WARPS =
 /* ROUTE 32 - EXT */
     "C,0,19,1" : {
         "name": "ROUTE 32 - OUTSIDE - PkCenter - D,4A",
-        "to" : "C,2,90,0",
+        "to" : "C,11,5,0",
         "level" : "2",
         "connections": {
             "C,0,19,0": true,
@@ -1032,6 +1032,7 @@ var CRYSTAL_WARPS =
     "C,3,6,0" : {
         "name": "AZALEA TOWN - INSIDE - Route Connector Left - 7,C",
         "to" : "C,24,11,0",
+        "level": "2",
         "connections": {
             "C,3,6,1": true
         }   
@@ -1039,6 +1040,7 @@ var CRYSTAL_WARPS =
     "C,3,6,1" : {
         "name": "AZALEA TOWN - INSIDE - Route Connector Right - 13,C",
         "to" : "C,0,11,5",
+        "level": "2",
         "connections": {
             "C,3,6,0": true
         }   
@@ -1105,7 +1107,7 @@ var CRYSTAL_WARPS =
         "name": "ROUTE 34 - OUTSIDE - Route connector - 10,24",
         "to" : "C,3,7,0",
         "level": "3",
-        "grouped" : ["C,3,7,1"],
+        "grouped" : ["C,0,21,1"],
         "groupMain" : true,
         "connections": {
             "C,0,21,2": true,
@@ -1152,18 +1154,13 @@ var CRYSTAL_WARPS =
     "C,22,0,1" : {
         "name": "ROUTE 34 - INSIDE - Day Care Left - 1,6",
         "to" : "C,0,21,2",
-        "level": "3",
-        "connections": {
-            "C,22,0,0": true
-        }   
+        "level": "3"
     },
     "C,22,0,0" : {
         "name": "ROUTE 34 - INSIDE - Day Care Bottom - 3,7",
         "to" : "C,0,21,3",
         "level": "3",
-        "connections": {
-            "C,22,0,1": true
-        }   
+        "ignore": true
     },
 /* GOLDENROD CITY - EXT */
     "C,0,3,11" : {
@@ -1208,7 +1205,7 @@ var CRYSTAL_WARPS =
     },
     "C,0,3,0" : {
         "name": "GOLDENROD CITY - OUTSIDE - GYM - 1B,9",
-        "to" : "C,3,11,0",
+        "to" : "C,11,3,0",
         "level": "3",
         "connections": {
             "C,0,3,3": true
@@ -1264,7 +1261,7 @@ var CRYSTAL_WARPS =
     },
     "C,0,3,7" : {
         "name": "GOLDENROD CITY - OUTSIDE - Center Right - 22,17",
-        "to" : "C,11,10,",
+        "to" : "C,11,10,0",
         "level": "3",
         "connections": {
             "C,0,0,3": true
@@ -1387,12 +1384,17 @@ var CRYSTAL_WARPS =
         "to" : "C,0,3,3",
         "level": "3",
         "connections": {
-            "C,11,2,2": true
+            "C,11,2,2": true,
+            "C,11,2,1": true
         }  
     },
     "C,11,2,1" : {
         "name": "GOLDENROD CITY - INSIDE - PkCenter Back - 7,8",
         "to" : "C,11,1,0",
+        "level": "3",
+        "connections": {
+            "C,11,2,0": true
+        }  
     },
     "C,11,2,2" : {
         "name": "GOLDENROD CITY - INSIDE - PkCenter Stairs - 7,8",
@@ -1405,6 +1407,7 @@ var CRYSTAL_WARPS =
     "C,11,1,0" : {
         "name": "GOLDENROD CITY - INSIDE - PkCenter Back Room - 7,8",
         "to" : "C,11,2,1",
+        "level": "3",
     },
     "C,8,0,0" : {
         "name": "GOLDENROD CITY - INSIDE - Left Bottom - 4,8",
@@ -1521,7 +1524,7 @@ var CRYSTAL_WARPS =
     },
     "C,24,53,2" : {
         "name": "RADIO TOWER - INSIDE - F2 Right Stairs - 17,5",
-        "to" : "C,24,3,1",
+        "to" : "C,24,53,1",
         "level": "3"
     },
 // F3    
@@ -1713,11 +1716,10 @@ var CRYSTAL_WARPS =
         "to" : "C,3,5,0",
         "level": "3"// Route 36
     },
-// Level 4
     "C,11,15,1" : {
         "name": "Route 35 - INSIDE - Route Connector Bottom (Golden Rod) - 4,9",
         "to" : "C,0,3,14",
-        "level": "4",
+        "level": "3",
         "connections": {
             "C,11,15,0": true,
         }   
@@ -1725,7 +1727,7 @@ var CRYSTAL_WARPS =
     "C,11,15,0" : {
         "name": "Route 35 - INSIDE - Route Connector Top (Golden Rod) - 4,1",
         "to" : "C,0,22,2",
-        "level": "4",
+        "level": "3",
         "connections": {
             "C,11,15,1": true,
         }   
@@ -1733,7 +1735,7 @@ var CRYSTAL_WARPS =
     "C,0,22,0" : {
         "name": "Route 35 - OUTSIDE - National Park Connector - B,5",
         "to" : "C,24,68,0",
-        "level": "4",
+        "level": "3",
         "grouped" : ["C,0,22,1"],
         "groupMain" : true,
         "connections": {
@@ -1744,13 +1746,13 @@ var CRYSTAL_WARPS =
     "C,0,22,1" : {
         "name": "Route 35 - OUTSIDE - National Park Connector - C,5",
         "to" : "C,24,68,0",
-        "level": "4",
+        "level": "3",
         "grouped" : ["C,0,22,0"]
     },
     "C,0,22,2" : {
         "name": "Route 35 - OUTSIDE - Route Connector Bottom - 11,21",
         "to" : "C,11,15,0",
-        "level": "4",
+        "level": "3",
         "grouped" : ["C,0,22,3"],
         "groupMain" : true,
         "connections": {
@@ -1760,13 +1762,13 @@ var CRYSTAL_WARPS =
     "C,0,22,3" : {
         "name": "Route 35 - OUTSIDE - Route Connector Bottom - 12,21",
         "to" : "C,11,15,0",
-        "level": "4",
+        "level": "3",
         "grouped" : ["C,0,22,3"]
     },
     "C,24,68,0" : {
         "name": "Route 35 - INSIDE - National Park Enterance Bottom - 3,8",
         "to" : "C,0,22,0",
-        "level": "4",
+        "level": "3",
         "connections": {
             "C,24,68,1": true,
         }   
@@ -1774,7 +1776,7 @@ var CRYSTAL_WARPS =
     "C,24,68,1" : {
         "name": "Route 35 - INSIDE - National Park Enterance Top - 3,1",
         "to" : "C,0,38,0",
-        "level": "4",
+        "level": "3",
         "connections": {
             "C,24,68,0": true,
         }   
@@ -1782,7 +1784,7 @@ var CRYSTAL_WARPS =
     "C,0,38,0" : {
         "name": "NATIONAL PARK - OUTSIDE - Bottom - C,2F",
         "to" : "C,24,68,1",
-        "level": "4",
+        "level": "3",
         "grouped" : ["C,0,38,1"],
         "groupMain" : true,
         "connections": {
@@ -1792,13 +1794,13 @@ var CRYSTAL_WARPS =
     "C,0,38,1" : {
         "name": "NATIONAL PARK - OUTSIDE - Bottom - D,2F",
         "to" : "C,24,68,1",
-        "level": "4",
+        "level": "3",
         "grouped" : ["C,0,38,0"]
     },
     "C,0,38,2" : {
         "name": "NATIONAL PARK - OUTSIDE - Top Right - 23,12",
         "to" : "C,24,96,0",
-        "level": "4",
+        "level": "3",
         "connections": {
             "C,0,38,0": true,
         }   
@@ -1806,7 +1808,7 @@ var CRYSTAL_WARPS =
     "C,24,96,0" : {
         "name": "Route 36 - INSIDE - National Park Connector Left - 1,5",
         "to" : "C,0,38,2",
-        "level": "4",
+        "level": "3",
         "connections": {
             "C,24,96,1": true,
         }   
@@ -1814,7 +1816,7 @@ var CRYSTAL_WARPS =
     "C,24,96,1" : {
         "name": "Route 36 - INSIDE - National Park Connector Right - A,5",
         "to" : "C,0,23,2",
-        "level": "4",
+        "level": "3",
         "connections": {
             "C,24,96,0": true,
         }   
