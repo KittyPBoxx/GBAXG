@@ -667,7 +667,7 @@ var EMERALD_WARPS =
             "E,0,19,1": true,
             "E,0,19,2": true,
             "E,0,31,0": true,
-            "E,0,31,1": true,
+            "E,0,31,1": "TALK_TO_STONE",
             "E,0,30,0":"HOENN_SURF"
         }
     },
@@ -744,7 +744,7 @@ var EMERALD_WARPS =
         "grouped": ["E,11,0,1"],
         "groupMain" : true,
         "connections": {
-            "E,11,0,2": true
+            "E,11,0,2": "TALK_TO_STONE"
         }
     },
     "E,11,0,1" : {

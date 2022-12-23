@@ -305,7 +305,7 @@ span.rom-status {
 }
 
 .state-button {
-    width: 9em;
+    width: 6em;
 }
 
 #eraseKeybinds,
@@ -452,6 +452,10 @@ span.rom-status {
 #autocomplete-items {
     font-family: 'RetroGaming';
     width: 10em;
+}
+
+#overrideNextWarp span {
+    white-space: nowrap;
 }
 
 .randomiser-buttons-row {

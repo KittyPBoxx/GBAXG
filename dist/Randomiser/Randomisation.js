@@ -368,7 +368,6 @@ function doNextMapping(rng, root, progressionState) {
     }
 
     if (!warp1) {
-      console.log("Issue Randomising Warps");
       
       if (accessibleNodes.size != 0) {
         console.log("Some accessible nodes were left:")
