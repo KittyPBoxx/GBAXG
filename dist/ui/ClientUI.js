@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     M.FormSelect.init(document.querySelectorAll('select'), {});
     debugConsole = M.Modal.init(document.getElementById('console'), {});
+
+    document.querySelectorAll("input[type=text]").forEach(e => e.addEventListener('focusin', (event) => userInputEnabled = false));
+    document.querySelectorAll("input[type=text]").forEach(e => e.addEventListener('focusout', (event) => userInputEnabled = true));
 });
 
 

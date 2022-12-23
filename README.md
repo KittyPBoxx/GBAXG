@@ -100,7 +100,6 @@ Every seed should generate a completable map. However code can always have error
 ## Known Issues
 
 - Bike everywhere dosn't work for the ladders in Fortree
-- Adding items cheat menu can cause the game to reset. To avoid this Save->Reset->Load Up the save before clicking 'add to bag'. 
 - E4 rooms sometimes make you walk into the void if entered from the top
 - Minor graphical glitches in Emerald e.g (reflection colours, rival batle sprites, exclamation mark colour)  
 - There's a random guy in Azalea who looks like Red and the game crashes if you speak to him...
