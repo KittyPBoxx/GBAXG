@@ -338,7 +338,7 @@ function doNextMapping(rng, root, progressionState) {
     
     let warp2 = null;
 
-    if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= 1) {
+    if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size >= 1) {
 
       // Add nodes that have multiple connections
       inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
