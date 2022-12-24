@@ -554,6 +554,7 @@ span.rom-status {
     height: 100%;
     top: 0;
     bottom: 0;
+    touch-action: manipulation;
 }
 
 .overlayControls button {
@@ -565,6 +566,7 @@ span.rom-status {
     color: white;
     font-size: 32px;
     border-radius: 2em;
+    touch-action: manipulation;
 }
 
 .touch-dpad {
