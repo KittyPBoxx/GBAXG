@@ -91,6 +91,14 @@ function registerGUIEvents() {
     addEvent("click", document.getElementById("eraseKeybinds"), () => {
         storageManager.delete("keybinds").then(() => location.reload(), () => location.reload());
     });
+    addEvent("click", document.getElementById("toggleScreenButtons"), () => {
+        let screenButtonsVisible = !(document.getElementById("overlayControls").getAttribute('hidden'))
+        if (!screenButtonsVisible) {
+            document.getElementById("overlayControls").removeAttribute('hidden');
+        } else {
+            document.getElementById("overlayControls").setAttribute('hidden', true);
+        }
+    });
 
     addEvent("click", document.getElementById("exportLastSave"), () => exportLastSaveData());
     addEvent("change", document.getElementById("latest_save_load"), importLastSaveData);
@@ -150,6 +158,24 @@ function registerGUIEvents() {
         randomWarpsEnabled = document.getElementById("enableWarpsCheckbox").checked;
     })
 
+    addEvent("click", document.getElementById("boostSwitch"), () => {
+        // Against all logic this seems to work
+        if(document.getElementById("boostSwitch").checked) {
+            let func = async() => {
+                IodineGUI.Iodine.play();
+                IodineGUI.Iodine.enableBoostPerformance();
+                await delay(200);
+                IodineGUI.Iodine.disableBoostPerformance();
+                IodineGUI.Iodine.setSpeed(1.1);
+            }
+            func();
+        } else {
+            IodineGUI.Iodine.enableBoostPerformance();
+            IodineGUI.Iodine.setSpeed(1)
+            IodineGUI.Iodine.enableAudio();
+            IodineGUI.Iodine.boostPerformance = false;
+        }
+    });
 
     addEvent("click", document.getElementById("disableWalls"), () => {
         walkThroughWalls = document.getElementById("disableWalls").checked;
@@ -327,6 +353,8 @@ function registerGUIEvents() {
         forceNextWarp = game + "," + bank + "," + map + "," + warp;
     });
 
+    setupTouchControls();
+
     addEvent("resize", window, resizeCanvasFunc);
 
     //Run on init as well:
@@ -338,6 +366,29 @@ function registerGUIEvents() {
     });    
 
     resizeCanvasFunc();
+}
+function setupTouchControls() {
+    addEvent("touchstart", document.getElementById("touch-up")   , () => CommandExecutor.execute("UpKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-up")   , () => CommandExecutor.execute("UpKeyUp"));
+    addEvent("touchstart", document.getElementById("touch-down") , () => CommandExecutor.execute("DownKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-down") , () => CommandExecutor.execute("DownKeyUp"));
+    addEvent("touchstart", document.getElementById("touch-left") , () => CommandExecutor.execute("LeftKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-left") , () => CommandExecutor.execute("LeftKeyUp"));
+    addEvent("touchstart", document.getElementById("touch-right"), () => CommandExecutor.execute("RightKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-right"), () => CommandExecutor.execute("RightKeyUp"));
+
+    addEvent("touchstart", document.getElementById("touch-start")  , () => CommandExecutor.execute("StartKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-start")  , () => CommandExecutor.execute("StartKeyUp"));
+    addEvent("touchstart", document.getElementById("touch-select") , () => CommandExecutor.execute("SelectKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-select") , () => CommandExecutor.execute("SelectKeyUp"));
+    addEvent("touchstart", document.getElementById("touch-menu")   , () => CommandExecutor.execute("toggleMenu"));
+
+    addEvent("touchstart", document.getElementById("touch-a") , () => CommandExecutor.execute("AKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-a") , () => CommandExecutor.execute("AKeyUp"));
+    addEvent("touchstart", document.getElementById("touch-b") , () => CommandExecutor.execute("BKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-b") , () => CommandExecutor.execute("BKeyUp"));
+    addEvent("touchstart", document.getElementById("touch-b") , () => CommandExecutor.execute("BKeyDown"));
+    addEvent("touchend"  , document.getElementById("touch-b") , () => CommandExecutor.execute("BKeyUp"));
 }
 function registerDefaultSettings() {
 

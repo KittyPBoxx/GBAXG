@@ -61,7 +61,7 @@ async function mapWarps(seed) {
 function generateRandomMappings(seed, mapData, flagData, config) {
     
     let rng = new RNG(getHash(seed));
-    let progressionState = initMappingGraph(mapData, isHeadless, new ProgressionState(flagData))
+    let progressionState = initMappingGraph(mapData, isHeadless, new ProgressionState(flagData, config))
 
     var moreWarpsToMap = true;
     while(moreWarpsToMap) {
@@ -101,7 +101,7 @@ function toMapBank(s) {
     return arr[0] + "," + arr[1] + "," + arr[2] 
 }
 
-function ProgressionState(flagData) {
+function ProgressionState(flagData, config) {
   this.remainingConditionalEdges = new Set();
   this.flags = new Set();
   this.flagData = flagData;
@@ -332,13 +332,13 @@ function doNextMapping(rng, root, progressionState) {
       return false; 
     }
 
-
     let warp1 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
     accessibleNodes.delete(warp1);
     
     let warp2 = null;
 
-    if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= 10) {
+    let useConditionalOverHubThreashold = 10;
+    if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= useConditionalOverHubThreashold) {
 
       // Add nodes that have multiple connections
       inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);

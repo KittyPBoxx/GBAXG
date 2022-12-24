@@ -271,6 +271,9 @@
                         </table>
                         </div>
                         <div class="menu-group dividerless right-align">
+                          <div class="btn-small right-align saveFileButton plaint-btn" id="toggleScreenButtons">
+                            <span>SCREEN BUTTONS</span>
+                          </div>
                           <div class="btn-small right-align" id="eraseKeybinds">
                             <span>RESET KEYBINDS</span>
                           </div>
@@ -492,13 +495,24 @@
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Hacks</h4><h5 class="right-menu-button">R</h5></div>
                         <div class="menu-group">
                           <div class="rom-header"><h5 class="bios-text">SPEEDUP AMOUNT</h5></div>
-                          <ul class="collection">
-                            <li class="collection-item speedup"        data-value="2">x2</li>
-                            <li class="collection-item speedup active" data-value="4">x4</li>
-                            <li class="collection-item speedup"        data-value="6">x6</li>
-                            <li class="collection-item speedup"        data-value="8">x8</li>
-                            <li class="collection-item speedup"        data-value="10">x10</li>
-                          </ul>
+                          <div class="speed-menu">
+                            <ul class="collection">
+                              <li class="collection-item speedup"        data-value="2">x2</li>
+                              <li class="collection-item speedup active" data-value="4">x4</li>
+                              <li class="collection-item speedup"        data-value="6">x6</li>
+                              <li class="collection-item speedup"        data-value="8">x8</li>
+                              <li class="collection-item speedup"        data-value="10">x10</li>
+                            </ul>
+                            <div class="switch hack-toggle boost-switch">
+                              <span>POTATO PC</span>
+                              <label>
+                                Off
+                                <input type="checkbox" id="boostSwitch">
+                                <span class="lever"></span>
+                                On
+                              </label>
+                            </div>
+                          </div>
                         </div> 
                         <div class="menu-group">
                           <div class="random-row">
@@ -617,6 +631,25 @@
                 <textarea id="consoleText" class="materialize-textarea">TODO: finish debug console</textarea>
               </div>
             </div>
+        </div>
+        <div class="overlayControls" id="overlayControls" hidden="true">
+          <div class="touch-dpad">
+            <button id="touch-up">↑</button><br>
+            <button id="touch-left">←</button>
+            <button id="touch-right">→</button><br>
+            <button id="touch-down">↓</button>
+        </div>
+        <div class="touch-buttons menu-buttons">
+            <button id="touch-select">SELECT</button> 
+            <button id="touch-start">START</button>
+            <button id="touch-menu">MENU</button>
+        </div>
+        <div class="touch-buttons ab-buttons">
+            <button id="touch-a">A</button>
+            <button id="touch-b">B</button><br>
+            <!-- <button id="touch-l">L</button>
+            <button id="touch-r">R</button> -->
+        </div>
         </div>
     </body>
 </html>

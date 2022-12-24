@@ -40,12 +40,15 @@ function GameBoyAdvanceEmulator() {
     this.calculateTimings();                  //Calculate some multipliers against the core emulator timer.
     this.generateCoreExposed();               //Generate a limit API for the core to call this shell object.
     this.saveStateManager = new SaveStateManager(this);
+    this.boostPerformance = false;
 }
 GameBoyAdvanceEmulator.prototype.generateCoreExposed = function () {
     var parentObj = this;
     this.coreExposed = {
         outputAudio:function (l, r) {
-            parentObj.outputAudio(l, r);
+            if(!this.boostPerformance) {
+                parentObj.outputAudio(l, r);
+            }
         },
         graphicsHandle:null,
         appendStartIterationSync:function (callback) {
@@ -127,16 +130,22 @@ GameBoyAdvanceEmulator.prototype.timerCallback = function (lastTimestamp) {
     }
 }
 GameBoyAdvanceEmulator.prototype.iterationStartSequence = function () {
-    this.calculateSpeedPercentage();                                    //Calculate the emulator realtime run speed heuristics.
+    if (!this.boostPerformance) {
+        this.calculateSpeedPercentage();                                    //Calculate the emulator realtime run speed heuristics.
+    }
     this.emulatorStatus = this.emulatorStatus | 0x2;                    //If the end routine doesn't unset this, then we are marked as having crashed.
-    this.audioUnderrunAdjustment();                                     //If audio is enabled, look to see how much we should overclock by to maintain the audio buffer.
-    this.audioPushNewState();                                           //Check to see if we need to update the audio core for any output changes.
+    if(!this.boostPerformance) {
+        this.audioUnderrunAdjustment();                                 //If audio is enabled, look to see how much we should overclock by to maintain the audio buffer.
+        this.audioPushNewState();                                       //Check to see if we need to update the audio core for any output changes.
+    }
     this.runStartJobs();                                                //Run various callbacks assigned from internal components.
 }
 GameBoyAdvanceEmulator.prototype.iterationEndSequence = function () {
     this.emulatorStatus = this.emulatorStatus & 0x1D;                   //If core did not throw while running, unset the fatal error flag.
     this.clockCyclesSinceStart = ((this.clockCyclesSinceStart | 0) + (this.CPUCyclesTotal | 0)) | 0;    //Accumulate tracking.
-    this.submitAudioBuffer();                                           //Flush audio buffer to output.
+    if (this.boostPerformance) {
+        //this.submitAudioBuffer();                                     //Flush audio buffer to output.
+    }
     this.runEndJobs();                                                  //Run various callbacks assigned from internal components.
 }
 GameBoyAdvanceEmulator.prototype.runStartJobs = function () {
@@ -290,8 +299,10 @@ GameBoyAdvanceEmulator.prototype.calculateTimings = function () {
     this.clocksPerMilliSecond = +((this.clocksPerSecond | 0) / 1000);
     this.CPUCyclesPerIteration = ((+this.clocksPerMilliSecond) * (+this.timerIntervalRate)) | 0;
     this.CPUCyclesTotal = this.CPUCyclesPerIteration | 0;
-    this.initializeAudioLogic();
-    this.reinitializeAudio();
+    if(!this.boostPerformance) {
+        this.initializeAudioLogic();
+        this.reinitializeAudio();
+    }
     this.invalidateMetrics();
 }
 GameBoyAdvanceEmulator.prototype.setIntervalRate = function (intervalRate) {
@@ -480,4 +491,15 @@ GameBoyAdvanceEmulator.prototype.toggleDynamicSpeed = function (dynamicSpeed) {
 }
 GameBoyAdvanceEmulator.prototype.toggleOffthreadGraphics = function (offthreadGfxEnabled) {
     this.settings.offthreadGfxEnabled = false//!!offthreadGfxEnabled;
+}
+GameBoyAdvanceEmulator.prototype.enableBoostPerformance = function() {
+    this.settings.dynamicSpeed = false;
+    this.boostPerformance = true;
+    this.disableAudio();
+    this.setSpeed(1.1);
+}
+GameBoyAdvanceEmulator.prototype.disableBoostPerformance = function() {
+    this.boostPerformance = false;
+    this.enableAudio();
+    this.setSpeed(1);
 }

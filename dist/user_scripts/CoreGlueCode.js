@@ -157,12 +157,6 @@ function registerBlitterHandler() {
     IodineGUI.Blitter = new GfxGlueCode(240, 160);
     IodineGUI.Blitter.attachCanvas(document.getElementById("emulator_target"));
     IodineGUI.Iodine.attachGraphicsFrameHandler(IodineGUI.Blitter);
-    IodineGUI.Blitter.attachGfxPostCallback(function () {
-        if (IodineGUI.currentSpeed[0]) {
-            var speedDOM = document.getElementById("speed");
-            speedDOM.textContent = "Speed: " + IodineGUI.currentSpeed[1] + "%";
-        }
-    });
 }
 function registerAudioHandler() {
     var Mixer = new GlueCodeMixer(document.getElementById("play"));
