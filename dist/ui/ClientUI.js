@@ -329,3 +329,10 @@ function displayHint(e) {
   let hint = getHint(e.currentTarget.getAttribute("data-location"));
   target.innerHTML = hint;
 }
+
+document.addEventListener('swiped-down', e => {
+  console.log(e.detail.yEnd - e.detail.yStart)
+  if (e.detail.yEnd - e.detail.yStart > 250) { 
+    toggleMenu()
+  }
+});

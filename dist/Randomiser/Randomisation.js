@@ -105,8 +105,76 @@ function ProgressionState(flagData, config) {
   this.remainingConditionalEdges = new Set();
   this.flags = new Set();
   this.flagData = flagData;
+  this.config = config;
+  // Locations that may grant further progress
   this.unmarkedLocations = new Map(Object.entries(flagData.LOCATIONS_TRIGGER));
   this.unmarkedFlags = new Map(Object.entries(flagData.COMPOSITE_FLAGS));
+  // Locations that will not grant progress but should be included anyway
+  this.unmarkedKeyLocations = new Map(Object.entries(flagData.KEY_LOCATIONS))
+}
+
+ProgressionState.prototype.makeFinalLocationsKey = function (config) {
+
+  let finalLocations = [];
+
+  switch(this.config.kantoLevel) {
+    case "1": finalLocations.push(HINTABLE_LOCATIONS["BROCK"])   ; break;
+    case "2": finalLocations.push(HINTABLE_LOCATIONS["MISTY"])   ; break;
+    case "3": finalLocations.push(HINTABLE_LOCATIONS["LT SURGE"]); break; 
+    case "4": finalLocations.push(HINTABLE_LOCATIONS["ERIKA"])   ; break;
+    case "5": finalLocations.push(HINTABLE_LOCATIONS["KOGA"])    ; break;
+    case "6": finalLocations.push(HINTABLE_LOCATIONS["SABRIBA"]) ; break;
+    case "7": finalLocations.push(HINTABLE_LOCATIONS["BLAINE"])  ; break;
+    case "8": finalLocations.push(HINTABLE_LOCATIONS["GIOVANNI"]); break;
+    case "9": 
+    case "0": 
+    case "10":
+    default: 
+      // E4 and upwards are key locations not progression anyway  
+      break;
+  }
+
+  switch(this.config.jhotoLevel) {
+    case "1": finalLocations.push(HINTABLE_LOCATIONS["FALKNER"]); break;
+    case "2": finalLocations.push(HINTABLE_LOCATIONS["BUGSY"])  ; break;
+    case "3": finalLocations.push(HINTABLE_LOCATIONS["WHITNEY"]); break; 
+    case "4": finalLocations.push(HINTABLE_LOCATIONS["MORTY"])  ; break;
+    case "5": finalLocations.push(HINTABLE_LOCATIONS["CHUCK"])  ; break;
+    case "6": finalLocations.push(HINTABLE_LOCATIONS["JASMINE"]); break;
+    case "7": finalLocations.push(HINTABLE_LOCATIONS["PRYCE"])  ; break;
+    case "8": finalLocations.push(HINTABLE_LOCATIONS["CLAIR"])  ; break;
+    case "9": 
+    case "0": 
+    case "10": 
+    default:
+      // E4 and upwards are key locations not progression anyway  
+      break;
+  }
+
+  switch(this.config.hoennLevel) {
+    case "1": finalLocations.push(HINTABLE_LOCATIONS["ROXANNE"])      ; break;
+    case "2": finalLocations.push(HINTABLE_LOCATIONS["BRAWLY"])       ; break;
+    case "3": finalLocations.push(HINTABLE_LOCATIONS["WATTSON"])      ; break; 
+    case "4": finalLocations.push(HINTABLE_LOCATIONS["FLANNERY"])     ; break;
+    case "5": finalLocations.push(HINTABLE_LOCATIONS["NORMAN"])       ; break;
+    case "6": finalLocations.push(HINTABLE_LOCATIONS["WINONA"])       ; break;
+    case "7": finalLocations.push(HINTABLE_LOCATIONS["TATE AND LIZA"]); break;
+    case "8": finalLocations.push(HINTABLE_LOCATIONS["JAUN"])         ; break;
+    case "9": 
+    case "0": 
+    case "10": 
+    default:
+      // E4 and upwards are key locations not progression anyway  
+      break;
+  }
+
+  finalLocations.forEach(l => {
+    if (this.unmarkedLocations.has(l)) {
+      this.unmarkedKeyLocations.set(l, this.unmarkedLocations.get(l))
+      this.unmarkedLocations.delete(l);
+    }
+  })
+
 }
 
 /** 
@@ -327,6 +395,7 @@ function doNextMapping(rng, root, progressionState) {
     let accessibleNodes = findAccessibleUnmappedNodes(window.cy, root);
     let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp && !e.data().isMapped);
     let inaccesibleFlagLocations = inacessibleNodes.filter(n => progressionState.unmarkedLocations.has(n.data().id));
+    let inaccesibleKeyLocations = inacessibleNodes.filter(n => progressionState.unmarkedLocations.has(n.data().id));
 
     if(accessibleNodes.size == 0 && inacessibleNodes.length == 0) { 
       return false; 
@@ -348,6 +417,11 @@ function doNextMapping(rng, root, progressionState) {
 
       // Add inacessible dead-ends that might allow flags givinb access to new locations
       warp2 = inaccesibleFlagLocations[rng.nextRange(0, inaccesibleFlagLocations.length - 1)];
+
+    } else if (inaccesibleKeyLocations.length > 0) {
+
+      // Add key inacessible locations 
+      warp2 = inaccesibleKeyLocations[rng.nextRange(0, inaccesibleKeyLocations.length - 1)];
 
     } else if (inacessibleNodes.length > 0) {
 
@@ -586,6 +660,7 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
         cy.layout({name: 'cose-bilkent', animationDuration: 1000, nodeDimensionsIncludeLabels: true}).run();
     }
 
+    progressionState.makeFinalLocationsKey();
     return progressionState;
 }
 
