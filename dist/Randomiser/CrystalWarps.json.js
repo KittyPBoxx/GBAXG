@@ -112,6 +112,7 @@ var CRYSTAL_WARPS =
             "C,0,9,1": true,
             "C,0,17,0": true,
             "C,0,17,1": true,
+            "C,0,18,0": "SHOW_EGG_TO_ELM"
         }
     },
     "C,0,10,1" : {

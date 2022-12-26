@@ -230,6 +230,7 @@ var COMPOSITE_FLAGS = {
     // STORY
 
     "SAFFRON_DOORS"        : { "flag": "SAFFRON_DOORS"        , "condition"  : ["L_SILPH_CO"]                   },
+    "SHOW_EGG_TO_ELM"      : { "flag": "SHOW_EGG_TO_ELM"      , "condition"  : ["L_ELM_LAB"]                    },
     "ZEPHYR_BADGE"         : { "flag": "ZEPHYR_BADGE"         , "condition"  : ["L_VIOLET_CITY_GYM"]            },
     "TALK_TO_KURT"         : { "flag": "TALK_TO_KURT"         , "condition"  : ["L_KURT_HOUSE"]                 },
     "SLOWPOKE_WELL"        : { "flag": "SLOWPOKE_WELL"        , "condition"  : ["L_SLOWPOKE_WELL"]              },
@@ -259,6 +260,7 @@ var LOCATIONS_TRIGGER = {
     "FR,10,16,1": "L_CELADON_CITY_GYM",
     "FR,11,3,1" : "L_FUCHSIA_CITY_GYM",
 
+    "C,1,4,0"  : "L_ELM_LAB",
     "C,3,4,0"  : "L_KURT_HOUSE",
     "C,24,4,0" : "L_SLOWPOKE_WELL",
     "C,13,16,0": "L_GOLDENROD_DEPT_STORE",
