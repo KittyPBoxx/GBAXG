@@ -498,6 +498,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,15,2,1",
         "grouped" : ["FR,3,20,8"],
         "groupMain" : true,
+        "level": "3",
         "connections" : {
             "FR,3,20,2": "KANTO_CUT"
         }
@@ -505,18 +506,21 @@ var FIRE_RED_WARPS =
     "FR,3,20,8" : {
         "name": "ROUTE 2 - OUTSIDE - Right Route Connector (VIRIDIAN Side) - 13,2E",
         "to" : "FR,15,2,1",
+        "level": "3",
         "grouped" : ["FR,3,20,5"],
     },
     "FR,3,20,6" : {
         "name": "ROUTE 2 - OUTSIDE - Right Route Connector (PEWTER Side) - 12,29",
         "to" : "FR,15,2,3",
         "grouped" : ["FR,3,20,7"],
+        "level": "3",
         "groupMain" : true
     },
     "FR,3,20,7" : {
         "name": "ROUTE 2 - OUTSIDE - Right Route Connector (PEWTER Side) - 13,29",
         "to" : "FR,15,2,3",
         "grouped" : ["FR,3,20,6"],
+        "level": "3",
     },
     "FR,3,20,3" : {
         "name": "ROUTE 2 - OUTSIDE - Digglet Cave Enterance - 11,B",
@@ -580,22 +584,26 @@ var FIRE_RED_WARPS =
     "FR,15,2,0" : {
         "name": "ROUTE 2 - INSIDE - Right Route Connector - 6,A",
         "to" : "FR,3,20,5",
+        "level": "3",
         "grouped" : ["FR,15,2,1", "FR,15,2,2"]
     },
     "FR,15,2,1" : {
         "name": "ROUTE 2 - INSIDE - Right Route Connector - 7,A",
         "to" : "FR,3,20,5",
+        "level": "3",
         "grouped" : ["FR,15,2,0", "FR,15,2,2"],
         "groupMain" : true
     },
     "FR,15,2,2" : {
         "name": "ROUTE 2 - INSIDE - Right Route Connector - 8,A",
         "to" : "FR,3,20,5",
+        "level": "3",
         "grouped" : ["FR,15,2,0", "FR,15,2,1"]
     },
     "FR,15,2,3" : {
         "name": "ROUTE 2 - OUTSIDE - Right Route Connector - 7,1",
-        "to" : "FR,3,20,6"
+        "to" : "FR,3,20,6",
+        "level": "3",
     },
     "FR,15,3,0" : {
         "name": "ROUTE 2 - INSIDE - Left Route Connector (PEWTER Side) (Woods Exit) - 6,A",
@@ -903,7 +911,6 @@ var FIRE_RED_WARPS =
             "FR,3,3,12" : true,
             "FR,3,3,13" : true,
             "FR,3,44,0" : true,
-            "FR,3,22,1" : true,
             "FR,3,23,0" : "KANTO_CUT"
         }
     },
@@ -1877,7 +1884,7 @@ var FIRE_RED_WARPS =
     /* ROUTE 10 - EXT */
     "FR,3,28,0" : {
         "name": "ROUTE 10 - OUTSIDE - Rock Tunnel Top enterance - 8,13",
-        "level": "4", 
+        "level": "3", 
         "to" : "FR,1,81,0",
         "connections" : {
             "FR,3,28,3": true
@@ -1901,7 +1908,7 @@ var FIRE_RED_WARPS =
     },
     "FR,3,28,3" : {
         "name": "ROUTE 10 - OUTSIDE - Route 10 PkCenter - D,14",
-        "level": "4", 
+        "level": "3", 
         "to" : "FR,21,0,1",
         "connections" : {
             "FR,3,28,0": true,
@@ -1920,7 +1927,7 @@ var FIRE_RED_WARPS =
     /* ROUTE 10 - INT */
     "FR,21,0,1" : {
         "name": "ROUTE 10 - INSIDE - PkCenter Enterance - 7,8",
-        "level": "4", 
+        "level": "3", 
         "to" : "FR,3,28,3",
         "connections" : {
             "FR,21,0,3": true,
@@ -1929,7 +1936,7 @@ var FIRE_RED_WARPS =
     },
     "FR,21,0,3" : {
         "name": "ROUTE 10 - INSIDE - PkCenter Stairs - 1,6",
-        "level": "4", 
+        "level": "3", 
         "to" : "FR,21,1,0",
         "connections" : {
             "FR,21,0,1": true
@@ -1937,7 +1944,7 @@ var FIRE_RED_WARPS =
     },
     "FR,21,1,0" : {
         "name": "ROUTE 10 - INSIDE - PkCenter Upstairs - 1,6",
-        "level": "4", 
+        "level": "3", 
         "to" : "FR,21,0,3",
         "ignore": true
     },

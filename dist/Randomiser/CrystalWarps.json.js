@@ -1124,6 +1124,7 @@ var CRYSTAL_WARPS =
     "C,0,21,3" : {
         "name": "ROUTE 34 - OUTSIDE - Daycare Inside Fence - F,F",
         "to" : "C,22,0,0",
+        "ignore": true,
         "level": "3"
     },
     "C,0,21,2" : {
