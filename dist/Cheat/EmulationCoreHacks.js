@@ -722,7 +722,11 @@ BagStoreage.prototype.writeItemSection = function(save1Start, offset, length, st
 
         } else {
             // No more items to copy
-            break;
+            let item = ITEM_DATA.Nothing.number;
+            let quantity = 0;
+    
+            IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + i, item);
+            IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + i + 2, quantity);
         }
     }
 }

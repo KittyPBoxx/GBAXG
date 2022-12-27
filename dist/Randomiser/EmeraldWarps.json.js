@@ -3316,6 +3316,7 @@ var EMERALD_WARPS =
     "E,7,1,0" : {
         "name": "PACIFIDLOG TOWN - INSIDE - PkCenter Upstairs - 1,6",
         "level": "8", 
+        "ignore": true,
         "to" : "E,7,0,2",
     },
     "E,7,2,0" : {

@@ -241,6 +241,8 @@ var COMPOSITE_FLAGS = {
 
 }
 
+//TODO: add burned tower bottom as a requirement for morty 
+
 var LOCATIONS_TRIGGER = {
     "FR,1,47,1" : "L_SILPH_CO",
     "FR,5,3,1"  : "L_VIRIDIAN_MART",

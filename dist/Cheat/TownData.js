@@ -76,7 +76,7 @@ var KEY_LOCATION_DATA =
     "BRAWLY"           : "E,3,3,0"   ,
     "WATTSON"          : "E,10,0,0"  ,
     "FLANNERY"         : "E,4,1,0"   ,
-    "NORMAN"           : "E,8,1,37"  ,
+    "NORMAN"           : "E,8,1,0"   ,
     "WINONA"           : "E,12,1,0"  ,
     "TATE AND LIZA"    : "E,14,0,0"  ,
     "JAUN"             : "E,15,0,0"  , 
