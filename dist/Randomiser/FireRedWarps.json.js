@@ -4398,7 +4398,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,12,5,0",
         "connections" : {
             "FR,3,8,0": true,
-            "FR,3,8,1": true,
+            "FR,3,8,1": "CINNABAR_GYM_KEY",
             "FR,3,8,2": true,
             "FR,3,8,4": true,
             "FR,3,1,0": "KANTO_SURF",

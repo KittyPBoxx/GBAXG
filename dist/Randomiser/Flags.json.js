@@ -159,20 +159,21 @@ var COMPOSITE_FLAGS = {
 
     // ITEMS
 
-    "OAK_PARCEL"       : { "flag":"OAK_PARCEL"    , "condition" : ["L_VIRIDIAN_MART"]                                                                                              },
-    "SS_ANNE_TICKET"   : { "flag":"SS_ANNE_TICKET", "condition" : ["L_BILL_HOUSE"]                                                                                                 },
-    "POKE_FLUTE"       : { "flag":"POKE_FLUTE"    , "condition" : ["L_POKE_TOWER_TOP"]                                                                                             },
-    "BIKE_1"           : { "flag":"BIKE"          , "condition" : ["L_CERULEAN_BIKE_SHOP", "L_VERMILLION_FAN_CLUB"]                                                                },
-    "BIKE_2"           : { "flag":"BIKE"          , "condition" : ["L_GOLDENROD_BIKE_SHOP"]                                                                                        },
-    "BIKE_3"           : { "flag":"BIKE"          , "condition" : ["L_MAUVILLE_BIKE_SHOP"]                                                                                         },
-    "TEA"              : { "flag":"TEA"           , "condition" : ["L_CELADON_COMPLEX_F1"]                                                                                         },
-    "LIFT_KEY"         : { "flag":"LIFT_KEY"      , "condition" : ["L_CELADON_ROCKET_HIDEOUT_KEY_ROOM"]                                                                            },
-    "SILPH_SCOPE_1"    : { "flag":"SILPH_SCOPE"   , "condition" : ["L_CELADON_ROCKET_HIDEOUT_KEY_ROOM", "L_CELADON_ROCKET_HIDEOUT_F1"]                                             },
-    "SILPH_SCOPE_2"    : { "flag":"SILPH_SCOPE"   , "condition" : ["L_CELADON_ROCKET_HIDEOUT_KEY_ROOM", "L_CELADON_ROCKET_HIDEOUT_F2"]                                             },
-    "SQUIRT_BOTTLE_1"  : { "flag":"SQUIRT_BOTTLE" , "condition" : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ROUTE_36", "L_GOLDENROD_FLOWERSHOP"]       },
-    "SQUIRT_BOTTLE_2"  : { "flag":"SQUIRT_BOTTLE" , "condition" : ["L_ROUTE_104_FLOWER_SHOP"]                                                                                      },
-    "GO_GOGGLES"       : { "flag":"GO_GOGGLES"    , "condition" : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_LAVARIDGE_TOWN"] },
-    "DEVON_SCOPE"      : { "flag":"DEVON_SCOPE"   , "condition" : ["L_DEVEN_CORP_PRESIDENT_OFFICE"]                                                                                },
+    "OAK_PARCEL"       : { "flag":"OAK_PARCEL"      , "condition" : ["L_VIRIDIAN_MART"]                                                                                              },
+    "SS_ANNE_TICKET"   : { "flag":"SS_ANNE_TICKET"  , "condition" : ["L_BILL_HOUSE"]                                                                                                 },
+    "POKE_FLUTE"       : { "flag":"POKE_FLUTE"      , "condition" : ["L_POKE_TOWER_TOP"]                                                                                             },
+    "BIKE_1"           : { "flag":"BIKE"            , "condition" : ["L_CERULEAN_BIKE_SHOP", "L_VERMILLION_FAN_CLUB"]                                                                },
+    "BIKE_2"           : { "flag":"BIKE"            , "condition" : ["L_GOLDENROD_BIKE_SHOP"]                                                                                        },
+    "BIKE_3"           : { "flag":"BIKE"            , "condition" : ["L_MAUVILLE_BIKE_SHOP"]                                                                                         },
+    "TEA"              : { "flag":"TEA"             , "condition" : ["L_CELADON_COMPLEX_F1"]                                                                                         },
+    "CINNABAR_GYM_KEY" : { "flag":"CINNABAR_GYM_KEY", "condition" : ["L_POKEMON_MANSION_BASEMENT"]                                                                                   },
+    "LIFT_KEY"         : { "flag":"LIFT_KEY"        , "condition" : ["L_CELADON_ROCKET_HIDEOUT_KEY_ROOM"]                                                                            },
+    "SILPH_SCOPE_1"    : { "flag":"SILPH_SCOPE"     , "condition" : ["L_CELADON_ROCKET_HIDEOUT_KEY_ROOM", "L_CELADON_ROCKET_HIDEOUT_F1"]                                             },
+    "SILPH_SCOPE_2"    : { "flag":"SILPH_SCOPE"     , "condition" : ["L_CELADON_ROCKET_HIDEOUT_KEY_ROOM", "L_CELADON_ROCKET_HIDEOUT_F2"]                                             },
+    "SQUIRT_BOTTLE_1"  : { "flag":"SQUIRT_BOTTLE"   , "condition" : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ROUTE_36", "L_GOLDENROD_FLOWERSHOP"]       },
+    "SQUIRT_BOTTLE_2"  : { "flag":"SQUIRT_BOTTLE"   , "condition" : ["L_ROUTE_104_FLOWER_SHOP"]                                                                                      },
+    "GO_GOGGLES"       : { "flag":"GO_GOGGLES"      , "condition" : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_LAVARIDGE_TOWN"] },
+    "DEVON_SCOPE"      : { "flag":"DEVON_SCOPE"     , "condition" : ["L_DEVEN_CORP_PRESIDENT_OFFICE"]                                                                                },
         
     // HMS
 
@@ -256,6 +257,7 @@ var LOCATIONS_TRIGGER = {
     "FR,1,43,0" : "L_CELADON_ROCKET_HIDEOUT_F2",
     "FR,11,0,2" : "L_FUCHSIA_SAFARI_ZONE",
     "FR,1,11,0" : "L_SS_ANNE_CAPTAIN",
+    "FR,1,62,0" : "L_POKEMON_MANSION_BASEMENT",
     "FR,6,2,1"  : "L_PEWTER_CITY_GYM",
     "FR,7,5,1"  : "L_CERULEAN_GYM",
     "FR,9,6,1"  : "L_VERMILION_CITY_GYM",
