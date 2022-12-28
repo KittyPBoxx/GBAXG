@@ -75,7 +75,7 @@ In a full randomisation there are 24 Gyms, 12 E4, 3 Champions and 1 final boss (
 
 ## Manually Confirmed Seeds
 
-Manually confirmed seed files comming soon...
+In theory any seed should generate a mapping that is completable in order. However there may be bugs (especially during alpha development). A list of manually confirmed seed files can be found [here](https://kittypboxx.github.io/GBAXG/Seeds). These have been played and are confirmed to be completable.  
 
 <br>
 
