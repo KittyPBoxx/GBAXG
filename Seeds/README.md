@@ -1,19 +1,15 @@
 ## Validated Seeds
 
 ---
-<br>
 
 This page contains seed files that that have been manually validated as completable. These can be imported in the randomisation menu.
 
-<br>
-
 ---
-<br>
 
 ### Kanto Gym 1  -  Jhoto Gym 1  -  Hoenn Gym 1
 
-1. [Seed - Golduck](https://kittypboxx.github.io/GBAXG/Seeds/1-1-1/F1_C1_E1_golduck.json)
+1. <a href="https://kittypboxx.github.io/GBAXG/Seeds/1_1_1/F1_C1_E1_golduck.json" download>Seed - Golduck</a>
 
-2. [Seed - Spoink](https://kittypboxx.github.io/GBAXG/Seeds/1-1-1/F1_C1_E1_spoink.json)
+2. <a href="https://kittypboxx.github.io/GBAXG/Seeds/1_1_1/F1_C1_E1_spoink.json" download>Seed - Spoink</a>
 
-3. [Seed - Wooper](https://kittypboxx.github.io/GBAXG/Seeds/1-1-1/F1_C1_E1_wooper.json)
+3. <a href="https://kittypboxx.github.io/GBAXG/Seeds/1_1_1/F1_C1_E1_wooper.json" download>Seed - Wooper</a>
