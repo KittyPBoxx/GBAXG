@@ -422,9 +422,9 @@ const EMERALD_SAVE_2_PTR = 0x03005d90;
 // Name + Gender / If on bike or surfing
 const NAME_STATE_OFFSET = 0;
 const NAME_STATE_LENGTH = 9;
-// Trainer id and time (last 2 bytes button mode + text speed)
+// Trainer id and time (last 3 bytes button mode + text speed + sound/battle scene)
 const ID_TIME_OFFSET = 10;
-const ID_TIME_LENGTH = 11;
+const ID_TIME_LENGTH = 12;
 // XOR Key
 const FIRE_RED_XOR_KEY_OFFSET = 0x0F20;
 const FIRE_RED_XOR_KEY_LENGTH = 4;
