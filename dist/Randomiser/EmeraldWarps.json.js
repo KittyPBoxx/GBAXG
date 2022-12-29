@@ -3659,7 +3659,7 @@ var EMERALD_WARPS =
         "to" : "E,24,7,0",
         "level": "2", 
         "connections" : {
-            "E,0,0,3": true,
+            "E,0,11,1": true,
         }
     },
 /* GRANITE CAVE */  // MORE BIKE LOCKED CONNECTIONS
