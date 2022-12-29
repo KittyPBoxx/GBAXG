@@ -14,6 +14,12 @@ This page contains seed files that that have been manually validated as completa
 
 3. <a href="https://kittypboxx.github.io/GBAXG/Seeds/1_1_1/F1_C1_E1_wooper.json" download>Seed - Wooper</a>
 
+### Kanto Gym 2  -  Jhoto Gym 2  -  Hoenn Gym 2
+
+1. <a href="https://kittypboxx.github.io/GBAXG/Seeds/2_2_2/F2_C2_E2_flygon.json" download>Seed - Flygon</a>
+
+1. <a href="https://kittypboxx.github.io/GBAXG/Seeds/2_2_2/F2_C2_E2_vulpix.json" download>Seed - Vulpix</a>
+
 ### Kanto Gym 3  -  Jhoto Gym 3  -  Hoenn Gym 3
 
 1. <a href="https://kittypboxx.github.io/GBAXG/Seeds/3_3_3/F3_C3_E3_lechonk.json" download>Seed - Lechonk</a>
