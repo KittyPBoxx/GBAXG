@@ -931,7 +931,7 @@ var CRYSTAL_WARPS =
         "to" : "C,19,1,1",
         "level": "2",
         "connections": {
-            "C,3,1,0": true
+            "C,0,11,1": true
         }   
     },
 /* AZALEA TOWN - EXT */ 
