@@ -93,10 +93,10 @@ In theory any seed should generate a mapping that is completable in order. Howev
 
 ## Known Issues
 
-- Bike everywhere dosn't work for the ladders in Fortree
+- Bike everywhere dosn't work for the ladders in Fortree or Pacifidlog
 - E4 rooms sometimes make you walk into the void if entered from the top
 - Minor graphical glitches in Emerald e.g (reflection colours, rival batle sprites, exclamation mark colour)  
-- There's a random guy in Azalea who looks like Red and the game crashes if you speak to him...
+- There's a random guy in Azalea (and a route connector) who looks like Red and the game crashes if you speak to him...
 
 ---
 
@@ -113,6 +113,9 @@ In theory any seed should generate a mapping that is completable in order. Howev
 
 **Will this work with X Rom hack?**
 > Simple binary hacks *may* be compatible. Decomp hacks will probably **not** work without making changes to some of the hard coded ROM and RAM addresses in the following files: `WarpFixes, EmulationCoreHacks, SpriteOffsetData`
+
+**Can I play on mobile/tablet**
+> Maybe. The mod has been designed for and tested on desktop and requires a reasonable processor. However it may be able to run within some mobile browsers. A long swipe down can be used to open/close the main menu. On-screen keys can be activated from the controls screen. Some additional performance may be gained by activating 'Potato PC' mode from the hacks screen. This will disable audio and may cause frames to be missed.  
 
 --- 
 
