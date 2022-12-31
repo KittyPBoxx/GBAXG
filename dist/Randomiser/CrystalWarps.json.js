@@ -795,7 +795,7 @@ var CRYSTAL_WARPS =
         "level" : "1",
         "connections": {
             "C,0,0,3": true,
-            "C,0,19,1": "ZEPHYR_BADGE"
+            "C,0,19,1": "VIOLET_EGG"
         }   
     },
     "C,0,19,2" : {

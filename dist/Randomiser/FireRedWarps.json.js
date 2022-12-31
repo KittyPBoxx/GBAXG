@@ -881,7 +881,7 @@ var FIRE_RED_WARPS =
     "FR,3,3,1" : {
         "name": "CERULEAN CITY - OUTSIDE - Top Right (Robbed House)  - 1E,B",
         "to" : "FR,7,1,1",
-        "level" : "3",
+        "level" : "2",
         "connections" : {
             "FR,3,3,3" : true
         }
@@ -900,7 +900,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,7,3,1",
         "connections" : {
             "FR,3,3,0" : true,
-            "FR,3,3,1" : true,
+            "FR,3,3,1" : "SS_ANNE_TICKET",
             "FR,3,3,2" : true,
             "FR,3,3,4" : true,
             "FR,3,3,5" : true,
@@ -1982,6 +1982,14 @@ var FIRE_RED_WARPS =
             "to" : "FR,1,82,3",
             "connections" : {
                 "FR,1,81,5": true
+            }
+        },
+        "FR,1,81,5" : {
+            "name": "ROCK TUNNLE - INSIDE - F1 Bottom Enterance - 12,25",
+            "level": "4", 
+            "to" : "FR,3,28,1",
+            "connections" : {
+                "FR,1,81,4": true
             }
         },
         // F2

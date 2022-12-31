@@ -744,7 +744,7 @@ var EMERALD_WARPS =
         "grouped": ["E,11,0,1"],
         "groupMain" : true,
         "connections": {
-            "E,11,0,2": "TALK_TO_STONE"
+            "E,11,0,2": "RESCUE_PICO"
         }
     },
     "E,11,0,1" : {

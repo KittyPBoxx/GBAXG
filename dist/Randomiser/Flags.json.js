@@ -195,15 +195,14 @@ var COMPOSITE_FLAGS = {
 
     "JHOTO_ROCK_SMASH_1" : { "flag": "JHOTO_ROCK_SMASH" , "condition"  : ["L_MAUVILLE_CITY_ROCK_SMASH"]                                  }, 
     "JHOTO_ROCK_SMASH_2" : { "flag": "JHOTO_ROCK_SMASH" , "condition"  : ["SQUIRT_BOTTLE", "L_VIOLET_CITY"]                              }, 
-    "JHOTO_ROCK_SMASH_3" : { "flag": "JHOTO_ROCK_SMASH" , "condition"  : ["L_GOLDENROD_DEPT_STORE"]                                      }, 
 
     "JHOTO_STRENGTH_1"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
     "JHOTO_STRENGTH_2"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_OLIVINE_BAR"]         },
     "JHOTO_STRENGTH_3"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "HOENN_ROCK_SMASH"]      },
     
-    "JHOTO_SURF_1"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_KIMONO_GIRLS"]        },
-    "JHOTO_SURF_2"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
-    "JHOTO_SURF_3"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "HOENN_SURF"]            },
+    "JHOTO_SURF_1"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER_BOTTOM", "L_KIMONO_GIRLS"]        },
+    "JHOTO_SURF_2"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER_BOTTOM", "L_FUCHSIA_SAFARI_ZONE"] },
+    "JHOTO_SURF_3"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER_BOTTOM", "HOENN_SURF"]            },
 
     "JHOTO_SURF_AND_STRENGTH" : { "flag": "JHOTO_SURF_AND_STRENGTH"     , "condition"  : ["JHOTO_SURF", "JHOTO_STRENGTH"]        }, 
 
@@ -213,8 +212,7 @@ var COMPOSITE_FLAGS = {
     "JHOTO_WHIRLPOOL" : { "flag": "JHOTO_WHIRLPOOL" , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_CIANWOOD_CITY_GYM", "L_SECRET_MEDICINE", "L_LIGHTHOUSE_TOP", "L_OLIVINE_CITY_GYM", "L_MAHOGANY_TOWN_GYM", "L_BLACKTHORN_CITY_GYM"] },
 
     "HOENN_ROCK_SMASH_1" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_MAUVILLE_CITY_ROCK_SMASH"]     },
-    "HOENN_ROCK_SMASH_2" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_GOLDENROD_DEPT_STORE"]         },
-    "HOENN_ROCK_SMASH_3" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "SQUIRT_BOTTLE", "L_VIOLET_CITY"] },
+    "HOENN_ROCK_SMASH_2" : { "flag": "HOENN_ROCK_SMASH" , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "SQUIRT_BOTTLE", "L_VIOLET_CITY"] },
 
     "HOENN_STRENGTH_1" : { "flag": "HOENN_STRENGTH"     , "condition"  : ["L_RUSTURF_TUNNEL", "HOENN_ROCK_SMASH"]                                                                         },
     "HOENN_STRENGTH_2" : { "flag": "HOENN_STRENGTH"     , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
@@ -225,25 +223,26 @@ var COMPOSITE_FLAGS = {
     // TODO: no dive connections have been added yet
     "HOENN_DIVE"       : { "flag": "HOENN_DIVE"         , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_FORTREE_CITY_GYM", "L_MOSSDEEP_CITY_GYM", "L_MOSSDEEP_STEVEN_HOUSE", "L_SPACE_CENTER_TOP"] },
 
-    "HOENN_WATERFALL"  : { "flag": "HOENN_WATERFALL"     , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_FORTREE_CITY_GYM", "L_MOSSDEEP_CITY_GYM", "L_SOOTOPOLIS_CITY_GYM", "L_ICE_PATH_F1"] },
+    "HOENN_WATERFALL"  : { "flag": "HOENN_WATERFALL"   , "condition"   : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_FORTREE_CITY_GYM", "L_MOSSDEEP_CITY_GYM", "L_SOOTOPOLIS_CITY_GYM", "L_ICE_PATH_F1"] },
     // TODO Also all the flags you need to get waterfall in emerald
 
     // STORY
 
-    "SAFFRON_DOORS"        : { "flag": "SAFFRON_DOORS"        , "condition"  : ["L_SILPH_CO"]                   },
-    "SHOW_EGG_TO_ELM"      : { "flag": "SHOW_EGG_TO_ELM"      , "condition"  : ["L_ELM_LAB"]                    },
-    "ZEPHYR_BADGE"         : { "flag": "ZEPHYR_BADGE"         , "condition"  : ["L_VIOLET_CITY_GYM"]            },
-    "TALK_TO_KURT"         : { "flag": "TALK_TO_KURT"         , "condition"  : ["L_KURT_HOUSE"]                 },
-    "SLOWPOKE_WELL"        : { "flag": "SLOWPOKE_WELL"        , "condition"  : ["L_SLOWPOKE_WELL"]              },
-    "HOENN_POKEDEX"        : { "flag": "HOENN_POKEDEX"        , "condition"  : ["L_OLDALE_TOWN", "L_BIRCH_LAB"] },
-    "HOENN_CATCH_TUTORIAL" : { "flag": "HOENN_CATCH_TUTORIAL" , "condition"  : ["L_PETALBURG_GYM"]              },
-    "TALK_TO_STONE"        : { "flag": "TALK_TO_STONE"        , "condition"  : ["L_PRESIDENTS_OFFICE"]          },
-    // "RESCUE_PICO"        : { "flag": "RESCUE_PICO"           ,   "condition" : ["L_RUSTBORO_CITY_GYM", "L_RUSTBORO", "L_RUSTURF_TUNNEL"]},
+    "SAFFRON_DOORS"        : { "flag": "SAFFRON_DOORS"        , "condition"  : ["L_SILPH_CO"]                       },
+    "SHOW_EGG_TO_ELM"      : { "flag": "SHOW_EGG_TO_ELM"      , "condition"  : ["L_ELM_LAB"]                        },
+    "VIOLET_EGG"           : { "flag": "VIOLET_EGG"           , "condition"  : ["L_VIOLET_CITY_GYM", "L_VIOLET_PK"] },
+    "TALK_TO_KURT"         : { "flag": "TALK_TO_KURT"         , "condition"  : ["L_KURT_HOUSE"]                     },
+    "SLOWPOKE_WELL"        : { "flag": "SLOWPOKE_WELL"        , "condition"  : ["L_SLOWPOKE_WELL"]                  },
+    "HOENN_POKEDEX"        : { "flag": "HOENN_POKEDEX"        , "condition"  : ["L_OLDALE_TOWN", "L_BIRCH_LAB"]     },
+    "HOENN_CATCH_TUTORIAL" : { "flag": "HOENN_CATCH_TUTORIAL" , "condition"  : ["L_PETALBURG_GYM"]                  },
+    "TALK_TO_STONE"        : { "flag": "TALK_TO_STONE"        , "condition"  : ["L_PRESIDENTS_OFFICE"]              },
+    "RESCUE_PICO"          : { "flag": "RESCUE_PICO"          , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_RUSTBORO", "L_RUSTURF_TUNNEL"]                                                                         },
     "NEW_MAUVILL"          : { "flag": "NEW_MAUVILL"          , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_MAUVILLE_CITY"]}
 
 }
 
-//TODO: add burned tower bottom as a requirement for morty 
+//TODO: strength for chuck and clair
+//TODO: cut for erika
 
 var LOCATIONS_TRIGGER = {
     "FR,1,47,1" : "L_SILPH_CO",
@@ -266,11 +265,13 @@ var LOCATIONS_TRIGGER = {
     "FR,11,3,1" : "L_FUCHSIA_CITY_GYM",
 
     "C,1,4,0"  : "L_ELM_LAB",
+    "C,8,4,0"   : "L_VIOLET_PK",
     "C,3,4,0"  : "L_KURT_HOUSE",
     "C,24,4,0" : "L_SLOWPOKE_WELL",
     "C,13,16,0": "L_GOLDENROD_DEPT_STORE",
     "C,11,4,0" : "L_GOLDENROD_BIKE_SHOP",
     "C,0,0,3"  : "L_VIOLET_CITY",
+    "C,24,55,1": "L_BURNED_TOWER_BOTTOM",
     "C,4,4,0"  : "L_SECRET_MEDICINE",
     "C,24,51,0": "L_LIGHTHOUSE_TOP",
     "C,20,2,0" : "L_ICE_PATH_F1",
@@ -290,7 +291,7 @@ var LOCATIONS_TRIGGER = {
 
     "E,11,2,0" : "L_PRESIDENTS_OFFICE",
     "E,0,2,0"  : "L_MAUVILLE_CITY",
-    //"E,0,3,3" : "L_RUSTBORO",
+    "E,0,3,3"  : "L_RUSTBORO",
     "E,10,1,0" : "L_MAUVILLE_BIKE_SHOP",
     "E,17,1,0" : "L_ROUTE_104_FLOWER_SHOP",
     "E,1,4,0"  : "L_BIRCH_LAB",
