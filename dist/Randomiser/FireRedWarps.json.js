@@ -2145,7 +2145,7 @@ var FIRE_RED_WARPS =
     },
     "FR,3,30,3" : {
         "name": "ROUTE 12 - INSIDE - Route Connector Bottom - E,15",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,23,0,2",
         "connections" : {
             "FR,3,33,1": "POKE_FLUTE",
@@ -2413,7 +2413,7 @@ var FIRE_RED_WARPS =
             "FR,3,6,4": true
         }
     },
-    "FR,3,6,10" : {
+    "FR,3,6,11" : {
         "name": "CELADON CITY - OUTSIDE - Appartments Back - 1E,4",
         "level": "4", 
         "to" : "FR,10,7,5",
@@ -2808,7 +2808,7 @@ var FIRE_RED_WARPS =
     // F1
     "FR,1,88,1" : {
         "name": "POKEMON TOWER - INSIDE - F1 Enterance - B,12",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,3,4,0",
         "connections" : {
             "FR,1,88,3": true,
@@ -2816,7 +2816,7 @@ var FIRE_RED_WARPS =
     },
     "FR,1,88,3" : {
         "name": "POKEMON TOWER - INSIDE - F1 Stairs - 12,9",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,89,1",
         "connections" : {
             "FR,1,88,1": true,
@@ -2825,7 +2825,7 @@ var FIRE_RED_WARPS =
     // F2
     "FR,1,89,0" : {
         "name": "POKEMON TOWER - INSIDE - F2 Left - 4,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,90,0",
         "connections" : {
             "FR,1,89,1": true,
@@ -2833,7 +2833,7 @@ var FIRE_RED_WARPS =
     },
     "FR,1,89,1" : {
         "name": "POKEMON TOWER - INSIDE - F2 Right - 12,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,88,3",
         "connections" : {
             "FR,1,89,0": true,
@@ -2842,7 +2842,7 @@ var FIRE_RED_WARPS =
     // F3
     "FR,1,90,0" : {
         "name": "POKEMON TOWER - INSIDE - F3 Left - 4,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,89,0",
         "connections" : {
             "FR,1,90,1": true,
@@ -2850,7 +2850,7 @@ var FIRE_RED_WARPS =
     },
     "FR,1,90,1" : {
         "name": "POKEMON TOWER - INSIDE - F3 Right - 12,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,91,1",
         "connections" : {
             "FR,1,90,0": true,
@@ -2859,7 +2859,7 @@ var FIRE_RED_WARPS =
     // F4
     "FR,1,91,0" : {
         "name": "POKEMON TOWER - INSIDE - F4 Left - 4,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,92,0",
         "connections" : {
             "FR,1,91,1": true,
@@ -2867,7 +2867,7 @@ var FIRE_RED_WARPS =
     },
     "FR,1,91,1" : {
         "name": "POKEMON TOWER - INSIDE - F4 Right - 12,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,90,1",
         "connections" : {
             "FR,1,91,0": true,
@@ -2876,7 +2876,7 @@ var FIRE_RED_WARPS =
     // F5
     "FR,1,92,0" : {
         "name": "POKEMON TOWER - INSIDE - F5 Left - 4,A",
-        "level": "5",  
+        "level": "4",  
         "to" : "FR,1,91,0",
         "connections" : {
             "FR,1,92,1": true,
@@ -2884,7 +2884,7 @@ var FIRE_RED_WARPS =
     },
     "FR,1,92,1" : {
         "name": "POKEMON TOWER - INSIDE - F5 Right - 12,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,93,1",
         "connections" : {
             "FR,1,92,0": true,
@@ -2901,7 +2901,7 @@ var FIRE_RED_WARPS =
     },
     "FR,1,93,1" : {
         "name": "POKEMON TOWER - INSIDE - F6 Right - 12,A",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,1,92,1",
         "connections" : {
             "FR,1,93,0": "SILPH_SCOPE",
@@ -2916,7 +2916,7 @@ var FIRE_RED_WARPS =
     /* ROUTE 16 - EXT */
     "FR,3,34,0" : {
         "name": "ROUTE 16 - OUTSIDE - House - A,5",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,25,0,1",
         "connections" : {
             "FR,3,34,1": true,
@@ -2924,7 +2924,7 @@ var FIRE_RED_WARPS =
     },
     "FR,3,34,1" : {
         "name": "ROUTE 16 - OUTSIDE - Top Route Connector Left - 14,6",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,25,1,0",
         "connections" : {
             "FR,3,34,0": true,
@@ -2932,7 +2932,7 @@ var FIRE_RED_WARPS =
     },
     "FR,3,34,2" : {
         "name": "ROUTE 16 - OUTSIDE - Top Route Connector Right - 1B,6",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,25,1,1",
         "connections" : {
             "FR,3,6,4": "KANTO_CUT"
@@ -2957,12 +2957,12 @@ var FIRE_RED_WARPS =
     /* ROUTE 16 - INT */
     "FR,25,0,1" : {
         "name": "ROUTE 16 - INSIDE - House - 4,7",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,3,34,0",
     },
     "FR,25,1,0" : {
         "name": "ROUTE 16 - INSIDE - Top Left - 1,3",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,3,34,1",
         "connections" : {
             "FR,25,1,1": true,
@@ -2970,7 +2970,7 @@ var FIRE_RED_WARPS =
     },
     "FR,25,1,1" : {
         "name": "ROUTE 16 - INSIDE - Top Right - B,3",
-        "level": "5", 
+        "level": "4", 
         "to" : "FR,3,34,2",
         "connections" : {
             "FR,25,1,0": true,
