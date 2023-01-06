@@ -25,9 +25,9 @@ This project is currently in alpha development. It should be playable but you ma
 | Progression  | FR Warps Added | FR Warps Checked  | FR Seeds Verified | C Warps Added | C Warps Checked | C Seeds Verified | E Warps Added | E Warps Checked | E Seeds Verified |
 | -----------  | -----------    | -----------       | -----------       | -----------   | -----------     | -----------      | -----------  | -----------      | -----------      |
 | To Gym 1     | &check;        | &check;           | &check;           | &check;       | &check;         | &check;          | &check;      | &check;          | &check;          |
-| To Gym 2     | &check;        | &check;           | -                 | &check;       | &check;         | -                | &check;      | &check;          | -                |
-| To Gym 3     | &check;        | &check;           | -                 | &check;       | &check;         | -                | &check;      | &check;          | -                |
-| To Gym 4     | &check;        | -                 | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
+| To Gym 2     | &check;        | &check;           | &check;           | &check;       | &check;         | &check;          | &check;      | &check;          | &check;          |
+| To Gym 3     | &check;        | &check;           | &check;           | &check;       | &check;         | &check;          | &check;      | &check;          | &check;          |
+| To Gym 4     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
 | To Gym 5     | &check;        | -                 | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
 | To Gym 6     | &check;        | -                 | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
 | To Gym 7     | &check;        | -                 | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
