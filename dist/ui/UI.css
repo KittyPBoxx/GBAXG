@@ -531,8 +531,14 @@ span.rom-status {
 }
 
 .speed-menu .boost-switch {
-    margin-top: -0.5em;
+    margin-top: -1em;
     margin-left: auto;
+    margin-right: 4.5em;
+}
+
+.speed-menu .use-speedup {
+    margin-top: -1em;
+    margin-left: 3em;
     margin-right: 4.5em;
 }
 

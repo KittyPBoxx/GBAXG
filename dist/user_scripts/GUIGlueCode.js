@@ -177,6 +177,8 @@ function registerGUIEvents() {
         }
     });
 
+    addEvent("click", document.getElementById("useSpeedup"), () => { CommandExecutor.execute("SpeedUp") });
+
     addEvent("click", document.getElementById("disableWalls"), () => {
         walkThroughWalls = document.getElementById("disableWalls").checked;
     });

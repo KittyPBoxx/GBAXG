@@ -3108,7 +3108,7 @@ var FIRE_RED_WARPS =
     "FR,3,7,6" : {
         "name": "FUCHSIA CITY - OUTSIDE - PkCenter - 19,1F",
         "level": "5", 
-        "to" : "FR,11,4,1",
+        "to" : "FR,11,5,1",
         "connections" : {
             "FR,3,7,0": true,
             "FR,3,7,1": true,
@@ -3824,6 +3824,11 @@ var FIRE_RED_WARPS =
         "to" : "FR,17,1,2",
         "grouped" : ["FR,3,10,9"],
     },
+    "FR,3,10,14" : {
+        "name": "SAFFRON CITY - OUTSIDE - Left Of Mart - 2F,15",
+        "level": "6", 
+        "to" : "FR,14,9,0",
+    },
     /* SAFFRON - INT */
     "FR,14,0,1" : {
         "name": "SAFFRON CITY - INSIDE - Top Right House Enterance - 4,8",
@@ -3841,8 +3846,8 @@ var FIRE_RED_WARPS =
             "FR,14,0,1": true,
         }
     },
-    "FR,14,0,3" : {
-        "name": "SAFFRON CITY - INSIDE - Stairs - A,2",
+    "FR,14,1,0" : {
+        "name": "SAFFRON CITY - INSIDE - Upstairs - A,2",
         "level": "6", 
         "to" : "FR,14,0,3",
     },
@@ -3886,6 +3891,7 @@ var FIRE_RED_WARPS =
         "name": "SAFFRON CITY - INSIDE - PkCenter Upstairs - 1,6",
         "level": "6", 
         "to" : "FR,14,6,3",
+        "ignore": "true"
     },
     "FR,14,8,0" : {
         "name": "SAFFRON CITY - INSIDE - Bottom Right - 4,7",

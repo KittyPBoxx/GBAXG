@@ -8,6 +8,10 @@ function patchDuplicateWarps() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x085354C5 - 0x08000000, 0x34);
         // Duplicate Warp in seafloor cavern
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x085359E1 - 0x08000000, 0x32);
+
+        // Patch in cave of origin caves (from ruby/saphire) not present in emerald
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08535d4E - 0x08000000, 0x27);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08535dEE - 0x08000000, 0x29);  
     }
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {

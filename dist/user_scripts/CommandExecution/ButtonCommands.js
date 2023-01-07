@@ -42,7 +42,16 @@ CommandExecutor.register("L"     , args => IodineGUI.isPlaying ? keyPress(9) /* 
 
 /* Iodine functions */
 let speedUpSpeed = 4;
-CommandExecutor.register("SpeedUp", args => IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? speedUpSpeed : 1));
+CommandExecutor.register("SpeedUp", args => { 
+  IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? speedUpSpeed : 1);
+  document.getElementById("useSpeedup").checked = IodineGUI.Iodine.getSpeed() != 1;
+  let isPlaying = IodineGUI.isPlaying;
+  IodineGUI.Iodine.pause();
+  IodineGUI.Iodine.play();
+  if (!isPlaying) {
+    IodineGUI.Iodine.pause();
+  }
+});
 CommandExecutor.register("BigSpeedUp", args => IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? 10 : 1));
 CommandExecutor.register("Restart", args => restartFromLastSave());
 CommandExecutor.register("Start", args => IodineGUI.Iodine.play());

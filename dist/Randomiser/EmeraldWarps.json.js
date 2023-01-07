@@ -6417,6 +6417,7 @@ var EMERALD_WARPS =
         "level" : "8",
     },
 /* cave of origin */
+// F3, F4 and F5 are left over map data from Ruby and Saphire and don't actually appear in Emerald 
 // F1
     "E,24,37,0" : {
         "name" : "CAVE OF ORIGIN - INSIDE - F1 Bottom - 9,14",
@@ -6445,7 +6446,7 @@ var EMERALD_WARPS =
     },
     "E,24,38,1" : {
         "name" : "CAVE OF ORIGIN - INSIDE - F2 Top - E,5",
-        "to" : "E,24,42,0",
+        "to" : "E,24,39,0",
         "level" : "8",
         "connections" : {
             "E,24,38,0": true,
@@ -6505,7 +6506,7 @@ var EMERALD_WARPS =
 // F6
     "E,24,42,0" : {
         "name" : "CAVE OF ORIGIN - INSIDE - Wallice Cave - 9,3",
-        "to" : "E,24,38,1",
+        "to" : "E,24,41,1",
         "level" : "8",
     },
 /* Sky pillar */
