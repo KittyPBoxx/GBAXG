@@ -15,9 +15,19 @@ function patchDuplicateWarps() {
     }
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
-        // Not checked for version 1.0
 
-        // Pokemon Mansion Exit
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x083B0C90 - 0x08000000, 0x32);
+        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR") && IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            /* Is Version 1.1 */
+
+            // Pokemon Mansion Exit
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x083B0C95 - 0x08000000, 0x32);
+
+        } else {
+
+            // Pokemon Mansion Exit
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x083B0C20 - 0x08000000, 0x32);
+
+        }
+
     }
 }

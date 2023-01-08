@@ -32,7 +32,8 @@ var FIRE_RED_WARPS =
     },
     "FR,3,1,2" : {
         "name": "VIRIDIAN CITY - OUTSIDE - GYM - 24,A",
-        "to" : "FR,5,1,1"
+        "to" : "FR,5,1,1",
+        "level": "8", 
     },
     "FR,3,1,3" : {
         "name": "VIRIDIAN CITY - OUTSIDE - Bottom (School) - 19,12",
@@ -945,7 +946,7 @@ var FIRE_RED_WARPS =
     },
     "FR,3,3,7" : {
         "name": "CERULEAN CITY - OUTSIDE - Cerulean Cave Enterance  - 1,C",
-        "to" : "FR,7,6,1",
+        "to" : "FR,1,72,0",
         "level": "9", 
         "connections" : {
             "FR,3,3,3" : "KANTO_SURF"
@@ -4440,6 +4441,38 @@ var FIRE_RED_WARPS =
             "FR,12,1,5": true,
         }
     },
+    "FR,12,1,3" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab Corridor Left - D,5",
+        "level": "7", 
+        "to" : "FR,12,2,0",
+        "connections" : {
+            "FR,12,1,1": true
+        }
+    },
+    "FR,12,1,4" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab Corridor Center - 13,5",
+        "level": "7", 
+        "to" : "FR,12,3,0",
+        "connections" : {
+            "FR,12,1,1": true
+        }
+    },
+    "FR,12,1,4" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab Corridor Center - 13,5",
+        "level": "7", 
+        "to" : "FR,12,3,0",
+        "connections" : {
+            "FR,12,1,1": true
+        }
+    },
+    "FR,12,1,5" : {
+        "name": "CINNABAR ISLAND - INSIDE - Research Lab Corridor Right - 19,5",
+        "level": "7", 
+        "to" : "FR,12,4,0",
+        "connections" : {
+            "FR,12,1,1": true
+        }
+    },
     "FR,12,2,0" : {
         "name": "CINNABAR ISLAND - INSIDE - Research Lab Left - 7,9",
         "level": "7", 
@@ -4663,7 +4696,13 @@ var FIRE_RED_WARPS =
         "level": "9", 
         "to" : "FR,28,0,0",
     },
-    /* INDIGO PLATEAU */
+    /* INDIGO PLATEAU - EXT */
+    "FR,3,9,0" : {
+        "name": "ROUTE 23 - OUTSIDE - Indigo Plateau - 5,1C",
+        "level": "9", 
+        "to" : "FR,13,0,0",
+    },
+    /* INDIGO PLATEAU - INT */
     "FR,13,0,0" : {
         "name": "INDIGO PLATEAU - INSIDE - Indigo Plateau Enterance - B,10",
         "level": "9", 
@@ -4703,9 +4742,9 @@ var FIRE_RED_WARPS =
     "FR,1,39,0" : {
         "name": "VICTORY ROAD - INSIDE - Victory Road F1 Top Left - 3,2",
         "level": "9", 
-        "to" : "FR,1,40,6",
+        "to" : "FR,1,40,0",
         "connections" : {
-            "FR,1,39,1": true,
+            "FR,1,39,1": "KANTO_STRENGTH",
         }
     },
     "FR,1,39,1" : {
@@ -4713,7 +4752,7 @@ var FIRE_RED_WARPS =
         "level": "9", 
         "to" : "FR,3,42,0",
         "connections" : {
-            "FR,1,39,0": true,
+            "FR,1,39,0": "KANTO_STRENGTH",
         }
     },
     // F2
@@ -4722,9 +4761,7 @@ var FIRE_RED_WARPS =
         "level": "9", 
         "to" : "FR,1,39,0",
         "connections" : {
-            "FR,1,40,4": true,
-            "FR,1,40,2": true,
-            "FR,1,40,1": "KANTO_STRENGTH",
+            "FR,1,40,2": "KANTO_STRENGTH",
         }
     },
     "FR,1,40,1" : {
@@ -4740,8 +4777,7 @@ var FIRE_RED_WARPS =
         "level": "9", 
         "to" : "FR,1,41,1",
         "connections" : {
-            "FR,1,40,4": true,
-            "FR,1,40,0": true,
+            "FR,1,40,0": "KANTO_STRENGTH",
         }
     },
     "FR,1,40,3" : {
@@ -4755,11 +4791,7 @@ var FIRE_RED_WARPS =
     "FR,1,40,4" : {
         "name": "VICTORY ROAD - INSIDE - Victory Road F2 Center Bottom - 24,11",
         "level": "9", 
-        "to" : "FR,1,41,3",
-        "connections" : {
-            "FR,1,40,0": true,
-            "FR,1,40,2": true,
-        }
+        "to" : "FR,1,41,3"
     },
     "FR,1,40,6" : {
         "name": "VICTORY ROAD - INSIDE - Victory Road F2 Left Exit - 30,C",
@@ -4774,9 +4806,8 @@ var FIRE_RED_WARPS =
         "level": "9", 
         "to" : "FR,1,41,4",
         "connections" : {
-            "FR,1,40,4": true,
             "FR,1,40,2": true,
-            "FR,1,40,0": true,
+            "FR,1,40,0": "KANTO_STRENGTH",
         }
     },
     // F3
@@ -4786,7 +4817,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,1,40,1",
         "connections" : {
             "FR,1,41,1": true,
-            "FR,1,41,4": true,
+            "FR,1,41,4": "KANTO_STRENGTH",
         }
     },
     "FR,1,41,1" : {
@@ -4795,7 +4826,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,1,40,2",
         "connections" : {
             "FR,1,41,0": true,
-            "FR,1,41,4": true,
+            "FR,1,41,4": "KANTO_STRENGTH",
         }
     },
     "FR,1,41,2" : {
@@ -4881,5 +4912,121 @@ var FIRE_RED_WARPS =
         "ignore": true,
         "name" : "ALTERING CAVE - INSIDE - Enterance - 12,16",
         "to" : "FR,3,58,0"
+    },
+    /* CERULEAN CAVE  */
+    // F1
+    "FR,1,72,0" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Enterance - 21,15",
+        "level": "9", 
+        "to" : "FR,3,3,7",
+        "connections" : {
+            "FR,1,72,1": "KANTO_SURF",
+            "FR,1,72,3": "KANTO_SURF",
+        }
+    },
+    "FR,1,72,1" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Ladder Top Right - 22,2",
+        "level": "9", 
+        "to" : "FR,1,73,0",
+        "connections" : {
+            "FR,1,72,0": "KANTO_SURF",
+            "FR,1,72,3": "KANTO_SURF",
+        }
+    },
+    "FR,1,72,2" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Top Left Ladder Down - 1,7",
+        "level": "9", 
+        "to" : "FR,1,74,0",
+        "connections" : {
+            "FR,1,72,7": true,
+        }
+    },
+    "FR,1,72,3" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Ladder Top Middle - A,2",
+        "level": "9", 
+        "to" : "FR,1,73,1",
+        "connections" : {
+            "FR,1,72,0": "KANTO_SURF",
+            "FR,1,72,1": "KANTO_SURF",
+            "FR,1,72,4": true,
+            "FR,1,72,5": true,
+            "FR,1,72,6": true,
+
+        }
+    },
+    "FR,1,72,4" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Bottom Left - 5,F",
+        "level": "9", 
+        "to" : "FR,1,73,2",
+        "connections" : {
+            "FR,1,72,3": true,
+        }
+    },
+    "FR,1,72,5" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Middle Right - 1E,A",
+        "level": "9", 
+        "to" : "FR,1,73,3",
+        "connections" : {
+            "FR,1,72,3": true,
+        }
+    },
+    "FR,1,72,6" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Center - 18,B",
+        "level": "9", 
+        "to" : "FR,1,73,4",
+        "connections" : {
+            "FR,1,72,3": true,
+        }
+    },
+    "FR,1,72,7" : {
+        "name": "CERULEAN CAVE - INSIDE - F1 Top Left Ladder Up - 2,4",
+        "level": "9", 
+        "to" : "FR,1,73,5",
+        "connections" : {
+            "FR,1,72,2": true,
+        }
+    },
+    // F2
+    "FR,1,73,0" : {
+        "name": "CERULEAN CAVE - INSIDE - F2 Top Right - 21,4",
+        "level": "9", 
+        "to" : "FR,1,72,1"
+    },
+    "FR,1,73,1" : {
+        "name": "CERULEAN CAVE - INSIDE - F2 Top Middle - D,4",
+        "level": "9", 
+        "to" : "FR,1,72,3"
+    },
+    "FR,1,73,2" : {
+        "name": "CERULEAN CAVE - INSIDE - F2 Bottom Left - 7,E",
+        "level": "9", 
+        "to" : "FR,1,72,4"
+    },
+    "FR,1,73,3" : {
+        "name": "CERULEAN CAVE - INSIDE - F2 Middle Right - 1A,9",
+        "level": "9", 
+        "to" : "FR,1,72,5"
+    },
+    "FR,1,73,4" : {
+        "name": "CERULEAN CAVE - INSIDE - F2 Middle Middle - 17,A",
+        "level": "9", 
+        "to" : "FR,1,72,6",
+        "connections" : {
+            "FR,1,73,5": true,
+        }
+    },
+    "FR,1,73,5" : {
+        "name": "CERULEAN CAVE - INSIDE - F2 Top Left - 5,6",
+        "level": "9", 
+        "to" : "FR,1,72,7",
+        "connections" : {
+            "FR,1,73,4": true,
+        }
+    },
+    // F3
+    "FR,1,74,0" : {
+        "name": "CERULEAN CAVE - INSIDE - F3 Ladder - 5,7",
+        "level": "9", 
+        "to" : "FR,1,72,2"
     },
 }

@@ -30,9 +30,9 @@ This project is currently in alpha development. It should be playable but you ma
 | To Gym 4     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
 | To Gym 5     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
 | To Gym 6     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
-| To Gym 7     | &check;        | -                 | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
-| To Gym 8     | &check;        | -                 | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
-| To Champ     | &check;        | -                 | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
+| To Gym 7     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
+| To Gym 8     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
+| To Champ     | &check;        | &check;           | -                 | &check;       | -               | -                | &check;      | &check;          | -                |
 | Sevii        | -              | -                 | -                 | N/A           | N/A             | N/A              | N/A          | N/A              | N/A              |
 
 
@@ -116,6 +116,9 @@ In theory any seed should generate a mapping that is completable in order. Howev
 
 **Can I play on mobile/tablet**
 > Maybe. The mod has been designed for and tested on desktop and requires a reasonable processor. However it may be able to run within some mobile browsers. A long swipe down can be used to open/close the main menu. On-screen keys can be activated from the controls screen. Some additional performance may be gained by activating 'Potato PC' mode from the hacks screen. This will disable audio and may cause frames to be missed.  
+
+**It gets stuck saying 'Initialising' for Emerald/Crystal**
+> The first time Emerald/Crystal are loaded (after erasing data) save data needs to be loaded in the background. This isn't the case for Fire Red as you manually create a new game. Initialising the roms should generally not take more than 30 seconds the first time they are loaded and should be instant after. If the initilisation is taking a long time/appears to be stuck you should refresh the page and try again. Less powerful devices (such as tablets) may run out of resources during initilisation and fail. As a work-around you can start the game on a more powerful device, save the game and export the save file ('EXPORT LAST'). You can then import this on your less powerful device BEFORE loading the roms and initilisation will be skipped.   
 
 --- 
 
