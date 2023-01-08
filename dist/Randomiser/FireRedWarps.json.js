@@ -3298,7 +3298,7 @@ var FIRE_RED_WARPS =
     },
     "FR,3,38,1" : {
         "name": "ROUTE 20 - OUTSIDE - Seafoam Right - 48,E",
-        "level": "6", 
+        "level": "7", 
         "to" : "FR,1,83,4",
         "connections" : {
             "FR,3,8,3" : "KANTO_SURF"
@@ -3629,7 +3629,7 @@ var FIRE_RED_WARPS =
     "FR,1,86,5" : {
         "name": "SEAFOAM ISLAND - INSIDE - Water Drop - 17,9",
         "level": "6", 
-        "to" : "FR,1,85,7",
+        "to" : "FR,1,85,9",
         "grouped" : ["FR,1,86,6"],
         "groupMain" : true,
         "connections" : {
@@ -3643,7 +3643,7 @@ var FIRE_RED_WARPS =
     "FR,1,86,6" : {
         "name": "SEAFOAM ISLAND - INSIDE - Water Drop - 18,9",
         "level": "6", 
-        "to" : "FR,1,85,8",
+        "to" : "FR,1,85,10",
         "grouped" : ["FR,1,86,5"]
     },
     "FR,1,86,7" : {
@@ -3951,10 +3951,8 @@ var FIRE_RED_WARPS =
             "FR,1,52,2": true,
             "FR,1,52,3": true,
             "FR,1,53,0": true,
-            "FR,1,53,1": true,
             "FR,1,53,2": true,
             "FR,1,53,3": true,
-            "FR,1,53,4": true,
             "FR,1,54,0": true,
             "FR,1,54,1": true,
             "FR,1,54,2": true,
@@ -3971,7 +3969,6 @@ var FIRE_RED_WARPS =
             "FR,1,56,3": true,
             "FR,1,56,4": true,
             "FR,1,57,0": true,
-            "FR,1,57,1": true,
         }
     },
     // F2
