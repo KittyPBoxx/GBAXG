@@ -2326,7 +2326,6 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F2 Hole - 11,2",
         "to" : "C,24,46,3",
         "level": "6",
-        "groupMain" : true,
         "grouped" : ["C,24,47,2"]
     },
     "C,24,47,4" : {
@@ -2348,7 +2347,7 @@ var CRYSTAL_WARPS =
     // F3
     "C,24,48,0" : {
         "name": "LIGHTHOUSE - INSIDE - F3 Left Stairs - 3E,3",
-        "to" : "C,1,99,4",
+        "to" : "C,24,47,1",
         "level": "6",
         "connections": {
             "C,24,48,1": true,
@@ -2380,10 +2379,9 @@ var CRYSTAL_WARPS =
     },
     "C,24,48,4" : {
         "name": "LIGHTHOUSE - INSIDE - F3 Hole - 10,B",
-        "to" : "C,24,47,4",
+        "to" : "C,24,47,5",
         "level": "6",
-        "groupMain" : true,
-        "grouped" : ["C,24,48,4"],
+        "grouped" : ["C,24,48,3"],
         "connections": {
             "C,24,48,0": true
         } 
