@@ -1941,7 +1941,7 @@ var CRYSTAL_WARPS =
     },
     "C,9,11,2" : {
         "name": "ECRUTEAK CITY - INSIDE - PkCenter Stairs - 1,6",
-        "to" : "C,9,11,0",
+        "to" : "C,9,12,0",
         "level": "4",
         "connections": {
             "C,9,11,0": true,
@@ -1979,6 +1979,15 @@ var CRYSTAL_WARPS =
         "to" : "C,0,1,2",
         "level": "4",
         "connections": {
+            "C,24,54,2": true,
+        }   
+    },
+    "C,24,54,1" : {
+        "name": "ECRUTEAK CITY - INSIDE - Burned Tower F1 Enterance - 7,11",
+        "to" : "C,24,55,0",
+        "level": "4",
+        "connections": {
+            "C,24,54,0": true,
             "C,24,54,2": true,
         }   
     },
@@ -2045,16 +2054,16 @@ var CRYSTAL_WARPS =
     // I think in the rom you are not supposed to be able to get through here
 // TOWER    
     // F1
-    // "C,24,6,0" : {
-    //     "name": "ECRUTEAK CITY - INSIDE - Tin Tower F1 Enterance - 7,10",
-    //     "to" : "C,0,1,3",
-    //     "level": "5",
-    // },
+    "C,24,6,0" : {
+        "name": "ECRUTEAK CITY - INSIDE - Tin Tower F1 Enterance - 7,10",
+        "to" : "C,0,1,3",
+        "level": "5",
+    },
 // LEVEL 5
 /* ROUTE 38 - EXT */
     "C,0,25,0" : {
         "name": "ROUTE 38 - OUTSIDE - Route Connector - 23,A",
-        "to" : "C,2,21,0",
+        "to" : "C,29,11,0",
         "level": "5",
         "connections": {
             "C,0,26,1": true,
@@ -2069,7 +2078,7 @@ var CRYSTAL_WARPS =
             "C,29,11,1": true,
         }   
     },
-    "C,29,11,0" : {
+    "C,29,11,1" : {
         "name": "ROUTE 38 - INSIDE - Route Connector Right - B,5",
         "to" : "C,0,1,10",
         "level": "5",
@@ -2217,7 +2226,7 @@ var CRYSTAL_WARPS =
             "C,0,2,1": true
         } 
     },
-    "C,10,5,1" : {
+    "C,10,5,2" : {
         "name": "OLIVINE CITY - INSIDE - PkCenter Stairs - 1,6",
         "to" : "C,10,6,0",
         "level": "5",
@@ -2629,7 +2638,7 @@ var CRYSTAL_WARPS =
     },
     "C,0,12,3" : {
         "name": "CIANWOOD CITY - OUTSIDE - PkCenter - 1C,2B",
-        "to" : "C,4,4,0",
+        "to" : "C,4,5,0",
         "level": "5",
         "connections": {
             "C,0,12,0": true,
@@ -2690,7 +2699,7 @@ var CRYSTAL_WARPS =
             "C,0,12,3": true
         }   
     },
-    "C,4,5,1" : {
+    "C,4,5,2" : {
         "name": "CIANWOOD CITY - INSIDE - PkCenter Stairs - 1,6",
         "to" : "C,4,6,0",
         "level": "5",
@@ -3091,7 +3100,7 @@ var CRYSTAL_WARPS =
         "to" : "C,0,14,1",
         "level": "7"
     },
-    "C,31,11,0" : {
+    "C,6,7,0" : {
         "name": "LAKE OF RAGE - INSIDE - Top House - 4,8",
         "to" : "C,0,14,0",
         "level": "7"
