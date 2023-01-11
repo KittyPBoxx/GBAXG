@@ -2868,12 +2868,30 @@ var CRYSTAL_WARPS =
         "to" : "C,24,15,5",
         "level": "7",
         "connections": {
-            "C,24,16,3": true
+            "C,24,16,3": true,
+            "C,24,16,4": true,
+            "C,24,16,5": true
         }   
     },
     "C,24,16,3" : {
         "name": "MOUNT MORTAR - INSIDE - F2 Bottom Ladder Right - 21,29",
         "to" : "C,24,15,6",
+        "level": "7",
+        "connections": {
+            "C,24,16,2": true
+        }   
+    },
+    "C,24,16,4" : {
+        "name": "MOUNT MORTAR - INSIDE - F2 Bottom Door Left - B,2F",
+        "to" : "C,24,15,3",
+        "level": "7",
+        "connections": {
+            "C,24,16,2": true
+        }   
+    },
+    "C,24,16,5" : {
+        "name": "MOUNT MORTAR - INSIDE - F2 Bottom Dorr Right - 1D,2F",
+        "to" : "C,24,15,4",
         "level": "7",
         "connections": {
             "C,24,16,2": true
@@ -2985,7 +3003,7 @@ var CRYSTAL_WARPS =
             "C,0,13,2": true
         }   
     },
-    "C,5,4,1" : {
+    "C,5,4,2" : {
         "name": "MAGOGANY TOWN - INSIDE - PkCenter Stairs - 1,6",
         "to" : "C,5,5,0",
         "level": "7",
@@ -2993,7 +3011,7 @@ var CRYSTAL_WARPS =
             "C,5,4,0": true
         }   
     },
-    "C,5,4,2" : {
+    "C,5,6,0" : {
         "name": "MAGOGANY TOWN - INSIDE - Right House - 3,7",
         "to" : "C,0,13,3",
         "level": "7",
@@ -3789,7 +3807,7 @@ var CRYSTAL_WARPS =
     },
     "C,24,34,7" : {
         "name": "WHIRL ISLANDS - INSIDE - F5 Bottom Left Ladder Up - 9,1F",
-        "to" : "C,24,32,1",
+        "to" : "C,24,33,1",
         "level": "8",
     },
     "C,24,34,8" : {
