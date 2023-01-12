@@ -188,6 +188,10 @@ var COMPOSITE_FLAGS = {
     "KANTO_SURF_1"       : { "flag": "KANTO_SURF"       , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_VERMILION_CITY_GYM", "L_CELADON_CITY_GYM", "L_FUCHSIA_CITY_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
     "KANTO_SURF_2"       : { "flag": "KANTO_SURF"       , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_VERMILION_CITY_GYM", "L_CELADON_CITY_GYM", "L_FUCHSIA_CITY_GYM", "L_KIMONO_GIRLS"]        },
     "KANTO_SURF_3"       : { "flag": "KANTO_SURF"       , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_VERMILION_CITY_GYM", "L_CELADON_CITY_GYM", "L_FUCHSIA_CITY_GYM", "HOENN_SURF"]            },
+
+    "JHOTO_FLASH_1"      : { "flag": "JHOTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_SPROUT_TOWER_TOP"]      },
+    "JHOTO_FLASH_2"      : { "flag": "JHOTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_FLASH_ROUTE_CONNECTOR"] }, 
+    "JHOTO_FLASH_3"      : { "flag": "JHOTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_GRANITE_CAVE_F1"]       }, 
     
     "JHOTO_CUT_1"        : { "flag": "JHOTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_SS_ANNE_CAPTAIN"] },
     "JHOTO_CUT_2"        : { "flag": "JHOTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_ILEX_FOREST"]     }, 
@@ -246,6 +250,7 @@ var COMPOSITE_FLAGS = {
 
 var LOCATIONS_TRIGGER = {
     "FR,1,47,1" : "L_SILPH_CO",
+    "FR,15,2,3" : "L_FLASH_ROUTE_CONNECTOR",
     "FR,5,3,1"  : "L_VIRIDIAN_MART",
     "FR,30,0,1" : "L_BILL_HOUSE",
     "FR,1,94,0" : "L_POKE_TOWER_TOP",
@@ -265,7 +270,8 @@ var LOCATIONS_TRIGGER = {
     "FR,11,3,1" : "L_FUCHSIA_CITY_GYM",
 
     "C,1,4,0"  : "L_ELM_LAB",
-    "C,8,4,0"   : "L_VIOLET_PK",
+    "C,24,25,0": "L_SPROUT_TOWER_TOP",
+    "C,8,4,0"  : "L_VIOLET_PK",
     "C,3,4,0"  : "L_KURT_HOUSE",
     "C,24,4,0" : "L_SLOWPOKE_WELL",
     "C,13,16,0": "L_GOLDENROD_DEPT_STORE",
@@ -290,6 +296,7 @@ var LOCATIONS_TRIGGER = {
     "C,15,0,0" : "L_BLACKTHORN_CITY_GYM",
 
     "E,11,2,0" : "L_PRESIDENTS_OFFICE",
+    "E,24,7,0" : "L_GRANITE_CAVE_F1",
     "E,0,2,0"  : "L_MAUVILLE_CITY",
     "E,0,3,3"  : "L_RUSTBORO",
     "E,10,1,0" : "L_MAUVILLE_BIKE_SHOP",

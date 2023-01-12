@@ -845,15 +845,16 @@ var CRYSTAL_WARPS =
     },
     // Bottom Right Cave
     "C,24,93,0" : {
-        "name": "RUINS OF ALPH - INSIDE - Left Center Enterance - 4,9",
+        "name": "RUINS OF ALPH - INSIDE - Bottom Right Enterance - 4,9",
         "level" : "8",
         "to" : "C,24,86,9",
         "connections": {
             "C,24,93,2": true,
+            "C,24,93,1": "JHOTO_FLASH"
         }   
     },
     "C,24,93,2" : {
-        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 3,4",
+        "name": "RUINS OF ALPH - INSIDE - Bottom Right Drop - 3,4",
         "level" : "8",
         "to" : "C,24,87,5",
         "grouped": ["C,24,93,3", "C,24,93,4"],
@@ -863,16 +864,24 @@ var CRYSTAL_WARPS =
         }   
     },
     "C,24,93,3" : {
-        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 4,4",
+        "name": "RUINS OF ALPH - INSIDE - Bottom Right Drop - 4,4",
         "level" : "8",
         "to" : "C,24,87,5",
         "grouped": ["C,24,93,2", "C,24,93,4"]
     },
     "C,24,93,4" : {
-        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 5,4",
+        "name": "RUINS OF ALPH - INSIDE - Bottom Right Drop - 5,4",
         "level" : "8",
         "to" : "C,24,87,6",
         "grouped": ["C,24,93,2", "C,24,93,3"]
+    },
+    "C,24,93,1" : {
+        "name": "RUINS OF ALPH - INSIDE - Bottom Right Flash Door - 4,1",
+        "level" : "8",
+        "to" : "C,24,89,1",
+        "connections": {
+            "C,24,93,0": true,
+        }   
     },
     // Hidden Room Top Left
     "C,24,89,0" : {
@@ -2645,7 +2654,6 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F4 Bottom Hole - 11,9",
         "to" : "C,24,48,8",
         "level": "6",
-        "groupMain" : true,
         "grouped" : ["C,24,49,6"]
     },
     "C,24,49,8" : {
@@ -3940,7 +3948,7 @@ var CRYSTAL_WARPS =
     },
     "C,24,34,4" : {
         "name": "WHIRL ISLANDS - INSIDE - F5 Center Left Ladder - 19,15",
-        "to" : "C,24,34,4",
+        "to" : "C,24,35,0",
         "level": "8", 
         "connections": {
             "C,24,34,0": true,
@@ -4022,6 +4030,12 @@ var CRYSTAL_WARPS =
             "C,24,35,0": "JHOTO_WATERFALL",
             "C,24,35,2": "JHOTO_SURF",
         }   
+    },
+    // F8
+    "C,24,67,0" : {
+        "name": "WHIRL ISLANDS - INSIDE - F8 Enterance - A,D",
+        "to" : "C,24,35,2",
+        "level": "8",   
     },
 /* ROUTE 27 - EXT */
     "C,0,35,0" : {
@@ -4152,7 +4166,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,45,2",
         "level": "9",
         "connections": {
-            "C,24,44,0": true,
+            "C,24,44,3": true
         }  
     },
     "C,24,44,2" : {
