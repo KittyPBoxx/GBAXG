@@ -419,7 +419,7 @@ var CRYSTAL_WARPS =
         "to" : "C,1,5,0",
         "grouped": ["C,0,33,1"]
     },
-    "C,3,33,0" : {
+    "C,0,33,0" : {
         "name": "ROUTE 46 - OUTSIDE - Dark Cave Enterance - 10,7",
         "to" : "C,24,7,1",
         "level" : "8",
@@ -524,12 +524,12 @@ var CRYSTAL_WARPS =
     // F2
     "C,24,8,0" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave F2 Bottom - 6,1C",
-        "to" : "C,1,1,1",
+        "to" : "C,24,7,2",
         "level" : "8",
     },
     "C,24,8,1" : {
         "name": "ROUTE 31 - INSIDE - Dark Cave F2 Top - 1A,6",
-        "to" : "C,3,67,",
+        "to" : "C,0,32,0",
         "level" : "8",
         "connections" : {
             "C,24,8,0": "JHOTO_SURF"
@@ -736,6 +736,7 @@ var CRYSTAL_WARPS =
     "C,24,87,3" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Center Left Drop - 3,10",
         "to" : "C,X,X,2",
+        "level" : "8",
         "grouped": ["C,24,87,4"],
         "groupMain" : true,
         "connections": {
@@ -745,6 +746,7 @@ var CRYSTAL_WARPS =
     "C,24,87,4" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Center Left Drop - 4,10",
         "to" : "C,X,X,2",
+        "level" : "8",
         "grouped": ["C,24,87,3"],
     },
     "C,24,87,5" : {
@@ -752,6 +754,7 @@ var CRYSTAL_WARPS =
         "to" : "C,X,X,3",
         "grouped": ["C,24,87,6"],
         "groupMain" : true,
+        "level" : "8",
         "connections": {
             "C,24,87,0": true,
         }   
@@ -759,11 +762,13 @@ var CRYSTAL_WARPS =
     "C,24,87,6" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Right Drop - 10,18",
         "to" : "C,X,X,3",
+        "level" : "8",
         "grouped": ["C,24,87,5"],
     },
     "C,24,87,7" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 3,16",
         "to" : "C,X,X,4",
+        "level" : "8",
         "grouped": ["C,24,87,8"],
         "groupMain" : true,
         "connections": {
@@ -773,12 +778,164 @@ var CRYSTAL_WARPS =
     "C,24,87,8" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 4,16",
         "to" : "C,X,X,4",
+        "level" : "8",
         "grouped": ["C,24,87,7"],
     },
     // Left Center Cave
+    "C,24,85,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Enterance - 4,9",
+        "level" : "8",
+        "to" : "C,24,86,6",
+        "connections": {
+            "C,24,85,2": true,
+        }   
+    },
+    "C,24,85,2" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 3,4",
+        "level" : "8",
+        "to" : "C,24,87,3",
+        "grouped": ["C,24,85,3", "C,24,85,4"],
+        "groupMain" : true,
+        "connections": {
+            "C,24,85,0": true,
+        }   
+    },
+    "C,24,85,3" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 4,4",
+        "level" : "8",
+        "to" : "C,24,87,3",
+        "grouped": ["C,24,85,2", "C,24,85,4"]
+    },
+    "C,24,85,4" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 5,4",
+        "level" : "8",
+        "to" : "C,24,87,4",
+        "grouped": ["C,24,85,2", "C,24,85,3"]
+    },
     // Left Bottom Cave
+    "C,24,84,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Enterance - 4,9",
+        "level" : "8",
+        "to" : "C,24,86,8",
+        "connections": {
+            "C,24,84,2": true,
+        }   
+    },
+    "C,24,84,2" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 3,4",
+        "level" : "8",
+        "to" : "C,24,87,7",
+        "grouped": ["C,24,84,3", "C,24,84,4"],
+        "groupMain" : true,
+        "connections": {
+            "C,24,84,0": true,
+        }   
+    },
+    "C,24,84,3" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 4,4",
+        "level" : "8",
+        "to" : "C,24,87,7",
+        "grouped": ["C,24,84,2", "C,24,84,4"]
+    },
+    "C,24,84,4" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 5,4",
+        "level" : "8",
+        "to" : "C,24,87,8",
+        "grouped": ["C,24,84,2", "C,24,84,3"]
+    },
     // Bottom Right Cave
-    // Hidden Rooms
+    "C,24,93,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Enterance - 4,9",
+        "level" : "8",
+        "to" : "C,24,86,9",
+        "connections": {
+            "C,24,93,2": true,
+        }   
+    },
+    "C,24,93,2" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 3,4",
+        "level" : "8",
+        "to" : "C,24,87,5",
+        "grouped": ["C,24,93,3", "C,24,93,4"],
+        "groupMain" : true,
+        "connections": {
+            "C,24,93,0": true,
+        }   
+    },
+    "C,24,93,3" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 4,4",
+        "level" : "8",
+        "to" : "C,24,87,5",
+        "grouped": ["C,24,93,2", "C,24,93,4"]
+    },
+    "C,24,93,4" : {
+        "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 5,4",
+        "level" : "8",
+        "to" : "C,24,87,6",
+        "grouped": ["C,24,93,2", "C,24,93,3"]
+    },
+    // Hidden Room Top Left
+    "C,24,89,0" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Left Enterance - 4,9",
+        "level" : "8",
+        "to" : "C,24,88,1",
+        "connections": {
+            "C,24,89,4": true,
+        }   
+    },
+    "C,24,89,4" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Left Drop - 3,4",
+        "level" : "8",
+        "to" : "C,24,90,0",
+        "grouped": ["C,24,89,5", "C,24,89,6"],
+        "groupMain" : true,
+        "connections": {
+            "C,24,89,0": true,
+        }   
+    },
+    "C,24,89,5" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Left Drop - 4,4",
+        "level" : "8",
+        "to" : "C,24,90,1",
+        "grouped": ["C,24,89,4", "C,24,89,6"]
+    },
+    "C,24,89,6" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Left Drop - 5,4",
+        "level" : "8",
+        "to" : "C,24,90,2",
+        "grouped": ["C,24,89,4", "C,24,89,5"]
+    },
+    // Hidden Room Top Right
+    "C,24,89,1" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Right Enterance - 4,9",
+        "level" : "8",
+        "to" : "C,24,93,1",
+        "connections": {
+            "C,24,89,7": true,
+        }   
+    },
+    "C,24,89,7" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Right Drop - 3,4",
+        "level" : "8",
+        "to" : "C,24,91,0",
+        "grouped": ["C,24,89,8", "C,24,89,9"],
+        "groupMain" : true,
+        "connections": {
+            "C,24,89,1": true,
+        }   
+    },
+    "C,24,89,8" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Right Drop - 4,4",
+        "level" : "8",
+        "to" : "C,24,91,1",
+        "grouped": ["C,24,89,7", "C,24,89,9"]
+    },
+    "C,24,89,9" : {
+        "name": "RUINS OF ALPH - INSIDE - Hidden Top Right Drop - 5,4",
+        "level" : "8",
+        "to" : "C,24,91,2",
+        "grouped": ["C,24,89,7", "C,24,89,8"]
+    },
 /* ROUTE 32 - EXT */
     "C,0,19,1" : {
         "name": "ROUTE 32 - OUTSIDE - PkCenter - D,4A",
