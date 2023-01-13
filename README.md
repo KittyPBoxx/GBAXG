@@ -109,7 +109,7 @@ In theory any seed should generate a mapping that is completable in order. Howev
 > Not at the moment. This may be added in future.
 
 **Can I randomise the pokemon?**
-> Maybe. You will need to randomise each rom seperately. [This](http://artemis251.fobby.net/downloads/emerald/) randomiser semms to work with Crystal Dust and Emerald (from the brief tests I did). 
+> Randomised roms have not had much testing and may produce bugs. However you can use [this](https://kittypboxx.github.io/GBAXG/upr/UniversalPokemonRandomizer.zip) randomiser to randomise the roms. You will need to modify each rom separately before loading them. The Randomiser is a copy of *Universal Pokemon Randomizer - ZX* that has been modified so that it hopfully won't crash when used on Crystal Dust V2. Compatibility with Crystal Dust V2 will probably not be 100% as I only made changes to help prevent crashing, I've not specifically added offsets e.t.c for things like static encounters.         
 
 **Will this work with X Rom hack?**
 > Simple binary hacks *may* be compatible. Decomp hacks will probably **not** work without making changes to some of the hard coded ROM and RAM addresses in the following files: `WarpFixes, EmulationCoreHacks, SpriteOffsetData`
@@ -129,6 +129,7 @@ In theory any seed should generate a mapping that is completable in order. Howev
 <br>
 *Crystal Dust V2 was created by Sierraffinity (domoreaweso.me)*<br>
 *IodineGBA (the core emulator) was created by Grant Galitz (taisel)* <br>
+*Universal Pokemon Randomizer ZX was created by Ajarmar* <br>
 
 ---
 
