@@ -2,6 +2,10 @@
 
 Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads and modifies Fire Red, Emerald and Crystal Dust ROMS so you can simultaneously play across Kanto, Jhoto and Hoenn. Memory is dynamically altered so you can keep your team, items, money and trainer data when moving between games/reigons. [Go To The Emulator](https://kittypboxx.github.io/GBAXG/build)
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/89883734/212461211-d80a84f4-8b99-48c8-aec2-0c0506ff77cc.gif" />
+</p>
+
 ---
 
 ## Emulation/Game Features
@@ -21,6 +25,7 @@ Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads an
 ## Progress
 
 This project is currently in alpha development. It should be playable but you may encounter some bugs. Initially only warps up to the first gyms in each game will be enabled. More sections will be added as they are tested and seeds can be manually validated for them. The current progress can be seen here:
+
 
 | Progression  | FR Warps Added | FR Warps Checked  | FR Seeds Verified | C Warps Added | C Warps Checked | C Seeds Verified | E Warps Added | E Warps Checked | E Seeds Verified |
 | -----------  | -----------    | -----------       | -----------       | -----------   | -----------     | -----------      | -----------  | -----------      | -----------      |
