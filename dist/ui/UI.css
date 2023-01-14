@@ -603,6 +603,22 @@ span.rom-status {
     right: 0;
 }
 
+.hashContainer {
+    display: flex;
+    margin-left: auto;
+    margin-right: 2.5em;
+}
+
+#hashText {
+    margin-top: 1.8em;
+    color: black;
+}
+
+#randomSeed {
+    margin-left: 2.5em;
+    margin-top: 2.8em;
+}
+
 /* Scrollbars */
 
 ::-webkit-scrollbar {

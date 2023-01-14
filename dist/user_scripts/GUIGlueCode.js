@@ -252,6 +252,8 @@ function registerGUIEvents() {
 
     });
 
+    addEvent("click", document.getElementById("randomSeed"), () => document.getElementById("input_seed_text").value = Math.random().toString(36).substr(2, 6));
+
     addEvent("click", document.getElementById("export_mapping"), () => exportMapping());
 
     addEvent("change", document.getElementById("import_mapping"), importMapping);

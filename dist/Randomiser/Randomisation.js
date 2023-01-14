@@ -52,6 +52,7 @@ async function mapWarps(seed) {
     let flagData = getFlagData()
     remappingsData = getRandomisationAlgorithm().apply(null, [seed, mapData, flagData, config]);
     warpList = mappingToWarps(getAugmetedRemappingData(remappingsData));
+    updateHashDisplay();
 
     if (typeof storageManager !== 'undefined') {
       storageManager.persist("RANDOM_MAPPING", new WarpListData(seed, config, warpList));
@@ -219,6 +220,11 @@ function updateWarpListData(warpListData) {
   M.FormSelect.getInstance(document.getElementById("hoennLevel"))._handleSelectChangeBound();
 
   warpList = new Map(warpListData.warpList);
+  updateHashDisplay();
+}
+
+function updateHashDisplay() {
+  document.getElementById("hashText").innerHTML = "CHECK: " + Math.abs(getHash(JSON.stringify(Array.from(warpList)))).toString(16).toUpperCase();
 }
 
 /**
