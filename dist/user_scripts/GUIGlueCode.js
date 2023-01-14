@@ -125,6 +125,46 @@ function registerGUIEvents() {
         document.getElementById("winter").classList.add("active");
     });
 
+    /* DAY BUTTONS */
+    /* The dates should Be SUN = 0, MON = 1 ...  SAT = 6 
+    *  However there seems to be an issue in either Crystal or the RTC so we have to compensate
+    */
+    addEvent("click", document.getElementById("monDay"), () => {
+        document.querySelectorAll(".day").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getDay = () => { return 3; }
+        document.getElementById("monDay").classList.add("active");
+    });
+    addEvent("click", document.getElementById("tueDay"), () => {
+        document.querySelectorAll(".day").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getDay = () => { return 4; }
+        document.getElementById("tueDay").classList.add("active");
+    });
+    addEvent("click", document.getElementById("wedDay"), () => {
+        document.querySelectorAll(".day").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getDay = () => { return 5; }
+        document.getElementById("wedDay").classList.add("active");
+    });
+    addEvent("click", document.getElementById("thuDay"), () => {
+        document.querySelectorAll(".day").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getDay = () => { return 6; }
+        document.getElementById("thuDay").classList.add("active");
+    });
+    addEvent("click", document.getElementById("friDay"), () => {
+        document.querySelectorAll(".day").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getDay = () => { return 0; }
+        document.getElementById("friDay").classList.add("active");
+    });
+    addEvent("click", document.getElementById("satDay"), () => {
+        document.querySelectorAll(".day").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getDay = () => { return 1; }
+        document.getElementById("satDay").classList.add("active");
+    });
+    addEvent("click", document.getElementById("sunDay"), () => {
+        document.querySelectorAll(".day").forEach(e => e.classList.remove("active"));
+        GameBoyAdvanceRTC.prototype.getDay = () => { return 2; }
+        document.getElementById("sunDay").classList.add("active");
+    });
+
     /* TIME BUTONS */
     addEvent("click", document.getElementById("sunrise"), () => {
         document.querySelectorAll(".time").forEach(e => e.classList.remove("active"));

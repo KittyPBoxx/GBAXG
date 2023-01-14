@@ -199,6 +199,8 @@ GameBoyAdvanceRTC.prototype.getDate = function() {
 	if (!this.useSystemTime()) {
 		date.setMonth(this.getMonth())
 		date.setHours(this.getHour(), 0, 0);
+
+		date.setDate(date.getDate() + (this.getDay() - date.getDay()));
 	}
 
 	return date;
@@ -206,6 +208,10 @@ GameBoyAdvanceRTC.prototype.getDate = function() {
 
 GameBoyAdvanceRTC.prototype.getMonth = function() {
 	return 6;
+}
+
+GameBoyAdvanceRTC.prototype.getDay = function() {
+	return 2;	
 }
 
 GameBoyAdvanceRTC.prototype.getHour = function() {
