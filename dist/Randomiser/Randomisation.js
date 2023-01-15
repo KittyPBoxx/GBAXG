@@ -66,11 +66,24 @@ function generateRandomMappings(seed, mapData, flagData, config) {
 
     var moreWarpsToMap = true;
     while(moreWarpsToMap) {
-        moreWarpsToMap = doNextMapping(rng, 'FR,3,1,0', progressionState);
-        progressionState = updateProgressionState(progressionState, 'FR,3,1,0');
+        moreWarpsToMap = doNextMapping(rng, getInitialWarp(config), progressionState);
+        progressionState = updateProgressionState(progressionState, getInitialWarp(config));
     }
 
    return getBaseRemappingData();
+}
+
+function getInitialWarp(config) {
+  if (config.kantoLevel > 0) {
+    return KEY_LOCATION_DATA["VIRIDIAN CITY"];
+  }
+  if (config.jhotoLevel > 0) {
+    return KEY_LOCATION_DATA["NEW BARK TOWN"];
+  }
+  if (config.hoennLevel > 0) {
+    return KEY_LOCATION_DATA["LITTLEROOT TOWN"];
+  }
+  return KEY_LOCATION_DATA["VIRIDIAN CITY"];
 }
 
 function filterIgnored(mapData) {
