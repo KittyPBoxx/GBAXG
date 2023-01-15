@@ -411,7 +411,7 @@ function findAccessibleUnmappedNodes(cy, root) {
 }
 
 function doNextMapping(rng, root, progressionState) {
-    let accessibleNodes = findAccessibleUnmappedNodes(window.cy, root);
+    let accessibleNodes = progressionState.cachedNodes ? progressionState.cachedNodes : findAccessibleUnmappedNodes(window.cy, root);
     let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp && !e.data().isMapped);
     let inaccesibleFlagLocations = inacessibleNodes.filter(n => progressionState.unmarkedLocations.has(n.data().id));
     let inaccesibleKeyLocations = inacessibleNodes.filter(n => progressionState.unmarkedLocations.has(n.data().id));
@@ -426,6 +426,7 @@ function doNextMapping(rng, root, progressionState) {
     let warp2 = null;
 
     let useConditionalOverHubThreashold = 10;
+    let shouldCacheNodes = false;
     if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= useConditionalOverHubThreashold) {
 
       // Add nodes that have multiple connections
@@ -437,20 +438,27 @@ function doNextMapping(rng, root, progressionState) {
       // Add inacessible dead-ends that might allow flags givinb access to new locations
       warp2 = inaccesibleFlagLocations[rng.nextRange(0, inaccesibleFlagLocations.length - 1)];
 
+    } else if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0) {
+
+      inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
+      warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+
     } else if (inaccesibleKeyLocations.length > 0) {
 
       // Add key inacessible locations 
       warp2 = inaccesibleKeyLocations[rng.nextRange(0, inaccesibleKeyLocations.length - 1)];
-
+      shouldCacheNodes = true;
     } else if (inacessibleNodes.length > 0) {
 
       // Add other inacessible dead-ends 
       warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+      shouldCacheNodes = true;
 
     } else if (accessibleNodes.size > 0) {
 
       // map together nodes that are already acessible
       warp2 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
+      shouldCacheNodes = true;
 
     } else {
       //console.warn("Unevenly matched warps. " + warp1.data().id + " had to map to itself");
@@ -458,6 +466,14 @@ function doNextMapping(rng, root, progressionState) {
 
       // if one warp is left hanging we connect it to altering cave from fire red
       warp2 = cy.add(new WarpNode(['FR,1,122,0', getMapData()["FR,1,122,0"]]));
+      shouldCacheNodes = true;
+    }
+
+    if (shouldCacheNodes) {
+      if (!progressionState.cachedNodes) {
+        progressionState.cachedNodes = accessibleNodes;
+      }
+      progressionState.cachedNodes.delete(warp2);
     }
 
     if (!warp1) {
