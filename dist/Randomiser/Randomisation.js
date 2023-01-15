@@ -302,11 +302,11 @@ RNG.prototype.choice = function(array) {
     this.classes = 'reigon';
 }
 
-function AreaNode(id) {
+function AreaNode(node) {
     this.data = {};
-    this.data.id = id;
-    this.data.parent = toReigon(id);
-    this.data.label = MAP_NAMES[id] ? id + " (" + MAP_NAMES[id] + ")" : id;
+    this.data.id = toMapBank(node[0]);
+    this.data.parent = toReigon(node[0]);
+    this.data.label = node[0] + " (" + node[1].name.split("-")[0] + "- " + node[1].name.split("-")[1].trim() + ")";
 }
 
 function WarpNode(data) {
@@ -427,18 +427,19 @@ function doNextMapping(rng, root, progressionState) {
 
     let useConditionalOverHubThreashold = 10;
     let shouldCacheNodes = false;
-    if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0 && accessibleNodes.size <= useConditionalOverHubThreashold) {
+    let inacessibleHubs = inacessibleNodes.filter(e => e.degree(true) > 0);
+    if (inacessibleHubs.length > 0 && accessibleNodes.size <= useConditionalOverHubThreashold) {
 
       // Add nodes that have multiple connections
-      inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
-      warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
+      inacessibleNodes = inacessibleHubs;
+      warp2 = inacessibleHubs[rng.nextRange(0, inacessibleNodes.length - 1)];
 
     } else if (inaccesibleFlagLocations.length > 0) { 
 
       // Add inacessible dead-ends that might allow flags givinb access to new locations
       warp2 = inaccesibleFlagLocations[rng.nextRange(0, inaccesibleFlagLocations.length - 1)];
 
-    } else if (inacessibleNodes.filter(e => e.degree(true) > 0).length > 0) {
+    } else if (inacessibleHubs.length > 0) {
 
       inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
       warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
@@ -448,18 +449,19 @@ function doNextMapping(rng, root, progressionState) {
       // Add key inacessible locations 
       warp2 = inaccesibleKeyLocations[rng.nextRange(0, inaccesibleKeyLocations.length - 1)];
       shouldCacheNodes = true;
+      accessibleNodes.delete(warp2);
     } else if (inacessibleNodes.length > 0) {
 
       // Add other inacessible dead-ends 
       warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
       shouldCacheNodes = true;
-
+      accessibleNodes.delete(warp2);
     } else if (accessibleNodes.size > 0) {
 
       // map together nodes that are already acessible
       warp2 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
       shouldCacheNodes = true;
-
+      accessibleNodes.delete(warp2);
     } else {
       //console.warn("Unevenly matched warps. " + warp1.data().id + " had to map to itself");
       // warp2 = warp1
@@ -467,13 +469,12 @@ function doNextMapping(rng, root, progressionState) {
       // if one warp is left hanging we connect it to altering cave from fire red
       warp2 = cy.add(new WarpNode(['FR,1,122,0', getMapData()["FR,1,122,0"]]));
       shouldCacheNodes = true;
+      accessibleNodes.delete(warp2);
     }
 
-    if (shouldCacheNodes) {
-      if (!progressionState.cachedNodes) {
+    // Once it's only dead ends left we can cache which nodes are accessible from the root 
+    if (shouldCacheNodes && !progressionState.cachedNodes) {
         progressionState.cachedNodes = accessibleNodes;
-      }
-      progressionState.cachedNodes.delete(warp2);
     }
 
     if (!warp1) {
@@ -595,25 +596,34 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
         {
           selector: '.reigon',
           css: {
-              'background-color': '#2f3138'
-          }
+              'background-color': '#2f3138',
+              'color' : '#C0C0C0',
+              'font-size' : '5em',
+              "text-valign": "top"
+          },
         },
         {
           selector: '.map-F',
           css: {
-              'background-color': '#ffc0c3'
+              'background-color': '#ffc0c3',
+              'color' : '#C0C0C0',
+              'font-size' : '2em'
           }
         },
         {
           selector: '.map-C',
           css: {
-              'background-color': '#c0c3ff'
+              'background-color': '#c0c3ff',
+              'color' : '#C0C0C0',
+              'font-size' : '2em'
           }
         },
         {
           selector: '.map-E',
           css: {
-              'background-color': '#c3ffc0'
+              'background-color': '#c3ffc0',
+              'color' : '#C0C0C0',
+              'font-size' : '2em'
           }
         },
         {
@@ -654,7 +664,7 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
     data.forEach(d => {
 
       if (!cy.getElementById(toMapBank(d[0])).length) {
-          cy.add(new AreaNode(toMapBank(d[0]))).addClass("map-" + d[0][0]);
+          cy.add(new AreaNode(d)).addClass("map-" + d[0][0]);
       }
 
       cy.add(new WarpNode(d));
