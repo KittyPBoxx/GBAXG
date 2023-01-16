@@ -321,6 +321,7 @@ function WarpNode(data) {
     this.classes = 'outline';
     this.data.isWarp = true;
     this.data.isMapped = false;
+    this.data.hasMultipleConnections = data[1].connections ? Object.values(data[1].connections).filter(n => n == true).length > 0 : false;
 }
 
 function FixedEdge(source, target) {
@@ -710,7 +711,10 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
     });
 
     // calculate future connected areas then remove all conditional edges from the network
-    progressionState.unconnectedComponents = cy.elements().components().filter(e => e.size() > 1).map(e => e.toArray().filter(n => n.group() == "nodes").map(p => p.data().id));
+    progressionState.unconnectedComponents = cy.elements().components()
+                                                          .filter(e => e.size() > 1)
+                                                          .map(e => e.toArray().filter(n => n.group() == "nodes" && n.data().isWarp && n.data().hasMultipleConnections).map(p => p.data().id))
+                                                          .filter(arr => arr.length > 0);
     progressionState.remainingConditionalEdges.forEach(node => cy.getElementById(node.data.id).remove());
 
     cy.nodes().forEach(function(node){
