@@ -64,10 +64,14 @@ function generateRandomMappings(seed, mapData, flagData, config) {
     let rng = new RNG(getHash(seed));
     let progressionState = initMappingGraph(mapData, isHeadless, new ProgressionState(flagData, config))
 
+    var root = getInitialWarp(config);
+
+    progressionState.unconnectedComponents = progressionState.unconnectedComponents.filter(a => !a.includes(root));
+
     var moreWarpsToMap = true;
     while(moreWarpsToMap) {
-        moreWarpsToMap = doNextMapping(rng, getInitialWarp(config), progressionState);
-        progressionState = updateProgressionState(progressionState, getInitialWarp(config));
+        moreWarpsToMap = doNextMapping(rng, root, progressionState);
+        progressionState = updateProgressionState(progressionState, root);
     }
 
    return getBaseRemappingData();
@@ -424,15 +428,16 @@ function doNextMapping(rng, root, progressionState) {
     accessibleNodes.delete(warp1);
     
     let warp2 = null;
-
-    let useConditionalOverHubThreashold = 10;
     let shouldCacheNodes = false;
     let inacessibleHubs = inacessibleNodes.filter(e => e.degree(true) > 0);
-    if (inacessibleHubs.length > 0 && accessibleNodes.size <= useConditionalOverHubThreashold) {
+    if (progressionState.unconnectedComponents.length > 0) {
 
-      // Add nodes that have multiple connections
-      inacessibleNodes = inacessibleHubs;
-      warp2 = inacessibleHubs[rng.nextRange(0, inacessibleNodes.length - 1)];
+      // Add a node from every component of the graph (with the assumption no warps are present but all flags are met)
+      let randomComponent = progressionState.unconnectedComponents[rng.nextRange(0, progressionState.unconnectedComponents.length - 1)];
+      let randomNodeIdFromComponent = randomComponent[rng.nextRange(0, randomComponent.length - 1)];
+
+      warp2 = cy.getElementById(randomNodeIdFromComponent);
+      progressionState.unconnectedComponents = progressionState.unconnectedComponents.filter(c => c != randomComponent);
 
     } else if (inaccesibleFlagLocations.length > 0) { 
 
@@ -441,6 +446,7 @@ function doNextMapping(rng, root, progressionState) {
 
     } else if (inacessibleHubs.length > 0) {
 
+      // Add any hubs that there is still no access to... I'm not sure there would even be any left...
       inacessibleNodes = inacessibleNodes.filter(e => e.degree(true) > 0);
       warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
 
@@ -456,12 +462,14 @@ function doNextMapping(rng, root, progressionState) {
       warp2 = inacessibleNodes[rng.nextRange(0, inacessibleNodes.length - 1)];
       shouldCacheNodes = true;
       accessibleNodes.delete(warp2);
+
     } else if (accessibleNodes.size > 0) {
 
-      // map together nodes that are already acessible
+      // map together nodes that are already accessible
       warp2 = [...accessibleNodes][rng.nextRange(0, accessibleNodes.size - 1)];
       shouldCacheNodes = true;
       accessibleNodes.delete(warp2);
+
     } else {
       //console.warn("Unevenly matched warps. " + warp1.data().id + " had to map to itself");
       // warp2 = warp1
@@ -470,6 +478,7 @@ function doNextMapping(rng, root, progressionState) {
       warp2 = cy.add(new WarpNode(['FR,1,122,0', getMapData()["FR,1,122,0"]]));
       shouldCacheNodes = true;
       accessibleNodes.delete(warp2);
+
     }
 
     // Once it's only dead ends left we can cache which nodes are accessible from the root 
@@ -682,6 +691,11 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
           // Conditional Connection
           progressionState.remainingConditionalEdges.add(new CondidtionalEdge(d[0], entry[0], entry[1]));
 
+          // Temporarily add conditional edges in the graph so we can work out what areas will be connected in future
+          if (cy.getElementById(entry[0]).length > 0) {
+            cy.add(new CondidtionalEdge(d[0], entry[0], entry[1]))
+          }
+
         } else {
 
           // Fixed Connection       
@@ -695,6 +709,9 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
       });
     });
 
+    // calculate future connected areas then remove all conditional edges from the network
+    progressionState.unconnectedComponents = cy.elements().components().filter(e => e.size() > 1).map(e => e.toArray().filter(n => n.group() == "nodes").map(p => p.data().id));
+    progressionState.remainingConditionalEdges.forEach(node => cy.getElementById(node.data.id).remove());
 
     cy.nodes().forEach(function(node){
       node.css("width", 80);
