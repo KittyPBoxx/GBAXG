@@ -143,8 +143,8 @@ GameBoyAdvanceEmulator.prototype.iterationStartSequence = function () {
 GameBoyAdvanceEmulator.prototype.iterationEndSequence = function () {
     this.emulatorStatus = this.emulatorStatus & 0x1D;                   //If core did not throw while running, unset the fatal error flag.
     this.clockCyclesSinceStart = ((this.clockCyclesSinceStart | 0) + (this.CPUCyclesTotal | 0)) | 0;    //Accumulate tracking.
-    if (this.boostPerformance) {
-        //this.submitAudioBuffer();                                     //Flush audio buffer to output.
+    if (!this.boostPerformance) {
+        this.submitAudioBuffer();                                       //Flush audio buffer to output.
     }
     this.runEndJobs();                                                  //Run various callbacks assigned from internal components.
 }
