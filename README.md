@@ -45,9 +45,11 @@ This project is currently in alpha development. It should be playable but you ma
 
 ## Setup
 
-<p align="center">
+<div align="center">
+
   [![SETUP TUTORIAL](https://img.youtube.com/vi/R8K889-O7co/0.jpg)](https://www.youtube.com/watch?v=R8K889-O7co)
-</p>
+
+</div>
 
 1. Legally backup a copy *Fire Red 1.1 (U)* [^1] and *Emerald (U)* [^2]
 2. Download Crystal Dust V2 patch from here [here](https://domoreaweso.me/games/pokemon-crystaldust). **Make sure to use V2 and not V3**  
