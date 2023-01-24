@@ -65,8 +65,12 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     let partySlice = readWRAMSlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
                     let playerNameAndState = dynamicMemorySlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH);
                     let idAndPlayTime = dynamicMemorySlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH);
+
                     let bagStoreage = new BagStoreage();
                     bagStoreage.readData(beforeRomCode);
+
+                    let flagManager = new FlagManager();
+                    flagManager.readFlags(beforeRomCode);
         
                     IodineGUI.Iodine.saveStateManager.loadState(gameSwitchingWarp.toRomCode);
         
@@ -83,7 +87,9 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     spliceWRAM(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH, playerNameAndState);
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH, idAndPlayTime);
+
                     bagStoreage.writeData(currentRomCode, beforeRomCode);
+                    flagManager.writeFlags(currentRomCode, beforeRomCode)
         
                     IodineGUI.mixerInput.volume = 0.0
                     switchingGameState = 2;
@@ -387,6 +393,22 @@ function whiteoutTeam() {
     }
 }
 
+function dynamicMemorySlice(dynamicPointer, offsetInDynamic, length) {
+    let dynamicBlock = IodineGUI.Iodine.IOCore.cpu.read32(dynamicPointer);
+    let startAddress = (dynamicBlock + offsetInDynamic - 0x02000000);
+    let endAddress = startAddress + length;
+    return IodineGUI.Iodine.IOCore.memory.externalRAM.slice(startAddress, endAddress);    
+}
+
+function dynamicMemorySplice(dynamicPointer, offsetInDynamic, length, data) {
+    let dynamicBlock = IodineGUI.Iodine.IOCore.cpu.read32(dynamicPointer);
+    let startAddress = (dynamicBlock + offsetInDynamic - 0x02000000);
+    for (let i = 0; i<length; i++) {
+        IodineGUI.Iodine.IOCore.memory.externalRAM[startAddress + i] = data[i];
+    }
+}
+
+
 /******************/
 /* Data Addresses */
 /******************/
@@ -460,21 +482,6 @@ const FIRE_RED_BERRIES_OFFSET = 0x054C;
 const FIRE_RED_BERRIES_LENGTH = 172;
 const EMERALD_BERRIES_OFFSET = 0x0790;
 const EMERALD_BERRIES_LENGTH = 184;
-
-function dynamicMemorySlice(dynamicPointer, offsetInDynamic, length) {
-    let dynamicBlock = IodineGUI.Iodine.IOCore.cpu.read32(dynamicPointer);
-    let startAddress = (dynamicBlock + offsetInDynamic - 0x02000000);
-    let endAddress = startAddress + length;
-    return IodineGUI.Iodine.IOCore.memory.externalRAM.slice(startAddress, endAddress);    
-}
-
-function dynamicMemorySplice(dynamicPointer, offsetInDynamic, length, data) {
-    let dynamicBlock = IodineGUI.Iodine.IOCore.cpu.read32(dynamicPointer);
-    let startAddress = (dynamicBlock + offsetInDynamic - 0x02000000);
-    for (let i = 0; i<length; i++) {
-        IodineGUI.Iodine.IOCore.memory.externalRAM[startAddress + i] = data[i];
-    }
-}
 
 /**************************/
 /* Bag Storage Management */
@@ -734,4 +741,377 @@ BagStoreage.prototype.writeItemSection = function(save1Start, offset, length, st
             }
         }
     }
+}
+
+
+/*******************/
+/* Flag Management */
+/*******************/
+var badgeSync = false;
+
+// TODO: General read flag / set flag / clear flag function 
+
+// IN DYNAMIC SAV1
+// The equations are so the offsets line up the the flags defined in the decomp projects
+// https://github.com/pret/pokefirered/blob/master/include/constants/flags.h
+// https://github.com/pret/pokeemerald/blob/master/include/constants/flags.h
+const FIRE_RED_SYS_FLAGS_OFFSET    = 0xFE0;
+const FIRE_RED_BADGE1_OFFSET       = 0x20;
+const FIRE_RED_BADGE2_OFFSET       = 0x21;
+const FIRE_RED_BADGE3_OFFSET       = 0x22;
+const FIRE_RED_BADGE4_OFFSET       = 0x23;
+const FIRE_RED_BADGE5_OFFSET       = 0x24;
+const FIRE_RED_BADGE6_OFFSET       = 0x25;
+const FIRE_RED_BADGE7_OFFSET       = 0x26;
+const FIRE_RED_BADGE8_OFFSET       = 0x27;
+const FIRE_RED_RUNNING_SHOE_OFFSET = 0x2F;
+const FIRE_RED_BADGE_OFFSETS = [FIRE_RED_BADGE1_OFFSET, 
+                                FIRE_RED_BADGE2_OFFSET, 
+                                FIRE_RED_BADGE3_OFFSET, 
+                                FIRE_RED_BADGE4_OFFSET, 
+                                FIRE_RED_BADGE5_OFFSET, 
+                                FIRE_RED_BADGE6_OFFSET, 
+                                FIRE_RED_BADGE7_OFFSET, 
+                                FIRE_RED_BADGE8_OFFSET];
+
+const EMERALD_SYS_FLAGS_OFFSET    = 0x137C;
+const EMERALD_BADGE1_OFFSET       = 0x7;
+const EMERALD_BADGE2_OFFSET       = 0x8;
+const EMERALD_BADGE3_OFFSET       = 0x9;
+const EMERALD_BADGE4_OFFSET       = 0xA;
+const EMERALD_BADGE5_OFFSET       = 0xB;
+const EMERALD_BADGE6_OFFSET       = 0xC;
+const EMERALD_BADGE7_OFFSET       = 0xD;
+const EMERALD_BADGE8_OFFSET       = 0xE;
+const EMERALD_RUNNING_SHOE_OFFSET = 0x60;
+const EMERALD_BADGE_OFFSETS = [EMERALD_BADGE1_OFFSET, 
+                               EMERALD_BADGE2_OFFSET, 
+                               EMERALD_BADGE3_OFFSET, 
+                               EMERALD_BADGE4_OFFSET, 
+                               EMERALD_BADGE5_OFFSET, 
+                               EMERALD_BADGE6_OFFSET, 
+                               EMERALD_BADGE7_OFFSET, 
+                               EMERALD_BADGE8_OFFSET];
+
+function FlagManager() {
+    this.badge1 = null;
+    this.badge2 = null;
+    this.badge3 = null;
+    this.badge4 = null;
+    this.badge5 = null;
+    this.badge6 = null;
+    this.badge7 = null;
+    this.badge8 = null;
+    this.hasRunningShoes = null;
+    this.HMState = null;
+}
+
+FlagManager.prototype.getFlag = function (saveOffset, sectionOffset, flagOffset) {
+
+    let flagByte = IodineGUI.Iodine.IOCore.cpu.read8(saveOffset + sectionOffset + Math.ceil((flagOffset + 1) / 8) - 1);
+    let flagBit = flagOffset % 8;
+
+    return !!+flagByte.toString(2).padStart(8, 0).split("").reverse()[flagBit];
+}
+
+FlagManager.prototype.setFlag = function (saveOffset, sectionOffset, flagOffset, value) {
+
+    let flagByte = IodineGUI.Iodine.IOCore.cpu.read8(saveOffset + sectionOffset + Math.ceil((flagOffset + 1) / 8) - 1);
+    let flagBit = flagOffset % 8;
+
+    let byteArr = flagByte.toString(2).padStart(8, 0).split("").reverse();
+    byteArr[flagBit] = value;
+
+    IodineGUI.Iodine.IOCore.cpu.write8(saveOffset + sectionOffset + Math.ceil((flagOffset + 1) / 8) - 1, parseInt(byteArr.reverse().join(""), 2));
+
+}
+
+FlagManager.prototype.readFlags = function (game) {
+    if (game == "E") {
+        this.readEmeraldFlags();
+    } 
+    else if (game == "C") {
+        this.readCrystalFlags();
+    } else {
+        this.readFireRedFlags();
+    }
+}
+
+FlagManager.prototype.readEmeraldFlags = function () {
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR);
+
+    this.badge1          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);
+    this.badge2          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE2_OFFSET);
+    this.badge3          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE3_OFFSET);
+    this.badge4          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE4_OFFSET);
+    this.badge5          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE5_OFFSET);
+    this.badge6          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE6_OFFSET);
+    this.badge7          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE7_OFFSET);
+    this.badge8          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE8_OFFSET);
+    this.hasRunningShoes = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_RUNNING_SHOE_OFFSET);
+    
+    this.HMState = new HMState();
+    this.HMState.evaluate("E", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
+}
+
+FlagManager.prototype.readCrystalFlags = function () {
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR);
+
+    this.badge1          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);
+    this.badge2          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE2_OFFSET);
+    this.badge3          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE3_OFFSET);
+    this.badge4          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE4_OFFSET);
+    this.badge5          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE5_OFFSET);
+    this.badge6          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE6_OFFSET);
+    this.badge7          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE7_OFFSET);
+    this.badge8          = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE8_OFFSET);
+    this.hasRunningShoes = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_RUNNING_SHOE_OFFSET);
+
+    this.HMState = new HMState();
+    this.HMState.evaluate("C", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
+}
+
+FlagManager.prototype.readFireRedFlags = function () {
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_1_PTR);
+    
+    this.badge1          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE1_OFFSET);
+    this.badge2          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE2_OFFSET);
+    this.badge3          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE3_OFFSET);
+    this.badge4          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE4_OFFSET);
+    this.badge5          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE5_OFFSET);
+    this.badge6          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE6_OFFSET);
+    this.badge7          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE7_OFFSET);
+    this.badge8          = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE8_OFFSET);
+    this.hasRunningShoes = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_RUNNING_SHOE_OFFSET);
+
+    this.HMState = new HMState();
+    this.HMState.evaluate("FR", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
+}
+
+FlagManager.prototype.writeFlags = function (game, lastGame) {
+    if (game == "E") {
+        this.writeEmeraldFlags();
+    } 
+    else if (game == "C") {
+        this.writeCrystalFlags();
+    } else {
+        this.writeFireRedFlags();
+    }
+}
+
+FlagManager.prototype.writeEmeraldFlags = function () {
+
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR);
+
+    this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_RUNNING_SHOE_OFFSET, +this.hasRunningShoes);
+
+    if (badgeSync) {
+        
+        let badge1 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);
+        let badge2 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE2_OFFSET);
+        let badge3 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE3_OFFSET);
+        let badge4 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE4_OFFSET);
+        let badge5 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE5_OFFSET);
+        let badge6 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE6_OFFSET);
+        let badge7 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE7_OFFSET);
+        let badge8 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE8_OFFSET);
+
+        let updatedBadges = this.HMState.updateBadges("E", badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8);
+
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET, +(updatedBadges[0] || badge1));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE2_OFFSET, +(updatedBadges[1] || badge2));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE3_OFFSET, +(updatedBadges[2] || badge3));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE4_OFFSET, +(updatedBadges[3] || badge4));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE5_OFFSET, +(updatedBadges[4] || badge5));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE6_OFFSET, +(updatedBadges[5] || badge6));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE7_OFFSET, +(updatedBadges[6] || badge7));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE8_OFFSET, +(updatedBadges[7] || badge8));
+
+    }
+}
+
+FlagManager.prototype.writeCrystalFlags = function () {
+
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR);
+
+    this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_RUNNING_SHOE_OFFSET, +this.hasRunningShoes);
+
+    if (badgeSync) {
+        
+        let badge1 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);
+        let badge2 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE2_OFFSET);
+        let badge3 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE3_OFFSET);
+        let badge4 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE4_OFFSET);
+        let badge5 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE5_OFFSET);
+        let badge6 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE6_OFFSET);
+        let badge7 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE7_OFFSET);
+        let badge8 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE8_OFFSET);
+
+        let updatedBadges = this.HMState.updateBadges("C", badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8);
+
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET, +(updatedBadges[0] || badge1));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE2_OFFSET, +(updatedBadges[1] || badge2));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE3_OFFSET, +(updatedBadges[2] || badge3));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE4_OFFSET, +(updatedBadges[3] || badge4));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE5_OFFSET, +(updatedBadges[4] || badge5));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE6_OFFSET, +(updatedBadges[5] || badge6));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE7_OFFSET, +(updatedBadges[6] || badge7));
+        this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE8_OFFSET, +(updatedBadges[7] || badge8));
+        
+    }
+
+}
+
+FlagManager.prototype.writeFireRedFlags = function () {
+
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_1_PTR);
+
+    this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_RUNNING_SHOE_OFFSET, +this.hasRunningShoes);
+
+    if (badgeSync) {
+        
+        let badge1 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE1_OFFSET);
+        let badge2 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE2_OFFSET);
+        let badge3 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE3_OFFSET);
+        let badge4 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE4_OFFSET);
+        let badge5 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE5_OFFSET);
+        let badge6 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE6_OFFSET);
+        let badge7 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE7_OFFSET);
+        let badge8 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE8_OFFSET);
+
+        let updatedBadges = this.HMState.updateBadges("E", badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8);
+
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE1_OFFSET, +(updatedBadges[0] || badge1));
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE2_OFFSET, +(updatedBadges[1] || badge2));
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE3_OFFSET, +(updatedBadges[2] || badge3));
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE4_OFFSET, +(updatedBadges[3] || badge4));
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE5_OFFSET, +(updatedBadges[4] || badge5));
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE6_OFFSET, +(updatedBadges[5] || badge6));
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE7_OFFSET, +(updatedBadges[6] || badge7));
+        this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE8_OFFSET, +(updatedBadges[7] || badge8));
+        
+    }
+    
+}
+
+function modifyBadge(game, badgeNumber, shouldGiveOrRemoveBit) {
+
+    let badgeOffsets = game == "FR" ? FIRE_RED_BADGE_OFFSETS : EMERALD_BADGE_OFFSETS
+    modifySystemFlag(game, badgeOffsets[badgeNumber - 1], shouldGiveOrRemoveBit);
+
+}
+
+function modifyRunningShoes(game, shouldGiveOrRemoveBit) {
+
+    let offset = game == "FR" ? FIRE_RED_RUNNING_SHOE_OFFSET : EMERALD_RUNNING_SHOE_OFFSET
+    modifySystemFlag(game, offset, shouldGiveOrRemoveBit);
+
+}
+
+function modifySystemFlag(game, offset, shouldGiveOrRemoveBit) {
+
+    let manager = new FlagManager();
+    manager.readFlags(game);
+
+    let savePtr = game == "FR" ? FIRE_RED_SAVE_1_PTR : EMERALD_SAVE_1_PTR;
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(savePtr);
+
+    let sysFlagOffset = game == "FR" ? FIRE_RED_SYS_FLAGS_OFFSET : EMERALD_SYS_FLAGS_OFFSET;
+
+    manager.setFlag(save1Start, sysFlagOffset, offset, shouldGiveOrRemoveBit);
+
+}
+
+// EQUIVILENT BADGE UNLOCKS
+/*           | FR    | C     | E     |
+| Flash      | GYM 1 | GYM 1 | GYM 2 |   
+| Cut        | GYM 2 | GYM 2 | GYM 1 |
+| Fly        | GYM 3 | GYM 5 | GYM 6 |
+| Strength   | GYM 4 | GYM 3 | GYM 4 |
+| Surf       | GYM 5 | GYM 4 | GYM 5 |
+| Rock Smash | GYM 6 |       | GYM 3 |
+| Waterfall  | GYM 7 | GYM 8 | GYM 8 |
+| Dive       |       |       | GYM 7 | 
+| Whirlpool  |       | GYM 7 |       |
+*/
+function HMState() {
+    this.canFlash     = false;
+    this.canCut       = false;
+    this.canFly       = false;
+    this.canStrength  = false;
+    this.canSurf      = false;
+    this.canSmash     = false;
+    this.canWaterfall = false;
+    this.canDive      = false;
+    this.canWhirlpool = false;
+}
+
+HMState.prototype.evaluate = function (game, badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8) {
+    if (game == "E") {
+        this.canFlash     = badge2;
+        this.canCut       = badge1;
+        this.canFly       = badge6;
+        this.canStrength  = badge4;
+        this.canSurf      = badge5;
+        this.canSmash     = badge3;
+        this.canWaterfall = badge8;
+        this.canDive      = badge7;
+        this.canWhirlpool = false;
+    } 
+    else if (game == "C") {
+        this.canFlash     = badge1;
+        this.canCut       = badge2;
+        this.canFly       = badge5;
+        this.canStrength  = badge3;
+        this.canSurf      = badge4;
+        this.canSmash     = false; // because there is no badge requirement
+        this.canWaterfall = badge7;
+        this.canDive      = false;
+        this.canWhirlpool = badge8;
+    } else {
+        this.canFlash     = badge1;
+        this.canCut       = badge2;
+        this.canFly       = badge3;
+        this.canStrength  = badge4;
+        this.canSurf      = badge5;
+        this.canSmash     = badge6;
+        this.canWaterfall = badge7;
+        this.canDive      = false;
+        this.canWhirlpool = false;
+    }
+}
+
+HMState.prototype.updateBadges = function (game, badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8) {
+
+    let badges = [];
+
+    if (game == "E") {
+        badges[1 - 1] = +(badge1  || this.canCut);
+        badges[2 - 1] = +(badge2  || this.canFlash);
+        badges[3 - 1] = +(badge3  || this.canSmash);
+        badges[4 - 1] = +(badge4  || this.canStrength);
+        badges[5 - 1] = +(badge5  || this.canSurf);
+        badges[6 - 1] = +(badge6  || this.canFly);
+        badges[7 - 1] = +(badge7  || this.canDive);
+        badges[8 - 1] = +(badge8  || this.canWaterfall);
+    } 
+    else if (game == "C") {
+        badges[1 - 1] = +(badge1 || this.canFlash);
+        badges[2 - 1] = +(badge2 || this.canCut);
+        badges[3 - 1] = +(badge3 || this.canFly);
+        badges[4 - 1] = +(badge4 || this.canStrength);
+        badges[5 - 1] = +(badge5 || this.canSurf);
+        badges[6 - 1] = +(badge6 || this.canSmash);
+    } else {
+        badges[1 - 1] = +(badge1  || this.canFlash);
+        badges[2 - 1] = +(badge2  || this.canCut);
+        badges[3 - 1] = +(badge3  || this.canStrength);
+        badges[4 - 1] = +(badge4  || this.canSurf);
+        badges[5 - 1] = +(badge5  || this.canFly);
+
+        badges[7 - 1] = +(badge7  || this.canWhirlpool);
+        badges[8 - 1] = +(badge8  || this.canWaterfall);
+    }
+
+    return badges;
 }

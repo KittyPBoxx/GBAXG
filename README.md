@@ -45,6 +45,10 @@ This project is currently in alpha development. It should be playable but you ma
 
 ## Setup
 
+<p align="center">
+  [![SETUP TUTORIAL](https://img.youtube.com/vi/R8K889-O7co/0.jpg)](https://www.youtube.com/watch?v=R8K889-O7co)
+</p>
+
 1. Legally backup a copy *Fire Red 1.1 (U)* [^1] and *Emerald (U)* [^2]
 2. Download Crystal Dust V2 patch from here [here](https://domoreaweso.me/games/pokemon-crystaldust). **Make sure to use V2 and not V3**  
 3. Use a [rom patcher](https://www.marcrobledo.com/RomPatcher.js/) to apply the Crystal Dust V2 patch to a copy of your Emerald (U). You should now have 3 roms.
@@ -90,7 +94,6 @@ In theory any seed should generate a mapping that is completable in order. Howev
 - PC boxes are not accessible outside the current region/game.
 - Whiteout (and teleport e.t.c) will go the the last heal point in which ever region/game you are currently in. 
 - Repels effects will end when changing region/game.
-- Equivalent progression flags are not transferred e.g Getting the Soul badge will let you surf in Kanto but you'll still need the Balance Badge to surf in Hoenn. 
 - Some items (mostly from Crystal Dust e.g rage candy bar) only work in the game they were designed for
 
 ---
