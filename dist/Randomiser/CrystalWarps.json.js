@@ -585,6 +585,7 @@ var CRYSTAL_WARPS =
     "C,24,86,8" : {
         "name": "RUINS OF ALPH - OUTSIDE - Bottom Left (omanite) - 3,1D",
         "to" : "C,24,84,0",
+        "level" : "5",
         "connections": {
             "C,24,86,9": true
         }

@@ -191,7 +191,7 @@ function sprite16x32To32x32(data) {
 var exp = null;
 async function patchSprites() {
 
-    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.size != 3) {
+    if (!IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
         return;
     }
 
@@ -295,87 +295,94 @@ async function patchSprites() {
         });
     }
 
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
     
+        /* COPY DATA TO CRYSTAL */
+        exp.addToRom("C");
+        Object.keys(E_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
+        });
+        Object.keys(E_1_0_BOY_WALK_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_BOY_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_boy_" + k);
+        });
+        Object.keys(E_1_0_GIRL_BIKE_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_GIRL_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bike_" + k);
+        });
+        Object.keys(E_1_0_BOY_BIKE_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_BOY_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bike_" + k);
+        });
+        Object.keys(E_1_0_GIRL_SURF_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_GIRL_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_girl_surf_" + k);
+        });
+        Object.keys(E_1_0_BOY_SURF_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_BOY_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_boy_surf_" + k);
+        });
+        Object.keys(E_1_0_GIRL_BAG_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_GIRL_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bag_" + k);
+        });
+        Object.keys(E_1_0_BOY_BAG_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_BOY_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bag_" + k);
+        });
+        Object.keys(E_1_0_GIRL_FISHING_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_GIRL_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_girl_fishing_" + k);
+        });
+        Object.keys(E_1_0_BOY_FISHING_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
+        });
 
-    /* COPY DATA TO CRYSTAL */
-    exp.addToRom("C");
-    Object.keys(E_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
-    });
-    Object.keys(E_1_0_BOY_WALK_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_BOY_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_boy_" + k);
-    });
-    Object.keys(E_1_0_GIRL_BIKE_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_GIRL_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bike_" + k);
-    });
-    Object.keys(E_1_0_BOY_BIKE_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_BOY_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bike_" + k);
-    });
-    Object.keys(E_1_0_GIRL_SURF_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_GIRL_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_girl_surf_" + k);
-    });
-    Object.keys(E_1_0_BOY_SURF_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_BOY_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_boy_surf_" + k);
-    });
-    Object.keys(E_1_0_GIRL_BAG_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_GIRL_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bag_" + k);
-    });
-    Object.keys(E_1_0_BOY_BAG_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_BOY_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bag_" + k);
-    });
-    Object.keys(E_1_0_GIRL_FISHING_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_GIRL_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_girl_fishing_" + k);
-    });
-    Object.keys(E_1_0_BOY_FISHING_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
-    });
+        // Backsprites
+        Object.keys(C_BACKSPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", C_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
+        });
 
-    // Backsprites
-    Object.keys(C_BACKSPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("C", C_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
-    });
+    }
 
-    /* COPY DATA TO EMERALD */
-    exp.addToRom("E");
-    Object.keys(E_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
-    });
-    Object.keys(E_1_0_BOY_WALK_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_BOY_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_boy_" + k);
-    });
-    Object.keys(E_1_0_GIRL_BIKE_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_GIRL_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bike_" + k);
-    });
-    Object.keys(E_1_0_BOY_BIKE_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_BOY_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bike_" + k);
-    });
-    Object.keys(E_1_0_GIRL_SURF_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_GIRL_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_girl_surf_" + k);
-    });
-    Object.keys(E_1_0_BOY_SURF_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_BOY_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_boy_surf_" + k);
-    });
-    Object.keys(E_1_0_GIRL_BAG_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_GIRL_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bag_" + k);
-    });
-    Object.keys(E_1_0_BOY_BAG_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_BOY_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bag_" + k);
-    });
-    Object.keys(E_1_0_GIRL_FISHING_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_GIRL_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_girl_fishing_" + k);
-    });
-    Object.keys(E_1_0_BOY_FISHING_SPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
-    });
 
-    // Fix Emerald Trainer Sprites
-    exp.patchRomPtr32("E", EMERALD_BRANDON_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_RED_TRAINER_SPRITE_PTR));
-    exp.patchRomPtr32("E", EMERALD_MAY_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_LEAF_TRAINER_SPRITE_PTR));
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
 
-    // Backsprites
-    Object.keys(E_BACKSPRITE_PTRS).forEach(k => {
-        exp.patchRomPtr32ByName("E", E_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
-    });
+        /* COPY DATA TO EMERALD */
+        exp.addToRom("E");
+        Object.keys(E_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
+        });
+        Object.keys(E_1_0_BOY_WALK_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_BOY_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_boy_" + k);
+        });
+        Object.keys(E_1_0_GIRL_BIKE_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_GIRL_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bike_" + k);
+        });
+        Object.keys(E_1_0_BOY_BIKE_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_BOY_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bike_" + k);
+        });
+        Object.keys(E_1_0_GIRL_SURF_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_GIRL_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_girl_surf_" + k);
+        });
+        Object.keys(E_1_0_BOY_SURF_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_BOY_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_boy_surf_" + k);
+        });
+        Object.keys(E_1_0_GIRL_BAG_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_GIRL_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bag_" + k);
+        });
+        Object.keys(E_1_0_BOY_BAG_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_BOY_BAG_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bag_" + k);
+        });
+        Object.keys(E_1_0_GIRL_FISHING_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_GIRL_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_girl_fishing_" + k);
+        });
+        Object.keys(E_1_0_BOY_FISHING_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
+        });
+
+        // Fix Emerald Trainer Sprites
+        exp.patchRomPtr32("E", EMERALD_BRANDON_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_RED_TRAINER_SPRITE_PTR));
+        exp.patchRomPtr32("E", EMERALD_MAY_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_LEAF_TRAINER_SPRITE_PTR));
+
+        // Backsprites
+        Object.keys(E_BACKSPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
+        });
+
+    }
 
 
     /* COPY COLOUR PALLETS FROM FIRE RED */
@@ -397,40 +404,48 @@ async function patchSprites() {
         boyBackspritePalletData.push(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[boyBackspriteIndex]);
     }
 
-    /* COPY COLOUR PALLETS TO EMERALD */
-    for (i = 0; i < overworldPalletData.length; i++) {
-        let girlOverworldIndex = E_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(girlOverworldIndex, overworldPalletData[i]);
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
 
-        let boyOverworldIndex = E_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(boyOverworldIndex, overworldPalletData[i]);
-    }
-    for (i = 0; i < BACKSPRITES_PALLET_LENGTH; i++) {
-        let girlBackspriteIndex = E_GIRL_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(girlBackspriteIndex, girlBackspritePalletData[i]);
+        /* COPY COLOUR PALLETS TO EMERALD */
+        for (i = 0; i < overworldPalletData.length; i++) {
+            let girlOverworldIndex = E_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(girlOverworldIndex, overworldPalletData[i]);
 
-        let boyBackspriteIndex = E_BOY_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(boyBackspriteIndex, boyBackspritePalletData[i]);
-    }
-    IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
-    IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
+            let boyOverworldIndex = E_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(boyOverworldIndex, overworldPalletData[i]);
+        }
+        for (i = 0; i < BACKSPRITES_PALLET_LENGTH; i++) {
+            let girlBackspriteIndex = E_GIRL_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(girlBackspriteIndex, girlBackspritePalletData[i]);
 
-    /* COPY COLOUR PALLETS TO CRYSTAL */
-    for (i = 0; i < overworldPalletData.length; i++) {
-        let girlOverworldIndex = C_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(girlOverworldIndex, overworldPalletData[i]);
+            let boyBackspriteIndex = E_BOY_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(boyBackspriteIndex, boyBackspritePalletData[i]);
+        }
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
 
-        let boyOverworldIndex = C_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(boyOverworldIndex, overworldPalletData[i]);
     }
 
-    for (i = 0; i < BACKSPRITES_PALLET_LENGTH; i++) {
-        let girlBackspriteIndex = C_GIRL_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(girlBackspriteIndex, girlBackspritePalletData[i]);
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
 
-        let boyBackspriteIndex = C_BOY_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(boyBackspriteIndex, boyBackspritePalletData[i]);
+        /* COPY COLOUR PALLETS TO CRYSTAL */
+        for (i = 0; i < overworldPalletData.length; i++) {
+            let girlOverworldIndex = C_1_0_GIRL_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(girlOverworldIndex, overworldPalletData[i]);
+
+            let boyOverworldIndex = C_1_0_BOY_PALLET_DATA_BASE_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(boyOverworldIndex, overworldPalletData[i]);
+        }
+
+        for (i = 0; i < BACKSPRITES_PALLET_LENGTH; i++) {
+            let girlBackspriteIndex = C_GIRL_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(girlBackspriteIndex, girlBackspritePalletData[i]);
+
+            let boyBackspriteIndex = C_BOY_BACKSPRITE_PALLET_OFFSET + i - 0x08000000;
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(boyBackspriteIndex, boyBackspritePalletData[i]);
+        }
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
+
     }
-    IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
-    IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
 }
