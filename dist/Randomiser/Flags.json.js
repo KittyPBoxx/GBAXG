@@ -204,9 +204,9 @@ var COMPOSITE_FLAGS = {
     "JHOTO_STRENGTH_2"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_OLIVINE_BAR"]         },
     "JHOTO_STRENGTH_3"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "HOENN_ROCK_SMASH"]      },
     
-    "JHOTO_SURF_1"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER_BOTTOM", "L_KIMONO_GIRLS"]        },
-    "JHOTO_SURF_2"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER_BOTTOM", "L_FUCHSIA_SAFARI_ZONE"] },
-    "JHOTO_SURF_3"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER_BOTTOM", "HOENN_SURF"]            },
+    "JHOTO_SURF_1"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "L_KIMONO_GIRLS"]        },
+    "JHOTO_SURF_2"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "L_FUCHSIA_SAFARI_ZONE"] },
+    "JHOTO_SURF_3"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "HOENN_SURF"]            },
 
     "JHOTO_SURF_AND_STRENGTH" : { "flag": "JHOTO_SURF_AND_STRENGTH"     , "condition"  : ["JHOTO_SURF", "JHOTO_STRENGTH"]        }, 
 
@@ -277,7 +277,7 @@ var LOCATIONS_TRIGGER = {
     "C,13,16,0": "L_GOLDENROD_DEPT_STORE",
     "C,11,4,0" : "L_GOLDENROD_BIKE_SHOP",
     "C,0,0,3"  : "L_VIOLET_CITY",
-    "C,24,55,1": "L_BURNED_TOWER_BOTTOM",
+    "C,24,54,0": "L_BURNED_TOWER",
     "C,4,4,0"  : "L_SECRET_MEDICINE",
     "C,24,51,0": "L_LIGHTHOUSE_TOP",
     "C,20,2,0" : "L_ICE_PATH_F1",

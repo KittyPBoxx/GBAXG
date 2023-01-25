@@ -2152,6 +2152,7 @@ var CRYSTAL_WARPS =
         "name": "ECRUTEAK CITY - INSIDE - Burned Tower F1 Enterance - 7,11",
         "to" : "C,24,55,0",
         "level": "4",
+        "ignore": true,
         "connections": {
             "C,24,54,0": true,
             "C,24,54,2": true,
@@ -2161,6 +2162,7 @@ var CRYSTAL_WARPS =
         "name": "ECRUTEAK CITY - INSIDE - Burned Tower F1 Drop - 8,B",
         "to" : "C,24,55,1",
         "level": "4",
+        "ignore": true,
         "connections": {
             "C,24,54,0": true,
         }   
@@ -2170,6 +2172,7 @@ var CRYSTAL_WARPS =
         "name": "ECRUTEAK CITY - INSIDE - Burned Tower F2 Drop - A,9",
         "to" : "C,24,54,2",
         "level": "4",
+        "ignore": true,
         "connections": {
             "C,24,55,0": true,
         }   
@@ -2178,6 +2181,7 @@ var CRYSTAL_WARPS =
         "name": "ECRUTEAK CITY - INSIDE - Burned Tower F2 Ladder - 7,F",
         "to" : "C,24,54,1",
         "level": "4",
+        "ignore": true,
         "connections": {
             "C,24,55,1": true,
         }   
