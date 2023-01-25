@@ -351,6 +351,7 @@ GameBoyAdvanceEmulator.prototype.initializeCore = function () {
     this.emulatorStatus = this.emulatorStatus | allowInit;
     patchSprites();
     patchDuplicateWarps();
+    patchGameIssues();
     return allowInit | 0;
 }
 GameBoyAdvanceEmulator.prototype.keyDown = function (keyPressed) {
