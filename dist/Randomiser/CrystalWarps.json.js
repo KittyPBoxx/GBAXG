@@ -786,6 +786,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Left Center Enterance - 4,9",
         "level" : "8",
         "to" : "C,24,86,6",
+        "ignore": true,
         "connections": {
             "C,24,85,2": true,
         }   
@@ -796,6 +797,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,87,3",
         "grouped": ["C,24,85,3", "C,24,85,4"],
         "groupMain" : true,
+        "ignore": true,
         "connections": {
             "C,24,85,0": true,
         }   
@@ -804,12 +806,14 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 4,4",
         "level" : "8",
         "to" : "C,24,87,3",
+        "ignore": true,
         "grouped": ["C,24,85,2", "C,24,85,4"]
     },
     "C,24,85,4" : {
         "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 5,4",
         "level" : "8",
         "to" : "C,24,87,4",
+        "ignore": true,
         "grouped": ["C,24,85,2", "C,24,85,3"]
     },
     // Left Bottom Cave
@@ -817,6 +821,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Left Center Enterance - 4,9",
         "level" : "8",
         "to" : "C,24,86,8",
+        "ignore": true,
         "connections": {
             "C,24,84,2": true,
         }   
@@ -827,6 +832,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,87,7",
         "grouped": ["C,24,84,3", "C,24,84,4"],
         "groupMain" : true,
+        "ignore": true,
         "connections": {
             "C,24,84,0": true,
         }   
@@ -835,12 +841,14 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 4,4",
         "level" : "8",
         "to" : "C,24,87,7",
+        "ignore": true,
         "grouped": ["C,24,84,2", "C,24,84,4"]
     },
     "C,24,84,4" : {
         "name": "RUINS OF ALPH - INSIDE - Left Center Drop - 5,4",
         "level" : "8",
         "to" : "C,24,87,8",
+        "ignore": true,
         "grouped": ["C,24,84,2", "C,24,84,3"]
     },
     // Bottom Right Cave
