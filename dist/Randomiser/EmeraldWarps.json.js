@@ -5995,7 +5995,7 @@ var EMERALD_WARPS =
     },
     "E,24,25,9" : {
         "name" : "AQUA HIDEOUT - INSIDE - F3 Bottom Room Bottom - 20,14",
-        "to" : "E,24,24,4",
+        "to" : "E,24,24,53", // overriden duplicate
         "level" : "7",
         "connections" : {
             "E,24,25,8": true,

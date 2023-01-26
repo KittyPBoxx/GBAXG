@@ -6,6 +6,8 @@ function patchDuplicateWarps() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x085354FD - 0x08000000, 0x33);
         // Thrid duplicate warp in team aquas hideout
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x085354C5 - 0x08000000, 0x34);
+        // Fourth duplicate warp in team aquas hideout
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08535609 - 0x08000000, 0x35);
         // Duplicate Warp in seafloor cavern
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x085359E1 - 0x08000000, 0x32);
 
