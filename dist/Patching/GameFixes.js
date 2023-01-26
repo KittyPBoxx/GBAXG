@@ -43,6 +43,8 @@ function patchGameIssues() {
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
 
+        // Move route 116 tunnler from in front of house to help avoid progression locks
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x0852a69c - 0x08000000, 0x25);
 
     }
 

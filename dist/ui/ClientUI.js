@@ -5,6 +5,7 @@ var debugConsole;
 document.addEventListener('DOMContentLoaded', function() {
 
     console.info("Version " + VERSION_NUMBER);
+    document.getElementById("version").innerHTML = VERSION_NUMBER;
     
     M.Modal.init(document.getElementById('menu'), {
       
