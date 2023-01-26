@@ -333,6 +333,8 @@ const FIRE_RED_CURRENT_GROUND_OFFSET = 0x02036e43;
 const EMERALD_CURRENT_GROUND_OFFSET = 0x0203735B;
 const CURRENT_GROUND_LAND = 0x33;
 const CURRENT_GROUND_WATER = 0x11;
+const CURRENT_GROUND_LADDER = 0x30;
+const CURRENT_GROUND_ELEVATED = 0x44;
 
 const EMERALD_STATE_OFFSET = 0x02037591;
 const FIRE_RED_STATE_OFFSET = 0x02037079;
@@ -361,8 +363,10 @@ function forcePlayerState(state) {
         IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_STATE_OFFSET, state); 
         if (state == MOVEMENT_MODE_SURF) {
             IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_WATER); 
+        } else if (IodineGUI.Iodine.IOCore.cpu.read8(EMERALD_CURRENT_GROUND_OFFSET) == CURRENT_GROUND_ELEVATED) {
+            IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_ELEVATED); 
         } else {
-            IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LAND); 
+            IodineGUI.Iodine.IOCore.cpu.write8(EMERALD_CURRENT_GROUND_OFFSET, CURRENT_GROUND_LADDER); 
         }
     }
 }

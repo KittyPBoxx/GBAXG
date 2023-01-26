@@ -369,6 +369,11 @@ function registerGUIEvents() {
 
     addEvent("click", document.getElementById("autoBike"), () => {
         autoBike = document.getElementById("autoBike").checked;
+        if (autoBike) {
+          forcePlayerState(MOVEMENT_MODE_BIKE);
+        } else {
+          forcePlayerState(MOVEMENT_MODE_WALK);
+        }
     });
 
     addEvent("click", document.getElementById("teleportAnywhere"), () => {
