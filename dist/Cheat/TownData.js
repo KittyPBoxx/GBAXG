@@ -1,16 +1,17 @@
 var KEY_LOCATION_DATA =
 {
     // KANTO
-    "PALLET TOWN"         : "FR,3,0,1",
-    "VIRIDIAN CITY"       : "FR,3,1,0",
-    "PEWTER CITY"         : "FR,3,2,5",
-    "CERULEAN CITY"       : "FR,3,3,3",
-    "LAVENDER TOWN"       : "FR,3,4,1",
-    "VERMILION CITY"      : "FR,3,5,4",
-    "CELADON CITY"        : "FR,3,6,4",
-    "FUCHSIA CITY"        : "FR,3,7,6",
-    "CINNABAR ISLAND"     : "FR,3,8,3",
-    "INDIGO PLATEAU (FR)" : "FR,3,9,0",
+    "PALLET TOWN"         : "FR,3,0,1" ,
+    "VIRIDIAN CITY"       : "FR,3,1,0" ,
+    "PEWTER CITY"         : "FR,3,2,5" ,
+    "CERULEAN CITY"       : "FR,3,3,3" ,
+    "LAVENDER TOWN"       : "FR,3,4,1" ,
+    "VERMILION CITY"      : "FR,3,5,4" ,
+    "CELADON CITY"        : "FR,3,6,4" ,
+    "FUCHSIA CITY"        : "FR,3,7,6" ,
+    "SAFFRON CITY"        : "FR,3,10,6",
+    "CINNABAR ISLAND"     : "FR,3,8,3" ,
+    "INDIGO PLATEAU (FR)" : "FR,3,9,0" ,
 
     "BROCK"               : "FR,6,2,1"  ,
     "MISTY"               : "FR,7,5,1"  ,
