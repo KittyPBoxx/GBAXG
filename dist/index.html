@@ -343,51 +343,8 @@
                           </div>
                         </div>
                       </a>
-                      <a class="carousel-item" href="#clock!">
-                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Clock</h4><h5 class="right-menu-button">R</h5></div>
-                        <div class="menu-group">
-                          <div class="rom-header"><h5 class="bios-text">SEASON</h5></div>
-                          <ul class="collection">
-                            <li class="collection-item season" id="spring">SPRING</li>
-                            <li class="collection-item season active" id="summer">SUMMER</li>
-                            <li class="collection-item season" id="autumn">AUTUMN</li>
-                            <li class="collection-item season" id="winter">WINTER</li>
-                          </ul>
-                        </div>
-                        <div class="menu-group">
-                          <div class="rom-header"><h5 class="bios-text">DAY</h5></div>
-                          <ul class="collection">
-                            <li class="collection-item day" id="monDay">MON</li>
-                            <li class="collection-item day" id="tueDay">TUE</li>
-                            <li class="collection-item day" id="wedDay">WED</li>
-                            <li class="collection-item day" id="thuDay">THU</li>
-                            <li class="collection-item day" id="friDay">FRI</li>
-                            <li class="collection-item day" id="satDay">SAT</li>
-                            <li class="collection-item day active" id="sunDay">SUN</li>
-                          </ul>
-                        </div>
-                        <div class="menu-group">
-                          <div class="rom-header"><h5 class="bios-text">TIME</h5></div>
-                          <ul class="collection">
-                            <li class="collection-item time" id="sunrise">SUNRISE</li>
-                            <li class="collection-item time high-tide active" id="day">DAY</li>
-                            <li class="collection-item time" id="sunset">SUNSET</li>
-                            <li class="collection-item time high-tide" id="night">NIGHT</li>
-                          </ul>
-                          <span class="high-tide tide-label">HIGH TIDE</span>
-                        </div> 
-                        <div class="switch">
-                          <span>USE SYSTEM</span>
-                          <label>
-                            Off
-                            <input type="checkbox" id="systemTimeCheckbox">
-                            <span class="lever"></span>
-                            On
-                          </label>
-                        </div>
-                      </a>
                       <a class="carousel-item" href="#randmonise!">
-                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Randomise</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Random Warps</h4><h5 class="right-menu-button">R</h5></div>
                         <div class="random-row">
                           <div class="switch random-warp">
                             <span>RANDOM WARPS</span>
@@ -463,6 +420,43 @@
                             </div>
                           </div>
                         </div>
+                        <div class="menu-group">
+                          <div class="random-row">
+                            <div class="input-field col s6 location-inputs">
+                              <span>SEARCH LOCATION</span>
+                              <input id="autocomplete-locations" autocomplete="off" class="autocomplete" type="text" value="PALLET TOWN" data-length="25">
+                            </div>
+                            <div class="input-field col s12 game-input">
+                              <select id="game-value-input">
+                                <option value="FR" selected>FR</option>
+                                <option value="C">C</option>
+                                <option value="E">E</option>
+                              </select>
+                              <span>GAME</span>
+                            </div>
+                            <div class="input-field col s6 warp-select bank-value" id="bank-value">
+                              <span>BANK</span>
+                              <input id="bank-value-input" type="number" value="3" min="0" max="255" data-length="2">
+                              <span class="number-spinner number-spinner-inc" id="bank-value-input-inc"></span>
+                              <span class="number-spinner number-spinner-dec" id="bank-value-input-dec"></span>
+                            </div>
+                            <div class="input-field col s6 warp-select map-value" id="map-value">
+                              <span>MAP</span>
+                              <input id="map-value-input" type="number" value="0" min="0" max="255" data-length="2">
+                              <span class="number-spinner number-spinner-inc" id="map-value-input-inc"></span>
+                              <span class="number-spinner number-spinner-dec" id="map-value-input-dec"></span>
+                            </div>
+                            <div class="input-field col s6 warp-select warp-value" id="warp-value">
+                              <span>WARP</span>
+                              <input id="warp-value-input" type="number" value="0" min="0" max="255" data-length="2">
+                              <span class="number-spinner number-spinner-inc" id="warp-value-input-inc"></span>
+                              <span class="number-spinner number-spinner-dec" id="warp-value-input-dec"></span>
+                            </div>
+                            <div class="btn-small remap-btn" id="overrideNextWarp">
+                              <span>SET NEXT WARP</span>
+                            </div>
+                          </div>
+                        </div>
                         <div class="menu-group dividerless">
                           <div class="rom-header"><h5 class="bios-text hide">RANDOMISER</h5></div>
                           <div class="randomiser-buttons-row">
@@ -533,7 +527,7 @@
                               </label>
                             </div>
                             <div class="switch hack-toggle boost-switch">
-                              <span>POTATO PC</span>
+                              <span>LOW SPEC PC</span>
                               <label>
                                 Off
                                 <input type="checkbox" id="boostSwitch">
@@ -561,7 +555,7 @@
                           </div>
                         </div>
                         <div class="menu-group">
-                          <div class="random-row hack-row">
+                          <div class="random-row hack-row toggle-row">
                             <div class="switch hack-toggle">
                               <span>DISABLE WALLS</span>
                               <label>
@@ -589,49 +583,16 @@
                                 On
                               </label>
                             </div>
+                          </div>
+                        </div>
+                        <div class="menu-group">
+                          <div class="random-row hack-row">
                             <ul class="collection state-group">
                               <li class="plaint-btn btn-small state-button" id="forceWalk">WALK</li>
                               <li class="plaint-btn btn-small state-button" id="forceBike">BIKE</li>
                               <li class="plaint-btn btn-small state-button" id="forceSurf">SURF</li>
-                              <li class="plaint-btn btn-small state-button" id="forceWhiteout">WHITE</li>
+                              <li class="plaint-btn btn-small state-button" id="forceWhiteout">WHITEOUT</li>
                             </ul>
-                          </div>
-                        </div>
-                        <div class="menu-group">
-                          <div class="random-row">
-                            <div class="input-field col s6 location-inputs">
-                              <span>SEARCH LOCATION</span>
-                              <input id="autocomplete-locations" autocomplete="off" class="autocomplete" type="text" value="PALLET TOWN" data-length="25">
-                            </div>
-                            <div class="input-field col s12 game-input">
-                              <select id="game-value-input">
-                                <option value="FR" selected>FR</option>
-                                <option value="C">C</option>
-                                <option value="E">E</option>
-                              </select>
-                              <span>GAME</span>
-                            </div>
-                            <div class="input-field col s6 warp-select bank-value" id="bank-value">
-                              <span>BANK</span>
-                              <input id="bank-value-input" type="number" value="3" min="0" max="255" data-length="2">
-                              <span class="number-spinner number-spinner-inc" id="bank-value-input-inc"></span>
-                              <span class="number-spinner number-spinner-dec" id="bank-value-input-dec"></span>
-                            </div>
-                            <div class="input-field col s6 warp-select map-value" id="map-value">
-                              <span>MAP</span>
-                              <input id="map-value-input" type="number" value="0" min="0" max="255" data-length="2">
-                              <span class="number-spinner number-spinner-inc" id="map-value-input-inc"></span>
-                              <span class="number-spinner number-spinner-dec" id="map-value-input-dec"></span>
-                            </div>
-                            <div class="input-field col s6 warp-select warp-value" id="warp-value">
-                              <span>WARP</span>
-                              <input id="warp-value-input" type="number" value="0" min="0" max="255" data-length="2">
-                              <span class="number-spinner number-spinner-inc" id="warp-value-input-inc"></span>
-                              <span class="number-spinner number-spinner-dec" id="warp-value-input-dec"></span>
-                            </div>
-                            <div class="btn-small remap-btn" id="overrideNextWarp">
-                              <span>SET NEXT WARP</span>
-                            </div>
                           </div>
                         </div>
                       </a>
@@ -646,6 +607,49 @@
                             </tr>
                           </table>
                           </div>
+                      </a>
+                      <a class="carousel-item" href="#clock!">
+                        <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">Clock</h4><h5 class="right-menu-button">R</h5></div>
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">SEASON</h5></div>
+                          <ul class="collection">
+                            <li class="collection-item season" id="spring">SPRING</li>
+                            <li class="collection-item season active" id="summer">SUMMER</li>
+                            <li class="collection-item season" id="autumn">AUTUMN</li>
+                            <li class="collection-item season" id="winter">WINTER</li>
+                          </ul>
+                        </div>
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">DAY</h5></div>
+                          <ul class="collection">
+                            <li class="collection-item day" id="monDay">MON</li>
+                            <li class="collection-item day" id="tueDay">TUE</li>
+                            <li class="collection-item day" id="wedDay">WED</li>
+                            <li class="collection-item day" id="thuDay">THU</li>
+                            <li class="collection-item day" id="friDay">FRI</li>
+                            <li class="collection-item day" id="satDay">SAT</li>
+                            <li class="collection-item day active" id="sunDay">SUN</li>
+                          </ul>
+                        </div>
+                        <div class="menu-group">
+                          <div class="rom-header"><h5 class="bios-text">TIME</h5></div>
+                          <ul class="collection">
+                            <li class="collection-item time" id="sunrise">SUNRISE</li>
+                            <li class="collection-item time high-tide active" id="day">DAY</li>
+                            <li class="collection-item time" id="sunset">SUNSET</li>
+                            <li class="collection-item time high-tide" id="night">NIGHT</li>
+                          </ul>
+                          <span class="high-tide tide-label">HIGH TIDE</span>
+                        </div> 
+                        <div class="switch">
+                          <span>USE SYSTEM</span>
+                          <label>
+                            Off
+                            <input type="checkbox" id="systemTimeCheckbox">
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
                       </a>
                     </div>
       

@@ -317,7 +317,7 @@ span.rom-status {
 }
 
 .state-button {
-    width: 6em;
+    width: 9em;
 }
 
 #eraseKeybinds,
@@ -382,6 +382,10 @@ span.rom-status {
 
 .hack-row {
     margin-top: -1em;
+}
+
+.toggle-row {
+    margin-bottom: 1em;
 }
 
 #console {
