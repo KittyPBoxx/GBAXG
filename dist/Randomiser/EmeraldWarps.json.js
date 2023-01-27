@@ -5321,7 +5321,7 @@ var EMERALD_WARPS =
         "to" : "E,23,0,2",
         "level": "7",
         "connections" : {
-            "E,0,35,0": true,
+            "E,0,35,0": "HOENN_CUT",
             "E,0,5,2": true,
             "E,0,38,0": "HOENN_SURF"
         }
