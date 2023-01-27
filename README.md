@@ -98,7 +98,7 @@ In theory any seed should generate a mapping that is completable in order. Howev
 - PC boxes are not accessible outside the current region/game.
 - Whiteout (and teleport e.t.c) will go the the last heal point in which ever region/game you are currently in. 
 - Repels effects will end when changing region/game.
-- Some items (mostly from Crystal Dust e.g rage candy bar) only work in the game they were designed for
+- Some items (mostly from Crystal Dust e.g rage candy bar) only work in the game they were designed for. TMs may be different in Crystal
 
 ---
 
@@ -107,7 +107,6 @@ In theory any seed should generate a mapping that is completable in order. Howev
 - Bike everywhere dosn't work for the ladders in Fortree or Pacifidlog
 - E4 rooms sometimes make you walk into the void if entered from the top
 - Minor graphical glitches in Emerald e.g (reflection colours, rival batle sprites, exclamation mark colour)  
-- There's a random guy in Azalea (and a route connector) who looks like Red and the game crashes if you speak to him...
 
 ---
 
@@ -126,7 +125,7 @@ In theory any seed should generate a mapping that is completable in order. Howev
 > Simple binary hacks *may* be compatible. Decomp hacks will probably **not** work without making changes to some of the hard coded ROM and RAM addresses in the following files: `WarpFixes, EmulationCoreHacks, SpriteOffsetData`
 
 **Can I play on mobile/tablet**
-> Maybe. The mod has been designed for and tested on desktop and requires a reasonable processor. However it may be able to run within some mobile browsers. A long swipe down can be used to open/close the main menu. On-screen keys can be activated from the controls screen. Some additional performance may be gained by activating 'Potato PC' mode from the hacks screen. This will disable audio and may cause frames to be missed.  
+> Maybe. The mod has been designed for and tested on desktop and requires a reasonable processor. However it may be able to run within some mobile browsers. A long swipe down can be used to open/close the main menu. On-screen keys can be activated from the controls screen. Some additional performance may be gained by activating 'LOW SPEC PC' mode from the hacks screen. This will disable audio and may cause frames to be missed.  
 
 **It gets stuck saying 'Initialising' for Emerald/Crystal**
 > The first time Emerald/Crystal are loaded (after erasing data) save data needs to be loaded in the background. This isn't the case for Fire Red as you manually create a new game. Initialising the roms should generally not take more than 30 seconds the first time they are loaded and should be instant after. If the initilisation is taking a long time/appears to be stuck you should refresh the page and try again. Less powerful devices (such as tablets) may run out of resources during initilisation and fail. As a work-around you can start the game on a more powerful device, save the game and export the save file ('EXPORT LAST'). You can then import this on your less powerful device BEFORE loading the roms and initilisation will be skipped.   
