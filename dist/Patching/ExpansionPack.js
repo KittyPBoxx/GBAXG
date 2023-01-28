@@ -69,6 +69,12 @@ ExpansionPack.prototype.addElementToExpansion = function(name, romCode, offsetIn
     this.nameExpanstionData.set(name, new ExpansionData(name, offset, Array.from(data)))
 } 
 
+ExpansionPack.prototype.addNewDataToExpansion = function(name, data) {
+    let offset = this.expansion.length; 
+    this.expansion = this.expansion.concat(Array.from(data));
+    this.nameExpanstionData.set(name, new ExpansionData(name, offset, Array.from(data)))
+} 
+
 ExpansionPack.prototype.getPatchPointStart = function (romCode) {
     // For a 16mb rom we can just append to the end for 32mb+ roms we might need to find some free space to patch into
     return 0x1000000;
@@ -189,7 +195,8 @@ function sprite16x32To32x32(data) {
 }
 
 var exp = null;
-async function patchSprites() {
+var expfr = null;
+async function patchExpansionData() {
 
     if (!IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
         return;
@@ -200,7 +207,19 @@ async function patchSprites() {
 
     if (exp == null) {
         exp = new ExpansionPack();
+        expfr = new ExpansionPack();
+
+        /***********************/
+        /** NEW DATA PATCHING **/
+        /***********************/
         
+        exp.addNewDataToExpansion("instantText", instantTextE);
+        expfr.addNewDataToExpansion("instantText", instantTextFR);
+
+        /*********************/
+        /** SPRITE PATCHING **/
+        /*********************/
+
         /* COPY DATA FROM FIRE RED */
 
         // WALKING
@@ -298,7 +317,6 @@ async function patchSprites() {
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
     
         /* COPY DATA TO CRYSTAL */
-        exp.addToRom("C");
         Object.keys(E_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("C", E_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
         });
@@ -341,7 +359,6 @@ async function patchSprites() {
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
 
         /* COPY DATA TO EMERALD */
-        exp.addToRom("E");
         Object.keys(E_1_0_GIRL_WALK_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("E", E_1_0_GIRL_WALK_SPRITE_PTRS[k] - 0x08000000, "fr_girl_" + k);
         });
@@ -424,6 +441,16 @@ async function patchSprites() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").ROM);
 
+        // Partially fix reflection pallets
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2c, 0xfc);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2d, 0x45);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2e, 0xfc);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2, 0x45);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a42ac, 0x9b77);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a42ad, 0x9b77);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a42ae, 0x9b77);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a42af, 0x9b77);
     }
 
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
@@ -446,6 +473,170 @@ async function patchSprites() {
         }
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM16 = getUint16View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM32 = getInt32View(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
+
+    }
+
+
+    /*************************************/
+    /** Add the expansion into the roms **/
+    /*************************************/
+
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
+        expfr.addToRom("FR");
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
+        exp.addToRom("C");
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
+        exp.addToRom("E");
+    }
+}
+
+var instantTextE = [0xf0, 0xb5, 0x4f, 0x46, 0x46, 0x46, 0xc0, 0xb4, 0x0c, 0x48, 0x00, 0x78, 0x00, 0x28,  0x46, 0xd1,
+                   0x0b, 0x4e, 0x00, 0x20, 0x81, 0x46, 0x80, 0x46, 0x34, 0x1d, 0x35, 0x1c, 0x00, 0x27,  0xe0, 0x7d,
+                   0x00, 0x28, 0x2f, 0xd0, 0x28, 0x1c, 0x00, 0xf0, 0x4b, 0xf8, 0x00, 0x04, 0x00, 0x0c,  0x01, 0x28,
+                   0x25, 0xd0, 0x01, 0x28, 0x06, 0xdc, 0x00, 0x28, 0x07, 0xd0, 0x25, 0xe0, 0x84, 0x2f,  0x00, 0x03,
+                   0xb0, 0x01, 0x02, 0x02, 0x03, 0x28, 0x0f, 0xd0, 0x1e, 0xe0, 0x20, 0x78, 0x02, 0x21,  0x00, 0xf0,
+                   0x3f, 0xf8, 0x30, 0x1c, 0x10, 0x30, 0x38, 0x18, 0x02, 0x68, 0x00, 0x2a, 0x14, 0xd0,  0x28, 0x1c,
+                   0x00, 0x21, 0x00, 0xf0, 0x25, 0xf8, 0x0f, 0xe0, 0x30, 0x1c, 0x10, 0x30, 0x38, 0x18,  0x02, 0x68,
+                   0x00, 0x2a, 0x14, 0xd0, 0x28, 0x1c, 0x03, 0x21, 0x00, 0xf0, 0x1a, 0xf8, 0x0f, 0xe0,  0x00, 0x20,
+                   0xe0, 0x75, 0x0c, 0xe0, 0x01, 0x20, 0x81, 0x44, 0x24, 0x34, 0x24, 0x35, 0x24, 0x37,  0x01, 0x20,
+                   0x80, 0x44, 0x40, 0x46, 0x1f, 0x28, 0xc2, 0xdd, 0x48, 0x46, 0x20, 0x28, 0xb9, 0xd1,  0x18, 0xbc,
+                   0x98, 0x46, 0xa1, 0x46, 0xf0, 0xbc, 0x01, 0xbc, 0x00, 0x47, 0x00, 0x00, 0x00, 0x00,  0x00, 0x00,
+                   0x78, 0x47, 0xc0, 0x46, 0x00, 0xc0, 0x9f, 0xe5, 0x1c, 0xff, 0x2f, 0xe1, 0xd9, 0x70,  0x2e, 0x08,
+                   0x78, 0x47, 0xc0, 0x46, 0x00, 0xc0, 0x9f, 0xe5, 0x1c, 0xff, 0x2f, 0xe1, 0x19, 0x48,  0x00, 0x08,
+                   0x78, 0x47, 0xc0, 0x46, 0x00, 0xc0, 0x9f, 0xe5, 0x1c, 0xff, 0x2f, 0xe1, 0x59, 0x36,  0x00, 0x08];
+
+var instantTextFR = [0xf0, 0xb5, 0x4f, 0x46, 0x46, 0x46, 0xc0, 0xb4, 0x0a, 0x4e, 0x00, 0x20, 0x81, 0x46, 0x80, 0x46,        
+                    0x34, 0x1d, 0x35, 0x1c, 0x00, 0x27, 0xe0, 0x7d, 0x00, 0x28, 0x2d, 0xd0, 0x28, 0x1c, 0x00, 0xf0,        
+                    0x4f, 0xf8, 0x00, 0x04, 0x00, 0x0c, 0x01, 0x28, 0x23, 0xd0, 0x01, 0x28, 0x04, 0xdc, 0x00, 0x28,        
+                    0x05, 0xd0, 0x23, 0xe0, 0x34, 0x00, 0x02, 0x02, 0x03, 0x28, 0x0f, 0xd0, 0x1e, 0xe0, 0x20, 0x78,        
+                    0x02, 0x21, 0x00, 0xf0, 0x35, 0xf8, 0x30, 0x1c, 0x10, 0x30, 0x38, 0x18, 0x02, 0x68, 0x00, 0x2a,        
+                    0x14, 0xd0, 0x28, 0x1c, 0x00, 0x21, 0x00, 0xf0, 0x23, 0xf8, 0x0f, 0xe0, 0x30, 0x1c, 0x10, 0x30,        
+                    0x38, 0x18, 0x02, 0x68, 0x00, 0x2a, 0x14, 0xd0, 0x28, 0x1c, 0x03, 0x21, 0x00, 0xf0, 0x18, 0xf8,        
+                    0x0f, 0xe0, 0x00, 0x20, 0xe0, 0x75, 0x0c, 0xe0, 0x01, 0x20, 0x81, 0x44, 0x24, 0x34, 0x24, 0x35,        
+                    0x24, 0x37, 0x01, 0x20, 0x80, 0x44, 0x40, 0x46, 0x1f, 0x28, 0xc4, 0xdd, 0x48, 0x46, 0x20, 0x28,        
+                    0xbb, 0xd1, 0x18, 0xbc, 0x98, 0x46, 0xa1, 0x46, 0xf0, 0xbc, 0x01, 0xbc, 0x00, 0x47, 0x00, 0x00,        
+                    0x78, 0x47, 0xc0, 0x46, 0x00, 0xc0, 0x9f, 0xe5, 0x1c, 0xff, 0x2f, 0xe1, 0x20, 0x3c, 0x1e, 0x08,        
+                    0x78, 0x47, 0xc0, 0x46, 0x00, 0xc0, 0x9f, 0xe5, 0x1c, 0xff, 0x2f, 0xe1, 0x35, 0x3f, 0x00, 0x08,        
+                    0x78, 0x47, 0xc0, 0x46, 0x00, 0xc0, 0x9f, 0xe5, 0x1c, 0xff, 0x2f, 0xe1, 0x91, 0x2e, 0x00, 0x08]
+
+function patchInInstantText() {
+
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
+
+        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            // dealing with 1.1
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x41f498, 0x01);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x41f499, 0x01);
+    
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dfc  , 0x00);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dfd  , 0x4a);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dfe  , 0x10);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dff  , 0x47);
+    
+            let ptrAddress = expfr.getExpansionPtr("instantText", "FR").toString(16).padStart(8, 0).split("");
+    
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e00  , parseInt(ptrAddress[6] + ptrAddress[7], 16) + 1);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e01  , parseInt(ptrAddress[4] + ptrAddress[5], 16)    );
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e02  , parseInt(ptrAddress[2] + ptrAddress[3], 16)    );
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e03  , parseInt(ptrAddress[0] + ptrAddress[1], 16)    );
+
+        } else {
+            // TODO support instant text for Fire Red 1.0
+        }
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x60f094, 0x01);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x60f095, 0x01);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4778  , 0x00);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4779  , 0x4a);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477A  , 0x10);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477B  , 0x47);
+
+        let ptrAddress = exp.getExpansionPtr("instantText", "C").toString(16).padStart(8, 0).split("");
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477C  , parseInt(ptrAddress[6] + ptrAddress[7], 16) + 1);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477D  , parseInt(ptrAddress[4] + ptrAddress[5], 16)    );
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477E  , parseInt(ptrAddress[2] + ptrAddress[3], 16)    );
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477F  , parseInt(ptrAddress[0] + ptrAddress[1], 16)    );
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x60f094, 0x01);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x60f095, 0x01);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4778  , 0x00);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4779  , 0x4a);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477A  , 0x10);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477B  , 0x47);
+
+        let ptrAddress = exp.getExpansionPtr("instantText", "E").toString(16).padStart(8, 0).split("");
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477C  , parseInt(ptrAddress[6] + ptrAddress[7], 16) + 1);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477D  , parseInt(ptrAddress[4] + ptrAddress[5], 16)    );
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477E  , parseInt(ptrAddress[2] + ptrAddress[3], 16)    );
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477F  , parseInt(ptrAddress[0] + ptrAddress[1], 16)    );
+        
+    }
+
+}
+
+function patchOutInstantText() {
+
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
+
+        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            // dealing with 1.1
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x41f498, 0x08);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x41f499, 0x04);
+    
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dfc  , 0xf0);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dfd  , 0xb5);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dfe  , 0x47);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2dff  , 0x46);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e00  , 0x80);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e01  , 0xb4);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e02  , 0x0a);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2e03  , 0x48);
+
+        } else {
+            // TODO support instant text for Fire Red 1.0
+        }
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x60f094, 0x08);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x60f095, 0x04);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4778  , 0xf0);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4779  , 0xb5);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477A  , 0x47);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477B  , 0x46);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477C  , 0x80);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477D  , 0xb4);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477E  , 0x0c);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x477F  , 0x48);
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x60f094, 0x08);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x60f095, 0x04);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4778  , 0xf0);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4779  , 0xb5);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477A  , 0x47);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477B  , 0x46);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477C  , 0x80);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477D  , 0xb4);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477E  , 0x0c);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477F  , 0x48);
 
     }
 }

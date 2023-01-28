@@ -292,14 +292,16 @@ function spliceWRAM(address, length, data) {
 }
 
 
-/**********************/
-/* Walk through walls */  
-/**********************/
+/***********************/
+/* Dynamic rom patches */  
+/***********************/
 /**
  * Patches out an area in the ROM 
  */
 var walkThroughWalls = false;
-var frOffset = 364078; // set to 364098 for 1.1 version
+var runIndoors = false;
+var frWallsOffset = 364078; // set to 364098 for 1.1 version
+var frRunIndoorsOffset = 0xBD494; //  set to 0xBD4A8 for 1.1 version
 
 GameBoyAdvanceMultiCartridge.prototype.initializeWithoutIntercept = GameBoyAdvanceMultiCartridge.prototype.initialize;
 GameBoyAdvanceMultiCartridge.prototype.initialize = function (startingRom) {
@@ -307,23 +309,37 @@ GameBoyAdvanceMultiCartridge.prototype.initialize = function (startingRom) {
 
     // if 0x(80000)BC == 1 then we have US 1.1 instead of US 1.0
     if (this.cartriges.get("FR") && this.cartriges.get("FR").ROM[0xBC]) {
-        frOffset = 364098
+        frWallsOffset = 364098
+        frRunIndoorsOffset = 0xBD4A8;
     }
 } 
 
 GameBoyAdvanceMultiCartridge.prototype.readROM16WithoutIntercept = GameBoyAdvanceMultiCartridge.prototype.readROM16;
 GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
 
-    if (!walkThroughWalls) { return this.readROM16WithoutIntercept(address); }
+    if (!walkThroughWalls && !runIndoors) { return this.readROM16WithoutIntercept(address); }
 
-    if (address == frOffset && this.romCode == "FR") { 
-        return 0x2100; 
-    } else if (address == 601094 && this.romCode == "C") {
-        return 0x2000; 
-    } else if (address == 601094 && this.romCode == "E") {
-        return 0x2000;
+
+    if (walkThroughWalls) {
+        if (address == frWallsOffset && this.romCode == "FR") { 
+            return 0x2100; 
+        } else if (address == 601094 && this.romCode == "C") {
+            return 0x2000; 
+        } else if (address == 601094 && this.romCode == "E") {
+            return 0x2000;
+        }
     }
-    
+
+    if (runIndoors) {
+        if (address == frRunIndoorsOffset && this.romCode == "FR") { 
+            return 0x00; 
+        } else if (address == 0x11A1E8 && this.romCode == "C") {
+            return 0x00; 
+        } else if (address == 0x11A1E8 && this.romCode == "E") {
+            return 0x00;
+        }
+    }
+
     return this.readROM16WithoutIntercept(address);
 }
 

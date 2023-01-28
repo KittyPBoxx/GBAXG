@@ -386,6 +386,8 @@ span.rom-status {
 
 .toggle-row {
     margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #console {
