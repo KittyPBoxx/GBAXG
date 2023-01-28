@@ -414,6 +414,31 @@ function registerGUIEvents() {
         forceNextWarp = game + "," + bank + "," + map + "," + warp;
     });
 
+    addEvent("click", document.getElementById("hmBadgeSync"), () => {
+        badgeSync = document.getElementById("hmBadgeSync").checked;
+    });
+
+    addEvent("click", document.getElementById("give-shoes"), () => modifyRunningShoes(IodineGUI.Iodine.IOCore.cartridge.romCode, 1));
+    addEvent("click", document.getElementById("take-shoes"), () => modifyRunningShoes(IodineGUI.Iodine.IOCore.cartridge.romCode, 0));
+
+    addEvent("click", document.getElementById("give-b1"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 1, 1));
+    addEvent("click", document.getElementById("take-b1"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 1, 0));
+    addEvent("click", document.getElementById("give-b2"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 2, 1));
+    addEvent("click", document.getElementById("take-b2"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 2, 0));
+    addEvent("click", document.getElementById("give-b3"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 3, 1));
+    addEvent("click", document.getElementById("take-b3"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 3, 0));
+    addEvent("click", document.getElementById("give-b4"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 4, 1));
+    addEvent("click", document.getElementById("take-b4"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 4, 0));
+    addEvent("click", document.getElementById("give-b5"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 5, 1));
+    addEvent("click", document.getElementById("take-b5"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 5, 0));
+    addEvent("click", document.getElementById("give-b6"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 6, 1));
+    addEvent("click", document.getElementById("take-b6"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 6, 0));
+    addEvent("click", document.getElementById("give-b7"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 7, 1));
+    addEvent("click", document.getElementById("take-b7"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 7, 0));
+    addEvent("click", document.getElementById("give-b8"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 8, 1));
+    addEvent("click", document.getElementById("take-b8"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 8, 0));
+
+
     setupTouchControls();
 
     addEvent("resize", window, resizeCanvasFunc);

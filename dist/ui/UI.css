@@ -220,6 +220,22 @@ span.rom-status {
     overflow: hidden !important;
 }
 
+#flag-table {
+    margin-top: 1em;
+}
+
+#flag-table td {
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+.flag-option-holder {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    margin-right: 2em;
+}
+
 .collection .collection-item {
     display: inline-block;
     color: #4a4a4a;
