@@ -50,6 +50,8 @@ const EMERALD_CURRENT_WARP = 0x20322e6;
 const EMERALD_MAP_TYPE = 0x203732F; // Used for enabling teleports/fly anywhere (0x2 for city, 0x4 for underground) 
 const FIRE_RED_MAP_TYPE = 0x2036E13; 
 
+
+var flagManager; // only global to help debugging
 GameBoyAdvanceCPU.prototype.write32WithoutIntercept = GameBoyAdvanceCPU.prototype.write32;
 GameBoyAdvanceCPU.prototype.write32 = function (address, data) { 
 
@@ -69,7 +71,7 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     let bagStoreage = new BagStoreage();
                     bagStoreage.readData(beforeRomCode);
 
-                    let flagManager = new FlagManager();
+                    flagManager = new FlagManager();
                     flagManager.readFlags(beforeRomCode);
         
                     IodineGUI.Iodine.saveStateManager.loadState(gameSwitchingWarp.toRomCode);
@@ -767,7 +769,7 @@ BagStoreage.prototype.writeItemSection = function(save1Start, offset, length, st
 /*******************/
 /* Flag Management */
 /*******************/
-var badgeSync = false;
+var badgeSync = true;
 
 // TODO: General read flag / set flag / clear flag function 
 
@@ -999,7 +1001,7 @@ FlagManager.prototype.writeFireRedFlags = function () {
         let badge7 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE7_OFFSET);
         let badge8 = this.getFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE8_OFFSET);
 
-        let updatedBadges = this.HMState.updateBadges("E", badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8);
+        let updatedBadges = this.HMState.updateBadges("FR", badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8);
 
         this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE1_OFFSET, +(updatedBadges[0] || badge1));
         this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_BADGE2_OFFSET, +(updatedBadges[1] || badge2));
@@ -1085,9 +1087,9 @@ HMState.prototype.evaluate = function (game, badge1, badge2, badge3, badge4, bad
         this.canStrength  = badge3;
         this.canSurf      = badge4;
         this.canSmash     = false; // because there is no badge requirement
-        this.canWaterfall = badge7;
+        this.canWaterfall = badge8;
         this.canDive      = false;
-        this.canWhirlpool = badge8;
+        this.canWhirlpool = badge7;
     } else {
         this.canFlash     = badge1;
         this.canCut       = badge2;
@@ -1118,19 +1120,18 @@ HMState.prototype.updateBadges = function (game, badge1, badge2, badge3, badge4,
     else if (game == "C") {
         badges[1 - 1] = +(badge1 || this.canFlash);
         badges[2 - 1] = +(badge2 || this.canCut);
-        badges[3 - 1] = +(badge3 || this.canFly);
-        badges[4 - 1] = +(badge4 || this.canStrength);
-        badges[5 - 1] = +(badge5 || this.canSurf);
-        badges[6 - 1] = +(badge6 || this.canSmash);
+        badges[3 - 1] = +(badge3 || this.canStrength);
+        badges[4 - 1] = +(badge4 || this.canSurf);
+        badges[5 - 1] = +(badge5 || this.canFly);
+        badges[8 - 1] = +(badge8 || this.canWaterfall);
     } else {
         badges[1 - 1] = +(badge1  || this.canFlash);
         badges[2 - 1] = +(badge2  || this.canCut);
-        badges[3 - 1] = +(badge3  || this.canStrength);
-        badges[4 - 1] = +(badge4  || this.canSurf);
-        badges[5 - 1] = +(badge5  || this.canFly);
-
-        badges[7 - 1] = +(badge7  || this.canWhirlpool);
-        badges[8 - 1] = +(badge8  || this.canWaterfall);
+        badges[3 - 1] = +(badge3  || this.canFly);
+        badges[4 - 1] = +(badge4  || this.canStrength);
+        badges[5 - 1] = +(badge5  || this.canSurf);
+        badges[6 - 1] = +(badge6  || this.canSmash);
+        badges[7 - 1] = +(badge7  || this.canWaterfall);
     }
 
     return badges;
