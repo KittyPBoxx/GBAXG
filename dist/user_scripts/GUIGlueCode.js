@@ -67,7 +67,6 @@ function registerGUIEvents() {
     });
     addEvent("click", document.getElementById("reset"), () => {
         toggleMenu();
-        IodineGUI.Iodine.NEXT_ROM = IodineGUI.Iodine.IOCore.cartridge.romCode;
         restartFromLastSave();
     });
     addEvent("click", document.getElementById("eraseAll"), () => {

@@ -125,6 +125,7 @@ GameBoyAdvanceSaves.prototype.saveIntercept = function(address, data) {
 }
 
 function restartFromLastSave() {
+    IodineGUI.Iodine.NEXT_ROM = IodineGUI.Iodine.IOCore.cartridge.romCode;
     storageManager.find("LATEST")
                   .then(s => IodineGUI.Iodine.saveStateManager.loadMultiState("LATEST", () => IodineGUI.Iodine.restart()), IodineGUI.Iodine.restart());
 }

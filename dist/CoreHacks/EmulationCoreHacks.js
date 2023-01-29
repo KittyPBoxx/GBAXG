@@ -71,7 +71,7 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     let bagStoreage = new BagStoreage();
                     bagStoreage.readData(beforeRomCode);
 
-                    flagManager = new FlagManager();
+                    flagManager = new FlagManager(bagStoreage.hasBike());
                     flagManager.readFlags(beforeRomCode);
         
                     IodineGUI.Iodine.saveStateManager.loadState(gameSwitchingWarp.toRomCode);
@@ -670,6 +670,7 @@ BagStoreage.prototype.writeDataToEmerald = function (game, lastGame) {
     // If we have a bike from fire red but not a mach/acro bike from emerald we should get a mach bike 
     if (this.keyItemsPocket.get(360) && !this.keyItemsPocket.get(259) && !this.keyItemsPocket.get(272)) {
         this.keyItemsPocket.set(259, 1);
+        this.keyItemsPocket.get(272, 1);
     }
 
     // If we have HM06/TM08 we need to make sure it's the right hm
@@ -765,6 +766,10 @@ BagStoreage.prototype.writeItemSection = function(save1Start, offset, length, st
     }
 }
 
+BagStoreage.prototype.hasBike = function () {
+    // Add up quantities of any bikes
+    return ((this.keyItemsPocket.get(259) || 0) + (this.keyItemsPocket.get(272) || 0) + (this.keyItemsPocket.get(360) || 0)) > 0
+}
 
 /*******************/
 /* Flag Management */
@@ -777,6 +782,7 @@ var badgeSync = true;
 // The equations are so the offsets line up the the flags defined in the decomp projects
 // https://github.com/pret/pokefirered/blob/master/include/constants/flags.h
 // https://github.com/pret/pokeemerald/blob/master/include/constants/flags.h
+const FIRE_RED_BASE_FLAG_OFFSET    = 0xEE0;
 const FIRE_RED_SYS_FLAGS_OFFSET    = 0xFE0;
 const FIRE_RED_BADGE1_OFFSET       = 0x20;
 const FIRE_RED_BADGE2_OFFSET       = 0x21;
@@ -795,6 +801,7 @@ const FIRE_RED_BADGE_OFFSETS = [FIRE_RED_BADGE1_OFFSET,
                                 FIRE_RED_BADGE6_OFFSET, 
                                 FIRE_RED_BADGE7_OFFSET, 
                                 FIRE_RED_BADGE8_OFFSET];
+const FIRE_RED_BIKE_OBTAINED_OFFSET = 0x271;
 
 const EMERALD_SYS_FLAGS_OFFSET    = 0x137C;
 const EMERALD_BADGE1_OFFSET       = 0x7;
@@ -815,7 +822,7 @@ const EMERALD_BADGE_OFFSETS = [EMERALD_BADGE1_OFFSET,
                                EMERALD_BADGE7_OFFSET, 
                                EMERALD_BADGE8_OFFSET];
 
-function FlagManager() {
+function FlagManager(hasBike) {
     this.badge1 = null;
     this.badge2 = null;
     this.badge3 = null;
@@ -826,6 +833,7 @@ function FlagManager() {
     this.badge8 = null;
     this.hasRunningShoes = null;
     this.HMState = null;
+    this.hasBike = hasBike;
 }
 
 FlagManager.prototype.getFlag = function (saveOffset, sectionOffset, flagOffset) {
@@ -989,6 +997,10 @@ FlagManager.prototype.writeFireRedFlags = function () {
     let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_1_PTR);
 
     this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_RUNNING_SHOE_OFFSET, +this.hasRunningShoes);
+
+    if (this.hasBike) {
+        this.setFlag(save1Start, FIRE_RED_BASE_FLAG_OFFSET, FIRE_RED_BIKE_OBTAINED_OFFSET, 1);
+    }
 
     if (badgeSync) {
         
