@@ -83,6 +83,40 @@ var FR_1_0_GIRL_BIKE_SPRITE_DATA =
     "side_step_2"      :  FR_1_0_GIRL_BIKE_SPRITE_DATA_BASE_OFFSET + (512 * 8 )
 };
 
+// We need to create a fake acrobike spriteset from fire red bike sprites
+var FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET = 0x08363DA8;
+var FR_1_0_GIRL_ACRO_SPRITE_DATA = 
+{
+    "front"            :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 0  ),
+    "back"             :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 1  ),
+    "side"             :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 2  ),
+    "front_step_1"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 3  ),
+    "front_step_2"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 4  ),
+    "back_step_1"      :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 5  ),
+    "back_step_2"      :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 6  ),
+    "side_step_1"      :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 7  ),
+    "side_step_2"      :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 8  ),
+    
+    "front_trick_1"    :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 0  ),
+    "front_trick_2"    :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 3  ),
+    "front_trick_3"    :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 4  ),
+    "front_trick_4"    :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 0  ),
+    "back_trick_1"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 1  ),
+    "back_trick_2"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 5  ),
+    "back_trick_3"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 6  ),
+    "back_trick_4"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 1  ),
+    "side_trick_1"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 2  ),
+    "side_trick_2"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 7  ),
+    "side_trick_3"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 8  ),
+    "side_trick_4"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 2  ),
+    "front_wheel_1"    :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 3  ),
+    "front_wheel_2"    :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 4  ),
+    "back_wheel_1"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 5  ),
+    "back_wheel_2"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 6  ),
+    "side_wheel_1"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 7  ),
+    "side_wheel_2"     :  FR_1_0_GIRL_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 8  )
+};
+
 var FR_1_0_GIRL_SURF_SPRITE_PRT = 0x083A02D0;
 var FR_1_0_GIRL_SURF_SPRITE_DATA_BASE_OFFSET = 0x0835DB68;
 var FR_1_0_GIRL_SURF_SPRITE_DATA = 
@@ -204,6 +238,40 @@ var FR_1_0_BOY_BIKE_SPRITE_DATA =
     "back_step_2"      :  FR_1_0_BOY_BIKE_SPRITE_DATA_BASE_OFFSET + (512 * 6 ),
     "side_step_1"      :  FR_1_0_BOY_BIKE_SPRITE_DATA_BASE_OFFSET + (512 * 7 ),
     "side_step_2"      :  FR_1_0_BOY_BIKE_SPRITE_DATA_BASE_OFFSET + (512 * 8 )
+};
+
+// We need to create a fake acrobike spriteset from fire red bike sprites
+var FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET = 0x08361FA8;
+var FR_1_0_BOY_ACRO_SPRITE_DATA = 
+{
+    "front"            :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 0  ),
+    "back"             :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 1  ),
+    "side"             :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 2  ),
+    "front_step_1"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 3  ),
+    "front_step_2"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 4  ),
+    "back_step_1"      :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 5  ),
+    "back_step_2"      :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 6  ),
+    "side_step_1"      :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 7  ),
+    "side_step_2"      :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 8  ),
+    
+    "front_trick_1"    :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 0  ),
+    "front_trick_2"    :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 3  ),
+    "front_trick_3"    :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 4  ),
+    "front_trick_4"    :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 0  ),
+    "back_trick_1"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 1  ),
+    "back_trick_2"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 5  ),
+    "back_trick_3"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 6  ),
+    "back_trick_4"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 1  ),
+    "side_trick_1"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 2  ),
+    "side_trick_2"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 7  ),
+    "side_trick_3"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 8  ),
+    "side_trick_4"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 2  ),
+    "front_wheel_1"    :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 3  ),
+    "front_wheel_2"    :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 4  ),
+    "back_wheel_1"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 5  ),
+    "back_wheel_2"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 6  ),
+    "side_wheel_1"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 7  ),
+    "side_wheel_2"     :  FR_1_0_BOY_ACRO_SPRITE_DATA_BASE_OFFSET + (512 * 8  )
 };
 
 var FR_1_0_BOY_SURF_SPRITE_PRT = 0x083A0270;
@@ -345,6 +413,38 @@ var E_1_0_GIRL_BIKE_SPRITE_PTRS =
     "back_step_2"      :  E_1_0_GIRL_BIKE_SPRITE_PRT_BASE_OFFSET + (8 * 6 ),
     "side_step_1"      :  E_1_0_GIRL_BIKE_SPRITE_PRT_BASE_OFFSET + (8 * 7 ),
     "side_step_2"      :  E_1_0_GIRL_BIKE_SPRITE_PRT_BASE_OFFSET + (8 * 8 )
+};
+
+var E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET = 0x0850721C;
+var E_1_0_GIRL_ACRO_SPRITE_PTRS = 
+{
+    "front"            :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 0  ),
+    "back"             :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 1  ),
+    "side"             :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 2  ),
+    "front_step_1"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 3  ),
+    "front_step_2"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 4  ),
+    "back_step_1"      :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 5  ),
+    "back_step_2"      :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 6  ),
+    "side_step_1"      :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 7  ),
+    "side_step_2"      :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 8  ),
+    "front_trick_1"    :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 9  ),
+    "front_trick_2"    :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 10 ),
+    "front_trick_3"    :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 11 ),
+    "front_trick_4"    :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 12 ),
+    "back_trick_1"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 13 ),
+    "back_trick_2"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 14 ),
+    "back_trick_3"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 15 ),
+    "back_trick_4"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 16 ),
+    "side_trick_1"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 17 ),
+    "side_trick_2"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 18 ),
+    "side_trick_3"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 19 ),
+    "side_trick_4"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 20 ),
+    "front_wheel_1"    :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 21 ),
+    "front_wheel_2"    :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 22 ),
+    "back_wheel_1"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 23 ),
+    "back_wheel_2"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 24 ),
+    "side_wheel_1"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 25 ),
+    "side_wheel_2"     :  E_1_0_GIRL_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 26 )
 };
 
 var E_1_0_GIRL_SURF_SPRITE_PRT_BASE_OFFSET = 0x085072F4;
@@ -515,6 +615,38 @@ var E_1_0_BOY_BIKE_SPRITE_PTRS =
     "side_step_2"      :  E_1_0_BOY_BIKE_SPRITE_PRT_BASE_OFFSET + (8 * 8 )
 };
 
+var E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET = 0x08505B64;
+var E_1_0_BOY_ACRO_SPRITE_PTRS = 
+{
+    "front"            :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 0  ),
+    "back"             :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 1  ),
+    "side"             :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 2  ),
+    "front_step_1"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 3  ),
+    "front_step_2"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 4  ),
+    "back_step_1"      :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 5  ),
+    "back_step_2"      :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 6  ),
+    "side_step_1"      :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 7  ),
+    "side_step_2"      :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 8  ),
+    "front_trick_1"    :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 9  ),
+    "front_trick_2"    :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 10 ),
+    "front_trick_3"    :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 11 ),
+    "front_trick_4"    :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 12 ),
+    "back_trick_1"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 13 ),
+    "back_trick_2"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 14 ),
+    "back_trick_3"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 15 ),
+    "back_trick_4"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 16 ),
+    "side_trick_1"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 17 ),
+    "side_trick_2"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 18 ),
+    "side_trick_3"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 19 ),
+    "side_trick_4"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 20 ),
+    "front_wheel_1"    :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 21 ),
+    "front_wheel_2"    :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 22 ),
+    "back_wheel_1"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 23 ),
+    "back_wheel_2"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 24 ),
+    "side_wheel_1"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 25 ),
+    "side_wheel_2"     :  E_1_0_BOY_ACRO_SPRITE_PRT_BASE_OFFSET + (8 * 26 )
+};
+
 var E_1_0_BOY_SURF_SPRITE_PRT_BASE_OFFSET  = 0x08505C3C;
 var E_1_0_BOY_SURF_SPRITE_DATA_BASE_OFFSET = 0x08505C3C;
 var E_1_0_BOY_SURF_SPRITE_DATA = 
@@ -673,11 +805,19 @@ var BACKSPRITES_PALLET_LENGTH = 64;
 
 // Reflection pallets not fixed
 
+
+// GOTO 1939 in unLZ
 // Trainer sprites not fixed
 var EMERALD_BRANDON_TRAINER_SPRITE_PTR = 0x305654 + (8 * 71);
 var EMERALD_RED_TRAINER_SPRITE_PTR = 0x305654 + (8 * 89);
 var EMERALD_MAY_TRAINER_SPRITE_PTR = 0x305654 + (8 * 72);
 var EMERALD_LEAF_TRAINER_SPRITE_PTR = 0x305654 + (8 * 90);
+
+var EMERALD_BRANDON_TRAINER_PALLET_PTR = 0x305b74;
+var EMERALD_MAY_TRAINER_PALLET_PTR = 0x305b7c;
+
+var EMERALD_RED_TRAINER_PALLET_PTR = 0x305c04;
+var EMERALD_LEAF_TRAINER_PALLET_PTR = 0x305c0c;
 
 // Fire Red hero offset unlz 3084 (e6718)
 // Emerald brandon offset unlz 1939 (d61a58)

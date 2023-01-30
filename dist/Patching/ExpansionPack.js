@@ -257,6 +257,23 @@ async function patchExpansionData() {
             exp.addElementToExpansion("fr_boy_bike_" + k, "FR", (versionOffset + FR_1_0_BOY_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
         });
 
+        // ACRO
+        Object.keys(FR_1_0_GIRL_ACRO_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_girl_acro_" + k, "FR", (versionOffset + FR_1_0_GIRL_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
+        });
+
+        Object.keys(FR_1_0_BOY_ACRO_SPRITE_DATA).forEach(k => {
+            let versionOffset = 0;
+            if (isPatchedFireRed) {
+                versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
+            }
+            exp.addElementToExpansion("fr_boy_acro_" + k, "FR", (versionOffset + FR_1_0_BOY_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
+        });
+
         // SURFING 
         Object.keys(FR_1_0_GIRL_SURF_SPRITE_DATA).forEach(k => {
             let versionOffset = 0;
@@ -368,8 +385,14 @@ async function patchExpansionData() {
         Object.keys(E_1_0_GIRL_BIKE_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("E", E_1_0_GIRL_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bike_" + k);
         });
+        Object.keys(E_1_0_GIRL_ACRO_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_GIRL_ACRO_SPRITE_PTRS[k] - 0x08000000, "fr_girl_acro_" + k);
+        });
         Object.keys(E_1_0_BOY_BIKE_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("E", E_1_0_BOY_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bike_" + k);
+        });
+        Object.keys(E_1_0_BOY_ACRO_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("E", E_1_0_BOY_ACRO_SPRITE_PTRS[k] - 0x08000000, "fr_boy_acro_" + k);
         });
         Object.keys(E_1_0_GIRL_SURF_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("E", E_1_0_GIRL_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_girl_surf_" + k);
@@ -393,6 +416,9 @@ async function patchExpansionData() {
         // Fix Emerald Trainer Sprites
         exp.patchRomPtr32("E", EMERALD_BRANDON_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_RED_TRAINER_SPRITE_PTR));
         exp.patchRomPtr32("E", EMERALD_MAY_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_LEAF_TRAINER_SPRITE_PTR));
+
+        exp.patchRomPtr32("E", EMERALD_BRANDON_TRAINER_PALLET_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_RED_TRAINER_PALLET_PTR));
+        exp.patchRomPtr32("E", EMERALD_MAY_TRAINER_PALLET_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_LEAF_TRAINER_PALLET_PTR));
 
         // Backsprites
         Object.keys(E_BACKSPRITE_PTRS).forEach(k => {
