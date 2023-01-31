@@ -51,16 +51,16 @@
 
 --- BADGES
 
-    ZEPHYR_BADGE  | Jhoto Flash/Route 32                   | Violet Gym
-    INSECT_BADGE  | Jhoto Cut                              | Azalea GYM
-    PLAIN_BADGE   | Jhoto Strength/Squirt Bottle 1         | Goldenrod Gym
-    FOG_BADGE     | Jhoto Surf                             | Ecruteak Gym
-    STORM_BADGE   | Jhoto Fly                              | Cianwood Gym
+    ZEPHYR_BADGE  | Johto Flash/Route 32                   | Violet Gym
+    INSECT_BADGE  | Johto Cut                              | Azalea GYM
+    PLAIN_BADGE   | Johto Strength/Squirt Bottle 1         | Goldenrod Gym
+    FOG_BADGE     | Johto Surf                             | Ecruteak Gym
+    STORM_BADGE   | Johto Fly                              | Cianwood Gym
     MINERAL_BADGE |                                        | Olivine Gym  
-    GLACIER_BADGE | Jhoto Waterfall                        | Mahogany Gym
+    GLACIER_BADGE | Johto Waterfall                        | Mahogany Gym
     
     RISING_BADGE  |                                        | Dragons Den
-    CLAIR         | Jhoto Whirlpool                        | Blackthorn Gym       
+    CLAIR         | Johto Whirlpool                        | Blackthorn Gym       
 
 --- HMS
 

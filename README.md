@@ -1,6 +1,6 @@
 # GBAXG
 
-Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads and modifies Fire Red, Emerald and Crystal Dust ROMS so you can simultaneously play across Kanto, Jhoto and Hoenn. Memory is dynamically altered so you can keep your team, items, money and trainer data when moving between games/reigons. [Go To The Emulator](https://kittypboxx.github.io/GBAXG/build)
+Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads and modifies Fire Red, Emerald and Crystal Dust ROMS so you can simultaneously play across Kanto, Johto and Hoenn. Memory is dynamically altered so you can keep your team, items, money and trainer data when moving between games/reigons. [Go To The Emulator](https://kittypboxx.github.io/GBAXG/build)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/89883734/212461211-d80a84f4-8b99-48c8-aec2-0c0506ff77cc.gif" />
@@ -77,7 +77,7 @@ ESC will bring up the emulation menu where you can change things like the seed.
 
 If you've not played a map randomiser before the goal is to find and beat the Gyms, E4, Champion (and final boss). In this you start in Pallet Town where none of the loading zones have been randomised but that will change as soon as you get to Viridian. 
 
-The randomisation logic should make it so that it's possible to beat the Gyms, E4 and Champion in order. The logic only guarantees order within each region. This means you should always be able to beat Kanto Gym 1 before Gym 2(/3/4/5 e.t.c) however you might need to beat Jhoto gyms 1,2 and 3 before you can get to Kanto Gym 1. 
+The randomisation logic should make it so that it's possible to beat the Gyms, E4 and Champion in order. The logic only guarantees order within each region. This means you should always be able to beat Kanto Gym 1 before Gym 2(/3/4/5 e.t.c) however you might need to beat Johto gyms 1,2 and 3 before you can get to Kanto Gym 1. 
 
 If you are only randomising up to certain gyms you will never have to play beyond that point. 
 

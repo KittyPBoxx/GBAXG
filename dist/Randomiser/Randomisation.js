@@ -738,7 +738,7 @@ function getHint(location) {
     return "NOT PRESENT";
   }
   let info = mapData.get(warp.toRomCode + "," + warp.toBank + "," + warp.toMap + "," + warp.toWarpNo).name;
-  let hint = warp.toRomCode == "E" ? "HOENN - " : (warp.toRomCode == "C" ? "JHOTO - " : "KANTO - ");
+  let hint = warp.toRomCode == "E" ? "HOENN - " : (warp.toRomCode == "C" ? "JOHTO - " : "KANTO - ");
   return hint + info.split("-")[0].trim() + " - " + info.split("-")[1].trim();
 }
 

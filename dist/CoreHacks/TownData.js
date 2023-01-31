@@ -28,7 +28,7 @@ var KEY_LOCATION_DATA =
     "CHAMPION RIVAL"      : "FR,1,79,0" ,
 
 
-    // JHOTO
+    // JOHTO
     "NEW BARK TOWN"      : "C,0,9,1" ,   
     "CHERRYGROVE CITY"   : "C,0,10,2",  
     "VIOLET CITY"        : "C,0,0,3" , 
