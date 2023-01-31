@@ -20,7 +20,7 @@ var CRYSTAL_WARPS =
             "C,0,9,3": true,
             "C,0,16,0": true,
             "C,0,10,2": true,
-            "C,0,35,0": "JHOTO_SURF"
+            "C,0,35,0": "JOHTO_SURF"
         }
     },
     "C,0,9,2" : {
@@ -435,7 +435,7 @@ var CRYSTAL_WARPS =
         "connections": {
             "C,0,17,0": true,
             "C,0,10,2": true,
-            "C,0,18,0": "JHOTO_CUT"
+            "C,0,18,0": "JOHTO_CUT"
         }
     },
     "C,0,17,0" : {
@@ -501,8 +501,8 @@ var CRYSTAL_WARPS =
         "to" : "C,0,33,0",
         "level" : "4",
         "connections" : {
-            "C,24,7,0": "JHOTO_ROCK_SMASH",
-            "C,24,7,2": "JHOTO_SURF"
+            "C,24,7,0": "JOHTO_ROCK_SMASH",
+            "C,24,7,2": "JOHTO_SURF"
         }
     },
     "C,24,7,2" : {
@@ -510,7 +510,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,8,0",
         "level" : "5",
         "connections" : {
-            "C,24,7,1": "JHOTO_SURF"
+            "C,24,7,1": "JOHTO_SURF"
         }
     },
     "C,24,7,0" : {
@@ -518,7 +518,7 @@ var CRYSTAL_WARPS =
         "level" : "1",
         "to" : "C,0,18,0",
         "connections" : {
-            "C,24,7,1": "JHOTO_ROCK_SMASH"
+            "C,24,7,1": "JOHTO_ROCK_SMASH"
         }
     },
     // F2
@@ -532,7 +532,7 @@ var CRYSTAL_WARPS =
         "to" : "C,0,32,0",
         "level" : "8",
         "connections" : {
-            "C,24,8,0": "JHOTO_SURF"
+            "C,24,8,0": "JOHTO_SURF"
         }
     },
 /* ROUTE 36 - EXT */
@@ -561,7 +561,7 @@ var CRYSTAL_WARPS =
         "connections": {
             "C,0,23,0": "SQUIRT_BOTTLE",
             "C,0,1,0": "SQUIRT_BOTTLE",
-            "C,0,22,0": "JHOTO_CUT"
+            "C,0,22,0": "JOHTO_CUT"
         }
     },
 /* ROUTE 36 - INT */
@@ -655,7 +655,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,93,0",
         "level" : "5",
         "connections": {
-            "C,24,86,1": "JHOTO_SURF"
+            "C,24,86,1": "JOHTO_SURF"
         }
     },
     "C,24,86,5" : {
@@ -859,7 +859,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,86,9",
         "connections": {
             "C,24,93,2": true,
-            "C,24,93,1": "JHOTO_FLASH"
+            "C,24,93,1": "JOHTO_FLASH"
         }   
     },
     "C,24,93,2" : {
@@ -1024,7 +1024,7 @@ var CRYSTAL_WARPS =
         "connections": {
             "C,19,1,1": true,
             "C,19,1,2": true,
-            "C,19,1,3": "JHOTO_SURF"
+            "C,19,1,3": "JOHTO_SURF"
         }   
     },
     "C,19,1,1" : {
@@ -1048,7 +1048,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,12,3",
         "level" : "5",
         "connections": {
-            "C,19,1,0": "JHOTO_SURF"
+            "C,19,1,0": "JOHTO_SURF"
         }  
     },
 //F2
@@ -1057,7 +1057,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,95,0",  
         "level" : "5",
         "connections": {
-            "C,24,12,3": "JHOTO_SURF"
+            "C,24,12,3": "JOHTO_SURF"
         }   
     },
     "C,24,12,0" : {
@@ -1065,8 +1065,8 @@ var CRYSTAL_WARPS =
         "to" : "C,24,86,5",
         "level" : "5",
         "connections": {
-            "C,24,12,1": "JHOTO_STRENGTH",
-            "C,24,12,2": "JHOTO_SURF"
+            "C,24,12,1": "JOHTO_STRENGTH",
+            "C,24,12,2": "JOHTO_SURF"
         }   
     },
     "C,24,12,2" : {
@@ -1075,7 +1075,7 @@ var CRYSTAL_WARPS =
         "level": "2",
         "level" : "5",
         "connections": {
-            "C,24,12,0": "JHOTO_SURF"
+            "C,24,12,0": "JOHTO_SURF"
         }   
     },
     "C,24,12,1" : {
@@ -1083,7 +1083,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,86,7",
         "level" : "5",
         "connections": {
-            "C,24,12,0": "JHOTO_STRENGTH"
+            "C,24,12,0": "JOHTO_STRENGTH"
         }   
     },
     "C,24,12,3" : {
@@ -1091,7 +1091,7 @@ var CRYSTAL_WARPS =
         "to" : "C,19,1,3",
         "level" : "5",
         "connections": {
-            "C,24,12,4": "JHOTO_SURF"
+            "C,24,12,4": "JOHTO_SURF"
         }   
     },
 // F3
@@ -1233,7 +1233,7 @@ var CRYSTAL_WARPS =
         "to" : "C,0,11,6",
         "level": "2",
         "connections": {
-            "C,24,4,1": "JHOTO_SURF_AND_STRENGTH"
+            "C,24,4,1": "JOHTO_SURF_AND_STRENGTH"
         }   
     },
     "C,24,4,1" : {
@@ -1241,7 +1241,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,9,0",
         "level": "4",
         "connections": {
-            "C,24,4,0": "JHOTO_SURF_AND_STRENGTH"
+            "C,24,4,0": "JOHTO_SURF_AND_STRENGTH"
         }   
     },
 // F2    
@@ -1917,7 +1917,7 @@ var CRYSTAL_WARPS =
         "groupMain" : true,
         "connections": {
             "C,0,22,2": true,
-            "C,0,23,2": "JHOTO_CUT"
+            "C,0,23,2": "JOHTO_CUT"
         }   
     },
     "C,0,22,1" : {
@@ -2319,11 +2319,11 @@ var CRYSTAL_WARPS =
             "C,0,2,7": true,
             "C,0,2,8": true,
             "C,0,27,0": true,
-            "C,0,12,0": "JHOTO_SURF",
-            "C,0,28,0": "JHOTO_WHIRLPOOL",
-            "C,0,28,1": "JHOTO_WHIRLPOOL",
-            "C,0,28,2": "JHOTO_WHIRLPOOL",
-            "C,0,28,3": "JHOTO_WHIRLPOOL",
+            "C,0,12,0": "JOHTO_SURF",
+            "C,0,28,0": "JOHTO_WHIRLPOOL",
+            "C,0,28,1": "JOHTO_WHIRLPOOL",
+            "C,0,28,2": "JOHTO_WHIRLPOOL",
+            "C,0,28,3": "JOHTO_WHIRLPOOL",
         }   
     },
     "C,0,2,2" : {
@@ -2823,7 +2823,7 @@ var CRYSTAL_WARPS =
             "C,0,12,4": true,
             "C,0,12,5": true,
             "C,0,12,6": true,
-            "C,0,2,1": "JHOTO_SURF"
+            "C,0,2,1": "JOHTO_SURF"
         }   
     },
     "C,0,12,4" : {
@@ -2905,8 +2905,8 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,29,1": true,
-            "C,0,29,2": "JHOTO_SURF",
-            "C,0,29,3": "JHOTO_SURF",
+            "C,0,29,2": "JOHTO_SURF",
+            "C,0,29,3": "JOHTO_SURF",
         }   
     },
     "C,0,29,1" : {
@@ -2922,7 +2922,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,15,1",
         "level": "7",
         "connections": {
-            "C,0,29,0": "JHOTO_SURF",
+            "C,0,29,0": "JOHTO_SURF",
         }   
     },
     "C,0,29,3" : {
@@ -2931,7 +2931,7 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,13,2": true,
-            "C,0,29,0": "JHOTO_SURF",
+            "C,0,29,0": "JOHTO_SURF",
         }   
     },
 /* ROUTE 42 - INT */
@@ -2967,7 +2967,7 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,24,15,8": true,
-            "C,24,15,7": "JHOTO_WATERFALL"
+            "C,24,15,7": "JOHTO_WATERFALL"
         }   
     },
     "C,24,15,2" : {
@@ -3009,7 +3009,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,17,1",
         "level": "7",
         "connections": {
-            "C,24,15,1": "JHOTO_SURF",
+            "C,24,15,1": "JOHTO_SURF",
         }   
     },
     "C,24,15,8" : {
@@ -3081,7 +3081,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,16,0",
         "level": "7", 
         "connections": {
-            "C,24,17,1": "JHOTO_SURF"
+            "C,24,17,1": "JOHTO_SURF"
         }  
     },
     "C,24,17,1" : {
@@ -3089,7 +3089,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,15,7",
         "level": "7", 
         "connections": {
-            "C,24,17,0": "JHOTO_SURF"
+            "C,24,17,0": "JOHTO_SURF"
         }  
     },
     // F4
@@ -3098,7 +3098,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,16,1",
         "level": "7", 
         "connections": {
-            "C,24,18,1": "JHOTO_SURF_AND_STRENGTH"
+            "C,24,18,1": "JOHTO_SURF_AND_STRENGTH"
         }  
     },
     "C,24,18,1" : {
@@ -3277,7 +3277,7 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,30,0": true,
-            "C,0,14,0": "JHOTO_CUT",
+            "C,0,14,0": "JOHTO_CUT",
         }   
     },
     "C,0,14,0" : {
@@ -3285,7 +3285,7 @@ var CRYSTAL_WARPS =
         "to" : "C,6,7,0",
         "level": "7",
         "connections": {
-            "C,0,14,1": "JHOTO_CUT",
+            "C,0,14,1": "JOHTO_CUT",
         }   
     },
 /* LAKE OF RAGE - INT */
@@ -3509,7 +3509,7 @@ var CRYSTAL_WARPS =
         "level": "8",
         "connections": {
             "C,24,22,6": true,
-            "C,24,22,4": "JHOTO_STRENGTH"
+            "C,24,22,4": "JOHTO_STRENGTH"
         }   
     },
     // F3
@@ -3758,7 +3758,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,27,3",
         "level": "8",
         "connections": {
-            "C,24,28,1": "JHOTO_WHIRLPOOL"
+            "C,24,28,1": "JOHTO_WHIRLPOOL"
         }  
     },
     "C,24,28,1" : {
@@ -3766,7 +3766,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,29,0",
         "level": "8", 
         "connections": {
-            "C,24,28,0": "JHOTO_WHIRLPOOL"
+            "C,24,28,0": "JOHTO_WHIRLPOOL"
         }  
     },
 /* ROUTE 45 - EXT */
@@ -3785,7 +3785,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,31,0",
         "level": "8",
         "connections": {
-            "C,0,2,1": "JHOTO_WHIRLPOOL"
+            "C,0,2,1": "JOHTO_WHIRLPOOL"
         }  
     },
     "C,0,28,1" : {
@@ -3793,7 +3793,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,30,0",
         "level": "8",
         "connections": {
-            "C,0,2,1": "JHOTO_WHIRLPOOL"
+            "C,0,2,1": "JOHTO_WHIRLPOOL"
         }  
     },
     "C,0,28,2" : {
@@ -3801,7 +3801,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,33,0",
         "level": "8",
         "connections": {
-            "C,0,2,1": "JHOTO_WHIRLPOOL"
+            "C,0,2,1": "JOHTO_WHIRLPOOL"
         }  
     },
     "C,0,28,3" : {
@@ -3809,7 +3809,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,32,0",
         "level": "8",
         "connections": {
-            "C,0,2,1": "JHOTO_WHIRLPOOL"
+            "C,0,2,1": "JOHTO_WHIRLPOOL"
         }  
     },
 /* WHIRL ISLANDS */
@@ -3890,7 +3890,7 @@ var CRYSTAL_WARPS =
         "level": "8", 
         "connections": {
             "C,24,33,1": true,
-            "C,24,33,2": "JHOTO_SURF"
+            "C,24,33,2": "JOHTO_SURF"
         }   
     },
     "C,24,33,1" : {
@@ -3906,7 +3906,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,34,8",
         "level": "8",
         "connections": {
-            "C,24,33,0": "JHOTO_SURF"
+            "C,24,33,0": "JOHTO_SURF"
         }   
     },
     "C,24,33,3" : {
@@ -3914,7 +3914,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,31,3",
         "level": "8",
         "connections": {
-            "C,24,33,4": "JHOTO_SURF"
+            "C,24,33,4": "JOHTO_SURF"
         }   
     },
     "C,24,33,4" : {
@@ -3922,7 +3922,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,35,3",
         "level": "8",
         "connections": {
-            "C,24,33,3": "JHOTO_SURF"
+            "C,24,33,3": "JOHTO_SURF"
         }   
     },
     // F5
@@ -4019,7 +4019,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,34,4",
         "level": "8",  
         "connections": {
-            "C,24,35,3": "JHOTO_SURF",
+            "C,24,35,3": "JOHTO_SURF",
         }   
     },
     "C,24,35,1" : {
@@ -4032,7 +4032,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,67,0",
         "level": "8",   
         "connections": {
-            "C,24,35,3": "JHOTO_SURF",
+            "C,24,35,3": "JOHTO_SURF",
         }   
     },
     "C,24,35,3" : {
@@ -4040,8 +4040,8 @@ var CRYSTAL_WARPS =
         "to" : "C,24,33,4",
         "level": "8",   
         "connections": {
-            "C,24,35,0": "JHOTO_WATERFALL",
-            "C,24,35,2": "JHOTO_SURF",
+            "C,24,35,0": "JOHTO_WATERFALL",
+            "C,24,35,2": "JOHTO_SURF",
         }   
     },
     // F8
@@ -4056,7 +4056,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,0,0",
         "level": "9",
         "connections": {
-            "C,0,9,0": "JHOTO_SURF"
+            "C,0,9,0": "JOHTO_SURF"
         }
     },
     "C,0,35,1" : {
@@ -4066,7 +4066,7 @@ var CRYSTAL_WARPS =
         "connections": {
             "C,0,35,1": true,
             "C,0,35,2": true,
-            "C,0,34,2": "JHOTO_SURF"
+            "C,0,34,2": "JOHTO_SURF"
         }   
     },
     "C,0,35,2" : {
@@ -4084,7 +4084,7 @@ var CRYSTAL_WARPS =
         "to" : "C,0,35,0",
         "level": "9",
         "connections": {
-            "C,24,0,1": "JHOTO_WATERFALL"
+            "C,24,0,1": "JOHTO_WATERFALL"
         }   
     },
     "C,24,0,1" : {
@@ -4092,7 +4092,7 @@ var CRYSTAL_WARPS =
         "to" : "C,0,35,1",
         "level": "9",
         "connections": {
-            "C,24,0,0": "JHOTO_WATERFALL"
+            "C,24,0,0": "JOHTO_WATERFALL"
         } 
     },
 /* ROUTE 26 - EXT */
@@ -4119,7 +4119,7 @@ var CRYSTAL_WARPS =
         "level": "9", 
         "connections": {
             "C,0,34,1": true,
-            "C,0,35,1": "JHOTO_SURF"
+            "C,0,35,1": "JOHTO_SURF"
         }   
     },
 /* ROUTE 26 - INT */

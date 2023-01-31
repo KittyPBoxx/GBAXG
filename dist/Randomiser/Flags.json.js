@@ -189,31 +189,31 @@ var COMPOSITE_FLAGS = {
     "KANTO_SURF_2"       : { "flag": "KANTO_SURF"       , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_VERMILION_CITY_GYM", "L_CELADON_CITY_GYM", "L_FUCHSIA_CITY_GYM", "L_KIMONO_GIRLS"]        },
     "KANTO_SURF_3"       : { "flag": "KANTO_SURF"       , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_VERMILION_CITY_GYM", "L_CELADON_CITY_GYM", "L_FUCHSIA_CITY_GYM", "HOENN_SURF"]            },
 
-    "JHOTO_FLASH_1"      : { "flag": "JHOTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_SPROUT_TOWER_TOP"]      },
-    "JHOTO_FLASH_2"      : { "flag": "JHOTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_FLASH_ROUTE_CONNECTOR"] }, 
-    "JHOTO_FLASH_3"      : { "flag": "JHOTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_GRANITE_CAVE_F1"]       }, 
+    "JOHTO_FLASH_1"      : { "flag": "JOHTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_SPROUT_TOWER_TOP"]      },
+    "JOHTO_FLASH_2"      : { "flag": "JOHTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_FLASH_ROUTE_CONNECTOR"] }, 
+    "JOHTO_FLASH_3"      : { "flag": "JOHTO_FLASH"      , "condition"  : ["L_VIOLET_CITY_GYM", "L_GRANITE_CAVE_F1"]       }, 
     
-    "JHOTO_CUT_1"        : { "flag": "JHOTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_SS_ANNE_CAPTAIN"] },
-    "JHOTO_CUT_2"        : { "flag": "JHOTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_ILEX_FOREST"]     }, 
-    "JHOTO_CUT_3"        : { "flag": "JHOTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_CUTTERS_HOUSE"]   }, 
+    "JOHTO_CUT_1"        : { "flag": "JOHTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_SS_ANNE_CAPTAIN"] },
+    "JOHTO_CUT_2"        : { "flag": "JOHTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_ILEX_FOREST"]     }, 
+    "JOHTO_CUT_3"        : { "flag": "JOHTO_CUT"        , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_CUTTERS_HOUSE"]   }, 
 
-    "JHOTO_ROCK_SMASH_1" : { "flag": "JHOTO_ROCK_SMASH" , "condition"  : ["L_MAUVILLE_CITY_ROCK_SMASH"]                                  }, 
-    "JHOTO_ROCK_SMASH_2" : { "flag": "JHOTO_ROCK_SMASH" , "condition"  : ["SQUIRT_BOTTLE", "L_VIOLET_CITY"]                              }, 
+    "JOHTO_ROCK_SMASH_1" : { "flag": "JOHTO_ROCK_SMASH" , "condition"  : ["L_MAUVILLE_CITY_ROCK_SMASH"]                                  }, 
+    "JOHTO_ROCK_SMASH_2" : { "flag": "JOHTO_ROCK_SMASH" , "condition"  : ["SQUIRT_BOTTLE", "L_VIOLET_CITY"]                              }, 
 
-    "JHOTO_STRENGTH_1"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
-    "JHOTO_STRENGTH_2"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_OLIVINE_BAR"]         },
-    "JHOTO_STRENGTH_3"   : { "flag": "JHOTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "HOENN_ROCK_SMASH"]      },
+    "JOHTO_STRENGTH_1"   : { "flag": "JOHTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_FUCHSIA_SAFARI_ZONE"] },
+    "JOHTO_STRENGTH_2"   : { "flag": "JOHTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_OLIVINE_BAR"]         },
+    "JOHTO_STRENGTH_3"   : { "flag": "JOHTO_STRENGTH"   , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "HOENN_ROCK_SMASH"]      },
     
-    "JHOTO_SURF_1"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "L_KIMONO_GIRLS"]        },
-    "JHOTO_SURF_2"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "L_FUCHSIA_SAFARI_ZONE"] },
-    "JHOTO_SURF_3"       : { "flag": "JHOTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "HOENN_SURF"]            },
+    "JOHTO_SURF_1"       : { "flag": "JOHTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "L_KIMONO_GIRLS"]        },
+    "JOHTO_SURF_2"       : { "flag": "JOHTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "L_FUCHSIA_SAFARI_ZONE"] },
+    "JOHTO_SURF_3"       : { "flag": "JOHTO_SURF"       , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_BURNED_TOWER", "HOENN_SURF"]            },
 
-    "JHOTO_SURF_AND_STRENGTH" : { "flag": "JHOTO_SURF_AND_STRENGTH"     , "condition"  : ["JHOTO_SURF", "JHOTO_STRENGTH"]        }, 
+    "JOHTO_SURF_AND_STRENGTH" : { "flag": "JOHTO_SURF_AND_STRENGTH"     , "condition"  : ["JOHTO_SURF", "JOHTO_STRENGTH"]        }, 
 
-    "JHOTO_WATERFALL" : { "flag": "JHOTO_WATERFALL" , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_CIANWOOD_CITY_GYM", "L_SECRET_MEDICINE", "L_LIGHTHOUSE_TOP", "L_OLIVINE_CITY_GYM", "L_MAHOGANY_TOWN_GYM", "L_ICE_PATH_F1", "L_BLACKTHORN_CITY_GYM", "L_DRAGONS_DEN_TEST"] },
+    "JOHTO_WATERFALL" : { "flag": "JOHTO_WATERFALL" , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_CIANWOOD_CITY_GYM", "L_SECRET_MEDICINE", "L_LIGHTHOUSE_TOP", "L_OLIVINE_CITY_GYM", "L_MAHOGANY_TOWN_GYM", "L_ICE_PATH_F1", "L_BLACKTHORN_CITY_GYM", "L_DRAGONS_DEN_TEST"] },
     // TODO Also all the flags you need to get waterfall in emerald
 
-    "JHOTO_WHIRLPOOL" : { "flag": "JHOTO_WHIRLPOOL" , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_CIANWOOD_CITY_GYM", "L_SECRET_MEDICINE", "L_LIGHTHOUSE_TOP", "L_OLIVINE_CITY_GYM", "L_MAHOGANY_TOWN_GYM"] },
+    "JOHTO_WHIRLPOOL" : { "flag": "JOHTO_WHIRLPOOL" , "condition"  : ["L_VIOLET_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_GOLDENRON_CITY_GYM", "L_ECRUTEAK_GYM", "L_CIANWOOD_CITY_GYM", "L_SECRET_MEDICINE", "L_LIGHTHOUSE_TOP", "L_OLIVINE_CITY_GYM", "L_MAHOGANY_TOWN_GYM"] },
 
     "HOENN_CUT_1"        : { "flag": "HOENN_CUT"        , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_SS_ANNE_CAPTAIN"]                      },
     "HOENN_CUT_2"        : { "flag": "HOENN_CUT"        , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_AZALEA_TOWN_GYM", "L_ILEX_FOREST"]     }, 
@@ -332,11 +332,11 @@ var KEY_LOCATIONS = {
     "FR,1,78,0" : "L_KANTO_LEAGUE_4",
     "FR,1,79,0" : "L_KANTO_LEAGUE_CHAMP",
 
-    "C,16,0,0" : "L_JHOTO_LEAGUE_1",
-    "C,16,1,0" : "L_JHOTO_LEAGUE_2",
-    "C,16,2,0" : "L_JHOTO_LEAGUE_3",
-    "C,16,3,0" : "L_JHOTO_LEAGUE_4",
-    "C,16,4,0" : "L_JHOTO_LEAGUE_CHAMP",
+    "C,16,0,0" : "L_JOHTO_LEAGUE_1",
+    "C,16,1,0" : "L_JOHTO_LEAGUE_2",
+    "C,16,2,0" : "L_JOHTO_LEAGUE_3",
+    "C,16,3,0" : "L_JOHTO_LEAGUE_4",
+    "C,16,4,0" : "L_JOHTO_LEAGUE_CHAMP",
 
     "E,16,0,0" : "L_HOENN_LEAGUE_1",
     "E,16,1,0" : "L_HOENN_LEAGUE_2",

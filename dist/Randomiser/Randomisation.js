@@ -20,7 +20,7 @@ function getRandomisationAlgorithm() {
 function getRandomisationConfig() {
     let config = {};
     config.kantoLevel = document.getElementById("kantoLevel").value;
-    config.jhotoLevel = document.getElementById("jhotoLevel").value;
+    config.johtoLevel = document.getElementById("johtoLevel").value;
     config.hoennLevel = document.getElementById("hoennLevel").value;
     return config;
 }
@@ -81,7 +81,7 @@ function getInitialWarp(config) {
   if (config.kantoLevel > 0) {
     return KEY_LOCATION_DATA["VIRIDIAN CITY"];
   }
-  if (config.jhotoLevel > 0) {
+  if (config.johtoLevel > 0) {
     return KEY_LOCATION_DATA["NEW BARK TOWN"];
   }
   if (config.hoennLevel > 0) {
@@ -102,7 +102,7 @@ function filterByConfig(usabledWarps, config) {
         } else if (w[0][0] == "F") {
             filterLevel = config.kantoLevel;
         } else if (w[0][0] == "C") {
-            filterLevel = config.jhotoLevel;
+            filterLevel = config.johtoLevel;
         }
 
         return usabledWarps.get(w[0]).level && (+usabledWarps.get(w[0]).level <= +filterLevel);
@@ -152,7 +152,7 @@ ProgressionState.prototype.makeFinalLocationsKey = function (config) {
       break;
   }
 
-  switch(this.config.jhotoLevel) {
+  switch(this.config.johtoLevel) {
     case "1": finalLocations.push(HINTABLE_LOCATIONS["FALKNER"]); break;
     case "2": finalLocations.push(HINTABLE_LOCATIONS["BUGSY"])  ; break;
     case "3": finalLocations.push(HINTABLE_LOCATIONS["WHITNEY"]); break; 
@@ -230,10 +230,10 @@ function updateWarpListData(warpListData) {
   document.getElementById("input_seed_text").value = warpListData.seed;
 
   document.getElementById("kantoLevel").value = warpListData.config.kantoLevel;
-  document.getElementById("jhotoLevel").value = warpListData.config.jhotoLevel;
+  document.getElementById("johtoLevel").value = warpListData.config.johtoLevel || warpListData.config.jhotoLevel; // needed for old seed files generated while the name was misspelt
   document.getElementById("hoennLevel").value = warpListData.config.hoennLevel;
   M.FormSelect.getInstance(document.getElementById("kantoLevel"))._handleSelectChangeBound();
-  M.FormSelect.getInstance(document.getElementById("jhotoLevel"))._handleSelectChangeBound();
+  M.FormSelect.getInstance(document.getElementById("johtoLevel"))._handleSelectChangeBound();
   M.FormSelect.getInstance(document.getElementById("hoennLevel"))._handleSelectChangeBound();
 
   warpList = new Map(warpListData.warpList);
@@ -398,7 +398,7 @@ function getFilteredData() {
 function toReigon(id) {
     switch(id[0]) {
         case 'F': return 'KANTO'
-        case 'C': return 'JHOTO'
+        case 'C': return 'JOHTO'
         case 'E': return 'HOENN'
     }
 }
@@ -665,7 +665,7 @@ function initMappingGraph(mapData, isHeadless, progressionState) {
 
 
     cy.add(new ReigonNode("KANTO"));
-    cy.add(new ReigonNode("JHOTO"));
+    cy.add(new ReigonNode("JOHTO"));
     cy.add(new ReigonNode("HOENN"));
 
     let data = [...mapData];
