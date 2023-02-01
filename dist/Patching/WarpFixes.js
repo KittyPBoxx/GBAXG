@@ -18,7 +18,7 @@ function patchDuplicateWarps() {
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
 
-        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR") && IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
             /* Is Version 1.1 */
 
             // Pokemon Mansion Exit

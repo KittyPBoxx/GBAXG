@@ -74,6 +74,14 @@ function generateRandomMappings(seed, mapData, flagData, config) {
         progressionState = updateProgressionState(progressionState, root);
     }
 
+    // Add each games bedrooms and make sure they map to house in pallet town
+    cy.add(new WarpNode(['C,1,1,0' , getMapData()["C,1,1,0" ]]));
+    cy.add(new WarpNode(['E,1,3,0' , getMapData()["E,1,3,0" ]]));
+    cy.add(new WarpNode(['FR,4,0,2', getMapData()["FR,4,0,2"]]));
+
+    window.cy.add(new WarpEdge('C,1,1,0', 'FR,4,0,2'));
+    window.cy.add(new WarpEdge('E,1,3,0', 'FR,4,0,2'));
+
    return getBaseRemappingData();
 }
 

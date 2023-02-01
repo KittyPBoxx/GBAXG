@@ -48,4 +48,20 @@ function patchGameIssues() {
 
     }
 
+    if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
+
+        // Move cerulean cave blocker to avoid soft locks before you get surf
+        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            /* Is Version 1.1 */
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x083B531C - 0x08000000, 0x00);
+
+        } else {
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x083B52AC - 0x08000000, 0x00);
+
+        }
+
+    }
+
 }

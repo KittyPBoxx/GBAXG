@@ -2507,7 +2507,8 @@ var EMERALD_WARPS =
     },
     "E,1,3,0" : {
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (upstairs) (stairs) - 1,1",
-        "level": "1", 
+        "level": "1",
+        "ignore": true, 
         "to": "E,1,2,2"
     },
     "E,1,4,0" : {

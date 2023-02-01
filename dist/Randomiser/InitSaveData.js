@@ -38,6 +38,15 @@ function initNewSaveState(code) {
 
         GameBoyAdvanceCPU.prototype.handleWarpRedirection = (address, romCode) => {
             IodineGUI.Iodine.pause();
+
+            if (romCode == "C") {
+                // set last heal point to bedroom
+                let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR);
+                IodineGUI.Iodine.IOCore.cpu.write8(save1Start + 28 + 0, 0x1);
+                IodineGUI.Iodine.IOCore.cpu.write8(save1Start + 28 + 1, 0x1);
+                IodineGUI.Iodine.IOCore.cpu.write8(save1Start + 28 + 2, 0x0);
+            }
+
             IodineGUI.Iodine.saveStateManager.saveState(romCode);
             clearInterval(inputLoopInterval);
             GameBoyAdvanceCPU.prototype.handleWarpRedirection = origialWarpRedirection;

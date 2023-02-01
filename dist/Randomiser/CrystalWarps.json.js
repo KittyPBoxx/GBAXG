@@ -68,6 +68,7 @@ var CRYSTAL_WARPS =
         // Player room
         "name": "NEW BARK TOWN - INSIDE - Player Room - 9,2",
         "level" : "1",
+        "ignore": true, 
         "to" : "C,1,0,1"
     },
     "C,1,4,0" : {

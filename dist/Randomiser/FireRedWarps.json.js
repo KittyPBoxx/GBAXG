@@ -4,8 +4,14 @@ var FIRE_RED_WARPS =
 // NOT RANDOMISED
 
 /* PALLET TOWN - INT */
-// NOT RANDOMISED
-
+// NOT RANDOMISED 
+// But we still need data for the stairs warp
+    "FR,4,0,2" : {
+        "name": "PALLET TOWN - INSIDE - home stairs - A,2",
+        "level": "1",
+        "ignore": true, 
+        "to" : "FR,4,1,0"
+    },
 /* VIRIDIAN CITY - EXT */
     "FR,3,1,0" : {
         // PK
