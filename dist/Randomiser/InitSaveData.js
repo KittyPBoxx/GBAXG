@@ -108,12 +108,12 @@ async function delayedSaveStateLoad(code) {
 }
 
 
-async function delayedSaveStateSave() {
-    await delay(3500 / IodineGUI.Iodine.getSpeed());
+function syncSaveStateSaves() {
     IodineGUI.Iodine.saveStateManager.saveState(IodineGUI.Iodine.IOCore.cartridge.romCode);
     IodineGUI.Iodine.saveStateManager.saveMultiState("LATEST");
     document.getElementById("reset").classList.remove("disabled");
     M.toast({html: 'Latest Save Updated', displayLength:1000 });
+    currentlySaving = false;
 }
 
 async function loadSaveStatePreviews() {
@@ -129,7 +129,7 @@ async function loadSaveStatePreviews() {
 
 GameBoyAdvanceSaves.prototype.saveIntercept = function(address, data) {
     if (address == 0 && data == 48) {
-        delayedSaveStateSave();
+        currentlySaving = true;
     } 
 }
 

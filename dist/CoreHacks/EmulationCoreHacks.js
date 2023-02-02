@@ -321,7 +321,6 @@ GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
 
     if (!walkThroughWalls && !runIndoors) { return this.readROM16WithoutIntercept(address); }
 
-
     if (walkThroughWalls) {
         if (address == frWallsOffset && this.romCode == "FR") { 
             return 0x2100; 
@@ -343,6 +342,24 @@ GameBoyAdvanceMultiCartridge.prototype.readROM16 = function (address) {
     }
 
     return this.readROM16WithoutIntercept(address);
+}
+
+var currentlySaving = false;
+GameBoyAdvanceMultiCartridge.prototype.readROM8WithoutIntercept = GameBoyAdvanceMultiCartridge.prototype.readROM8;
+GameBoyAdvanceMultiCartridge.prototype.readROM8 = function (address) {
+
+    if (currentlySaving) {
+
+        if (this.cartriges.get("FR") && this.cartriges.get("FR").ROM[0xBC] &&  ((address == 1857210 || address == 4305130 || address == 4306233))) {
+            syncSaveStateSaves();
+        } else if (this.cartriges.get("FR") && (address == 1857098 || address == 4305018 || address == 4306121)) {
+            syncSaveStateSaves();
+        } else if ((address == 2681225 || address == 2918453 || address == 6214600)) {
+            syncSaveStateSaves();
+        }
+    }
+
+    return this.readROM8WithoutIntercept(address);
 }
 
 // FIRE RED - isSurfing 0x02036e40 (0x33 = on land, 0x11 on water)
