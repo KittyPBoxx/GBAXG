@@ -263,7 +263,7 @@ async function patchExpansionData() {
             if (isPatchedFireRed) {
                 versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
             }
-            exp.addElementToExpansion("fr_girl_acro_" + k, "FR", (versionOffset + FR_1_0_GIRL_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
+            exp.addElementToExpansion("fr_girl_acro_" + k, "FR", (versionOffset + FR_1_0_GIRL_BIKE_SPRITE_DATA[k]) - 0x08000000, 1024);
         });
 
         Object.keys(FR_1_0_BOY_ACRO_SPRITE_DATA).forEach(k => {
@@ -271,7 +271,7 @@ async function patchExpansionData() {
             if (isPatchedFireRed) {
                 versionOffset = FR_1_1_SPRITE_OFFSET_SHIFT;
             }
-            exp.addElementToExpansion("fr_boy_acro_" + k, "FR", (versionOffset + FR_1_0_BOY_BIKE_SPRITE_DATA[k]) - 0x08000000, 512);
+            exp.addElementToExpansion("fr_boy_acro_" + k, "FR", (versionOffset + FR_1_0_BOY_BIKE_SPRITE_DATA[k]) - 0x08000000, 1024);
         });
 
         // SURFING 

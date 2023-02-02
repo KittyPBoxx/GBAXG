@@ -5,10 +5,33 @@
 
 /* Register button commands for pressing and releasing */
 
-CommandExecutor.register("AKeyDown"     , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(0) : null);               // A
-CommandExecutor.register("AKeyUp"       , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (0) : menuInput("A"));
-CommandExecutor.register("BKeyDown"     , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(1) : null);               // B
-CommandExecutor.register("BKeyUp"       , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (1) : menuInput("B"));
+var holdToMash = false;
+var aMashInterval;
+var bMashInterval;
+
+CommandExecutor.register("AKeyDown"     , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(0) : null               // A
+  if (holdToMash) {
+    aMashInterval = setInterval(() => { keyPress(0) }, 100);
+  }
+});
+CommandExecutor.register("AKeyUp"       , (args) => { 
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (0) : menuInput("A");
+  clearInterval(aMashInterval);
+});
+
+CommandExecutor.register("BKeyDown"     , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(1) : null   // B
+  if (holdToMash) {
+    bMashInterval = setInterval(() => { keyPress(1) }, 100);
+  }
+});             
+
+CommandExecutor.register("BKeyUp"       , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (1) : menuInput("B");
+  clearInterval(bMashInterval);
+});
+
 CommandExecutor.register("SelectKeyDown", args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(2) : null);               // Select
 CommandExecutor.register("SelectKeyUp"  , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (2) : menuInput("SELECT"));
 CommandExecutor.register("StartKeyDown" , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(3) : null);               // Start

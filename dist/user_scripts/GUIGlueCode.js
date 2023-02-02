@@ -391,6 +391,10 @@ function registerGUIEvents() {
         }
     });
 
+    addEvent("click", document.getElementById("holdToMash"), () => {
+        holdToMash = document.getElementById("holdToMash").checked;
+    });
+
     addEvent("click", document.getElementById("forceWalk"), () => forcePlayerState(MOVEMENT_MODE_WALK));
     addEvent("click", document.getElementById("forceBike"), () => forcePlayerState(MOVEMENT_MODE_BIKE));
     addEvent("click", document.getElementById("forceSurf"), () => forcePlayerState(MOVEMENT_MODE_SURF));
