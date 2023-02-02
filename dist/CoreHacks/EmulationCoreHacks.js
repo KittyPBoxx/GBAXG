@@ -229,6 +229,8 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
 
     if (pkWarp) {
 
+        pkWarp = specialWarpHandling(pkWarp);
+
         IodineGUI.Iodine.pause();
 
         IodineGUI.Iodine.saveStateManager.saveState(romCode, true);
@@ -263,6 +265,22 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     isWarping = false;
 
     return address;
+}
+
+// Some warps may need special handling to avoid bugs
+function specialWarpHandling(pkwarp) {
+
+    let destination = pkwarp.toRomCode + "," + pkwarp.toBank + "," + pkwarp.toMap + "," + pkwarp.toWarpNo;
+
+    if (destination == "E,16,0,1") {
+        pkwarp.toWarpNo = 2;
+    } else if (destination == "C,16,0,1") {
+        pkwarp.toWarpNo = 2;
+    } else if (destination == "FR,1,75,1") {
+        pkwarp.toWarpNo = 2;
+    }
+
+    return pkwarp;
 }
 
 async function quickSpeedUp(duration) {

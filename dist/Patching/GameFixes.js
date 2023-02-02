@@ -46,19 +46,29 @@ function patchGameIssues() {
         // Move route 116 tunnler from in front of house to help avoid progression locks
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x0852a69c - 0x08000000, 0x25);
 
+        // Patch Sidney Room to avoid softlock by auto walk  
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x0842d53D - 0x08000000, 0x32);
+
     }
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
 
-        // Move cerulean cave blocker to avoid soft locks before you get surf
         if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
             /* Is Version 1.1 */
 
+            // Move cerulean cave blocker to avoid soft locks before you get surf
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x083B531C - 0x08000000, 0x00);
+
+            // Patch Lorilei room to avoid softlock by auto walk
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x0831f0d5 - 0x08000000, 0x32);
 
         } else {
 
+            // Move cerulean cave blocker to avoid soft locks before you get surf
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x083B52AC - 0x08000000, 0x00);
+
+            // Patch Lorilei room to avoid softlock by auto walk
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x0831f065 - 0x08000000, 0x32);
 
         }
 
