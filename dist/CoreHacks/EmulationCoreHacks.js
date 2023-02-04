@@ -911,6 +911,12 @@ const EMERALD_BADGE_OFFSETS = [EMERALD_BADGE1_OFFSET,
 const EMERALD_BASE_VAR_OFFSET = 0x139c;
 const FIRE_RED_BASE_VAR_OFFSET = 0x1000;
 
+const EMERALD_REPEL_STEPS_OFFSET = 0x4021;
+const FIRE_RED_REPEL_STEPS_OFFSET = 0x4020;
+
+const EMERALD_STARTER_CHOICE_OFFSET = 0x4023;
+const FIRE_RED_STARTER_CHOICE_OFFSET = 0x4031;
+
 function FlagManager(hasBike) {
     this.badge1 = null;
     this.badge2 = null;
@@ -923,6 +929,8 @@ function FlagManager(hasBike) {
     this.hasRunningShoes = null;
     this.HMState = null;
     this.hasBike = hasBike;
+    this.repelSteps = null;
+    this.starterChoice = null;
 }
 
 FlagManager.prototype.getFlag = function (saveOffset, sectionOffset, flagOffset) {
@@ -971,6 +979,9 @@ FlagManager.prototype.readEmeraldFlags = function () {
     
     this.HMState = new HMState();
     this.HMState.evaluate("E", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
+
+    this.repelSteps = readGameVar("E", EMERALD_REPEL_STEPS_OFFSET);
+    this.starterChoice = readGameVar("E", EMERALD_STARTER_CHOICE_OFFSET);
 }
 
 FlagManager.prototype.readCrystalFlags = function () {
@@ -988,6 +999,9 @@ FlagManager.prototype.readCrystalFlags = function () {
 
     this.HMState = new HMState();
     this.HMState.evaluate("C", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
+
+    this.repelSteps = readGameVar("C", EMERALD_REPEL_STEPS_OFFSET);
+    this.starterChoice = readGameVar("C", EMERALD_STARTER_CHOICE_OFFSET);
 }
 
 FlagManager.prototype.readFireRedFlags = function () {
@@ -1005,6 +1019,9 @@ FlagManager.prototype.readFireRedFlags = function () {
 
     this.HMState = new HMState();
     this.HMState.evaluate("FR", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
+
+    this.repelSteps = readGameVar("FR", FIRE_RED_REPEL_STEPS_OFFSET);
+    this.starterChoice = readGameVar("FR", FIRE_RED_STARTER_CHOICE_OFFSET);
 }
 
 FlagManager.prototype.writeFlags = function (game, lastGame) {
@@ -1047,6 +1064,9 @@ FlagManager.prototype.writeEmeraldFlags = function () {
         this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE8_OFFSET, +(updatedBadges[7] || badge8));
 
     }
+
+    writeGameVar("E", EMERALD_REPEL_STEPS_OFFSET, this.repelSteps);
+    writeGameVar("E", EMERALD_STARTER_CHOICE_OFFSET, this.starterChoice);
 }
 
 FlagManager.prototype.writeCrystalFlags = function () {
@@ -1079,6 +1099,8 @@ FlagManager.prototype.writeCrystalFlags = function () {
         
     }
 
+    writeGameVar("C", EMERALD_REPEL_STEPS_OFFSET, this.repelSteps);
+    writeGameVar("C", EMERALD_STARTER_CHOICE_OFFSET, this.starterChoice);
 }
 
 FlagManager.prototype.writeFireRedFlags = function () {
@@ -1115,6 +1137,8 @@ FlagManager.prototype.writeFireRedFlags = function () {
         
     }
     
+    writeGameVar("FR", FIRE_RED_REPEL_STEPS_OFFSET, this.repelSteps);
+    writeGameVar("FR", FIRE_RED_STARTER_CHOICE_OFFSET, this.starterChoice);
 }
 
 function modifyBadge(game, badgeNumber, shouldGiveOrRemoveBit) {
@@ -1175,7 +1199,7 @@ function readGameVar(game, offset) {
 
     let baseVarOffset = game == "FR" ? FIRE_RED_BASE_VAR_OFFSET : EMERALD_BASE_VAR_OFFSET;
 
-    return IodineGUI.Iodine.IOCore.cpu.write16(save1Start + baseVarOffset + ((offset - 0x4000) * 2));
+    return IodineGUI.Iodine.IOCore.cpu.read16(save1Start + baseVarOffset + ((offset - 0x4000) * 2));
 }
 
 // EQUIVILENT BADGE UNLOCKS
