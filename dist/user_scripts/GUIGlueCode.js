@@ -385,7 +385,12 @@ function registerGUIEvents() {
 
     addEvent("click", document.getElementById("instantText"), () => {
         if (document.getElementById("instantText").checked) {
-            patchInInstantText();
+            let isSucessfull = patchInInstantText();
+
+            if (!isSucessfull) {
+                M.toast({html: 'Failed: No Games Running', displayLength:1000 });
+                document.getElementById("instantText").checked = false;
+            }
         } else {
             patchOutInstantText();
         }

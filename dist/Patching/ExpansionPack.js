@@ -598,6 +598,10 @@ var instantTextFR = [0xf0, 0xb5, 0x4f, 0x46, 0x46, 0x46, 0xc0, 0xb4, 0x0a, 0x4e,
 
 function patchInInstantText() {
 
+    if (IodineGUI.Iodine.IOCore == undefined || IodineGUI.Iodine.IOCore.cartridge.cartriges.size == 0) {
+        return false;
+    }
+
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
 
         if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
@@ -659,9 +663,15 @@ function patchInInstantText() {
         
     }
 
+    return true;
+
 }
 
 function patchOutInstantText() {
+
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.size == 0) {
+        return;
+    }
 
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
 
