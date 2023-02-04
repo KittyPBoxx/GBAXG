@@ -52,6 +52,7 @@ const FIRE_RED_MAP_TYPE = 0x2036E13;
 
 
 var flagManager; // only global to help debugging
+var isInSafari = false;
 GameBoyAdvanceCPU.prototype.write32WithoutIntercept = GameBoyAdvanceCPU.prototype.write32;
 GameBoyAdvanceCPU.prototype.write32 = function (address, data) { 
 
@@ -121,6 +122,17 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
     }
 
+    if (address == FIRE_RED_LAST_BANK &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
+
+        isInSafari = new FlagManager().getFlag(IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_1_PTR), FIRE_RED_SYS_FLAGS_OFFSET, 0);
+
+    } else if (address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E"))  {
+
+        isInSafari = new FlagManager().getFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), EMERALD_SYS_FLAGS_OFFSET, 0x2C)
+
+    }
+
+
     this.write32WithoutIntercept(address, data);
 }
 
@@ -139,11 +151,11 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
     if ((address == FIRE_RED_CURRENT_WARP) && IodineGUI.Iodine.IOCore.cartridge.romCode === "FR" )
     {
-        isWarping = randomWarpsEnabled;
+        isWarping = randomWarpsEnabled || forceNextWarp;
     } 
     else if ((address == EMERALD_CURRENT_WARP) && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C")) 
     {
-        isWarping = randomWarpsEnabled;
+        isWarping = randomWarpsEnabled || forceNextWarp;
     } 
     
     this.write8WithoutIntercept(address, data);
@@ -203,9 +215,15 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     let bank = this.read8WithoutIntercept(address);
     let map = this.read8WithoutIntercept(address + 1);
     let warpNo = this.read8WithoutIntercept(address + 2);
+    
 
-    // Avoid scripted warps, route connections without zone e.t.c
-    if (warpNo == 255) { return address; }
+    let usingHomeWarp = this.handelHomeWarp(romCode, bank, map, warpNo);
+    
+    if (warpNo == 255 && !usingHomeWarp) { 
+        // Avoid scripted warps, route connections without zone e.t.c
+        return address; 
+    }
+
     if (switchingGameState == 2 || switchingGameState==1) { return address }
 
 
@@ -265,6 +283,37 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     isWarping = false;
 
     return address;
+}
+
+// Home Warp function use the same script as the safari zone 
+// If we are currently in the safari zone we run the script normally otherwise we modify the location to send us home
+GameBoyAdvanceCPU.prototype.handelHomeWarp = function(romCode, bank, map, warpNo) {
+
+    if (romCode == "FR" && bank == 11 && map == 0 && warpNo == 255) {
+
+        if (!isInSafari) {
+            forceNextWarp = forceNextWarp || "FR,4,1,0";
+            writeGameVar("FR", 0x406E, 0);
+            return true;
+        }
+
+    } else if (romCode == "E" && bank == 23 && map == 0 && warpNo == 255) {
+
+        if (!isInSafari) {
+            forceNextWarp = forceNextWarp || "E,1,3,0";
+            writeGameVar("E", 0x40A4, 0);
+            return true;
+        }
+        
+    } else if (romCode == "C" && bank == 23 && map == 0 && warpNo == 255) {
+
+        // No Safari, I don't think the bug catching contest retirement works the same
+        forceNextWarp = forceNextWarp || "C,1,1,0";
+        return true;
+
+    }
+
+    return false;
 }
 
 // Some warps may need special handling to avoid bugs
@@ -811,12 +860,14 @@ BagStoreage.prototype.hasBike = function () {
 /*******************/
 var badgeSync = true;
 
-// TODO: General read flag / set flag / clear flag function 
+// This handles any general vars/flags that need to be transfered when switching games
 
 // IN DYNAMIC SAV1
 // The equations are so the offsets line up the the flags defined in the decomp projects
 // https://github.com/pret/pokefirered/blob/master/include/constants/flags.h
 // https://github.com/pret/pokeemerald/blob/master/include/constants/flags.h
+// https://github.com/pret/pokefirered/blob/master/include/constants/vars.h
+// https://github.com/pret/pokeemerald/blob/master/include/constants/vars.h
 const FIRE_RED_BASE_FLAG_OFFSET    = 0xEE0;
 const FIRE_RED_SYS_FLAGS_OFFSET    = 0xFE0;
 const FIRE_RED_BADGE1_OFFSET       = 0x20;
@@ -856,6 +907,9 @@ const EMERALD_BADGE_OFFSETS = [EMERALD_BADGE1_OFFSET,
                                EMERALD_BADGE6_OFFSET, 
                                EMERALD_BADGE7_OFFSET, 
                                EMERALD_BADGE8_OFFSET];
+
+const EMERALD_BASE_VAR_OFFSET = 0x139c;
+const FIRE_RED_BASE_VAR_OFFSET = 0x1000;
 
 function FlagManager(hasBike) {
     this.badge1 = null;
@@ -1089,6 +1143,39 @@ function modifySystemFlag(game, offset, shouldGiveOrRemoveBit) {
 
     manager.setFlag(save1Start, sysFlagOffset, offset, shouldGiveOrRemoveBit);
 
+}
+
+function readSystemFlag(game, offset) {
+
+    let manager = new FlagManager();
+    manager.readFlags(game);
+
+    let savePtr = game == "FR" ? FIRE_RED_SAVE_1_PTR : EMERALD_SAVE_1_PTR;
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(savePtr);
+
+    let sysFlagOffset = game == "FR" ? FIRE_RED_SYS_FLAGS_OFFSET : EMERALD_SYS_FLAGS_OFFSET;
+
+    return manager.getFlag(save1Start, sysFlagOffset, offset);
+
+}
+function writeGameVar(game, offset, data) {
+
+    let savePtr = game == "FR" ? FIRE_RED_SAVE_1_PTR : EMERALD_SAVE_1_PTR;
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(savePtr);
+
+    let baseVarOffset = game == "FR" ? FIRE_RED_BASE_VAR_OFFSET : EMERALD_BASE_VAR_OFFSET;
+
+    IodineGUI.Iodine.IOCore.cpu.write16(save1Start + baseVarOffset + ((offset - 0x4000) * 2), data);
+}
+
+function readGameVar(game, offset) {
+
+    let savePtr = game == "FR" ? FIRE_RED_SAVE_1_PTR : EMERALD_SAVE_1_PTR;
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(savePtr);
+
+    let baseVarOffset = game == "FR" ? FIRE_RED_BASE_VAR_OFFSET : EMERALD_BASE_VAR_OFFSET;
+
+    return IodineGUI.Iodine.IOCore.cpu.write16(save1Start + baseVarOffset + ((offset - 0x4000) * 2));
 }
 
 // EQUIVILENT BADGE UNLOCKS
