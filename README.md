@@ -8,38 +8,15 @@ Welcome to the GBA Cross-Game Pokemon Map Randomiser. This emulator mod loads an
 
 ---
 
-## Emulation/Game Features
+## Rules
 
-- Multi-game save state support and auto save
-- Remappable Keybind and Gamepad support
-- East-to-set Clock
-- Enable/Disable/Remap random warps at any time (even when the games running)
-- Limit random warps up to certain points in the game (e.g only up to the first N gyms)
-- Speed-Up (up to 10x)
-- Give yourself items at any time
-- Cheats such as walk-through walls, bike everywhere, teleport everywhere, force whiteout, force surf 
-- Get hints for where to find key locations
+If you've not played a map randomiser before the goal is to find and beat the Gyms, E4, Champion (and final boss). In this you start in Pallet Town where none of the loading zones have been randomised but that will change as soon as you get to Viridian. 
 
---- 
+The randomisation logic should make it so that it's possible to beat the Gyms, E4 and Champion in order. The logic only guarantees order within each region. This means you should always be able to beat Kanto Gym 1 before Gym 2(/3/4/5 e.t.c) however you might need to beat Johto gyms 1,2 and 3 before you can get to Kanto Gym 1. 
 
-## Progress
+If you are only randomising up to certain gyms you will never have to play beyond that point. 
 
-This project is currently in alpha development. It should be playable but you may encounter some bugs. Initially only warps up to the first gyms in each game will be enabled. More sections will be added as they are tested and seeds can be manually validated for them. The current progress can be seen here:
-
-| Progression  | FR Warps Added                              | FR Warps Checked                           | FR Seeds Verified                           | C Warps Added                              | C Warps Checked                            | C Seeds Verified                           | E Warps Added                              | E Warps Checked                            | E Seeds Verified                           |
-| -----------  | -----------                                 | -----------                                | -----------                                 | -----------                                | -----------                                | -----------                                | -----------                                | -----------                                | -----------                                |
-| To Gym 1     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> |
-| To Gym 2     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> |
-| To Gym 3     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> |
-| To Gym 4     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | -                                           | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          |
-| To Gym 5     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | -                                           | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          |
-| To Gym 6     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | -                                           | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          |
-| To Gym 7     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | -                                           | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          |
-| To Gym 8     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | -                                           | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          |
-| To Champ     | <input type="checkbox" disabled checked />  | <input type="checkbox" disabled checked /> | -                                           | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          | <input type="checkbox" disabled checked /> | <input type="checkbox" disabled checked /> | -                                          |
-| Sevii        | -                                           | -                                          | -                                           | N/A                                        | N/A                                        | N/A                                        | N/A                                        | N/A                                        | N/A                                        |
-
-
+In a full randomisation there are 24 Gyms, 12 E4, 3 Champions and 1 final boss (Steven). Red is not present in Crystal Dust V2.
 
 ---
 
@@ -60,7 +37,7 @@ This project is currently in alpha development. It should be playable but you ma
 5. Load each rom into the correct slot. Crystal and Emerald will need to run some initialisation code when they are loaded
 6. When all 3 roms are loaded press 'start' and it should boot into a new game of Fire Red 
 
-ESC will bring up the emulation menu where you can change things like the seed.
+ESC (or long swipe down) will bring up the emulation menu where you can change things like the seed.
 
 <br>
 [^1] (md5sum 51901a6e40661b3914aa333c802e24e8) I've tried to make it compatible with 1.0 as well but this is untested
@@ -70,18 +47,6 @@ ESC will bring up the emulation menu where you can change things like the seed.
 [^3] (md5sum ef47f6528875dc3de037e75bba6a0ecb)
 <br>
 [^4] Firefox may work but is prone to lagging (especially during speedup)
-
----
-
-## Rules
-
-If you've not played a map randomiser before the goal is to find and beat the Gyms, E4, Champion (and final boss). In this you start in Pallet Town where none of the loading zones have been randomised but that will change as soon as you get to Viridian. 
-
-The randomisation logic should make it so that it's possible to beat the Gyms, E4 and Champion in order. The logic only guarantees order within each region. This means you should always be able to beat Kanto Gym 1 before Gym 2(/3/4/5 e.t.c) however you might need to beat Johto gyms 1,2 and 3 before you can get to Kanto Gym 1. 
-
-If you are only randomising up to certain gyms you will never have to play beyond that point. 
-
-In a full randomisation there are 24 Gyms, 12 E4, 3 Champions and 1 final boss (Steven). Red is not present in Crystal Dust V2.
 
 ---
 
@@ -101,21 +66,16 @@ In theory any seed should generate a mapping that is completable in order. Howev
 
 ---
 
-## Known Issues
-
-- Bike everywhere dosn't work for the ladders in Fortree or Pacifidlog
-- E4 rooms sometimes make you walk into the void if entered from the top
-- Minor graphical glitches in Emerald e.g (reflection colours, rival batle sprites, exclamation mark colour)  
-
----
-
 ## F.A.Q
 
 **I found a bug. What should I do?** 
-> Check known issues and github issues to make sure it's not already been raised. If it hasn't been raised report it. Preferably include as much details as possible and screenshots.
+>  If you find any issue please report them in the issues setion of the github [here](https://github.com/KittyPBoxx/GBAXG/issues). Preferably include as much details as possible and screenshots.
 
 **Can I choose which reigon I start in?**
 > Not at the moment. This may be added in future.
+
+**Will Sevii Islands/Mt. Silver/Tin Tower/Battle Frontier e.t.c be included later?**
+> I want to focus on making the experience as polished as possible for the first release so I'm not currently adding any more areas. Not every area is possible to add, however Sevii islands and the outside of the battle frontier may be added in a later release. 
 
 **Can I randomise the pokemon?**
 > Randomised roms have not had much testing and may produce bugs. However you can use [this](https://kittypboxx.github.io/GBAXG/upr/UniversalPokemonRandomizer.zip) randomiser to randomise the roms. You will need to modify each rom separately before loading them. The Randomiser is a copy of *Universal Pokemon Randomizer - ZX* that has been modified so that it hopfully won't crash when used on Crystal Dust V2. Compatibility with Crystal Dust V2 will probably not be 100% as I only made changes to help prevent crashing, I've not specifically added offsets e.t.c for things like static encounters.         
