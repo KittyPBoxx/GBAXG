@@ -198,6 +198,7 @@ var exp = null;
 var expfr = null;
 async function patchExpansionData() {
 
+
     if (!IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
         return;
     }
@@ -466,14 +467,14 @@ async function patchExpansionData() {
             exp.patchRomPtr32ByName("E", E_1_0_BOY_FISHING_SPRITE_PTRS[k] - 0x08000000, "fr_boy_fishing_" + k);
         });
 
-        // Fix Emerald Trainer Sprites
+        //Fix Emerald Trainer Sprites
         exp.patchRomPtr32("E", EMERALD_BRANDON_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_RED_TRAINER_SPRITE_PTR));
         exp.patchRomPtr32("E", EMERALD_MAY_TRAINER_SPRITE_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_LEAF_TRAINER_SPRITE_PTR));
 
         exp.patchRomPtr32("E", EMERALD_BRANDON_TRAINER_PALLET_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_RED_TRAINER_PALLET_PTR));
         exp.patchRomPtr32("E", EMERALD_MAY_TRAINER_PALLET_PTR, IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").readROM32(EMERALD_LEAF_TRAINER_PALLET_PTR));
 
-        // Backsprites
+        //Backsprites
         Object.keys(E_BACKSPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("E", E_BACKSPRITE_PTRS[k] - 0x08000000, "fr_backsprite" + k);
         });
@@ -522,7 +523,7 @@ async function patchExpansionData() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2c, 0xfc);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2d, 0x45);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2e, 0xfc);
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2, 0x45);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x499c2f, 0x45);
 
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a42ac, 0x9b77);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a42ad, 0x9b77);
