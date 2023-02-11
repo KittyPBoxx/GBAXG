@@ -145,6 +145,9 @@ function startForCode(code) {
         if (IodineGUI.Iodine.IOCore) {
             IodineGUI.Iodine.restart(); 
             IodineGUI.Iodine.saveStateManager.initStoredStates(IodineGUI.Iodine.ROM_CODES);
+
+            // First load dosn't patch correctly unless there's a delay. This should probably be looked into
+            repatch();
         } else {
             IodineGUI.Iodine.play();
             IodineGUI.Iodine.saveStateManager.initStoredStates(IodineGUI.Iodine.ROM_CODES);
@@ -171,6 +174,12 @@ function crystalReady() {
     document.getElementById("play").classList.remove("disabled"); 
     document.getElementById("c-status").innerHTML = "(Ready)";  
     clearCanvas();
+}
+
+async function repatch() {
+    await delay(500);
+    exp = null
+    patchExpansionData();
 }
 
 async function clearCanvas() {

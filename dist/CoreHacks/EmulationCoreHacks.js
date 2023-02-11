@@ -91,8 +91,8 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH, playerNameAndState);
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH, idAndPlayTime);
 
-                    bagStoreage.writeData(currentRomCode, beforeRomCode);
-                    flagManager.writeFlags(currentRomCode, beforeRomCode)
+                    bagStoreage.writeData(currentRomCode, beforeRomCode, true);
+                    flagManager.writeFlags(currentRomCode, beforeRomCode, true)
         
                     IodineGUI.mixerInput.volume = 0.0
                     switchingGameState = 2;
@@ -685,16 +685,16 @@ BagStoreage.prototype.readEmeraldData = function () {
     this.readItemSection(save1Start, EMERALD_BERRIES_OFFSET, EMERALD_BERRIES_LENGTH, this.berryPocket, xorKey16);
 }
 
-BagStoreage.prototype.writeData = function (game, lastGame) {
+BagStoreage.prototype.writeData = function (game, lastGame, isLoadingScreen) {
     if (game == "E" || game == "C") {
-        this.writeDataToEmerald(game, lastGame);
+        this.writeDataToEmerald(game, lastGame, isLoadingScreen);
     } else {
-        this.writeDataToFireRed(game, lastGame);
+        this.writeDataToFireRed(game, lastGame, isLoadingScreen);
     }
 }
 
 
-BagStoreage.prototype.writeDataToFireRed = function (game, lastGame) {
+BagStoreage.prototype.writeDataToFireRed = function (game, lastGame, isLoadingScreen) {
     let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_2_PTR);
     let xorKey32 = IodineGUI.Iodine.IOCore.cpu.read32(save2Start + FIRE_RED_XOR_KEY_OFFSET);
     let xorKey16 = IodineGUI.Iodine.IOCore.cpu.read16(save2Start + FIRE_RED_XOR_KEY_OFFSET);
@@ -727,22 +727,22 @@ BagStoreage.prototype.writeDataToFireRed = function (game, lastGame) {
     } 
 
     // write items
-    this.writeItemSection(save1Start, FIRE_RED_ITEM_OFFSET, FIRE_RED_ITEM_LENGTH, this.itemPocket, xorKey16, true);
+    this.writeItemSection(save1Start, FIRE_RED_ITEM_OFFSET, FIRE_RED_ITEM_LENGTH, this.itemPocket, xorKey16, isLoadingScreen);
 
     // write key items
     this.writeItemSection(save1Start, FIRE_RED_KEY_ITEM_OFFSET, FIRE_RED_KEY_ITEM_LENGTH, this.keyItemsPocket, xorKey16, false);
 
     // write balls
-    this.writeItemSection(save1Start, FIRE_RED_BALL_OFFSET, FIRE_RED_BALL_LENGTH, this.ballItemPocket, xorKey16, true);
+    this.writeItemSection(save1Start, FIRE_RED_BALL_OFFSET, FIRE_RED_BALL_LENGTH, this.ballItemPocket, xorKey16, isLoadingScreen);
 
     // write tms
-    this.writeItemSection(save1Start, FIRE_RED_TM_OFFSET, FIRE_RED_TM_LENGTH, this.tmCase, xorKey16, true);
+    this.writeItemSection(save1Start, FIRE_RED_TM_OFFSET, FIRE_RED_TM_LENGTH, this.tmCase, xorKey16, isLoadingScreen);
 
     // write berries
-    this.writeItemSection(save1Start, FIRE_RED_BERRIES_OFFSET, FIRE_RED_BERRIES_LENGTH, this.berryPocket, xorKey16, true);
+    this.writeItemSection(save1Start, FIRE_RED_BERRIES_OFFSET, FIRE_RED_BERRIES_LENGTH, this.berryPocket, xorKey16, isLoadingScreen);
 }
 
-BagStoreage.prototype.writeDataToEmerald = function (game, lastGame) {
+BagStoreage.prototype.writeDataToEmerald = function (game, lastGame, isLoadingScreen) {
     let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_2_PTR);
     let xorKey32 = IodineGUI.Iodine.IOCore.cpu.read32(save2Start + EMERALD_XOR_KEY_OFFSET);
     let xorKey16 = IodineGUI.Iodine.IOCore.cpu.read16(save2Start + EMERALD_XOR_KEY_OFFSET);
@@ -793,19 +793,19 @@ BagStoreage.prototype.writeDataToEmerald = function (game, lastGame) {
     }
 
     // write items
-    this.writeItemSection(save1Start, EMERALD_ITEM_OFFSET, EMERALD_ITEM_LENGTH, this.itemPocket, xorKey16, true);
+    this.writeItemSection(save1Start, EMERALD_ITEM_OFFSET, EMERALD_ITEM_LENGTH, this.itemPocket, xorKey16, isLoadingScreen);
 
     // write key items
     this.writeItemSection(save1Start, EMERALD_KEY_ITEM_OFFSET, EMERALD_KEY_ITEM_LENGTH, this.keyItemsPocket, xorKey16, false);
 
     // write balls
-    this.writeItemSection(save1Start, EMERALD_BALL_OFFSET, EMERALD_BALL_LENGTH, this.ballItemPocket, xorKey16, true);
+    this.writeItemSection(save1Start, EMERALD_BALL_OFFSET, EMERALD_BALL_LENGTH, this.ballItemPocket, xorKey16, isLoadingScreen);
 
     // write tms
-    this.writeItemSection(save1Start, EMERALD_TM_OFFSET, EMERALD_TM_LENGTH, this.tmCase, xorKey16, true);
+    this.writeItemSection(save1Start, EMERALD_TM_OFFSET, EMERALD_TM_LENGTH, this.tmCase, xorKey16, isLoadingScreen);
 
     // write berries
-    this.writeItemSection(save1Start, EMERALD_BERRIES_OFFSET, EMERALD_BERRIES_LENGTH, this.berryPocket, xorKey16, true);
+    this.writeItemSection(save1Start, EMERALD_BERRIES_OFFSET, EMERALD_BERRIES_LENGTH, this.berryPocket, xorKey16, isLoadingScreen);
 }
 
 BagStoreage.prototype.readItemSection = function(save1Start, offset, length, storeTo, xorKey16) {
@@ -879,6 +879,8 @@ const FIRE_RED_BADGE6_OFFSET       = 0x25;
 const FIRE_RED_BADGE7_OFFSET       = 0x26;
 const FIRE_RED_BADGE8_OFFSET       = 0x27;
 const FIRE_RED_RUNNING_SHOE_OFFSET = 0x2F;
+const FIRE_RED_POKEDEX_OFFSET      = 0x29; 
+const FIRE_RED_NATIONAL_DEX_OFFSET = 0x40;
 const FIRE_RED_BADGE_OFFSETS = [FIRE_RED_BADGE1_OFFSET, 
                                 FIRE_RED_BADGE2_OFFSET, 
                                 FIRE_RED_BADGE3_OFFSET, 
@@ -899,6 +901,8 @@ const EMERALD_BADGE6_OFFSET       = 0xC;
 const EMERALD_BADGE7_OFFSET       = 0xD;
 const EMERALD_BADGE8_OFFSET       = 0xE;
 const EMERALD_RUNNING_SHOE_OFFSET = 0x60;
+const EMERALD_POKEDEX_OFFSET      = 0x1; 
+const EMERALD_NATIONAL_DEX_OFFSET = 0x36;
 const EMERALD_BADGE_OFFSETS = [EMERALD_BADGE1_OFFSET, 
                                EMERALD_BADGE2_OFFSET, 
                                EMERALD_BADGE3_OFFSET, 
@@ -1075,6 +1079,12 @@ FlagManager.prototype.writeCrystalFlags = function () {
 
     this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_RUNNING_SHOE_OFFSET, +this.hasRunningShoes);
 
+    // Enable national dex
+    this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_NATIONAL_DEX_OFFSET, 1);
+    writeGameVar("E", 0x404E, 0x0302);
+    let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_2_PTR);
+    IodineGUI.Iodine.IOCore.cpu.write8(save2Start + 26, 0xDA);
+
     if (badgeSync) {
         
         let badge1 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);
@@ -1108,6 +1118,12 @@ FlagManager.prototype.writeFireRedFlags = function () {
     let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_1_PTR);
 
     this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_RUNNING_SHOE_OFFSET, +this.hasRunningShoes);
+
+    // Enable national dex
+    this.setFlag(save1Start, FIRE_RED_SYS_FLAGS_OFFSET, FIRE_RED_NATIONAL_DEX_OFFSET, 1);
+    writeGameVar("FR", 0x404E, 0x6258);
+    let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_2_PTR);
+    IodineGUI.Iodine.IOCore.cpu.write8(save2Start + 27, 0xB9);
 
     if (this.hasBike) {
         this.setFlag(save1Start, FIRE_RED_BASE_FLAG_OFFSET, FIRE_RED_BIKE_OBTAINED_OFFSET, 1);

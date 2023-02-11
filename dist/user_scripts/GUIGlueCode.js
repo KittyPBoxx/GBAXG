@@ -351,7 +351,7 @@ function registerGUIEvents() {
             case "tmhm"     : bag.tmCase.set(item.number, quant); break;
         }
 
-        bag.writeData(IodineGUI.Iodine.IOCore.cartridge.romCode);
+        bag.writeData(IodineGUI.Iodine.IOCore.cartridge.romCode, false);
     });
 
     addEvent("click", document.getElementById("item-quantity-input-inc"), () => incNumeric("item-quantity-input"));
