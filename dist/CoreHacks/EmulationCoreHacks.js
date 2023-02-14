@@ -125,11 +125,15 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
     if (address == FIRE_RED_LAST_BANK &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
 
         isInSafari = new FlagManager().getFlag(IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_1_PTR), FIRE_RED_SYS_FLAGS_OFFSET, 0);
+        specialPostWarpHandling();
 
     } else if (address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E"))  {
 
         isInSafari = new FlagManager().getFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), EMERALD_SYS_FLAGS_OFFSET, 0x2C)
+        specialPostWarpHandling();
+    } else if (address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))  {
 
+        specialPostWarpHandling();
     }
 
 
@@ -247,7 +251,7 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
 
     if (pkWarp) {
 
-        pkWarp = specialWarpHandling(pkWarp);
+        pkWarp = specialPreWarpHandling(pkWarp);
 
         IodineGUI.Iodine.pause();
 
@@ -272,6 +276,8 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
             }
 
         }
+
+        specialDuringWarpHandling(pkWarp);
 
         IodineGUI.Iodine.play();
 
@@ -317,7 +323,11 @@ GameBoyAdvanceCPU.prototype.handelHomeWarp = function(romCode, bank, map, warpNo
 }
 
 // Some warps may need special handling to avoid bugs
-function specialWarpHandling(pkwarp) {
+/*
+*   PreWarp handling takes place as soon as a warps has been triggered. This is useful if you need to alter the location
+*   that a warp would be going to
+*/
+function specialPreWarpHandling(pkwarp) {
 
     let destination = pkwarp.toRomCode + "," + pkwarp.toBank + "," + pkwarp.toMap + "," + pkwarp.toWarpNo;
 
@@ -330,6 +340,65 @@ function specialWarpHandling(pkwarp) {
     }
 
     return pkwarp;
+}
+
+/*
+*   DuringWarp handling takes place before the warp had happened but after the new rom has been loaded
+*   This is useful for when you need to set a flag/var in  a game you are loading before the new map loads
+*/
+function specialDuringWarpHandling(pkwarp) {
+    
+    let destination = pkwarp.toRomCode + "," + pkwarp.toBank + "," + pkwarp.toMap + "," + pkwarp.toWarpNo;
+
+    if (pkwarp.toRomCode == "E") {
+        // Open Regi Caves
+
+        // Show Mirage Tower
+
+        // Make sure it dosn't think we are on cycling road
+
+        // Make sure guy is moved from from devon corp floor one
+        
+        // If trickmaster reached end state we need to reset him
+
+        // If muesum defeated we need to open up that warp in slateport
+
+        // If Petalburg Gym make either catch tutorial or battle
+
+        // If Mauville Gym make battle
+
+        // Make sure we can get waterfall
+    }
+
+}
+
+/*
+*   PostWarp handling takes place after the warp has finished
+*   This is useful for when you need to trigger an event after the new map has loaded
+*/
+function specialPostWarpHandling() {
+
+    // Need to pass in the current warp address
+    // Fix the "Jesus warps" in seafloor cavern for emerald
+
+    if (IodineGUI.Iodine.IOCore.cartridge.romCode === "E") {
+        let bank = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK);
+        let map = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 1);
+        let warpNo = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 2);
+
+        let destination = "E" + "," + bank + "," + map + "," + warpNo;
+
+        if (destination == "E,24,33,2") {
+            // Seafloor caven stop walking on water
+            forceStateAfterDelay(MOVEMENT_MODE_SURF);
+        }
+
+    }
+}
+
+async function forceStateAfterDelay(movementMode) {
+    await delay(1000/IodineGUI.Iodine.getSpeed());
+    forcePlayerState(movementMode);
 }
 
 async function quickSpeedUp(duration) {
@@ -891,6 +960,7 @@ const FIRE_RED_BADGE_OFFSETS = [FIRE_RED_BADGE1_OFFSET,
                                 FIRE_RED_BADGE8_OFFSET];
 const FIRE_RED_BIKE_OBTAINED_OFFSET = 0x271;
 
+const EMERALD_BASE_FLAGS_OFFSET   = 0x1;
 const EMERALD_SYS_FLAGS_OFFSET    = 0x137C;
 const EMERALD_BADGE1_OFFSET       = 0x7;
 const EMERALD_BADGE2_OFFSET       = 0x8;
@@ -1044,6 +1114,12 @@ FlagManager.prototype.writeEmeraldFlags = function () {
     let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR);
 
     this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_RUNNING_SHOE_OFFSET, +this.hasRunningShoes);
+
+    // Enable national dex
+    this.setFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_NATIONAL_DEX_OFFSET, 1);
+    writeGameVar("E", 0x404E, 0x0302);
+    let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_2_PTR);
+    IodineGUI.Iodine.IOCore.cpu.write8(save2Start + 26, 0xDA);
 
     if (badgeSync) {
         

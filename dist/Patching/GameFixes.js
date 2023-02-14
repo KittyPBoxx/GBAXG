@@ -49,6 +49,10 @@ function patchGameIssues() {
         // Patch Sidney Room to avoid softlock by auto walk  
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x0842d53D - 0x08000000, 0x32);
 
+        // Seafloor Cavern tide room prevent getting automatically pushed through the door
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x084378A4 - 0x08000000, 0x70);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x084378A5 - 0x08000000, 0x11);
+
     }
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {

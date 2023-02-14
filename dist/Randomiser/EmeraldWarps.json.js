@@ -2347,8 +2347,9 @@ var EMERALD_WARPS =
     },
     "E,16,14,0" : {
         "name": "EVER GRANDE CITY - INSIDE - League Upstairs - 1,6",
+        "ignore": true,
         "level": "9", 
-        "to": "E,16,10,2",
+        "to": "E,16,14,4",
     },
     "E,16,10,2" : {
         "name": "EVER GRANDE CITY - INSIDE - League Badge Door - 9,1",
@@ -6370,7 +6371,7 @@ var EMERALD_WARPS =
     },
     "E,24,33,2" : {
         "name" : "SEAFLOOR CAVERN - INSIDE - F7 Center - E,8",
-        "to" : "E,24,27,1",
+        "to" : "E,24,27,70",
         "level" : "8",
         "connections" : {
             "E,24,33,0": "HOENN_SURF",
