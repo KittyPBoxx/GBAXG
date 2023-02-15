@@ -1088,7 +1088,7 @@ FlagManager.prototype.readEmeraldFlags = function () {
     this.HMState.evaluate("E", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
 
     this.repelSteps = readGameVar("E", EMERALD_REPEL_STEPS_OFFSET);
-    this.starterChoice = readGameVar("E", EMERALD_STARTER_CHOICE_OFFSET);
+    //this.starterChoice = readGameVar("E", EMERALD_STARTER_CHOICE_OFFSET);
 }
 
 FlagManager.prototype.readCrystalFlags = function () {
@@ -1108,7 +1108,7 @@ FlagManager.prototype.readCrystalFlags = function () {
     this.HMState.evaluate("C", this.badge1, this.badge2, this.badge3, this.badge4, this.badge5, this.badge6, this.badge7, this.badge8);
 
     this.repelSteps = readGameVar("C", EMERALD_REPEL_STEPS_OFFSET);
-    this.starterChoice = readGameVar("C", EMERALD_STARTER_CHOICE_OFFSET);
+    //this.starterChoice = readGameVar("C", EMERALD_STARTER_CHOICE_OFFSET);
 }
 
 FlagManager.prototype.readFireRedFlags = function () {
@@ -1179,7 +1179,10 @@ FlagManager.prototype.writeEmeraldFlags = function () {
     }
 
     writeGameVar("E", EMERALD_REPEL_STEPS_OFFSET, this.repelSteps);
-    writeGameVar("E", EMERALD_STARTER_CHOICE_OFFSET, this.starterChoice);
+
+    if (this.starterChoice) {
+        writeGameVar("E", EMERALD_STARTER_CHOICE_OFFSET, this.starterChoice);
+    }
 }
 
 FlagManager.prototype.writeCrystalFlags = function () {
@@ -1264,7 +1267,7 @@ FlagManager.prototype.writeFireRedFlags = function () {
     }
     
     writeGameVar("FR", FIRE_RED_REPEL_STEPS_OFFSET, this.repelSteps);
-    writeGameVar("FR", FIRE_RED_STARTER_CHOICE_OFFSET, this.starterChoice);
+    //writeGameVar("FR", FIRE_RED_STARTER_CHOICE_OFFSET, this.starterChoice);
 }
 
 function modifyBadge(game, badgeNumber, shouldGiveOrRemoveBit) {
