@@ -364,8 +364,21 @@ function specialDuringWarpHandling(pkwarp) {
         // If muesum defeated we need to open up that warp in slateport
 
         // If Petalburg Gym make either catch tutorial or battle
+        if (destination == "E,8,1,0") {
+            // If catch tutorial hasn't been done we set to that
+            // otherwise we set to battle state
+            let normanState = readGameVar("E", 0x4085);
+            if (normanState < 2) {
+                writeGameVar("E", 0x4085, 0)
+            } else {
+                writeGameVar("E", 0x4085, 6)
+            }
+        } 
 
         // If Mauville Gym make battle
+        if (destination == "E,10,0,0") {
+            
+        }
 
         // Make sure we can get waterfall
     }

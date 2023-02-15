@@ -446,6 +446,20 @@ function registerGUIEvents() {
     addEvent("click", document.getElementById("give-b8"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 8, 1));
     addEvent("click", document.getElementById("take-b8"), () => modifyBadge(IodineGUI.Iodine.IOCore.cartridge.romCode, 8, 0));
 
+    addEvent("click", document.getElementById("norman-gym-tutorial"), () => {
+        if (IodineGUI.Iodine.IOCore.cartridge.romCode == "E") {
+            writeGameVar("E", 0x4085, 0)
+        } else {
+            M.toast({html: "Must Be In Emerald Change This Var", displayLength:1000});
+        }
+    });
+    addEvent("click", document.getElementById("norman-gym-battle"), () => {
+        if (IodineGUI.Iodine.IOCore.cartridge.romCode == "E") {
+            writeGameVar("E", 0x4085, 6)
+        } else {
+            M.toast({html: "Must Be In Emerald Change This Var", displayLength:1000});
+        }
+    });
 
     setupTouchControls();
 
