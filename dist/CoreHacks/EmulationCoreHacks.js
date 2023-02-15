@@ -405,14 +405,26 @@ function specialPostWarpHandling() {
 
         if (destination == "E,24,33,2") {
             // Seafloor caven stop walking on water
-            forceStateAfterDelay(MOVEMENT_MODE_SURF);
+            forceStateAfterDelay(MOVEMENT_MODE_SURF, 1000);
         }
 
     }
+
+    if (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
+        let bank = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(FIRE_RED_CURRENT_BANK);
+        let map = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(FIRE_RED_CURRENT_BANK + 1);
+        let warpNo = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(FIRE_RED_CURRENT_BANK + 2);
+
+        let destination = "FR" + "," + bank + "," + map + "," + warpNo;
+        if (destination == "FR,1,86,6" || destination == "FR,1,86,5") {
+            // Seafoam islands stop walking on water
+            forceStateAfterDelay(MOVEMENT_MODE_SURF, 3800);
+        }
+    }
 }
 
-async function forceStateAfterDelay(movementMode) {
-    await delay(1000/IodineGUI.Iodine.getSpeed());
+async function forceStateAfterDelay(movementMode, delayTime) {
+    await delay(delayTime/IodineGUI.Iodine.getSpeed());
     forcePlayerState(movementMode);
 }
 
