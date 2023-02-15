@@ -68,6 +68,7 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     let partySlice = readWRAMSlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH);
                     let playerNameAndState = dynamicMemorySlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH);
                     let idAndPlayTime = dynamicMemorySlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH);
+                    let box1 = dynamicMemorySlice(beforeRomCode == "E" || beforeRomCode == "C" ? EMERALD_SAVE_3_PTR : FIRE_RED_SAVE_3_PTR, 4, BOX_LENGTH);
 
                     let bagStoreage = new BagStoreage();
                     bagStoreage.readData(beforeRomCode);
@@ -90,6 +91,7 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     spliceWRAM(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_PARTY_OFFSET : FIRE_RED_PARTY_OFFSET, PLAYER_PARTY_LENGTH, partySlice);
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, NAME_STATE_OFFSET, NAME_STATE_LENGTH, playerNameAndState);
                     dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_2_PTR : FIRE_RED_SAVE_2_PTR, ID_TIME_OFFSET, ID_TIME_LENGTH, idAndPlayTime);
+                    dynamicMemorySplice(currentRomCode == "E" || currentRomCode == "C" ? EMERALD_SAVE_3_PTR : FIRE_RED_SAVE_3_PTR, 4, BOX_LENGTH, box1)
 
                     bagStoreage.writeData(currentRomCode, beforeRomCode, true);
                     flagManager.writeFlags(currentRomCode, beforeRomCode, true)
@@ -377,7 +379,7 @@ function specialDuringWarpHandling(pkwarp) {
 
         // If Mauville Gym make battle
         if (destination == "E,10,0,0") {
-            
+
         }
 
         // Make sure we can get waterfall
@@ -670,6 +672,12 @@ const FIRE_RED_BERRIES_OFFSET = 0x054C;
 const FIRE_RED_BERRIES_LENGTH = 172;
 const EMERALD_BERRIES_OFFSET = 0x0790;
 const EMERALD_BERRIES_LENGTH = 184;
+
+// DYNAMIC SAV3 PTRs
+const FIRE_RED_SAVE_3_PTR = 0x03005010;
+const EMERALD_SAVE_3_PTR = 0x03005d94;
+
+const BOX_LENGTH = 2400;
 
 /**************************/
 /* Bag Storage Management */
