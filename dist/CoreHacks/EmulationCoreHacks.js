@@ -1219,7 +1219,8 @@ FlagManager.prototype.writeCrystalFlags = function () {
     }
 
     writeGameVar("C", EMERALD_REPEL_STEPS_OFFSET, this.repelSteps);
-    writeGameVar("C", EMERALD_STARTER_CHOICE_OFFSET, this.starterChoice);
+    // Enabling this disables all the battle with Silver
+    //writeGameVar("C", EMERALD_STARTER_CHOICE_OFFSET, this.starterChoice);
 }
 
 FlagManager.prototype.writeFireRedFlags = function () {
