@@ -461,6 +461,21 @@ function registerGUIEvents() {
         }
     });
 
+    addEvent("click", document.getElementById("silver-battle-enable"), () => {
+        if (IodineGUI.Iodine.IOCore.cartridge.romCode == "C") {
+            writeGameVar("C", EMERALD_STARTER_CHOICE_OFFSET, 3)
+        } else {
+            M.toast({html: "Must Be In Crystal Change This Var", displayLength:1000});
+        }
+    });
+    addEvent("click", document.getElementById("silver-battle-disable"), () => {
+        if (IodineGUI.Iodine.IOCore.cartridge.romCode == "C") {
+            writeGameVar("C", EMERALD_STARTER_CHOICE_OFFSET, 0)
+        } else {
+            M.toast({html: "Must Be In Crystal Change This Var", displayLength:1000});
+        }
+    });
+
     setupTouchControls();
 
     addEvent("resize", window, resizeCanvasFunc);
