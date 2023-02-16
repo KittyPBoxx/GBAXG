@@ -66,6 +66,12 @@ In theory any seed should generate a mapping that is completable in order. Howev
 
 ---
 
+## Progress & Development
+
+You can now see the latest fixes and tracked issues over on the [trello development page](https://trello.com/b/esQs4wx3/multi-game-random-warps) 
+
+---
+
 ## F.A.Q
 
 **I found a bug. What should I do?** 
