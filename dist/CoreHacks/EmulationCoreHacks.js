@@ -331,15 +331,7 @@ GameBoyAdvanceCPU.prototype.handelHomeWarp = function(romCode, bank, map, warpNo
 */
 function specialPreWarpHandling(pkwarp) {
 
-    let destination = pkwarp.toRomCode + "," + pkwarp.toBank + "," + pkwarp.toMap + "," + pkwarp.toWarpNo;
-
-    if (destination == "E,16,0,1") {
-        pkwarp.toWarpNo = 2;
-    } else if (destination == "C,16,0,1") {
-        pkwarp.toWarpNo = 2;
-    } else if (destination == "FR,1,75,1") {
-        pkwarp.toWarpNo = 2;
-    }
+    // let destination = pkwarp.toRomCode + "," + pkwarp.toBank + "," + pkwarp.toMap + "," + pkwarp.toWarpNo;
 
     return pkwarp;
 }
@@ -406,6 +398,51 @@ function specialPostWarpHandling() {
         if (destination == "E,24,33,2") {
             // Seafloor caven stop walking on water
             forceStateAfterDelay(MOVEMENT_MODE_SURF, 1000);
+        } else if (destination == "E,16,0,0") {
+            // E4 rooms needs to walk fowards when entering
+            writeGameVar("E", 0x409C, 0);
+        } else if (destination == "E,16,0,1")  {
+            writeGameVar("E", 0x409C, 1);
+        } else if (destination == "E,16,1,0") {
+            writeGameVar("E", 0x409C, 1);
+        } else if (destination == "E,16,1,1") {
+            writeGameVar("E", 0x409C, 2);
+        } else if (destination == "E,16,2,0") {
+            writeGameVar("E", 0x409C, 2);
+        } else if (destination == "E,16,2,1") {
+            writeGameVar("E", 0x409C, 3);
+        } else if (destination == "E,16,3,0") {
+            writeGameVar("E", 0x409C, 3);
+        } else if (destination == "E,16,3,1") {
+            writeGameVar("E", 0x409C, 4);
+        }
+
+    }
+
+    if (IodineGUI.Iodine.IOCore.cartridge.romCode === "C") {
+        let bank = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK);
+        let map = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 1);
+        let warpNo = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 2);
+
+        let destination = "C" + "," + bank + "," + map + "," + warpNo;
+
+        if (destination == "C,16,0,0") {
+            // E4 rooms needs to walk fowards when entering
+            writeGameVar("C", 0x409C, 0);
+        } else if (destination == "C,16,0,1")  {
+            writeGameVar("C", 0x409C, 1);
+        } else if (destination == "C,16,1,0") {
+            writeGameVar("C", 0x409C, 1);
+        } else if (destination == "C,16,1,1") {
+            writeGameVar("C", 0x409C, 2);
+        } else if (destination == "C,16,2,0") {
+            writeGameVar("C", 0x409C, 2);
+        } else if (destination == "C,16,2,1") {
+            writeGameVar("C", 0x409C, 3);
+        } else if (destination == "C,16,3,0") {
+            writeGameVar("C", 0x409C, 3);
+        } else if (destination == "C,16,3,1") {
+            writeGameVar("C", 0x409C, 4);
         }
 
     }
@@ -419,6 +456,23 @@ function specialPostWarpHandling() {
         if (destination == "FR,1,86,6" || destination == "FR,1,86,5") {
             // Seafoam islands stop walking on water
             forceStateAfterDelay(MOVEMENT_MODE_SURF, 3800);
+        } else if (destination == "FR,1,75,0") {
+            // E4 rooms needs to walk fowards when entering
+            writeGameVar("FR", 0x4068, 0);
+        } else if (destination == "FR,1,75,1")  {
+            writeGameVar("FR", 0x4068, 1);
+        } else if (destination == "FR,1,76,0") {
+            writeGameVar("FR", 0x4068, 1);
+        } else if (destination == "FR,1,76,1") {
+            writeGameVar("FR", 0x4068, 2);
+        } else if (destination == "FR,1,77,0") {
+            writeGameVar("FR", 0x4068, 2);
+        } else if (destination == "FR,1,77,1") {
+            writeGameVar("FR", 0x4068, 3);
+        } else if (destination == "FR,1,78,0") {
+            writeGameVar("FR", 0x4068, 3);
+        } else if (destination == "FR,1,78,1") {
+            writeGameVar("FR", 0x4068, 4);
         }
     }
 }
