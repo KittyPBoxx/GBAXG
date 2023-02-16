@@ -1208,6 +1208,9 @@ FlagManager.prototype.writeEmeraldFlags = function () {
     let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_2_PTR);
     IodineGUI.Iodine.IOCore.cpu.write8(save2Start + 26, 0xDA);
 
+    // Open regi doors
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0xE4, 1);
+
     if (badgeSync) {
         
         let badge1 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);
