@@ -371,7 +371,7 @@ function specialDuringWarpHandling(pkwarp) {
 
         // If Mauville Gym make battle
         if (destination == "E,10,0,0") {
-
+            new FlagManager().setFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), 0x1270, 0x391, 0);
         }
 
         // Make sure we can get waterfall
@@ -1047,7 +1047,7 @@ const FIRE_RED_BADGE_OFFSETS = [FIRE_RED_BADGE1_OFFSET,
                                 FIRE_RED_BADGE8_OFFSET];
 const FIRE_RED_BIKE_OBTAINED_OFFSET = 0x271;
 
-const EMERALD_BASE_FLAGS_OFFSET   = 0x1;
+const EMERALD_BASE_FLAGS_OFFSET   = 0x1270;
 const EMERALD_SYS_FLAGS_OFFSET    = 0x137C;
 const EMERALD_BADGE1_OFFSET       = 0x7;
 const EMERALD_BADGE2_OFFSET       = 0x8;

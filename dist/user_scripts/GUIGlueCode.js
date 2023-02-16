@@ -476,6 +476,23 @@ function registerGUIEvents() {
         }
     });
 
+    addEvent("click", document.getElementById("wattson-gym"), () => {
+        if (IodineGUI.Iodine.IOCore.cartridge.romCode == "E") {
+            new FlagManager().setFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), EMERALD_BASE_FLAGS_OFFSET, 0x391, 0);
+            new FlagManager().setFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), EMERALD_BASE_FLAGS_OFFSET, 0x390, 1);
+        } else {
+            M.toast({html: "Must Be In Emerald Change This Var", displayLength:1000});
+        }
+    });
+    addEvent("click", document.getElementById("wattson-outside"), () => {
+        if (IodineGUI.Iodine.IOCore.cartridge.romCode == "E") {
+            new FlagManager().setFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), EMERALD_BASE_FLAGS_OFFSET, 0x391, 1);
+            new FlagManager().setFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), EMERALD_BASE_FLAGS_OFFSET, 0x390, 0);
+        } else {
+            M.toast({html: "Must Be In Emerald Change This Var", displayLength:1000});
+        }
+    });
+
     setupTouchControls();
 
     addEvent("resize", window, resizeCanvasFunc);
