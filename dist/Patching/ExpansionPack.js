@@ -206,7 +206,7 @@ async function patchExpansionData() {
 
     var isPatchedFireRed = IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC];
 
-    if (exp == null) {
+
         exp = new ExpansionPack();
         expfr = new ExpansionPack();
 
@@ -383,7 +383,7 @@ async function patchExpansionData() {
         Object.keys(FR_BACKSPRITE_DATA).forEach(k => {
             exp.addElementToExpansion("fr_backsprite" + k, "FR", (FR_BACKSPRITE_DATA[k]) - 0x08000000, FR_BACKSPRITE_DATA_LENGTH);
         });
-    }
+    
 
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
     
