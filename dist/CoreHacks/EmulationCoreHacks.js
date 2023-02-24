@@ -453,7 +453,7 @@ function specialPostWarpHandling() {
         let warpNo = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(FIRE_RED_CURRENT_BANK + 2);
 
         let destination = "FR" + "," + bank + "," + map + "," + warpNo;
-        if (destination == "FR,1,86,6" || destination == "FR,1,86,5") {
+        if (destination == "FR,1,86,6" || destination == "FR,1,86,5" || destination == "FR,1,87,2" || destination == "FR,1,87,3") {
             // Seafoam islands stop walking on water
             forceStateAfterDelay(MOVEMENT_MODE_SURF, 3800);
         } else if (destination == "FR,1,75,0") {
