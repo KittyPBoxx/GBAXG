@@ -1219,6 +1219,9 @@ FlagManager.prototype.writeEmeraldFlags = function () {
     // Open regi doors
     this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0xE4, 1);
 
+    // Not On Bike Path
+    modifySystemFlag("E", 0x2B, 0);
+
     if (badgeSync) {
         
         let badge1 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);
@@ -1302,6 +1305,9 @@ FlagManager.prototype.writeFireRedFlags = function () {
     writeGameVar("FR", 0x404E, 0x6258);
     let save2Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_2_PTR);
     IodineGUI.Iodine.IOCore.cpu.write8(save2Start + 27, 0xB9);
+
+    // Not On Bike Path
+    modifySystemFlag("FR", 0x30, 0);
 
     if (this.hasBike) {
         this.setFlag(save1Start, FIRE_RED_BASE_FLAG_OFFSET, FIRE_RED_BIKE_OBTAINED_OFFSET, 1);
