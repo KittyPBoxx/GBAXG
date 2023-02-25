@@ -208,15 +208,22 @@ function registerGUIEvents() {
                 IodineGUI.Iodine.setSpeed(1.1);
             }
             func();
+            IodineGUI.Iodine.disableAudio()
         } else {
             IodineGUI.Iodine.enableBoostPerformance();
             IodineGUI.Iodine.setSpeed(1)
             IodineGUI.Iodine.enableAudio();
             IodineGUI.Iodine.boostPerformance = false;
+            IodineGUI.Iodine.enableAudio()
         }
     });
 
     addEvent("click", document.getElementById("useSpeedup"), () => { CommandExecutor.execute("SpeedUp") });
+
+    addEvent("click", document.getElementById("disableSpeedupAudio"), () => { 
+        disableSpeedupAudio = document.getElementById("disableSpeedupAudio").checked;
+        updateEnabledAudioForSpeed();
+    });
 
     addEvent("click", document.getElementById("disableWalls"), () => {
         walkThroughWalls = document.getElementById("disableWalls").checked;

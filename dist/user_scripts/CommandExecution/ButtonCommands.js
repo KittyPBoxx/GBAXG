@@ -66,9 +66,13 @@ CommandExecutor.register("L"     , args => IodineGUI.isPlaying ? keyPress(9) /* 
 
 /* Iodine functions */
 let speedUpSpeed = 4;
+var disableSpeedupAudio = true;
 CommandExecutor.register("SpeedUp", args => { 
   IodineGUI.Iodine.setSpeed(IodineGUI.Iodine.getSpeed() == 1 ? speedUpSpeed : 1);
   document.getElementById("useSpeedup").checked = IodineGUI.Iodine.getSpeed() != 1;
+
+  updateEnabledAudioForSpeed();
+
   let isPlaying = IodineGUI.isPlaying;
   IodineGUI.Iodine.pause();
   IodineGUI.Iodine.play();
@@ -80,6 +84,14 @@ CommandExecutor.register("BigSpeedUp", args => IodineGUI.Iodine.setSpeed(IodineG
 CommandExecutor.register("Restart", args => restartFromLastSave());
 CommandExecutor.register("Start", args => IodineGUI.Iodine.play());
 CommandExecutor.register("Stop", args => IodineGUI.Iodine.stop());
+
+function updateEnabledAudioForSpeed() {
+  if (IodineGUI.Iodine.getSpeed() == 1) {
+    IodineGUI.Iodine.enableAudio();
+  } else if (disableSpeedupAudio) {
+    IodineGUI.Iodine.disableAudio();
+  }
+}
 
 /* State functions */
 CommandExecutor.register("SaveSlot1", args => {

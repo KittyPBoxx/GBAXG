@@ -199,6 +199,10 @@ span.rom-status {
     opacity: 0.3;
 }
 
+.switch.hack-toggle.mute-speedup {
+    margin-top: -1em;
+}
+
 
 .table-container tr:nth-child(even) {
     background: #CCC;
