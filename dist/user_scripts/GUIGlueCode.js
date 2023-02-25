@@ -396,8 +396,8 @@ function registerGUIEvents() {
         }
     });
 
-    addEvent("click", document.getElementById("holdToMash"), () => {
-        holdToMash = document.getElementById("holdToMash").checked;
+    addEvent("click", document.getElementById("alwaysTurbo"), () => {
+        alwaysTurbo = document.getElementById("alwaysTurbo").checked;
     });
 
     addEvent("click", document.getElementById("forceWalk"), () => forcePlayerState(MOVEMENT_MODE_WALK));

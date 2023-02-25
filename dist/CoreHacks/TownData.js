@@ -80,7 +80,7 @@ var KEY_LOCATION_DATA =
     "NORMAN"           : "E,8,1,0"   ,
     "WINONA"           : "E,12,1,0"  ,
     "TATE AND LIZA"    : "E,14,0,0"  ,
-    "JAUN"             : "E,15,0,0"  , 
+    "JUAN"             : "E,15,0,0"  , 
     "E4 SIDNEY"        : "E,16,0,0"  ,
     "E4 PHOEBE"        : "E,16,1,0"  ,
     "E4 GLACIA"        : "E,16,2,0"  ,

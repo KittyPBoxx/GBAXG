@@ -398,6 +398,14 @@ function specialPostWarpHandling() {
         if (destination == "E,24,33,2") {
             // Seafloor caven stop walking on water
             forceStateAfterDelay(MOVEMENT_MODE_SURF, 1000);
+        } else if (destination == "E,0,4,1" || destination == "E,0,4,4" || destination == "E,0,4,5" || destination == "E,0,4,6" || destination == "E,0,4,7" || destination == "E,0,4,8" || 
+                   destination == "E,0,15,0" || destination == "E,0,15,1" || destination == "E,0,15,2" || destination == "E,0,15,3" || destination == "E,0,15,4" || destination == "E,0,15,") {
+            if (document.getElementById("autoBike").checked) {
+                M.toast({html: 'Auto Bike Off', displayLength:1000 });
+                document.getElementById("autoBike").click();
+            }
+            // Somewhere we can't use a bike (fortree or pacifidlog)
+            forceStateAfterDelay(MOVEMENT_MODE_WALK, 1000);
         } else if (destination == "E,16,0,0") {
             // E4 rooms needs to walk fowards when entering
             writeGameVar("E", 0x409C, 0);

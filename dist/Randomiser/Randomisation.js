@@ -185,7 +185,7 @@ ProgressionState.prototype.makeFinalLocationsKey = function (config) {
     case "5": finalLocations.push(HINTABLE_LOCATIONS["NORMAN"])       ; break;
     case "6": finalLocations.push(HINTABLE_LOCATIONS["WINONA"])       ; break;
     case "7": finalLocations.push(HINTABLE_LOCATIONS["TATE AND LIZA"]); break;
-    case "8": finalLocations.push(HINTABLE_LOCATIONS["JAUN"])         ; break;
+    case "8": finalLocations.push(HINTABLE_LOCATIONS["JUAN"])         ; break;
     case "9": 
     case "0": 
     case "10": 
@@ -786,7 +786,7 @@ var HINTABLE_LOCATIONS = {
   "NORMAN"           : "E,8,1,0"   ,
   "WINONA"           : "E,12,1,0"  ,
   "TATE AND LIZA"    : "E,14,0,0"  ,
-  "JAUN"             : "E,15,0,0"  , 
+  "JUAN"             : "E,15,0,0"  , 
   "E4 SIDNEY"        : "E,16,0,0"  ,
   "E4 PHOEBE"        : "E,16,1,0"  ,
   "E4 GLACIA"        : "E,16,2,0"  ,

@@ -5,13 +5,14 @@
 
 /* Register button commands for pressing and releasing */
 
-var holdToMash = false;
+var alwaysTurbo = false;
+var tempTurbo = false;
 var aMashInterval;
 var bMashInterval;
 
 CommandExecutor.register("AKeyDown"     , (args) => {
   IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(0) : null               // A
-  if (holdToMash) {
+  if (alwaysTurbo || tempTurbo) {
     aMashInterval = setInterval(() => { keyPress(0) }, 100);
   }
 });
@@ -22,7 +23,7 @@ CommandExecutor.register("AKeyUp"       , (args) => {
 
 CommandExecutor.register("BKeyDown"     , (args) => {
   IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(1) : null   // B
-  if (holdToMash) {
+  if (alwaysTurbo || tempTurbo) {
     bMashInterval = setInterval(() => { keyPress(1) }, 100);
   }
 });             
@@ -90,6 +91,24 @@ CommandExecutor.register("LoadSlot1", args => {
   IodineGUI.Iodine.saveStateManager.loadMultiState("MS1");
 });
 
+CommandExecutor.register("SaveSlot2", args => {
+  let preview = IodineGUI.Iodine.saveStateManager.saveMultiState("MS2").preview;
+  document.getElementById("saveState2Preiew").src = preview;
+  M.toast({html: 'State Saved', displayLength:500});
+});
+CommandExecutor.register("LoadSlot2", args => {
+  IodineGUI.Iodine.saveStateManager.loadMultiState("MS2");
+});
+
+CommandExecutor.register("SaveSlot3", args => {
+  let preview = IodineGUI.Iodine.saveStateManager.saveMultiState("MS3").preview;
+  document.getElementById("saveState3Preiew").src = preview;
+  M.toast({html: 'State Saved', displayLength:500});
+});
+CommandExecutor.register("LoadSlot3", args => {
+  IodineGUI.Iodine.saveStateManager.loadMultiState("MS3");
+});
+
 var keyPress = async(k) => { IodineGUI.Iodine.keyDown(k); await delay(50); IodineGUI.Iodine.keyUp(k) }
 async function delay(time) {
     return new Promise(function (resolve) {
@@ -117,3 +136,6 @@ CommandExecutor.register("ToggleBike", args => {
     forcePlayerState(MOVEMENT_MODE_WALK);
   }
 });
+
+CommandExecutor.register("TempTurboDown" , args => tempTurbo = true);
+CommandExecutor.register("TempTurboUp"   , args => tempTurbo = false);
