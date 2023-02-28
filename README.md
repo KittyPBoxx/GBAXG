@@ -50,6 +50,12 @@ ESC (or long swipe down) will bring up the emulation menu where you can change t
 
 ---
 
+## Tracker
+
+A version of Sekii's tracker that supports all three game at once is now available at https://sekii.gitlab.io/pokemon-tracker/
+
+---
+
 ## Manually Confirmed Seeds
 
 In theory any seed should generate a mapping that is completable in order. However there may be bugs (especially during alpha development). A list of manually confirmed seed files can be found [here](https://kittypboxx.github.io/GBAXG/Seeds). These have been played and are confirmed to be completable.  
@@ -106,6 +112,9 @@ You can now see the latest fixes and tracked issues over on the [trello developm
 *IodineGBA (the core emulator) was created by Grant Galitz (taisel)* <br>
 *Universal Pokemon Randomizer ZX was created by Ajarmar* <br>
 
+<br>
+The Source Code for the project can be found at https://github.com/KittyPBoxx/GBAXG
+
 ---
 
 ## Licence 
@@ -119,3 +128,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+## Search
+
+As various terms such as pokemon combo map randomizer, combo warp randomizer, crossover map randomizer e.t.c are used interchangeably some people have had issues finding the repository. For this reason I've started added in alternate terms such as map randomiser, multigame map randomizer and Fire Red + Emerald map randomizer to help people find this when using different search terms.
