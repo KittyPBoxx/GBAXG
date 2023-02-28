@@ -52,7 +52,7 @@ ESC (or long swipe down) will bring up the emulation menu where you can change t
 
 ## Tracker
 
-A version of Sekii's tracker that supports all three game at once is now available at https://sekii.gitlab.io/pokemon-tracker/
+A version of Sekii's tracker that supports all three game at once is now available at [https://sekii.gitlab.io/pokemon-tracker/](https://sekii.gitlab.io/pokemon-tracker/)
 
 ---
 
@@ -112,8 +112,9 @@ You can now see the latest fixes and tracked issues over on the [trello developm
 *IodineGBA (the core emulator) was created by Grant Galitz (taisel)* <br>
 *Universal Pokemon Randomizer ZX was created by Ajarmar* <br>
 
-<br>
-The Source Code for the project can be found at https://github.com/KittyPBoxx/GBAXG
+<br/>
+
+The Source Code for the project can be found at [https://github.com/KittyPBoxx/GBAXG](https://github.com/KittyPBoxx/GBAXG)
 
 ---
 
