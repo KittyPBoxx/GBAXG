@@ -151,3 +151,12 @@ CommandExecutor.register("ToggleBike", args => {
 
 CommandExecutor.register("TempTurboDown" , args => tempTurbo = true);
 CommandExecutor.register("TempTurboUp"   , args => tempTurbo = false);
+
+CommandExecutor.register("volumeInc" , args => {
+  M.toast({html: 'Volume: ' + (Math.round((Math.min(IodineGUI.Iodine.audio.volume + 0.01, 1)) * 1000) / 100).toFixed(2), displayLength:250});
+  IodineGUI.Iodine.audio.setVolume(Math.min(IodineGUI.Iodine.audio.volume + 0.01, 1))
+});
+CommandExecutor.register("volumeDec" , args => {
+  M.toast({html: 'Volume: ' + (Math.round((Math.max(IodineGUI.Iodine.audio.volume - 0.01, 0)) * 1000) / 100).toFixed(2), displayLength:250});
+  IodineGUI.Iodine.audio.volume = Math.max(IodineGUI.Iodine.audio.volume - 0.01, 0)
+});
