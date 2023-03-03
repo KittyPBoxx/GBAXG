@@ -6,3 +6,4 @@
 /randomisers/kitty-randomize-wasm/pkg
 node_modules
 .parcel-cache
+/dist/build-index.html

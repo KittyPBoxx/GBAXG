@@ -8,7 +8,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build dist/index.html --dist-dir build --public-url ./"
+    "preBuild" : "node build-helpers/preBuild.js",
+    "parcelBuild": "parcel build dist/build-index.html --dist-dir build --public-url ./",
+    "postBuild" : "node build-helpers/postBuild.js",
+    "build" : "npm run preBuild && npm run parcelBuild && npm run postBuild"
   },
   "scriptComments": {
     "build": "Before building for remote switch to the remote version of lzutf8 in index.html so it dosnt' try and bundle it"
