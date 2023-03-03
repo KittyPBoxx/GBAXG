@@ -397,8 +397,14 @@ async function patchExpansionData() {
         Object.keys(E_1_0_GIRL_BIKE_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("C", E_1_0_GIRL_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_girl_bike_" + k);
         });
+        Object.keys(E_1_0_GIRL_ACRO_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_GIRL_ACRO_SPRITE_PTRS[k] - 0x08000000, "fr_girl_acro_" + k);
+        });
         Object.keys(E_1_0_BOY_BIKE_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("C", E_1_0_BOY_BIKE_SPRITE_PTRS[k] - 0x08000000, "fr_boy_bike_" + k);
+        });
+        Object.keys(E_1_0_BOY_ACRO_SPRITE_PTRS).forEach(k => {
+            exp.patchRomPtr32ByName("C", E_1_0_BOY_ACRO_SPRITE_PTRS[k] - 0x08000000, "fr_boy_acro_" + k);
         });
         Object.keys(E_1_0_GIRL_SURF_SPRITE_PTRS).forEach(k => {
             exp.patchRomPtr32ByName("C", E_1_0_GIRL_SURF_SPRITE_PTRS[k] - 0x08000000, "fr_girl_surf_" + k);
