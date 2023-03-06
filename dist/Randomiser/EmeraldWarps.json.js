@@ -2298,7 +2298,8 @@ var EMERALD_WARPS =
         "groupMain" : true,
         "connections" : {
             "E,16,12,2": true,
-            "E,0,8,1": true
+            // This connection is pretty awful
+            // "E,0,8,1": true 
         }
     },
     "E,16,12,1" : {
