@@ -1232,6 +1232,9 @@ FlagManager.prototype.writeEmeraldFlags = function () {
     // Not On Bike Path
     modifySystemFlag("E", 0x2B, 0);
 
+    // Open Sootopolis Gym Door
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x9E, 1);
+
     if (badgeSync) {
         
         let badge1 = this.getFlag(save1Start, EMERALD_SYS_FLAGS_OFFSET, EMERALD_BADGE1_OFFSET);

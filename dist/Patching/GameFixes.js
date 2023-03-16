@@ -53,6 +53,14 @@ function patchGameIssues() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x084378A4 - 0x08000000, 0x70);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x084378A5 - 0x08000000, 0x11);
 
+        // Make Sure You can always obtain waterfall
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08527315 - 0x08000000, 0x85);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08527318 - 0x08000000, 0x20);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x0852731A - 0x08000000, 0x21);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08527324 - 0x08000000, 0x6f);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08527325 - 0x08000000, 0x64);
+
     }
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
