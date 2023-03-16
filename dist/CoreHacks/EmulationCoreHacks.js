@@ -374,6 +374,13 @@ function specialDuringWarpHandling(pkwarp) {
             new FlagManager().setFlag(IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR), 0x1270, 0x391, 0);
         }
 
+        // Make Sure the trick master won't crash the game
+        if (destination == "E,29,1,0" || destination == "E,29,1,1") {
+            if (readGameVar("E", 0x4044) > 7) {
+                writeGameVar("E", 0x4044, 7);
+            }
+        }
+
         // Make sure we can get waterfall
     }
 
