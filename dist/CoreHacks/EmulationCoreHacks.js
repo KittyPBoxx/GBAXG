@@ -1219,6 +1219,9 @@ FlagManager.prototype.writeEmeraldFlags = function () {
     // Open regi doors
     this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0xE4, 1);
 
+    // Open Devon Corp F1
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x90, 1);
+
     // Not On Bike Path
     modifySystemFlag("E", 0x2B, 0);
 
