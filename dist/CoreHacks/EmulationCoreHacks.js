@@ -226,6 +226,14 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
     let usingHomeWarp = this.handelHomeWarp(romCode, bank, map, warpNo);
     
     if (warpNo == 255 && !usingHomeWarp) { 
+
+        // Special Fix for norman after the tutorial
+        if (romCode + "," + bank + "," + map + "," + warpNo == "E,8,1,255") {
+            writeGameVar("E", 0x4085, 6);
+            modifyBaseFlag("E", 0x2D6, 1);
+            modifyBaseFlag("E", 0x362, 1);
+        }
+
         // Avoid scripted warps, route connections without zone e.t.c
         return address; 
     }
@@ -358,7 +366,7 @@ function specialDuringWarpHandling(pkwarp) {
         // If muesum defeated we need to open up that warp in slateport
 
         // If Petalburg Gym make either catch tutorial or battle
-        if (destination == "E,8,1,0") {
+        if (destination == "E,8,1,0" || destination == "E,8,1,1") {
             // If catch tutorial hasn't been done we set to that
             // otherwise we set to battle state
             let normanState = readGameVar("E", 0x4085);
@@ -1377,6 +1385,20 @@ function modifySystemFlag(game, offset, shouldGiveOrRemoveBit) {
     let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(savePtr);
 
     let sysFlagOffset = game == "FR" ? FIRE_RED_SYS_FLAGS_OFFSET : EMERALD_SYS_FLAGS_OFFSET;
+
+    manager.setFlag(save1Start, sysFlagOffset, offset, shouldGiveOrRemoveBit);
+
+}
+
+function modifyBaseFlag(game, offset, shouldGiveOrRemoveBit) {
+
+    let manager = new FlagManager();
+    manager.readFlags(game);
+
+    let savePtr = game == "FR" ? FIRE_RED_SAVE_1_PTR : EMERALD_SAVE_1_PTR;
+    let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(savePtr);
+
+    let sysFlagOffset = game == "FR" ? FIRE_RED_BASE_FLAG_OFFSET : EMERALD_BASE_FLAGS_OFFSET;
 
     manager.setFlag(save1Start, sysFlagOffset, offset, shouldGiveOrRemoveBit);
 
