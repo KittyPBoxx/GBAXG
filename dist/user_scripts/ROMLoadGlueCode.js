@@ -66,7 +66,7 @@ function fileLoadShimCode(files, ROMHandler, code) {
 }
 function fileLoadBIOS() {
     fileLoadShimCode(this.files, attachBIOS, "");
-    this.IOCore.forceBiosFile = true;
+    IodineGUI.Iodine.IOCore.forceBiosFile = true;
 }
 function fileLoadROM(files, code) {
     fileLoadShimCode(files, attachROM, code);
