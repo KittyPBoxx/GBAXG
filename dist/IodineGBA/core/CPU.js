@@ -238,7 +238,7 @@ GameBoyAdvanceCPU.prototype.HLEIRQExit = function () {
 }
 GameBoyAdvanceCPU.prototype.SWI = function () {
 
-    if (this.IOCore.forceBiosFile) {
+    if (IodineGUI.Iodine.forceBiosFile) {
         //Mode bits are set to SWI:
         this.switchMode(0x13);
         //Save link register:
