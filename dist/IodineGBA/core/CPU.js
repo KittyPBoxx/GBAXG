@@ -237,7 +237,8 @@ GameBoyAdvanceCPU.prototype.HLEIRQExit = function () {
     this.branch(data | 0);
 }
 GameBoyAdvanceCPU.prototype.SWI = function () {
-    if (this.IOCore.BIOSFound) {
+
+    if (this.IOCore.forceBiosFile) {
         //Mode bits are set to SWI:
         this.switchMode(0x13);
         //Save link register:
@@ -248,17 +249,42 @@ GameBoyAdvanceCPU.prototype.SWI = function () {
         this.enterARM();
         //SWI exception vector:
         this.branch(0x8);
+        return;
     }
-    else {
-        if ((this.modeFlags & 0x20) != 0) {
-            this.THUMB.incrementProgramCounter();
-            //HLE the SWI command:
-            this.swi.execute(this.THUMB.getSWICode() | 0);
+    
+    if (this.swi.checkSupport(this.THUMB.getSWICode())) {
+        this.THUMB.incrementProgramCounter();
+        //HLE the SWI command:
+        this.swi.execute(this.THUMB.getSWICode() | 0);
+    }
+    else if (this.swi.checkSupport(this.ARM.getSWICode())) {
+        this.ARM.incrementProgramCounter();
+        //HLE the SWI command:
+        this.swi.execute(this.ARM.getSWICode() | 0);
+    } else {
+        if (this.IOCore.BIOSFound) {
+            //Mode bits are set to SWI:
+            this.switchMode(0x13);
+            //Save link register:
+            this.registers[14] = this.getLR() | 0;
+            //Disable IRQ:
+            this.modeFlags = this.modeFlags | 0x80;
+            //Exception always enter ARM mode:
+            this.enterARM();
+            //SWI exception vector:
+            this.branch(0x8);
         }
         else {
-            this.ARM.incrementProgramCounter();
-            //HLE the SWI command:
-            this.swi.execute(this.ARM.getSWICode() | 0);
+            if ((this.modeFlags & 0x20) != 0) {
+                this.THUMB.incrementProgramCounter();
+                //HLE the SWI command:
+                this.swi.execute(this.THUMB.getSWICode() | 0);
+            }
+            else {
+                this.ARM.incrementProgramCounter();
+                //HLE the SWI command:
+                this.swi.execute(this.ARM.getSWICode() | 0);
+            }
         }
     }
 }

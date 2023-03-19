@@ -405,6 +405,71 @@ GameBoyAdvanceSWI.prototype.execute = function (opcode) {
     }
 }
 
+GameBoyAdvanceSWI.prototype.checkSupport = function (opcode) {
+    
+    switch (opcode) {
+        case SWI_OP_CODE.GBA_SWI_SOFT_RESET:
+            return true; 
+        case SWI_OP_CODE.GBA_SWI_REGISTER_RAM_RESET:
+            return true;        
+        case SWI_OP_CODE.GBA_SWI_HALT:
+            return true;                    
+        case SWI_OP_CODE.GBA_SWI_STOP:
+            return false;                   
+        case SWI_OP_CODE.GBA_SWI_INTR_WAIT:
+            return false;                
+        case SWI_OP_CODE.GBA_SWI_VBLANK_INTR_WAIT:
+            return false;          
+        case SWI_OP_CODE.GBA_SWI_DIV:                      
+        case SWI_OP_CODE.GBA_SWI_DIV_ARM:                 
+        case SWI_OP_CODE.GBA_SWI_SQRT:                    
+        case SWI_OP_CODE.GBA_SWI_ARCTAN:                   
+        case SWI_OP_CODE.GBA_SWI_ARCTAN2:               
+        case SWI_OP_CODE.GBA_SWI_CPU_SET:          
+        case SWI_OP_CODE.GBA_SWI_CPU_FAST_SET:
+            return true;
+        case SWI_OP_CODE.GBA_SWI_GET_BIOS_CHECKSUM:
+            return false;   
+        case SWI_OP_CODE.GBA_SWI_BG_AFFINE_SET:
+            return true;         
+        case SWI_OP_CODE.GBA_SWI_OBJ_AFFINE_SET:
+            return false;            
+        case SWI_OP_CODE.GBA_SWI_BIT_UNPACK:
+            return false;
+        case SWI_OP_CODE.GBA_SWI_LZ77_UNCOMP_WRAM:       
+        case SWI_OP_CODE.GBA_SWI_LZ77_UNCOMP_VRAM:        
+        case SWI_OP_CODE.GBA_SWI_HUFFMAN_UNCOMP:     
+        case SWI_OP_CODE.GBA_SWI_RL_UNCOMP_WRAM:
+        case SWI_OP_CODE.GBA_SWI_RL_UNCOMP_VRAM:  
+            return true;
+        case SWI_OP_CODE.GBA_SWI_DIFF_8BIT_UNFILTER_WRAM:   
+        case SWI_OP_CODE.GBA_SWI_DIFF_8BIT_UNFILTER_VRAM:
+        case SWI_OP_CODE.GBA_SWI_DIFF_16BIT_UNFILTER:     
+        case SWI_OP_CODE.GBA_SWI_SOUND_BIAS:              
+        case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_INIT:      
+        case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_MODE:       
+        case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_MAIN:        
+        case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_VSYNC:     
+        case SWI_OP_CODE.GBA_SWI_SOUND_CHANNEL_CLEAR:
+            return false   
+        case SWI_OP_CODE.GBA_SWI_MIDI_KEY_2_FREQ:
+            return true;     
+        case SWI_OP_CODE.GBA_SWI_MUSIC_PLAYER_OPEN:      
+        case SWI_OP_CODE.GBA_SWI_MUSIC_PLAYER_START:   
+        case SWI_OP_CODE.GBA_SWI_MUSIC_PLAYER_STOP:    
+        case SWI_OP_CODE.GBA_SWI_MUSIC_PLAYER_CONTINUE:    
+        case SWI_OP_CODE.GBA_SWI_MUSIC_PLAYER_FADE_OUT:  
+        case SWI_OP_CODE.GBA_SWI_MULTI_BOOT:              
+        case SWI_OP_CODE.GBA_SWI_HARD_RESET:              
+        case SWI_OP_CODE.GBA_SWI_CUSTOM_HALT:            
+        case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_VSYNC_OFF: 
+        case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_VSYNC_ON:  
+        case SWI_OP_CODE.GBA_SWI_SOUND_DRIVER_GET_JUMP_LIST:
+        default:
+            return false;    
+    }
+}
+
 GameBoyAdvanceSWI.prototype.resetSP = function() {
 
     this.CPUCore.switchMode(CPU_MODES.SUPERVISOR);

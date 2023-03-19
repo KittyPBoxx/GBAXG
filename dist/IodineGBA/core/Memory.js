@@ -4089,7 +4089,7 @@ GameBoyAdvanceMemory.prototype.loadBIOS = function () {
         }
     }
     else {
-        this.IOCore.BIOSFound = false;
+        this.IOCore.BIOSFound = true;
         this.IOCore.SKIPBoot = true;
         for (var index = 0; (index | 0) < 0x4000; index = ((index | 0) + 1) | 0) {
             this.BIOS[index & 0x3FFF] = hleBIOS[index & 0x3FFF] & 0xFF;
