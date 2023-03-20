@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let historicVersions = Object.keys(RELEASE_NOTES).sort(VERSION_COMPARITOR).reverse();
     historicVersions.shift();
+    historicVersions.shift();
     let div = document.createElement('div');
     historicVersions.forEach(version => {
 
