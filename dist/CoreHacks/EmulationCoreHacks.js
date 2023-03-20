@@ -73,7 +73,7 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     let bagStoreage = new BagStoreage();
                     bagStoreage.readData(beforeRomCode);
 
-                    flagManager = new FlagManager(bagStoreage.hasBike());
+                    flagManager = new FlagManager(bagStoreage.hasBike(), bagStoreage.hasFlute());
                     flagManager.readFlags(beforeRomCode);
         
                     IodineGUI.Iodine.saveStateManager.loadState(gameSwitchingWarp.toRomCode);
@@ -890,6 +890,11 @@ BagStoreage.prototype.writeDataToFireRed = function (game, lastGame, isLoadingSc
         this.keyItemsPocket.set(364, 1); // one tm case
     }
 
+    // If we have blue flute give pokeflute
+    if (this.itemPocket.get(39)) {
+        this.keyItemsPocket.set(350, 1);
+    }
+
     if (lastGame == "C") {
         // Going from crystal to firered
         let hasRocksmash = this.tmCase.get(296);
@@ -1034,6 +1039,11 @@ BagStoreage.prototype.hasBike = function () {
     return ((this.keyItemsPocket.get(259) || 0) + (this.keyItemsPocket.get(272) || 0) + (this.keyItemsPocket.get(360) || 0)) > 0
 }
 
+BagStoreage.prototype.hasFlute = function () {
+    // Add up quantities of any flutes
+    return ((this.keyItemsPocket.get(36) || 0) + (this.keyItemsPocket.get(350) || 0)) > 0
+}
+
 /*******************/
 /* Flag Management */
 /*******************/
@@ -1069,6 +1079,7 @@ const FIRE_RED_BADGE_OFFSETS = [FIRE_RED_BADGE1_OFFSET,
                                 FIRE_RED_BADGE7_OFFSET, 
                                 FIRE_RED_BADGE8_OFFSET];
 const FIRE_RED_BIKE_OBTAINED_OFFSET = 0x271;
+const FIRE_RED_FLUTE_OBTAINED_OFFSET = 0x23D;
 
 const EMERALD_BASE_FLAGS_OFFSET   = 0x1270;
 const EMERALD_SYS_FLAGS_OFFSET    = 0x137C;
@@ -1101,7 +1112,7 @@ const FIRE_RED_REPEL_STEPS_OFFSET = 0x4020;
 const EMERALD_STARTER_CHOICE_OFFSET = 0x4023;
 const FIRE_RED_STARTER_CHOICE_OFFSET = 0x4031;
 
-function FlagManager(hasBike) {
+function FlagManager(hasBike, hasFlute) {
     this.badge1 = null;
     this.badge2 = null;
     this.badge3 = null;
@@ -1111,6 +1122,7 @@ function FlagManager(hasBike) {
     this.badge7 = null;
     this.badge8 = null;
     this.hasRunningShoes = null;
+    this.hasFlute = hasFlute;
     this.HMState = null;
     this.hasBike = hasBike;
     this.repelSteps = null;
@@ -1332,6 +1344,10 @@ FlagManager.prototype.writeFireRedFlags = function () {
 
     if (this.hasBike) {
         this.setFlag(save1Start, FIRE_RED_BASE_FLAG_OFFSET, FIRE_RED_BIKE_OBTAINED_OFFSET, 1);
+    }
+
+    if (this.hasFlute) {
+        this.setFlag(save1Start, FIRE_RED_BASE_FLAG_OFFSET, FIRE_RED_FLUTE_OBTAINED_OFFSET, 1);
     }
 
     if (badgeSync) {

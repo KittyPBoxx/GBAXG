@@ -2,6 +2,7 @@ var RELEASE_NOTES = {
     "0.9.22-ALPHA" : [
         "UI style updates for smaller screens",
         "Norman Battle available as soon as catch tutorial ends",
+        "Getting Blue Flute in Emerald now gives Poke Flute in Fire Red",
         "BIOS issue fixed including sprite animations in emerald",
         "Waterfall always available and cave of origin always unlocked",
         "Fix trickmaster crashing when talking after final item",
