@@ -8,6 +8,7 @@ var RELEASE_NOTES = {
         "Fix trickmaster crashing when talking after final item",
         "Fix progression flags for gyms that need hms to complete",
         "Devon Corp F1 now always unlocked",
+        "Add Crystal exclusive items to bag hacks menu",
         "Historic Versions and release note managment"
     ],
     "0.9.21-ALPHA" : [

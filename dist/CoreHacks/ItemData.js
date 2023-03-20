@@ -55,7 +55,21 @@ var ITEM_DATA =
     "Red Shard"     : { "number" :  48, "pocket" : "item" },  	
     "Blue Shard"    : { "number" :  49, "pocket" : "item" },  	 
     "Yellow Shard"  : { "number" :  50, "pocket" : "item" },  	 
-    "Green Shard"   : { "number" :  51, "pocket" : "item" },  	
+    "Green Shard"   : { "number" :  51, "pocket" : "item" },
+    
+    "Mystery Egg"    : { "number" :  52, "pocket" : "key" },  
+
+    "Red Apricorn"   : { "number" :  53, "pocket" : "item" }, 
+    "Yellow Apricorn": { "number" :  54, "pocket" : "item" },  
+    "Blue Apricorn"  : { "number" :  55, "pocket" : "item" },  
+    "Green Apricorn" : { "number" :  56, "pocket" : "item" },  
+    "Pink Apricorn"  : { "number" :  57, "pocket" : "item" },  
+    "White Apricorn" : { "number" :  58, "pocket" : "item" },
+    "Black Apricorn" : { "number" :  59, "pocket" : "item" }, 
+
+    "Level Ball"     : { "number" :  60, "pocket" : "balls" },  
+    "Lure Ball"      : { "number" :  61, "pocket" : "balls" },
+    "Moon Ball"      : { "number" :  62, "pocket" : "balls" },      
 
     "HP Up"         : { "number" :  63, "pocket" : "item" }, 
     "Protein"       : { "number" :  64, "pocket" : "item" }, 
@@ -82,12 +96,24 @@ var ITEM_DATA =
     "Escape Rope"   : { "number" :  85, "pocket" : "item" }, 
     "Repel"         : { "number" :  86, "pocket" : "item" }, 
 
+    "Heavy Ball"    : { "number" :  87, "pocket" : "balls" },  
+    "Fast Ball"     : { "number" :  88, "pocket" : "balls" },
+    "Park Ball"     : { "number" :  89, "pocket" : "balls" },   
+
+    "Egg Ticket"    : { "number" :  90, "pocket" : "key" },
+
     "Sun Stone"     : { "number" :  93, "pocket" : "item" },  
     "Moon Stone"    : { "number" :  94, "pocket" : "item" },  
     "Fire Stone"    : { "number" :  95, "pocket" : "item" },  
     "Thunder Stone" : { "number" :  96, "pocket" : "item" },  	
     "Water Stone"   : { "number" :  97, "pocket" : "item" },  	
     "Leaf Stone"    : { "number" :  98, "pocket" : "item" },  
+
+    "Rage Candy Bar" : { "number" : 99 , "pocket" : "item" },  	
+    "Slowpoke Tail"  : { "number" : 102, "pocket" : "item" }, 
+
+    "Red Scale"      : { "number" : 101, "pocket" : "key" },  	
+    "Clear Bell"     : { "number" : 102, "pocket" : "key" }, 
 
     "Tiny Mushroom" : { "number" : 103, "pocket" : "item" },  	
     "Big Mushroom " : { "number" : 104, "pocket" : "item" }, 
@@ -98,6 +124,9 @@ var ITEM_DATA =
     "Star Piece"    : { "number" : 109, "pocket" : "item" }, 
     "Nugget"        : { "number" : 110, "pocket" : "item" }, 
     "Heart Scale"   : { "number" : 111, "pocket" : "item" }, 
+
+    "Friend Ball"   : { "number" :  112, "pocket" : "balls" },
+    "Love Ball"     : { "number" :  113, "pocket" : "balls" },  
 
     "Orange Mail"   : { "number" : 121, "pocket" : "item" },      
     "Harbor Mail"   : { "number" : 122, "pocket" : "item" },      
@@ -220,7 +249,9 @@ var ITEM_DATA =
     "Good Rod"      : { "number" : 263, "pocket" : "key" },  	
     "Super Rod"     : { "number" : 264, "pocket" : "key" },  	
     "S.S. Ticket"   : { "number" : 265, "pocket" : "key" },  	
-    "Contest Pass"  : { "number" : 266, "pocket" : "key" },  	
+    "Contest Pass"  : { "number" : 266, "pocket" : "key" },
+
+    "GB Player"     : { "number" : 267, "pocket" : "key" }, 
 
     "Wailmer Pail"   : { "number" : 268, "pocket" : "key" },   	
     "Devon Parts"    : { "number" : 269, "pocket" : "key" },   
