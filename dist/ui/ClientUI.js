@@ -17,6 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initMenu();
 
+    let updateModal = M.Modal.init(document.getElementById('updateModal'), {
+      
+      onOpenStart: () => populateUpdateDialog(),
+      onCloseEnd: () => dissmissUpdateDialog(),
+      dismissible: true
+    
+    })
+    
+    if (!findValue("GBAXG_lastVersionMessage") || VERSION_COMPARITOR.apply(this, [findValue("GBAXG_lastVersionMessage"), VERSION_NUMBER]) < 0) {
+      updateModal.open();
+    }
+
     createAndLoadConfig();
 
      M.Autocomplete.init(document.getElementById("autocomplete-items"), { limit: 4, data : Object.keys(ITEM_DATA).reduce((v1, v2) => { v1[v2] = null; return v1 }, {}) });
@@ -60,6 +72,9 @@ window.addEventListener('resize', initMenu, true);
 function toggleMenu() {
   let menu = M.Modal.getInstance(document.getElementById('menu'));
   menu.isOpen ? menu.close() : menu.open();
+
+  // Fixes bug in materialize.js when resizing modals
+  window.dispatchEvent(new Event('resize'));
 }
 
 async function createAndLoadConfig() {
@@ -81,6 +96,31 @@ async function createAndLoadConfig() {
 
 function fileToDirPath(path) {
   return path.slice(0, path.lastIndexOf("/"));
+}
+
+function dissmissUpdateDialog() {
+  setValue("GBAXG_lastVersionMessage", VERSION_NUMBER);
+}
+
+function populateUpdateDialog() {
+  let element = document.getElementById("updateModalText");
+  element.innerHTML += "<h5 class='card-panel red darken-1 white-text'>UPDATE: " + VERSION_NUMBER + "</h5>";
+
+  let ul = document.createElement('ul');
+  ul.classList.add("updateList");
+  RELEASE_NOTES[VERSION_NUMBER].forEach(note => {
+      let li = document.createElement('li');
+      li.innerHTML=note;
+      ul.appendChild(li);
+  });
+
+  element.innerHTML += ul.outerHTML;
+
+  element.innerHTML += "<div class='olderVersions'>" + 
+                       "<a href='https://kittypboxx.github.io/GBAXG/dist/'>Latest Nightly Version (Unstable)</a> <br>" + 
+                       "<a href='../Historic/index.html'>Older Versions</a> <br>" + 
+                       "<a href='https://trello.com/b/esQs4wx3/multi-game-random-warps'>See Development Progress</a>" + 
+                       "</div>";
 }
 
 /* CONTROLS */

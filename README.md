@@ -76,6 +76,8 @@ In theory any seed should generate a mapping that is completable in order. Howev
 
 You can now see the latest fixes and tracked issues over on the [trello development page](https://trello.com/b/esQs4wx3/multi-game-random-warps) 
 
+You can find older releases [here](https://kittypboxx.github.io/GBAXG/Historic) 
+
 ---
 
 ## F.A.Q

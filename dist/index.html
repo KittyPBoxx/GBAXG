@@ -92,6 +92,7 @@
         <script src="ui/materialize.js"></script>
 
         <script src="ui/ClientUI.js"></script>
+        <script src="ui/releaseNotes.json.js"></script>
         <link rel="stylesheet" href="ui/UI.css">
 
         <script src="ui/swip_events.min.js"></script>
@@ -356,16 +357,18 @@
                               On
                             </label>
                           </div>
-                          <div class="input-field col s6">
-                            <span>SEED</span>
-                            <input id="input_seed_text" type="text" value="KITTY" data-length="10">
-                          </div>
-                          <div class="btn-small right-align saveFileButton plaint-btn" id="randomSeed">
-                            <span>RANDOM SEED</span>
-                          </div>
-                          <div class="btn-small remap-btn" id="remapWarps">
-                            <span>REMAP</span>
-                          </div>
+                          <div class="random-opts-container">
+                            <div class="input-field col s6">
+                              <span>SEED</span>
+                              <input id="input_seed_text" type="text" value="KITTY" data-length="10">
+                            </div>
+                            <div class="btn-small right-align saveFileButton plaint-btn" id="randomSeed">
+                              <span>RANDOM SEED</span>
+                            </div>
+                            <div class="btn-small remap-btn" id="remapWarps">
+                              <span>REMAP</span>
+                            </div>
+                          </div>  
                         </div>
                         <div class="menu-group" id="underRandomise"></div>
                         <div class="menu-group">
@@ -422,40 +425,42 @@
                           </div>
                         </div>
                         <div class="menu-group">
-                          <div class="random-row">
+                          <div class="random-row map-row">
                             <div class="input-field col s6 location-inputs">
                               <span>SEARCH LOCATION</span>
                               <input id="autocomplete-locations" autocomplete="off" class="autocomplete" type="text" value="PALLET TOWN" data-length="25">
                             </div>
-                            <div class="input-field col s12 game-input">
-                              <select id="game-value-input">
-                                <option value="FR" selected>FR</option>
-                                <option value="C">C</option>
-                                <option value="E">E</option>
-                              </select>
-                              <span>GAME</span>
-                            </div>
-                            <div class="input-field col s6 warp-select bank-value" id="bank-value">
-                              <span>BANK</span>
-                              <input id="bank-value-input" type="number" value="3" min="0" max="255" data-length="2">
-                              <span class="number-spinner number-spinner-inc" id="bank-value-input-inc"></span>
-                              <span class="number-spinner number-spinner-dec" id="bank-value-input-dec"></span>
-                            </div>
-                            <div class="input-field col s6 warp-select map-value" id="map-value">
-                              <span>MAP</span>
-                              <input id="map-value-input" type="number" value="0" min="0" max="255" data-length="2">
-                              <span class="number-spinner number-spinner-inc" id="map-value-input-inc"></span>
-                              <span class="number-spinner number-spinner-dec" id="map-value-input-dec"></span>
-                            </div>
-                            <div class="input-field col s6 warp-select warp-value" id="warp-value">
-                              <span>WARP</span>
-                              <input id="warp-value-input" type="number" value="0" min="0" max="255" data-length="2">
-                              <span class="number-spinner number-spinner-inc" id="warp-value-input-inc"></span>
-                              <span class="number-spinner number-spinner-dec" id="warp-value-input-dec"></span>
-                            </div>
-                            <div class="btn-small remap-btn" id="overrideNextWarp">
-                              <span>SET NEXT WARP</span>
-                            </div>
+                            <div class="warp-destination-container">
+                              <div class="input-field col s12 game-input">
+                                <select id="game-value-input">
+                                  <option value="FR" selected>FR</option>
+                                  <option value="C">C</option>
+                                  <option value="E">E</option>
+                                </select>
+                                <span>GAME</span>
+                              </div>
+                              <div class="input-field col s6 warp-select bank-value" id="bank-value">
+                                <span>BANK</span>
+                                <input id="bank-value-input" type="number" value="3" min="0" max="255" data-length="2">
+                                <span class="number-spinner number-spinner-inc" id="bank-value-input-inc"></span>
+                                <span class="number-spinner number-spinner-dec" id="bank-value-input-dec"></span>
+                              </div>
+                              <div class="input-field col s6 warp-select map-value" id="map-value">
+                                <span>MAP</span>
+                                <input id="map-value-input" type="number" value="0" min="0" max="255" data-length="2">
+                                <span class="number-spinner number-spinner-inc" id="map-value-input-inc"></span>
+                                <span class="number-spinner number-spinner-dec" id="map-value-input-dec"></span>
+                              </div>
+                              <div class="input-field col s6 warp-select warp-value" id="warp-value">
+                                <span>WARP</span>
+                                <input id="warp-value-input" type="number" value="0" min="0" max="255" data-length="2">
+                                <span class="number-spinner number-spinner-inc" id="warp-value-input-inc"></span>
+                                <span class="number-spinner number-spinner-dec" id="warp-value-input-dec"></span>
+                              </div>
+                              <div class="btn-small remap-btn" id="overrideNextWarp">
+                                <span>SET NEXT WARP</span>
+                              </div>
+                            </div>  
                           </div>
                         </div>
                         <div class="menu-group dividerless">
@@ -548,7 +553,7 @@
                           </div>
                         </div> 
                         <div class="menu-group">
-                          <div class="random-row">
+                          <div class="random-row item-row">
                             <div class="input-field col s6 item-inputs">
                               <span>ITEM</span>
                               <input id="autocomplete-items" autocomplete="off" class="autocomplete" type="text" value="Poké Ball" data-length="25">
@@ -637,7 +642,7 @@
                         <div class="menu-title center-align"><h5 class="left-menu-button">L</h5><h4 class="center-align">FLAGS</h4><h5 class="right-menu-button">R</h5></div>
                         <div class="menu-group">
                           <div class="random-row hack-row toggle-row">
-                            <div class="switch hack-toggle">
+                            <div class="switch hack-toggle hm-sync-switch">
                               <span>HM BADGE SYNC</span>
                               <label>
                                 Off
@@ -648,7 +653,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="table-container">
+                        <div class="table-container flag-table">
                           <table id="flag-table">
                             <tr>
                               <td>&nbsp;Running Shoes</td>
@@ -746,7 +751,7 @@
                           </ul>
                           <span class="high-tide tide-label">HIGH TIDE</span>
                         </div> 
-                        <div class="switch">
+                        <div class="switch clock-switch">
                           <span>USE SYSTEM</span>
                           <label>
                             Off
@@ -787,6 +792,13 @@
             <!-- <button id="touch-l">L</button>
             <button id="touch-r">R</button> -->
         </div>
+        </div>
+        <div id="updateModal" class="modal modal-fixed-footer">
+          <div id="updateModalText" class="modal-content">
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
+          </div>
         </div>
     </body>
 </html>
