@@ -853,6 +853,7 @@ input[type=number]::-webkit-outer-spin-button {
     background-position: center;
     margin-bottom: 2px;
     -webkit-box-shadow: inset 0 0 2px rgb(0 0 0 / 30%);
+    box-shadow: inset 0 0 2px rgb(0 0 0 / 30%);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDIyIDEzIiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTIwIDExTDExIDJMMiAxMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD4KPC9zdmc+);
     width: 20px;
     height: 18px;
@@ -868,6 +869,7 @@ input[type=number]::-webkit-outer-spin-button {
     background-position: center;
     margin-bottom: 2px;
     -webkit-box-shadow: inset 0 0 2px rgb(0 0 0 / 30%);
+    box-shadow: inset 0 0 2px rgb(0 0 0 / 30%);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDIyIDEzIiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTIgMkwxMSAxMUwyMCAyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9wYXRoPgo8L3N2Zz4=);
     width: 20px;
     height: 18px;
