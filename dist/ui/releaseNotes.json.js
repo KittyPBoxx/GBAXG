@@ -1,5 +1,7 @@
 var RELEASE_NOTES = {
-    "0.9.23-ALPHA" : ["IN PROGRESS"],
+    "0.9.23-ALPHA" : [
+        "Fix various progression issues in Emerald randomisation"
+    ],
     "0.9.22-ALPHA" : [
         "UI style updates for smaller screens",
         "Norman Battle available as soon as catch tutorial ends",
