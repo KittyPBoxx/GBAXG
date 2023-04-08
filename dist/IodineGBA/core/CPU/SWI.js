@@ -433,7 +433,7 @@ GameBoyAdvanceSWI.prototype.checkSupport = function (opcode) {
         case SWI_OP_CODE.GBA_SWI_BG_AFFINE_SET:
             return true;         
         case SWI_OP_CODE.GBA_SWI_OBJ_AFFINE_SET:
-            return false;            
+            return usingInstantText;      
         case SWI_OP_CODE.GBA_SWI_BIT_UNPACK:
             return false;
         case SWI_OP_CODE.GBA_SWI_LZ77_UNCOMP_WRAM:       

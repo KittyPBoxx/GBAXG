@@ -196,6 +196,7 @@ function sprite16x32To32x32(data) {
 
 var exp = null;
 var expfr = null;
+var usingInstantText = false;
 async function patchExpansionData() {
 
 
@@ -609,6 +610,8 @@ function patchInInstantText() {
         return false;
     }
 
+    usingInstantText = true;
+
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
 
         if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
@@ -680,6 +683,8 @@ function patchOutInstantText() {
         return;
     }
 
+    usingInstantText = false;
+
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
 
         if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
@@ -731,6 +736,89 @@ function patchOutInstantText() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x477F  , 0x48);
 
     }
+}
+
+function patchInNoExp() {
+
+    if (IodineGUI.Iodine.IOCore == undefined || IodineGUI.Iodine.IOCore.cartridge.cartriges.size == 0) {
+        return false;
+    }
+
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
+
+        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            // dealing with 1.1
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x21bf4, 0x02);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x21bf5, 0x7e);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x21bfc, 0xff);
+
+    
+        } else {
+            // TODO support instant text for Fire Red 1.0
+        }
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4a4a4, 0xc2);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4a4a5, 0x7e);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4a4ac, 0xff);
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a4a4, 0x02);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a4a5, 0x7e);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a4ac, 0xff);
+
+    }
+
+    return true;
+}
+
+function patchOutNoExp() {
+
+    if (IodineGUI.Iodine.IOCore == undefined || IodineGUI.Iodine.IOCore.cartridge.cartriges.size == 0) {
+        return false;
+    }
+
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
+
+        if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC]) {
+            // dealing with 1.1
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x21bf4, 0x42);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x21bf5, 0x7a);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x21bfc, 0xff);
+
+    
+        } else {
+            // TODO support instant text for Fire Red 1.0
+        }
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4a4a4, 0x42);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4a4a5, 0x7a);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4a4ac, 0x07);
+
+    }
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a4a4, 0x42);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a4a5, 0x7a);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x4a4ac, 0x07);
+
+    }
+
+    return true;
+
 }
 
 function patchSectionOfRom(startOffset, data, romCode) {

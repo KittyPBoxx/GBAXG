@@ -1,4 +1,7 @@
 var RELEASE_NOTES = {
+    "0.9.24-ALPHA" : [
+        "Fix confilict between new bios and instant text"
+    ],
     "0.9.23-ALPHA" : [
         "Fix various progression issues in Emerald randomisation"
     ],
