@@ -2320,6 +2320,7 @@ var EMERALD_WARPS =
         "name": "EVER GRANDE CITY - INSIDE - PkCenter Upstairs - 1,6",
         "level": "9", 
         "to": "E,16,12,2",
+        "ignore": true
     },
     "E,16,10,0" : {
         "name": "EVER GRANDE CITY - INSIDE - Enterance Door - 7,8",
@@ -3637,7 +3638,8 @@ var EMERALD_WARPS =
 /* ROUTE 105 */
     "E,0,20,0" : {
         "name" : "ROUTE 105 - OUTSIDE - Island Cave Enterance - 9,14",
-        "to" : "E,24,67,0"
+        "to" : "E,24,67,0",
+        "level": "6"
     },
 /* ISLAND CAVE */
     "E,24,67,0" : {
