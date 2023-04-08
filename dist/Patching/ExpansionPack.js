@@ -197,6 +197,7 @@ function sprite16x32To32x32(data) {
 var exp = null;
 var expfr = null;
 var usingInstantText = false;
+var usingNoExp = false;
 async function patchExpansionData() {
 
 
@@ -572,6 +573,14 @@ async function patchExpansionData() {
     }
     if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
         exp.addToRom("E");
+    }
+
+    if (usingInstantText) {
+        patchInInstantText();
+    }
+
+    if (usingNoExp) {
+        patchInNoExp();
     }
 }
 
