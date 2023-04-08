@@ -96,7 +96,6 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     bagStoreage.writeData(currentRomCode, beforeRomCode, true);
                     flagManager.writeFlags(currentRomCode, beforeRomCode, true)
         
-                    IodineGUI.mixerInput.volume = 0.0
                     switchingGameState = 2;
                     let elmnt = document.getElementById("emulator_target");
                     elmnt.classList.add("faded")
@@ -112,7 +111,6 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
             if (((address == FIRE_RED_LAST_BANK) &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") || 
             ((address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))))  {
 
-                IodineGUI.mixerInput.volume = 0.1;
                 let elmnt = document.getElementById("emulator_target");
                 elmnt.classList.remove("faded");
                 switchingGameState = 0;
@@ -508,10 +506,11 @@ async function forceStateAfterDelay(movementMode, delayTime) {
 async function quickSpeedUp(duration) {
     let currentSpeed = IodineGUI.Iodine.getSpeed();
     IodineGUI.Iodine.setSpeed(4);
+    let volumeBefore = IodineGUI.mixerInput.volume;
     IodineGUI.mixerInput.volume = 0.0
     await delay(duration);
     IodineGUI.Iodine.setSpeed(currentSpeed);
-    IodineGUI.mixerInput.volume = 0.1
+    IodineGUI.mixerInput.volume = volumeBefore;
 }
 
 function quickHideScreen() {
