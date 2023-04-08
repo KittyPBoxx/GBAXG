@@ -2,7 +2,8 @@ var RELEASE_NOTES = {
     "0.9.24-ALPHA" : [
         "Fix confilict between new bios and instant text",
         "Fix island cave outside warp broken",
-        "Remove accidently included warp"
+        "Remove accidently included warp",
+        "Fix volume getting switched between games"
     ],
     "0.9.23-ALPHA" : [
         "Fix various progression issues in Emerald randomisation"

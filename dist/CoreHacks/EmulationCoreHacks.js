@@ -53,6 +53,7 @@ const FIRE_RED_MAP_TYPE = 0x2036E13;
 
 var flagManager; // only global to help debugging
 var isInSafari = false;
+var volumeBeforeWarp = null;
 GameBoyAdvanceCPU.prototype.write32WithoutIntercept = GameBoyAdvanceCPU.prototype.write32;
 GameBoyAdvanceCPU.prototype.write32 = function (address, data) { 
 
@@ -96,6 +97,7 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     bagStoreage.writeData(currentRomCode, beforeRomCode, true);
                     flagManager.writeFlags(currentRomCode, beforeRomCode, true)
         
+                    IodineGUI.mixerInput.volume = 0.0;
                     switchingGameState = 2;
                     let elmnt = document.getElementById("emulator_target");
                     elmnt.classList.add("faded")
@@ -111,6 +113,7 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
             if (((address == FIRE_RED_LAST_BANK) &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") || 
             ((address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))))  {
 
+                IodineGUI.mixerInput.volume = volumeBeforeWarp;
                 let elmnt = document.getElementById("emulator_target");
                 elmnt.classList.remove("faded");
                 switchingGameState = 0;
@@ -238,7 +241,7 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
 
     if (switchingGameState == 2 || switchingGameState==1) { return address }
 
-
+    volumeBeforeWarp = IodineGUI.mixerInput.volume; 
     let pkWarp = null;
     let trigger = romCode + "," + bank + "," + map + "," + warpNo;
 
@@ -510,7 +513,7 @@ async function quickSpeedUp(duration) {
     IodineGUI.mixerInput.volume = 0.0
     await delay(duration);
     IodineGUI.Iodine.setSpeed(currentSpeed);
-    IodineGUI.mixerInput.volume = volumeBefore;
+    IodineGUI.mixerInput.volume = volumeBefore
 }
 
 function quickHideScreen() {
