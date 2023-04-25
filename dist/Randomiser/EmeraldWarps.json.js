@@ -6602,7 +6602,7 @@ var EMERALD_WARPS =
         "to" : "E,24,82,0",
         "level" : "8",
         "connections" : {
-            "E,24,82,0": true,
+            "E,24,81,0": true,
         }
     },
     "E,24,81,2" : {

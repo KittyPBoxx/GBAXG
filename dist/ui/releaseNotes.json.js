@@ -1,4 +1,8 @@
 var RELEASE_NOTES = {
+    "0.9.25-ALPHA" : [
+        "Fix incorrect connection mapping in sky pillar",
+        "Fix incorrect connection mapping in whirlisland",
+    ],
     "0.9.24-ALPHA" : [
         "Fix confilict between new bios and instant text",
         "Fix island cave outside warp broken",

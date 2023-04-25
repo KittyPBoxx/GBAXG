@@ -3932,7 +3932,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,30,2",
         "level": "8", 
         "connections": {
-            "C,24,35,0": true
+            "C,24,34,4": true
         }   
     },
     "C,24,34,1" : {
@@ -3940,7 +3940,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,31,1",
         "level": "8", 
         "connections": {
-            "C,24,35,5": true
+            "C,24,34,5": true
         }   
     },
     "C,24,34,2" : {
