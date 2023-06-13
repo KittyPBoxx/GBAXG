@@ -1227,17 +1227,46 @@ var ESCAPE_PATHS = [
   // This is not mathmatically perfect but should make the game more playable
 
   /* KANTO */
+  // In FR whiteout goes inside the pk center
+
+  // Whiteouts
+    // Viridian
+    ["FR,5,4,1", "FR,5,4,3"],
+    // Pewter
+    ["FR,6,5,1", "FR,6,5,3"],
+    // Viridian
+    ["FR,5,4,1", "FR,5,4,3"],
+    // Route 4
+    ["FR,16,0,1", "FR,16,0,3"],
+    // Cerulean
+    ["FR,7,3,1", "FR,7,3,3"],
+    // Vermillion
+    ["FR,9,1,1", "FR,9,1,3"],
+    // Route 10
+    ["FR,21,0,1", "FR,21,0,3"],
+    // Lavender
+    ["FR,8,0,1", "FR,8,0,3"],
+    // Celadon
+    ["FR,10,12,1", "FR,10,12,3"],
+    // Saffron
+    ["FR,14,6,1", "FR,14,6,3"],
+    // Fuchsia
+    ["FR,11,5,1", "FR,11,5,3"],
+    // Cinnabar
+    ["FR,12,5,0", "FR,12,5,3"],
+    // Indigo Plateua when blocked / whiteout
+    ["FR,13,0,0", "FR,13,0,2"],
 
   // Guard House route 22
   ["FR,28,0,2"],
 
-  // Ledge hop, walk from mt moon or whiteout to pewter
+  // Ledge hop, walk from mt moon 
   ["FR,3,2,6", "FR,3,2,5", "FR,3,2,3", "FR,3,2,4", "FR,3,2,2", "FR,3,2,0"],
 
-  // Ledge hop or whiteout to cerulean
+  // Ledge hop cerulan 
   ["FR,3,3,0", "FR,3,3,2", "FR,3,3,3", "FR,3,3,4", "FR,3,3,5", "FR,3,3,6", "FR,3,3,0", "FR,3,3,12", "FR,3,3,13", "FR,3,44,0"],
 
-  // Whiteout or SS Anne to vermillion
+  // SS Anne to vermillion
   ["FR,3,5,3", "FR,3,5,4", "FR,3,5,5", "FR,3,5,6", "FR,3,5,7", "FR,3,5,8", "FR,3,29,0", "FR,3,29,1", "FR,3,24,0", "FR,3,24,1"],
 
   // Powerplant after ledge hop
@@ -1249,14 +1278,14 @@ var ESCAPE_PATHS = [
   // Lavender teleport to pokeflute house
   ["FR,8,2,1"],
 
-  // Whiteout to route 10
-  ["FR,3,28,3", "FR,3,28,0"],
+  // route 10
+  //["FR,3,28,3", "FR,3,28,0"],
 
   // Whiteout to Lavender
-  ["FR,3,4,0", "FR,3,4,1", "FR,3,4,2", "FR,3,4,3", "FR,3,4,4", "FR,3,4,5", "FR,3,28,1", "FR,3,30,1", "FR,3,4,0", "FR,3,26,0", "FR,3,26,1"],
+  //["FR,3,4,0", "FR,3,4,1", "FR,3,4,2", "FR,3,4,3", "FR,3,4,4", "FR,3,4,5", "FR,3,28,1", "FR,3,30,1", "FR,3,4,0", "FR,3,26,0", "FR,3,26,1"],
 
   // Whiteout to celadon
-  ["FR,3,6,0", "FR,3,6,1", "FR,3,6,2", "FR,3,6,3", "FR,3,6,4", "FR,3,6,5", "FR,3,6,7", "FR,3,6,8", "FR,3,6,9", "FR,3,6,11", "FR,3,25,0", "FR,3,25,1"],
+  //["FR,3,6,0", "FR,3,6,1", "FR,3,6,2", "FR,3,6,3", "FR,3,6,4", "FR,3,6,5", "FR,3,6,7", "FR,3,6,8", "FR,3,6,9", "FR,3,6,11", "FR,3,25,0", "FR,3,25,1"],
 
   // Bike Path Top
   ["FR,25,1,3", "FR,25,1,4"],
@@ -1264,7 +1293,7 @@ var ESCAPE_PATHS = [
   // Bike Path Bottom
   ["FR,26,0,1", "FR,26,0,2"],
 
-  // Saffron from whiteout
+  // Saffron Through guard 
   ["FR,3,10,9", "FR,3,10,11", "FR,3,10,10", "FR,3,10,8", "FR,3,10,7", "FR,3,10,9", "FR,3,10,6", "FR,3,10,0", "FR,3,10,2", "FR,3,10,5", "FR,3,10,14"],
 
   // Tea guard north, south, east, west
@@ -1274,15 +1303,20 @@ var ESCAPE_PATHS = [
   ["FR,20,0,2"],
 
   // Fuchsia whiteout
-  ["FR,3,7,0", "FR,3,7,1", "FR,3,7,2", "FR,3,7,3", "FR,3,7,4", "FR,3,7,5", "FR,3,7,6", "FR,3,7,7", "FR,3,7,10", "FR,3,33,0", "FR,3,36,1"],
+  //["FR,3,7,0", "FR,3,7,1", "FR,3,7,2", "FR,3,7,3", "FR,3,7,4", "FR,3,7,5", "FR,3,7,6", "FR,3,7,7", "FR,3,7,10", "FR,3,33,0", "FR,3,36,1"],
 
-  // Cinnabar whiteout or through gym
+  // Cinnabar through gym
   ["FR,3,8,0", "FR,3,8,2", "FR,3,8,2", "FR,3,8,3", "FR,3,8,4"],
 
-  // Indigo Plateua when blocked
-  ["FR,13,0,0", "FR,13,0,2"],
-
   /* JOHTO */
+
+  // Victory Road ledge hop
+  ["C,24,44,1", "C,24,44,3"],
+
+  // Route 26 guard check
+  ["C,32,0,0"],
+
+
 
   /* HOENN */
 
