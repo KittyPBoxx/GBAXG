@@ -367,15 +367,18 @@ function specialDuringWarpHandling(pkwarp) {
         // If muesum defeated we need to open up that warp in slateport
 
         // If Petalburg Gym make either catch tutorial or battle
-        if (destination == "E,8,1,0" || destination == "E,8,1,1") {
+        if (destination == "E,8,1,0") {
             // If catch tutorial hasn't been done we set to that
             // otherwise we set to battle state
-            let normanState = readGameVar("E", 0x4085);
-            if (normanState < 2) {
+            let petalburgState = readGameVar("E", 0x4057);
+            if (petalburgState < 1) {
                 writeGameVar("E", 0x4085, 0)
             } else {
                 writeGameVar("E", 0x4085, 6)
             }
+    
+            // Unlock left of petalburg
+            writeGameVar("E", 0x4057, 1);
         } 
 
         // If Mauville Gym make battle
@@ -387,6 +390,11 @@ function specialDuringWarpHandling(pkwarp) {
         if (destination == "E,29,1,0" || destination == "E,29,1,1") {
             if (readGameVar("E", 0x4044) > 7) {
                 writeGameVar("E", 0x4044, 7);
+            }
+        } else if (destination == "E,14,7,0") {
+            if (readGameVar("E", 0x40C6) == 0) {
+                writeGameVar("E", 0x40C6, 1);
+                modifyBaseFlag("E", 0x3C7, 0);
             }
         }
 
@@ -1256,6 +1264,44 @@ FlagManager.prototype.writeEmeraldFlags = function () {
 
     // Open Sootopolis Gym Door
     this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x9E, 1);
+
+    // Sootopolis always in nice state
+    // We need to prevent locked doors, people standing around and lilycove dept roof being locked off
+    writeGameVar("E", EMERALD_BASE_FLAGS_OFFSET, 0x405E, 0);
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x81, 1);
+
+    // Hide Steven and wallace in sootopolis
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x3CD, 1);
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x330, 1);
+
+    // RRAQUAZA always available
+    writeGameVar("E", EMERALD_BASE_FLAGS_OFFSET, 0x40D7, 0);
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x50, 0);
+
+    // Show steven on the bridge if we don't have the devon scope
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x3CC, 0);
+    
+    // Make sure the magma embelem can always be got
+    // Hide Jagged Pass Magma guard
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x34F, 1);
+    writeGameVar("E", EMERALD_BASE_FLAGS_OFFSET, 0x40B9, 0);
+
+    // Unblock Tunnlers rest house 
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x8F, 1);
+
+    // Unblock Devon corp f1
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x90, 1);
+
+    // Remove the brigde Kecleon so we can ride up from lilycove
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x3CA, 1);
+
+    // Change Slateport state to 0 (to work around a glitch where game loops exiting the pokecenter)
+    // This was needed for the IodineGBA scripted version it might not be needed in the rom hack
+    writeGameVar("E", EMERALD_BASE_FLAGS_OFFSET, 0x4058, 0);
+
+    // Remove Team Aqua from slateport and above slateport
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x372, 1);
+    this.setFlag(save1Start, EMERALD_BASE_FLAGS_OFFSET, 0x384, 1);
 
     if (badgeSync) {
         

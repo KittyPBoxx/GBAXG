@@ -40,6 +40,7 @@ var FIRE_RED_WARPS =
         "name": "VIRIDIAN CITY - OUTSIDE - GYM - 24,A",
         "to" : "FR,5,1,1",
         "level": "8", 
+        "tags": ["no_return"]
     },
     "FR,3,1,3" : {
         "name": "VIRIDIAN CITY - OUTSIDE - Bottom (School) - 19,12",
@@ -434,7 +435,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,3,42,2",
         "connections" : {
             "FR,28,0,2": true,
-        }
+        },
+        "tags": ["no_return"]
     },   
     "FR,28,0,1" : {
         "name": "ROUTE 22 - INSIDE - League Front Gate  - 6,A",
@@ -891,7 +893,8 @@ var FIRE_RED_WARPS =
         "level" : "2",
         "connections" : {
             "FR,3,3,3" : true
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,3,3,2" : {
         "name": "CERULEAN CITY - OUTSIDE - Left of PkCenter  - F,11",
@@ -1265,7 +1268,8 @@ var FIRE_RED_WARPS =
         "groupMain" : true,
         "connections" : {
             "FR,3,5,4": true
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,3,5,1" : {
         "name": "VERMILLION CITY - OUTSIDE - S.S.Anne - 17,22",
@@ -2904,7 +2908,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,1,94,0",
         "connections" : {
             "FR,1,93,1": true,
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,1,93,1" : {
         "name": "POKEMON TOWER - INSIDE - F6 Right - 12,A",
@@ -3482,7 +3487,8 @@ var FIRE_RED_WARPS =
             "FR,1,84,3": true,
             "FR,1,84,4": true,
             "FR,1,84,7": true
-        }
+        },
+        "ignore": true,
     },
     "FR,1,84,10" : {
         "name": "SEAFOAM ISLAND - INSIDE - Top Right Drop - 1D,8",
@@ -3491,7 +3497,8 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,1,84,8": true,
             "FR,1,84,1": true,
-        }
+        },
+        "ignore": true,
     },
     // F3
     "FR,1,85,0" : {
@@ -3557,6 +3564,7 @@ var FIRE_RED_WARPS =
         "name": "SEAFOAM ISLAND - INSIDE - Center Drop - 16,7",
         "level": "6", 
         "to" : "FR,1,84,7",
+        "ignore": true,
         "connections" : {
             "FR,1,85,9": true,
             "FR,1,85,3": true,
@@ -3569,7 +3577,8 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,1,85,10": true,
             "FR,1,85,1": true,
-        }
+        },
+        "ignore": true,
     },
     "FR,1,85,9" : {
         "name": "SEAFOAM ISLAND - INSIDE - Center Hole - 18,8",
@@ -3639,6 +3648,7 @@ var FIRE_RED_WARPS =
         "to" : "FR,1,85,9",
         "grouped" : ["FR,1,86,6"],
         "groupMain" : true,
+        "ignore": true,
         "connections" : {
             "FR,1,86,2": true,
             "FR,1,86,3": true,
@@ -3650,6 +3660,7 @@ var FIRE_RED_WARPS =
     "FR,1,86,6" : {
         "name": "SEAFOAM ISLAND - INSIDE - Water Drop - 18,9",
         "level": "6", 
+        "ignore": true,
         "to" : "FR,1,85,10",
         "grouped" : ["FR,1,86,5"]
     },
@@ -3694,6 +3705,7 @@ var FIRE_RED_WARPS =
         "name": "SEAFOAM ISLAND - INSIDE - Water Drop - 8,11",
         "level": "6", 
         "to" : "FR,1,86,7",
+        "ignore": true,
         "grouped" : ["FR,1,87,3"],
         "groupMain" : true,
         "connections" : {
@@ -3705,6 +3717,7 @@ var FIRE_RED_WARPS =
         "name": "SEAFOAM ISLAND - INSIDE - Water Drop - 9,11",
         "level": "6", 
         "to" : "FR,1,86,8",
+        "ignore": true,
         "grouped" : ["FR,1,87,2"]
     },
     /* SAFFRON CITY - EXT */
@@ -3722,7 +3735,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,14,0,1",
         "connections" : {
             "FR,3,10,6": true,
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,3,10,2" : {
         "name": "SAFFRON CITY - OUTSIDE - Top Right Dojo - 28,C",
@@ -3738,7 +3752,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,14,3,1",
         "connections" : {
             "FR,3,10,6": true,
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,3,10,4" : {
         "name": "SAFFRON CITY - OUTSIDE - Center Left - 1B,15",
@@ -3746,7 +3761,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,14,4,1",
         "connections" : {
             "FR,3,10,6": true,
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,3,10,5" : {
         "name": "SAFFRON CITY - OUTSIDE - Mart - 28,15",
@@ -4168,7 +4184,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,1,55,1",
         "connections" : {
             "FR,1,47,3": true,
-        }
+        },
+        "tags": ["needs_return"]
     },
     "FR,1,51,4" : {
         "name": "SILPH CO. - INSIDE - F5 Bottom Left - 2,14",
@@ -4400,7 +4417,8 @@ var FIRE_RED_WARPS =
         "to" : "FR,12,0,1",
         "connections" : {
             "FR,3,8,3": true,
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,3,8,2" : {
         "name": "CINNABAR ISLAND - OUTSIDE - Research Lab - 8,9",
@@ -4561,6 +4579,7 @@ var FIRE_RED_WARPS =
         "name": "POKEMON MANSION - INSIDE - F1 Bottom Right Drop - 13,16",
         "level": "7", 
         "to" : "FR,1,61,3",
+        "ignore": true,
         "grouped" : ["FR,1,59,8"],
         "groupMain" : true,
         "connections" : {
@@ -4571,6 +4590,7 @@ var FIRE_RED_WARPS =
         "name": "POKEMON MANSION - INSIDE - F1 Bottom Right Drop - 14,16",
         "level": "7", 
         "to" : "FR,1,61,4",
+        "ignore": true,
         "grouped" : ["FR,1,59,7"],
     },
     // F2
@@ -4609,6 +4629,7 @@ var FIRE_RED_WARPS =
     "FR,1,60,4" : {
         "name": "POKEMON MANSION - INSIDE - F2 Drop - 1B,11",
         "level": "7", 
+        "ignore": true,
         "to" : "FR,1,61,5",
     },
     // F3
@@ -4811,6 +4832,7 @@ var FIRE_RED_WARPS =
         "name": "VICTORY ROAD - INSIDE - Victory Road F2 Drop - 22,13",
         "level": "9", 
         "to" : "FR,1,41,4",
+        "ignore": true,
         "connections" : {
             "FR,1,40,2": true,
             "FR,1,40,0": "KANTO_STRENGTH",

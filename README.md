@@ -69,6 +69,7 @@ In theory any seed should generate a mapping that is completable in order. Howev
 - Currently only PC box 1 is shared between games
 - Whiteout (and teleport e.t.c) will go the the last heal point in which ever region/game you are currently in. 
 - Some items (mostly from Crystal Dust e.g rage candy bar) only work in the game they were designed for. TMs may be different in Crystal.
+- When randomizing abilities and base stats with UPR these will change between regions
 
 ---
 

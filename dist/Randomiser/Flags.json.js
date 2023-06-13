@@ -245,7 +245,9 @@ var COMPOSITE_FLAGS = {
     "HOENN_CATCH_TUTORIAL" : { "flag": "HOENN_CATCH_TUTORIAL" , "condition"  : ["L_PETALBURG_GYM"]                  },
     "TALK_TO_STONE"        : { "flag": "TALK_TO_STONE"        , "condition"  : ["L_PRESIDENTS_OFFICE"]              },
     "RESCUE_PICO"          : { "flag": "RESCUE_PICO"          , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_RUSTBORO", "L_RUSTURF_TUNNEL"]                                                                         },
-    "NEW_MAUVILL"          : { "flag": "NEW_MAUVILL"          , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_MAUVILLE_CITY"]}
+    "NEW_MAUVILL"          : { "flag": "NEW_MAUVILL"          , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_MAUVILLE_CITY"]},
+    "SPEAK_TO_WALLACE"     : { "flag": "SPEAK_TO_WALLACE"     , "condition"  : ["L_CAVE_OF_ORIGIN_WALLACE"]},
+    "ALL_BADGES_HOENN"     : { "flag": "ALL_BADGES_HOENN"     , "condition"  : ["L_RUSTBORO_CITY_GYM", "L_DEWFORD_TOWN_GYM", "L_MAUVILLE_CITY_GYM", "L_LAVARIDGE_TOWN_GYM", "L_PETALBURG_GYM", "L_FORTREE_CITY_GYM", "L_MOSSDEEP_CITY_GYM", "L_SOOTOPOLIS_CITY_GYM"] }             
 
 }
 
@@ -317,6 +319,7 @@ var LOCATIONS_TRIGGER = {
     "E,14,10,0": "L_SPACE_CENTER_TOP",
     "E,0,7,2"  : "L_OUTSIDE_SOOTOPOLIS_GYM",
     "E,15,0,0" : "L_SOOTOPOLIS_CITY_GYM",
+    "E,24,42,0": "L_CAVE_OF_ORIGIN_WALLACE",
     "E,11,3,0" : "L_RUSTBORO_CITY_GYM",
     "E,3,3,0"  : "L_DEWFORD_TOWN_GYM",
     "E,10,0,0" : "L_MAUVILLE_CITY_GYM",
@@ -344,7 +347,11 @@ var KEY_LOCATIONS = {
     "E,16,2,0" : "L_HOENN_LEAGUE_3",
     "E,16,3,0" : "L_HOENN_LEAGUE_4",
     "E,16,4,0" : "L_HOENN_LEAGUE_CHAMP",
-    "E,24,107,0" : "L_STEVEN_FINAL_BOSS"
+    "E,24,107,0" : "L_STEVEN_FINAL_BOSS",
+
+    "E,8,0,0"    : "L_WALLY_HOUSE", // Is key because you are warped here after beating norman
+    "FR,8,2,1"   : "L_POKEFLUTE_HOUSE", // Because we get warped where when we pick up the poke flute
+    "C,3,4,0"    : "L_KURT_HOUSE", // Because we get teleported here after slow poke well
 }
 
 var FLAG_DATA = {

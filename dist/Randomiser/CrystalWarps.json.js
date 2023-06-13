@@ -682,7 +682,8 @@ var CRYSTAL_WARPS =
         "connections": {
             "C,24,88,2": true,
             "C,24,88,0": true,
-        }   
+        },
+        "tags": ["no_return"]
     },
     "C,24,88,2" : {
         "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 3,4",
@@ -723,6 +724,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Unknown Top Drop - F,4",
         "to" : "C,X,X,1",
         "level" : "1",
+        "ignore": true,
         "grouped": ["C,24,87,2"],
         "groupMain" : true,
         "connections": {
@@ -733,12 +735,14 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Unknown Top Drop - 10,4",
         "to" : "C,X,X,1",
         "level" : "1",
+        "ignore": true,
         "grouped": ["C,24,87,1"],
     },
     "C,24,87,3" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Center Left Drop - 3,10",
         "to" : "C,X,X,2",
         "level" : "8",
+        "ignore": true,
         "grouped": ["C,24,87,4"],
         "groupMain" : true,
         "connections": {
@@ -749,6 +753,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Unknown Center Left Drop - 4,10",
         "to" : "C,X,X,2",
         "level" : "8",
+        "ignore": true,
         "grouped": ["C,24,87,3"],
     },
     "C,24,87,5" : {
@@ -771,6 +776,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 3,16",
         "to" : "C,X,X,4",
         "level" : "8",
+        "ignore": true,
         "grouped": ["C,24,87,8"],
         "groupMain" : true,
         "connections": {
@@ -781,6 +787,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 4,16",
         "to" : "C,X,X,4",
         "level" : "8",
+        "ignore": true,
         "grouped": ["C,24,87,7"],
     },
     // Left Center Cave
@@ -867,6 +874,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Bottom Right Drop - 3,4",
         "level" : "8",
         "to" : "C,24,87,5",
+        "ignore": true,
         "grouped": ["C,24,93,3", "C,24,93,4"],
         "groupMain" : true,
         "connections": {
@@ -891,7 +899,8 @@ var CRYSTAL_WARPS =
         "to" : "C,24,89,1",
         "connections": {
             "C,24,93,0": true,
-        }   
+        },
+        "tags": ["no_return"]
     },
     // Hidden Room Top Left
     "C,24,89,0" : {
@@ -1616,7 +1625,8 @@ var CRYSTAL_WARPS =
         "connections": {
             "C,11,9,1": true,
             "C,11,9,0": true
-        }   
+        },
+        "tags": ["no_return"]
     },
 /* UNDERGROUND WAREHOUSE */
     // F1
@@ -1699,6 +1709,7 @@ var CRYSTAL_WARPS =
         "name": "RADIO TOWER - INSIDE - F2 Left Stairs - 7,5",
         "to" : "C,24,53,4",
         "level": "7",
+        "tags": ["no_return"]
     },
     "C,24,53,2" : {
         "name": "RADIO TOWER - INSIDE - F2 Right Stairs - 17,5",
@@ -2462,6 +2473,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F1 Drop - 10,D",
         "to" : "C,24,47,2",
         "level": "6",
+        "ignore": true,
         "groupMain" : true,
         "grouped" : ["C,24,46,3"],
         "connections": {
@@ -2472,6 +2484,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F1 Drop - 11,D",
         "to" : "C,24,47,2",
         "level": "6",
+        "ignore": true,
         "grouped" : ["C,24,46,2"],
     },
     // F2
@@ -2512,6 +2525,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F2 Drop - 10,B",
         "to" : "C,24,47,3",
         "level": "6",
+        "ignore": true,
         "groupMain" : true,
         "grouped" : ["C,24,47,5"],
         "connections": {
@@ -2522,6 +2536,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F2 Drop - 11,B",
         "to" : "C,24,47,3",
         "level": "6",
+        "ignore": true,
         "grouped" : ["C,24,47,4"]
     },
     // F3
@@ -2570,6 +2585,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F3 Top Drop - 8,3",
         "to" : "C,24,49,4",
         "level": "6",
+        "ignore": true,
         "groupMain" : true,
         "grouped" : ["C,24,48,6"],
         "connections": {
@@ -2580,12 +2596,14 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F3 Top Drop - 9,3",
         "to" : "C,24,49,4",
         "level": "6",
+        "ignore": true,
         "grouped" : ["C,24,48,5"]
     },
     "C,24,48,7" : {
         "name": "LIGHTHOUSE - INSIDE - F3 Bottom Drop - 10,9",
         "to" : "C,24,49,6",
         "level": "6",
+        "ignore": true,
         "groupMain" : true,
         "grouped" : ["C,24,48,8"],
         "connections": {
@@ -2596,6 +2614,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F3 Bottom Drop - 11,9",
         "to" : "C,24,49,6",
         "level": "6",
+        "ignore": true,
         "grouped" : ["C,24,48,7"]
     },
     // F4
@@ -2673,6 +2692,7 @@ var CRYSTAL_WARPS =
     "C,24,49,8" : {
         "name": "LIGHTHOUSE - INSIDE - F4 Drop - 10,7",
         "to" : "C,24,50,3",
+        "ignore": true,
         "level": "6",
         "groupMain" : true,
         "grouped" : ["C,24,49,9"],
@@ -2684,6 +2704,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F4 Drop - 11,7",
         "to" : "C,24,50,3",
         "level": "6",
+        "ignore": true,
         "grouped" : ["C,24,49,8"]
     },
     // F5
@@ -2732,6 +2753,7 @@ var CRYSTAL_WARPS =
         "to" : "C,24,51,1",
         "level": "6",
         "groupMain" : true,
+        "ignore": true,
         "grouped" : ["C,24,50,6"],
         "connections": {
             "C,24,50,3": true,
@@ -2742,6 +2764,7 @@ var CRYSTAL_WARPS =
         "name": "LIGHTHOUSE - INSIDE - F5 Drop - 11,5",
         "to" : "C,24,51,1",
         "level": "6",
+        "ignore": true,
         "grouped" : ["C,24,50,5"]
     },
     // F6
@@ -3122,7 +3145,8 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,13,2": true
-        }   
+        },
+        "tags": ["no_return"]
     }, 
     "C,0,13,2" : {
         "name": "MAGOGANY TOWN - OUTSIDE - PkCenter - F,D",
@@ -3166,7 +3190,8 @@ var CRYSTAL_WARPS =
         "level": "7",
         "connections": {
             "C,0,5,0": true
-        }   
+        },
+        "tags": ["no_return"]
     }, 
     "C,14,0,0" : {
         "name": "MAGOGANY TOWN - INSIDE - Gym - 6,10",
@@ -3568,6 +3593,7 @@ var CRYSTAL_WARPS =
         "name": "ICE PATH - INSIDE - F5 Top Right Drop - D,6",
         "to" : "C,24,22,4",
         "level": "8",
+        "ignore": true,
         "connections": {
             "C,24,52,1": true,
             "C,24,52,0": true
@@ -3577,6 +3603,7 @@ var CRYSTAL_WARPS =
         "name": "ICE PATH - INSIDE - F5 Top Left Drop - 6,8",
         "to" : "C,24,22,5",
         "level": "8",
+        "ignore": true,
         "connections": {
             "C,24,52,1": true,
             "C,24,52,0": true
@@ -3586,6 +3613,7 @@ var CRYSTAL_WARPS =
         "name": "ICE PATH - INSIDE - F5 Bottom Left Drop - 6,E",
         "to" : "C,24,22,6",
         "level": "8",
+        "ignore": true,
         "connections": {
             "C,24,52,1": true,
             "C,24,52,0": true
@@ -3595,6 +3623,7 @@ var CRYSTAL_WARPS =
         "name": "ICE PATH - INSIDE - F5 Bottom Right Drop - E,E",
         "to" : "C,24,22,7",
         "level": "8",
+        "ignore": true,
         "connections": {
             "C,24,52,1": true,
             "C,24,52,0": true
@@ -3668,7 +3697,8 @@ var CRYSTAL_WARPS =
     "C,0,5,7" : {
         "name": "BLACKTHORN CITY - OUTSIDE - Dragons Den Enterance - 16,3",
         "to" : "C,24,27,0",
-        "level": "8" 
+        "level": "8",
+        "tags": ["no_return"]
     },
 /* BLACKTHORN CITY - INT */
     "C,13,8,0" : {
@@ -4170,6 +4200,7 @@ var CRYSTAL_WARPS =
         "name": "VICTORY ROAD - INSIDE - F2 Top Right Drop - 2,3",
         "to" : "C,24,45,1",
         "level": "9",
+        "ignore": true,
         "connections": {
             "C,24,44,1": true,
             "C,24,44,3": true

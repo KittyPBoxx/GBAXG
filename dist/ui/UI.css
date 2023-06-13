@@ -731,6 +731,12 @@ li.collection-item.speedup {
     color: black;
 }
 
+#mappingProgress {
+    margin-top: 1.8em;
+    color: black;
+    margin-right: 2em;
+}
+
 #randomSeed {
     margin-top: 0;
 }
