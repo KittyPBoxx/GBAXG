@@ -1226,17 +1226,86 @@ var ESCAPE_PATHS = [
   // In this case a player would have to whiteout or use the escape option in the menu
   // This is not mathmatically perfect but should make the game more playable
 
+  /* KANTO */
+
+  // Guard House route 22
+  ["FR,28,0,2"],
+
+  // Ledge hop, walk from mt moon or whiteout to pewter
+  ["FR,3,2,6", "FR,3,2,5", "FR,3,2,3", "FR,3,2,4", "FR,3,2,2", "FR,3,2,0"],
+
+  // Ledge hop or whiteout to cerulean
+  ["FR,3,3,0", "FR,3,3,2", "FR,3,3,3", "FR,3,3,4", "FR,3,3,5", "FR,3,3,6", "FR,3,3,0", "FR,3,3,12", "FR,3,3,13", "FR,3,44,0"],
+
+  // Whiteout or SS Anne to vermillion
+  ["FR,3,5,3", "FR,3,5,4", "FR,3,5,5", "FR,3,5,6", "FR,3,5,7", "FR,3,5,8", "FR,3,29,0", "FR,3,29,1", "FR,3,24,0", "FR,3,24,1"],
+
+  // Powerplant after ledge hop
+  ["FR,3,28,2"],
+
+  // Poketower past ghost
+  ["FR,1,93,1"],
+
+  // Lavender teleport to pokeflute house
+  ["FR,8,2,1"],
+
+  // Whiteout to route 10
+  ["FR,3,28,3", "FR,3,28,0"],
+
+  // Whiteout to Lavender
+  ["FR,3,4,0", "FR,3,4,1", "FR,3,4,2", "FR,3,4,3", "FR,3,4,4", "FR,3,4,5", "FR,3,28,1", "FR,3,30,1", "FR,3,4,0", "FR,3,26,0", "FR,3,26,1"],
+
+  // Whiteout to celadon
+  ["FR,3,6,0", "FR,3,6,1", "FR,3,6,2", "FR,3,6,3", "FR,3,6,4", "FR,3,6,5", "FR,3,6,7", "FR,3,6,8", "FR,3,6,9", "FR,3,6,11", "FR,3,25,0", "FR,3,25,1"],
+
+  // Bike Path Top
+  ["FR,25,1,3", "FR,25,1,4"],
+
+  // Bike Path Bottom
+  ["FR,26,0,1", "FR,26,0,2"],
+
+  // Saffron from whiteout
+  ["FR,3,10,9", "FR,3,10,11", "FR,3,10,10", "FR,3,10,8", "FR,3,10,7", "FR,3,10,9", "FR,3,10,6", "FR,3,10,0", "FR,3,10,2", "FR,3,10,5", "FR,3,10,14"],
+
+  // Tea guard north, south, east, west
+  ["FR,17,1,1"],
+  ["FR,18,0,2"],
+  ["FR,19,0,0"],
+  ["FR,20,0,2"],
+
+  // Fuchsia whiteout
+  ["FR,3,7,0", "FR,3,7,1", "FR,3,7,2", "FR,3,7,3", "FR,3,7,4", "FR,3,7,5", "FR,3,7,6", "FR,3,7,7", "FR,3,7,10", "FR,3,33,0", "FR,3,36,1"],
+
+  // Cinnabar whiteout or through gym
+  ["FR,3,8,0", "FR,3,8,2", "FR,3,8,2", "FR,3,8,3", "FR,3,8,4"],
+
+  // Indigo Plateua when blocked
+  ["FR,13,0,0", "FR,13,0,2"],
+
+  /* JOHTO */
+
+  /* HOENN */
+
+  // Bottom bike path without bike
+  ["E,29,11,0"],
+
+  //Top Bike path without bike
+  ["E,29,12,0"],
+
+  // Oldale/LittleRoot after whiteout or ledge hop from route 104
+  ["E,0,9,0", "E,0,9,1", "E,0,9,2", "E,0,10,0", "E,0,10,1", "E,0,10,2", "E,0,10,3"],
+
   // Dewford / Granite enterance (For enterance by whiteout)
-  //["E,0,11,0", "E,0,11,1", "E,0,11,2", "E,0,11,3", "E,0,11,4", "E,0,21,0"],
+  ["E,0,11,0", "E,0,11,1", "E,0,11,2", "E,0,11,3", "E,0,11,4", "E,0,21,0"],
 
   // Sootopolis Gym (Surf after cut scene)
   ["E,0,7,2"],
 
   // Sootopolis Left Side (Surf after cut scene)
-  //["E,0,7,10", "E,0,7,1", "E,0,7,8", "E,0,7,6", "E,0,7,4", "E,0,7,3", "E,0,7,13"],
+  ["E,0,7,10", "E,0,7,1", "E,0,7,8", "E,0,7,6", "E,0,7,4", "E,0,7,3", "E,0,7,13"],
 
   // Sootopolis Right Side (Whiteout / Surf after cut scene)
-  //["E,0,7,0", "E,0,7,12", "E,0,7,9", "E,0,7,11", "E,0,7,7", "E,0,7,5"],
+  ["E,0,7,0", "E,0,7,12", "E,0,7,9", "E,0,7,11", "E,0,7,7", "E,0,7,5"],
 
   // Evergrande top (Whiteout)
   ["E,0,8,0", "E,0,8,3"],
@@ -1248,22 +1317,22 @@ var ESCAPE_PATHS = [
   ["E,16,10,4", "E,16,10,0"],
 
   // Pacifidlog (Whiteout)
-  //["E,0,15,0", "E,0,15,1", "E,0,15,2", "E,0,15,3", "E,0,15,4", "E,0,15,5"],
+  ["E,0,15,0", "E,0,15,1", "E,0,15,2", "E,0,15,3", "E,0,15,4", "E,0,15,5"],
 
   // Mossdeep (whiteout)
-  //["E,0,6,0", "E,0,6,1", "E,0,6,2", "E,0,6,3", "E,0,6,4", "E,0,6,5", "E,0,6,6", "E,0,6,7", "E,0,6,8", "E,0,6,9"],
+  ["E,0,6,0", "E,0,6,1", "E,0,6,2", "E,0,6,3", "E,0,6,4", "E,0,6,5", "E,0,6,6", "E,0,6,7", "E,0,6,8", "E,0,6,9"],
 
   // Slateport (whiteout)
-  //["E,0,1,0", "E,0,1,1", "E,0,1,2", "E,0,1,3", "E,0,1,4", "E,0,1,6", "E,0,1,8", "E,0,1,10", "E,0,24,0", "E,0,25,4"],
+  ["E,0,1,0", "E,0,1,1", "E,0,1,2", "E,0,1,3", "E,0,1,4", "E,0,1,6", "E,0,1,8", "E,0,1,10", "E,0,24,0", "E,0,25,4"],
 
   // Mauville/Verdanterf (whiteout)
-  //["E,0,25,1", "E,0,25,2", "E,0,2,0", "E,0,2,1", "E,0,2,2", "E,0,2,3", "E,0,2,4", "E,0,2,5", "E,0,2,6", "E,0,26,0", "E,0,26,4", "E,0,32,0", "E,0,14,0", "E,0,14,1", "E,0,14,2", "E,0,14,3", "E,0,14,4", "E,0,14,5", "E,0,14,6"],
+  ["E,0,25,1", "E,0,25,2", "E,0,2,0", "E,0,2,1", "E,0,2,2", "E,0,2,3", "E,0,2,4", "E,0,2,5", "E,0,2,6", "E,0,26,0", "E,0,26,4", "E,0,32,0", "E,0,14,0", "E,0,14,1", "E,0,14,2", "E,0,14,3", "E,0,14,4", "E,0,14,5", "E,0,14,6"],
 
   // Fallabough (whiteout)
-  //["E,0,26,2", "E,0,27,5", "E,0,28,0", "E,0,13,0", "E,0,13,1", "E,0,13,2", "E,0,13,3", "E,0,13,4", "E,0,29,0", "E,0,29,1", "E,0,29,2"],
+  ["E,0,26,2", "E,0,27,5", "E,0,28,0", "E,0,13,0", "E,0,13,1", "E,0,13,2", "E,0,13,3", "E,0,13,4", "E,0,29,0", "E,0,29,1", "E,0,29,2"],
 
   // Lilycove / Fortree (whiteout)
-  //["E,0,5,0", "E,0,5,1", "E,0,5,2", "E,0,5,3", "E,0,5,4", "E,0,5,5", "E,0,5,7", "E,0,5,8", "E,0,5,9", "E,0,5,10", "E,0,5,11", "E,0,5,12", "E,0,36,0"],
+  ["E,0,5,0", "E,0,5,1", "E,0,5,2", "E,0,5,3", "E,0,5,4", "E,0,5,5", "E,0,5,7", "E,0,5,8", "E,0,5,9", "E,0,5,10", "E,0,5,11", "E,0,5,12", "E,0,36,0"],
 
   // Firey Path bottom (Exit from desert, Hop down from Lavaridge)
   ["E,0,27,4", "E,0,27,0"],

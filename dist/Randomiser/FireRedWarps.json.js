@@ -4747,7 +4747,8 @@ var FIRE_RED_WARPS =
         "connections" : {
             "FR,13,0,0": true,
             "FR,13,0,1": true,
-        }
+        },
+        "tags": ["no_return"]
     },
     "FR,13,0,2" : {
         "name": "INDIGO PLATEAU - INSIDE - Indigo Plateau Stairs - 1,E",
