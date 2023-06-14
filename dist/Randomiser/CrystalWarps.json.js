@@ -45,6 +45,7 @@ var CRYSTAL_WARPS =
         "name": "NEW BARK TOWN - INSIDE - Left - 4,8",
         "level" : "1",
         "to" : "C,0,9,3",
+        "tags": ["removeable"]
     },
     "C,1,0,0" : {
         // Player house
@@ -79,7 +80,8 @@ var CRYSTAL_WARPS =
     "C,1,2,0" : {
         "name": "NEW BARK TOWN - INSIDE - Right (Elm House) - 4,8",
         "level" : "1",
-        "to" : "C,0,9,0"
+        "to" : "C,0,9,0",
+        "tags": ["removeable"]
     },
 /* CHERRY GROVE - EXT */
     "C,0,10,3" : {
@@ -142,7 +144,8 @@ var CRYSTAL_WARPS =
     "C,2,0,0" : {
         "name": "CHERRYGROVE CITY - INSIDE - Left - 4,8",
         "level" : "1",
-        "to" : "C,0,10,0"
+        "to" : "C,0,10,0",
+        "tags": ["removeable"]
     },
     "C,2,2,0" : {
         // PK
@@ -165,12 +168,14 @@ var CRYSTAL_WARPS =
     "C,2,1,0" : {
         "name": "CHERRYGROVE CITY - INSIDE - Centre (Guide House) - 4,8",
         "level" : "1",
-        "to" : "C,0,10,1"
+        "to" : "C,0,10,1",
+        "tags": ["removeable"]
     },
     "C,2,5,0" : {
         "name": "CHERRYGROVE CITY - INSIDE - Right - 4,8",
         "level" : "1",
-        "to" : "C,0,10,4"
+        "to" : "C,0,10,4",
+        "tags": ["removeable"]
     },
 /* VIOLET CITY - EXT */
     "C,0,0,0" : {
@@ -260,7 +265,8 @@ var CRYSTAL_WARPS =
     "C,8,3,0" : {
         "name": "VIOLET CITY - INSIDE - Left House - 4,9",
         "level" : "1",
-        "to" : "C,0,0,4"
+        "to" : "C,0,0,4",
+        "tags": ["removeable"]
     },
     "C,8,6,0" : {
         // MART
@@ -1213,7 +1219,8 @@ var CRYSTAL_WARPS =
     "C,3,0,0" : {
         "name": "AZALEA TOWN - INSIDE - Bottom Right - 4,8",
         "to" : "C,0,11,3",
-        "level": "2"
+        "level": "2",
+        "tags": ["removeable"]
     },
     "C,3,6,0" : {
         "name": "AZALEA TOWN - INSIDE - Route Connector Left - 7,C",
@@ -1428,7 +1435,8 @@ var CRYSTAL_WARPS =
         "level": "3",
         "connections": {
             "C,0,3,3": true
-        }   
+        },
+        "tags": ["removeable"]
     },
     "C,0,3,9" : {
         "name": "GOLDENROD CITY - OUTSIDE - Top Right - 23,6",
@@ -1559,12 +1567,14 @@ var CRYSTAL_WARPS =
     "C,11,0,0" : {
         "name": "GOLDENROD CITY - INSIDE - Train Station - 4,8",
         "to" : "C,0,3,6",
-        "level": "3"
+        "level": "3",
+        "tags": ["removeable"]
     },
     "C,11,10,0" : {
         "name": "GOLDENROD CITY - INSIDE - Center Right - 4,",
         "to" : "C,0,3,7",
-        "level": "3"
+        "level": "3",
+        "tags": ["removeable"]
     },
     "C,11,2,0" : {
         "name": "GOLDENROD CITY - INSIDE - PkCenter - 7,8",
@@ -1595,11 +1605,13 @@ var CRYSTAL_WARPS =
         "name": "GOLDENROD CITY - INSIDE - PkCenter Back Room - 7,8",
         "to" : "C,11,2,1",
         "level": "3",
+        "tags": ["removeable"]
     },
     "C,8,0,0" : {
         "name": "GOLDENROD CITY - INSIDE - Left Bottom - 4,8",
         "to" : "C,0,3,1",
-        "level": "3"
+        "level": "3",
+        "tags": ["removeable"]
     },
 // Underground F1
     "C,11,9,1" : {
@@ -2300,12 +2312,14 @@ var CRYSTAL_WARPS =
     "C,18,1,0" : {
         "name": "ROUTE 39 - INSIDE - Left House - 3,8",
         "to" : "C,0,26,0",
-        "level": "5"  
+        "level": "5",
+        "tags": ["removeable"]
     },
     "C,18,0,0" : {
         "name": "ROUTE 39 - INSIDE - Right House - 3,7",
         "to" : "C,0,26,1",
-        "level": "5"  
+        "level": "5",
+        "tags": ["removeable"] 
     },
 /* OLIVINE CITY - EXT */
     "C,0,2,0" : {
@@ -2428,7 +2442,8 @@ var CRYSTAL_WARPS =
     "C,10,4,0" : {
         "name": "OLIVINE CITY - INSIDE - Top Right Right - 3,7",
         "to" : "C,0,2,2",
-        "level": "5"
+        "level": "5",
+        "tags": ["removeable"]
     },
     "C,10,7,0" : {
         "name": "OLIVINE CITY - INSIDE - Mart - 4,7",
@@ -2910,7 +2925,8 @@ var CRYSTAL_WARPS =
     "C,4,3,0" : {
         "name": "CIANWOOD CITY - INSIDE - Top Bottom House - 3,7",
         "to" : "C,0,12,4",
-        "level": "5"
+        "level": "5",
+        "tags": ["removeable"]
     },
     "C,4,2,0" : {
         "name": "CIANWOOD CITY - INSIDE - Middle Bottom House - 3,7",
@@ -3219,6 +3235,7 @@ var CRYSTAL_WARPS =
         "name": "MAGOGANY TOWN - INSIDE - Right House - 3,7",
         "to" : "C,0,13,3",
         "level": "7",
+        "tags": ["removeable"]
     },
 /* ROUTE 43 - EXT */
     "C,0,30,0" : {
@@ -3732,6 +3749,7 @@ var CRYSTAL_WARPS =
         "name": "BLACKTHORN CITY - INSIDE - Above Mart - 3,7",
         "to" : "C,0,5,4",
         "level": "8", 
+        "tags": ["removeable"]
     },
     "C,13,15,0" : {
         "name": "BLACKTHORN CITY - INSIDE - Right of PkCenter - 3,7",

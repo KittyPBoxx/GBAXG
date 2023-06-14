@@ -1,4 +1,9 @@
 var RELEASE_NOTES = {
+    "0.10.1-ALPHA" : [
+        "Various Bug Fixes",
+        "Remove Darkness from all caves",
+        "Rework Randomization and pathing algorithm"
+    ],
     "0.9.25-ALPHA" : [
         "Fix incorrect connection mapping in sky pillar",
         "Fix incorrect connection mapping in whirlisland",

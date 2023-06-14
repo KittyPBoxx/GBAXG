@@ -1229,31 +1229,31 @@ var ESCAPE_PATHS = [
   /* KANTO */
   // In FR whiteout goes inside the pk center
 
-  // Whiteouts (these probably arn't needed as a player did manage to get here in the first place but they do make it safer)
-    // Viridian
-    ["FR,5,4,1", "FR,5,4,3"],
-    // Pewter
-    ["FR,6,5,1", "FR,6,5,3"],
-    // Viridian
-    ["FR,5,4,1", "FR,5,4,3"],
-    // Route 4
-    ["FR,16,0,1", "FR,16,0,3"],
-    // Cerulean
-    ["FR,7,3,1", "FR,7,3,3"],
-    // Vermillion
-    ["FR,9,1,1", "FR,9,1,3"],
-    // Route 10
-    ["FR,21,0,1", "FR,21,0,3"],
-    // Lavender
-    ["FR,8,0,1", "FR,8,0,3"],
-    // Celadon
-    ["FR,10,12,1", "FR,10,12,3"],
-    // Saffron
-    ["FR,14,6,1", "FR,14,6,3"],
-    // Fuchsia
-    ["FR,11,5,1", "FR,11,5,3"],
-    // Cinnabar
-    ["FR,12,5,0", "FR,12,5,3"],
+  // Whiteouts (these probably arn't needed as a player did manage to get here in the first place)
+    // // Viridian
+    // ["FR,5,4,1", "FR,5,4,3"],
+    // // Pewter
+    // ["FR,6,5,1", "FR,6,5,3"],
+    // // Viridian
+    // ["FR,5,4,1", "FR,5,4,3"],
+    // // Route 4
+    // ["FR,16,0,1", "FR,16,0,3"],
+    // // Cerulean
+    // ["FR,7,3,1", "FR,7,3,3"],
+    // // Vermillion
+    // ["FR,9,1,1", "FR,9,1,3"],
+    // // Route 10
+    // ["FR,21,0,1", "FR,21,0,3"],
+    // // Lavender
+    // ["FR,8,0,1", "FR,8,0,3"],
+    // // Celadon
+    // ["FR,10,12,1", "FR,10,12,3"],
+    // // Saffron
+    // ["FR,14,6,1", "FR,14,6,3"],
+    // // Fuchsia
+    // ["FR,11,5,1", "FR,11,5,3"],
+    // // Cinnabar
+    // ["FR,12,5,0", "FR,12,5,3"],
     // Indigo Plateua when blocked / whiteout
     ["FR,13,0,0", "FR,13,0,2"],
 

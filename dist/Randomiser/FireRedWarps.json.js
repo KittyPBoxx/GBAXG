@@ -63,20 +63,23 @@ var FIRE_RED_WARPS =
         "name": "VIRIDIAN CITY - INSIDE - Top - 4,7",
         "level": "1", 
         "to" : "FR,3,1,1",
-        "grouped" : ["FR,5,0,1", "FR,5,0,2"]
+        "grouped" : ["FR,5,0,1", "FR,5,0,2"],
+        "tags": ["removeable"]
     },
     "FR,5,0,1" : {
         "name": "VIRIDIAN CITY - INSIDE - Top - 5,7",
         "level": "1", 
         "to" : "FR,3,1,1",
         "grouped" : ["FR,5,0,0", "FR,5,0,2"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["removeable"]
     },
     "FR,5,0,2" : {
         "name": "VIRIDIAN CITY - INSIDE - Top - 6,7",
         "level": "1", 
         "to" : "FR,3,1,1",
-        "grouped" : ["FR,5,0,0", "FR,5,0,1"]
+        "grouped" : ["FR,5,0,0", "FR,5,0,1"],
+        "tags": ["removeable"]
     },
     "FR,5,1,0" : {
         // GYM
@@ -296,7 +299,8 @@ var FIRE_RED_WARPS =
     "FR,6,1,0" : {
         "name": "PEWTER CITY - INSIDE - Museum (Upstairs) (Stairs) - B,8",
         "level": "1", 
-        "to": "FR,6,0,5"
+        "to": "FR,6,0,5",
+        "tags": ["removeable"]
     },
     "FR,6,2,0" : {
         // GYM
@@ -346,20 +350,23 @@ var FIRE_RED_WARPS =
         "name": "PEWTER CITY - INSIDE - Top Right - 3,7",
         "level": "1", 
         "to" : "FR,3,2,4",
-        "grouped" : ["FR,6,4,1", "FR,6,4,2"]
+        "grouped" : ["FR,6,4,1", "FR,6,4,2"],
+        "tags": ["removeable"]
     },
     "FR,6,4,1" : {
         "name": "PEWTER CITY - INSIDE - Top Right - 4,7",
         "level": "1", 
         "to" : "FR,3,2,4",
         "grouped" : ["FR,6,4,0", "FR,6,4,2"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["removeable"]
     },
     "FR,6,4,2" : {
         "name": "PEWTER CITY - INSIDE - Top Right - 5,7",
         "level": "1", 
         "to" : "FR,3,2,4",
-        "grouped" : ["FR,6,4,0", "FR,6,4,1"]
+        "grouped" : ["FR,6,4,0", "FR,6,4,1"],
+        "tags": ["removeable"]
     },
     "FR,6,5,0" : {
         // PK
@@ -404,20 +411,23 @@ var FIRE_RED_WARPS =
         "name": "PEWTER CITY - INSIDE - Bottom Left - 3,7",
         "level": "1", 
         "to" : "FR,3,2,6",
-        "grouped" : ["FR,6,7,1", "FR,6,7,2"]
+        "grouped" : ["FR,6,7,1", "FR,6,7,2"],
+        "tags": ["removeable"]
     },
     "FR,6,7,1" : {
         "name": "PEWTER CITY - INSIDE - Bottom Left - 4,7",
         "level": "1", 
         "to" : "FR,3,2,6",
         "grouped" : ["FR,6,7,0", "FR,6,7,2"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["removeable"]
     },
     "FR,6,7,2" : {
         "name": "PEWTER CITY - INSIDE - Bottom Left - 5,7",
         "level": "1", 
         "to" : "FR,3,2,6",
-        "grouped" : ["FR,6,7,0", "FR,6,7,1"]
+        "grouped" : ["FR,6,7,0", "FR,6,7,1"],
+        "tags": ["removeable"]
     },
 /* ROUTE 22 - EXT */
     "FR,3,41,0" : {
@@ -1069,7 +1079,8 @@ var FIRE_RED_WARPS =
     "FR,7,8,0" : {
         "name": "CERULEAN CITY - INSIDE - Bottom - 4,7",
         "to" : "FR,3,3,12",
-        "level": "2"
+        "level": "2",
+        "tags": ["removeable"]
     },
     "FR,7,9,0" : {
         "name": "CERULEAN CITY - INSIDE - Top Center  - 4,7",
@@ -1401,7 +1412,8 @@ var FIRE_RED_WARPS =
     "FR,9,7,1" : {
         "name": "VERMILLION CITY - INSIDE - Bottom Right - 4,7",
         "level": "3", 
-        "to" : "FR,3,5,8"
+        "to" : "FR,3,5,8",
+        "tags": ["removeable"]
     },
 /* ROUTE 11 - EXT */
     "FR,3,29,0" : {
@@ -1795,67 +1807,80 @@ var FIRE_RED_WARPS =
     "FR,1,12,0" : {
         "name": "S.S ANNE - INSIDE - F1 Cabin 1 - 2,1",
         "level": "3", 
-        "to" : "FR,1,5,6"
+        "to" : "FR,1,5,6",
+        "tags": ["removeable"]
     },
     "FR,1,13,0" : {
         "name": "S.S ANNE - INSIDE - F1 Cabin 2 - 2,1",
         "level": "3", 
-        "to" : "FR,1,5,7"
+        "to" : "FR,1,5,7",
+        "tags": ["removeable"]
     },
     "FR,1,14,0" : {
         "name": "S.S ANNE - INSIDE - F1 Cabin 3 - 2,1",
         "level": "3", 
-        "to" : "FR,1,5,8"
+        "to" : "FR,1,5,8",
+        "tags": ["removeable"]
     },
     "FR,1,15,0" : {
         "name": "S.S ANNE - INSIDE - F1 Cabin 4 - 2,1",
         "level": "3", 
-        "to" : "FR,1,5,9"
+        "to" : "FR,1,5,9",
+        "tags": ["removeable"]
     },
     "FR,1,16,0" : {
         "name": "S.S ANNE - INSIDE - F1 Cabin 5 - 2,1",
         "level": "3", 
-        "to" : "FR,1,5,10"
+        "to" : "FR,1,5,10",
+        "tags": ["removeable"]
     },
     "FR,1,17,0" : {
         "name": "S.S ANNE - INSIDE - F1 Cabin 7 - 2,1",
         "level": "3", 
-        "to" : "FR,1,5,11"
+        "to" : "FR,1,5,11",
+        "tags": ["removeable"]
     },
     "FR,1,29,0" : {
         "name": "S.S ANNE - INSIDE - F1 Cabin 6 - 2,1",
         "level": "3", 
-        "to" : "FR,1,5,12"
+        "to" : "FR,1,5,12",
+        "tags": ["removeable"]
     },
     "FR,1,18,0" : {
         "name": "S.S ANNE - INSIDE - F2 Cabin 1 - 4,7",
         "level": "3", 
-        "to" : "FR,1,6,3"
+        "to" : "FR,1,6,3",
+        "tags": ["removeable"]
     },
     "FR,1,19,0" : {
         "name": "S.S ANNE - INSIDE - F2 Cabin 2 - 4,7",
         "level": "3", 
-        "to" : "FR,1,6,4"
+        "to" : "FR,1,6,4",
+        "tags": ["removeable"]
     },
     "FR,1,20,0" : {
         "name": "S.S ANNE - INSIDE - F2 Cabin 3 - 4,7",
         "level": "3", 
-        "to" : "FR,1,6,5"
+        "to" : "FR,1,6,5",
+        "tags": ["removeable"]
     },
     "FR,1,21,0" : {
         "name": "S.S ANNE - INSIDE - F2 Cabin 4 - 4,7",
         "level": "3", 
-        "to" : "FR,1,6,6"
+        "to" : "FR,1,6,6",
+        "tags": ["removeable"]
     },
     "FR,1,22,0" : {
         "name": "S.S ANNE - INSIDE - F2 Cabin 5 - 4,7",
         "level": "3", 
-        "to" : "FR,1,6,7"
+        "to" : "FR,1,6,7",
+        "tags": ["removeable"]
     },
     "FR,1,23,0" : {
         "name": "S.S ANNE - INSIDE - F2 Cabin 6 - 4,7",
         "level": "3", 
-        "to" : "FR,1,6,8"
+        "to" : "FR,1,6,8",
+        "tags": ["removeable"]
     },
     "FR,1,24,0" : {
         "name": "S.S ANNE - INSIDE - F4 (Bellow Deck) Cabin 1 - 4,7",
@@ -2124,7 +2149,8 @@ var FIRE_RED_WARPS =
     "FR,8,3,1" : {
         "name": "LAVENDER TOWN - INSIDE - Bottom Left - 4,7",
         "level": "4", 
-        "to" : "FR,3,4,3"
+        "to" : "FR,3,4,3",
+        "tags": ["removeable"]
     },
     "FR,8,4,1" : {
         "name": "LAVENDER TOWN - INSIDE - Bottom - 4,7",
@@ -2733,11 +2759,13 @@ var FIRE_RED_WARPS =
         "name": "CELADON CITY - INSIDE - Center House - 4,7",
         "level": "4", 
         "to" : "FR,3,6,8",
+        "tags": ["removeable"]
     },
     "FR,10,19,1" : {
         "name": "CELADON CITY - INSIDE - Right House - 4,9",
         "level": "4", 
         "to" : "FR,3,6,9",
+        "tags": ["removeable"]
     },
     /* ROCKET HIDEOUT */
     // F1
@@ -3171,6 +3199,7 @@ var FIRE_RED_WARPS =
         "name": "FUCHSIA CITY - INSIDE - Center House - 6,9",
         "level": "5", 
         "to" : "FR,3,7,3",
+        "tags": ["removeable"]
     },
     "FR,11,3,1" : {
         "name": "FUCHSIA CITY - INSIDE - Gym - 7,15",
@@ -3181,6 +3210,7 @@ var FIRE_RED_WARPS =
         "name": "FUCHSIA CITY - INSIDE - Right of Gym - 4,7",
         "level": "5", 
         "to" : "FR,3,7,5",
+        "tags": ["removeable"]
     },
     "FR,11,5,1" : {
         "name": "FUCHSIA CITY - INSIDE - PkCenter Enterance - 6,8",
@@ -3873,6 +3903,7 @@ var FIRE_RED_WARPS =
         "name": "SAFFRON CITY - INSIDE - Upstairs - A,2",
         "level": "6", 
         "to" : "FR,14,0,3",
+        "tags": ["removeable"]
     },
     "FR,14,2,1" : {
         "name": "SAFFRON CITY - INSIDE - Dojo - 6,E",
@@ -3888,6 +3919,7 @@ var FIRE_RED_WARPS =
         "name": "SAFFRON CITY - INSIDE - Center Left - 4,7",
         "level": "6", 
         "to" : "FR,3,10,4",
+        "tags": ["removeable"]
     },
     "FR,14,5,1" : {
         "name": "SAFFRON CITY - INSIDE - Mart - 4,7",
