@@ -3577,9 +3577,9 @@ var CRYSTAL_WARPS =
         "name": "ICE PATH - INSIDE - F5 Top Right - 13,3",
         "to" : "C,24,22,1",
         "level": "8",
-        "connections": {
-            "C,24,52,1": true
-        }   
+        // "connections": {
+        //     "C,24,52,1": true
+        // }   
     },
     "C,24,52,1" : {
         "name": "ICE PATH - INSIDE - F5 Center Ladder - B,D",

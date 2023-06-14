@@ -1229,7 +1229,7 @@ var ESCAPE_PATHS = [
   /* KANTO */
   // In FR whiteout goes inside the pk center
 
-  // Whiteouts
+  // Whiteouts (these probably arn't needed as a player did manage to get here in the first place but they do make it safer)
     // Viridian
     ["FR,5,4,1", "FR,5,4,3"],
     // Pewter
@@ -1308,6 +1308,18 @@ var ESCAPE_PATHS = [
   // Cinnabar through gym
   ["FR,3,8,0", "FR,3,8,2", "FR,3,8,2", "FR,3,8,3", "FR,3,8,4"],
 
+  // E4 - 1 Exit
+  ["FR,1,75,1"],
+
+  // E4 - 2 Exit
+  ["FR,1,76,1"],
+
+  // E4 - 3 Exit
+  ["FR,1,77,1"],
+
+  // E4 - 4 Exit
+  ["FR,1,78,1"],
+
   /* JOHTO */
 
   // Victory Road ledge hop
@@ -1316,7 +1328,95 @@ var ESCAPE_PATHS = [
   // Route 26 guard check
   ["C,32,0,0"],
 
+  // whiteout Indigo Plateau
+  ["C,0,8,0", "C,0,8,3"],
 
+  // Route 27 ledge hop
+  ["C,0,35,0"],
+
+  // New Bark/ CherryGrove / Ledge hop from dark cave / whiteout
+  ["C,0,9,0", "C,0,9,1", "C,0,9,2", "C,0,9,3", "C,0,16,0", "C,0,10,0", "C,0,10,1", "C,0,10,2", "C,0,10,3", "C,0,17,0", "C,0,17,1"],
+
+  // Violet/Route 32 from whiteout / walk back past seed guy
+  ["C,0,0,0", "C,0,0,1", "C,0,0,2", "C,0,0,3", "C,0,0,4", "C,0,0,5", "C,0,0,6", "C,0,0,7", "C,0,19,0", "C,0,23,0"],
+
+  // Ruins of alph ledge hop
+  ["C,24,86,9"],
+
+  // Ruins of alph through escape rope door
+  ["C,24,88,0"],
+
+  // Ruins of alph through flash door
+  ["C,24,9,0"],
+
+  // Whiteout / through gym to Azalea
+  ["C,0,20,0", "C,0,11,6", "C,0,11,5", "C,0,11,4", "C,0,11,3", "C,0,11,1", "C,0,11,0"],
+
+  // Golden rod through whiteout or rocket guarded door
+  ["C,0,21,0", "C,0,21,2", "C,0,3,0", "C,0,3,2", "C,0,3,3", "C,0,3,5", "C,0,3,6", "C,0,3,8", "C,0,3,11", "C,0,3,14"],
+
+  // Golden rod underground locked door
+  ["C,11,9,1", "C,11,9,0"],
+
+  // Raido Tower through guarded door
+  ["C,24,53,3"],
+
+  // Ecruteak Walk back past tin tower guard
+  ["C,9,7,0"],
+
+  // Ecruteak whitout
+  ["C,0,1,0", "C,0,1,1", "C,0,1,2", "C,0,1,4", "C,0,1,5", "C,0,1,6", "C,0,1,7", "C,0,1,8", "C,0,1,10", "C,0,1,11"],
+
+  // Olivne Whiteout
+  ["C,0,25,0", "C,0,26,0", "C,0,26,1", "C,0,2,0", "C,0,2,1", "C,0,2,2", "C,0,2,3", "C,0,2,4", "C,0,2,5", "C,0,2,6", "C,0,2,7", "C,0,2,8", "C,0,27,0"],
+
+  // Whirl island fork room ledge hop 1
+  ["C,24,30,1"],
+
+  // Whirl island fork room ledge hop 2
+  ["C,24,30,2"],
+
+  // Whirl island maze room ledge hops
+  ["C,24,34,7"],
+
+  // Whirl island down waterfall
+  ["C,24,35,2", "C,24,35,3"],
+
+  // Cianwood Whiteout
+  ["C,0,12,0", "C,0,12,1", "C,0,12,2", "C,0,12,3", "C,0,12,4", "C,0,12,5", "C,0,12,6"],
+
+  // Mt Mortar down waterfall
+  ["C,24,15,1", "C,24,15,8"],
+
+  // Mr Mortar ledge room
+  ["C,24,16,3", "C,24,16,5", "C,24,16,4", "C,24,16,2"],
+
+  // Mahogany whiteout / through gym / back past rage bar guy
+  ["C,0,13,0", "C,0,13,2", "C,0,13,3", "C,0,13,4", "C,0,29,3"],
+
+  // Ice path rock drop room
+  ["C,24,52,0"],
+
+  // Blackthorn whiteout / through dragons den / route 46 ledge hop / route 45 ledge hop
+  ["C,0,33,1"],
+
+  // Dark Cave room 1 ledge hop
+  ["C,24,7,0"],
+
+  // Dark Cave room 2 ledge hop
+  ["C,24,8,0"],
+
+  // E4 - 1 Exit
+  ["C,16,0,1"],
+
+  // E4 - 2 Exit
+  ["C,16,1,1"],
+
+  // E4 - 3 Exit
+  ["C,16,2,1"],
+
+  // E4 - 4 Exit
+  ["C,16,3,1"],
 
   /* HOENN */
 

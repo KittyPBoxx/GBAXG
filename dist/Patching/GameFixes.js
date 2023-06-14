@@ -39,6 +39,8 @@ function patchGameIssues() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x08e933fd - 0x08000000, 0x73);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x08e933fe - 0x08000000, 0xe8);          
 
+        // Remove Darkness from Caves
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x0854d8, 0x08);
     }
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E")) {
@@ -61,6 +63,28 @@ function patchGameIssues() {
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08527324 - 0x08000000, 0x6f);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x08527325 - 0x08000000, 0x64);
 
+        // Make sure archie will never block off the gym
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x527498, 0x20);
+
+        // Make sure we can go backwards through the trick master house
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x26ad12, 0x0B);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x26ad14, 0x00);
+
+        // Patch magma grunts so they don't block the cable car
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x529978, 0x1B);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x52997A, 0x1C);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x52997D, 0x08);
+        
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5299f0, 0x1E);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5299f2, 0x1C);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5299f5, 0x08);
+       
+       // Make Mirage Tower always present
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x1be7eC, 0xa9);
+
+       // Remove Darkness from Caves
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x0854d8, 0x08);
+
     }
 
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR")) {
@@ -73,6 +97,12 @@ function patchGameIssues() {
 
             // Patch Lorilei room to avoid softlock by auto walk
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x0831f0d5 - 0x08000000, 0x32);
+
+            // Remove Darkness from Caves
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3C6946, 0xc8);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3C6948, 0xc8);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3C694A, 0xc8);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3C694C, 0xc8);
 
         } else {
 
