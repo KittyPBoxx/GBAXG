@@ -33,9 +33,29 @@ CommandExecutor.register("BKeyUp"       , (args) => {
   clearInterval(bMashInterval);
 });
 
-CommandExecutor.register("SelectKeyDown", args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(2) : null);               // Select
-CommandExecutor.register("SelectKeyUp"  , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (2) : menuInput("SELECT"));
-CommandExecutor.register("StartKeyDown" , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(3) : null);               // Start
+var selectDown = false;
+
+CommandExecutor.register("SelectKeyDown", args => { 
+  if (IodineGUI.isPlaying)  {
+    selectDown = true;
+    IodineGUI.Iodine.keyDown(2);
+  }
+});               // Select
+CommandExecutor.register("SelectKeyUp"  , args => {
+  if (IodineGUI.isPlaying) {
+    IodineGUI.Iodine.keyUp (2);
+    selectDown = false;
+  } else {
+    menuInput("SELECT");
+  } 
+});
+CommandExecutor.register("StartKeyDown" , args => { 
+  if (IodineGUI.isPlaying && !selectDown) { 
+    IodineGUI.Iodine.keyDown(3); 
+  } else if (IodineGUI.isPlaying && selectDown) {
+    restartFromLastSave();
+  }
+}); // Start, 
 CommandExecutor.register("StartKeyUp"   , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (3) : menuInput("START"));
 CommandExecutor.register("RightKeyDown" , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(4) : null);               // Right
 CommandExecutor.register("RightKeyUp"   , args => IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (4) : menuInput("RIGHT"));
