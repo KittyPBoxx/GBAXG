@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function doVisuliseNextMapping() {
   let rng = new RNG(getHash(document.getElementById("input_seed_text").value));
-  doNextMapping(rng, getInitialWarp(getRandomisationConfig()), state);
+  doNextMapping(rng, getInitialWarp(getRandomisationConfig()), state, getRandomisationConfig());
   state = updateProgressionState(state, getInitialWarp(getRandomisationConfig()));
   cy.layout({name: 'cose-bilkent', animationDuration: 500, nodeDimensionsIncludeLabels: true}).run();
 }

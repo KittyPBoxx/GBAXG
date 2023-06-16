@@ -92,7 +92,7 @@ function generateRandomMappings(onFinished, seed, mapData, flagData, config, esc
       if (moreWarpsToMap) {
 
         try {
-          moreWarpsToMap = doNextMapping(rng, root, progressionState);
+          moreWarpsToMap = doNextMapping(rng, root, progressionState, config);
           progressionState = updateProgressionState(progressionState, root);
           setTimeout(blockingRunAlgorithm, 0);
         } catch (e) {
@@ -520,7 +520,7 @@ function findAccessibleUnmappedNodes(cy, root) {
  * NB: Some teleport tile nodes needed to be walked over for the player to access another area / item
  *     In these special cases we have to make sure that they don't link to a one-way 
  */
-function doNextMapping(rng, root, progressionState) {
+function doNextMapping(rng, root, progressionState, config) {
     let accessibleNodes = progressionState.cachedNodes ? progressionState.cachedNodes : findAccessibleUnmappedNodes(window.cy, root);
     let inacessibleNodes = cy.nodes().not(accessibleNodes).filter(e => e.data().isWarp && !e.data().isMapped);
     let inaccesibleFlagLocations = inacessibleNodes.filter(n => progressionState.unmarkedLocations.has(n.data().id));
@@ -729,10 +729,22 @@ function doNextMapping(rng, root, progressionState) {
       
       // if one warp is left hanging we connect it to a random odd-one-out location
       // Shoal Cave, Frontier Mart, Sothern Island, Dessert Underpass, Sealed Chamber
-      let oddOneOutLocation = 'FR,1,122,0';
-      warp2 = cy.add(new WarpNode([oddOneOutLocation, getMapData()[oddOneOutLocation]]));
-      shouldCacheNodes = true;
-      accessibleNodes.delete(warp2);
+
+      if (config.hoennLevel > 0) {
+
+        let oddOneOutLocation = ['E,24,83,0', 'E,26,10,0', 'E,26,55,0', 'E,24,98,0', 'FR,1,122,0', "E,25,43,11", "E,25,42,0"][rng.nextRange(0, 7 - 1)];
+        warp2 = cy.add(new WarpNode([oddOneOutLocation, getMapData()[oddOneOutLocation]]));
+        shouldCacheNodes = true;
+        accessibleNodes.delete(warp2);
+
+      } else {
+
+        let oddOneOutLocation = 'FR,1,122,0';
+        warp2 = cy.add(new WarpNode([oddOneOutLocation, getMapData()[oddOneOutLocation]]));
+        shouldCacheNodes = true;
+        accessibleNodes.delete(warp2);
+
+      }
 
     }
 
