@@ -84,6 +84,54 @@ CommandExecutor.register("Down"  , args => IodineGUI.isPlaying ? keyPress(7) /* 
 CommandExecutor.register("R"     , args => IodineGUI.isPlaying ? keyPress(8) /* R      */ : menuInput("R")); 
 CommandExecutor.register("L"     , args => IodineGUI.isPlaying ? keyPress(9) /* L      */ : menuInput("L")); 
 
+var turboRepeatDelay = 5;
+
+/* Second Mapping Reuested For A/B keys mappings */
+CommandExecutor.register("AltAKeyDown"     , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(0) : null   // A
+  if (alwaysTurbo || tempTurbo) {
+    aMashInterval = setInterval(() => { keyPress(0) }, turboRepeatDelay);
+  }
+});
+CommandExecutor.register("AltAKeyUp"       , (args) => { 
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (0) : menuInput("A");
+  clearInterval(aMashInterval);
+});
+
+CommandExecutor.register("AltBKeyDown"     , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(1) : null   // B
+  if (alwaysTurbo || tempTurbo) {
+    bMashInterval = setInterval(() => { keyPress(1) }, turboRepeatDelay);
+  }
+});             
+
+CommandExecutor.register("AltBKeyUp"       , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (1) : menuInput("B");
+  clearInterval(bMashInterval);
+});
+
+
+/* Turbo Mappings Reuested For A/B keys mappings */
+CommandExecutor.register("TurboAKeyDown"     , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(0) : null   // A
+  aMashInterval = setInterval(() => { keyPress(0) }, turboRepeatDelay);
+});
+CommandExecutor.register("TurboAKeyUp"       , (args) => { 
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (0) : menuInput("A");
+  clearInterval(aMashInterval);
+});
+
+CommandExecutor.register("TurboBKeyDown"     , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyDown(1) : null   // B
+  bMashInterval = setInterval(() => { keyPress(1) }, turboRepeatDelay);
+});             
+
+CommandExecutor.register("TurboBKeyUp"       , (args) => {
+  IodineGUI.isPlaying ? IodineGUI.Iodine.keyUp  (1) : menuInput("B");
+  clearInterval(bMashInterval);
+});
+
+
 /* Iodine functions */
 let speedUpSpeed = 4;
 var disableSpeedupAudio = true;

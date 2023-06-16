@@ -504,6 +504,10 @@ function registerGUIEvents() {
 
     addEvent("resize", window, resizeCanvasFunc);
 
+    addEvent("change", document.getElementById("turbo-delay-value"), e => {
+        turboRepeatDelay = parseInt(document.getElementById("turbo-delay-value-input").value);
+    });
+
     //Run on init as well:
     storageManager.find("RANDOM_MAPPING", () => {
         document.getElementById("input_seed_text").value = "KITTY";

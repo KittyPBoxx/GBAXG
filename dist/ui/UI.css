@@ -898,3 +898,19 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1em;
     margin-left: 2em;
 }
+
+.control-options {
+    display: flex;
+    gap: 1em;
+}
+
+#turbo-delay-value {
+    width: 4em;
+    white-space: nowrap;
+    font-size: 15px;
+    color: grey;
+    display: flex;
+    flex-direction: column;
+    margin-right: 4em;
+    margin-top: 1em !important;
+}

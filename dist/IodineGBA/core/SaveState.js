@@ -27,7 +27,7 @@ SaveStateManager.prototype.loadState = function (slot, isAutosave = false) {
     storageManager.persist("lastLoadedRom", slot);
     this.lastLoaded = slot;
     let volume = IodineGUI.Iodine.audio.volume;
-    IodineGUI.Iodine.audio.volume = 0;
+    IodineGUI.Iodine.audio.volume = 0.05;
     if (playing) this.Iodine.play();
     let fixSpeed = async(volume) => { CommandExecutor.execute("SpeedUp"); await delay(50); CommandExecutor.execute("SpeedUp"); IodineGUI.Iodine.audio.volume = volume;}
     IodineGUI.Iodine.setSpeed(speed); 

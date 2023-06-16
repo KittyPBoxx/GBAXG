@@ -1,4 +1,3 @@
-const fileSystem = null;//window.__TAURI__ ? window.__TAURI__.fs : null;
 const VERSION_NUMBER = "0.10.1-ALPHA";
 
 var debugConsole;
@@ -78,20 +77,10 @@ function toggleMenu() {
 }
 
 async function createAndLoadConfig() {
-
-  if(fileSystem) {
-    fileSystem.readTextFile(DEFAULT_KEYBIND_CONFIG_PATH, {dir: fileSystem.BaseDirectory.App}).then(initKeybinds, e => {
-      initKeybinds(DEFAULT_KEYBIND_CONFIG);
-
-      fileSystem.createDir(fileToDirPath(DEFAULT_KEYBIND_CONFIG_PATH), { dir: fileSystem.BaseDirectory.App, recursive: true })
-      .then(fileSystem.writeTextFile(DEFAULT_KEYBIND_CONFIG_PATH, DEFAULT_KEYBIND_CONFIG, { dir: fileSystem.BaseDirectory.App }));
-    });
-  } else {
-    storageManager.find("keybinds").then(initKeybinds, e => {
-      initKeybinds(DEFAULT_KEYBIND_CONFIG);
-      storageManager.persist(keybinds, DEFAULT_KEYBIND_CONFIG);
-    })
-  }
+  storageManager.find("keybinds").then(initKeybinds, e => {
+    initKeybinds(DEFAULT_KEYBIND_CONFIG);
+    storageManager.persist(keybinds, DEFAULT_KEYBIND_CONFIG);
+  })
 }
 
 function fileToDirPath(path) {
@@ -136,6 +125,8 @@ function initKeybinds(conf) {
 
   conf = JSON.parse(conf);
 
+  conf = addNewConfigOptions(conf);
+
   let table = document.getElementById("key-binding-table");
 
   conf.sort(sortCommands)
@@ -168,6 +159,15 @@ function initKeybinds(conf) {
     gmpdCell.setAttribute("data-type", binding.type);
     gmpdCell.addEventListener("click", listenForGmpdBinding);
   });
+}
+
+function addNewConfigOptions(conf) {
+  let defaultConf = JSON.parse(DEFAULT_KEYBIND_CONFIG);
+  let existingCommandSet = new Set(conf.map(c => c.command));
+
+  defaultConf = defaultConf.filter(c => !existingCommandSet.has(c.command));
+  
+  return conf.concat(defaultConf);
 }
 
 let listenFor = false;
@@ -276,12 +276,7 @@ function writeKeybinds() {
   
   config.sort(sortCommands)
   let printPrettyJson = JSON.stringify(config, null, 2).replace(/([\"|(null)|\{],?)\n/g, "$1");
-
-  if (fileSystem) {
-    fileSystem.writeTextFile(DEFAULT_KEYBIND_CONFIG_PATH, printPrettyJson, { dir: fileSystem.BaseDirectory.App })
-  } else {
-    storageManager.persist("keybinds", printPrettyJson);
-  }
+  storageManager.persist("keybinds", printPrettyJson);
   
 }
 
