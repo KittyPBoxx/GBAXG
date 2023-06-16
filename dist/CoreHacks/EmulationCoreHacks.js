@@ -551,7 +551,7 @@ function spliceWRAM(address, length, data) {
  * Patches out an area in the ROM 
  */
 var walkThroughWalls = false;
-var runIndoors = false;
+var runIndoors = true;
 var frWallsOffset = 364078; // set to 364098 for 1.1 version
 var frRunIndoorsOffset = 0xBD494; //  set to 0xBD4A8 for 1.1 version
 

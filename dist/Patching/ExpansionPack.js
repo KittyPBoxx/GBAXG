@@ -196,7 +196,7 @@ function sprite16x32To32x32(data) {
 
 var exp = null;
 var expfr = null;
-var usingInstantText = false;
+var usingInstantText = true;
 var usingNoExp = false;
 async function patchExpansionData() {
 

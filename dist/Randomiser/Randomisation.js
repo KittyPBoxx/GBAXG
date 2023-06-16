@@ -1489,6 +1489,9 @@ var ESCAPE_PATHS = [
   // Grannite Cave F1 (Ledge Hop)
   ["E,24,7,0", "E,24,7,2"],
 
+  // Grannite Cave walk down bike slide
+  ["E,24,8,3", "E,24,8,1"],
+
   // Grannite Cave F3 (After falling)
   ["E,24,9,2"],
 
