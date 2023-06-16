@@ -50,10 +50,13 @@ const EMERALD_CURRENT_WARP = 0x20322e6;
 const EMERALD_MAP_TYPE = 0x203732F; // Used for enabling teleports/fly anywhere (0x2 for city, 0x4 for underground) 
 const FIRE_RED_MAP_TYPE = 0x2036E13; 
 
+const EMERALD_gMapHeader = 0x02037318;
+const FIRE_RED_gMapHeader = 0x02036dfc;
 
 var flagManager; // only global to help debugging
 var isInSafari = false;
 var volumeBeforeWarp = null;
+var originalBeforeWarpId = null;
 GameBoyAdvanceCPU.prototype.write32WithoutIntercept = GameBoyAdvanceCPU.prototype.write32;
 GameBoyAdvanceCPU.prototype.write32 = function (address, data) { 
 
@@ -80,10 +83,16 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                     IodineGUI.Iodine.saveStateManager.loadState(gameSwitchingWarp.toRomCode);
         
                     if (gameSwitchingWarp.toRomCode == "E" || gameSwitchingWarp.toRomCode == "C") {
+
+                        originalBeforeWarpId = getDesitnation();
+
                         this.write8(EMERALD_CURRENT_BANK, gameSwitchingWarp.toBank);
                         this.write8(EMERALD_CURRENT_MAP, gameSwitchingWarp.toMap);
                         this.write8(EMERALD_CURRENT_WARP, gameSwitchingWarp.toWarpNo);
                     } else {
+
+                        originalBeforeWarpId = getDesitnation();
+
                         this.write8(FIRE_RED_CURRENT_BANK, gameSwitchingWarp.toBank);
                         this.write8(FIRE_RED_CURRENT_MAP, gameSwitchingWarp.toMap);
                         this.write8(FIRE_RED_CURRENT_WARP, gameSwitchingWarp.toWarpNo);
@@ -108,7 +117,6 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
         }
 
-
         if (switchingGameState == 2) {
             if (((address == FIRE_RED_LAST_BANK) &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") || 
             ((address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))))  {
@@ -116,14 +124,34 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
                 IodineGUI.mixerInput.volume = volumeBeforeWarp;
                 let elmnt = document.getElementById("emulator_target");
                 elmnt.classList.remove("faded");
-                switchingGameState = 0;
+                switchingGameState = 3;
                 isWarping = false;
                 gameSwitchingWarp = null;
-
             }
         }
 
+        if ((switchingGameState == 3 || switchingGameState == 4) && (address == FIRE_RED_gMapHeader) &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
+    
+            if (switchingGameState == 4) {
+                fixPlayerPositionInWarp();
+                switchingGameState = 0;
+            } else {
+                switchingGameState = 4;
+            }
+    
+        } else if ((switchingGameState == 3 || switchingGameState == 4) && (address == EMERALD_gMapHeader && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))) {
+    
+            if (switchingGameState == 4) {
+                fixPlayerPositionInWarp();
+                switchingGameState = 0;
+            } else {
+                switchingGameState = 4;
+            }
+        }
+    
     }
+
+
 
     if (address == FIRE_RED_LAST_BANK &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
 
@@ -142,6 +170,183 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
 
     this.write32WithoutIntercept(address, data);
 }
+
+function getDesitnation() {
+
+
+    if (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
+        let bank = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(FIRE_RED_CURRENT_BANK);
+        let map = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(FIRE_RED_CURRENT_BANK + 1);
+        let warpNo = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(FIRE_RED_CURRENT_BANK + 2);
+
+        return "FR" + "," + bank + "," + map + "," + warpNo;
+    } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "E") {
+
+        let bank = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK);
+        let map = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 1);
+        let warpNo = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 2);
+    
+        return destination = "E" + "," + bank + "," + map + "," + warpNo;
+
+    } else if (IodineGUI.Iodine.IOCore.cartridge.romCode === "C") {
+
+        let bank = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK);
+        let map = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 1);
+        let warpNo = IodineGUI.Iodine.IOCore.cpu.read8WithoutIntercept(EMERALD_CURRENT_BANK + 2);
+    
+        return destination = "C" + "," + bank + "," + map + "," + warpNo;
+
+    }
+
+    return null;
+
+}
+
+function fixPlayerPositionInWarp() {
+
+    let positionForcing = warpsNeedingPositionForces.get(getDesitnation()) || null;
+    let fromEscalator = escalatorTriggers.has(originalBeforeWarpId);
+
+    if (!(positionForcing != null || fromEscalator)) {
+        return;
+    } 
+
+    let xAddress = null;
+    let yAddress = null;
+
+    if (IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") {
+
+        let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(FIRE_RED_SAVE_1_PTR);
+        xAddress = save1Start;
+        yAddress = save1Start + 2;
+
+    } else {
+
+        let save1Start = IodineGUI.Iodine.IOCore.cpu.read32(EMERALD_SAVE_1_PTR);
+        xAddress = save1Start;
+        yAddress = save1Start + 2;
+    }
+
+    let updatedXPos = null;
+    let updatedYPos = null;
+
+    if (positionForcing != null) {
+        updatedXPos = positionForcing[0];
+        updatedYPos = positionForcing[1];
+    } else {
+        updatedXPos = IodineGUI.Iodine.IOCore.cpu.read16(xAddress);
+        updatedYPos = IodineGUI.Iodine.IOCore.cpu.read16(yAddress);
+    }
+
+    if (fromEscalator) {
+        updatedXPos = updatedXPos - 1;
+    }
+
+    // set the new x/y;
+    IodineGUI.Iodine.IOCore.cpu.write16(xAddress, updatedXPos);
+    IodineGUI.Iodine.IOCore.cpu.write16(yAddress, updatedYPos);
+
+    originalBeforeWarpId = null;
+}
+
+var warpsNeedingPositionForces = new Map();
+warpsNeedingPositionForces.set("E,0,1,5"    , [0x1E, 0x1B]);
+warpsNeedingPositionForces.set("E,0,5,0"    , [0x1B, 0x07]);
+warpsNeedingPositionForces.set("E,0,2,0"    , [0x08, 0x06]);
+warpsNeedingPositionForces.set("E,0,7,5"    , [0x2D, 0x07]);
+warpsNeedingPositionForces.set("E,0,7,9"    , [0x35, 0x1D]);
+warpsNeedingPositionForces.set("E,0,7,4"    , [0x09, 0x07]);
+warpsNeedingPositionForces.set("E,0,8,2"    , [0x12, 0x2A]);
+warpsNeedingPositionForces.set("E,0,11,3"   , [0x11, 0x0E]);
+warpsNeedingPositionForces.set("E,0,12,5"   , [0x09, 0x02]);
+warpsNeedingPositionForces.set("E,0,14,4"   , [0x08, 0x02]);
+warpsNeedingPositionForces.set("E,0,15,0"   , [0x08, 0x10]);
+warpsNeedingPositionForces.set("E,0,26,0"   , [0x0D, 0x72]);
+warpsNeedingPositionForces.set("E,11,0,2"   , [0x0E, 0x02]);
+warpsNeedingPositionForces.set("E,14,9,2"   , [0x0D, 0x02]);
+warpsNeedingPositionForces.set("E,14,10,2"  , [0x0d, 0x02]);
+warpsNeedingPositionForces.set("E,16,10,2"  , [0x09, 0x02]);
+warpsNeedingPositionForces.set("E,24,8,2"   , [0x1D, 0x0D]);
+warpsNeedingPositionForces.set("E,24,8,3"   , [0x1C, 0x15]);
+warpsNeedingPositionForces.set("E,24,9,0"   , [0x1D, 0x0D]);
+warpsNeedingPositionForces.set("E,24,9,1"   , [0x1C, 0x15]);
+warpsNeedingPositionForces.set("E,24,13,4"  , [0x10, 0x13]);
+warpsNeedingPositionForces.set("E,24,16,4"  , [0x0B, 0x09]);
+warpsNeedingPositionForces.set("E,24,16,2"  , [0x0A, 0x0C]);
+warpsNeedingPositionForces.set("E,24,17,5"  , [0x06, 0x0C]);
+warpsNeedingPositionForces.set("E,24,17,4"  , [0x0A, 0x0C]);
+warpsNeedingPositionForces.set("E,24,18,2"  , [0x0C, 0x0A]);
+warpsNeedingPositionForces.set("E,24,18,3"  , [0x0C, 0x0C]);
+warpsNeedingPositionForces.set("E,24,19,3"  , [0x0C, 0x0A]);
+warpsNeedingPositionForces.set("E,24,19,4"  , [0x0C, 0x0C]);
+warpsNeedingPositionForces.set("E,24,24,10" , [0x20, 0x13]);
+warpsNeedingPositionForces.set("E,24,25,5"  , [0x05, 0x08]);
+warpsNeedingPositionForces.set("E,24,25,9"  , [0x20, 0x14]);
+warpsNeedingPositionForces.set("E,24,29,2"  , [0x06, 0x01]);
+warpsNeedingPositionForces.set("E,24,78,0"  , [0x11, 0x0D]);
+warpsNeedingPositionForces.set("E,24,81,0"  , [0x03, 0x01]);
+warpsNeedingPositionForces.set("E,24,82,1"  , [0x07, 0x01]);
+warpsNeedingPositionForces.set("E,24,95,0"  , [0x12, 0x0C]);
+warpsNeedingPositionForces.set("E,24,96,0"  , [0x12, 0x0C]);
+warpsNeedingPositionForces.set("E,26,74,1"  , [0x05, 0x05]);
+warpsNeedingPositionForces.set("E,26,87,0"  , [0x0E, 0x13]);
+warpsNeedingPositionForces.set("E,0,10,5"   , [0x0A, 0x09]);
+warpsNeedingPositionForces.set("E,16,0,1"   , [0x06, 0x03]);
+warpsNeedingPositionForces.set("E,16,1,1"   , [0x06, 0x03]);
+warpsNeedingPositionForces.set("E,16,2,1"   , [0x06, 0x03]);
+warpsNeedingPositionForces.set("E,16,3,1"   , [0x06, 0x03]);
+
+warpsNeedingPositionForces.set("FR,3,3,7"   , [0x01, 0x0D]);
+warpsNeedingPositionForces.set("FR,3,10,3"  , [0x2E, 0x0D]);
+warpsNeedingPositionForces.set("FR,3,10,1"  , [0x16, 0x0F]);
+warpsNeedingPositionForces.set("FR,3,10,4"  , [0x1B, 0x16]);
+
+warpsNeedingPositionForces.set("C,0,11,2"   , [0x11, 0x12]);
+warpsNeedingPositionForces.set("C,0,11,6"   , [0x25, 0x0A]);
+warpsNeedingPositionForces.set("C,0,13,1"   , [0x07, 0x0E]);
+warpsNeedingPositionForces.set("C,0,5,7"    , [0x16, 0x04]);
+warpsNeedingPositionForces.set("C,0,5,1"    , [0x15, 0x0F]);
+
+var escalatorTriggers = new Set();
+escalatorTriggers.add("E,8,5,0"  );
+escalatorTriggers.add("E,9,12,0" );
+escalatorTriggers.add("E,10,6,0" );
+escalatorTriggers.add("E,11,6,0" );
+escalatorTriggers.add("E,12,3,0" );
+escalatorTriggers.add("E,13,7,0" );
+escalatorTriggers.add("E,14,4,0" );
+escalatorTriggers.add("E,15,3,0" );
+escalatorTriggers.add("E,16,13,0");
+escalatorTriggers.add("E,16,14,0");
+escalatorTriggers.add("E,2,3,0"  );
+escalatorTriggers.add("E,3,2,0"  );
+escalatorTriggers.add("E,4,6,0"  );
+escalatorTriggers.add("E,5,5,0"  );
+escalatorTriggers.add("E,6,5,0"  );
+escalatorTriggers.add("E,7,1,0"  );
+
+escalatorTriggers.add("FR,5,5,0");
+escalatorTriggers.add("FR,6,6,0");
+escalatorTriggers.add("FR,7,4,0");
+escalatorTriggers.add("FR,8,1,0");
+escalatorTriggers.add("FR,10,13,0");
+escalatorTriggers.add("FR,11,6,0");
+escalatorTriggers.add("FR,12,6,0");
+escalatorTriggers.add("FR,13,1,0");
+escalatorTriggers.add("FR,16,1,0");
+escalatorTriggers.add("FR,21,1,0");
+
+escalatorTriggers.add("C,8,5,0");
+escalatorTriggers.add("C,24,94,0");
+escalatorTriggers.add("C,3,2,0");
+escalatorTriggers.add("C,11,6,0");
+escalatorTriggers.add("C,9,12,0");
+escalatorTriggers.add("C,10,6,0");
+escalatorTriggers.add("C,4,6,0");
+escalatorTriggers.add("C,5,5,0");
+escalatorTriggers.add("C,13,7,0");
+escalatorTriggers.add("C,16,14,0");
+
 
 // GameBoyAdvanceCPU.prototype.write16WithoutIntercept = GameBoyAdvanceCPU.prototype.write16;
 // GameBoyAdvanceCPU.prototype.write16 = function (address, data) { 
@@ -235,6 +440,8 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
             modifyBaseFlag("E", 0x362, 1);
         }
 
+        originalBeforeWarpId = null;
+
         // Avoid scripted warps, route connections without zone e.t.c
         return address; 
     }
@@ -250,6 +457,7 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
         pkWarp = new PKWarp(trigger, toParts[0], toParts[1], toParts[2], toParts[3], forceNextWarp)
         reverseNextWarp = false;
         forceNextWarp = null;
+        originalBeforeWarpId = null;
     } else if(reverseNextWarp && warpList.get(trigger)) {
         let source = warpList.get(trigger).source;
         let toParts = source.split(",");
@@ -275,16 +483,24 @@ GameBoyAdvanceCPU.prototype.handleWarpRedirection = function (address, romCode) 
         } else {
 
             if (pkWarp.toRomCode == "E" || pkWarp.toRomCode == "C") {
+
+                originalBeforeWarpId = getDesitnation();
+
                 this.write8(EMERALD_CURRENT_BANK, pkWarp.toBank);
                 this.write8(EMERALD_CURRENT_MAP, pkWarp.toMap);
                 this.write8(EMERALD_CURRENT_WARP, pkWarp.toWarpNo);
                 address = EMERALD_CURRENT_BANK;
             } else {
+
+                originalBeforeWarpId = getDesitnation();
+
                 this.write8(FIRE_RED_CURRENT_BANK, pkWarp.toBank);
                 this.write8(FIRE_RED_CURRENT_MAP, pkWarp.toMap);
                 this.write8(FIRE_RED_CURRENT_WARP, pkWarp.toWarpNo);
                 address = FIRE_RED_CURRENT_BANK;
             }
+
+            switchingGameState = 3;
 
         }
 
