@@ -121,9 +121,6 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
             if (((address == FIRE_RED_LAST_BANK) &&  IodineGUI.Iodine.IOCore.cartridge.romCode === "FR") || 
             ((address == EMERALD_LAST_BANK && (IodineGUI.Iodine.IOCore.cartridge.romCode === "E" || IodineGUI.Iodine.IOCore.cartridge.romCode === "C"))))  {
 
-                IodineGUI.mixerInput.volume = volumeBeforeWarp;
-                let elmnt = document.getElementById("emulator_target");
-                elmnt.classList.remove("faded");
                 switchingGameState = 3;
                 isWarping = false;
                 gameSwitchingWarp = null;
@@ -135,6 +132,9 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
             if (switchingGameState == 4) {
                 fixPlayerPositionInWarp();
                 switchingGameState = 0;
+                IodineGUI.mixerInput.volume = volumeBeforeWarp;
+                let elmnt = document.getElementById("emulator_target");
+                elmnt.classList.remove("faded");
             } else {
                 switchingGameState = 4;
             }
@@ -144,6 +144,9 @@ GameBoyAdvanceCPU.prototype.write32 = function (address, data) {
             if (switchingGameState == 4) {
                 fixPlayerPositionInWarp();
                 switchingGameState = 0;
+                IodineGUI.mixerInput.volume = volumeBeforeWarp;
+                let elmnt = document.getElementById("emulator_target");
+                elmnt.classList.remove("faded");
             } else {
                 switchingGameState = 4;
             }
