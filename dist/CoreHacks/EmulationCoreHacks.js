@@ -679,19 +679,19 @@ function specialPostWarpHandling() {
 
         if (destination == "C,16,0,0") {
             // E4 rooms needs to walk fowards when entering
-            writeGameVar("C", 0x409C, 0);
+            writeGameVar("C", 0x409C, 1);
         } else if (destination == "C,16,0,1")  {
             writeGameVar("C", 0x409C, 1);
         } else if (destination == "C,16,1,0") {
-            writeGameVar("C", 0x409C, 1);
+            writeGameVar("C", 0x409C, 2);
         } else if (destination == "C,16,1,1") {
             writeGameVar("C", 0x409C, 2);
         } else if (destination == "C,16,2,0") {
-            writeGameVar("C", 0x409C, 2);
+            writeGameVar("C", 0x409C, 3);
         } else if (destination == "C,16,2,1") {
             writeGameVar("C", 0x409C, 3);
         } else if (destination == "C,16,3,0") {
-            writeGameVar("C", 0x409C, 3);
+            writeGameVar("C", 0x409C, 4);
         } else if (destination == "C,16,3,1") {
             writeGameVar("C", 0x409C, 4);
         }
