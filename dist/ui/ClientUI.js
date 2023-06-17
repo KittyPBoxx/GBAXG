@@ -1,4 +1,4 @@
-const VERSION_NUMBER = "0.10.1-ALPHA";
+const VERSION_NUMBER = "0.10.2-ALPHA";
 
 var debugConsole;
 document.addEventListener('DOMContentLoaded', function() {
