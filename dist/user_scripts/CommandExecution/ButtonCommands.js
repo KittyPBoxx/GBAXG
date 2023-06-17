@@ -217,6 +217,23 @@ CommandExecutor.register("ToggleBike", args => {
   }
 });
 
+CommandExecutor.register("ToggleSpeedCodes", args => {
+
+  if (document.getElementById("speedCodes").getAttribute("disabled")) 
+  {
+      return;
+  }
+
+  useSpeedupCodes = !useSpeedupCodes;
+  document.getElementById("speedCodes").checked = useSpeedupCodes;
+
+  if (useSpeedupCodes) {
+    patchInSpeedupCodes();
+  } else {
+    patchOutSpeedupCodes();
+  }
+});
+
 CommandExecutor.register("TempTurboDown" , args => tempTurbo = true);
 CommandExecutor.register("TempTurboUp"   , args => tempTurbo = false);
 

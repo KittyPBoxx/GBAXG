@@ -2508,7 +2508,6 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - OUTSIDE - Girl House - E,8",
         "level": "1", 
         "to" : "E,1,2,1",
-        "ignore": true,
         "connections" : {
             "E,0,9,2": true
         }
@@ -2518,7 +2517,6 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - OUTSIDE - Boy House - 5,8",
         "level": "1", 
         "to" : "E,1,0,1",
-        "ignore": true,
         "connections" : {
             "E,0,9,2": true
         }
@@ -2528,7 +2526,6 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - OUTSIDE - Birch Lab - 7,10",
         "level": "1", 
         "to" : "E,1,4,0",
-        "ignore": true,
         "connections" : {
             "E,0,10,2": true,
             "E,0,9,0": true,
@@ -2540,7 +2537,6 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) - 8,8",
         "level": "1", 
         "to": "E,0,9,1",
-        "ignore": true,
         "grouped": ["E,1,0,1"],
         "groupMain" : true,
         "connections" : {
@@ -2551,14 +2547,12 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) - 9,8",
         "level": "1", 
         "to": "E,0,9,1",
-        "ignore": true,
         "grouped": ["E,1,0,0"]
     },
     "E,1,0,2" : {
         "name": "LITTLEROOT TOWN - INSIDE - Boy House (downstairs) (stairs) - 8,2",
         "level": "1", 
         "to": "E,1,1,0",
-        "ignore": true,
         "connections" : {
             "E,1,0,0": true
         }
@@ -2573,7 +2567,6 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) - 1,8",
         "level": "1", 
         "to": "E,0,9,0",
-        "ignore": true,
         "grouped": ["E,1,2,1"],
         "groupMain" : true,
         "connections" : {
@@ -2584,14 +2577,12 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) - 2,8",
         "level": "1", 
         "to": "E,0,9,0",
-        "ignore": true,
         "grouped": ["E,1,2,0"]
     },
     "E,1,2,2" : {
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (downstairs) (stairs) - 2,2",
         "level": "1", 
         "to": "E,1,3,0",
-        "ignore": true,
         "connections" : {
             "E,1,2,0": true
         }
@@ -2600,14 +2591,12 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Girl House (upstairs) (stairs) - 1,1",
         "level": "1",
         "ignore": true, 
-        "ignore": true,
         "to": "E,1,2,2"
     },
     "E,1,4,0" : {
         "name": "LITTLEROOT TOWN - INSIDE - Birch Lab - 6,C",
         "level": "1", 
         "to": "E,0,9,2",
-        "ignore": true,
         "grouped": ["E,1,4,1"],
         "groupMain" : true
     },
@@ -2615,7 +2604,6 @@ var EMERALD_WARPS =
         "name": "LITTLEROOT TOWN - INSIDE - Birch Lab - 7,C",
         "level": "1", 
         "to": "E,0,9,2",
-        "ignore": true,
         "grouped": ["E,1,4,0"]
     },
 /* OLDALE TOWN - EXT */

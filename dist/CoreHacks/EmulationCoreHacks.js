@@ -385,6 +385,7 @@ const MOVEMENT_MODE_BIKE = 0x02;
 const MOVEMENT_MODE_SURF = 0x08;
 var autoBike = false; 
 var teleportAnywhere = false;
+
 GameBoyAdvanceCPU.prototype.read8WithoutIntercept = GameBoyAdvanceCPU.prototype.read8;
 GameBoyAdvanceCPU.prototype.read8 = function (address) {
 

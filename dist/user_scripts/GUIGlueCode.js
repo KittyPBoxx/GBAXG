@@ -512,6 +512,25 @@ function registerGUIEvents() {
         earlyBalls = document.getElementById("earlyBalls").checked;
     });
 
+    addEvent("click", document.getElementById("speedCodes"), () => {
+
+        if (document.getElementById("speedCodes").getAttribute("disabled")) 
+        {
+            return;
+        }
+
+        useSpeedupCodes = document.getElementById("speedCodes").checked;
+
+        if (useSpeedupCodes) {
+            patchInSpeedupCodes();
+        } else {
+            patchOutSpeedupCodes();
+        }
+
+    });
+
+    
+
     //Run on init as well:
     storageManager.find("RANDOM_MAPPING", () => {
         document.getElementById("input_seed_text").value = "KITTY";

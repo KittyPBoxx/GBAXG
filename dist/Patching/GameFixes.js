@@ -1,4 +1,4 @@
-var earlyBalls = true;
+var earlyBalls = false;
 
 function patchGameIssues() {
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
