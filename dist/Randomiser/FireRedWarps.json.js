@@ -4948,7 +4948,7 @@ var FIRE_RED_WARPS =
     "FR,1,77,1" : {
         "name": "E4 - INSIDE - E4 3 Top - 6,2",
         "level": "9", 
-        "to" : "FR,1,78,1",
+        "to" : "FR,1,78,0",
     },
     // E4 4
     "FR,1,78,0" : {

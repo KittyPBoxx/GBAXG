@@ -724,6 +724,8 @@ function specialPostWarpHandling() {
             writeGameVar("FR", 0x4068, 3);
         } else if (destination == "FR,1,78,1") {
             writeGameVar("FR", 0x4068, 4);
+        } else if (destination == "FR,1,79,0") {
+            writeGameVar("FR", 0x4068, 4);
         }
     }
 }

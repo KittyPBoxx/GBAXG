@@ -306,6 +306,103 @@ function patchGameIssues() {
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2d77a, 0x00);
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2d77d, 0xd0);
 
+            // Always open the champion room door
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc3e, 0x8a);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc3f, 0x02);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc40, 0x8e);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc41, 0x02);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc42, 0x8c);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc43, 0x02);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc58, 0x95);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc59, 0x02);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc5a, 0x96);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc5b, 0x32);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc5c, 0x97);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31fc5d, 0x02);
+
+            // Champion Fight on talk
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3b19f8, 0xee);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3b19f9, 0x2b);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3b19fa, 0x16);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3b19fb, 0x08);
+
+            // Dont start fight on enter
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x162b65, 0x3d);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x162b66, 0x26);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x162bf7, 0x61);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x162bf8, 0x76);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x162bf9, 0x1a);
+
+            // Don't Lock E4 Room Doors
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a7619, 0x8a);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a7622, 0x8e);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a7624, 0x00);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a762b, 0x8c);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a7634, 0x95);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a763d, 0x96);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a763f, 0x00);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1a7646, 0x97);
+
+            // Knock through lance's wall
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f70e, 0x40);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f70f, 0x07);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f710, 0x36);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f711, 0x07);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f746, 0x48);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f747, 0x07);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f748, 0x3e);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f749, 0x07);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f77c, 0x10);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f77d, 0x33);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f77e, 0x10);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f77f, 0x33);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f780, 0x10);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f781, 0x33);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f782, 0x10);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f783, 0x33);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f802, 0x96);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f803, 0x32);
+
+            // Open All E4 back doors by default
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f0ba, 0x8e);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f0d4, 0x96);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f0d5, 0x32);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f232, 0x8e);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f24c, 0x96);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f24d, 0x32);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f3aa, 0x8e);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f3c4, 0x96);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f3c5, 0x32);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f5e8, 0x8e);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f620, 0x96);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x31f621, 0x32);
+
+            // Prevent walk north when entering the back door
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x16262e, 0x68);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x16262f, 0x40);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x16273e, 0x68);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x16273f, 0x40);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x162740, 0x01);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1628c9, 0x68);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1628ca, 0x40);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1628cb, 0x02);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1629e6, 0x68);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1629e7, 0x40);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1629e8, 0x03);
+            
+
             if (earlyBalls) {                                
                 patchSectionOfRom(0x169550, [0x0,0x96,0x96,0x16,0x08,0x21,0x02,0x40,0x02,0x00,0x07,0x01,0x96,0x96,0x16,0x08], "FR");
                 IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x169567, 0x96);
