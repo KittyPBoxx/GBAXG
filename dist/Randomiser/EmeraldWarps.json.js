@@ -4649,7 +4649,9 @@ var EMERALD_WARPS =
         "name" : "METEOR FALLS - INSIDE - F1 Top Left Ladder - 5,4",
         "to" : "E,24,2,4",
         "level" : "9",
-        "tags": ["low_priority"]
+        "connections" : {
+            "E,24,0,5": true
+        }
     },
     "E,24,0,4" : {
         "name" : "METEOR FALLS - INSIDE - F1 Bottom Right - 1A,C",
@@ -4661,7 +4663,9 @@ var EMERALD_WARPS =
         "name" : "METEOR FALLS - INSIDE - F1 Top Left Door - 4,2",
         "to" : "E,24,107,0",
         "level" : "9",
-        "ignore": true
+        "connections" : {
+            "E,24,0,3": true
+        }
     },
 // F2
     "E,24,1,0" : {

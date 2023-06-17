@@ -145,6 +145,11 @@ function patchGameIssues() {
        // Make Mirage Tower always present
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x1be7eC, 0xa9);
 
+       // Open the meteor falls door
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x42e8e4, 0x46);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x42e920, 0x4e);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x42e921, 0x32);
+
        // Open All E4 Back Doors
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x42d522, 0x44);
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x42d523, 0x07);
