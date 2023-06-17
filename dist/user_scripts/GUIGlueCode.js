@@ -508,6 +508,10 @@ function registerGUIEvents() {
         turboRepeatDelay = parseInt(document.getElementById("turbo-delay-value-input").value);
     });
 
+    addEvent("click", document.getElementById("earlyBalls"), () => {
+        earlyBalls = document.getElementById("earlyBalls").checked;
+    });
+
     //Run on init as well:
     storageManager.find("RANDOM_MAPPING", () => {
         document.getElementById("input_seed_text").value = "KITTY";

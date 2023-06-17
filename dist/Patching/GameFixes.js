@@ -1,3 +1,5 @@
+var earlyBalls = true;
+
 function patchGameIssues() {
     if(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
 
@@ -298,6 +300,15 @@ function patchGameIssues() {
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2d699, 0xd0);
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2d77a, 0x00);
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x2d77d, 0xd0);
+
+            if (earlyBalls) {                                
+                patchSectionOfRom(0x169550, [0x0,0x96,0x96,0x16,0x08,0x21,0x02,0x40,0x02,0x00,0x07,0x01,0x96,0x96,0x16,0x08], "FR");
+                IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x169567, 0x96);
+                IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x169568, 0x96);
+            }
+
+            document.getElementById("earlyBalls").setAttribute("disabled", true);
+            document.getElementById("earlyBallsHolder").style.filter = "saturate(0)";
 
 
         } else {
