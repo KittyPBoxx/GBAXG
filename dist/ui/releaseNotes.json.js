@@ -8,7 +8,8 @@ var RELEASE_NOTES = {
         "CD Sudowoodo and Suicune will now be automatically randomized if you load a randomized rom",
         "Early Balls Option (will trigger parcel delivery script as soon as the rival is defeated) (MUST BE ENABLED BEFORE LOADING ROMS!!!)",
         "SpeedCodes (Speedup games while keeping normal speed audio) (MUST BE ENABLED BEFORE LOADING ROMS IF YOU WANT THE OPTION TO TOGGLE IT LATER!!!)" + 
-        "<BR> NB: If you use speedup codes and haven't loaded a genuine ninendo bios.bin (RECOMMENDED) before loading the roms the intro oak sprite will not be displayed."
+        "<BR> NB: If you use speedup codes and haven't loaded a genuine ninendo bios.bin (RECOMMENDED) before loading the roms the intro oak sprite will not be displayed.",
+        "Created updated version of UPR to fix CD TM compatability issue https://kittypboxx.github.io/GBAXG/upr/UniversalPokemonRandomizer.zip"
     ],
     "0.10.1-ALPHA" : [
         "Various Bug Fixes",
