@@ -205,6 +205,16 @@ async function patchExpansionData() {
         return;
     }
 
+    /* Currently we do patching of crystals statics based on the md5 / to detect if it's vanilla. So we need to do that first before any other patching */
+    if (IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C")) {
+        let crystalMD5 = md5(IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").ROM);
+
+        if (crystalMD5 != "ef47f6528875dc3de037e75bba6a0ecb") {
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0xe7517F, (getHash(crystalMD5 + "SUDOWOODO") % 250) + 1);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x9e2279, (getHash(crystalMD5 + "SUICUNE") % 250) + 1);
+        }
+    }
+
 
     var isPatchedFireRed = IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").ROM[0xBC];
 
