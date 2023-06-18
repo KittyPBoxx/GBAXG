@@ -725,6 +725,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Unknown Ladder - A,C",
         "to" : "C,24,86,4",
         "level" : "1",
+        "ignore": true,
     },
     "C,24,87,1" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Top Drop - F,4",
@@ -770,13 +771,15 @@ var CRYSTAL_WARPS =
         "level" : "8",
         "connections": {
             "C,24,87,0": true,
-        }   
+        },
+        "ignore": true,
     },
     "C,24,87,6" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Right Drop - 10,18",
         "to" : "C,X,X,3",
         "level" : "8",
         "grouped": ["C,24,87,5"],
+        "ignore": true,
     },
     "C,24,87,7" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 3,16",
@@ -787,7 +790,7 @@ var CRYSTAL_WARPS =
         "groupMain" : true,
         "connections": {
             "C,24,87,0": true,
-        }   
+        },
     },
     "C,24,87,8" : {
         "name": "RUINS OF ALPH - INSIDE - Unknown Bottom Left Drop - 4,16",
