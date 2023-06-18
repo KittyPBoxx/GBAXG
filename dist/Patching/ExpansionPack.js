@@ -199,6 +199,7 @@ var expfr = null;
 var usingInstantText = true;
 var usingNoExp = false;
 var useSpeedupCodes = false;
+var startedWithSpeedupCodes = false;
 async function patchExpansionData() {
 
 
@@ -594,7 +595,7 @@ async function patchExpansionData() {
         patchInNoExp();
     }
 
-    if (useSpeedupCodes) {
+    if (useSpeedupCodes || startedWithSpeedupCodes) {
         patchInSpeedupCodes();
     } else {
         document.getElementById("speedCodes").setAttribute("disabled", true);
@@ -850,6 +851,7 @@ function patchOutNoExp() {
 function patchInSpeedupCodes() {
 
     IodineGUI.Iodine.forceBiosFile = true;
+    startedWithSpeedupCodes = true;
 
     if (!IodineGUI.Iodine.IOCore) {
         return;
