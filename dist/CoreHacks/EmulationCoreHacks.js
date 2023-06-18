@@ -822,16 +822,24 @@ GameBoyAdvanceMultiCartridge.prototype.readROM8 = function (address) {
 
     if (currentlySaving) {
 
-        if (this.cartriges.get("FR") && this.cartriges.get("FR").ROM[0xBC] &&  ((address == 1857210 || address == 4305130 || address == 4306233))) {
+        if (this.cartriges.get("FR") && this.cartriges.get("FR").ROM[0xBC] &&  ((address == 1857210 || address == 4305130 || address == 4306233 || address == 0x0416138))) {
             syncSaveStateSaves();
-        } else if (this.cartriges.get("FR") && (address == 1857098 || address == 4305018 || address == 4306121)) {
+        } else if (this.cartriges.get("FR") && (address == 1857098 || address == 4305018 || address == 4306121 || address == 0x0416138)) {
             syncSaveStateSaves();
         } else if ((address == 2681225 || address == 2918453 || address == 6214600)) {
             syncSaveStateSaves();
+        } else if (address == 0x05e8c14) {
+            saveAfterDelay();
         }
     }
 
     return this.readROM8WithoutIntercept(address);
+}
+
+async function saveAfterDelay() {
+    currentlySaving = true;
+    await delay(3000);
+    syncSaveStateSaves();
 }
 
 // FIRE RED - isSurfing 0x02036e40 (0x33 = on land, 0x11 on water)

@@ -118,6 +118,8 @@ function generateRandomMappings(onFinished, seed, mapData, flagData, config, esc
         window.cy.add(new WarpEdge('C,1,1,0', 'FR,4,0,2'));
         window.cy.add(new WarpEdge('E,1,3,0', 'FR,4,0,2'));
 
+        // Make Sure Champ goes back to the bedroom
+
 
         onFinished(getBaseRemappingData(), seed, config);
       }
