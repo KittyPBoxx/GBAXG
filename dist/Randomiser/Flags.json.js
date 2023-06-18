@@ -177,9 +177,9 @@ var COMPOSITE_FLAGS = {
         
     // HMS
 
-    "KANTO_CUT_1"        : { "flag": "KANTO_CUT"        , "condition"  : ["L_CERULEAN_GYM", "L_SS_ANNE_CAPTAIN"] },
-    "KANTO_CUT_2"        : { "flag": "KANTO_CUT"        , "condition"  : ["L_CERULEAN_GYM", "L_ILEX_FOREST"]     },
-    "KANTO_CUT_3"        : { "flag": "KANTO_CUT"        , "condition"  : ["L_CERULEAN_GYM", "L_CUTTERS_HOUSE"]   },
+    "KANTO_CUT_1"        : { "flag": "KANTO_CUT"        , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_SS_ANNE_CAPTAIN"] },
+    "KANTO_CUT_2"        : { "flag": "KANTO_CUT"        , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_ILEX_FOREST"]     },
+    "KANTO_CUT_3"        : { "flag": "KANTO_CUT"        , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_CUTTERS_HOUSE"]   },
         
     "KANTO_STRENGTH_1"   : { "flag": "KANTO_STRENGTH"   , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_VERMILION_CITY_GYM", "L_CELADON_CITY_GYM", "L_FUCHSIA_SAFARI_ZONE", "KANTO_CUT"]                },
     "KANTO_STRENGTH_2"   : { "flag": "KANTO_STRENGTH"   , "condition"  : ["L_PEWTER_CITY_GYM", "L_CERULEAN_GYM", "L_VERMILION_CITY_GYM", "L_CELADON_CITY_GYM", "L_OLIVINE_BAR", "KANTO_CUT"]                        },
