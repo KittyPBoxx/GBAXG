@@ -23,8 +23,9 @@ var FIRE_RED_WARPS =
             "FR,3,1,3": true,
             "FR,3,1,4": true,
             "FR,3,41,0": true,
-            "FR,3,20,2": "OAK_PARCEL",
-            "FR,3,8,3": "KANTO_SURF"
+            "FR,3,20,2": "KANTO_CUT",
+            "FR,3,8,3": "KANTO_SURF",
+            "FR,3,1,2": "UNLOCK_VIRIDIAN_GYM"
         },
     },
     "FR,3,1,1" : {

@@ -142,6 +142,9 @@ function patchGameIssues() {
         patchSectionOfRom(0xf66000, [0x81,0x30,0x81,0x30,0x81,0x30,0x81,0x30,0x81,0x30,0x08,0x04,0x08,0x04,0x08,0x04] , "C");
         patchSectionOfRom(0xf66010, [0x08,0x04,0x08,0x04,0x1a,0x04,0x1b,0x04,0x1c,0x04,0x08,0x04,0x08,0x04,0x08,0x04] , "C");
 
+        // Prevent Rage Candy bar guy stopping you
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0xf18bbe, 0x0a);
+
         // Patch out regie rock
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0xf35bac, 0xc9);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0xf35bad, 0x9f);
@@ -180,6 +183,10 @@ function patchGameIssues() {
         // Make sure archie will never block off the gym
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x527498, 0x20);
 
+        // Make sure wallace won't stand in front of the cave
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5274b0, 0x1d);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5274b2, 0x14);
+
         // Make sure we can go backwards through the trick master house
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x26ad12, 0x0B);
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x26ad14, 0x00);
@@ -203,6 +210,12 @@ function patchGameIssues() {
 
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x527270, 0x39);
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x527272, 0x1d);
+
+       // Stop aqua guard blocking base
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x535308, 0x14);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x53530a, 0x02);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x535320, 0x18);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x535322, 0x02);
 
        // Talk to aqua outside safari makes them leave
        patchSectionOfRom(0x52bb2c, [0x18, 0x5e, 0x1f, 0x08] , "E");
@@ -467,6 +480,18 @@ function patchGameIssues() {
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1629e6, 0x68);
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1629e7, 0x40);
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1629e8, 0x03);
+
+            // Make sure Barriers always down and lift card can always be collected and giovani always present
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3afc14, 0x00);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x16121d, 0xe2);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x1673ed, 0x20);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x161384, 0x19);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x161385, 0x15);
+
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("FR").patchROM8(0x3afbcc, 0x00);
+            
             
 
             if (earlyBalls) {                                

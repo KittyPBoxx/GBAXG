@@ -1,4 +1,12 @@
 var RELEASE_NOTES = {
+    "0.10.3-ALPHA" : [
+        "Rage candy bar guy no longer stops you",
+        "Logic Updates",
+        "Fix double warp in Goldenrod",
+        "R.Hideout Lift Key always collectable, Both Barriers always down, giovanni always avaiable",
+        "Stop aqua blocking enterance of hideout",
+        "Make sure wallace won't block the cave of origin"
+    ],
     "0.10.2-ALPHA" : [
         "FRLG V.Road Rocks / CD Ice Path Now Pre-Dropped",
         "Aqua R121 + Magma Mossdeep Grunts now removable from both sides",

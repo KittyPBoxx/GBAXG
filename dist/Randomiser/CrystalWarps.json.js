@@ -1438,8 +1438,7 @@ var CRYSTAL_WARPS =
         "level": "3",
         "connections": {
             "C,0,3,3": true
-        },
-        "tags": ["removeable"]
+        }
     },
     "C,0,3,9" : {
         "name": "GOLDENROD CITY - OUTSIDE - Top Right - 23,6",
@@ -1560,7 +1559,8 @@ var CRYSTAL_WARPS =
     "C,11,13,0" : {
         "name": "GOLDENROD CITY - INSIDE - Top Right Right - 21,B",
         "to" : "C,0,3,10",
-        "level": "3"
+        "level": "3",
+        "tags": ["removeable"]
     },
     "C,11,8,0" : {
         "name": "GOLDENROD CITY - INSIDE - Top Right (Flower Shop) - A,C",
@@ -3175,7 +3175,8 @@ var CRYSTAL_WARPS =
             "C,0,13,4": true,
             "C,0,13,0": true,
             "C,0,13,3": true,
-            "C,0,29,3": true
+            "C,0,29,3": true,
+            "C,0,31,0": true
         }   
     }, 
     "C,0,13,3" : {
