@@ -1226,7 +1226,7 @@ BagStoreage.prototype.writeDataToEmerald = function (game, lastGame, isLoadingSc
     this.writeItemSection(save1Start, EMERALD_BALL_OFFSET, EMERALD_BALL_LENGTH, this.ballItemPocket, xorKey16, isLoadingScreen);
 
     // write tms
-    this.writeItemSection(save1Start, EMERALD_TM_OFFSET, EMERALD_TM_LENGTH, this.tmCase, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, EMERALD_TM_OFFSET, EMERALD_TM_LENGTH, this.tmCase, xorKey16, false);
 
     // write berries
     this.writeItemSection(save1Start, EMERALD_BERRIES_OFFSET, EMERALD_BERRIES_LENGTH, this.berryPocket, xorKey16, isLoadingScreen);
@@ -1236,10 +1236,12 @@ BagStoreage.prototype.readItemSection = function(save1Start, offset, length, sto
     for (let i = 0;  i < offset + length; i+=4) {
         let item = IodineGUI.Iodine.IOCore.cpu.read16(save1Start + offset + i);
 
-        if (item == 0) { break; }
+        if (item != 0) {
 
-        let ballQuantity = IodineGUI.Iodine.IOCore.cpu.read16(save1Start + offset + i + 2) ^ xorKey16;
-        storeTo.set(item, ballQuantity);
+            let quantity = IodineGUI.Iodine.IOCore.cpu.read16(save1Start + offset + i + 2) ^ xorKey16;
+            storeTo.set(item, quantity);
+
+        }
     }
 }
 
