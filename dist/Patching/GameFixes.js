@@ -322,6 +322,18 @@ function patchGameIssues() {
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x533712, 0x22);
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x533713, 0x08);
 
+       // Make sure slateport dock is alway available
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x526290, 0x1e);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x526295, 0x0b);
+
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5262a8, 0x1d);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5262aa, 0x0d);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5262ad, 0x08);
+
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5262c0, 0x1d);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5262c2, 0x0e);
+       IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x5262c5, 0x07);
+
        // Remove Darkness from Caves
        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("E").patchROM8(0x0854d8, 0x08);
 
