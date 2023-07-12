@@ -695,7 +695,7 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 3,4",
         "to" : "C,24,87,1",
         "level" : "1",
-        "grouped": ["C,24,88,3", "C,24,88,4"],
+        "grouped": ["C,24,88,3", "C,24,88,4", "C,24,88,16", "C,24,88,17"],
         "groupMain" : true,
         "connections": {
             "C,24,88,1": true,
@@ -706,13 +706,26 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 4,4",
         "to" : "C,24,87,1",
         "level" : "1",
-        "grouped": ["C,24,88,2", "C,24,88,4"],
+        "grouped": ["C,24,88,2", "C,24,88,4", "C,24,88,16", "C,24,88,17"],
     },
     "C,24,88,4" : {
         "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 5,4",
         "to" : "C,24,87,2",
         "level" : "1",
-        "grouped": ["C,24,88,2", "C,24,88,3"],
+        "grouped": ["C,24,88,2", "C,24,88,3", "C,24,88,16", "C,24,88,17"],
+    },
+    // Proxy puzzle warps for if chamber in alt state
+    "C,24,88,16" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 4,4",
+        "to" : "C,24,92,1",
+        "level" : "1",
+        "grouped": ["C,24,88,2", "C,24,88,3", "C,24,88,4", "C,24,88,17"],
+    },
+    "C,24,88,17" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 4,4",
+        "to" : "C,24,92,2",
+        "level" : "1",
+        "grouped": ["C,24,88,2", "C,24,88,3", "C,24,88,4", "C,24,88,16"],
     },
     // Lab
     "C,24,75,0" : {
@@ -884,7 +897,7 @@ var CRYSTAL_WARPS =
         "level" : "8",
         "to" : "C,24,87,5",
         "ignore": true,
-        "grouped": ["C,24,93,3", "C,24,93,4"],
+        "grouped": ["C,24,93,3", "C,24,93,4", "C,24,93,16", "C,24,93,17"],
         "groupMain" : true,
         "connections": {
             "C,24,93,0": true,
@@ -894,13 +907,13 @@ var CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Bottom Right Drop - 4,4",
         "level" : "8",
         "to" : "C,24,87,5",
-        "grouped": ["C,24,93,2", "C,24,93,4"]
+        "grouped": ["C,24,93,2", "C,24,93,4", "C,24,93,16", "C,24,93,17"]
     },
     "C,24,93,4" : {
         "name": "RUINS OF ALPH - INSIDE - Bottom Right Drop - 5,4",
         "level" : "8",
         "to" : "C,24,87,6",
-        "grouped": ["C,24,93,2", "C,24,93,3"]
+        "grouped": ["C,24,93,2", "C,24,93,3", "C,24,93,16", "C,24,93,17"]
     },
     "C,24,93,1" : {
         "name": "RUINS OF ALPH - INSIDE - Bottom Right Flash Door - 4,1",
@@ -910,6 +923,19 @@ var CRYSTAL_WARPS =
             "C,24,93,0": true,
         },
         "tags": ["no_return"]
+    },
+    // Proxy puzzle warps for if chamber in alt state
+    "C,24,93,16" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 4,4",
+        "to" : "C,24,92,5",
+        "level" : "1",
+        "grouped": ["C,24,93,2", "C,24,93,3", "C,24,93,4", "C,24,93,17"],
+    },
+    "C,24,93,17" : {
+        "name": "RUINS OF ALPH - INSIDE - Top Cave Puzzle Drop - 4,4",
+        "to" : "C,24,92,6",
+        "level" : "1",
+        "grouped": ["C,24,93,2", "C,24,93,3", "C,24,93,4", "C,24,93,16"],
     },
     // Hidden Room Top Left
     "C,24,89,0" : {
