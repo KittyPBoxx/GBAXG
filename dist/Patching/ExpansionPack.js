@@ -214,6 +214,8 @@ async function patchExpansionData() {
         if (crystalMD5 != "ef47f6528875dc3de037e75bba6a0ecb") {
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0xe7517F, (getHash(crystalMD5 + "SUDOWOODO") % 250) + 1);
             IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x9e2279, (getHash(crystalMD5 + "SUICUNE") % 250) + 1);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x9d9032, (getHash(crystalMD5 + "ELECTRODE") % 250) + 1);
+            IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x9d6902, (getHash(crystalMD5 + "GYARADOS") % 250) + 1);
         }
     }
 

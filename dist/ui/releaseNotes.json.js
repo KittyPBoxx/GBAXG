@@ -1,4 +1,12 @@
 var RELEASE_NOTES = {
+    "0.10.4-ALPHA" : [
+        "Last fix patches before major update:",
+        "Randomise Electrode and Gyarados when crystal random",
+        "Fix unknown puzzle warps breaking",
+        "Fix bag loosing items when the order changed",
+        "Fix possible slateport softlock",
+        "Prevent autobattle with champion lance"
+    ],
     "0.10.3-ALPHA" : [
         "Rage candy bar guy no longer stops you",
         "Logic Updates",

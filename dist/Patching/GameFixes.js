@@ -152,8 +152,13 @@ function patchGameIssues() {
 
         // Allow Digging in rocket hideout
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4840eb, 0x04);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x4840ee, 0xFF);
+
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x484107, 0x04);
-        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x484123, 0x034);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x48410A, 0xFF);
+
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x484123, 0x04);
+        IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x484126, 0xFF);
 
         // Remove Darkness from Caves
         IodineGUI.Iodine.IOCore.cartridge.cartriges.get("C").patchROM8(0x0854d8, 0x08);
