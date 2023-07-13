@@ -1151,19 +1151,19 @@ BagStoreage.prototype.writeDataToFireRed = function (game, lastGame, isLoadingSc
     } 
 
     // write items
-    this.writeItemSection(save1Start, FIRE_RED_ITEM_OFFSET, FIRE_RED_ITEM_LENGTH, this.itemPocket, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, FIRE_RED_ITEM_OFFSET, FIRE_RED_ITEM_LENGTH, this.itemPocket, xorKey16, true);
 
     // write key items
-    this.writeItemSection(save1Start, FIRE_RED_KEY_ITEM_OFFSET, FIRE_RED_KEY_ITEM_LENGTH, this.keyItemsPocket, xorKey16, false);
+    this.writeItemSection(save1Start, FIRE_RED_KEY_ITEM_OFFSET, FIRE_RED_KEY_ITEM_LENGTH, this.keyItemsPocket, xorKey16, true);
 
     // write balls
-    this.writeItemSection(save1Start, FIRE_RED_BALL_OFFSET, FIRE_RED_BALL_LENGTH, this.ballItemPocket, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, FIRE_RED_BALL_OFFSET, FIRE_RED_BALL_LENGTH, this.ballItemPocket, xorKey16, true);
 
     // write tms
-    this.writeItemSection(save1Start, FIRE_RED_TM_OFFSET, FIRE_RED_TM_LENGTH, this.tmCase, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, FIRE_RED_TM_OFFSET, FIRE_RED_TM_LENGTH, this.tmCase, xorKey16, true);
 
     // write berries
-    this.writeItemSection(save1Start, FIRE_RED_BERRIES_OFFSET, FIRE_RED_BERRIES_LENGTH, this.berryPocket, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, FIRE_RED_BERRIES_OFFSET, FIRE_RED_BERRIES_LENGTH, this.berryPocket, xorKey16, true);
 }
 
 BagStoreage.prototype.writeDataToEmerald = function (game, lastGame, isLoadingScreen) {
@@ -1217,28 +1217,28 @@ BagStoreage.prototype.writeDataToEmerald = function (game, lastGame, isLoadingSc
     }
 
     // write items
-    this.writeItemSection(save1Start, EMERALD_ITEM_OFFSET, EMERALD_ITEM_LENGTH, this.itemPocket, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, EMERALD_ITEM_OFFSET, EMERALD_ITEM_LENGTH, this.itemPocket, xorKey16, true);
 
     // write key items
-    this.writeItemSection(save1Start, EMERALD_KEY_ITEM_OFFSET, EMERALD_KEY_ITEM_LENGTH, this.keyItemsPocket, xorKey16, false);
+    this.writeItemSection(save1Start, EMERALD_KEY_ITEM_OFFSET, EMERALD_KEY_ITEM_LENGTH, this.keyItemsPocket, xorKey16, true);
 
     // write balls
-    this.writeItemSection(save1Start, EMERALD_BALL_OFFSET, EMERALD_BALL_LENGTH, this.ballItemPocket, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, EMERALD_BALL_OFFSET, EMERALD_BALL_LENGTH, this.ballItemPocket, xorKey16, true);
 
     // write tms
-    this.writeItemSection(save1Start, EMERALD_TM_OFFSET, EMERALD_TM_LENGTH, this.tmCase, xorKey16, false);
+    this.writeItemSection(save1Start, EMERALD_TM_OFFSET, EMERALD_TM_LENGTH, this.tmCase, xorKey16, true);
 
     // write berries
-    this.writeItemSection(save1Start, EMERALD_BERRIES_OFFSET, EMERALD_BERRIES_LENGTH, this.berryPocket, xorKey16, isLoadingScreen);
+    this.writeItemSection(save1Start, EMERALD_BERRIES_OFFSET, EMERALD_BERRIES_LENGTH, this.berryPocket, xorKey16, true);
 }
 
 BagStoreage.prototype.readItemSection = function(save1Start, offset, length, storeTo, xorKey16) {
-    for (let i = 0;  i < offset + length; i+=4) {
-        let item = IodineGUI.Iodine.IOCore.cpu.read16(save1Start + offset + i);
+    for (let i = 0;  i < (length/4); i++) {
+        let item = IodineGUI.Iodine.IOCore.cpu.read16(save1Start + offset + (i*4));
 
         if (item != 0) {
 
-            let quantity = IodineGUI.Iodine.IOCore.cpu.read16(save1Start + offset + i + 2) ^ xorKey16;
+            let quantity = IodineGUI.Iodine.IOCore.cpu.read16(save1Start + offset + (i*4) + 2) ^ xorKey16;
             storeTo.set(item, quantity);
 
         }
@@ -1249,16 +1249,15 @@ BagStoreage.prototype.writeItemSection = function(save1Start, offset, length, st
 
     var storeArr = [...store];
 
-    for (let i = 0;  i < offset + length; i+=4) {
+    for (let i = 0;  i < (length/4); i++) {
 
-        let index = i / 4;
-        if (storeArr.length > index) {
+        if (storeArr.length > i) {
 
-            let item = (storeArr[i / 4])[0];
-            let quantity = (storeArr[i / 4])[1] ^ xorKey16;
+            let item = (storeArr[i])[0];
+            let quantity = (storeArr[i])[1] ^ xorKey16;
 
-            IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + i, item);
-            IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + i + 2, quantity);
+            IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + (i*4), item);
+            IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + (i*4) + 2, quantity);
 
         } else {
 
@@ -1267,8 +1266,8 @@ BagStoreage.prototype.writeItemSection = function(save1Start, offset, length, st
                 let item = ITEM_DATA.Nothing.number;
                 let quantity = 0 ^ xorKey16;
                 
-                IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + i, item);
-                IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + i + 2, quantity);
+                IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + (i*4), item);
+                IodineGUI.Iodine.IOCore.cpu.write16(save1Start + offset + (i*4) + 2, quantity);
             } else {
                 break;
             }
