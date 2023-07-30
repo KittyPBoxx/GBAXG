@@ -1,0 +1,16 @@
+body {
+    background: #2f3138;
+}
+
+#cy {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 30px;
+    position: absolute;
+}
+
+.available-warp-select-wrapper {
+    display: flex;
+    background: #2f3138;
+}

@@ -1,0 +1,405 @@
+@font-face {
+    font-family: 'RetroGaming'; 
+    src: url('./fonts/AvenirLTStd-Book.otf'); 
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding:0;
+    font-family: 'RetroGaming';
+    overflow: hidden;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #212121;
+}
+
+#fileStaging,
+#fileStagingName,
+#fileInput {
+    visibility: hidden;
+    display: none;
+}
+
+.emscripten_border {
+    width: 100%;
+    height: 100%;
+    resize: vertical;
+    overflow: auto;
+}
+
+div.emscripten_border {
+    border: 0;
+    padding-bottom: 6px;
+    background: black;
+}
+
+.emscripten_border #canvas {
+    position: relative;
+}
+
+#ui {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.tab-group {
+    background: #111111;
+    width:100%;
+    height:100%;
+}
+
+.blank-cell {
+    padding: 0.4em;
+    border: 0;
+    background: transparent;
+    text-align: center;
+}
+
+sl-tab {
+    padding: 0.3em;
+    border: 1px solid black;
+    border-radius: 2px;
+    background: #343434;
+    color: #d3d3d3;
+    font-size: 14px;
+}
+
+sl-tab[active] {
+    background: #202020;
+}
+
+sl-tab::part(base) {
+    padding: 0;
+}
+
+sl-tab-group[data-hidden="true"] .toggleable{
+    display: none;
+}
+
+sl-tab-group::part(base) {
+    height: 100%;
+}
+
+sl-tab-panel {
+    height: 0;
+    width: 100%;
+    background: #202020;
+}
+
+sl-tab-panel::part(base) {
+    padding:0.1em;
+}
+
+sl-tab-group::part(body) {
+    display: flex;
+    background: #202020;
+}
+
+.av-controls {
+    display: flex;
+    gap: 1.5em;
+    color: #d3d3d3;
+    padding: 0.5em;
+}
+
+sl-radio {
+    padding-bottom: 0.2em;
+}
+
+sl-radio-button::part(label) {
+    padding: 0.2em;
+    margin: 0;
+    line-height: 16px;
+}
+
+sl-radio-button::part(button) {
+    min-height: 0;
+}
+
+sl-card::part(body) {
+    padding: 0.4em;
+}
+
+.input-files table {
+    border-spacing: 0;
+}
+
+.input-files table td {
+    padding: 0.5em;
+    border: 1px solid #202020;
+    background: #343434;
+    border-radius: 2px;
+    color: #d3d3d3;
+    
+}
+
+.saves-form {
+    border-spacing: 0;
+}
+
+.saves-form table td {
+    padding: 0.5em;
+    background: #343434;
+    border-radius: 2px;
+    color: #d3d3d3;
+    text-align: center;
+}
+
+.input-files table .fileInput,
+.input-files table .fileInput label,
+.input-files table .fileInput input {
+    cursor: pointer;
+}
+
+.input-files table .fileInput:hover {
+    background: #202020;
+}
+
+.deleteDataButton {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+}
+
+.rom-form-container {
+    display: flex;
+    gap: 0.8em;
+}
+
+.playButtons {
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    display: flex;
+    gap: 0.4em;
+    margin-top: 0.2em;
+}
+
+
+figure#spinner {
+    background: url(../icon3..png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+figure .spinner {
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    -webkit-animation: rotation .8s linear infinite;
+    -moz-animation: rotation .8s linear infinite;
+    -o-animation: rotation .8s linear infinite;
+    animation: rotation .8s linear infinite;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-top: 2px solid #9d0000;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+.patch-list table td {
+    padding: 0.5em;
+    background: #343434;
+    border-radius: 2px;
+    color: #d3d3d3;
+    
+}
+
+.patch-list-container {
+    display: flex;
+}
+
+.patch-info {
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 0.5em;
+    margin-top: 0.2em;
+    white-space: pre-line;
+}
+
+.keybind-table {
+    width: 100%;
+}
+
+.keybind-table td {
+    padding: 0.2em;
+    color: #d3d3d3;
+}
+
+.keybind-table td[data-command] {
+    cursor: pointer;
+    background: #343434;
+}
+
+.keybind-table td[data-command]:hover {
+    background: #181818;
+    border-radius: 2px;
+}
+
+.save-info-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    gap: 0.5em;
+}
+
+.button-style-file-input.save-input {
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+.saves-form table td.save-image {
+    padding: 0.1em;
+}
+
+.warp-options table td {
+    padding: 0.5em;
+    border-radius: 2px;
+    color: #d3d3d3;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+.location-selections sl-button {
+    margin-top: -0.1em;
+}
+
+.location-selections .warp-id-select sl-select::part(form-control-input), 
+.location-selections .warp-id-select sl-input::part(form-control-input){
+    width: 6em;
+}
+
+.warp-id-select td {
+    display: flex;
+    gap: 0.4em;
+}
+
+.warp-selection sl-select::part(form-control-input) {
+    width: 9em;
+}
+
+.hacks-tab {
+    padding: 0.5em;
+    color: #d3d3d3;
+}
+
+.status-display {
+    color: var(--sl-color-gray-500);
+    padding-left: 0.8em;
+}
+
+.button-style-file-input {
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    border-style: solid;
+    border-width: var(--sl-input-border-width);
+    font-family: var(--sl-input-font-family);
+    font-weight: var(--sl-font-weight-semibold);
+    text-decoration: none;
+    user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0px;
+    transition: var(--sl-transition-x-fast) background-color, var(--sl-transition-x-fast) color, var(--sl-transition-x-fast) border, var(--sl-transition-x-fast) box-shadow;
+    height: auto;
+    min-height: var(--sl-input-height-medium);
+    font-size: var(--sl-button-font-size-medium);
+    line-height: calc(var(--sl-input-height-medium) - var(--sl-input-border-width) * 2);
+    border-radius: var(--sl-input-border-radius-medium);
+    background-color: var(--sl-color-neutral-0);
+    border-color: var(--sl-color-neutral-300);
+    color: var(--sl-color-neutral-700);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    min-height: 0;
+}
+
+sl-input.input-amount {
+    max-width: 6em;
+}
+
+.button-style-file-input:hover {
+    background-color: var(--sl-color-primary-50);
+    border-color: var(--sl-color-primary-300);
+    color: var(--sl-color-primary-700);
+}
+
+.ecmascripten#status {
+    position: absolute;
+    bottom: 0;
+    color: red;
+    right: 2em;
+}
+
+#audio-context-refresh {
+    color: #d3d3d3;
+}
+
+.hint-table {
+    width: 100%;
+}
+
+.hint-table td {
+    padding: 0.2em;
+    color: #d3d3d3;
+}
+
+.full-solutions-container {
+    padding: 0.5em;
+    display: flex;
+    color: #d3d3d3;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.hint-table td[data-location] {
+    cursor: pointer;
+    background: #343434;
+}
+
+.hint-table td[data-location]:hover {
+    background: #181818;
+    border-radius: 2px;
+}
+
+.fileInput label {
+    width: 100%;
+    display: block;
+}
+
+.input-files table td span {
+    max-width: 85px;
+}
+
+.emscripten#status {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 2em;
+    color: #7d2b2b;
+    opacity: 0;
+    transition: opacity 2s linear;
+}

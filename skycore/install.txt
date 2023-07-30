@@ -1,0 +1,6 @@
+ cd build 
+emcmake cmake ..
+cmake --build .
+
+## From Root folder
+python3 -m http.server 9000

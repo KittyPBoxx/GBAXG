@@ -1,0 +1,14 @@
+{
+    "name": "SkyEmu",
+    "short_name": "SkyEmu",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#759091",
+    "background_color": "#759091",
+    "display": "standalone"
+}

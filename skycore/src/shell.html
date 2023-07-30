@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <!-- hack for ios 14.6 to get around indexeddb bug -->
+    <script type="text/javascript">window.indexedDB;</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="Web Based Game Boy Advance, Game Boy and Game Boy Color Emulator">
+    <meta name="keywords" content="GBA, Game Boy Advance, Emulator, Game Boy, GB, GBC, Game Boy Color">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="manifest" href="/site.webmanifest?v=1">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1" color="#759091">
+  <link rel="shortcut icon" href="/favicon.ico?v=1">
+  <meta name="apple-mobile-web-app-title" content="GBAXG - SkyCore">
+  <meta name="application-name" content="GBAXG - SkyCore">
+  <meta name="msapplication-TileColor" content="#759091">
+  <meta name="msapplication-config" content="/browserconfig.xml?v=1">
+  <meta name="theme-color" content="#759091">
+
+    <title>GBAXG - SkyCore</title>
+    <style>
+      body{padding:0; margin:0;}
+      .emscripten { padding: 0; margin: 0; display: block; }
+      textarea.emscripten { font-family: monospace; width: 80%; }
+      div.emscripten { text-align: center; }
+      div.emscripten_border { border: 1px solid black; }
+      /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+      canvas.emscripten {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+      }
+      #canvas {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          margin: 0px;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          display: block;
+      }
+      input[type="file"] {
+        display: block !important;
+        opacity: 0% !important;
+        overflow: hidden !important;
+        z-index: 100 !important;
+        margin-top: 0px;
+        padding-top: 0px;
+        position: absolute;
+        visibility:hidden;
+      }
+      .spinner {
+        height: 50px;
+        width: 50px;
+        margin: 0px auto;
+        -webkit-animation: rotation .8s linear infinite;
+        -moz-animation: rotation .8s linear infinite;
+        -o-animation: rotation .8s linear infinite;
+        animation: rotation 0.8s linear infinite;
+        border-left: 10px solid rgb(0,150,240);
+        border-right: 10px solid rgb(0,150,240);
+        border-bottom: 10px solid rgb(0,150,240);
+        border-top: 10px solid rgb(100,0,200);
+        border-radius: 100%;
+        background-color: rgb(200,100,250);
+      }
+      @-webkit-keyframes rotation {
+        from {-webkit-transform: rotate(0deg);}
+        to {-webkit-transform: rotate(360deg);}
+      }
+      @-moz-keyframes rotation {
+        from {-moz-transform: rotate(0deg);}
+        to {-moz-transform: rotate(360deg);}
+      }
+      @-o-keyframes rotation {
+        from {-o-transform: rotate(0deg);}
+        to {-o-transform: rotate(360deg);}
+      }
+      @keyframes rotation {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+      }
+
+    </style>
+
+    <!-- Scripts for the web ui -->
+    <script src="../../web-src/gamecontroller.js"></script>
+    <script src="../../web-src/randomiser/cytoscape.min.js"></script>
+    <script src="../../web-src/md5.min.js"></script>
+    <script src="../../web-src/libpatch.js"></script>
+    <script src="../../web-src/jszip.min.js"></script>
+    <script type="module"  src="../../web-src/Main.js"></script>
+    <link rel="stylesheet" href="../../web-src/styles.css" />
+    <script src="../../web-src/preact-10.14.0.js"></script>
+    <link rel="stylesheet" href="../../web-src/shoelace/shoelace-dark-2.5.2.css" />
+    <script type="module" src="../../web-src/shoelace/cdn/shoelace.js" ></script>
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.5.2/cdn/shoelace-autoloader.js"></script> -->
+  </head>
+  <body class="sl-theme-dark">
+    <figure style="overflow:visible;" id="spinner"><div class="spinner"></div><center style="margin-top:0.5em"><strong>emscripten</strong></center></figure>
+    <div class="emscripten" id="status">Downloading...</div>
+    <div class="emscripten">
+      <progress value="0" max="100" id="progress" hidden=1></progress>  
+    </div>
+    <div class="emscripten_border" id="container">
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+    </div>
+    <div id="ui"></div>
+    <!-- Code for displaying console 
+    <hr/>
+    <textarea class="emscripten" id="output" rows="8"></textarea>
+    <hr>
+    -->       
+    <input type="file" id="fileInput" value="">
+    <input id="fileStaging" value="">
+    <input id="fileStagingName" value="">
+    <script type='text/javascript'>                          
+      window.scroll(0,1);
+      var statusElement = document.getElementById('status');
+      var progressElement = document.getElementById('progress');
+      var spinnerElement = document.getElementById('spinner');
+      
+      var Module = {
+        preRun: [],
+        postRun: [],
+        print: (function() {
+          var element = document.getElementById('output');
+          if (element) element.value = ''; // clear browser cache
+          return function(text) {
+            if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+            // These replacements are necessary if you render to raw HTML
+            //text = text.replace(/&/g, "&amp;");
+            //text = text.replace(/</g, "&lt;");
+            //text = text.replace(/>/g, "&gt;");
+            //text = text.replace('\n', '<br>', 'g');
+            console.log(text);
+            if (element) {
+              element.value += text + "\n";
+              element.scrollTop = element.scrollHeight; // focus on bottom
+            }
+          };
+        })(),
+        printErr: function(text) {
+          if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+          console.error(text);
+        },
+        canvas: (function() {
+          var canvas = document.getElementById('canvas');
+
+          // As a default initial behavior, pop up an alert when webgl context is lost. To make your
+          // application robust, you may want to override this behavior before shipping!
+          // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+          canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
+
+          return canvas;
+        })(),
+        setStatus: function(text) {
+          if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
+          if (text === Module.setStatus.last.text) return;
+          var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+          var now = Date.now();
+          if (m && now - Module.setStatus.last.time < 30) return; // if this is a progress update, skip it if too soon
+          Module.setStatus.last.time = now;
+          Module.setStatus.last.text = text;
+          if (m) {
+            text = m[1];
+            progressElement.value = parseInt(m[2])*100;
+            progressElement.max = parseInt(m[4])*100;
+            progressElement.hidden = false;
+            spinnerElement.hidden = false;
+          } else {
+            progressElement.value = null;
+            progressElement.max = null;
+            progressElement.hidden = true;
+            if (!text) spinnerElement.hidden = true;
+          }
+          statusElement.innerHTML = text;
+        },
+        totalDependencies: 0,
+        monitorRunDependencies: function(left) {
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+          Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+        }
+      };
+
+      var container = document.getElementById ("container");
+
+      Module.setStatus('Downloading...');
+      window.onerror = function() {
+        Module.setStatus('Exception thrown, see JavaScript console');
+        spinnerElement.style.display = 'none';
+        Module.setStatus = function(text) {
+          if (text) Module.printErr('[post-exception status] ' + text);
+        };
+      };
+    </script>
+    {{{ SCRIPT }}}
+    <script async type="text/javascript" src="../../web-src/library.js"></script>
+    <div onclick="createUI()" id="audio-context-refresh">If the UI does not load automcatically click [here] or try try refreshing the page</div>
+  </body>
+</html>
+
