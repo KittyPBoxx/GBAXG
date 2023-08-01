@@ -32,7 +32,12 @@
 *.out
 *.app
 
-build*
+build/CMakeCache.txt
+build/CMakeFiles
+build/src
+build/*.a
+build/*.cmake
+build/*.pc
 .DS_Store
 *_template.h
 *.swo 
