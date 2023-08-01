@@ -921,11 +921,11 @@ class RomPatcher {
         this.patchROM8(0x3afbcc, 0x00);
         
         // Early Balls
-        if (this.earlyBalls) {                                
-            this.patchSectionOfRom(0x169550, [0x0,0x96,0x96,0x16,0x08,0x21,0x02,0x40,0x02,0x00,0x07,0x01,0x96,0x96,0x16,0x08], "FR");
-            this.patchROM8(0x169567, 0x96);
-            this.patchROM8(0x169568, 0x96);
-        }
+        // if (this.earlyBalls) {                                
+        //     this.patchSectionOfRom(0x169550, [0x0,0x96,0x96,0x16,0x08,0x21,0x02,0x40,0x02,0x00,0x07,0x01,0x96,0x96,0x16,0x08], "FR");
+        //     this.patchROM8(0x169567, 0x96);
+        //     this.patchROM8(0x169568, 0x96);
+        // }
 
         // Run Indoors
         if (this.runIndoors) {
@@ -972,13 +972,16 @@ class RomPatcher {
 
         // File Patches
         let isInstantText = this.instantText;
-        let hqAudio = this.hqMixer;
+        let hqAudio = this.hqMixer; // TODO: this is broken (the patch is for 1.0 maybe?)
+        let earlyBalls = this.earlyBalls;
         let patcher = this;
         
         patcher.applyPatchFile(true, "../../web-src/patches/fr_c_sprites.xdelta", () => {
             patcher.applyPatchFile(false, "../../web-src/patches/fr_hq_audio.xdelta", () => {
-                patcher.applyPatchFile(isInstantText, "../../web-src/patches/fr_instant_text.xdelta", () => {
-                    patcher.loader.persistRom(patcher.ROM, "FR", ".gba", textUpdateFunction);
+                patcher.applyPatchFile(earlyBalls, "../../web-src/patches/fr_early_balls.xdelta", () => {
+                    patcher.applyPatchFile(isInstantText, "../../web-src/patches/fr_instant_text.xdelta", () => {
+                        patcher.loader.persistRom(patcher.ROM, "FR", ".gba", textUpdateFunction);
+                    });
                 });
             });
         });
