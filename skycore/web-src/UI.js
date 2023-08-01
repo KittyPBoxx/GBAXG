@@ -239,6 +239,13 @@ class RomUpload extends Component {
     }
 
     fileLoaded(e, uploadComponent) {
+
+        if (uploadComponent.romLoader.loadingInProgress) {
+            console.warn("Cannot load two roms at the same time")
+            e.target.value = null;
+            return;
+        }
+
         let reader= new FileReader();
         let file = e.target.files[0];
 

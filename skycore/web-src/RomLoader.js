@@ -7,6 +7,7 @@ class RomLoader {
         this.ramHook = ramHook;
         this.romPatcher = new RomPatcher(this);
         this.romsNeedingAutoInit = ["E", "C"];
+        this.loadingInProgress = false;
     }
 
     isLoaded(code, extension) {
@@ -21,6 +22,7 @@ class RomLoader {
     }
 
     loadRom(data, code, extension, textUpdateFunction) {
+        this.loadingInProgress = true;
         const uint8_view = new Uint8Array(data);
         this.romPatcher.setRom(uint8_view, code, extension, textUpdateFunction);
     }
@@ -35,6 +37,7 @@ class RomLoader {
             this.autoInitRom(code, textUpdateFunction);
         } else {
             textUpdateFunction("Loaded");
+            this.loadingInProgress = false;
         }
     }
 
@@ -58,6 +61,7 @@ class RomLoader {
         try {
             FS.stat("/offline/" + code + ".slot0.state.png");
             textUpdateFunction("Loaded");
+            this.loadingInProgress = false;
         } catch (e) {
             this.getDefaultSaveFileThen(this, code, textUpdateFunction);
         }
@@ -110,6 +114,7 @@ class RomLoader {
             textUpdateFunction("Failed");
         } else {
             romLoader.exposedEmulationCore.setSpeed_EmulationCore(1);
+            romLoader.loadingInProgress = false;
             textUpdateFunction("Loaded");
         }
     }
@@ -500,20 +505,6 @@ class RomPatcher {
                 });
             });
         });
-
-
-    
-        // patcher.applyPatchFile(true, "../../web-src/patches/e_c_sprites.xdelta", () => {
-        //     patcher.applyPatchFile(hqAudio, "../../web-src/patches/e_hq_audio.xdelta", () => {
-        //         patcher.applyPatchFile(isInstantText, "../../web-src/patches/e_instant_text.xdelta", () => {
-        //             // If the rom is randomised we need to apply the randomised red patch otherwise the one with vanilla red pokemon
-        //             let patchPath = patcher.VANILLA_EMERALD_MD5 == patcher.md5 ? "../../web-src/patches/e_red_vanilla.xdelta" : "../../web-src/patches/e_red_randomised.xdelta";
-        //             patcher.applyPatchFile(true, patchPath, () => {
-        //                 patcher.loader.persistRom(patcher.ROM, "E", ".gba", textUpdateFunction);
-        //             });
-        //         });
-        //     });
-        // });
     }
 
     patchCrystal(textUpdateFunction) {
