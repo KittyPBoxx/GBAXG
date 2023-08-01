@@ -12,7 +12,7 @@ class Randomiser {
     Object.entries(CRYSTAL_WARPS).forEach(e => this.mixedGameData[e[0]] = e[1]);
     Object.entries(EMERALD_WARPS).forEach(e => this.mixedGameData[e[0]] = e[1]);
 
-    this.remappingData = {};
+    this.remappingData = new Map();
     this.config = {};
     this.config.kantoLevel = 1;
     this.config.johtoLevel = 1; 
