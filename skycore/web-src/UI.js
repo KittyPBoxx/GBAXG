@@ -9,7 +9,7 @@ class UI extends Component {
         this.gbaxg = gbaxg;
         this.root = root;
         this.romTab = new RomTab(this.gbaxg.romLoader, this.gbaxg.saveManager);
-        this.patchesTab = new PatchesTab();
+        this.patchesTab = new PatchesTab(this.gbaxg.romLoader);
         this.controlsTab = new ControlsTab(this, this.gbaxg.keybindManager);
         this.savesTab = new SavesTab(this, this.gbaxg.saveManager);
         this.warpsTab = new WarpsTab(this.gbaxg.keybindManager, this.gbaxg.randomiser, this.gbaxg.ramHook);
@@ -255,10 +255,51 @@ class RomUpload extends Component {
 
 class PatchesTab extends Component {
 
-    constructor() {
+    constructor(romLoader) {
         super();
+        this.romLoader = romLoader;
         this.id = "patches";
         this.title = "Patches";
+    }
+
+    toggleEarlyBalls(e, elmnt) {
+        elmnt.romLoader.romPatcher.earlyBalls = e.target.checked;
+    }
+
+    togglePerfectCatchRate(e, elmnt) {
+        elmnt.romLoader.romPatcher.perfectCatchRate = e.target.checked;
+    }
+
+    toggleInstantText(e, elmnt) {
+        elmnt.romLoader.romPatcher.instantText = e.target.checked;
+    }
+
+    toggleRunIndoors(e, elmnt) {
+        elmnt.romLoader.romPatcher.runIndoors = e.target.checked;
+    }
+
+    toggleNoExp(e, elmnt) {
+        elmnt.romLoader.romPatcher.noExp = e.target.checked;
+    }
+
+    toggleNoExp(e, elmnt) {
+        elmnt.romLoader.romPatcher.noExp = e.target.checked;
+    }
+
+    toggleNoFRFlashbacks(e, elmnt) {
+        elmnt.romLoader.romPatcher.noFRFlashbacks = e.target.checked;
+    }
+
+    toggleNoDarkInCaves(e, elmnt) {
+        elmnt.romLoader.romPatcher.neverDarkInCaves = e.target.checked;
+    }
+
+    toggleSpeedCodes(e, elmnt) {
+        elmnt.romLoader.romPatcher.ultrSpeedCodes = e.target.checked;
+    }
+
+    toggleHQMixer(e, elmnt) {
+        elmnt.romLoader.romPatcher.hqMixer = e.target.checked;
     }
 
     render() {
@@ -267,39 +308,39 @@ class PatchesTab extends Component {
                             <table>
                                 <tr>
                                     <td>Early Balls</td>
-                                    <td><sl-checkbox></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleEarlyBalls(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>100% Catch Rate</td>
-                                    <td><sl-checkbox checked></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.togglePerfectCatchRate(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>Instant Text</td>
-                                    <td><sl-checkbox checked></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleInstantText(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>Run Indoors</td>
-                                    <td><sl-checkbox checked></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleRunIndoors(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>No Exp</td>
-                                    <td><sl-checkbox></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleNoExp(e, this)}"></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>No FR Flashbacks</td>
-                                    <td><sl-checkbox checked></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleNoFRFlashbacks(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>Caves Never Dark</td>
-                                    <td><sl-checkbox checked></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleNoDarkInCaves(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>Utra Speed Codes</td>
-                                    <td><sl-checkbox></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleSpeedCodes(e, this)}"></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>Ipatix HQ Mixer</td>
-                                    <td><sl-checkbox checked></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleHQMixer(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr style="display:none">
                                     <td>Player Sprite</td>
@@ -319,7 +360,7 @@ class PatchesTab extends Component {
                         </form>
                         <sl-alert class="patch-info" open>
                             <sl-icon slot="icon" name="info-circle"></sl-icon>
-                            Patches applied on rom load. \n They cannot be changed later.
+                            Patches applied on rom load. \n They cannot be changed later. \n\n If the checksum is not original\n  randomizer settings will be \n used.
                         </sl-alert>
                     </div>`;
     }
@@ -468,7 +509,7 @@ class SavesTab extends Component {
                         </form>
                         <div class="save-buttons">
                             <div class="button-style-file-input save-input">
-                                <label for="import-mapping">Import Save</label>
+                                <label for="import-save">Import Save</label>
                                 <input onchange="${(e) => this.saveManager.importSave(e.target.files[0])}" id="import-save" type="file" accept=".zip"/>
                             </div>
                             <sl-button onClick="${() => this.saveManager.exportSave()}" outline>Export Save</sl-button>
@@ -515,7 +556,7 @@ class WarpsTab extends Component {
 
     handleKeydown(e) {
 
-        let currentIndex = e.target.shadowRoot.querySelector("input").selectionStart;
+        let currentIndex = e.target.shadowRoot.querySelector("input").value.length;
         let value = e.target.value;
 
         if (e.keyCode >= 48 && e.keyCode <= 57) {
@@ -713,9 +754,9 @@ class AutoComplete extends Component {
 
             }
 
-            if (options.length > 0) {
+            if (options.length > 0 && !this.selectInput.current.open) {
                 this.selectInput.current.show();
-            } else {
+            } else if (options.length <= 0) {
                 this.selectInput.current.hide();
             }
         }
@@ -846,6 +887,19 @@ class HacksTab extends Component {
         elmnt.ramHook.gameStateManager.varManager.clearSysFlag(offset, value);
     }
 
+    toggleWalkThroughWalls(e, elmnt) {
+        elmnt.ramHook.gameStateManager.walkThroughWalls = e.target.checked;
+        if (e.target.checked) {
+            elmnt.ramHook.exposedEmulationCore.disableWalls();
+        } else {
+            elmnt.ramHook.exposedEmulationCore.enableWalls();
+        }
+    }
+
+    giveRunningShoes(e, elmnt) { 
+        elmnt.ramHook.gameStateManager.varManager.giveRunningShoes();
+    }
+
     render() {
         return html`<div class="hacks-tab">
                         <sl-switch onClick="${(e) => this.toggleHmBadgeSync(e, this)}" c checked>HM Badge Sync</sl-switch>
@@ -865,6 +919,14 @@ class HacksTab extends Component {
                                 <td><sl-input ref="${this.badgeInput}" class="input-amount" onkeydown="${e => this.handleKeydown(e)}" onfocusin="${() => this.keybindManager.disableInput = true}" onfocusout="${() => this.keybindManager.disableInput = false}" type="number" min="1" max="8" value="1"></<sl-input></td>
                                 <td><td><sl-button onClick="${(e) => this.takeBadge(e, this)}">Take</sl-button></td></td>
                                 <td><sl-button onClick="${(e) => this.giveBadge(e, this)}">Give</sl-button></td>
+                            </tr>
+                        </table>
+                        <hr></hr>
+                        <span>EXTRA:</span>
+                        <table>
+                            <tr>
+                                <td><sl-switch onClick="${(e) => this.toggleWalkThroughWalls(e, this)}">Walk Through Walls</sl-switch></td>
+                                <td><td><sl-button onClick="${(e) => this.giveRunningShoes(e, this)}">Give Running Shoes</sl-button></td></td>
                             </tr>
                         </table>
                         <hr></hr>

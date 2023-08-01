@@ -663,6 +663,7 @@ typedef struct {
   int flash_bank; 
   uint32_t gpio_data;
   int game_number;
+  bool no_wall;
 } gba_cartridge_t;
 typedef struct{
   bool up,down,left,right;
@@ -901,6 +902,15 @@ static FORCE_INLINE uint32_t gba_read32(gba_t*gba, unsigned baddr){return *gba_d
 static FORCE_INLINE uint16_t gba_read16(gba_t*gba, unsigned baddr){
   uint32_t* val = gba_dword_lookup(gba,baddr,GBA_REQ_READ|GBA_REQ_2B);
   int offset = SB_BFE(baddr,1,1);
+
+  if (((gba_t*)gba)->cart.no_wall) {
+    if (baddr == 0x08058E42 && ((gba_t*)gba)->cart.game_number == 0) {
+      return 0x2100;
+    } else if (baddr == 0x08092C06 && ((gba_t*)gba)->cart.game_number != 0) {
+      return 0x2000;
+    }
+  }
+
   return ((uint16_t*)val)[offset];
 }
 static FORCE_INLINE uint8_t gba_read8(gba_t*gba, unsigned baddr){

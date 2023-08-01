@@ -118,6 +118,14 @@ class ExposedEmulationCore {
     showGame_EmulationCore() {
         _ShowGame();
     }
+
+    disableWalls() {
+        _DisableWalls();
+    }
+
+    enableWalls() {
+        _EnableWalls();
+    }
     
     /* Keys*/
     

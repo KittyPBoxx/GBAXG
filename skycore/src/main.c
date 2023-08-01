@@ -3359,6 +3359,18 @@ int EMSCRIPTEN_KEEPALIVE GetGame() {
   return emu_state.game_number;
 }
 
+bool EMSCRIPTEN_KEEPALIVE AreWallsEnabled() {
+  return !core.gba.cart.no_wall;
+}
+
+void EMSCRIPTEN_KEEPALIVE DisableWalls() {
+  core.gba.cart.no_wall = true;
+}
+
+void EMSCRIPTEN_KEEPALIVE EnableWalls() {
+  core.gba.cart.no_wall = false;
+}
+
 void EMSCRIPTEN_KEEPALIVE SetSpeedUp(int amount){
 
   if (amount == 2) {

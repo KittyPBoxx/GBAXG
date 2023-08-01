@@ -78,12 +78,13 @@ class SaveManager {
     }
 
     saveSlot1() {
-        this.exposedCore.saveState_EmulationCore(0);
+        this.exposedCore.saveState_EmulationCore(3);
 
-        FS.writeFile('/offline/slot3_conf.json', JSON.stringify({ game: this.exposedCore.getGame_EmulationCore()}));
+        let currentGame = this.exposedEmulationCore.getGame_EmulationCore();
+        FS.writeFile('/offline/slot3_conf.json', JSON.stringify({ game: currentGame}));
 
         FS.readdir('/offline/').forEach(file => {
-            if (file.endsWith(".slot0.state.png") ) {
+            if (file.endsWith(".slot0.state.png") && !file.endsWith(currentGame + ".slot0.state.png")) {
                 let newName = file.replace("slot0", "slot3");
                 FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
             }
@@ -112,12 +113,13 @@ class SaveManager {
     }
 
     saveSlot2() {
-        this.exposedCore.saveState_EmulationCore(0);
+        this.exposedCore.saveState_EmulationCore(4);
 
-        FS.writeFile('/offline/slot4_conf.json', JSON.stringify({ game: this.exposedCore.getGame_EmulationCore()}));
+        let currentGame = this.exposedEmulationCore.getGame_EmulationCore();
+        FS.writeFile('/offline/slot4_conf.json', JSON.stringify({ game: currentGame}));
 
         FS.readdir('/offline/').forEach(file => {
-            if (file.endsWith(".slot0.state.png") ) {
+            if (file.endsWith(".slot0.state.png") && !file.endsWith(currentGame + ".slot0.state.png")) {
                 let newName = file.replace("slot0", "slot4");
                 FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
             }
@@ -147,29 +149,33 @@ class SaveManager {
     importSave(file) {
 
         var zip = new JSZip();
+        let saveManager = this;
         zip.loadAsync(file).then(function(zip) {
             Object.keys(zip.files).forEach(function (filename) {
-                zip.files[filename].async('string').then(function (fileData) {
-
+                zip.files[filename].async('Uint8Array').then(function (fileData) {
                     if (filename.endsWith(".sav") || filename.endsWith(".png")) {
                         let out_file = '/offline/' + filename;
                         FS.writeFile(out_file, fileData);
-                        FS.syncfs(function (err) {});
-                    } else if (filename.endsWith(".json")) {
-                        let config = JSON.parse(fileData);
-                        let latestSavedGame = config.latestSavedGame;
-                        if (latestSavedGame.endsWith("E.sav")) {
-                            this.exposedCore.setGame_EmulationCore("E", 0);
-                        } else if (latestSavedGame.endsWith("C.sav")) {
-                            this.exposedCore.setGame_EmulationCore("C", 0);
-                        } else {
-                            this.exposedCore.setGame_EmulationCore("FR", 0);
-                        }
                     }
+                }).then(() => {
+                    zip.files[filename].async('string').then(function (fileData) {
+                        if (filename.endsWith(".json")) {
+                            let config = JSON.parse(fileData.replaceAll("'", "\""));
+                            let latestSavedGame = config.bootSave;
+                            if (latestSavedGame.endsWith("E.sav")) {
+                                saveManager.exposedCore.setGame_EmulationCore("E", 0);
+                            } else if (latestSavedGame.endsWith("C.sav")) {
+                                saveManager.exposedCore.setGame_EmulationCore("C", 0);
+                            } else {
+                                saveManager.exposedCore.setGame_EmulationCore("FR", 0);
+                            }
+                        }
+                    }).then(() => {
+                        FS.syncfs(function (err) {});
+                    });
                 });
             });
         });
-
     }
 
     exportSave() {
@@ -192,7 +198,7 @@ class SaveManager {
             }
         });
 
-        zip.file("conf.json", "{'bootSave': " + latestSavedGame + "}");
+        zip.file("conf.json", "{'bootSave': '" + latestSavedGame + "'}");
 
         zip.generateAsync({type:"blob", compression: "DEFLATE"})
         .then(function(content) {

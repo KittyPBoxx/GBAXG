@@ -129,7 +129,7 @@ class RomPatcher {
         this.md5 = null;
 
         // Inline Patches
-        this.earlyBalls = false;
+        this.earlyBalls = true;
         this.perfectCatchRate = true;
         this.runIndoors = true;
         this.noExp = false;
@@ -143,7 +143,7 @@ class RomPatcher {
         this.playerSprite = "C";
 
         this.VANILLA_CRYSTAL_MD5 = "ef47f6528875dc3de037e75bba6a0ecb";
-        this.VANILLA_EMERALD_MD5 = "aeae2984a228c7d6b2c7a12b13616b0d";
+        this.VANILLA_EMERALD_MD5 = "605b89b67018abcea91e693a4dd25be3";
     }
 
 
@@ -486,18 +486,34 @@ class RomPatcher {
         let isInstantText = this.instantText;
         let hqAudio = this.hqMixer;
         let patcher = this;
-    
+
+
         patcher.applyPatchFile(true, "../../web-src/patches/e_c_sprites.xdelta", () => {
             patcher.applyPatchFile(hqAudio, "../../web-src/patches/e_hq_audio.xdelta", () => {
                 patcher.applyPatchFile(isInstantText, "../../web-src/patches/e_instant_text.xdelta", () => {
                     // If the rom is randomised we need to apply the randomised red patch otherwise the one with vanilla red pokemon
                     let patchPath = patcher.VANILLA_EMERALD_MD5 == patcher.md5 ? "../../web-src/patches/e_red_vanilla.xdelta" : "../../web-src/patches/e_red_randomised.xdelta";
-                    patcher.applyPatchFile(true, patchPath, () => {
+                    console.log("patching using patch:" + patchPath);
+                     patcher.applyPatchFile(true, patchPath, () => {
                         patcher.loader.persistRom(patcher.ROM, "E", ".gba", textUpdateFunction);
-                    });
+                     });
                 });
             });
         });
+
+
+    
+        // patcher.applyPatchFile(true, "../../web-src/patches/e_c_sprites.xdelta", () => {
+        //     patcher.applyPatchFile(hqAudio, "../../web-src/patches/e_hq_audio.xdelta", () => {
+        //         patcher.applyPatchFile(isInstantText, "../../web-src/patches/e_instant_text.xdelta", () => {
+        //             // If the rom is randomised we need to apply the randomised red patch otherwise the one with vanilla red pokemon
+        //             let patchPath = patcher.VANILLA_EMERALD_MD5 == patcher.md5 ? "../../web-src/patches/e_red_vanilla.xdelta" : "../../web-src/patches/e_red_randomised.xdelta";
+        //             patcher.applyPatchFile(true, patchPath, () => {
+        //                 patcher.loader.persistRom(patcher.ROM, "E", ".gba", textUpdateFunction);
+        //             });
+        //         });
+        //     });
+        // });
     }
 
     patchCrystal(textUpdateFunction) {
@@ -711,10 +727,10 @@ class RomPatcher {
 
         // Speedup Codes
         if (this.ultrSpeedCodes) {
-            this.patchSectionOfRom(0x8ae, [0x08,0x49] , "E");
-            this.patchSectionOfRom(0x8b0, [0x8a,0x8b,0x08,0x48,0x10,0x40,0x8a,0x8b,0x88,0x83,0x07,0x48,0xc1,0x79,0x80,0x20] , "E");
-            this.patchSectionOfRom(0x8c0, [0x08,0x40,0x00,0x28,0x01,0xd0,0xe6,0xf2,0xff,0xfb,0x01,0xbc,0x00,0x47,0x00,0x00] , "E");
-            this.patchSectionOfRom(0x8d0, [0xc0,0x22,0x00,0x03,0xfe,0xff,0x00,0x00,0xd4,0x7f,0x03,0x02,0x01,0x49,0x08,0x60] , "E"); 
+            this.patchSectionOfRom(0x8ae, [0x08,0x49] , "C");
+            this.patchSectionOfRom(0x8b0, [0x8a,0x8b,0x08,0x48,0x10,0x40,0x8a,0x8b,0x88,0x83,0x07,0x48,0xc1,0x79,0x80,0x20] , "C");
+            this.patchSectionOfRom(0x8c0, [0x08,0x40,0x00,0x28,0x01,0xd0,0xe6,0xf2,0xff,0xfb,0x01,0xbc,0x00,0x47,0x00,0x00] , "C");
+            this.patchSectionOfRom(0x8d0, [0xc0,0x22,0x00,0x03,0xfe,0xff,0x00,0x00,0xd4,0x7f,0x03,0x02,0x01,0x49,0x08,0x60] , "C"); 
         }
 
         // Warp Home from menu
@@ -942,7 +958,7 @@ class RomPatcher {
 
         // Disable story log flashbacks
         if(this.noFRFlashbacks) {
-            this.patchSectionOfRom(0x110fcb, [0x00,0x1C,0x0F,0xE0] , "FR");
+            this.patchSectionOfRom(0x110fcc, [0x00,0x1C,0x0F,0xE0] , "FR");
         }
 
         // Warp from menu

@@ -272,11 +272,11 @@ class WarpHandler {
         } else if (trigger == "FR,11,0,255" && this.nextWarp == null && !this.gameStateManager.varManager.isInSafari()) {
             // FireRed Home Warp
             this.nextWarp = new PKWarp(trigger, "FR", 4, 1, 0, null);
-            this.writeGameVar(0x406E, 0);
+            this.gameStateManager.varManager.writeGameVar(0x406E, 0);
         } else if (trigger == "E,23,0,255" && this.nextWarp == null && !this.gameStateManager.varManager.isInSafari()) {
             // Emerald Home Warp
             this.nextWarp = new PKWarp(trigger, "E", 1, 3, 0, null);
-            this.writeGameVar(0x40A4, 0);
+            this.gameStateManager.varManager.writeGameVar(0x40A4, 0);
         } else if (trigger == "C,23,0,255" && this.nextWarp == null) {
             // Crystal Home Warp
             this.nextWarp = new PKWarp(trigger, "C", 1, 1, 0, null);
@@ -414,6 +414,13 @@ class WarpHandler {
         } else if (this.switchingState == SwitchingState.SWITCHED_STILL_HIDDEN) {
             this.gameStateManager.injectData();
             this.exposedEmulationCore.showGame_EmulationCore();
+
+            if (this.gameStateManager.walkThroughWalls) {
+                this.exposedEmulationCore.disableWalls();
+            } else {
+                this.exposedEmulationCore.enableWalls();
+            }
+
             this.switchingState = SwitchingState.NOT_SWITCHING;
         } else if (this.warpingState == WarpingState.READ_FIRST_WARP_ADDRESS) {
             this.postWarpPreMapLoadHandling();
@@ -481,7 +488,7 @@ class WarpHandler {
                 // Unlock left of petalburg
                 this.gameStateManager.varManager.writeGameVar(0x4057, 1);
             } else if (destination == "E,10,0,0") {
-                this.gameStateManager.clearBaseFlag(0x391);
+                    this.gameStateManager.varManager.clearBaseFlag(0x391);
             } else if (destination == "E,29,1,0" || destination == "E,29,1,1") {
                 if (this.gameStateManager.varManager.readGameVar(0x4044) > 7) {
                     this.gameStateManager.varManager.writeGameVar(0x4044, 7);
@@ -695,6 +702,7 @@ class GameStateManager {
         this.varManager = new VarManager(this, exposedEmulationCore);
         this.fromGame = null;
         this.toGame = null;
+        this.walkThroughWalls = false;
     }
 
     extractData() {
@@ -1364,6 +1372,15 @@ class VarManager {
         }
 
         this.clearSysFlag(badgeOffset);
+    }
+
+    giveRunningShoes() {
+        let currentGame = this.exposedEmulationCore.getGame_EmulationCore();
+        if (currentGame == "FR") {
+            this.setSysFlag(VarManager.FIRE_RED_RUNNING_SHOE_OFFSET);
+        } else {
+            this.setSysFlag(VarManager.EMERALD_RUNNING_SHOE_OFFSET);
+        }
     }
 
     writeGameVar(offset, data) {
