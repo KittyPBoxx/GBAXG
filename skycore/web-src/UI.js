@@ -445,7 +445,7 @@ class SavesTab extends Component {
 
     saveSlot1(element) {
         element.saveManager.saveSlot1();
-        this.state1Preview = this.createPreviewImage();
+        this.state1Preview = this.createPreviewImage(element, 1);
         document.getElementById("saveState1Preiew").src = this.state1Preview;
     }
 
@@ -455,7 +455,7 @@ class SavesTab extends Component {
 
     saveSlot2(element) {
         element.saveManager.saveSlot2();
-        this.state2Preview = this.createPreviewImage();
+        this.state2Preview = this.createPreviewImage(element, 2);
         document.getElementById("saveState2Preiew").src = this.state2Preview;
     }
 
@@ -463,13 +463,16 @@ class SavesTab extends Component {
         element.saveManager.loadSlot2();
     }
 
-    createPreviewImage() {
-        let canvas = document.createElement('canvas');
-        canvas.width = 160;
-        canvas.height = 160;
-        let ctx = canvas.getContext('2d');
-        ctx.drawImage(document.getElementById("canvas"), 0, 0, 60, 40);
-        return canvas.toDataURL('image/jpeg', 0.4);
+    createPreviewImage(element, slot) {
+
+        try {
+            // TODO: The image data should probably be returned from the save function rather than having the logic here
+            let currentGame = element.saveManager.exposedCore.getGame_EmulationCore();
+            let image = FS.readFile('/offline/' + currentGame + '.slot' + slot + '.state.png');
+            return URL.createObjectURL(new Blob([image.buffer], { type: 'image/png' } /* (1) */));
+        } catch (e) {}
+        
+        return element.emptyImage;
     }
 
     render() {

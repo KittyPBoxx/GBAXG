@@ -271,6 +271,10 @@ figure .spinner {
     padding: 0.1em;
 }
 
+.save-image sl-card::part(body) {
+    display: none;
+}
+
 .warp-options table td {
     padding: 0.5em;
     border-radius: 2px;

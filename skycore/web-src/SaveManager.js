@@ -78,14 +78,14 @@ class SaveManager {
     }
 
     saveSlot1() {
-        this.exposedCore.saveState_EmulationCore(3);
+        this.exposedCore.saveState_EmulationCore(1);
 
-        let currentGame = this.exposedEmulationCore.getGame_EmulationCore();
-        FS.writeFile('/offline/slot3_conf.json', JSON.stringify({ game: currentGame}));
+        let currentGame = this.exposedCore.getGame_EmulationCore();
+        FS.writeFile('/offline/slot1_conf.json', JSON.stringify({ game: currentGame}));
 
         FS.readdir('/offline/').forEach(file => {
             if (file.endsWith(".slot0.state.png") && !file.endsWith(currentGame + ".slot0.state.png")) {
-                let newName = file.replace("slot0", "slot3");
+                let newName = file.replace("slot0", "slot1");
                 FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
             }
         });
@@ -96,8 +96,8 @@ class SaveManager {
     loadSlot1() {
 
         FS.readdir('/offline/').forEach(file => {
-            if (file.endsWith(".slot3.state.png") ) {
-                let newName = file.replace("slot3", "slot0");
+            if (file.endsWith(".slot1.state.png") ) {
+                let newName = file.replace("slot1", "slot0");
                 FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
             }
         });
@@ -105,7 +105,7 @@ class SaveManager {
         FS.syncfs(function (err) {});
 
         try {
-            let conf = FS.readFile('/offline/slot3_conf.json', { encoding: "utf8" });
+            let conf = FS.readFile('/offline/slot1_conf.json', { encoding: "utf8" });
             this.exposedCore.loadState_EmulationCore(JSON.parse(conf).game, 0);
         } catch (e) {}
         
@@ -113,14 +113,14 @@ class SaveManager {
     }
 
     saveSlot2() {
-        this.exposedCore.saveState_EmulationCore(4);
+        this.exposedCore.saveState_EmulationCore(2);
 
-        let currentGame = this.exposedEmulationCore.getGame_EmulationCore();
-        FS.writeFile('/offline/slot4_conf.json', JSON.stringify({ game: currentGame}));
+        let currentGame = this.exposedCore.getGame_EmulationCore();
+        FS.writeFile('/offline/slot2_conf.json', JSON.stringify({ game: currentGame}));
 
         FS.readdir('/offline/').forEach(file => {
             if (file.endsWith(".slot0.state.png") && !file.endsWith(currentGame + ".slot0.state.png")) {
-                let newName = file.replace("slot0", "slot4");
+                let newName = file.replace("slot0", "slot2");
                 FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
             }
         });
@@ -131,8 +131,8 @@ class SaveManager {
     loadSlot2() {
 
         FS.readdir('/offline/').forEach(file => {
-            if (file.endsWith(".slot4.state.png") ) {
-                let newName = file.replace("slot4", "slot0");
+            if (file.endsWith(".slot2.state.png") ) {
+                let newName = file.replace("slot2", "slot0");
                 FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
             }
         });
@@ -140,7 +140,7 @@ class SaveManager {
         FS.syncfs(function (err) {});
 
         try {
-            let conf = FS.readFile('/offline/slot4_conf.json', { encoding: "utf8" });
+            let conf = FS.readFile('/offline/slot2_conf.json', { encoding: "utf8" });
             this.exposedCore.loadState_EmulationCore(JSON.parse(conf).game, 0);
         } catch (e) {}
 
