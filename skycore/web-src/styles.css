@@ -228,6 +228,18 @@ figure .spinner {
     white-space: pre-line;
 }
 
+.reset-info {
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 0.5em;
+    margin-top: 0.2em;
+    white-space: pre-line;
+    position: absolute;
+    display: block;
+    margin-left: 0.2em;
+    --sl-spacing-large: 0.5em;
+}
+
 .keybind-table {
     width: 100%;
 }

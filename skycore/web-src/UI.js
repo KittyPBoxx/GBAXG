@@ -161,6 +161,10 @@ class RomTab extends Component {
                             <sl-button disabled ref="${this.resetGameButton}" onClick="${() => this.saveManager.startGameOrReset()}" variant="default" outline>Reset</sl-button>        
                         </div>
                     </div>
+                    <sl-alert class="reset-info" open>
+                        <sl-icon slot="icon" name="info-circle"></sl-icon>
+                        <small>Use Button/Hotkey for resets\n (not soft reset)</small>
+                    </sl-alert>
                     <sl-button onClick="${() => this.deleteAllRoms()}" class="deleteDataButton" variant="danger" outline>Clear Stored ROMS</sl-button>`;
     }
 
