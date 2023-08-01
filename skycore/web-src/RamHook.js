@@ -19,6 +19,8 @@ class RamHook {
             },
             externalCpuWrite32Intercept: function(address, data) {
                 return this.cpuWrite32(address, data);
+            },
+            externaSaveIntercept: function() {
             }
         });
 
@@ -26,9 +28,18 @@ class RamHook {
         cpuRead8 = address => { return this.cpuRead8(address) }
         cpuWrite8 = (address, data) => { return this.cpuWrite8(address, data) }
         cpuWrite32 = address => { return this.cpuWrite32(address) }
+        saveIntercept = () => this.saveIntercept();
+
+        this.processSave = this.debounce(() => this.saveIntercept());
     }
 
     cpuRead8(address) {
+
+        if (address == -1000) {
+            this.processSave();
+            return;
+        }
+
         console.log("Read 8 " + address);
         return this.warpHandler.onWarpBeingRead(address);
     }
@@ -42,6 +53,19 @@ class RamHook {
         console.log("Write 32 " + address);
         this.warpHandler.onHeaderBeingSet(address);
         return false;
+    }
+
+    saveIntercept(saveManager) {
+        console.log("Save Intercept");
+        GBAXG.saveManager.saveSlot3();
+    }
+
+    debounce(func, timeout = 800){
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
     }
 
 }

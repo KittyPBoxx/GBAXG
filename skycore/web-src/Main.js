@@ -29,7 +29,7 @@ class GBAXG {
 
         this.commandExecutor = new CommandExecutor();
 
-        this.ramHook = new RamHook(this.randomiser, this.exposedEmulationCore);
+        this.ramHook = new RamHook(this.randomiser, this.exposedEmulationCore, this.saveManager);
         this.ramHook.init();
 
         this.romLoader = new RomLoader(this.exposedEmulationCore, this.commandExecutor, this.ramHook);

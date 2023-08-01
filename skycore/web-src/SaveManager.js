@@ -7,6 +7,13 @@ class SaveManager {
 
     resetToLastSave() {
 
+
+        try {
+            FS.stat("/offline/FR.slot3.state.png");
+            this.loadSlot3();
+            return;
+        } catch (e) {}
+
         let latestSavedGame = "/offline/FR.sav"
         let latestCurrentDate = null;
 
@@ -34,6 +41,12 @@ class SaveManager {
     }
 
     startGameOrReset() {
+
+        try {
+            FS.stat("/offline/FR.slot3.state.png");
+            this.loadSlot3();
+            return;
+        } catch (e) {}
 
         try {
             FS.stat("/offline/FR.slot0.state.png");
@@ -142,6 +155,48 @@ class SaveManager {
         try {
             let conf = FS.readFile('/offline/slot2_conf.json', { encoding: "utf8" });
             this.exposedCore.loadState_EmulationCore(JSON.parse(conf).game, 0);
+        } catch (e) {}
+
+    }
+
+    saveSlot3() {
+        this.exposedCore.saveState_EmulationCore(3);
+
+        let currentGame = this.exposedCore.getGame_EmulationCore();
+        FS.writeFile('/offline/slot3_conf.json', JSON.stringify({ game: currentGame}));
+
+        FS.readdir('/offline/').forEach(file => {
+            if (file.endsWith(".slot0.state.png") && !file.endsWith(currentGame + ".slot0.state.png")) {
+                let newName = file.replace("slot0", "slot3");
+                FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
+            }
+        });
+
+        FS.syncfs(function (err) {});
+    }
+
+    loadSlot3() {
+
+        FS.readdir('/offline/').forEach(file => {
+            if (file.endsWith(".slot0.state.png") ) {
+                FS.unlink('/offline/' + file);
+            }
+        });
+
+        FS.syncfs(function (err) {});
+
+        FS.readdir('/offline/').forEach(file => {
+            if (file.endsWith(".slot3.state.png") ) {
+                let newName = file.replace("slot3", "slot0");
+                FS.writeFile('/offline/' + newName, FS.readFile('/offline/' + file));
+            }
+        });
+
+        FS.syncfs(function (err) {});
+
+        try {
+            let conf = FS.readFile('/offline/slot3_conf.json', { encoding: "utf8" });
+            this.exposedCore.loadState_EmulationCore(JSON.parse(conf).game, -1);
         } catch (e) {}
 
     }

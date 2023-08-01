@@ -831,6 +831,8 @@ extern uint32_t externalCpuRead8Intercept(uint32_t address);
 extern bool externalCpuWrite8Intercept(uint32_t address, uint8_t data);
 extern bool externalCpuWrite32Intercept(uint32_t address, uint32_t data);
 
+extern void externaSaveIntercept();
+
 #define FIRE_RED_LAST_BANK    0x2031DB4
 #define FIRE_RED_CURRENT_BANK 0x2031dbc
 #define FIRE_RED_CURRENT_MAP  0x2031dbd

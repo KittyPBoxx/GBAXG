@@ -1109,6 +1109,7 @@ static bool se_sync_save_to_disk(){
     if(core.gb.cart.ram_is_dirty){
       saved=true;
       if(sb_save_file_data(emu_state.save_file_path,core.gb.cart.ram_data,core.gb.cart.ram_size)){
+        externalCpuRead8Intercept(-1000);
       }else printf("Failed to write out save file: %s\n",emu_state.save_file_path);
       core.gb.cart.ram_is_dirty=false;
     }
@@ -1127,6 +1128,7 @@ static bool se_sync_save_to_disk(){
       if(size){
         saved =true;
         if(sb_save_file_data(emu_state.save_file_path,core.gba.mem.cart_backup,size)){
+          externalCpuRead8Intercept(-1000);
         }else printf("Failed to write out save file: %s\n",emu_state.save_file_path);
       }
       core.gba.cart.backup_is_dirty=false;

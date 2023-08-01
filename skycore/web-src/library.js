@@ -13,6 +13,14 @@ function cpuWrite32(address) {
     console.log("Library Write 32 " + address)
 }
 
+function cpuWrite32(address) {
+    console.log("Library Write 32 " + address)
+}
+
+function saveIntercept() {
+    console.log("Save Intercept")
+}
+
 if (typeof mergeInto !== 'undefined') mergeInto(LibraryManager.library, {
     externalCpuRead8Intercept: function(address) {
         return cpuRead8(address);
@@ -22,5 +30,7 @@ if (typeof mergeInto !== 'undefined') mergeInto(LibraryManager.library, {
     },
     externalCpuWrite32Intercept: function(address, data) {
         return cpuWrite32(address, data);
+    },
+    externaSaveIntercept: function() {
     }
 });
