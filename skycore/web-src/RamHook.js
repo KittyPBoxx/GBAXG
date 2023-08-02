@@ -293,7 +293,14 @@ class WarpHandler {
     handleScriptOrRouteWarp(trigger) {
         if (trigger == "E,8,1,255") {
             // Special Handling when warping to normans gym after catch tutorial
-        } else if (trigger == "FR,11,0,255" && this.nextWarp == null && !this.gameStateManager.varManager.isInSafari()) {
+            this.gameStateManager.varManager.writeGameVar(0x4085, 6);
+            this.gameStateManager.varManager.setBaseFlag(0x2D6);
+            this.gameStateManager.varManager.setBaseFlag(0x362);
+        }
+    }
+
+    handleHomeWarp(trigger) {
+        if (trigger == "FR,11,0,255" && this.nextWarp == null && !this.gameStateManager.varManager.isInSafari()) {
             // FireRed Home Warp
             this.nextWarp = new PKWarp(trigger, "FR", 4, 1, 0, null);
             this.gameStateManager.varManager.writeGameVar(0x406E, 0);
@@ -316,7 +323,10 @@ class WarpHandler {
 
         let currentGame = this.exposedEmulationCore.getGame_EmulationCore();
         let trigger = this.getTargetWarp(currentGame);
-        
+
+        if (trigger.split(",")[3] == 255) {
+            this.handleScriptOrRouteWarp(trigger);
+        }
 
         if (this.warpingState == WarpingState.SAVE_STATE_LOAD) {
             this.doReverseWarp();
@@ -329,7 +339,7 @@ class WarpHandler {
         }
 
         if (trigger.split(",")[3] == 255) {
-            this.handleScriptOrRouteWarp(trigger);
+            this.handleHomeWarp(trigger);
         }
 
         if (this.nextWarp == null && this.randomWarpsEnabled) {
@@ -471,9 +481,9 @@ class WarpHandler {
         let destination = null;
 
         if (currentGame === "E") {
-            bank = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_LAST_BANK);
-            map = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_LAST_BANK + 1);
-            warp = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_LAST_BANK + 2);
+            bank = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_CURRENT_BANK);
+            map = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_CURRENT_BANK + 1);
+            warp = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_CURRENT_BANK + 2);
     
             destination = "E" + "," + bank + "," + map + "," + warp;
     
@@ -527,9 +537,9 @@ class WarpHandler {
         }
     
         if (currentGame === "C") {
-            bank = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_LAST_BANK);
-            map = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_LAST_BANK + 1);
-            warp = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_LAST_BANK + 2);
+            bank = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_CURRENT_BANK);
+            map = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_CURRENT_BANK + 1);
+            warp = this.exposedEmulationCore.readCpu8_EmulationCore(WarpHandler.EMERALD_CURRENT_BANK + 2);
     
             destination = "C" + "," + bank + "," + map + "," + warp;
     
