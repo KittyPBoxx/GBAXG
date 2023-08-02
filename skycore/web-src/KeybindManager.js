@@ -99,6 +99,8 @@ class KeybindManager {
 
         if (this.listenForInput) {
 
+            let currentRebind = this.listenForInput.command;
+
             if (this.listenForInput.isGamepad) {
 
                 this.keybinds.get(this.listenForInput.command).gmpd = code;
@@ -113,7 +115,9 @@ class KeybindManager {
             this.freezeClic = false;
 
             this.saveKeybinds();
-            this.keybindChangeCallbacks.forEach((callback, mapKey)  => callback())
+            this.keybindChangeCallbacks.forEach((callback, mapKey) => { 
+                callback(currentRebind, code)
+            });
 
         } else {
 

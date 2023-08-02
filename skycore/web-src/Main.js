@@ -40,7 +40,7 @@ class GBAXG {
     
         this.keybindManager = new KeybindManager(this.commandExecutor);
         this.keybindManager.addListeners();
-        this.keybindManager.loadSavedKeybinds();
+        
 
         this.ui = new UI(document.getElementById("ui"), this);
         this.ui.draw();
@@ -79,13 +79,15 @@ function createUI() {
             window.GBAXG.ui.draw();
             if (!window.GBAXG.randomiser.hash) {
                 window.GBAXG.randomiser.loadSavedMappings();
-            } 
+            }
+            window.GBAXG.keybindManager.loadSavedKeybinds(); 
         }, 1000);
         setTimeout(() => {
              window.GBAXG.ui.draw();
              if (!window.GBAXG.randomiser.hash) {
                 window.GBAXG.randomiser.loadSavedMappings();
             } 
+            window.GBAXG.keybindManager.loadSavedKeybinds(); 
         }, 5000);
 
         document.getElementById("audio-context-refresh").remove();

@@ -387,7 +387,13 @@ class ControlsTab extends Component {
         this.id = "controls"
         this.title = "Controls";
 
-        this.keybindManager.keybindChangeCallbacks.set("updateUI", () => root.draw())
+        this.keybindManager.keybindChangeCallbacks.set("updateUI", (bind, key) => {
+            let element = document.querySelector(".keybind-table td[data-command=" + bind + "]");
+            if (element && element.innerHTML == "...") {
+                element.innerHTML = key.replace("Key", "");
+            }
+            root.draw()
+        });
     }
 
     generateKeybindElements(controlTab) {
