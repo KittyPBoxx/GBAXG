@@ -62,17 +62,15 @@ class CommandExecutor  {
 
 
         /* Turbo Mappings Reuested For A/B keys mappings */
-        var aMashInterval;
-        var bMashInterval;
         var turboRepeatDelay = 5;
 
         this.register("TurboAKeyDown"     , (args) => {
             exposedEmulationCore.KeyDown_EmulationCore(0)  // A
-            aMashInterval = setInterval(() => { this.keyPress(0, exposedEmulationCore) }, turboRepeatDelay);
+            exposedEmulationCore.aMashInterval = setInterval(() => { this.keyPress(0, exposedEmulationCore) }, turboRepeatDelay);
         });
         this.register("TurboAKeyUp"       , (args) => { 
             exposedEmulationCore.KeyUp_EmulationCore(0);
-            clearInterval(aMashInterval);
+            clearInterval(exposedEmulationCore.aMashInterval);
         });
         
         this.register("TurboBKeyDown"     , (args) => {
