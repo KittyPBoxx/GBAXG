@@ -284,13 +284,15 @@ export const FIRE_RED_WARPS =
         "level": "1", 
         "to" : "FR,3,2,1",
         "grouped" : ["FR,6,0,4"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "FR,6,0,4" : {
         "name": "PEWTER CITY - INSIDE - Museum (Back) - 16,9",
         "level": "1", 
         "to" : "FR,3,2,1",
-        "grouped" : ["FR,6,0,3"]
+        "grouped" : ["FR,6,0,3"],
+        "tags": ["extraDeadend"]
     },
     "FR,6,0,5" : {
         "name": "PEWTER CITY - INSIDE - Museum (Stairs) - 16,9",
@@ -587,20 +589,23 @@ export const FIRE_RED_WARPS =
         "name": "ROUTE 2 - INSIDE - House (abra, mr mime trade) - 3,7",
         "to" : "FR,3,20,4",
         "level": "3",
-        "grouped" : ["FR,15,1,1", "FR,15,1,2"]
+        "grouped" : ["FR,15,1,1", "FR,15,1,2"],
+        "tags": ["extraDeadend"]
     },
     "FR,15,1,1" : {
         "name": "ROUTE 2 - INSIDE - House (abra, mr mime trade) - 4,7",
         "to" : "FR,3,20,4",
         "level": "3",
         "grouped" : ["FR,15,1,0", "FR,15,1,2"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "FR,15,1,2" : {
         "name": "ROUTE 2 - INSIDE - House (abra, mr mime trade) - 5,7",
         "to" : "FR,3,20,4",
         "level": "3",
-        "grouped" : ["FR,15,1,0", "FR,15,1,1"]
+        "grouped" : ["FR,15,1,0", "FR,15,1,1"],
+        "tags": ["extraDeadend"]
     },
     "FR,15,2,0" : {
         "name": "ROUTE 2 - INSIDE - Right Route Connector - 6,A",
@@ -877,12 +882,14 @@ export const FIRE_RED_WARPS =
     "FR,1,3,1" : {
         "name": "MT MOON - INSIDE - F3 Top Right Ladder  - 1F,B",
         "level": "2", 
-        "to" : "FR,1,2,4"
+        "to" : "FR,1,2,4",
+        "tags": ["extraDeadend"]
     },
     "FR,1,3,2" : {
         "name": "MT MOON - INSIDE - F3 Top Bottom Left Ladder  - 11,1F",
         "level": "2", 
-        "to" : "FR,1,2,5"
+        "to" : "FR,1,2,5",
+        "tags": ["extraDeadend"]
     },
     "FR,1,3,3" : {
         "name": "MT MOON - INSIDE - F3 Top Left Ladder  - 5,A",
@@ -978,7 +985,8 @@ export const FIRE_RED_WARPS =
     "FR,3,3,8" : {
         "name": "CERULEAN CITY - OUTSIDE - Top Left (Backdoor)  - A,8",
         "level": "2", 
-        "to" : "FR,7,0,3"
+        "to" : "FR,7,0,3",
+        "tags": ["extraDeadend"]
     },
     "FR,3,3,9" : {
         "name": "CERULEAN CITY - OUTSIDE - Top Right (Robbed) (Backdoor)  - 1F,8",
@@ -1041,7 +1049,8 @@ export const FIRE_RED_WARPS =
     "FR,7,2,1" : {
         "name": "CERULEAN CITY - INSIDE - Center - 4,7",
         "level": "2", 
-        "to" : "FR,3,3,2"
+        "to" : "FR,3,3,2",
+        "tags": ["extraDeadend"]
     },
     "FR,7,3,1" : {
         "name": "CERULEAN CITY - INSIDE - PkCenter (Enterance)  - 7,8",
@@ -1089,7 +1098,8 @@ export const FIRE_RED_WARPS =
     "FR,7,9,0" : {
         "name": "CERULEAN CITY - INSIDE - Top Center  - 4,7",
         "to" : "FR,3,3,13",
-        "level": "2"
+        "level": "2",
+        "tags": ["extraDeadend"]
     },
 /* ROUTE 25 - EXT */
     "FR,3,44,0" : {
@@ -1160,7 +1170,8 @@ export const FIRE_RED_WARPS =
     "FR,17,0,1" : {
         "name": "ROUTE 5 - INSIDE - Day Care - 3,7",
         "level": "3", 
-        "to" : "FR,3,23,1"
+        "to" : "FR,3,23,1",
+        "tags": ["extraDeadend"]
     },
     "FR,17,1,1" : {
         "name": "ROUTE 5 - INSIDE - Route Connector Top - 4,1",
@@ -1369,7 +1380,8 @@ export const FIRE_RED_WARPS =
     "FR,9,0,1" : {
         "name": "VERMILLION CITY - INSIDE - Top, Left - 3,7",
         "level": "3", 
-        "to" : "FR,3,5,3"
+        "to" : "FR,3,5,3",
+        "tags": ["extraDeadend"]
     },
     "FR,9,1,1" : {
         "name": "VERMILLION CITY - INSIDE - PkCenter Enterance - 6,8",
@@ -1401,7 +1413,8 @@ export const FIRE_RED_WARPS =
     "FR,9,4,1" : {
         "name": "VERMILLION CITY - INSIDE - Center House - 4,7",
         "level": "3", 
-        "to" : "FR,3,5,6"
+        "to" : "FR,3,5,6",
+        "tags": ["extraDeadend"]
     },
     "FR,9,5,1" : {
         "name": "VERMILLION CITY - INSIDE - Mart - 3,7",
@@ -1478,7 +1491,8 @@ export const FIRE_RED_WARPS =
     "FR,22,1,0" : {
         "name": "ROUTE 11 - INSIDE - Route Connector Upstairs - A,9",
         "level": "3", 
-        "to" : "FR,22,0,4"
+        "to" : "FR,22,0,4",
+        "tags": ["extraDeadend"]
     },
 /* Digglet Cave */
 // Pewter Side
@@ -1788,13 +1802,15 @@ export const FIRE_RED_WARPS =
         "level": "3", 
         "to" : "FR,1,7,0",
         "grouped" : ["FR,1,9,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "FR,1,9,1" : {
         "name": "S.S ANNE - INSIDE - Bow - 10,9",
         "level": "3", 
         "to" : "FR,1,7,0",
-        "grouped" : ["FR,1,9,0"]
+        "grouped" : ["FR,1,9,0"],
+        "tags": ["extraDeadend"]
     },
 // Kitchen
     "FR,1,10,0" : {
@@ -2159,7 +2175,8 @@ export const FIRE_RED_WARPS =
     "FR,8,4,1" : {
         "name": "LAVENDER TOWN - INSIDE - Bottom - 4,7",
         "level": "4", 
-        "to" : "FR,3,4,4"
+        "to" : "FR,3,4,4",
+        "tags": ["extraDeadend"]
     },
     "FR,8,5,1" : {
         "name": "LAVENDER TOWN - INSIDE - Mart - 4,7",
@@ -2226,11 +2243,13 @@ export const FIRE_RED_WARPS =
         "name": "ROUTE 12 - INSIDE - Route Connector Upstairs - A,9",
         "level": "4", 
         "to" : "FR,23,0,4",
+        "tags": ["extraDeadend"]
     },
     "FR,23,2,1" : {
         "name": "ROUTE 12 - INSIDE - House - 3,7",
         "level": "4", 
         "to" : "FR,3,30,0",
+        "tags": ["extraDeadend"]
     },
     /* ROUTE 8  - EXT */
     "FR,3,26,0" : {
@@ -2576,7 +2595,8 @@ export const FIRE_RED_WARPS =
     "FR,10,5,0" : {
         "name": "CELADON CITY - INSIDE - Dept Roof - F,6",
         "level": "4", 
-        "to" : "FR,10,4,2"
+        "to" : "FR,10,4,2",
+        "tags": ["extraDeadend"]
     },
     // Appartements
     // F1
@@ -2690,7 +2710,8 @@ export const FIRE_RED_WARPS =
     "FR,10,10,1" : {
         "name": "CELADON CITY - INSIDE - Appartments Roof Right Stairs - A,2",
         "level": "4", 
-        "to" : "FR,10,9,2"
+        "to" : "FR,10,9,2",
+        "tags": ["extraDeadend"]
     },
     "FR,10,10,2" : {
         "name": "CELADON CITY - INSIDE - Appartments Roof Room - A,2",
@@ -2748,6 +2769,7 @@ export const FIRE_RED_WARPS =
         "name": "CELADON CITY - INSIDE - Prize Room - 4,8",
         "level": "4", 
         "to" : "FR,3,6,5",
+        "tags": ["extraDeadend"]
     },
     "FR,10,16,1" : {
         "name": "CELADON CITY - INSIDE - Gym - 6,12",
@@ -2758,6 +2780,7 @@ export const FIRE_RED_WARPS =
         "name": "CELADON CITY - INSIDE - Left House - 6,9",
         "level": "4", 
         "to" : "FR,3,6,7",
+        "tags": ["extraDeadend"]
     },
     "FR,10,18,1" : {
         "name": "CELADON CITY - INSIDE - Center House - 4,7",
@@ -3050,6 +3073,7 @@ export const FIRE_RED_WARPS =
         "name": "ROUTE 16 - INSIDE - Upstairs - A,9",
         "level": "5", 
         "to" : "FR,25,1,4",
+        "tags": ["extraDeadend"]
     },
     /* ROUTE 18 - EXT */
     "FR,3,36,0" : {
@@ -3099,6 +3123,7 @@ export const FIRE_RED_WARPS =
         "name": "ROUTE 18 - INSIDE - Upstairs - A,9",
         "level": "5", 
         "to" : "FR,26,0,2",
+        "tags": ["extraDeadend"]
     },
     /* FUCHSIA CITY - EXT */
     "FR,3,7,0" : {
@@ -3179,6 +3204,7 @@ export const FIRE_RED_WARPS =
         "name": "FUCHSIA CITY - OUTSIDE - House Backdoor - 27,1C",
         "level": "5", 
         "to" : "FR,11,8,3",
+        "tags": ["extraDeadend"]
     },
     "FR,3,7,10" : {
         "name": "FUCHSIA CITY - OUTSIDE - PkCenter Left - 13,1F",
@@ -3913,6 +3939,7 @@ export const FIRE_RED_WARPS =
         "name": "SAFFRON CITY - INSIDE - Dojo - 6,E",
         "level": "6", 
         "to" : "FR,3,10,2",
+        "tags": ["extraDeadend"]
     },
     "FR,14,3,1" : {
         "name": "SAFFRON CITY - INSIDE - GYM - E,7",
@@ -3956,11 +3983,13 @@ export const FIRE_RED_WARPS =
         "name": "SAFFRON CITY - INSIDE - Bottom Right - 4,7",
         "level": "6", 
         "to" : "FR,3,10,7",
+        "tags": ["extraDeadend"]
     },
     "FR,14,9,0" : {
         "name": "SAFFRON CITY - INSIDE - Center Right - 5,F",
         "level": "6", 
         "to" : "FR,3,10,14",
+        "tags": ["extraDeadend"]
     },
     /* SILPH CO. */
     // F1
@@ -4537,16 +4566,19 @@ export const FIRE_RED_WARPS =
         "name": "CINNABAR ISLAND - INSIDE - Research Lab Left - 7,9",
         "level": "7", 
         "to" : "FR,12,1,3",
+        "tags": ["extraDeadend"]
     },
     "FR,12,3,0" : {
         "name": "CINNABAR ISLAND - INSIDE - Research Lab Center - 7,9",
         "level": "7", 
         "to" : "FR,12,1,4",
+        "tags": ["extraDeadend"]
     },
     "FR,12,4,0" : {
         "name": "CINNABAR ISLAND - INSIDE - Research Lab Right - 7,9",
         "level": "7", 
         "to" : "FR,12,1,5",
+        "tags": ["extraDeadend"]
     },
     "FR,12,5,0" : {
         "name": "CINNABAR ISLAND - INSIDE - PkCenter Enterance - 7,8",
@@ -4692,6 +4724,7 @@ export const FIRE_RED_WARPS =
         "name": "POKEMON MANSION - INSIDE - F3 Bottom Left Stairs - B,B",
         "level": "7", 
         "to" : "FR,1,60,3",
+        "tags": ["extraDeadend"]
     },
     "FR,1,61,3" : {
         "name": "POKEMON MANSION - INSIDE - F3 Left Drop - 12,12",
@@ -5055,22 +5088,26 @@ export const FIRE_RED_WARPS =
     "FR,1,73,0" : {
         "name": "CERULEAN CAVE - INSIDE - F2 Top Right - 21,4",
         "level": "9", 
-        "to" : "FR,1,72,1"
+        "to" : "FR,1,72,1",
+        "tags": ["extraDeadend"]
     },
     "FR,1,73,1" : {
         "name": "CERULEAN CAVE - INSIDE - F2 Top Middle - D,4",
         "level": "9", 
-        "to" : "FR,1,72,3"
+        "to" : "FR,1,72,3",
+        "tags": ["extraDeadend"]
     },
     "FR,1,73,2" : {
         "name": "CERULEAN CAVE - INSIDE - F2 Bottom Left - 7,E",
         "level": "9", 
-        "to" : "FR,1,72,4"
+        "to" : "FR,1,72,4",
+        "tags": ["extraDeadend"]
     },
     "FR,1,73,3" : {
         "name": "CERULEAN CAVE - INSIDE - F2 Middle Right - 1A,9",
         "level": "9", 
-        "to" : "FR,1,72,5"
+        "to" : "FR,1,72,5",
+        "tags": ["extraDeadend"]
     },
     "FR,1,73,4" : {
         "name": "CERULEAN CAVE - INSIDE - F2 Middle Middle - 17,A",

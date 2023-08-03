@@ -353,6 +353,21 @@ hr {
     min-height: 0;
 }
 
+.version-text {
+    position: absolute;
+    margin-top: 0.4em;
+    margin-left: 0.2em;
+    color: #272727;
+    font-size: 12px;
+    text-shadow: rgb(189 189 189 / 50%) 1px 1px 0px;
+}
+
+.final-text-input {
+    margin-left: 0.4em;
+    margin-top: 0.4em;
+    color: #d3d3d3;
+}
+
 sl-input.input-amount {
     max-width: 6em;
 }

@@ -149,6 +149,8 @@ class RomPatcher {
 
         this.VANILLA_CRYSTAL_MD5 = "ef47f6528875dc3de037e75bba6a0ecb";
         this.VANILLA_EMERALD_MD5 = "605b89b67018abcea91e693a4dd25be3";
+
+        this.bossText = "LIKE AND SUBSCRIBE";
     }
 
 
@@ -485,6 +487,10 @@ class RomPatcher {
 
         this.patchSectionOfRom(menuExitTextPtrAddressE, bedWarpMessage, "E");
         this.patchSectionOfRom(confirmMessageStartOffsetE, confirmMessage, "E");
+
+
+        // Patch Red Sad Text
+        this.patchSectionOfRom(0x23B358, RomPatcher.convertMessageToHex("RED: " + this.bossText), "E");
 
         
         // File Patches
@@ -1161,7 +1167,7 @@ class RomPatcher {
         charHex.set("y"    , 0xED);
         charHex.set("z"    , 0xEE);
         // charHex.set(">"    , 0xEF);
-        // charHex.set(":"    , 0xF0);
+        charHex.set(":"    , 0xF0);
         // charHex.set("Ä"    , 0xF1);
         // charHex.set("Ö"    , 0xF2);
         // charHex.set("Ü"    , 0xF3);

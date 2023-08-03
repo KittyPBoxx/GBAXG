@@ -320,12 +320,14 @@ export const EMERALD_WARPS =
         "grouped": ["E,9,5,1"],
         "groupMain" : true,
         "level" : "3",
+        "tags": ["extraDeadend"]
     },
     "E,9,5,1" : {
         "name" : "SLATEPORT CITY - INSIDE - Name Changer - 4,7",
         "to": "E,0,1,6",
         "grouped": ["E,9,5,0"],
         "level" : "3",
+        "tags": ["extraDeadend"]
     },
     "E,9,6,0" : {
         "name" : "SLATEPORT CITY - INSIDE - Fan Club - 6,A",
@@ -568,12 +570,14 @@ export const EMERALD_WARPS =
         "grouped": ["E,10,3,1"],
         "groupMain" : true,
         "level" : "3",
+        "tags": ["extraDeadend"]
     },
     "E,10,3,1" : {
         "name" : "MAUVILLE CITY - INSIDE - Game Corner - C,A",
         "to": "E,0,2,5",
         "grouped": ["E,10,3,0"],
         "level" : "3",
+        "tags": ["extraDeadend"]
     },
     "E,10,4,0" : {
         "name" : "MAUVILLE CITY - INSIDE - Left of mart house - 3,8",
@@ -581,12 +585,14 @@ export const EMERALD_WARPS =
         "grouped": ["E,10,4,1"],
         "groupMain" : true,
         "level" : "3",
+        "tags": ["extraDeadend"]
     },
     "E,10,4,1" : {
         "name" : "MAUVILLE CITY - INSIDE - Left of mart house - 4,8",
         "to": "E,0,2,6",
         "grouped": ["E,10,4,0"],
         "level" : "3",
+        "tags": ["extraDeadend"]
     },
     "E,10,5,0" : {
         "name" : "MAUVILLE CITY - INSIDE - PkCenter Enterance - 7,8",
@@ -816,7 +822,7 @@ export const EMERALD_WARPS =
         "to" : "E,0,3,4",
         "grouped" : ["E,11,4,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,11,4,1" : {
         // SCHOOL
@@ -824,7 +830,7 @@ export const EMERALD_WARPS =
         "level": "1", 
         "to" : "E,0,3,4",
         "grouped" : ["E,11,4,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,11,5,0" : {
         // PK
@@ -911,14 +917,14 @@ export const EMERALD_WARPS =
         "to" : "E,0,3,7",
         "grouped" : ["E,11,10,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,11,10,1" : {
         "name": "RUSTBORO CITY - INSIDE - Right of Gym (seedot/ralts trade) - 6,7",
         "level": "1", 
         "to" : "E,0,3,7",
         "grouped" : ["E,11,10,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,11,11,0" : {
         "name": "RUSTBORO CITY - INSIDE - Cut Masters House - 5,8",
@@ -1101,14 +1107,14 @@ export const EMERALD_WARPS =
         "level" : "6",
         "grouped": ["E,12,0,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,12,0,1" : {
         "name" : "FORTREE CITY - INSIDE - Top Next To PkCenter - 4,5",
         "to" : "E,0,4,1",
         "level" : "6",
         "grouped": ["E,12,0,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,12,1,0" : {
         "name" : "FORTREE CITY - INSIDE - Gym - F,18",
@@ -1173,14 +1179,14 @@ export const EMERALD_WARPS =
         "level" : "6",
         "grouped": ["E,12,5,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,12,5,1" : {
         "name" : "FORTREE CITY - INSIDE - Left Above GYM - 4,5",
         "to" : "E,0,4,4",
         "level" : "6",
         "grouped": ["E,12,5,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,12,6,0" : {
         "name" : "FORTREE CITY - INSIDE - Right Above GYM - 3,5",
@@ -1231,14 +1237,14 @@ export const EMERALD_WARPS =
         "level" : "6",
         "grouped": ["E,12,9,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,12,9,1" : {
         "name" : "FORTREE CITY - INSIDE - Bottom Right - 4,5",
         "to" : "E,0,4,8",
         "level" : "6",
         "grouped": ["E,12,9,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 /* LILYCOVE CITY - EXT */
     "E,0,5,0" : {
@@ -1570,12 +1576,14 @@ export const EMERALD_WARPS =
         "level" : "7",
         "grouped": ["E,13,11,1"],
         "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,13,11,1" : {
         "name" : "LILYCOVE CITY - INSIDE - Right of Dept - 4,7",
         "to" : "E,0,5,7",
         "level" : "7",
         "grouped": ["E,13,11,0"],
+        "tags": ["extraDeadend"]
     },
     "E,13,12,0" : {
         "name" : "LILYCOVE CITY - INSIDE - Top Right - 3,8",
@@ -1598,12 +1606,14 @@ export const EMERALD_WARPS =
         "level" : "7",
         "grouped": ["E,13,13,1"],
         "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,13,13,1" : {
         "name" : "LILYCOVE CITY - INSIDE - Center Right (ledge) - 4,8",
         "to" : "E,0,5,9",
         "level" : "7",
         "grouped": ["E,13,13,0"],
+        "tags": ["extraDeadend"]
     },
     "E,13,14,0" : {
         "name" : "LILYCOVE CITY - INSIDE - Left of contest Hall - 3,8",
@@ -1739,6 +1749,7 @@ export const EMERALD_WARPS =
         "name" : "LILYCOVE CITY - INSIDE - Dept Store Roof - D,3",
         "to" : "E,13,20,2",
         "level" : "7",
+        "tags": ["extraDeadend"]
     },
 /* MOSSDEEP CITY - EXT */
     "E,0,6,0" : {
@@ -1862,13 +1873,15 @@ export const EMERALD_WARPS =
         "level": "7", 
         "to": "E,0,6,0",
         "grouped": ["E,14,1,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,14,1,1" : {
         "name": "MOSSDEEP CITY - INSIDE - Above PkCenter - 4,7",
         "level": "7", 
         "to": "E,0,6,0",
         "grouped": ["E,14,1,0"],
+        "tags": ["extraDeadend"]
     },
     "E,14,2,0" : {
         "name": "MOSSDEEP CITY - INSIDE - Bellow Space Center - 3,7",
@@ -1876,14 +1889,14 @@ export const EMERALD_WARPS =
         "to": "E,0,6,3",
         "grouped": ["E,14,2,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,14,2,1" : {
         "name": "MOSSDEEP CITY - INSIDE - Bellow Space Center - 4,7",
         "level": "7", 
         "to": "E,0,6,3",
         "grouped": ["E,14,2,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,14,3,0" : {
         "name": "MOSSDEEP CITY - INSIDE - PkCenter Door - 7,8",
@@ -1934,13 +1947,15 @@ export const EMERALD_WARPS =
         "level": "7", 
         "to": "E,0,6,5",
         "grouped": ["E,14,6,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,14,6,1" : {
         "name": "MOSSDEEP CITY - INSIDE - Left of Space Center - 4,7",
         "level": "7", 
         "to": "E,0,6,5",
         "grouped": ["E,14,6,0"],
+        "tags": ["extraDeadend"]
     },
     "E,14,7,0" : {
         "name": "MOSSDEEP CITY - INSIDE - Top Left (Steven) - 3,7",
@@ -2195,14 +2210,14 @@ export const EMERALD_WARPS =
         "to": "E,0,7,4",
         "grouped": ["E,15,5,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,15,5,1" : {
         "name": "SOOTOPOLIS CITY - INSIDE - Left side top - 4,6",
         "level": "8", 
         "to": "E,0,7,4",
         "grouped": ["E,15,5,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,15,6,0" : {
         "name": "SOOTOPOLIS CITY - INSIDE - Left side top - 3,6",
@@ -2270,12 +2285,14 @@ export const EMERALD_WARPS =
         "to": "E,0,7,9",
         "grouped": ["E,15,10,1"],
         "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,15,10,1" : {
         "name": "SOOTOPOLIS CITY - INSIDE - Right side middle Right - 4,6",
         "level": "8", 
         "to": "E,0,7,9",
-        "grouped": ["E,15,10,0"]
+        "grouped": ["E,15,10,0"],
+        "tags": ["extraDeadend"]
     },
     "E,15,11,0" : {
         "name": "SOOTOPOLIS CITY - INSIDE - Left side bottom - 3,6",
@@ -2719,14 +2736,16 @@ export const EMERALD_WARPS =
         "level": "1", 
         "to": "E,0,10,3",
         "grouped": ["E,2,4,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,2,4,1" : {
         // MART
         "name": "OLDALE TOWN - INSIDE - Mart - 4,7",
         "level": "1", 
         "to": "E,0,10,3",
-        "grouped": ["E,2,4,0"]
+        "grouped": ["E,2,4,0"],
+        "tags": ["extraDeadend"]
     },
 /* DEWFORD CITY - EXT */
     "E,0,11,0" : {
@@ -2858,13 +2877,15 @@ export const EMERALD_WARPS =
         "level": "2", 
         "to" : "E,0,11,4",
         "grouped": ["E,3,5,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,3,5,1" : {
         "name": "DEWFORD TOWN - INSIDE - Fishing House (center) - 4,8",
         "level": "2", 
         "to" : "E,0,11,4",
-        "grouped": ["E,3,5,0"]
+        "grouped": ["E,3,5,0"],
+        "tags": ["extraDeadend"]
     },
 /* LAVARIDGE TOWN - EXT */
     "E,0,12,0" : {
@@ -2953,13 +2974,15 @@ export const EMERALD_WARPS =
         "level": "4", 
         "to" : "E,0,12,4",
         "grouped": ["E,4,3,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,4,3,1" : {
         "name": "LAVARIDGE TOWN - INSIDE - Bottom Right - 4,7",
         "level": "4", 
         "to" : "E,0,12,4",
-        "grouped": ["E,4,3,0"]
+        "grouped": ["E,4,3,0"],
+        "tags": ["extraDeadend"]
     },
     "E,4,4,0" : {
         "name": "LAVARIDGE TOWN - INSIDE - Mart - 3,7",
@@ -3149,13 +3172,15 @@ export const EMERALD_WARPS =
         "level": "4", 
         "to": "E,0,13,4",
         "grouped": ["E,5,7,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,5,7,1" : {
         "name": "FALLARBOR TOWN - INSIDE - Move Relearner  - 4,7",
         "level": "4", 
         "to": "E,0,13,4",
-        "grouped": ["E,5,7,0"]
+        "grouped": ["E,5,7,0"],
+        "tags": ["extraDeadend"]
     },
 /* VERDANTURF TOWN - EXT */
     "E,0,14,0" : {
@@ -3305,13 +3330,15 @@ export const EMERALD_WARPS =
         "level": "3", 
         "to" : "E,0,14,5",
         "grouped": ["E,6,7,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,6,7,1" : {
         "name": "VERDANTURF TOWN - INSIDE - Left House - 4,7",
         "level": "3", 
         "to" : "E,0,14,5",
-        "grouped": ["E,6,7,0"]
+        "grouped": ["E,6,7,0"],
+        "tags": ["extraDeadend"]
     },
     "E,6,8,0" : {
         "name": "VERDANTURF TOWN - INSIDE - Right House - 3,8",
@@ -3442,12 +3469,14 @@ export const EMERALD_WARPS =
         "to" : "E,0,15,2",
         "grouped": ["E,7,3,1"],
         "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,7,3,1" : {
         "name": "PACIFIDLOG TOWN - INSIDE - Bottom Left - 5,8",
         "level": "8", 
         "to" : "E,0,15,2",
-        "grouped": ["E,7,3,0"]
+        "grouped": ["E,7,3,0"],
+        "tags": ["extraDeadend"]
     },
     "E,7,4,0" : {
         "name": "PACIFIDLOG TOWN - INSIDE - Bottom - 4,8",
@@ -3455,12 +3484,14 @@ export const EMERALD_WARPS =
         "to" : "E,0,15,3",
         "grouped": ["E,7,4,1"],
         "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,7,4,1" : {
         "name": "PACIFIDLOG TOWN - INSIDE - Bottom - 5,8",
         "level": "8", 
         "to" : "E,0,15,3",
-        "grouped": ["E,7,4,0"]
+        "grouped": ["E,7,4,0"],
+        "tags": ["extraDeadend"]
     },
     "E,7,5,0" : {
         "name": "PACIFIDLOG TOWN - INSIDE - Top Left - 4,8",
@@ -3675,7 +3706,8 @@ export const EMERALD_WARPS =
     "E,0,31,2" : {
         "name": "ROUTE 116 - OUTSIDE - Rusturf tunnel enterance (center) - 41,A",
         "to" : "E,24,4,2",
-        "level" : "3"
+        "level" : "3",
+        "tags": ["extraDeadend"]
     },
     "E,0,31,3" : {
         // TERRA CAVE
@@ -3947,13 +3979,15 @@ export const EMERALD_WARPS =
         "groupMain" : true,
         "connections" : {
             "E,29,0,2": true
-        }
+        },
+        "tags": ["extraDeadend"]
     },
     "E,28,0,1" : {
         "name" : "ROUTE 109 - INSIDE - Beach Hut - 7,9",
         "to" : "E,0,24,0",
         "level" : "3",
-        "grouped": ["E,28,0,0"]
+        "grouped": ["E,28,0,0"],
+        "tags": ["extraDeadend"]
     },
 /* Route 110 - EXT */
     "E,0,25,0" : {
@@ -4219,27 +4253,29 @@ export const EMERALD_WARPS =
         "level" : "4",
         "grouped": ["E,18,1,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,18,1,1" : {
         "name" : "ROUTE 111 - INSIDE - Rest Gandma House - 4,7",
         "to" : "E,0,26,2",
         "level" : "4",
         "grouped": ["E,18,1,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,26,60,0" : {
         "name" : "ROUTE 111 - INSIDE - Trainer Hill - 9,10",
         "to" : "E,0,26,4",
         "level" : "3",
         "grouped": ["E,26,60,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,26,60,1" : {
         "name" : "ROUTE 111 - INSIDE - Trainer Hill - 11,10",
         "to" : "E,0,26,4",
         "level" : "3",
-        "grouped": ["E,26,60,0"]
+        "grouped": ["E,26,60,0"],
+        "tags": ["extraDeadend"]
     },
     "E,24,6,0" : {
         "name" : "ROUTE 111 - INSIDE - Desert Ruins - 8,1D",
@@ -4319,6 +4355,7 @@ export const EMERALD_WARPS =
         "name" : "MIRAGE TOWER - INSIDE - F4 (Fossils) - 1,4",
         "to" : "E,24,96,1",
         "level" : "5",
+        "tags": ["extraDeadend"]
     },
 /* Route 117 - EXT */     
     "E,0,32,0" : {
@@ -4336,13 +4373,15 @@ export const EMERALD_WARPS =
         "to" : "E,0,32,0",
         "level" : "3",
         "grouped": ["E,22,0,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,22,0,1" : {
         "name" : "ROUTE 117 - INSIDE - Day Care - 3,8",
         "to" : "E,0,32,0",
         "level" : "3",
-        "grouped": ["E,22,0,0"]
+        "grouped": ["E,22,0,0"],
+        "tags": ["extraDeadend"]
     },
 /* Route 112 - EXT */
     "E,0,27,0" : {
@@ -4568,13 +4607,15 @@ export const EMERALD_WARPS =
         "to" : "E,20,0,2",
         "level" : "4",
         "grouped": ["E,20,1,1"],
-        "groupMain" : true
+        "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,20,1,1" : {
         "name" : "ROUTE 114 - INSIDE - Fossil Cave Door - 7,19",
         "to" : "E,20,0,2",
         "level" : "4",
-        "grouped": ["E,20,1,0"]
+        "grouped": ["E,20,1,0"],
+        "tags": ["extraDeadend"]
     },
     "E,20,1,2" : {
         "name" : "ROUTE 114 - INSIDE - Fossil Cave Desert Pass - 6,2",
@@ -4591,14 +4632,16 @@ export const EMERALD_WARPS =
         "level" : "4",
         "grouped": ["E,20,2,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority"],
+        "tags": ["extraDeadend"]
     },
     "E,20,2,1" : {
         "name" : "ROUTE 114 - INSIDE - Lanettes House - 6,7",
         "to" : "E,0,29,2",
         "level" : "4",
         "grouped": ["E,20,2,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority"],
+        "tags": ["extraDeadend"]
     },
 /* DESSERT PASS */
     "E,24,98,0" : {
@@ -4749,7 +4792,7 @@ export const EMERALD_WARPS =
         "name" : "METEOR FALLS - INSIDE - F4 Bagon Room - 5,F",
         "to" : "E,24,2,3",
         "level" : "9",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 // F5 (Steven Room)
     "E,24,107,0" : {
@@ -4954,7 +4997,7 @@ export const EMERALD_WARPS =
         "name" : "ABANDONED SHIP - INSIDE - F2 Left Side Top - 4,1",
         "to" : "E,24,55,6",
         "level" : "6",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,56,3" : {
         "name" : "ABANDONED SHIP - INSIDE - F2 Right Side Bottom - D,10",
@@ -5059,18 +5102,19 @@ export const EMERALD_WARPS =
         "name" : "ABANDONED SHIP - INSIDE - F4 Left - 4,1",
         "to" : "E,24,57,2",
         "level" : "6",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,58,1" : {
         "name" : "ABANDONED SHIP - INSIDE - F4 Center - D,1",
         "to" : "E,24,57,3",
         "level" : "6",
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,58,2" : {
         "name" : "ABANDONED SHIP - INSIDE - F4 Right - 16,1",
         "to" : "E,24,57,4",
         "level" : "6",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 // F5
     "E,24,59,0" : {
@@ -5128,14 +5172,14 @@ export const EMERALD_WARPS =
         "level" : "6",
         "grouped": ["E,24,61,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,61,1" : {
         "name" : "ABANDONED SHIP - INSIDE - F7 Door - 4,7",
         "to" : "E,24,57,5",
         "level" : "6",
         "grouped": ["E,24,61,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 // F8
     "E,24,62,0" : {
@@ -5328,7 +5372,7 @@ export const EMERALD_WARPS =
         "name" : "NEW MAUVILLE - INSIDE - Powerplant Door - 20,21",
         "to" : "E,24,52,1",
         "level" : "6",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 /* ROUTE 123 - EXT */
     "E,0,38,0" : {
@@ -5347,14 +5391,14 @@ export const EMERALD_WARPS =
         "level" : "6",
         "grouped": ["E,31,0,1"],
         "groupMain" : true,
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,31,0,1" : {
         "name" : "ROUTE 123 - INSIDE - Berry Masters House - 4,7",
         "to" : "E,0,38,0",
         "level" : "6",
         "grouped": ["E,31,0,0"],
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 /* ROUTE 119 - EXT */
     "E,0,34,0" : {
@@ -5442,7 +5486,7 @@ export const EMERALD_WARPS =
         "name" : "ROUTE 120 - INSIDE - Scorched Slab - 7,10",
         "to" : "E,0,35,1",
         "level": "6",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,68,0" : {
         "name" : "ROUTE 120 - INSIDE - Ancient Tomb Bottom - 8,1D",
@@ -5485,12 +5529,14 @@ export const EMERALD_WARPS =
         "level" : "7",
         "grouped": ["E,23,0,3"],
         "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,23,0,3" : {
         "name" : "ROUTE 121 - INSIDE - Safari Zone Enterance - F,D",
         "to" : "E,0,36,0",
         "level" : "7",
-        "grouped": ["E,23,0,2"]
+        "grouped": ["E,23,0,2"],
+        "tags": ["extraDeadend"]
     },
 /* Route 122 - EXT */
     "E,0,37,0" : {
@@ -5654,7 +5700,7 @@ export const EMERALD_WARPS =
         "name" : "Mt Pyre - INSIDE - F3 Left Hole - A,C",
         "to" : "E,24,16,3",
         "level" : "7",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 // F4
     "E,24,18,0" : {
@@ -5706,7 +5752,7 @@ export const EMERALD_WARPS =
         "name" : "Mt Pyre - INSIDE - F4 Left Hole - 2,C",
         "to" : "E,24,17,3",
         "level" : "7",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 // F5
     "E,24,19,0" : {
@@ -5831,12 +5877,14 @@ export const EMERALD_WARPS =
         "level" : "7",
         "grouped": ["E,33,0,0"],
         "groupMain" : true,
+        "tags": ["extraDeadend"]
     },
     "E,33,0,1" : {
         "name" : "ROUTE 124 - INSIDE - House - 4,8",
         "to" : "E,0,39,0",
         "level" : "7",
-        "grouped": ["E,33,0,0"]
+        "grouped": ["E,33,0,0"],
+        "tags": ["extraDeadend"]
     },
 /* Route 125 - EXT */
     "E,0,40,0" : {
@@ -5938,7 +5986,7 @@ export const EMERALD_WARPS =
         "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Center Right - 1B,C",
         "to" : "E,24,24,4",
         "level" : "7",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,24,8" : {
         "name" : "AQUA HIDEOUT - INSIDE - F2 Left Side Bottom Left Top - 3,F",
@@ -6159,7 +6207,7 @@ export const EMERALD_WARPS =
         "name" : "AQUA HIDEOUT - INSIDE - F3 Center Left Room - C,D",
         "to" : "E,24,25,6",
         "level" : "7",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,25,8" : {
         "name" : "AQUA HIDEOUT - INSIDE - F3 Bottom Room Top - 1F,11",
@@ -6193,7 +6241,7 @@ export const EMERALD_WARPS =
         "name" : "MAGMA HIDEOUT - INSIDE - F1 Top Right - 1F,3",
         "to" : "E,24,88,1",
         "level" : "7",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
     "E,24,86,3" : {
         "name" : "MAGMA HIDEOUT - INSIDE - F1 Center - 14,16",
@@ -6281,7 +6329,7 @@ export const EMERALD_WARPS =
         "name" : "MAGMA HIDEOUT - INSIDE - F5 Door - C,F",
         "to" : "E,24,89,1",
         "level" : "7",
-        "tags": ["low_priority"]
+        "tags": ["low_priority", "extraDeadend"]
     },
 // F6
     "E,24,91,0" : {

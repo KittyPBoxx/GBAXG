@@ -17,6 +17,7 @@ class Randomiser {
     this.config.kantoLevel = 1;
     this.config.johtoLevel = 1; 
     this.config.hoennLevel = 1; 
+    this.config.extraDeadendRemoval = true;
     
     this.maxRetyAttempts = 5;
     this.seed = "";
@@ -252,6 +253,10 @@ class Randomiser {
     return new Map([...mapData].filter(n => !(n[1].tags && n[1].tags.includes("removeable"))));
   }
 
+  removeExtraDeadendLocations(mapData) {
+    return new Map([...mapData].filter(n => !(n[1].tags && n[1].tags.includes("extraDeadend"))));
+  }
+
   static toMapBank(s) { 
       let arr = s.split(","); 
       return arr[0] + "," + arr[1] + "," + arr[2] 
@@ -302,6 +307,10 @@ class Randomiser {
   
       // In future this could be config. Remove some deadends that litterally only have dialog to speed things up
       warpIdData = this.removeRemovableLocations(warpIdData);
+
+      if (this.config.extraDeadendRemoval) {
+        warpIdData = this.removeExtraDeadendLocations(warpIdData);
+      }
   
       return warpIdData;
   }
@@ -910,7 +919,7 @@ class Randomiser {
       return 1;
     } 
   
-    var difficulty = getMapData()[edge.data().source].connections[edge.data().target];
+    var difficulty = this.getMapData()[edge.data().source].connections[edge.data().target];
   
     if (difficulty === true) {
       // If the path is always traversable give a weight of 1
@@ -923,31 +932,31 @@ class Randomiser {
     }
   
     // Otherwise use standard wieghts (prioritize least flags flags completed)
-    return Object.values(COMPOSITE_FLAGS).filter(f => f.flag == difficulty)[0].condition.length * 100;
+    return Object.values(this.getFlagData().COMPOSITE_FLAGS).filter(f => f.flag == difficulty)[0].condition.length * 100;
   }
   
   shortestPath(location) {
-    var fw = this.cy.elements().floydWarshall({weight: (edge) => flagWeight(edge, location),  directed : true})
-    return shortestPathPreCalcFW(fw, location);
+    var fw = this.cy.elements().floydWarshall({weight: (edge) => this.flagWeight(edge, location),  directed : true})
+    return this.shortestPathPreCalcFW(fw, location);
   }
   
   allshortestPaths() {
-    var fw = this.cy.elements().floydWarshall({weight: (edge) => flagWeight(edge, location),  directed : true})
-    return Object.entries(PATH_FINDING_LOCATIONS).map(i => {
-      let result = shortestPathPreCalcFW(fw, i[1]);
+    var fw = this.cy.elements().floydWarshall({weight: (edge) => this.flagWeight(edge, location),  directed : true})
+    return Object.entries(HINTABLE_LOCATIONS).map(i => {
+      let result = this.shortestPathPreCalcFW(fw, i[1]);
       result.name = i[0];
       return result;
     });
   }
   
   shortestPathPreCalcFW(fw, location) {
-    let path = fw.path(this.cy.getElementById("E,0,10,2"), PATH_FINDING_LOCATIONS[location] ? this.cy.getElementById(PATH_FINDING_LOCATIONS[location]) : this.cy.getElementById(location)).map(n =>  {
+    let path = fw.path(this.cy.getElementById("E,0,10,2"), HINTABLE_LOCATIONS[location] ? this.cy.getElementById(HINTABLE_LOCATIONS[location]) : this.cy.getElementById(location)).map(n =>  {
        if(n.isNode()) {
-         return Object.assign({}, getMapData()[n.data().id]);
+         return Object.assign({}, this.getMapData()[n.data().id]);
        } else if (n.data().isWarp) {
          return {name: n.data().id, type: "WARP"}
        } else {
-         return {name: n.data().id, type: "WALK", conditions: [getMapData()[n.data().source].connections[n.data().target]]}
+         return {name: n.data().id, type: "WALK", conditions: [this.getMapData()[n.data().source].connections[n.data().target]]}
        }
     });
   

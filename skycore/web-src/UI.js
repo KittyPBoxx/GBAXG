@@ -9,7 +9,7 @@ class UI extends Component {
         this.gbaxg = gbaxg;
         this.root = root;
         this.romTab = new RomTab(this.gbaxg.romLoader, this.gbaxg.saveManager);
-        this.patchesTab = new PatchesTab(this.gbaxg.romLoader);
+        this.patchesTab = new PatchesTab(this.gbaxg.romLoader, this.gbaxg.keybindManager);
         this.controlsTab = new ControlsTab(this, this.gbaxg.keybindManager);
         this.savesTab = new SavesTab(this, this.gbaxg.saveManager);
         this.warpsTab = new WarpsTab(this.gbaxg.keybindManager, this.gbaxg.randomiser, this.gbaxg.ramHook);
@@ -165,6 +165,7 @@ class RomTab extends Component {
                         <sl-icon slot="icon" name="info-circle"></sl-icon>
                         <small>Use Button/Hotkey for resets\n (not soft reset)</small>
                     </sl-alert>
+                    <span class="version-text">1.0.1-ALPHA Pre-Release</span>
                     <sl-button onClick="${() => this.deleteAllRoms()}" class="deleteDataButton" variant="danger" outline>Clear Stored ROMS</sl-button>`;
     }
 
@@ -266,9 +267,10 @@ class RomUpload extends Component {
 
 class PatchesTab extends Component {
 
-    constructor(romLoader) {
+    constructor(romLoader, keybindManager) {
         super();
         this.romLoader = romLoader;
+        this.keybindManager = keybindManager;
         this.id = "patches";
         this.title = "Patches";
     }
@@ -311,6 +313,39 @@ class PatchesTab extends Component {
 
     toggleHQMixer(e, elmnt) {
         elmnt.romLoader.romPatcher.hqMixer = e.target.checked;
+    }
+
+    handleKeydown(elmnt, e) {
+        let currentIndex = e.target.shadowRoot.querySelector("input").value.length;
+        let value = e.target.value;
+
+        if (e.keyCode == 191 && e.shiftKey){
+            e.target.value = value.substring(0, currentIndex) + "?" + value.substring(currentIndex);
+        } else if (e.keyCode == 49 && e.shiftKey){
+            e.target.value = value.substring(0, currentIndex) + "!" + value.substring(currentIndex);
+        } else if (e.keyCode == 57 && e.shiftKey){
+            e.target.value = value.substring(0, currentIndex) + "(" + value.substring(currentIndex);
+        } else if (e.keyCode == 48 && e.shiftKey){
+            e.target.value = value.substring(0, currentIndex) + ")" + value.substring(currentIndex);
+        } else if (e.keyCode == 188){
+            e.target.value = value.substring(0, currentIndex) + "," + value.substring(currentIndex);
+        } else if (e.keyCode == 32){
+            e.target.value = value.substring(0, currentIndex) + " " + value.substring(currentIndex);
+        } else if (e.keyCode == 190) {
+            e.target.value = value.substring(0, currentIndex) + "." + value.substring(currentIndex);
+        } else if ((e.keyCode >= 48 && e.keyCode <= 57)) {
+            e.target.value = value.substring(0, currentIndex) + String.fromCharCode(e.keyCode) + value.substring(currentIndex);
+        } else if (e.keyCode >= 65 && e.keyCode <= 90) {
+            e.target.value = value.substring(0, currentIndex) + String.fromCharCode(e.keyCode) + value.substring(currentIndex);
+        } else if (e.key == "Backspace" && value.length > 0) {
+            if (currentIndex == null) {
+                e.target.value = "";
+            } else {
+                e.target.value = value.substring(0, currentIndex - 1) + value.substring(currentIndex, value.length);
+            }
+        } 
+
+        elmnt.romLoader.romPatcher.bossText = value.substring(0, 21);
     }
 
     render() {
@@ -368,6 +403,7 @@ class PatchesTab extends Component {
                                     <td><sl-button href="../../upr/UniversalPokemonRandomizer-gbaxg-0.11.3-alpha.zip" target="_blank">Get UPR</sl-button></td>
                                 </tr>
                             </table>
+                            <sl-input class="final-text-input" label="Final Text:" help-text="What will the final boss say after you win?" onkeydown="${e => this.handleKeydown(this, e)}" onfocusin="${() => this.keybindManager.disableInput = true}" onfocusout="${() => this.keybindManager.disableInput = false}" maxlength="20" value="LIKE AND SUBSCRIBE" clearable></sl-input>
                         </form>
                         <sl-alert class="patch-info" open>
                             <sl-icon slot="icon" name="info-circle"></sl-icon>
@@ -633,9 +669,18 @@ class WarpsTab extends Component {
         elmnt.ramHook.warpHandler.randomWarpsEnabled = e.target.checked;
     }
 
+    toggleRemoveExtraDeadends(e, elmnt) {
+        elmnt.randomiser.config.extraDeadendRemoval = e.target.checked;
+    }
+
     render() {
         return html`<div>
                         <form class="warp-options">
+                            <table>
+                                <tr>
+                                    <td><sl-switch onClick="${(e) => this.toggleRemoveExtraDeadends(e, this)}" checked>Remove Extra Deadends</sl-switch></td>
+                                </tr>
+                            </table>
                             <table class="warp-selection">
                                 <tr>
                                     <td>

@@ -260,7 +260,8 @@ export const CRYSTAL_WARPS =
         // School
         "name": "VIOLET CITY - INSIDE - Academy - 4,11",
         "level" : "1",
-        "to" : "C,0,0,6"
+        "to" : "C,0,0,6",
+        "tags": ["extraDeadend"]
     },
     "C,8,3,0" : {
         "name": "VIOLET CITY - INSIDE - Left House - 4,9",
@@ -302,7 +303,8 @@ export const CRYSTAL_WARPS =
     "C,8,2,0" : {
         "name": "VIOLET CITY - INSIDE - Bottom Right House (Onix, Belsprout Trade) - 4,9",
         "level" : "1",
-        "to" : "C,0,0,1"
+        "to" : "C,0,0,1",
+        "tags": ["extraDeadend"]
     },
     // SPROUT TOWER
     //F1
@@ -463,7 +465,8 @@ export const CRYSTAL_WARPS =
     "C,4,7,0" : {
         "name": "ROUTE 30 - INSIDE - Berry Guy's Hose - 4,8",
         "level" : "1",
-        "to" : "C,0,17,0"
+        "to" : "C,0,17,0",
+        "tags": ["extraDeadend"]
     },
 /* ROUTE 31 - EXT */
     "C,0,18,0" : {
@@ -719,6 +722,7 @@ export const CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Lab - 2,8",
         "to" : "C,24,86,2",
         "level" : "1",
+        "tags": ["extraDeadend"]
     },
     // Unknown Cave
     "C,24,87,0" : {
@@ -1269,6 +1273,7 @@ export const CRYSTAL_WARPS =
         "name": "SLOWPOKE WELL - INSIDE - F2 Ladder - 11,10",
         "to" : "C,24,4,1",
         "level": "4",
+        "tags": ["extraDeadend"]
     },
 /* ILEX FOREST */
     "C,24,11,0" : {
@@ -1351,7 +1356,8 @@ export const CRYSTAL_WARPS =
     "C,22,0,1" : {
         "name": "ROUTE 34 - INSIDE - Day Care Left - 1,6",
         "to" : "C,0,21,2",
-        "level": "3"
+        "level": "3",
+        "tags": ["extraDeadend"]
     },
     "C,22,0,0" : {
         "name": "ROUTE 34 - INSIDE - Day Care Bottom - 3,7",
@@ -1539,7 +1545,8 @@ export const CRYSTAL_WARPS =
     "C,11,11,0" : {
         "name": "GOLDENROD CITY - INSIDE - Top Left - 4,8",
         "to" : "C,0,3,8",
-        "level": "3"
+        "level": "3",
+        "tags": ["extraDeadend"]
     },
     "C,11,3,0" : {
         "name": "GOLDENROD CITY - INSIDE - GYM - 9,16",
@@ -2168,11 +2175,13 @@ export const CRYSTAL_WARPS =
         "name": "ECRUTEAK CITY - INSIDE - Above Gym - 4,7",
         "to" : "C,0,1,6",
         "level": "4",
+        "tags": ["extraDeadend"]
     },
     "C,9,0,0" : {
         "name": "ECRUTEAK CITY - INSIDE - Left Of Gym - 4,7",
         "to" : "C,0,1,7",
         "level": "4",
+        "tags": ["extraDeadend"]
     },
 // BURNED TOWER
     // F1
@@ -2230,6 +2239,7 @@ export const CRYSTAL_WARPS =
         "name": "ECRUTEAK CITY - INSIDE - Tin Tower Gatehouse F1 Enterance - 5,12",
         "to" : "C,0,1,8",
         "level": "4",
+        "ignore": true
     },
     "C,9,7,1" : {
         "name": "ECRUTEAK CITY - INSIDE - Tin Tower Gatehouse F1 Stairs - 6,2",
@@ -2237,7 +2247,8 @@ export const CRYSTAL_WARPS =
         "level": "5",
         "connections": {
             "C,9,7,0": true,
-        }   
+        },
+        "ignore": true
     },
     // F2
     "C,9,8,1" : {
@@ -2466,7 +2477,8 @@ export const CRYSTAL_WARPS =
     "C,10,2,0" : {
         "name": "OLIVINE CITY - INSIDE - Top Right Left - 3,7",
         "to" : "C,0,2,6",
-        "level": "5"
+        "level": "5",
+        "tags": ["extraDeadend"]
     },
 // No Inside of Docks
 /* Lighthouse */ // - Level 6
@@ -2896,7 +2908,8 @@ export const CRYSTAL_WARPS =
     "C,4,0,0" : {
         "name": "CIANWOOD CITY - INSIDE - Center above Gym - D,1F",
         "to" : "C,0,12,0",
-        "level": "5"
+        "level": "5",
+        "tags": ["extraDeadend"]
     },
     "C,4,1,0" : {
         "name": "CIANWOOD CITY - INSIDE - Gym - 5,12",
@@ -3040,12 +3053,14 @@ export const CRYSTAL_WARPS =
     "C,24,15,5" : {
         "name": "MOUNT MORTAR - INSIDE - F1 Top Left Ladder - 9,10",
         "to" : "C,24,16,2",
-        "level": "7"
+        "level": "7",
+        "tags": ["extraDeadend"]
     },
     "C,24,15,6" : {
         "name": "MOUNT MORTAR - INSIDE -F1 Top Right Ladder - 23,10",
         "to" : "C,24,16,3",
-        "level": "7"
+        "level": "7",
+        "tags": ["extraDeadend"]
     },
     "C,24,15,7" : {
         "name": "MOUNT MORTAR - INSIDE - F1 Top Center Door - 13,8",
@@ -3339,12 +3354,14 @@ export const CRYSTAL_WARPS =
     "C,6,8,0" : {
         "name": "LAKE OF RAGE - INSIDE - Bottom House - 3,7",
         "to" : "C,0,14,1",
-        "level": "7"
+        "level": "7",
+        "tags": ["extraDeadend"]
     },
     "C,6,7,0" : {
         "name": "LAKE OF RAGE - INSIDE - Top House - 4,8",
         "to" : "C,0,14,0",
-        "level": "7"
+        "level": "7",
+        "tags": ["extraDeadend"]
     },
 /* ROCKET HIDEOUT */
     // F1
@@ -3396,6 +3413,7 @@ export const CRYSTAL_WARPS =
         "name": "ROCKET HIDEOUT - INSIDE - F2 Middle Left Stairs - 3,7",
         "to" : "C,24,21,2",
         "level": "7",
+        "tags": ["extraDeadend"]
     },
     "C,24,20,3" : {
         "name": "ROCKET HIDEOUT - INSIDE - F2 Bottom Left - 3,14",
@@ -3759,11 +3777,13 @@ export const CRYSTAL_WARPS =
         "name": "BLACKTHORN CITY - INSIDE - Right of PkCenter - 3,7",
         "to" : "C,0,5,5",
         "level": "8", 
+        "tags": ["extraDeadend"]
     },
     "C,13,11,0" : {
         "name": "BLACKTHORN CITY - INSIDE - Left of Mart - 3,7",
         "to" : "C,0,5,6",
         "level": "8", 
+        "tags": ["extraDeadend"]
     },
 /* DRAGONS DEN - EXT */
     // CAVE
@@ -4101,7 +4121,8 @@ export const CRYSTAL_WARPS =
     "C,24,67,0" : {
         "name": "WHIRL ISLANDS - INSIDE - F8 Enterance - A,D",
         "to" : "C,24,35,2",
-        "level": "8",   
+        "level": "8", 
+        "tags": ["extraDeadend"]
     },
 /* ROUTE 27 - EXT */
     "C,0,35,0" : {
@@ -4179,12 +4200,14 @@ export const CRYSTAL_WARPS =
     "C,32,2,0" : {
         "name": "ROUTE 26 - INSIDE - Top House - 3,7",
         "to" : "C,0,34,1",
-        "level": "9"
+        "level": "9",
+        "tags": ["extraDeadend"]
     },
     "C,32,1,0" : {
         "name": "ROUTE 26 - INSIDE - Bottom House - 3,7",
         "to" : "C,0,34,2",
-        "level": "9"
+        "level": "9",
+        "tags": ["extraDeadend"]
     },
     "C,32,0,0" : {
         "name": "ROUTE 26 - INSIDE - Route Connector - A,12",
