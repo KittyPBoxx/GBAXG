@@ -724,6 +724,12 @@ class RomPatcher {
             this.patchSectionOfRom(0x8d0, [0xc0,0x22,0x00,0x03,0xfe,0xff,0x00,0x00,0xd4,0x7f,0x03,0x02,0x01,0x49,0x08,0x60] , "C"); 
         }
 
+        // Tweak the battle music to be a little less dank
+        this.patchROM8(0xe5f5d4, 0x18);
+        this.patchROM8(0xe5f607, 0x18);
+        this.patchROM8(0xe5f611, 0x18);
+        this.patchROM8(0xe5f6b9, 0x18);
+
         // Warp Home from menu
         let bedWarpMessage = RomPatcher.convertMessageToHex("WARP");
         let confirmMessage = RomPatcher.convertMessageToHex("Would you like to exit from this\\area right now?");
