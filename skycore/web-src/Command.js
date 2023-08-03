@@ -75,12 +75,12 @@ class CommandExecutor  {
         
         this.register("TurboBKeyDown"     , (args) => {
             exposedEmulationCore.KeyDown_EmulationCore(1) // B
-            bMashInterval = setInterval(() => { this.keyPress(1, exposedEmulationCore) }, turboRepeatDelay);
+            exposedEmulationCore.bMashInterval = setInterval(() => { this.keyPress(1, exposedEmulationCore) }, turboRepeatDelay);
         });             
         
         this.register("TurboBKeyUp"       , (args) => {
             exposedEmulationCore.KeyUp_EmulationCore(1);
-            clearInterval(bMashInterval);
+            clearInterval(exposedEmulationCore.bMashInterval);
         });
 
         this.register("Reset", args => saveManager.startGameOrReset());
