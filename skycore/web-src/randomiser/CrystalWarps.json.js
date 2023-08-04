@@ -1281,7 +1281,7 @@ export const CRYSTAL_WARPS =
         "to" : "C,3,6,0",
         "level": "3",
         "connections": {
-            "C,24,11,1": true
+            "C,24,11,1": "JOHTO_CUT"
         }   
     },
     "C,24,11,1" : {
@@ -1291,7 +1291,7 @@ export const CRYSTAL_WARPS =
         "grouped" : ["C,24,11,2"],
         "groupMain" : true,
         "connections": {
-            "C,24,11,0": true
+            "C,24,11,0": "JOHTO_CUT"
         }   
     },
     "C,24,11,2" : {
@@ -1300,7 +1300,7 @@ export const CRYSTAL_WARPS =
         "level": "3",
         "grouped" : ["C,24,11,1"],
         "connections": {
-            "C,24,11,1": true
+            "C,24,11,0": "JOHTO_CUT"
         }   
     },
 /* ROUSE 34 - EXT */

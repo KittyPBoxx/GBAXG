@@ -804,7 +804,7 @@ class AutoComplete extends Component {
         if (elmnt.filterText == "") {
             this.selectInput.current.hide()
         } else {
-            let options = elmnt.options.filter(o => o.toUpperCase().includes(elmnt.filterText)).slice(0,elmnt.maxOptions);
+            let options = elmnt.options.filter(o => o.toUpperCase().replaceAll(" ", "_").includes(elmnt.filterText.replaceAll(" ", "_"))).slice(0,elmnt.maxOptions);
 
             for (let i = 0; i < elmnt.maxOptions; i++) {
 
@@ -844,6 +844,8 @@ class AutoComplete extends Component {
             elmnt.textInput.current.value = value.substring(0, currentIndex - 1) + value.substring(currentIndex, value.length);
             elmnt.filterText =  elmnt.textInput.current.value;
             elmnt.createSelectOptions(elmnt);
+        } else if (e.keyCode == 32){
+            e.target.value = value.substring(0, currentIndex) + "_" + value.substring(currentIndex);
         } 
 
         this.valueChange(elmnt);
