@@ -345,7 +345,7 @@ class PatchesTab extends Component {
             }
         } 
 
-        elmnt.romLoader.romPatcher.bossText = value.substring(0, 21);
+        elmnt.romLoader.romPatcher.bossText = value.substring(0, 31);
     }
 
     render() {
@@ -403,7 +403,7 @@ class PatchesTab extends Component {
                                     <td><sl-button href="../../upr/UniversalPokemonRandomizer-gbaxg-0.11.3-alpha.zip" target="_blank">Get UPR</sl-button></td>
                                 </tr>
                             </table>
-                            <sl-input class="final-text-input" label="Final Text:" help-text="What will the final boss say after you win?" onkeydown="${e => this.handleKeydown(this, e)}" onfocusin="${() => this.keybindManager.disableInput = true}" onfocusout="${() => this.keybindManager.disableInput = false}" maxlength="20" value="LIKE AND SUBSCRIBE" clearable></sl-input>
+                            <sl-input class="final-text-input" label="Final Text:" help-text="What will the final boss say after you win?" onkeydown="${e => this.handleKeydown(this, e)}" onfocusin="${() => this.keybindManager.disableInput = true}" onfocusout="${() => this.keybindManager.disableInput = false}" maxlength="30" value="LIKE AND SUBSCRIBE" clearable></sl-input>
                         </form>
                         <sl-alert class="patch-info" open>
                             <sl-icon slot="icon" name="info-circle"></sl-icon>
