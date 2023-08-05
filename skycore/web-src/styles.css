@@ -434,3 +434,11 @@ sl-input.input-amount {
     opacity: 0;
     transition: opacity 2s linear;
 }
+
+.recovery-buttons {
+    display: flex;
+    margin-left: 0.4em;
+    margin-top: 0.4em;
+    gap: 0.4em;
+    opacity: 0.5;
+}

@@ -563,6 +563,11 @@ class SavesTab extends Component {
                                 </tr>
                             </table>
                         </form>
+                        <div class="recovery-buttons">
+                            <sl-button onClick="${() => {_ShowGame(); _SetGame(0); setTimeout(() => _ShowGame(), 1000);}}" outline variant="neutral" size="small">Recover FR</sl-button>
+                            <sl-button onClick="${() => {_ShowGame(); _SetGame(1); setTimeout(() => _ShowGame(), 1000);}}" outline variant="neutral" size="small">Recover C</sl-button>
+                            <sl-button onClick="${() => {_ShowGame(); _SetGame(2); setTimeout(() => _ShowGame(), 1000);}}" outline variant="neutral" size="small">Recover E</sl-button>
+                        </div>
                         <div class="save-buttons">
                             <div class="button-style-file-input save-input">
                                 <label for="import-save">Import Save</label>

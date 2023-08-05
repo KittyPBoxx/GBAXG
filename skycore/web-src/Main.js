@@ -62,6 +62,8 @@ Module['onRuntimeInitialized'] = createUI();
 function createUI() {
     console.log("wasm loaded");
 
+    document.getElementById("container").addEventListener("click", () => _ShowGame());
+
     let initGBAXG;
     
     // Make sure the UI actually gets loaded after the file system setup is done
