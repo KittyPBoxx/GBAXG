@@ -887,7 +887,6 @@ export const CRYSTAL_WARPS =
         "name": "RUINS OF ALPH - INSIDE - Bottom Right Drop - 3,4",
         "level" : "8",
         "to" : "C,24,87,5",
-        "ignore": true,
         "grouped": ["C,24,93,3", "C,24,93,4"],
         "groupMain" : true,
         "connections": {
