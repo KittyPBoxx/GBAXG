@@ -688,6 +688,15 @@ class RomPatcher {
         this.patchROM8(0x484123, 0x04);
         this.patchROM8(0x484126, 0xFF);
 
+        // Alph Puzzles always open
+        this.patchROM8(0xe72e12, 0x66);
+        this.patchROM8(0xe72e14, 0x6f);
+        this.patchROM8(0xe72e16, 0x76);
+    
+        this.patchROM8(0xe7f532, 0x66);
+        this.patchROM8(0xe7f534, 0x6f);
+        this.patchROM8(0xe7f536, 0x76);
+
         // Remove Darkness from Caves
         if (this.neverDarkInCaves) {
             this.patchROM8(0x0854d8, 0x08);
