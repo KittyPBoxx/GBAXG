@@ -62,7 +62,11 @@ Module['onRuntimeInitialized'] = createUI();
 function createUI() {
     console.log("wasm loaded");
 
-    document.getElementById("container").addEventListener("click", () => _ShowGame());
+    document.getElementById("container").addEventListener("click", () => {
+        if (!GBAXG.romLoader.loadingInProgress) {
+            _ShowGame();
+        }
+    });
 
     let initGBAXG;
     
