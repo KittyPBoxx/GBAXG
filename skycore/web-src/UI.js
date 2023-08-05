@@ -382,7 +382,7 @@ class PatchesTab extends Component {
                                 </tr>
                                 <tr>
                                     <td>Utra Speed Codes</td>
-                                    <td><sl-checkbox disabled onClick="${(e) => this.toggleSpeedCodes(e, this)}"></sl-checkbox></td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleSpeedCodes(e, this)}"></sl-checkbox></td>
                                 </tr>
                                 <tr>
                                     <td>Ipatix HQ Mixer</td>

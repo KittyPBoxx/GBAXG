@@ -235,7 +235,6 @@ class WarpHandler {
     }
 
     doSaveStateBeforeWarp(address, data) {
-        this.exposedEmulationCore.writeCpu8_EmulationCore(address, data);
         this.exposedEmulationCore.saveState_EmulationCore(0);
     }
 
@@ -438,9 +437,13 @@ class WarpHandler {
 
         if (this.warpingState == WarpingState.SETTING_NEW_WARP_ADDRESS && this.switchingState == SwitchingState.PREPARING_TO_SWITCH) {
             this.exposedEmulationCore.hideGame_EmulationCore();
-            this.gameStateManager.extractData();
-            this.switchingState = SwitchingState.SWITCHED_STILL_HIDDEN;
+            this.gameStateManager.extractData(); 
             this.exposedEmulationCore.loadState_EmulationCore(this.nextWarp.toRomCode, 0);
+            let warpHandler = this;
+            setTimeout(() => { 
+                this.switchingState = SwitchingState.SWITCHED_STILL_HIDDEN;
+                warpHandler.exposedEmulationCore.loadState_EmulationCore(this.nextWarp.toRomCode, 0);
+            }, 100);
         } else if (! (this.warpingState == WarpingState.READ_FIRST_WARP_ADDRESS || 
                       this.warpingState == WarpingState.PRE_LOAD_HANDLING_DONE_1 || 
                       this.warpingState == WarpingState.PRE_LOAD_HANDLING_DONE_2)) {

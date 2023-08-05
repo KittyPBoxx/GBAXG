@@ -1302,13 +1302,15 @@ static FORCE_INLINE uint8_t arm7_read8(void* user_data, uint32_t address){
 
   gba_compute_access_cycles((gba_t*)user_data,address,1);
 
+  uint8_t result = gba_read8((gba_t*)user_data,address);
+
   if (address == FIRE_RED_CURRENT_BANK && game_number == 0) {
     externalCpuRead8Intercept(address);
   } else if (address == EMERALD_CURRENT_BANK && game_number != 0) {
     externalCpuRead8Intercept(address);
   }
 
-  return gba_read8((gba_t*)user_data,address);
+  return result;
 }
 static FORCE_INLINE void gba_dma_write32(gba_t* gba, uint32_t address, uint32_t data){
   if((address&0xfffffC00)==0x04000000){
