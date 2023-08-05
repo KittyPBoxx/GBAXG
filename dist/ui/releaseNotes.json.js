@@ -5,7 +5,8 @@ var RELEASE_NOTES = {
         "Fix unknown puzzle warps breaking",
         "Fix bag loosing items when the order changed",
         "Fix possible slateport softlock",
-        "Prevent autobattle with champion lance"
+        "Prevent autobattle with champion lance",
+        "Major new release now available at https://kittypboxx.github.io/GBAXG/skycore/build/bin/"
     ],
     "0.10.3-ALPHA" : [
         "Rage candy bar guy no longer stops you",

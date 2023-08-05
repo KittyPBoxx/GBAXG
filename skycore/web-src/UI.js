@@ -165,7 +165,7 @@ class RomTab extends Component {
                         <sl-icon slot="icon" name="info-circle"></sl-icon>
                         <small>Use Button/Hotkey for resets\n (not soft reset)</small>
                     </sl-alert>
-                    <span class="version-text">1.0.1-ALPHA Pre-Release</span>
+                    <span class="version-text">1.0.1-ALPHA</span>
                     <sl-button onClick="${() => this.deleteAllRoms()}" class="deleteDataButton" variant="danger" outline>Clear Stored ROMS</sl-button>`;
     }
 
