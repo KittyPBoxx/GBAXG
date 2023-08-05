@@ -63,7 +63,7 @@ function createUI() {
     console.log("wasm loaded");
 
     document.getElementById("container").addEventListener("click", () => {
-        if (!GBAXG.romLoader.loadingInProgress) {
+        if (!GBAXG.romLoader || !GBAXG.romLoader.loadingInProgress) {
             _ShowGame();
         }
     });
