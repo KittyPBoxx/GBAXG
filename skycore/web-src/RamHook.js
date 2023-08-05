@@ -620,7 +620,13 @@ class WarpHandler {
     fixPlayerPosition(currentGame, destination) {
 
         let positionForcing = this.warpsWherePositionNeedsFixing.get(destination) || null;
-        let fromEscalator = this.escalatorTriggers.has(this.lastTrigger);
+        
+        // TODO: make sure the last position on last trigger is set correctly
+        let lastTriggerParts = this.lastTrigger.split(",");
+        lastTriggerParts[3] = '0';
+
+
+        let fromEscalator = this.escalatorTriggers.has(lastTriggerParts.join(","));
     
         if (!(positionForcing != null || fromEscalator)) {
             return;
