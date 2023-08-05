@@ -440,7 +440,18 @@ class RomPatcher {
         this.patchROM8(0x5262c0, 0x1d);
         this.patchROM8(0x5262c2, 0x0e);
         this.patchROM8(0x5262c5, 0x07);
-        
+
+        // Prevent walking on water by abandomed shit
+        this.patchROM8(0x3f1e34, 0xbe);
+        this.patchROM8(0x3f1e35, 0x11);
+
+        this.patchROM8(0x3f1e36, 0xbe);
+        this.patchROM8(0x3f1e37, 0x11);
+
+        this.patchROM8(0x3f1e38, 0xbe);
+        this.patchROM8(0x3f1e39, 0x11);
+
+
         // Remove Darkness from Caves
         if (this.neverDarkInCaves) {
             this.patchROM8(0x0854d8, 0x08);
