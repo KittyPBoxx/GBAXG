@@ -462,7 +462,9 @@ class ControlsTab extends Component {
 
     render() {
         return html`<div dangerouslySetInnerHTML=${this.generateKeybindElements(this)}>                            
-                    </div>`;
+                    </div>
+                    <sl-button onClick="${() => {FS.unlink('/offline/user_keybinds.json'); FS.syncfs(function (err) {}); window.location.reload(true)}}">Reset Keybinds</sl-button>
+                    `;
     }
 
 }
