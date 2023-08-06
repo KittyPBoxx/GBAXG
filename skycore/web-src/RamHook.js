@@ -82,6 +82,7 @@ class WarpHandler {
         this.lastTrigger = null;
         this.randomWarpsEnabled = true;
         this.fromGameSpeed = 1;
+        this._lastSafariState = false;
 
         this.autoInitMode = false;
         this.autoInitCallback = () => {};
@@ -211,6 +212,8 @@ class WarpHandler {
             this.saveStateIfGoingToSwitchGame(currentGame, trigger, address, data);
         }
 
+        this._lastSafariState = this.gameStateManager.varManager.isInSafari();
+
         return false;
     }
 
@@ -276,10 +279,10 @@ class WarpHandler {
     }
 
     isHomeWarpTrigger(trigger) {
-        if (trigger == "FR,11,0,255" && !this.gameStateManager.varManager.isInSafari()) { 
+        if (trigger == "FR,11,0,255" && !this._lastSafariState) { 
             return true;
         }
-        if (trigger == "E,23,0,255" && !this.gameStateManager.varManager.isInSafari()) { 
+        if (trigger == "E,23,0,255" && !this._lastSafariState) { 
             return true;
         }
         if (trigger == "C,23,0,255") {
