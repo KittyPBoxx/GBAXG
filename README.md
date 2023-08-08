@@ -61,9 +61,24 @@ A version of Sekii's tracker that supports all three game at once is now availab
 
 ---
 
-## Manually Confirmed Seeds
+## How Does It Work?
 
-In theory any seed should generate a mapping that is completable in order. However there may be bugs (especially during alpha development). A list of manually confirmed seed files can be found [here](https://kittypboxx.github.io/GBAXG/Seeds). These have been played and are confirmed to be completable.  
+<p align="center">
+  <img src="https://kittypboxx.github.io/GBAXG/resources/warpBetweenGames.jpg" />
+</p>
+
+Data extraction can be broken into 3 main parts. 
+1. Current Warp | (Length 0x3 bytes) | FR (0x2031dbc) / E (0x20322e4) 
+2. Current Party | (Length 0x258 bytes) | FR (0x02024284) / E (0x020244EC)
+3. Save Data (it's complicated).
+
+From the save data we need to extract things like: Badges, Cross Game Flags (e.g running shoes/starter choice), Repel Steps, Play Time, Game Settings, Trainer Name/Gender/ID, Money, Bag Data, Boxed Pokemon e.t.c 
+
+Gen 3 save data structure is well documented, however 2 main issues. Some data (e.g money and item counts) is obsfucated with an XOR key that gets frequently updated and will be different between games. We need to be careful that when going from Game 1 to Game 2 we XOR this data with Game 1's key then XOR it again with game two's key before we inject that data. This key can be fround inside save block 1.
+
+In general Block 1 contains game flags and bag data, Block 2 contains trainer data and settings and Block 3 contains boxes pokemon and items.
+
+The second, and larger problem, is that save data is split into 3 blocks that get randomly moved around in the EWRAM each time a warp is triggered or menu opened. This means we cannot hard code offsets in order to look up data. To resolve this we have to look up the pointers to those addresses in the IWRAM (which do have a constant offsets) to get the start of each block. Then we use the offset from the start of the block to find the save data we want. Pointers are 3 32-bit values starting at  FR (0x03005008) / E (0x03005D8C).
 
 <br>
 
@@ -74,7 +89,7 @@ In theory any seed should generate a mapping that is completable in order. Howev
 - Currently only PC box 1 is shared between games
 - Whiteout (and teleport e.t.c) will go the the last heal point in which ever region/game you are currently in. 
 - Some items (mostly from Crystal Dust e.g rage candy bar) only work in the game they were designed for. TMs may be different in Crystal.
-- When randomizing abilities and base stats with UPR these will change between regions
+- When randomizing abilities and base stats with UPR these will change between regions. When randomising TMs/HMs these will not stay the same between games.
 
 ---
 
