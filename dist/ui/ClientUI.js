@@ -47,6 +47,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll("input[type=text]").forEach(e => e.addEventListener('focusin', (event) => userInputEnabled = false));
     document.querySelectorAll("input[type=text]").forEach(e => e.addEventListener('focusout', (event) => userInputEnabled = true));
+
+    let oldVersionToast = `<div>
+                           <span>A newer version is available</span><br>
+                           <a style="margin:0;" href="https://kittypboxx.github.io/GBAXG/skycore/build/bin/" class="btn-flat toast-action grey darken-4 green-text">Go To Latest</a>
+                           <button style="margin:0;" onclick="M.Toast.dismissAll()" class="btn-flat toast-action  grey darken-4 red-text">Dismiss</button>
+                           </div>`;
+    M.toast({html: oldVersionToast, displayLength: 1000 * 30});
 });
 
 
