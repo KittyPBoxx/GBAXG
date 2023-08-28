@@ -424,10 +424,12 @@ class ControlsTab extends Component {
         this.title = "Controls";
 
         this.keybindManager.keybindChangeCallbacks.set("updateUI", (bind, key) => {
-            let element = document.querySelector(".keybind-table td[data-command=" + bind + "]");
-            if (element && element.innerHTML == "...") {
-                element.innerHTML = key.replace("Key", "");
-            }
+            let elements = document.querySelectorAll(".keybind-table td[data-command=" + bind + "]");
+            elements.forEach(e => {
+                if (e.innerHTML == "...") {
+                    e.innerHTML = key.replace("Key", "");
+                }
+            })
             root.draw()
         });
     }
@@ -903,24 +905,35 @@ class HacksTab extends Component {
 
     handleKeydown(e, elmnt) {
 
-        let currentIndex = elmnt.textInput.current.shadowRoot.querySelector("input").selectionStart;
-        let value = elmnt.textInput.current.value;
+        if (!elmnt) {
+            elmnt = e.target;
+        } else {
+            elmnt = elmnt.textInput.current;
+        }
+
+        let currentIndex = elmnt.shadowRoot.querySelector("input").selectionStart;
+        let value = elmnt.value;
 
         if (e.keyCode >= 48 && e.keyCode <= 57) {
-            elmnt.textInput.current.value = value.substring(0, currentIndex) + String.fromCharCode(e.keyCode) + value.substring(currentIndex);
-            elmnt.filterText =  elmnt.textInput.current.value;
-            elmnt.createSelectOptions(elmnt);
+            elmnt.value = value.substring(0, currentIndex) + String.fromCharCode(e.keyCode) + value.substring(currentIndex);
+            elmnt.filterText =  elmnt.value;
+            elmnt.createSelectOptions && elmnt.createSelectOptions(elmnt);
         } else if (e.keyCode >= 65 && e.keyCode <= 90) {
-            elmnt.textInput.current.value = value.substring(0, currentIndex) + String.fromCharCode(e.keyCode) + value.substring(currentIndex);
-            elmnt.filterText =  elmnt.textInput.current.value;
-            elmnt.createSelectOptions(elmnt);
+            elmnt.value = value.substring(0, currentIndex) + String.fromCharCode(e.keyCode) + value.substring(currentIndex);
+            elmnt.filterText = elmnt.value;
+            elmnt.createSelectOptions && elmnt.createSelectOptions(elmnt);
         } else if (e.key == "Backspace" && value.length > 0) {
-            elmnt.textInput.current.value = value.substring(0, currentIndex - 1) + value.substring(currentIndex, value.length);
-            elmnt.filterText =  elmnt.textInput.current.value;
-            elmnt.createSelectOptions(elmnt);
+            if (currentIndex) {
+                elmnt.value = value.substring(0, currentIndex - 1) + value.substring(currentIndex, value.length);
+            } else {
+                elmnt.value = value.substring(0, Math.max(value.length - 1, 0));
+            }
+            
+            elmnt.filterText =  elmnt.value;
+            elmnt.createSelectOptions && elmnt.createSelectOptions(elmnt);
         } 
 
-        this.valueChange(elmnt);
+        this.valueChange && this.valueChange(elmnt);
     }
 
     giveItem(e, elmnt) {
