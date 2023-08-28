@@ -861,7 +861,7 @@ class AutoComplete extends Component {
     }
 
     handleSelectChange(e, elmnt) {
-        let selectIndex = e.target.value;
+        let selectIndex = parseInt(e.target.value) || 1;
         let selectedValue = elmnt.selectInput.current.querySelector(`sl-option[data-list-index="${selectIndex - 1}"]`).shadowRoot.querySelector("slot[part=label]").innerHTML;
         elmnt.filterText = selectedValue;
         elmnt.textInput.current.value = selectedValue;
