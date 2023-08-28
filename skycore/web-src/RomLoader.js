@@ -382,6 +382,27 @@ class RomPatcher {
         
         this.patchSectionOfRom(0x42dae2, [0x01, 0x32, 0x44, 0x33, 0x03, 0x32, 0xd7, 0x06, 0xd5, 0x06, 0xd6, 0x06, 0xd5, 0x06] , "E");
         this.patchSectionOfRom(0x42dafc, [0x09, 0x32, 0x45, 0x33, 0x0b] , "E");
+
+        // Make sure e4 room states don't get reset after beating members
+        this.patchROM8(0x227f01, 0x03);
+        this.patchROM8(0x227f02, 0x7d); 
+        this.patchROM8(0x227f03, 0xb1); 
+        this.patchROM8(0x227f04, 0x23); 
+
+        this.patchROM8(0x228174, 0x03);
+        this.patchROM8(0x228175, 0x7d); 
+        this.patchROM8(0x228176, 0xb1); 
+        this.patchROM8(0x228177, 0x23);
+
+        this.patchROM8(0x228417, 0x03);
+        this.patchROM8(0x228418, 0x7d); 
+        this.patchROM8(0x228419, 0xb1); 
+        this.patchROM8(0x22841a, 0x23);
+
+        this.patchROM8(0x2286a1, 0x03);
+        this.patchROM8(0x2286a2, 0x7d); 
+        this.patchROM8(0x2286a3, 0xb1); 
+        this.patchROM8(0x2286a4, 0x23);
         
         // Make sure walking into room works correctly
         this.patchROM8(0x227f27, 0x00);
