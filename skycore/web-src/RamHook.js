@@ -40,23 +40,23 @@ class RamHook {
             return;
         }
 
-        console.log("Read 8 " + address);
+        //console.log("Read 8 " + address);
         return this.warpHandler.onWarpBeingRead(address);
     }
     
     cpuWrite8(address, data) {
-        console.log("Write 8 " + address);
+        //console.log("Write 8 " + address);
         return this.warpHandler.onWarpBeingSet(address, data);
     }
     
     cpuWrite32(address) {
-        console.log("Write 32 " + address);
+        //console.log("Write 32 " + address);
         this.warpHandler.onHeaderBeingSet(address);
         return false;
     }
 
     saveIntercept(saveManager) {
-        console.log("Save Intercept");
+        //console.log("Save Intercept");
         GBAXG.saveManager.saveSlot3();
     }
 
