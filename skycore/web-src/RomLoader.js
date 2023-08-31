@@ -148,6 +148,7 @@ class RomPatcher {
         this.playerSprite = "C";
 
         this.VANILLA_CRYSTAL_MD5 = "ef47f6528875dc3de037e75bba6a0ecb";
+        this.VANILLA_CRYSTAL_MD5_2 = "dcfd8938cec914c40bc85fdc606eaa25"; // I don't know which is right? Depends where the patch came from?
         this.VANILLA_EMERALD_MD5 = "605b89b67018abcea91e693a4dd25be3";
 
         this.bossText = "LIKE AND SUBSCRIBE";
@@ -729,10 +730,17 @@ class RomPatcher {
         this.patchROM8(0xe7f534, 0x6f);
         this.patchROM8(0xe7f536, 0x76);
 
+        // Prevent mahogany softlock when enering rocket hidout from stairs
+        this.patchROM8(0x9c3f61, 0xA7);
+        this.patchROM8(0x9c3f7C, 0xA7);
+
         // Remove Darkness from Caves
         if (this.neverDarkInCaves) {
             this.patchROM8(0x0854d8, 0x08);
         }
+
+        // Fix corrupt tiles in lake of rage
+        this.patchSectionOfRom(0xf3b300, [0x69,0x04, 0x69,0x04,0x69,0x04] , "C");
 
         // Instant Catch
         if (this.perfectCatchRate) {
@@ -744,7 +752,7 @@ class RomPatcher {
 
 
         // Randomise pokemon that get missed by upr
-        if (this.md5 != this.VANILLA_CRYSTAL_MD5) {
+        if (this.md5 != this.VANILLA_CRYSTAL_MD5 && this.md5 != this.VANILLA_CRYSTAL_MD5_2) {
             this.patchROM8(0xe7517F, (RomPatcher.getHash(this.md5 + "SUDOWOODO") % 250) + 1);
             this.patchROM8(0x9e2279, (RomPatcher.getHash(this.md5 + "SUICUNE") % 250) + 1);
             this.patchROM8(0x9d9032, (RomPatcher.getHash(this.md5 + "ELECTRODE") % 250) + 1);
