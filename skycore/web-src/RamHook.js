@@ -450,7 +450,7 @@ class WarpHandler {
                     warpHandler.exposedEmulationCore.loadState_EmulationCore(this.nextWarp.toRomCode, 0);
                     warpHandler.exposedEmulationCore.setSpeed_EmulationCore(4);
                 }
-            }, 60);
+            }, 100);
         } else if (! (this.warpingState == WarpingState.READ_FIRST_WARP_ADDRESS || 
                       this.warpingState == WarpingState.PRE_LOAD_HANDLING_DONE_1 || 
                       this.warpingState == WarpingState.PRE_LOAD_HANDLING_DONE_2)) {
