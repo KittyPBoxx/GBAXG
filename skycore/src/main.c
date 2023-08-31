@@ -459,7 +459,7 @@ void se_save_state_to_disk(se_save_state_t* save_state, const char* filename){
   se_emu_id emu_id=se_get_emu_id();
   emu_id.bess_offset = se_save_best_effort_state(&save_state->state);
   emu_id.system = save_state->system;
-  printf("Bess offset: %d\n",emu_id.bess_offset);
+  //printf("Bess offset: %d\n",emu_id.bess_offset);
   size_t save_state_size = se_get_core_size();
   size_t net_save_state_size = sizeof(emu_id)+save_state_size;
   int screenshot_size = save_state->screenshot_width*save_state->screenshot_height;
@@ -580,8 +580,8 @@ void se_load_state_from_disk(se_save_state_t* save_state, const char* filename){
       save_state->valid = 2;
     }
     
-    if(save_state->valid)printf("Loaded save state:%s\n",filename);
-    else printf("Failed to load state from file:%s\n",filename);
+    // if(save_state->valid)printf("Loaded save state:%s\n",filename);
+    // else printf("Failed to load state from file:%s\n",filename);
   }
   free(data);
 }
@@ -988,7 +988,7 @@ void se_draw_io_state(const char * label, mmio_reg_t* mmios, int mmios_size, emu
 static const char* valid_rom_file_types[] = { "*.gb", "*.gba","*.gbc" ,"*.nds","*.zip"};
 void se_load_rom_from_emu_state(sb_emu_state_t*emu){
   if(!emu->rom_data)return;
-  printf("Loading: %s\n",emu_state.rom_path);
+  //printf("Loading: %s\n",emu_state.rom_path);
   emu_state.rom_loaded = false; 
   if(gba_load_rom(emu, &core.gba, &scratch.gba)){
     emu->system = SYSTEM_GBA;
@@ -1033,7 +1033,7 @@ void se_load_rom(const char *filename, int stateSlot){
     emu_state.rom_loaded=false;
   }
   memset(&core,0,sizeof(core));
-  printf("Loading ROM: %s\n", filename); 
+  //printf("Loading ROM: %s\n", filename); 
 
   if(sb_path_has_file_ext(filename,".zip")){
     printf("Loading Zip:%s \n",filename);
@@ -1100,7 +1100,7 @@ void se_load_rom(const char *filename, int stateSlot){
   return; 
 }
 static void se_reset_core(){
-  printf("Reset Core");
+  //printf("Reset Core");
   //se_load_rom(gui_state.recently_loaded_games[0].path, -1);
 }
 static bool se_sync_save_to_disk(){
@@ -2831,7 +2831,7 @@ static void frame(void) {
     igPushItemWidth(-0.01);
     int v = (int)(gui_state.settings.volume*100); 
     igSliderInt("",&v,0,100,"%d%% "ICON_FK_VOLUME_UP,ImGuiSliderFlags_AlwaysClamp);
-    se_tooltip("Adjust volume");
+    // se_tooltip("Adjust volume");
     gui_state.settings.volume=v*0.01;
     igPopItemWidth();
     igSetCursorPosX(orig_x);

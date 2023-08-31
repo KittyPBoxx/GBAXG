@@ -190,7 +190,7 @@ static bool sb_load_file_data_into_buffer(const char* path, void* buffer, size_t
       return false; 
     }
     size =fread(buffer, 1, size, f);
-    printf("Loaded file %s file_size %zu\n",path,size);
+    //printf("Loaded file %s file_size %zu\n",path,size);
     fclose(f);
     return true;
   }else{
@@ -211,7 +211,7 @@ static uint8_t* sb_load_file_data(const char* path, size_t *file_size){
     size =fread(data, 1, size, f);
     if(size==EOF){size = 0; free(data);} 
     if(file_size)*file_size = size;
-    printf("Loaded file %s file_size %zu\n",path,*file_size);
+    //printf("Loaded file %s file_size %zu\n",path,*file_size);
     return data;
   }else{
     printf("Failed to open file %s\n",path);
@@ -279,7 +279,7 @@ static bool se_load_bios_file(const char* name, const char* base_path, const cha
   uint8_t *bios_data = sb_load_file_data(bios_path, &bios_bytes);
   if(bios_data){
     if(bios_bytes==data_size){
-      printf("Loaded %s from %s\n",name, bios_path);
+      //printf("Loaded %s from %s\n",name, bios_path);
       memcpy(data,bios_data,data_size);
       loaded_bios=true;
     }else{

@@ -1649,7 +1649,7 @@ int gba_search_rom_for_backup_string(gba_t* gba){
   return btype; 
 }
 void gba_unload(gba_t*gba,gba_scratch_t *scratch){
-  printf("Unloading GBA\n");
+  //printf("Unloading GBA\n");
   if(scratch->log_cmp_file)fclose(scratch->log_cmp_file);
   scratch->log_cmp_file=NULL;
 }
@@ -1683,7 +1683,7 @@ bool gba_load_rom(sb_emu_state_t*emu,gba_t* gba, gba_scratch_t *scratch){
   size_t bytes=0;
   uint8_t*data = sb_load_file_data(emu->save_file_path,&bytes);
   if(data){
-    printf("Loaded save file: %s, bytes: %zu\n",emu->save_file_path,bytes);
+    //printf("Loaded save file: %s, bytes: %zu\n",emu->save_file_path,bytes);
     if(bytes>=128*1024)bytes=128*1024;
     memcpy(gba->mem.cart_backup, data, bytes);
     sb_free_file_data(data);
@@ -1716,10 +1716,10 @@ bool gba_load_rom(sb_emu_state_t*emu,gba_t* gba, gba_scratch_t *scratch){
 
   if(scratch->skip_bios_intro){
     if (!scratch->loaded_bios){
-      printf("No GBA bios using bundled bios\n");
+      //printf("No GBA bios using bundled bios\n");
       memcpy(gba->mem.bios,gba_bios_bin,sizeof(gba_bios_bin));
     } else {
-      printf("Using GBA bios but skipping intro\n");
+      //printf("Using GBA bios but skipping intro\n");
     }
     const uint32_t initial_regs[37]={
       0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
@@ -2839,7 +2839,7 @@ static int gba_lookup_gb_reg(int gb_reg){
     case SB_IO_SOUND_OUTPUT_SEL : return GBA_SOUNDCNT_L+1; 
     case SB_IO_SOUND_ON_OFF     : return GBA_SOUNDCNT_X; 
   }
-  printf("Unknown GB register:%04x\n",gb_reg);
+  //printf("Unknown GB register:%04x\n",gb_reg);
   return 0; 
 }
 static int gba_inverse_lookup_gb_reg(int gb_reg){
