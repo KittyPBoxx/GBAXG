@@ -21,6 +21,10 @@ body {
     background-color: #212121;
 }
 
+.emscripten_border #canvas {
+    image-rendering: pixelated;
+}
+
 #fileStaging,
 #fileStagingName,
 #fileInput {
