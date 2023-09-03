@@ -448,7 +448,7 @@ class WarpHandler {
                 this.switchingState = SwitchingState.SWITCHED_STILL_HIDDEN;
                 if (this.nextWarp != null) {
                     warpHandler.exposedEmulationCore.loadState_EmulationCore(this.nextWarp.toRomCode, 0);
-                    warpHandler.exposedEmulationCore.setSpeed_EmulationCore(4);
+                    warpHandler.exposedEmulationCore.setSpeed_EmulationCore(2);
                 }
             }, 100);
         } else if (! (this.warpingState == WarpingState.READ_FIRST_WARP_ADDRESS || 
