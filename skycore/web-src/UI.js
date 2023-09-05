@@ -165,7 +165,7 @@ class RomTab extends Component {
                         <sl-icon slot="icon" name="info-circle"></sl-icon>
                         <small>Use Button/Hotkey for resets\n (not soft reset)</small>
                     </sl-alert>
-                    <span class="version-text">1.0.2-ALPHA</span>
+                    <span class="version-text">1.0.3-ALPHA</span>
                     <sl-button onClick="${() => this.deleteAllRoms()}" class="deleteDataButton" variant="danger" outline>Clear Stored ROMS</sl-button>`;
     }
 
@@ -315,6 +315,10 @@ class PatchesTab extends Component {
         elmnt.romLoader.romPatcher.hqMixer = e.target.checked;
     }
 
+    toggleBoostPerformance(e, elmnt) {
+        elmnt.romLoader.romPatcher.boostPerformance = e.target.checked;
+    }
+
     handleKeydown(elmnt, e) {
         let currentIndex = e.target.shadowRoot.querySelector("input").value.length;
         let value = e.target.value;
@@ -387,6 +391,10 @@ class PatchesTab extends Component {
                                 <tr>
                                     <td>Ipatix HQ Mixer</td>
                                     <td><sl-checkbox onClick="${(e) => this.toggleHQMixer(e, this)}" checked></sl-checkbox></td>
+                                </tr>
+                                <tr>
+                                    <td>Boost Performance</td>
+                                    <td><sl-checkbox onClick="${(e) => this.toggleBoostPerformance(e, this)}" checked></sl-checkbox></td>
                                 </tr>
                                 <tr style="display:none">
                                     <td>Player Sprite</td>

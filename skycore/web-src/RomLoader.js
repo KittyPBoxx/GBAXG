@@ -146,6 +146,7 @@ class RomPatcher {
         this.instantText = true;
         this.hqMixer = true;
         this.playerSprite = "C";
+        this.boostPerformance = true; // Only applied if ultrSpeedCodes is not on
 
         this.VANILLA_CRYSTAL_MD5 = "ef47f6528875dc3de037e75bba6a0ecb";
         this.VANILLA_CRYSTAL_MD5_2 = "dcfd8938cec914c40bc85fdc606eaa25"; // I don't know which is right? Depends where the patch came from?
@@ -534,18 +535,20 @@ class RomPatcher {
         // File Patches
         let isInstantText = this.instantText;
         let hqAudio = this.hqMixer;
+        let patchBoostPerformance = this.boostPerformance && !this.ultrSpeedCodes;
         let patcher = this;
 
-
-        patcher.applyPatchFile(true, "../../web-src/patches/e_c_sprites.xdelta", () => {
-            patcher.applyPatchFile(hqAudio, "../../web-src/patches/e_hq_audio.xdelta", () => {
-                patcher.applyPatchFile(isInstantText, "../../web-src/patches/e_instant_text.xdelta", () => {
-                    // If the rom is randomised we need to apply the randomised red patch otherwise the one with vanilla red pokemon
-                    let patchPath = patcher.VANILLA_EMERALD_MD5 == patcher.md5 ? "../../web-src/patches/e_red_vanilla.xdelta" : "../../web-src/patches/e_red_randomised.xdelta";
-                    console.log("patching using patch:" + patchPath);
-                     patcher.applyPatchFile(true, patchPath, () => {
-                        patcher.loader.persistRom(patcher.ROM, "E", ".gba", textUpdateFunction);
-                     });
+        patcher.applyPatchFile(patchBoostPerformance, "../../web-src/patches/e_boost_performance.xdelta", () => {
+            patcher.applyPatchFile(true, "../../web-src/patches/e_c_sprites.xdelta", () => {
+                patcher.applyPatchFile(hqAudio, "../../web-src/patches/e_hq_audio.xdelta", () => {
+                    patcher.applyPatchFile(isInstantText, "../../web-src/patches/e_instant_text.xdelta", () => {
+                        // If the rom is randomised we need to apply the randomised red patch otherwise the one with vanilla red pokemon
+                        let patchPath = patcher.VANILLA_EMERALD_MD5 == patcher.md5 ? "../../web-src/patches/e_red_vanilla.xdelta" : "../../web-src/patches/e_red_randomised.xdelta";
+                        console.log("patching using patch:" + patchPath);
+                        patcher.applyPatchFile(true, patchPath, () => {
+                            patcher.loader.persistRom(patcher.ROM, "E", ".gba", textUpdateFunction);
+                        });
+                    });
                 });
             });
         });
@@ -811,12 +814,15 @@ class RomPatcher {
         // File Patches
         let isInstantText = this.instantText;
         let hqAudio = this.hqMixer;
+        let patchBoostPerformance = this.boostPerformance && !this.ultrSpeedCodes;
         let patcher = this;
 
-        patcher.applyPatchFile(true, "../../web-src/patches/c_fix_sprites.xdelta", () => {
-            patcher.applyPatchFile(hqAudio, "../../web-src/patches/c_hq_audio.xdelta", () => {
-                patcher.applyPatchFile(isInstantText, "../../web-src/patches/c_instant_text.xdelta", () => {
-                    patcher.loader.persistRom(patcher.ROM, "C", ".gba", textUpdateFunction);
+        patcher.applyPatchFile(patchBoostPerformance, "../../web-src/patches/c_boost_performance.xdelta", () => {
+            patcher.applyPatchFile(true, "../../web-src/patches/c_fix_sprites.xdelta", () => {
+                patcher.applyPatchFile(hqAudio, "../../web-src/patches/c_hq_audio.xdelta", () => {
+                    patcher.applyPatchFile(isInstantText, "../../web-src/patches/c_instant_text.xdelta", () => {
+                        patcher.loader.persistRom(patcher.ROM, "C", ".gba", textUpdateFunction);
+                    });
                 });
             });
         });
@@ -1046,13 +1052,16 @@ class RomPatcher {
         let isInstantText = this.instantText;
         let hqAudio = this.hqMixer; // TODO: this is broken (the patch is for 1.0 maybe?)
         let earlyBalls = this.earlyBalls;
+        let patchBoostPerformance = this.boostPerformance && !this.ultrSpeedCodes;
         let patcher = this;
         
-        patcher.applyPatchFile(true, "../../web-src/patches/fr_c_sprites.xdelta", () => {
-            patcher.applyPatchFile(false, "../../web-src/patches/fr_hq_audio.xdelta", () => {
-                patcher.applyPatchFile(earlyBalls, "../../web-src/patches/fr_early_balls.xdelta", () => {
-                    patcher.applyPatchFile(isInstantText, "../../web-src/patches/fr_instant_text.xdelta", () => {
-                        patcher.loader.persistRom(patcher.ROM, "FR", ".gba", textUpdateFunction);
+        patcher.applyPatchFile(patchBoostPerformance, "../../web-src/patches/fr_boost_performance.xdelta", () => {
+            patcher.applyPatchFile(true, "../../web-src/patches/fr_c_sprites.xdelta", () => {
+                patcher.applyPatchFile(false, "../../web-src/patches/fr_hq_audio.xdelta", () => {
+                    patcher.applyPatchFile(earlyBalls, "../../web-src/patches/fr_early_balls.xdelta", () => {
+                        patcher.applyPatchFile(isInstantText, "../../web-src/patches/fr_instant_text.xdelta", () => {
+                            patcher.loader.persistRom(patcher.ROM, "FR", ".gba", textUpdateFunction);
+                        });
                     });
                 });
             });

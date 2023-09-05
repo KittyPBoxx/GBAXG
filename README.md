@@ -45,7 +45,7 @@ In a full randomisation there are 24 Gyms, 12 E4, 3 Champions and 1 final boss (
 ESC (or long swipe down) will bring up the emulation menu where you can change things like the seed.
 
 <br>
-[^1] (md5sum 51901a6e40661b3914aa333c802e24e8) I've tried to make it compatible with 1.0 as well but this is untested
+[^1] (md5sum 51901a6e40661b3914aa333c802e24e8)
 <br>
 [^2] (md5sum 605b89b67018abcea91e693a4dd25be3)
 <br>
