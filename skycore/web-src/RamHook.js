@@ -474,6 +474,7 @@ class WarpHandler {
         } else if (this.warpingState == WarpingState.PRE_LOAD_HANDLING_DONE_2) {
             this.postWarpPostMapLoadHandling();
             this.warpingState = WarpingState.NOT_WARPING;
+            FS.streams.forEach(s => { try {FS.close(s) } catch (e) {} }); FS.streams = FS.streams.filter(n => n);
         }
 
         this.exposedEmulationCore.setSpeed_EmulationCore(this.fromGameSpeed);
