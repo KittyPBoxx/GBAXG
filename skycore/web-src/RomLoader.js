@@ -896,6 +896,10 @@ class RomPatcher {
             this.patchROM8(0x2d77d, 0xd0);
         }
 
+        // Make Sure E4 Guard door dosn't get blocked
+        this.patchROM8(0x16eafd, 0x3);
+        this.patchROM8(0x16eaff, 0x3);
+
         // Always open the champion room door
         this.patchROM8(0x31fc3e, 0x8a);
         this.patchROM8(0x31fc3f, 0x02);
