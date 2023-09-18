@@ -246,6 +246,7 @@ class RomUpload extends Component {
     fileLoaded(e, uploadComponent) {
 
         if (uploadComponent.romLoader.loadingInProgress) {
+            alert("Another rom is currently loadeing...");
             console.warn("Cannot load two roms at the same time")
             e.target.value = null;
             return;

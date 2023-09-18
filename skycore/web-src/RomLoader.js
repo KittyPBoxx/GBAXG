@@ -148,6 +148,7 @@ class RomPatcher {
         this.playerSprite = "C";
         this.boostPerformance = true; // Only applied if ultrSpeedCodes is not on
 
+        this.VANILLA_FIRE_RED_10_MD5 = "e26ee0d44e809351c8ce2d73c7400cdd";
         this.VANILLA_CRYSTAL_MD5 = "ef47f6528875dc3de037e75bba6a0ecb";
         this.VANILLA_CRYSTAL_MD5_2 = "dcfd8938cec914c40bc85fdc606eaa25"; // I don't know which is right? Depends where the patch came from?
         this.VANILLA_EMERALD_MD5 = "605b89b67018abcea91e693a4dd25be3";
@@ -839,6 +840,13 @@ class RomPatcher {
     patchFireRed(textUpdateFunction) {
 
         /* FIX NON UNIQUE WARPS */
+        if (this.md5 == this.VANILLA_FIRE_RED_10_MD5)
+        {
+            textUpdateFunction("Error");
+            this.loader.loadingInProgress = false;
+            alert("Incorrect FireRed Version (1.0) detected. Version be 1.1 (U) required");
+            return;
+        }
         
         // Pokemon Mansion Exit
         this.patchROM8(0x083B0C95 - 0x08000000, 0x32);
