@@ -345,6 +345,13 @@ class WarpHandler {
         }
 
         if (this.nextWarp == null && this.randomWarpsEnabled) {
+
+            if (this.exposedEmulationCore.getSpeed_EmulationCore() > 1)
+            {
+                // If speedup we need to extract data early
+                this.gameStateManager.extractData(); 
+            }
+
             // Warp from remapping data
             this.nextWarp = this.randomiser.remappingData.get(trigger);
         }
@@ -440,7 +447,11 @@ class WarpHandler {
 
         if (this.warpingState == WarpingState.SETTING_NEW_WARP_ADDRESS && this.switchingState == SwitchingState.PREPARING_TO_SWITCH) {
             this.exposedEmulationCore.hideGame_EmulationCore();
-            this.gameStateManager.extractData(); 
+            if (this.exposedEmulationCore.getSpeed_EmulationCore() <= 1)
+            {
+                // If no speedup we extract data just before loading the new state
+                this.gameStateManager.extractData(); 
+            }
             this.exposedEmulationCore.loadState_EmulationCore(this.nextWarp.toRomCode, 0);
             this.exposedEmulationCore.pause_EmualationCore();
             let warpHandler = this;
