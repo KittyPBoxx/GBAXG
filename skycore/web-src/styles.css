@@ -379,6 +379,10 @@ hr {
     color: #d3d3d3;
 }
 
+sl-input.final-text-input {
+    min-width: 25em;
+}
+
 sl-input.input-amount {
     max-width: 6em;
 }
