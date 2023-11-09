@@ -166,7 +166,12 @@ class RomTab extends Component {
                         <small>Use Button/Hotkey for resets\n (not soft reset)</small>
                     </sl-alert>
                     <span class="version-text">1.0.4-ALPHA</span>
-                    <sl-button onClick="${() => this.deleteAllRoms()}" class="deleteDataButton" variant="danger" outline>Clear Stored ROMS</sl-button>`;
+                    <div class="reset-to-button-group">
+                        <sl-button class="reset-to-button" onClick="${() => {_ShowGame(); _SetGame(0); setTimeout(() => _Reset(), 100);}}" outline variant="neutral" size="small">Reset To Fire Red</sl-button>
+                        <sl-button class="reset-to-button" onClick="${() => {_ShowGame(); _SetGame(1); setTimeout(() => _Reset(), 100);}}" outline variant="neutral" size="small">Reset To Crystal</sl-button>
+                        <sl-button class="reset-to-button" onClick="${() => {_ShowGame(); _SetGame(2); setTimeout(() => _Reset(), 100);}}" outline variant="neutral" size="small">Reset To Emerald</sl-button>
+                        <sl-button class="deleteDataButton" onClick="${() => this.deleteAllRoms()}" variant="danger" outline>Clear Stored ROMS</sl-button>
+                    </div>`;
     }
 
     deleteAllRoms() {

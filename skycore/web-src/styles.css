@@ -169,10 +169,17 @@ sl-card::part(body) {
     background: #202020;
 }
 
-.deleteDataButton {
+.reset-to-button-group {
     position: absolute;
     bottom: 1px;
     right: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.reset-to-button {
+    opacity: 0.4;
 }
 
 .rom-form-container {
