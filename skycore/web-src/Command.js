@@ -66,21 +66,27 @@ class CommandExecutor  {
 
         this.register("TurboAKeyDown"     , (args) => {
             exposedEmulationCore.KeyDown_EmulationCore(0)  // A
-            exposedEmulationCore.aMashInterval = setInterval(() => { this.keyPress(0, exposedEmulationCore) }, turboRepeatDelay);
+            if (!exposedEmulationCore.aMashInterval) {
+                exposedEmulationCore.aMashInterval = setInterval(() => { this.keyPress(0, exposedEmulationCore) }, turboRepeatDelay);
+            }
         });
         this.register("TurboAKeyUp"       , (args) => { 
             exposedEmulationCore.KeyUp_EmulationCore(0);
             clearInterval(exposedEmulationCore.aMashInterval);
+            exposedEmulationCore.aMashInterval = null;
         });
         
         this.register("TurboBKeyDown"     , (args) => {
             exposedEmulationCore.KeyDown_EmulationCore(1) // B
-            exposedEmulationCore.bMashInterval = setInterval(() => { this.keyPress(1, exposedEmulationCore) }, turboRepeatDelay);
+            if (!exposedEmulationCore.bMashInterval) {
+                exposedEmulationCore.bMashInterval = setInterval(() => { this.keyPress(1, exposedEmulationCore) }, turboRepeatDelay);
+            }
         });             
         
         this.register("TurboBKeyUp"       , (args) => {
             exposedEmulationCore.KeyUp_EmulationCore(1);
             clearInterval(exposedEmulationCore.bMashInterval);
+            exposedEmulationCore.bMashInterval = null;
         });
 
         this.register("Reset", args => saveManager.startGameOrReset());
