@@ -237,6 +237,27 @@ static uint32_t se_save_best_effort_state(se_core_state_t* state);
 static bool se_load_best_effort_state(se_core_state_t* state,uint8_t *save_state_data, uint32_t size, uint32_t bess_offset);
 static size_t se_get_core_size();
 
+int EMSCRIPTEN_KEEPALIVE AKeyDown();
+int EMSCRIPTEN_KEEPALIVE AKeyUp();
+int EMSCRIPTEN_KEEPALIVE BKeyDown();
+int EMSCRIPTEN_KEEPALIVE BKeyUp();
+int EMSCRIPTEN_KEEPALIVE LKeyDown();
+int EMSCRIPTEN_KEEPALIVE LKeyUp();
+int EMSCRIPTEN_KEEPALIVE RKeyDown();
+int EMSCRIPTEN_KEEPALIVE RKeyUp();
+int EMSCRIPTEN_KEEPALIVE StartKeyDown();
+int EMSCRIPTEN_KEEPALIVE StartKeyUp();
+int EMSCRIPTEN_KEEPALIVE SelectKeyDown();
+int EMSCRIPTEN_KEEPALIVE SelectKeyUp();
+int EMSCRIPTEN_KEEPALIVE DLeftKeyDown();
+int EMSCRIPTEN_KEEPALIVE DLeftKeyUp();
+int EMSCRIPTEN_KEEPALIVE DRightKeyDown();
+int EMSCRIPTEN_KEEPALIVE DRightKeyUp();
+int EMSCRIPTEN_KEEPALIVE DUpKeyDown();
+int EMSCRIPTEN_KEEPALIVE DUpKeyUp();
+int EMSCRIPTEN_KEEPALIVE DDownKeyDown();
+int EMSCRIPTEN_KEEPALIVE DDownKeyUp();
+
 static const char* se_get_pref_path(){
 #ifdef EMSCRIPTEN
   return "/offline/";
@@ -1325,7 +1346,8 @@ static void se_draw_emulated_system_screen(){
   }else if (emu_state.system==SYSTEM_GB){
     se_draw_lcd(core.gb.lcd.framebuffer,SB_LCD_W,SB_LCD_H,lcd_render_x,lcd_render_y, lcd_render_w, lcd_render_h,rotation);
   }
-  if(!gui_state.block_touchscreen)sb_draw_onscreen_controller(&emu_state, controller_h, controller_y_pad);
+  if(!gui_state.block_touchscreen)
+  sb_draw_onscreen_controller(&emu_state, controller_h, controller_y_pad);
 }
 static uint8_t gba_byte_read(uint64_t address){return gba_read8(&core.gba,address);}
 static void gba_byte_write(uint64_t address, uint8_t data){gba_store8(&core.gba,address,data);}
@@ -1908,13 +1930,24 @@ void sb_draw_onscreen_controller(sb_emu_state_t*state, int controller_h, int con
   state->joy.inputs[SE_KEY_RIGHT] += right;
   state->joy.inputs[SE_KEY_UP]    += up;
   state->joy.inputs[SE_KEY_DOWN]  += down;
-
   state->joy.inputs[SE_KEY_A] += a;
   state->joy.inputs[SE_KEY_B] += b;
   state->joy.inputs[SE_KEY_L] += SB_BFE(button_press,2,1);
   state->joy.inputs[SE_KEY_R] += SB_BFE(button_press,3,1);
   state->joy.inputs[SE_KEY_START] += SB_BFE(button_press,0,1);
   state->joy.inputs[SE_KEY_SELECT] += SB_BFE(button_press,1,1);
+
+  if (a) { AKeyDown(); } else { AKeyUp(); }
+  if (b) { BKeyDown(); } else { BKeyUp(); }
+  if (SB_BFE(button_press,2,1)) { LKeyDown(); } else { LKeyUp(); } 
+  if (SB_BFE(button_press,3,1)) { RKeyDown(); } else { RKeyUp(); }
+  if (SB_BFE(button_press,1,1)) { StartKeyDown(); } else { StartKeyUp(); }
+  if (SB_BFE(button_press,0,1)) { SelectKeyDown(); } else { SelectKeyUp(); }
+  if (left) { DLeftKeyDown(); } else { DLeftKeyUp(); }
+  if (right) { DRightKeyDown(); } else { DRightKeyUp(); }
+  if (up) { DUpKeyDown(); } else { DUpKeyUp(); }
+  if (down) { DDownKeyDown(); } else { DDownKeyUp(); }
+
 }
 void se_text_centered_in_box(ImVec2 p, ImVec2 size, const char* text){
   ImVec2 curr_cursor;
