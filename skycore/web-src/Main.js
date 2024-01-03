@@ -96,7 +96,10 @@ function createUI() {
             window.GBAXG.keybindManager.loadSavedKeybinds(); 
         }, 5000);
 
-        document.getElementById("audio-context-refresh").remove();
+        let audioContext = document.getElementById("audio-context-refresh");
+        if (audioContext) {
+            audioContext.remove();
+        }
     }, 100);
 
 }

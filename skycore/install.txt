@@ -1,6 +1,7 @@
  cd build 
 emcmake cmake ..
 cmake --build .
+mv bin/SkyEmu.html bin/index.html
 
 ## From Root folder
 python3 -m http.server 9000
