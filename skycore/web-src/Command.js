@@ -89,6 +89,7 @@ class CommandExecutor  {
             exposedEmulationCore.bMashInterval = null;
         });
 
+        /* Emulator Function Keys */
         this.register("Reset", args => saveManager.startGameOrReset());
         this.register("Play", args => exposedEmulationCore.play_EmualationCore());
         this.register("Stop", args => exposedEmulationCore.pause_EmualationCore());
@@ -96,6 +97,29 @@ class CommandExecutor  {
         this.register("volumeInc" , args => { exposedEmulationCore.increaseVolume_EmulationCore(); });
 
         this.register("volumeDec" , args => { exposedEmulationCore.decreaseVolume_EmulationCore(); });
+
+        /* Speedup Shortcuts */
+        this.register("ToggleSpeedup", this.debounce(args => {
+                if (exposedEmulationCore.getSpeed_EmulationCore() == 1) {
+                    console.log("Toggle On");
+                    exposedEmulationCore.setSpeed_EmulationCore(5);
+                } else {
+                    console.log("Toggle Off");
+                    exposedEmulationCore.setSpeed_EmulationCore(1);
+                }
+            }, 200));
+
+        this.register("HoldSpeedupKeyDown", args => exposedEmulationCore.setSpeed_EmulationCore(5) );
+        this.register("HoldSpeedupKeyUp"  , args => exposedEmulationCore.setSpeed_EmulationCore(1) );
+
+    }
+
+    debounce(func, timeout = 800){
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
     }
 
 }

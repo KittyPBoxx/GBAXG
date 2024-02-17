@@ -8,21 +8,23 @@ class KeybindManager {
         this.listenForInput = false;
 
         this.keybinds = new Map();
-        this.keybinds.set("AKey"     , new Keybind("button" , "AKey"     , "KeyK", "button2" ));
-        this.keybinds.set("BKey"     , new Keybind("button" , "BKey"     , "KeyL", "button1" ));
-        this.keybinds.set("LKey"     , new Keybind("button" , "LKey"     , "KeyU", "button4" ));
-        this.keybinds.set("RKey"     , new Keybind("button" , "RKey"     , "KeyP", "button5" ));
-        this.keybinds.set("UpKey"    , new Keybind("button" , "UpKey"    , "KeyW", "up0"     ));
-        this.keybinds.set("DownKey"  , new Keybind("button" , "DownKey"  , "KeyS", "down0"   ));
-        this.keybinds.set("LeftKey"  , new Keybind("button" , "LeftKey"  , "KeyA", "left0"   ));
-        this.keybinds.set("RightKey" , new Keybind("button" , "RightKey" , "KeyD", "right0"  ));
-        this.keybinds.set("StartKey" , new Keybind("button" , "StartKey" , "KeyI", "button12"));
-        this.keybinds.set("SelectKey", new Keybind("button" , "SelectKey", "KeyO", "button9" ));
-        this.keybinds.set("AltAKey"  , new Keybind("button" , "AltAKey"  , "KeyV", null      ));
-        this.keybinds.set("AltBKey"  , new Keybind("button" , "AltBKey"  , "KeyB", null      ));
-        this.keybinds.set("TurboAKey", new Keybind("button" , "TurboAKey", "KeyN", null      ));
-        this.keybinds.set("TurboBKey", new Keybind("button" , "TurboBKey", "KeyM", null      ));
-        this.keybinds.set("Reset"    , new Keybind("command", "Reset"    , "KeyR", null      ));
+        this.keybinds.set("AKey"             , new Keybind("button"  , "AKey"           , "KeyK", "button2" ));
+        this.keybinds.set("BKey"             , new Keybind("button"  , "BKey"           , "KeyL", "button1" ));
+        this.keybinds.set("LKey"             , new Keybind("button"  , "LKey"           , "KeyU", "button4" ));
+        this.keybinds.set("RKey"             , new Keybind("button"  , "RKey"           , "KeyP", "button5" ));
+        this.keybinds.set("UpKey"            , new Keybind("button"  , "UpKey"          , "KeyW", "up0"     ));
+        this.keybinds.set("DownKey"          , new Keybind("button"  , "DownKey"        , "KeyS", "down0"   ));
+        this.keybinds.set("LeftKey"          , new Keybind("button"  , "LeftKey"        , "KeyA", "left0"   ));
+        this.keybinds.set("RightKey"         , new Keybind("button"  , "RightKey"       , "KeyD", "right0"  ));
+        this.keybinds.set("StartKey"         , new Keybind("button"  , "StartKey"       , "KeyI", "button12"));
+        this.keybinds.set("SelectKey"        , new Keybind("button"  , "SelectKey"      , "KeyO", "button9" ));
+        this.keybinds.set("AltAKey"          , new Keybind("button"  , "AltAKey"        , "KeyV", null      ));
+        this.keybinds.set("AltBKey"          , new Keybind("button"  , "AltBKey"        , "KeyB", null      ));
+        this.keybinds.set("TurboAKey"        , new Keybind("button"  , "TurboAKey"      , "KeyN", null      ));
+        this.keybinds.set("TurboBKey"        , new Keybind("button"  , "TurboBKey"      , "KeyM", null      ));
+        this.keybinds.set("HoldSpeedupKey"   , new Keybind("button"  , "HoldSpeedupKey" , "KeyH", null      ));
+        this.keybinds.set("ToggleSpeedup"    , new Keybind("command" , "ToggleSpeedup"  , "KeyT", null      ));
+        this.keybinds.set("Reset"            , new Keybind("command" , "Reset"          , "KeyR", null      ));
 
         this.keybindChangeCallbacks = new Map();
     }
