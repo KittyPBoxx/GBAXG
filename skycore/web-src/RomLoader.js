@@ -465,7 +465,7 @@ class RomPatcher {
         this.patchROM8(0x5262c2, 0x0e);
         this.patchROM8(0x5262c5, 0x07);
 
-        // Prevent walking on water by abandomed shit
+        // Prevent walking on water by abandoned ship
         this.patchROM8(0x3f1e34, 0xbe);
         this.patchROM8(0x3f1e35, 0x11);
 
@@ -475,6 +475,11 @@ class RomPatcher {
         this.patchROM8(0x3f1e38, 0xbe);
         this.patchROM8(0x3f1e39, 0x11);
 
+        // Prevent softlock in seafloor cavern
+        this.patchROM8(0x436b4e, 0x01);
+        this.patchROM8(0x436b4f, 0x32);
+        this.patchROM8(0x436b76, 0xed);
+        this.patchROM8(0x436b77, 0x06);
 
         // Remove Darkness from Caves
         if (this.neverDarkInCaves) {
