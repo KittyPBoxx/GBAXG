@@ -756,6 +756,24 @@ class RomPatcher {
         this.patchROM8(0x9c3f61, 0xA7);
         this.patchROM8(0x9c3f7C, 0xA7);
 
+        // make mahogany shop stairs always open
+        this.patchROM8(0xe56246, 0x58);
+        this.patchROM8(0xe56247, 0x32);
+        this.patchROM8(0xe56248, 0x59);
+        this.patchROM8(0xe56249, 0x06);
+        this.patchROM8(0xe5624a, 0x59);
+        this.patchROM8(0xe5624b, 0x06);
+
+        this.patchROM8(0xe56256, 0x60);
+        this.patchROM8(0xe56257, 0x32);
+        this.patchROM8(0xe56258, 0x61);
+        this.patchROM8(0xe56259, 0x32);
+        this.patchROM8(0xe5625a, 0x62);
+        this.patchROM8(0xe5625b, 0x32);
+
+        this.patchROM8(0xe56269, 0x06);
+        this.patchROM8(0xe5626b, 0x32);
+
         // Remove Darkness from Caves
         if (this.neverDarkInCaves) {
             this.patchROM8(0x0854d8, 0x08);
